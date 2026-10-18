@@ -1,0 +1,1342 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C01-04",
+    "file": "experiments/C01/E04_parikh_preserving_relations.py",
+    "sha256": "921d7a27f4c2ae1ca085858b7d32a140e78fdc4a548049f4acc01fe7f3829905",
+    "systems_sha256": "33c4e750d9d5c7790b121d7b465ca668fa304ab5a052b73cd43bde9cf28113c3"
+  },
+  "env": {
+    "git_head": "HEAD",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T06:30:39Z",
+  "id": "EXP-C01-04",
+  "meta": {
+    "agent": "Mathematical Inventor",
+    "assumptions": [
+      "System A over {a,b}",
+      "relations of length 3 and 4",
+      "words of length <= 11"
+    ],
+    "cycle": "C01",
+    "falsification": "A word of length >= |u| whose class is strictly smaller than its Parikh class.",
+    "hypothesis": "H-C01-4 (inventor's conjecture, deliberately bold): for every relation u <-> v over {a,b} with u != v and equal symbol counts, the generated congruence coincides with Parikh equivalence on all words of length >= |u|.",
+    "id": "EXP-C01-04",
+    "methodology": "For each relation (up to swapping sides) compute exact congruence classes of each length (length-preserving, so exact), and compare their number and content with Parikh classes.",
+    "question": "If a relation u <-> v only rearranges symbols, does it eventually identify all words with the same symbol counts (on long enough words)?",
+    "title": "Single Parikh-preserving relations versus the Parikh (counting) equivalence"
+  },
+  "results": {
+    "refuting_relations": 33,
+    "relations_tested": 33,
+    "rows": [
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab",
+            "aba"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aab",
+          "aba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab",
+            "baa"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aab",
+          "baa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aba",
+          "baa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abb",
+          "bab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abb",
+          "bba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376
+        ],
+        "first_counterexample": {
+          "class": [
+            "aab"
+          ],
+          "parikh_class_size": 3,
+          "word": "aab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "bab",
+          "bba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab",
+            "aaba"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aaab",
+          "aaba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab",
+            "abaa"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aaab",
+          "abaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab",
+            "baaa"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aaab",
+          "baaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          97,
+          181,
+          338,
+          631,
+          1178
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aaba",
+          "abaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aaba",
+          "baaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aabb",
+          "abab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aabb",
+          "abba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aabb",
+          "baab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aabb",
+          "baba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "aabb",
+          "bbaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abaa",
+          "baaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abab",
+          "abba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abab",
+          "baab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abab",
+          "baba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abab",
+          "bbaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abba",
+          "baab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abba",
+          "baba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abba",
+          "bbaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abbb",
+          "babb"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abbb",
+          "bbab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "abbb",
+          "bbba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "baab",
+          "baba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "baab",
+          "bbaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "baba",
+          "bbaa"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          97,
+          181,
+          338,
+          631,
+          1178
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "babb",
+          "bbab"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "babb",
+          "bbba"
+        ]
+      },
+      {
+        "class_counts_len_1_to_11": [
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104
+        ],
+        "first_counterexample": {
+          "class": [
+            "aaab"
+          ],
+          "parikh_class_size": 4,
+          "word": "aaab"
+        },
+        "parikh_counts_len_1_to_11": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "relation": [
+          "bbab",
+          "bbba"
+        ]
+      }
+    ],
+    "summary": [
+      "33 Parikh-preserving relations of length 3-4 tested on words up to length 11",
+      "33 of them give a word whose class is smaller than its Parikh class (e.g. ['aab', 'aba']: {'word': 'aab', 'class': ['aab', 'aba'], 'parikh_class_size': 3})"
+    ]
+  },
+  "results_sha256": "0478849346fbd6ce075519e398262e2e02091cdbc604ece096e3077d119d06a2",
+  "runtime_s": 0.149,
+  "started": "2026-10-18T06:30:39Z"
+}

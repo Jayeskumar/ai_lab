@@ -1,0 +1,22 @@
+{
+  "counterexample": "u = aab, v = aba: the word baa is fixed by every rewrite, so its class {baa} is smaller than its counting class {aab, aba, baa}. All 33 relations of length 3-4 fail (EXP-C01-04).",
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-05",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every relation u <-> v over {a,b} with u != v and equal symbol counts, the generated congruence\ncoincides with counting (Parikh) equivalence on all words of length >= |u|.",
+  "system": "SYS-A",
+  "title": "H-C01-4: a single rearranging relation generates counting equivalence on long words (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

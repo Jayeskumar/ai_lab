@@ -1,0 +1,60 @@
+{
+  "claims": {
+    "CLM-C01-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C01-02": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C01-03": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C01-04": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C01-05": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C01-06": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C01-07": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C01-08": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ]
+  },
+  "cycles_complete": [
+    "C01"
+  ],
+  "cycles_in_progress": [],
+  "experiments": {
+    "EXP-C01-01": "956e0f696f918f6e2ed9263ec11cd345d18377569c5c08e88bf6837173491d84",
+    "EXP-C01-02": "3f8f41b942591cd7e54242c99fe494030c836cddbf44e16d39050f8037d8b7e7",
+    "EXP-C01-03": "a79b511734ae7e734ebde1c711eeb4b8fce2538475f00fa314e0062bed70a0ec",
+    "EXP-C01-04": "0478849346fbd6ce075519e398262e2e02091cdbc604ece096e3077d119d06a2",
+    "EXP-C01-05": "305a422a5ddd2df14c0658b2c1551d22e520b431db40c1db311b329d2d2dfba3",
+    "EXP-C01-06": "3a8d0162c2dde5c6b91ed7d343a33dee35059a1b8f86e022b702b7b845e6e542",
+    "EXP-C01-07": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c"
+  },
+  "lean": {
+    "proofs/lean/Infinity/C00_Smoke.lean": true,
+    "proofs/lean/Infinity/C01_Quantity.lean": true
+  },
+  "next_priorities": [
+    "C01: prove the common-border conjecture (Hilbert series / Anick chains, or parametric completions)",
+    "C01: full Lean formalisation of the border-containment theorem",
+    "C01: Lean formalisation of the min/gcd theorem (Bezout over N)",
+    "C01: common-border formula for pairs of relations?"
+  ],
+  "updated": "2026-10-18T06:44:01Z"
+}

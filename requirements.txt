@@ -1,0 +1,11 @@
+# Python 3.11+ (developed on 3.13)
+numpy>=2.0
+sympy>=1.13
+scipy>=1.13
+networkx>=3.3
+matplotlib>=3.9
+z3-solver>=4.13
+python-sat>=1.8.dev0
+pyyaml>=6.0
+pytest>=8.0
+hypothesis>=6.100

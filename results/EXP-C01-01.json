@@ -1,0 +1,331 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C01-01",
+    "file": "experiments/C01/E01_commutation_invariant.py",
+    "sha256": "b5d320b1aee6afb73432e6c33e9b85a279fc12779af75970d250d181051b7858",
+    "systems_sha256": "33c4e750d9d5c7790b121d7b465ca668fa304ab5a052b73cd43bde9cf28113c3"
+  },
+  "env": {
+    "git_head": "HEAD",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T06:30:37Z",
+  "id": "EXP-C01-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "System A axioms A1-A3",
+      "alphabet sizes 2-4",
+      "words of bounded length (exact, since the relations preserve length)"
+    ],
+    "cycle": "C01",
+    "falsification": "Any slice where a class contains two words with different projections, or two words with equal projections lie in different classes, or completion fails/normal form differs.",
+    "hypothesis": "Two words are congruent iff, for every symbol s, deleting all other symbols gives the same word s...s (equal symbol projections). The shortlex-completed system {yx -> xy : x < y} is finite and its normal forms are the sorted words.",
+    "id": "EXP-C01-01",
+    "methodology": "For every alphabet/length slice, compute the exact congruence classes by union-find over single swap steps; compare the partition with the projection partition; run shortlex Knuth-Bendix completion and compare normal forms with sorted words.",
+    "question": "In System A with the swap relations xy <-> yx, what distinguishes two words that cannot be transformed into each other?",
+    "title": "Commutation congruence: classes, complete invariant and normal forms"
+  },
+  "results": {
+    "all_checks_passed": true,
+    "completions": {
+      "ab": {
+        "complete": true,
+        "rules": [
+          [
+            "ba",
+            "ab"
+          ]
+        ]
+      },
+      "abc": {
+        "complete": true,
+        "rules": [
+          [
+            "ba",
+            "ab"
+          ],
+          [
+            "ca",
+            "ac"
+          ],
+          [
+            "cb",
+            "bc"
+          ]
+        ]
+      },
+      "abcd": {
+        "complete": true,
+        "rules": [
+          [
+            "ba",
+            "ab"
+          ],
+          [
+            "ca",
+            "ac"
+          ],
+          [
+            "cb",
+            "bc"
+          ],
+          [
+            "da",
+            "ad"
+          ],
+          [
+            "db",
+            "bd"
+          ],
+          [
+            "dc",
+            "cd"
+          ]
+        ]
+      }
+    },
+    "slices": [
+      {
+        "alphabet": "ab",
+        "classes": 1,
+        "length": 0,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 1,
+        "words": 1
+      },
+      {
+        "alphabet": "ab",
+        "classes": 2,
+        "length": 1,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 2,
+        "words": 2
+      },
+      {
+        "alphabet": "ab",
+        "classes": 3,
+        "length": 2,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 3,
+        "words": 4
+      },
+      {
+        "alphabet": "ab",
+        "classes": 4,
+        "length": 3,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 4,
+        "words": 8
+      },
+      {
+        "alphabet": "ab",
+        "classes": 5,
+        "length": 4,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 5,
+        "words": 16
+      },
+      {
+        "alphabet": "ab",
+        "classes": 6,
+        "length": 5,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 6,
+        "words": 32
+      },
+      {
+        "alphabet": "ab",
+        "classes": 7,
+        "length": 6,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 7,
+        "words": 64
+      },
+      {
+        "alphabet": "ab",
+        "classes": 8,
+        "length": 7,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 8,
+        "words": 128
+      },
+      {
+        "alphabet": "ab",
+        "classes": 9,
+        "length": 8,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 9,
+        "words": 256
+      },
+      {
+        "alphabet": "ab",
+        "classes": 10,
+        "length": 9,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 10,
+        "words": 512
+      },
+      {
+        "alphabet": "ab",
+        "classes": 11,
+        "length": 10,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 11,
+        "words": 1024
+      },
+      {
+        "alphabet": "abc",
+        "classes": 1,
+        "length": 0,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 1,
+        "words": 1
+      },
+      {
+        "alphabet": "abc",
+        "classes": 3,
+        "length": 1,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 3,
+        "words": 3
+      },
+      {
+        "alphabet": "abc",
+        "classes": 6,
+        "length": 2,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 6,
+        "words": 9
+      },
+      {
+        "alphabet": "abc",
+        "classes": 10,
+        "length": 3,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 10,
+        "words": 27
+      },
+      {
+        "alphabet": "abc",
+        "classes": 15,
+        "length": 4,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 15,
+        "words": 81
+      },
+      {
+        "alphabet": "abc",
+        "classes": 21,
+        "length": 5,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 21,
+        "words": 243
+      },
+      {
+        "alphabet": "abc",
+        "classes": 28,
+        "length": 6,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 28,
+        "words": 729
+      },
+      {
+        "alphabet": "abc",
+        "classes": 36,
+        "length": 7,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 36,
+        "words": 2187
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 1,
+        "length": 0,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 1,
+        "words": 1
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 4,
+        "length": 1,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 4,
+        "words": 4
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 10,
+        "length": 2,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 10,
+        "words": 16
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 20,
+        "length": 3,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 20,
+        "words": 64
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 35,
+        "length": 4,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 35,
+        "words": 256
+      },
+      {
+        "alphabet": "abcd",
+        "classes": 56,
+        "length": 5,
+        "normal_forms_are_sorted_words": true,
+        "partition_equals_projection_partition": true,
+        "predicted_classes": 56,
+        "words": 1024
+      }
+    ],
+    "summary": [
+      "25 alphabet/length slices checked exactly (up to 4235 words in the largest slices); all checks passed: True",
+      "completion of the swap relations is finite: {yx -> xy | x<y}; normal forms = sorted words"
+    ]
+  },
+  "results_sha256": "956e0f696f918f6e2ed9263ec11cd345d18377569c5c08e88bf6837173491d84",
+  "runtime_s": 0.046,
+  "started": "2026-10-18T06:30:37Z"
+}

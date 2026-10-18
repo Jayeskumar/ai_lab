@@ -1,0 +1,27 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-02",
+  "lean": [
+    "proofs/lean/Infinity/C01_Quantity.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Index and period of monogenic semigroups (e.g. Howie 1995, Fundamentals of Semigroup Theory).",
+  "proof": "proofs/paper/C01.md#theorem-2-clm-c01-02--one-symbol-one-relation-index-and-period",
+  "proof_check": "Lean 4 + Mathlib (gen_iff, exactly_m_add_p_classes); standard axioms only",
+  "statement": "On one-symbol words, a^x ~ a^y modulo a^m = a^(m+p) (p >= 1) iff nf(x) = nf(y) with nf(x) = x for x < m and\nm + ((x - m) mod p) otherwise; there are exactly m + p classes.",
+  "system": "SYS-A",
+  "title": "One symbol, one relation a^m = a^(m+p) gives exactly m+p classes (index m, period p)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

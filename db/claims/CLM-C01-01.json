@@ -1,0 +1,28 @@
+{
+  "applications": "Linear-time decision of equality modulo commutation; justifies introducing N in System C.",
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-01",
+  "lean": [
+    "proofs/lean/Infinity/C01_Quantity.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Free commutative monoid on Sigma is N^Sigma (Parikh vectors, Parikh 1966); special case of Mazurkiewicz trace monoids (Cartier-Foata 1969).",
+  "proof": "proofs/paper/C01.md#theorem-1-clm-c01-01--counting-is-the-complete-invariant-of-commutation",
+  "proof_check": "Lean 4 + Mathlib (commEq_iff_count, projection_is_unary); standard axioms only",
+  "statement": "Two words over a finite alphabet are congruent modulo the swap relations xy = yx iff every symbol occurs\nequally often in both; the projection of a word onto a symbol s is the unary word s...s of that length.",
+  "system": "SYS-A",
+  "title": "Symbol counts are the complete invariant of the commutation congruence",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,25 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-05",
+    "EXP-C01-06",
+    "EXP-C01-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-08",
+  "limitations": "Proved only in the border-containment case and for 1632 individual relations; 527 small relations remain open (infinite completions).",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Two web searches (2026-10-18) found no general formula; related literature - Nyberg-Brodda survey of one-relation monoids (arXiv:2105.02853), \"Relations on words\" (arXiv:1602.03364), Kudryavtseva 2010. Needs a deeper search (Hilbert series of one-relator algebras - Anick, Piontkovski, Iyudu).",
+  "statement": "For all words u != v of equal length k over a q-letter alphabet, the number of congruence classes of\nlength-n words modulo u = v has generating function c(x) / (x^k + (1 - q x) c(x)), where\nc(x) = 1 + sum over words b that are borders of both u and v of x^(k - |b|).",
+  "system": "SYS-A",
+  "title": "Common-border conjecture: one-relation class counts depend only on common borders",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

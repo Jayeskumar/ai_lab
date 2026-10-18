@@ -1,0 +1,24 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-04",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Endomorphism semiring of (N,+) is (N,+,x); endomorphisms of N^2 are 2x2 matrices over N.",
+  "proof": "proofs/paper/C01.md#theorem-4-clm-c01-04--multiplication-as-composition-of-transformations",
+  "proof_check": "written proof (proofs/paper/C01.md, Theorem 4) with exhaustive check of all laws on a^0..a^12 (EXP-C01-03); awaiting independent skeptic review",
+  "statement": "(End({a}*), pointwise juxtaposition, composition) is a commutative semiring isomorphic to (N, +, x) via\nphi -> |phi(a)|. For two symbols modulo commutation, composition of endomorphisms is not commutative.",
+  "system": "SYS-A",
+  "title": "Multiplication emerges as composition of substitutions; with two symbols it is non-commutative",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

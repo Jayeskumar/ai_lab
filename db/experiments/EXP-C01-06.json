@@ -1,0 +1,79 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "The common-border formula (H-C01-7) holds for all 2159 relations tested, including 1326 hard relations not covered by Theorem 5.",
+  "assumptions": [
+    "System A; length-preserving single relations u != v",
+    "binary k = 2..6 (n <= 12, k = 6 restricted to 'hard' pairs), ternary k = 2..4 (n <= 7, k = 4 restricted to hard pairs)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C01-06",
+    "file": "experiments/C01/E06_common_border_conjecture.py",
+    "sha256": "e771c5c40276ca41372b6de0f0fe8230f66b55fa237ec0ec64672c71fab05999",
+    "systems_sha256": "33c4e750d9d5c7790b121d7b465ca668fa304ab5a052b73cd43bde9cf28113c3"
+  },
+  "cycle": "C01",
+  "falsification": "Any relation whose exact class counts differ from the formula.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T06:35:28Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The common-border formula (H-C01-7) holds for all 2159 relations tested, including 1326 hard relations not covered by Theorem 5.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C01-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "hypothesis": "H-C01-7: with k = |u| = |v|, q = alphabet size and c(x) = 1 + sum over words b that are borders of both u and v of x^(k-|b|), the class counts are the coefficients of c(x) / (x^k + (1 - q x) c(x)) (= the number of length-n words avoiding any single word whose autocorrelation is c).",
+  "id": "EXP-C01-06",
+  "methodology": "Exact class counts by union-find. 'Hard' pairs are those where neither border set contains the other (the case not covered by the proved containment theorem); for k <= 5 binary and k <= 3 ternary all pairs are tested.",
+  "question": "Is the number of classes of length-n words modulo u <-> v determined by the common borders of u and v?",
+  "related": [
+    "CLM-C01-08"
+  ],
+  "results_file": "results/EXP-C01-06.json",
+  "results_sha256": "3a8d0162c2dde5c6b91ed7d343a33dee35059a1b8f86e022b702b7b845e6e542",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C01-06",
+        "file": "experiments/C01/E06_common_border_conjecture.py",
+        "sha256": "e771c5c40276ca41372b6de0f0fe8230f66b55fa237ec0ec64672c71fab05999",
+        "systems_sha256": "33c4e750d9d5c7790b121d7b465ca668fa304ab5a052b73cd43bde9cf28113c3"
+      },
+      "error": false,
+      "finished": "2026-10-18T06:35:28Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C01-06.json",
+      "results_sha256": "3a8d0162c2dde5c6b91ed7d343a33dee35059a1b8f86e022b702b7b845e6e542",
+      "runtime_s": 11.773,
+      "started": "2026-10-18T06:35:16Z",
+      "summary": [
+        "relations tested per case: {'ab/k=2/n<=12': {'tested': 6, 'hard': 1, 'border-containment': 5}, 'ab/k=3/n<=12': {'tested': 28, 'hard': 4, 'border-containment': 24}, 'ab/k=4/n<=12': {'tested': 120, 'hard': 33, 'border-containment': 87}, 'ab/k=5/n<=12': {'tested': 496, 'hard': 136, 'border-containment': 360}, 'ab/k=6/n<=12/hard-only': {'tested': 702, 'hard': 702, 'border-containment': 0}, 'abc/k=2/n<=7': {'tested': 36, 'hard': 3, 'border-containment': 33}, 'abc/k=3/n<=7': {'tested': 351, 'hard': 27, 'border-containment': 324}, 'abc/k=4/n<=7/hard-only': {'tested': 420, 'hard': 420, 'border-containment': 0}}",
+        "hard relations (neither border set contains the other): 1326; failures of H-C01-7: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "relations tested per case: {'ab/k=2/n<=12': {'tested': 6, 'hard': 1, 'border-containment': 5}, 'ab/k=3/n<=12': {'tested': 28, 'hard': 4, 'border-containment': 24}, 'ab/k=4/n<=12': {'tested': 120, 'hard': 33, 'border-containment': 87}, 'ab/k=5/n<=12': {'tested': 496, 'hard': 136, 'border-containment': 360}, 'ab/k=6/n<=12/hard-only': {'tested': 702, 'hard': 702, 'border-containment': 0}, 'abc/k=2/n<=7': {'tested': 36, 'hard': 3, 'border-containment': 33}, 'abc/k=3/n<=7': {'tested': 351, 'hard': 27, 'border-containment': 324}, 'abc/k=4/n<=7/hard-only': {'tested': 420, 'hard': 420, 'border-containment': 0}}",
+    "hard relations (neither border set contains the other): 1326; failures of H-C01-7: 0"
+  ],
+  "title": "Common-border formula for one-relation class counts (test on old and new cases)"
+}

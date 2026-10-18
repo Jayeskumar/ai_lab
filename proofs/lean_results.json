@@ -1,0 +1,54 @@
+{
+  "files": {
+    "proofs/lean/Infinity/C00_Smoke.lean": {
+      "axioms_used": [],
+      "checked": "2026-10-18T06:43:56Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'smoke_fib' does not depend on any axioms\n",
+      "seconds": 2.96,
+      "sha256": "70827d79fdf653cbc42572a2f03aee0c7c75cdfb786476f4726a3b330dcfe4f0",
+      "sorry": false,
+      "theorems": [
+        "smoke_fib"
+      ]
+    },
+    "proofs/lean/Infinity/C01_Quantity.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T06:44:01Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C01.commEq_iff_count' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C01.projection_is_unary' depends on axioms: [propext]\n'Infinity.C01.gen_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C01.exactly_m_add_p_classes' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C01.common_border_joinable' depends on axioms: [propext]\n",
+      "seconds": 4.19,
+      "sha256": "d7b9b1a92e54f959491b1f39bf0de0c0f2f9eda684912cd105b245ab1baf6079",
+      "sorry": false,
+      "theorems": [
+        "commStep_perm",
+        "commEq_perm",
+        "commEq_cons",
+        "perm_commEq",
+        "commEq_iff_perm",
+        "commEq_iff_count",
+        "projection_is_unary",
+        "nf_shift",
+        "gen_nf",
+        "gen_self_nf",
+        "gen_iff",
+        "nf_lt",
+        "nf_of_lt",
+        "exactly_m_add_p_classes",
+        "common_border_joinable"
+      ]
+    }
+  },
+  "toolchain": "leanprover/lean4:v4.35.0",
+  "updated": "2026-10-18T06:44:01Z"
+}

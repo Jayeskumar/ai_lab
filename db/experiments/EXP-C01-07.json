@@ -1,0 +1,95 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "1632 relations proved for all n by independently re-verified finite completions; 527 hard relations have infinite completions within the search bounds.",
+  "assumptions": [
+    "Newman's lemma and the critical-pair lemma for string rewriting",
+    "Cayley-Hamilton bound on the order of DFA count recurrences"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C01-07",
+    "file": "experiments/C01/E07_automatic_proofs.py",
+    "sha256": "81889c618df7f635fb0463e5932baea7e84f4c351dc3b702e90216519fc28266",
+    "systems_sha256": "11042772a4d7ccfb038a582573dd023cbb9b61e5cb1302d3d9b713bddc797b7d"
+  },
+  "cycle": "C01",
+  "falsification": "A verified convergent completion whose irreducible-word counts differ from the formula would refute H-C01-7 for that relation.",
+  "future": [
+    "Parametric (regular) completions for the 527 open relations"
+  ],
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T06:37:46Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "analysis",
+      "new": "1632 relations proved for all n by independently re-verified finite completions; 527 hard relations have infinite completions within the search bounds.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C01-07",
+        "CLM-C01-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "future",
+      "new": [
+        "Parametric (regular) completions for the 527 open relations"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "hypothesis": "For most small relations some shortlex order (alphabet permutation, read left-to-right or right-to-left) yields a finite convergent completion; its irreducible words then give a rational count sequence that can be compared with the formula exactly.",
+  "id": "EXP-C01-07",
+  "methodology": "For each relation and each of 2*q! shortlex orders: run bounded Knuth-Bendix; on success, independently re-verify convergence (rules decreasing, all critical pairs joinable, u and v have equal normal forms); build the Aho-Corasick DFA of the left-hand sides (s live states); compare s + k + 5 count terms with the formula (sufficient for equality of all terms); cross-check against brute-force class counts for n <= 8.",
+  "question": "For which relations u <-> v can H-C01-7 be proved for ALL lengths n by a finite certificate?",
+  "related": [
+    "CLM-C01-07",
+    "CLM-C01-08"
+  ],
+  "results_file": "results/EXP-C01-07.json",
+  "results_sha256": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C01-07",
+        "file": "experiments/C01/E07_automatic_proofs.py",
+        "sha256": "81889c618df7f635fb0463e5932baea7e84f4c351dc3b702e90216519fc28266",
+        "systems_sha256": "11042772a4d7ccfb038a582573dd023cbb9b61e5cb1302d3d9b713bddc797b7d"
+      },
+      "error": false,
+      "finished": "2026-10-18T06:37:45Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C01-07.json",
+      "results_sha256": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c",
+      "runtime_s": 14.073,
+      "started": "2026-10-18T06:37:31Z",
+      "summary": [
+        "2159 relations attempted; 1632 proved for all n by verified finite completion; 527 without a finite completion (formula still only checked for n <= 12/7); refutations: 0; internal inconsistencies: 0",
+        "per case: {'ab/k=2': {'containment PROVEN': 5, 'hard PROVEN': 1}, 'ab/k=3': {'containment PROVEN': 24, 'hard PROVEN': 3, 'hard NO FINITE COMPLETION FOUND': 1}, 'ab/k=4': {'containment PROVEN': 87, 'hard PROVEN': 15, 'hard NO FINITE COMPLETION FOUND': 18}, 'ab/k=5': {'containment PROVEN': 360, 'hard PROVEN': 74, 'hard NO FINITE COMPLETION FOUND': 62}, 'ab/k=6/hard-only': {'hard PROVEN': 331, 'hard NO FINITE COMPLETION FOUND': 371}, 'abc/k=2': {'containment PROVEN': 33, 'hard PROVEN': 3}, 'abc/k=3': {'containment PROVEN': 324, 'hard PROVEN': 24, 'hard NO FINITE COMPLETION FOUND': 3}, 'abc/k=4/hard-only': {'hard PROVEN': 348, 'hard NO FINITE COMPLETION FOUND': 72}}"
+      ]
+    }
+  ],
+  "summary": [
+    "2159 relations attempted; 1632 proved for all n by verified finite completion; 527 without a finite completion (formula still only checked for n <= 12/7); refutations: 0; internal inconsistencies: 0",
+    "per case: {'ab/k=2': {'containment PROVEN': 5, 'hard PROVEN': 1}, 'ab/k=3': {'containment PROVEN': 24, 'hard PROVEN': 3, 'hard NO FINITE COMPLETION FOUND': 1}, 'ab/k=4': {'containment PROVEN': 87, 'hard PROVEN': 15, 'hard NO FINITE COMPLETION FOUND': 18}, 'ab/k=5': {'containment PROVEN': 360, 'hard PROVEN': 74, 'hard NO FINITE COMPLETION FOUND': 62}, 'ab/k=6/hard-only': {'hard PROVEN': 331, 'hard NO FINITE COMPLETION FOUND': 371}, 'abc/k=2': {'containment PROVEN': 33, 'hard PROVEN': 3}, 'abc/k=3': {'containment PROVEN': 324, 'hard PROVEN': 24, 'hard NO FINITE COMPLETION FOUND': 3}, 'abc/k=4/hard-only': {'hard PROVEN': 348, 'hard NO FINITE COMPLETION FOUND': 72}}"
+  ],
+  "title": "Automatic proofs of the common-border class-count formula via finite completion"
+}

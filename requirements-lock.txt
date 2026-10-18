@@ -1,0 +1,10 @@
+hypothesis==6.170.1
+matplotlib==3.11.2
+networkx==3.7
+numpy==2.5.3
+pytest==9.1.1
+python-sat==1.9.dev16
+PyYAML==6.0.1
+scipy==1.18.1
+sympy==1.14.0
+z3-solver==5.3.1.0

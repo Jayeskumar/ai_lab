@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.tmp
+.pytest_cache/
+.hypothesis/
+proofs/lean/.lake/
+textbook/build/book.md

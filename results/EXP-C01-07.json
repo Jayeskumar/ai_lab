@@ -1,0 +1,4304 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C01-07",
+    "file": "experiments/C01/E07_automatic_proofs.py",
+    "sha256": "81889c618df7f635fb0463e5932baea7e84f4c351dc3b702e90216519fc28266",
+    "systems_sha256": "11042772a4d7ccfb038a582573dd023cbb9b61e5cb1302d3d9b713bddc797b7d"
+  },
+  "env": {
+    "git_head": "HEAD",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T06:37:45Z",
+  "id": "EXP-C01-07",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "Newman's lemma and the critical-pair lemma for string rewriting",
+      "Cayley-Hamilton bound on the order of DFA count recurrences"
+    ],
+    "cycle": "C01",
+    "falsification": "A verified convergent completion whose irreducible-word counts differ from the formula would refute H-C01-7 for that relation.",
+    "hypothesis": "For most small relations some shortlex order (alphabet permutation, read left-to-right or right-to-left) yields a finite convergent completion; its irreducible words then give a rational count sequence that can be compared with the formula exactly.",
+    "id": "EXP-C01-07",
+    "methodology": "For each relation and each of 2*q! shortlex orders: run bounded Knuth-Bendix; on success, independently re-verify convergence (rules decreasing, all critical pairs joinable, u and v have equal normal forms); build the Aho-Corasick DFA of the left-hand sides (s live states); compare s + k + 5 count terms with the formula (sufficient for equality of all terms); cross-check against brute-force class counts for n <= 8.",
+    "question": "For which relations u <-> v can H-C01-7 be proved for ALL lengths n by a finite certificate?",
+    "title": "Automatic proofs of the common-border class-count formula via finite completion"
+  },
+  "results": {
+    "bugs": [],
+    "n_open": 527,
+    "open_relations": [
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aba",
+          "bab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "abab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "abab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abab",
+          "abba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abab",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abab",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abab",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abab",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abba",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abba",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abba",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abba",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baab",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baba",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baba",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaba",
+          "abaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaba",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaba",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaa",
+          "abaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaa",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaa",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "abaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "baabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabba",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaa",
+          "abaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaa",
+          "abbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaa",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "ababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "abbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "abbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "babab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaab",
+          "bbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababa",
+          "abbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababa",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababa",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababa",
+          "babab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababa",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaa",
+          "abbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaa",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaa",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaa",
+          "baabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaa",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "abbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "baabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "babab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "babbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "bbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbab",
+          "bbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "baaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "baabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "babab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbba",
+          "bbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaab",
+          "baaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaab",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaba",
+          "baabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaba",
+          "babab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaba",
+          "babbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabb",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babab",
+          "babba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babba",
+          "babbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babba",
+          "bbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babba",
+          "bbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babba",
+          "bbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaaaba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "aabaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabaa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "aabaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aaabba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "aabaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaaa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "aababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "aabbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "aabbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abaaaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "ababaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "ababba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abbaaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abbaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abbbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabaab",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aababa",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "abbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbaa",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "abbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "aabbba",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaaa",
+          "abaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaaa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaaa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaaa",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "abaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "ababaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "ababba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "abbaaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "abbaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "abbbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaab",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abaaba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "ababab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababaa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "ababba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "abbaaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "abbaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "abbbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababab",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "ababba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "abbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "abbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaaa",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "abbaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "abbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "abbbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaab",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "abbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbaba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "abbbaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbabb",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "abbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbaa",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "abbbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "babbbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbab",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "abbbba",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "baaaba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "baaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaaba",
+          "babbbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaabb",
+          "baabaa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaabb",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaabb",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaabb",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baaabb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabaa",
+          "baabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabaa",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabaa",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabaa",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabaa",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabab",
+          "baabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "baabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "babaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "babbbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabba",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabbb",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabbb",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "baabbb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babaab",
+          "bababa"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babaab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bababb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "babbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "babbbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababa",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababb",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bababb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbab",
+          "babbba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "babbbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbaaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbaabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbabab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbba",
+          "bbbbab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "babbbb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbaaab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbaabb",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbabab",
+          "bbabba"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbabba",
+          "bbabbb"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbabba",
+          "bbbaab"
+        ]
+      },
+      {
+        "alphabet": "ab",
+        "hard": true,
+        "relation": [
+          "bbabba",
+          "bbbabb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aba",
+          "bab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aca",
+          "cac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcb",
+          "cbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "abab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaba",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaca",
+          "acac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaca",
+          "caac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "aaca",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "abab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abaa",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "abba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "abca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abab",
+          "bcab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abba",
+          "baab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abba",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abba",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abba",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abca",
+          "bcab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abca",
+          "cabc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "abca",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acaa",
+          "acac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acaa",
+          "caac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acaa",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "acba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "acca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "caac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "cacc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "cbac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acac",
+          "ccac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acba",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acba",
+          "bacb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acba",
+          "cbac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acca",
+          "caac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acca",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acca",
+          "cacc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "acca",
+          "ccac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "baab",
+          "baba"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "baba",
+          "babb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "baba",
+          "bacb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "baba",
+          "bbab"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bacb",
+          "cbac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bacb",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bbcb",
+          "bcbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bbcb",
+          "cbbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bbcb",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcab",
+          "bcbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcab",
+          "cabc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbb",
+          "bcbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbb",
+          "cbbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbb",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "bccb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "cabc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "cbbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "cbcc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bcbc",
+          "ccbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bccb",
+          "cbbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bccb",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bccb",
+          "cbcc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "bccb",
+          "ccbc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "caac",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "cabc",
+          "caca"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "caca",
+          "cacc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "caca",
+          "ccac"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "cbac",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "cbbc",
+          "cbcb"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "cbcb",
+          "cbcc"
+        ]
+      },
+      {
+        "alphabet": "abc",
+        "hard": true,
+        "relation": [
+          "cbcb",
+          "ccbc"
+        ]
+      }
+    ],
+    "per_case": {
+      "ab/k=2": {
+        "containment PROVEN": 5,
+        "hard PROVEN": 1
+      },
+      "ab/k=3": {
+        "containment PROVEN": 24,
+        "hard NO FINITE COMPLETION FOUND": 1,
+        "hard PROVEN": 3
+      },
+      "ab/k=4": {
+        "containment PROVEN": 87,
+        "hard NO FINITE COMPLETION FOUND": 18,
+        "hard PROVEN": 15
+      },
+      "ab/k=5": {
+        "containment PROVEN": 360,
+        "hard NO FINITE COMPLETION FOUND": 62,
+        "hard PROVEN": 74
+      },
+      "ab/k=6/hard-only": {
+        "hard NO FINITE COMPLETION FOUND": 371,
+        "hard PROVEN": 331
+      },
+      "abc/k=2": {
+        "containment PROVEN": 33,
+        "hard PROVEN": 3
+      },
+      "abc/k=3": {
+        "containment PROVEN": 324,
+        "hard NO FINITE COMPLETION FOUND": 3,
+        "hard PROVEN": 24
+      },
+      "abc/k=4/hard-only": {
+        "hard NO FINITE COMPLETION FOUND": 72,
+        "hard PROVEN": 348
+      }
+    },
+    "refuted": [],
+    "summary": [
+      "2159 relations attempted; 1632 proved for all n by verified finite completion; 527 without a finite completion (formula still only checked for n <= 12/7); refutations: 0; internal inconsistencies: 0",
+      "per case: {'ab/k=2': {'containment PROVEN': 5, 'hard PROVEN': 1}, 'ab/k=3': {'containment PROVEN': 24, 'hard PROVEN': 3, 'hard NO FINITE COMPLETION FOUND': 1}, 'ab/k=4': {'containment PROVEN': 87, 'hard PROVEN': 15, 'hard NO FINITE COMPLETION FOUND': 18}, 'ab/k=5': {'containment PROVEN': 360, 'hard PROVEN': 74, 'hard NO FINITE COMPLETION FOUND': 62}, 'ab/k=6/hard-only': {'hard PROVEN': 331, 'hard NO FINITE COMPLETION FOUND': 371}, 'abc/k=2': {'containment PROVEN': 33, 'hard PROVEN': 3}, 'abc/k=3': {'containment PROVEN': 324, 'hard PROVEN': 24, 'hard NO FINITE COMPLETION FOUND': 3}, 'abc/k=4/hard-only': {'hard PROVEN': 348, 'hard NO FINITE COMPLETION FOUND': 72}}"
+    ]
+  },
+  "results_sha256": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c",
+  "runtime_s": 14.073,
+  "started": "2026-10-18T06:37:31Z"
+}

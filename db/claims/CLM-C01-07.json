@@ -1,0 +1,23 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T06:44:01Z"
+    }
+  ],
+  "id": "CLM-C01-07",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C01.md#theorem-6-clm-c01-07--computer-assisted-proofs-for-1632-specific-relations",
+  "proof_check": "computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked",
+  "statement": "For each of the 1632 relations marked PROVEN in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",
+  "system": "SYS-A",
+  "title": "Common-border formula proved for 1632 specific relations by verified finite completions",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

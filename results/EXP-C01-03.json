@@ -1,0 +1,106 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C01-03",
+    "file": "experiments/C01/E03_endomorphisms.py",
+    "sha256": "29b3d2c5789292b085be4925470d7b5ec258d6149754ebacb4c49396e5976d09",
+    "systems_sha256": "33c4e750d9d5c7790b121d7b465ca668fa304ab5a052b73cd43bde9cf28113c3"
+  },
+  "env": {
+    "git_head": "HEAD",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T06:30:39Z",
+  "id": "EXP-C01-03",
+  "meta": {
+    "agent": "Mathematical Inventor",
+    "assumptions": [
+      "System A over {a} and over {a,b} modulo commutation",
+      "finite window of images"
+    ],
+    "cycle": "C01",
+    "falsification": "Any failure of a semiring axiom, or commuting compositions for all two-symbol samples.",
+    "hypothesis": "Endomorphisms of {a}* (substitutions a -> w) with pointwise juxtaposition (f+g)(u) = f(u)g(u) and composition form a commutative semiring isomorphic to (N, +, x) via f -> f(a). With two symbols modulo commutation, composition is no longer commutative.",
+    "id": "EXP-C01-03",
+    "methodology": "Represent an endomorphism by the image of a (a word). Implement substitution and juxtaposition on strings only; check every semiring axiom on all images a^0..a^K; check the length map is a homomorphism. For {a,b}/commutation, sample substitutions and look for non-commuting compositions.",
+    "question": "Is there a second operation on unary numerals that arises from transformations alone?",
+    "seed": 7,
+    "title": "Endomorphisms of the one-symbol free monoid form the semiring of natural numbers"
+  },
+  "results": {
+    "axiom_failures": [],
+    "n_axiom_failures": 0,
+    "summary": [
+      "semiring axioms + length homomorphism checked on all images a^0..a^12: 0 failures",
+      "two symbols mod commutation: 154/200 random pairs of substitutions do not commute (composition = 2x2 matrix product)"
+    ],
+    "two_symbol_noncommuting_count": 154,
+    "two_symbol_noncommuting_examples": [
+      {
+        "s": {
+          "a": "aa",
+          "b": ""
+        },
+        "s_after_t": {
+          "a": "",
+          "b": "aaaa"
+        },
+        "t": {
+          "a": "",
+          "b": "aab"
+        },
+        "t_after_s": {
+          "a": "",
+          "b": ""
+        }
+      },
+      {
+        "s": {
+          "a": "bbb",
+          "b": "ab"
+        },
+        "s_after_t": {
+          "a": "bbb",
+          "b": ""
+        },
+        "t": {
+          "a": "a",
+          "b": ""
+        },
+        "t_after_s": {
+          "a": "",
+          "b": "a"
+        }
+      },
+      {
+        "s": {
+          "a": "bb",
+          "b": "aab"
+        },
+        "s_after_t": {
+          "a": "aabbbbb",
+          "b": "aabbbbb"
+        },
+        "t": {
+          "a": "aab",
+          "b": "aab"
+        },
+        "t_after_s": {
+          "a": "aaaabb",
+          "b": "aaaaaabbb"
+        }
+      }
+    ],
+    "window": 12
+  },
+  "results_sha256": "a79b511734ae7e734ebde1c711eeb4b8fce2538475f00fa314e0062bed70a0ec",
+  "runtime_s": 0.021,
+  "started": "2026-10-18T06:30:39Z"
+}
