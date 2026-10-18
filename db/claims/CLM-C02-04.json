@@ -1,0 +1,22 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-04",
+  "limitations": "Holds for all 28 surveyed rules (m <= 4, J <= 3, b_j <= 3); the general spreading step is unproved.",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the\nuniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (or its g-sparse analogue, g the gcd of\nthe support of b); consequently its derivations from n are infinite. (Proved: T is a fixed point of the\nwindow map and any window dominating T forces infinitely many firings.)",
+  "system": "SYS-C",
+  "title": "Carry rules with sum b = m never terminate from all unary starts (uniform glider)",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -1,0 +1,124 @@
+{
+  "agent": "Historian and Novelty Analyst",
+  "analysis": "Base 3/2 = A024629 and shortest Fibonacci derivations = A219641 (rediscoveries); longest Fibonacci derivations and exotic-base representations have no OEIS match. The A089881 hit for representation lengths is a spurious shifted-window coincidence.",
+  "assumptions": [
+    "OEIS search API (responses cached in cache/oeis for reproducibility)",
+    "absence of a match is weak evidence of novelty only"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C02-06",
+    "file": "experiments/C02/E06_novelty_checks.py",
+    "sha256": "6a5f3fbba734fa05d15356bda44dfe01623eecd45ada6b1d36852711020c95c9",
+    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+  },
+  "cycle": "C02",
+  "falsification": "An OEIS entry matching a sequence labelled potentially novel.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:18:02Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Base 3/2 = A024629 and shortest Fibonacci derivations = A219641 (rediscoveries); longest Fibonacci derivations and exotic-base representations have no OEIS match. The A089881 hit for representation lengths is a spurious shifted-window coincidence.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C02-09",
+        "CLM-C02-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "hypothesis": "Integer-base and rational-base sequences are known; the Fibonacci exchange derivation lengths and representations in the emergent base r = 1.3028 (3[k] -> [k+1]+[k+2]) may not be.",
+  "id": "EXP-C02-06",
+  "methodology": "Query the first terms of each sequence; if there is no hit, query a shifted window.",
+  "question": "Are the sequences produced by exchange systems already catalogued?",
+  "related": [
+    "CLM-C02-09",
+    "CLM-C02-10"
+  ],
+  "results_file": "results/EXP-C02-06.json",
+  "results_sha256": "8daf1207b9ded668d8aab37ef7b7220a8b9a208fabee50caed818100a564355a",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C02-06",
+        "file": "experiments/C02/E06_novelty_checks.py",
+        "sha256": "6a5f3fbba734fa05d15356bda44dfe01623eecd45ada6b1d36852711020c95c9",
+        "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:18:01Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C02-06.json",
+      "results_sha256": "b8fa2cdf979f7e4cd133ffb912746b8d33b63f823525cc78dbe08e10575d869a",
+      "runtime_s": 2.146,
+      "started": "2026-10-18T07:17:59Z",
+      "summary": [
+        "9 sequences checked; no OEIS match for: []",
+        "fibonacci_exchange_max_derivation_length: ERROR []",
+        "fibonacci_exchange_min_derivation_length: ERROR []",
+        "base_3/2_representations (rule 3[k]->2[k+1]): ERROR []",
+        "base_1.3028_representations (rule 3[k]->[k+1]+[k+2]): ERROR []",
+        "base_1.3028_digit_sums: ERROR []",
+        "base_1.3028_lengths: ERROR []",
+        "base_sqrt(3)/rule 3[k]->[k+2] digit sums: ERROR []",
+        "rule 4[k]->[k+1]+2[k+2] representations: ERROR []",
+        "rule 4[k]->[k+1]+[k+2]+[k+3] representations: ERROR []"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C02-06",
+        "file": "experiments/C02/E06_novelty_checks.py",
+        "sha256": "6a5f3fbba734fa05d15356bda44dfe01623eecd45ada6b1d36852711020c95c9",
+        "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:18:37Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C02-06.json",
+      "results_sha256": "8daf1207b9ded668d8aab37ef7b7220a8b9a208fabee50caed818100a564355a",
+      "runtime_s": 24.18,
+      "started": "2026-10-18T07:18:12Z",
+      "summary": [
+        "9 sequences checked; no OEIS match for: ['fibonacci_exchange_max_derivation_length', 'base_1.3028_representations (rule 3[k]->[k+1]+[k+2])', 'base_1.3028_digit_sums', 'rule 4[k]->[k+1]+2[k+2] representations', 'rule 4[k]->[k+1]+[k+2]+[k+3] representations']",
+        "fibonacci_exchange_max_derivation_length: NO MATCH []",
+        "fibonacci_exchange_min_derivation_length: MATCH ['A219641']",
+        "base_3/2_representations (rule 3[k]->2[k+1]): MATCH ['A024629']",
+        "base_1.3028_representations (rule 3[k]->[k+1]+[k+2]): NO MATCH []",
+        "base_1.3028_digit_sums: NO MATCH []",
+        "base_1.3028_lengths: MATCH (shifted window) ['A089881']",
+        "base_sqrt(3)/rule 3[k]->[k+2] digit sums: MATCH ['A053735']",
+        "rule 4[k]->[k+1]+2[k+2] representations: NO MATCH []",
+        "rule 4[k]->[k+1]+[k+2]+[k+3] representations: NO MATCH []"
+      ]
+    }
+  ],
+  "summary": [
+    "9 sequences checked; no OEIS match for: ['fibonacci_exchange_max_derivation_length', 'base_1.3028_representations (rule 3[k]->[k+1]+[k+2])', 'base_1.3028_digit_sums', 'rule 4[k]->[k+1]+2[k+2] representations', 'rule 4[k]->[k+1]+[k+2]+[k+3] representations']",
+    "fibonacci_exchange_max_derivation_length: NO MATCH []",
+    "fibonacci_exchange_min_derivation_length: MATCH ['A219641']",
+    "base_3/2_representations (rule 3[k]->2[k+1]): MATCH ['A024629']",
+    "base_1.3028_representations (rule 3[k]->[k+1]+[k+2]): NO MATCH []",
+    "base_1.3028_digit_sums: NO MATCH []",
+    "base_1.3028_lengths: MATCH (shifted window) ['A089881']",
+    "base_sqrt(3)/rule 3[k]->[k+2] digit sums: MATCH ['A053735']",
+    "rule 4[k]->[k+1]+2[k+2] representations: NO MATCH []",
+    "rule 4[k]->[k+1]+[k+2]+[k+3] representations: NO MATCH []"
+  ],
+  "title": "Novelty checks of C02 sequences against the OEIS"
+}

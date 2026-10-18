@@ -1,0 +1,23 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-05",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C02.md#theorem-5-clm-c02-05--certificates-for-the-surveyed-rules-computer-assisted",
+  "proof_check": "computer-assisted (Python) - explicit periodic-glider or monotone-pumping certificates for 158 rules; Theorem 3(a) for the 31 others",
+  "statement": "Among the 189 carry rules with m in {2,3,4}, J <= 3, b_j <= 3, exactly the 31 with sum b < m terminate from\nevery unary start; each of the other 158 has a unary start n <= 200 with an infinite derivation.",
+  "system": "SYS-C",
+  "title": "Termination classification for all 189 small carry rules (computer-assisted)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

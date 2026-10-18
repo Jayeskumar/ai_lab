@@ -1,0 +1,25 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-02",
+    "EXP-C02-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-09",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The Zeckendorf game (Baird-Smith, Epstein, Flint, Miller, arXiv:1809.04881) - termination and shortest game N - Z(N); OEIS A219641.",
+  "proof": "proofs/paper/C02.md#theorem-8-clm-c02-09--the-fibonacci-exchange-system-zeckendorf-game",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 8); exhaustive check of 2167 configurations; awaiting independent skeptic review",
+  "statement": "With weights 1,2,3,5,8,..., the exchanges [k]+[k+1] -> [k+2], 2[k] -> [k+1]+[k-2] (k >= 2), 2[1] -> [2]+[0],\n2[0] -> [1] terminate from every configuration at the Zeckendorf representation of its value, and the\nshortest derivation from n tokens at level 0 has n - z(n) steps (z(n) = number of Zeckendorf terms).",
+  "system": "SYS-C",
+  "title": "The Fibonacci exchange system terminates at the Zeckendorf representation; shortest derivation n - z(n)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

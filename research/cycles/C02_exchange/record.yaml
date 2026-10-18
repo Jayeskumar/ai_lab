@@ -1,0 +1,219 @@
+cycle: C02
+title: "Exchange systems: positional numeration as normal forms"
+branch: A-C
+status: complete
+systems: [SYS-A, SYS-C]
+
+experiments:
+  - id: EXP-C02-01
+    analysis: Binary..quinary carrying from unary numerals is order-independent; normal forms are base-b expansions and every complete derivation has (n - s_b(n))/(b - 1) exchanges.
+    verification: PROVEN
+    novelty: REDISCOVERY
+    related: [CLM-C02-01, CLM-C02-02]
+  - id: EXP-C02-02
+    analysis: The Fibonacci exchange system reaches the Zeckendorf representation from every tested configuration; derivation lengths vary between n - z(n) and a larger maximum.
+    related: [CLM-C02-09, CLM-C02-10]
+  - id: EXP-C02-03
+    analysis: Termination from unary starts holds exactly for the 31 rules with sum b < m; every one of the 158 other rules has a periodic-glider or monotone-pumping certificate; no radix-order inversion up to n = 3000.
+    related: [CLM-C02-03, CLM-C02-04, CLM-C02-05, CLM-C02-08]
+  - id: EXP-C02-04
+    analysis: H-C02-4 refuted - four terminating rules have integers with several stable representations; merge-and-stabilise addition always agrees with rep(a+b).
+    counterexamples: ["4[k] -> 2[k+1]: configurations 2 (two tokens at level 0) and 10 (one token at level 1) are both stable with value 2"]
+    verification: REFUTED
+    related: [CLM-C02-06]
+  - id: EXP-C02-05
+    analysis: Uniqueness holds for all 28 rules whose reduced carry polynomial is primitive and irreducible (over all stable configurations, not only integer-valued ones) and fails for the 3 non-primitive ones.
+    related: [CLM-C02-07]
+  - id: EXP-C02-06
+    analysis: Base 3/2 = A024629 and shortest Fibonacci derivations = A219641 (rediscoveries); longest Fibonacci derivations and exotic-base representations have no OEIS match. The A089881 hit for representation lengths is a spurious shifted-window coincidence.
+    related: [CLM-C02-09, CLM-C02-10]
+
+claims:
+  - id: CLM-C02-01
+    type: theorem
+    system: SYS-A
+    title: Integer bases emerge as normal forms of the exchange rule b[k] -> [k+1]
+    statement: |
+      From n tokens at level 0, every maximal derivation of the rule "b tokens at level k -> 1 token at level k+1"
+      (b >= 2) is finite, ends at the base-b expansion of n, and has exactly (n - s_b(n))/(b - 1) steps.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C02.md Theorem 2) + exhaustive check of 134 derivation graphs and n <= 20000; awaiting independent skeptic review
+    proof: proofs/paper/C02.md#theorem-2-clm-c02-01--integer-bases
+    evidence: [EXP-C02-01]
+    novelty: REDISCOVERY
+    novelty_basis: Chip-firing on a path / standard carrying.
+  - id: CLM-C02-02
+    type: theorem
+    system: SYS-A
+    title: Abelian property of carry rules (order of exchanges is irrelevant)
+    statement: |
+      For a carry rule m[k] -> sum_j b_j [k+j], one-step firings at different levels commute. Hence from any
+      configuration either all maximal derivations are infinite or all are finite with the same endpoint,
+      length and firing vector.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C02.md Theorem 1); awaiting independent skeptic review
+    proof: proofs/paper/C02.md#theorem-1-clm-c02-02--the-abelian-property
+    evidence: [EXP-C02-01, EXP-C02-04]
+    novelty: REDISCOVERY
+    novelty_basis: Strong convergence of chip-firing (Bjorner-Lovasz-Shor 1991); abelian sandpile (Dhar 1990); abelian networks (Bond-Levine).
+  - id: CLM-C02-03
+    type: theorem
+    system: SYS-C
+    title: Termination dichotomy for carry rules away from sum b = m
+    statement: |
+      If sum_j b_j < m every derivation from every configuration terminates. If sum_j b_j > m, the emergent base
+      satisfies r < 1 and no derivation from n tokens at level 0 terminates when n > (m - 1)/(1 - r).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C02.md Theorem 3); awaiting independent skeptic review
+    proof: proofs/paper/C02.md#theorem-3-clm-c02-03--termination-dichotomy-away-from-b--m
+    evidence: [EXP-C02-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C02-04
+    type: conjecture
+    system: SYS-C
+    title: "Carry rules with sum b = m never terminate from all unary starts (uniform glider)"
+    statement: |
+      For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the
+      uniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (or its g-sparse analogue, g the gcd of
+      the support of b); consequently its derivations from n are infinite. (Proved: T is a fixed point of the
+      window map and any window dominating T forces infinitely many firings.)
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C02-03]
+    novelty: NOT ASSESSED
+    limitations: Holds for all 28 surveyed rules (m <= 4, J <= 3, b_j <= 3); the general spreading step is unproved.
+  - id: CLM-C02-05
+    type: theorem
+    system: SYS-C
+    title: Termination classification for all 189 small carry rules (computer-assisted)
+    statement: |
+      Among the 189 carry rules with m in {2,3,4}, J <= 3, b_j <= 3, exactly the 31 with sum b < m terminate from
+      every unary start; each of the other 158 has a unary start n <= 200 with an infinite derivation.
+    verification: PROVEN
+    proof_check: computer-assisted (Python) - explicit periodic-glider or monotone-pumping certificates for 158 rules; Theorem 3(a) for the 31 others
+    proof: proofs/paper/C02.md#theorem-5-clm-c02-05--certificates-for-the-surveyed-rules-computer-assisted
+    evidence: [EXP-C02-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C02-06
+    type: hypothesis
+    system: SYS-C
+    title: "H-C02-4: every terminating carry rule gives unique stable representations (refuted)"
+    statement: For every carry rule with sum b < m, each integer has exactly one stable configuration of that value.
+    verification: REFUTED
+    counterexample: "4[k] -> 2[k+1] (base 2 with digits 0..3): the stable configurations '2' and '10' both have value 2. Also 4[k] -> [k+2] on all levels, 4[k] -> 2[k+2], 4[k] -> 2[k+3] (EXP-C02-04)."
+    evidence: [EXP-C02-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C02-07
+    type: theorem
+    system: SYS-C
+    title: Uniqueness of representations when the reduced carry polynomial is primitive and irreducible
+    statement: |
+      Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then
+      distinct stable configurations supported on multiples of g have distinct values; in particular every n has
+      exactly one stable representation there, namely rep(n). If P~ is not primitive, two such configurations with
+      equal value exist.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof
+    proof: proofs/paper/C02.md#theorem-7-clm-c02-07--uniqueness-of-representations
+    lean: [proofs/lean/Infinity/C02_Exchange.lean]
+    evidence: [EXP-C02-05]
+    novelty: NOT ASSESSED
+    novelty_basis: Gauss-lemma uniqueness arguments are classical for canonical number systems and generalized radix representations (Kovacs, Petho; Akiyama et al.); generalises the uniqueness of rational-base representations (Akiyama-Frougny-Sakarovitch 2008). Probably known; pending Historian audit.
+  - id: CLM-C02-08
+    type: theorem
+    system: SYS-C
+    title: Exchange representations respect the radix order
+    statement: For every carry rule with sum b < m and every n, rep(n) < rep(n+1) in radix order.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C02.md Theorem 6); 0 inversions for 31 rules up to n = 3000; awaiting independent skeptic review
+    proof: proofs/paper/C02.md#theorem-6-clm-c02-08--representations-respect-the-radix-order
+    evidence: [EXP-C02-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C02-09
+    type: theorem
+    system: SYS-C
+    title: The Fibonacci exchange system terminates at the Zeckendorf representation; shortest derivation n - z(n)
+    statement: |
+      With weights 1,2,3,5,8,..., the exchanges [k]+[k+1] -> [k+2], 2[k] -> [k+1]+[k-2] (k >= 2), 2[1] -> [2]+[0],
+      2[0] -> [1] terminate from every configuration at the Zeckendorf representation of its value, and the
+      shortest derivation from n tokens at level 0 has n - z(n) steps (z(n) = number of Zeckendorf terms).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C02.md Theorem 8); exhaustive check of 2167 configurations; awaiting independent skeptic review
+    proof: proofs/paper/C02.md#theorem-8-clm-c02-09--the-fibonacci-exchange-system-zeckendorf-game
+    evidence: [EXP-C02-02, EXP-C02-06]
+    novelty: REDISCOVERY
+    novelty_basis: The Zeckendorf game (Baird-Smith, Epstein, Flint, Miller, arXiv:1809.04881) - termination and shortest game N - Z(N); OEIS A219641.
+  - id: CLM-C02-10
+    type: observation
+    system: SYS-C
+    title: Longest Fibonacci exchange derivations (longest Zeckendorf games) for n <= 40
+    statement: |
+      The maximum number of exchanges from n tokens at level 0 is, for n = 1..40: 0,1,2,3,5,6,8,10,11,13,15,17,
+      20,21,23,25,26,29,31,34,37,38,40,42,44,47,48,50,53,54,57,60,63,67,68,70,72,73,76,78 (exhaustive search).
+    verification: PROVEN
+    proof_check: computer-assisted exhaustive search of the full derivation graph (EXP-C02-02)
+    proof: results/EXP-C02-02.json (max_len_seq)
+    evidence: [EXP-C02-02, EXP-C02-06]
+    novelty: REDISCOVERY
+    novelty_basis: The longest Zeckendorf game is studied by Cusenza et al. and the Williams SMALL group; the value sequence was not found in the OEIS (2026-10-18). No closed form known to us.
+
+journal:
+  - key: C02-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Proposed exchange systems - tokens on levels with local exchange rules - as a route from System A to positional numeration without assuming place value. H-C02-0 (binary carrying) and H-C02-F (Fibonacci exchanges).
+    refs: [EXP-C02-01, EXP-C02-02]
+  - key: C02-02
+    agent: Mathematical Explorer
+    kind: result
+    text: Both confirmed on exhaustive derivation graphs. The Fibonacci system is not abelian - derivation lengths range from n - z(n) to roughly twice that.
+    refs: [EXP-C02-01, EXP-C02-02]
+  - key: C02-03
+    agent: Mathematical Explorer
+    kind: surprise
+    text: The rule 2[k] -> [k+1]+[k+2] (sum b = m) does not terminate from 6 tokens - a pattern (2,1) glides upward forever. Initially mistaken for a bug.
+    refs: [EXP-C02-03]
+  - key: C02-04
+    agent: Formal Verifier
+    kind: infrastructure
+    text: First survey run flagged 74 'violations' of H-C02-1 because only periodic gliders counted as certificates. Added the monotone-pumping certificate (a later window dominating an earlier one with an entry >= m); all 158 non-terminating rules are now certified.
+    refs: [EXP-C02-03]
+  - key: C02-05
+    agent: Mathematical Explorer
+    kind: pattern
+    text: For every sum-b-equals-m rule the glider is exactly the tail-sum window T = (sum_{j>=i} b_j), i.e. every level fires exactly once - the uniform-firing steady state.
+    refs: [EXP-C02-03, CLM-C02-04]
+  - key: C02-06
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Proposed H-C02-4 - every terminating rule represents each integer uniquely.
+    refs: [CLM-C02-06]
+  - key: C02-07
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C02-4 refuted by 4[k] -> 2[k+1] (base 2 with digits 0..3) and three relatives. All failures have a non-primitive reduced carry polynomial or ask for uniqueness off the reachable lattice. Proposed H-C02-4'.
+    refs: [EXP-C02-04, CLM-C02-06]
+  - key: C02-08
+    agent: Formal Verifier
+    kind: proof
+    text: Proved and Lean-verified the uniqueness core (digits_unique) - Bezout over Q at the common root, Gauss's lemma, and a trailing-coefficient bound. EXP-C02-05 confirms H-C02-4' with 0 violations.
+    refs: [CLM-C02-07, EXP-C02-05, proofs/lean/Infinity/C02_Exchange.lean]
+  - key: C02-09
+    agent: Formal Verifier
+    kind: infrastructure
+    text: Lesson - a first implementation of EXP-C02-04 called sympy inside a 200k-iteration loop and timed out; replaced by exact integer matrices (x^k mod the minimal polynomial, scaled by a common denominator). Also, a pkill pattern matched its own shell; use patterns that cannot match the issuing command line.
+    refs: [EXP-C02-04]
+  - key: C02-10
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: The Fibonacci exchange system is the Zeckendorf game (Baird-Smith, Epstein, Flint, Miller 2018); our shortest-derivation theorem is theirs and A219641. Rule p -> q is the rational base system of Akiyama-Frougny-Sakarovitch (A024629). The OEIS hit A089881 (twin primes) for representation lengths is a coincidence on a shifted window - matches must be read, not just counted.
+    refs: [EXP-C02-06, CLM-C02-09]
+  - key: C02-11
+    agent: Mathematical Skeptic
+    kind: review
+    text: Open caution - the uniqueness theorem's novelty is doubtful (canonical number system literature); keep NOT ASSESSED until the Historian audit. The B = m conjecture still lacks the spreading lemma.
+    refs: [CLM-C02-07, CLM-C02-04]
+
+next_directions:
+  - "C02: prove the sum-b = m glider conjecture (spreading lemma)"
+  - "C02: longest Zeckendorf game - closed form or asymptotics"
+  - "C02: which carry rules have regular representation languages?"

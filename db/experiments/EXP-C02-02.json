@@ -1,0 +1,85 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "The Fibonacci exchange system reaches the Zeckendorf representation from every tested configuration; derivation lengths vary between n - z(n) and a larger maximum.",
+  "assumptions": [
+    "weights w_k = F(k+2)",
+    "unary starts n <= 40; all configurations of value <= 26"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C02-02",
+    "file": "experiments/C02/E02_fibonacci_exchange.py",
+    "sha256": "55af33fba34f27f581c4c9ea3a871b0b5b87b888fd8a5632a61fa83ba5ba1be9",
+    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+  },
+  "cycle": "C02",
+  "falsification": "A cycle, two sinks, or a sink different from the greedy Zeckendorf representation.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T06:48:30Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The Fibonacci exchange system reaches the Zeckendorf representation from every tested configuration; derivation lengths vary between n - z(n) and a larger maximum.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C02-09",
+        "CLM-C02-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "hypothesis": "H-C02-F: from every configuration the system terminates and reaches a unique normal form, the Zeckendorf representation of its value (weights 1,2,3,5,8,...); unlike the binary rule, derivation lengths depend on the order of exchanges.",
+  "id": "EXP-C02-02",
+  "methodology": "Exhaustive derivation graphs (cycle detection, sinks, min/max lengths) from unary starts and from every configuration of small value.",
+  "question": "With exchanges [k]+[k+1] -> [k+2], 2[k] -> [k+1]+[k-2] (and boundary versions), do all orders of exchange reach the Zeckendorf representation, and how long do they take?",
+  "related": [
+    "CLM-C02-09",
+    "CLM-C02-10"
+  ],
+  "results_file": "results/EXP-C02-02.json",
+  "results_sha256": "5e6cb7eb646e2ba15595c1fb4a9a24ad89823d52cc52892cf63e6574e2210a5a",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C02-02",
+        "file": "experiments/C02/E02_fibonacci_exchange.py",
+        "sha256": "55af33fba34f27f581c4c9ea3a871b0b5b87b888fd8a5632a61fa83ba5ba1be9",
+        "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+      },
+      "error": false,
+      "finished": "2026-10-18T06:48:30Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C02-02.json",
+      "results_sha256": "5e6cb7eb646e2ba15595c1fb4a9a24ad89823d52cc52892cf63e6574e2210a5a",
+      "runtime_s": 1.815,
+      "started": "2026-10-18T06:48:28Z",
+      "summary": [
+        "unary starts n <= 40: 0 failures (unique normal form = Zeckendorf, no cycles)",
+        "all 2167 configurations of value <= 26: 0 failures",
+        "min derivation lengths n=0..15: [0, 0, 1, 2, 2, 4, 4, 5, 7, 7, 8, 9, 9, 12, 12, 13]",
+        "max derivation lengths n=0..15: [0, 0, 1, 2, 3, 5, 6, 8, 10, 11, 13, 15, 17, 20, 21, 23]"
+      ]
+    }
+  ],
+  "summary": [
+    "unary starts n <= 40: 0 failures (unique normal form = Zeckendorf, no cycles)",
+    "all 2167 configurations of value <= 26: 0 failures",
+    "min derivation lengths n=0..15: [0, 0, 1, 2, 2, 4, 4, 5, 7, 7, 8, 9, 9, 12, 12, 13]",
+    "max derivation lengths n=0..15: [0, 0, 1, 2, 3, 5, 6, 8, 10, 11, 13, 15, 17, 20, 21, 23]"
+  ],
+  "title": "Fibonacci exchange rules: termination, confluence and derivation lengths"
+}

@@ -47,8 +47,28 @@
         "exactly_m_add_p_classes",
         "common_border_joinable"
       ]
+    },
+    "proofs/lean/Infinity/C02_Exchange.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T07:22:46Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C02.exists_large_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C02.digits_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 4.98,
+      "sha256": "0c425294432a6f838d6e1333fd3f3af782b9a36e84d917a133aef078c6ea3fd6",
+      "sorry": false,
+      "theorems": [
+        "exists_large_coeff",
+        "digits_unique"
+      ]
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T06:44:01Z"
+  "updated": "2026-10-18T07:22:46Z"
 }

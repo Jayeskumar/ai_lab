@@ -1,0 +1,24 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-01",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Chip-firing on a path / standard carrying.",
+  "proof": "proofs/paper/C02.md#theorem-2-clm-c02-01--integer-bases",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 2) + exhaustive check of 134 derivation graphs and n <= 20000; awaiting independent skeptic review",
+  "statement": "From n tokens at level 0, every maximal derivation of the rule \"b tokens at level k -> 1 token at level k+1\"\n(b >= 2) is finite, ends at the base-b expansion of n, and has exactly (n - s_b(n))/(b - 1) steps.",
+  "system": "SYS-A",
+  "title": "Integer bases emerge as normal forms of the exchange rule b[k] -> [k+1]",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

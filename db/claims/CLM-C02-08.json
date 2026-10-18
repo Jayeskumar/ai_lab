@@ -1,0 +1,23 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-08",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C02.md#theorem-6-clm-c02-08--representations-respect-the-radix-order",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 6); 0 inversions for 31 rules up to n = 3000; awaiting independent skeptic review",
+  "statement": "For every carry rule with sum b < m and every n, rep(n) < rep(n+1) in radix order.",
+  "system": "SYS-C",
+  "title": "Exchange representations respect the radix order",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

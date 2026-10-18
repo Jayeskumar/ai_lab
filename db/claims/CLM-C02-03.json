@@ -1,0 +1,23 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-03",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C02.md#theorem-3-clm-c02-03--termination-dichotomy-away-from-b--m",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 3); awaiting independent skeptic review",
+  "statement": "If sum_j b_j < m every derivation from every configuration terminates. If sum_j b_j > m, the emergent base\nsatisfies r < 1 and no derivation from n tokens at level 0 terminates when n > (m - 1)/(1 - r).",
+  "system": "SYS-C",
+  "title": "Termination dichotomy for carry rules away from sum b = m",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,619 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C02-05",
+    "file": "experiments/C02/E05_refined_uniqueness.py",
+    "sha256": "169e3426b52ce14f2f0a14a4b69038d1dba5b825535cda7becdf47758ab09ef0",
+    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+  },
+  "env": {
+    "git_head": "e808ca5fecb882025294f49220af9007c67274fb",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:16:10Z",
+  "id": "EXP-C02-05",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "the 31 terminating rules",
+      "all stable configurations supported on gZ with at most L supported levels (m^L <= 2e5)"
+    ],
+    "cycle": "C02",
+    "falsification": "A collision for a primitive irreducible P~, or no collision for a non-primitive P~.",
+    "hypothesis": "H-C02-4': let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, distinct stable configurations supported on multiples of g have distinct values; if P~ is not primitive, two such configurations with equal value exist.",
+    "id": "EXP-C02-05",
+    "methodology": "Exact integer evaluation modulo the minimal polynomial (as in EXP-C02-04) restricted to levels 0, g, 2g, ...; compare collisions with the primitive/irreducible prediction.",
+    "question": "Exactly which terminating carry rules have unique stable representations?",
+    "title": "Refined uniqueness: primitive irreducible carry polynomials on the reachable sublattice"
+  },
+  "results": {
+    "non_primitive": 3,
+    "primitive_irreducible": 28,
+    "primitive_reducible": [],
+    "rows": [
+      {
+        "L": 17,
+        "P_tilde": "y - 2",
+        "b": [
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 2,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 17,
+        "P_tilde": "y - 2",
+        "b": [
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 2,
+        "irreducible": true,
+        "m": 2,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 17,
+        "P_tilde": "y - 2",
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 3,
+        "irreducible": true,
+        "m": 2,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y - 3",
+        "b": [
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "2*y - 3",
+        "b": [
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y - 3",
+        "b": [
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 2,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "2*y - 3",
+        "b": [
+          0,
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 2,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y**2 + y - 3",
+        "b": [
+          1,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y - 3",
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 3,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "2*y - 3",
+        "b": [
+          0,
+          0,
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 3,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y**3 + y**2 - 3",
+        "b": [
+          0,
+          1,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 11,
+        "P_tilde": "y**3 + y - 3",
+        "b": [
+          1,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 3,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y - 4",
+        "b": [
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y - 4",
+        "b": [
+          2
+        ],
+        "collisions": 64770,
+        "content": 2,
+        "example_collision_digits_on_gZ": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        ],
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": false
+      },
+      {
+        "L": 8,
+        "P_tilde": "3*y - 4",
+        "b": [
+          3
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y - 4",
+        "b": [
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 2,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y - 4",
+        "b": [
+          0,
+          2
+        ],
+        "collisions": 64770,
+        "content": 2,
+        "example_collision_digits_on_gZ": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        ],
+        "g": 2,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": false
+      },
+      {
+        "L": 8,
+        "P_tilde": "3*y - 4",
+        "b": [
+          0,
+          3
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 2,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**2 + y - 4",
+        "b": [
+          1,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y**2 + y - 4",
+        "b": [
+          1,
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**2 + 2*y - 4",
+        "b": [
+          2,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y - 4",
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 3,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y - 4",
+        "b": [
+          0,
+          0,
+          2
+        ],
+        "collisions": 64770,
+        "content": 2,
+        "example_collision_digits_on_gZ": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0
+          ]
+        ],
+        "g": 3,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": false
+      },
+      {
+        "L": 8,
+        "P_tilde": "3*y - 4",
+        "b": [
+          0,
+          0,
+          3
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 3,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**3 + y**2 - 4",
+        "b": [
+          0,
+          1,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y**3 + y**2 - 4",
+        "b": [
+          0,
+          1,
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**3 + 2*y**2 - 4",
+        "b": [
+          0,
+          2,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**3 + y - 4",
+        "b": [
+          1,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "2*y**3 + y - 4",
+        "b": [
+          1,
+          0,
+          2
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**3 + y**2 + y - 4",
+        "b": [
+          1,
+          1,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      },
+      {
+        "L": 8,
+        "P_tilde": "y**3 + 2*y - 4",
+        "b": [
+          2,
+          0,
+          1
+        ],
+        "collisions": 0,
+        "content": 1,
+        "example_collision_digits_on_gZ": null,
+        "g": 1,
+        "irreducible": true,
+        "m": 4,
+        "normal_forms_off_lattice": [],
+        "primitive": true
+      }
+    ],
+    "summary": [
+      "31 terminating rules: 28 with primitive irreducible P~ (all collision-free: True), 3 non-primitive (all with collisions: True), 0 primitive but reducible",
+      "violations of H-C02-4': 0"
+    ],
+    "violations": []
+  },
+  "results_sha256": "c19304f59ee54e6381d4ddec173daf9391c7b58db2fd3ee23c87036da66dce90",
+  "runtime_s": 6.604,
+  "started": "2026-10-18T07:16:04Z"
+}

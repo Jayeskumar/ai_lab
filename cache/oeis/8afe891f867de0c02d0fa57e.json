@@ -1,0 +1,29 @@
+{
+  "fetched": "2026-10-18T07:18:28Z",
+  "query": "3,3,3,3,3,3,5,5,5,5,5,5,7,7,7,7,7,7,7,7",
+  "response": [
+    {
+      "author": "_Reinhard Zumkeller_, Nov 13 2003",
+      "comment": [
+        "a(n) = if n<3 then 0 else (if n<7 then A071538(n-2)*2 else A071538(n-2)*2-1)."
+      ],
+      "created": "2004-02-19T03:00:00-05:00",
+      "data": "0,0,0,0,2,2,3,3,3,3,3,3,5,5,5,5,5,5,7,7,7,7,7,7,7,7,7,7,7,7,9,9,9,9,9,9,9,9,9,9,9,9,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,11,13,13,13,13,13,13,13,13,13,13,13,13,15,15,15,15,15,15,15,15,15,15",
+      "example": [
+        "a(30) = 7 = #{3,5,7,11,13,17,19}, as (3,5), (5,7), (11,13) and (17,19) are all twin prime pairs with members not greater than 30,",
+        "a(31) = 9 = #{3,5,7,11,13,17,19,29,31} with two more members for the next twin prime pair (29,31)."
+      ],
+      "keyword": "nonn",
+      "name": "Number of primes <= n that are members of twin prime pairs.",
+      "number": 89881,
+      "offset": "1,5",
+      "references": 1,
+      "revision": 8,
+      "time": "2019-06-24T04:38:54-04:00",
+      "xref": [
+        "Cf. A001359, A006512, A089882."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=3%2C3%2C3%2C3%2C3%2C3%2C5%2C5%2C5%2C5%2C5%2C5%2C7%2C7%2C7%2C7%2C7%2C7%2C7%2C7&fmt=json"
+}

@@ -89,3 +89,72 @@ Caution recorded - the computer-assisted proofs (CLM-C01-07) trust the Python im
 
 *Evidence:* CLM-C01-07
 
+
+## C02
+
+### [2026-10-18T07:22:46Z] Mathematical Inventor — hypothesis (`C02-01`)
+
+Proposed exchange systems - tokens on levels with local exchange rules - as a route from System A to positional numeration without assuming place value. H-C02-0 (binary carrying) and H-C02-F (Fibonacci exchanges).
+
+*Evidence:* EXP-C02-01, EXP-C02-02
+
+### [2026-10-18T07:22:46Z] Mathematical Explorer — result (`C02-02`)
+
+Both confirmed on exhaustive derivation graphs. The Fibonacci system is not abelian - derivation lengths range from n - z(n) to roughly twice that.
+
+*Evidence:* EXP-C02-01, EXP-C02-02
+
+### [2026-10-18T07:22:46Z] Mathematical Explorer — surprise (`C02-03`)
+
+The rule 2[k] -> [k+1]+[k+2] (sum b = m) does not terminate from 6 tokens - a pattern (2,1) glides upward forever. Initially mistaken for a bug.
+
+*Evidence:* EXP-C02-03
+
+### [2026-10-18T07:22:46Z] Formal Verifier — infrastructure (`C02-04`)
+
+First survey run flagged 74 'violations' of H-C02-1 because only periodic gliders counted as certificates. Added the monotone-pumping certificate (a later window dominating an earlier one with an entry >= m); all 158 non-terminating rules are now certified.
+
+*Evidence:* EXP-C02-03
+
+### [2026-10-18T07:22:46Z] Mathematical Explorer — pattern (`C02-05`)
+
+For every sum-b-equals-m rule the glider is exactly the tail-sum window T = (sum_{j>=i} b_j), i.e. every level fires exactly once - the uniform-firing steady state.
+
+*Evidence:* EXP-C02-03, CLM-C02-04
+
+### [2026-10-18T07:22:46Z] Mathematical Inventor — hypothesis (`C02-06`)
+
+Proposed H-C02-4 - every terminating rule represents each integer uniquely.
+
+*Evidence:* CLM-C02-06
+
+### [2026-10-18T07:22:46Z] Mathematical Skeptic — rejection (`C02-07`)
+
+H-C02-4 refuted by 4[k] -> 2[k+1] (base 2 with digits 0..3) and three relatives. All failures have a non-primitive reduced carry polynomial or ask for uniqueness off the reachable lattice. Proposed H-C02-4'.
+
+*Evidence:* EXP-C02-04, CLM-C02-06
+
+### [2026-10-18T07:22:46Z] Formal Verifier — proof (`C02-08`)
+
+Proved and Lean-verified the uniqueness core (digits_unique) - Bezout over Q at the common root, Gauss's lemma, and a trailing-coefficient bound. EXP-C02-05 confirms H-C02-4' with 0 violations.
+
+*Evidence:* CLM-C02-07, EXP-C02-05, proofs/lean/Infinity/C02_Exchange.lean
+
+### [2026-10-18T07:22:46Z] Formal Verifier — infrastructure (`C02-09`)
+
+Lesson - a first implementation of EXP-C02-04 called sympy inside a 200k-iteration loop and timed out; replaced by exact integer matrices (x^k mod the minimal polynomial, scaled by a common denominator). Also, a pkill pattern matched its own shell; use patterns that cannot match the issuing command line.
+
+*Evidence:* EXP-C02-04
+
+### [2026-10-18T07:22:46Z] Historian and Novelty Analyst — novelty (`C02-10`)
+
+The Fibonacci exchange system is the Zeckendorf game (Baird-Smith, Epstein, Flint, Miller 2018); our shortest-derivation theorem is theirs and A219641. Rule p -> q is the rational base system of Akiyama-Frougny-Sakarovitch (A024629). The OEIS hit A089881 (twin primes) for representation lengths is a coincidence on a shifted window - matches must be read, not just counted.
+
+*Evidence:* EXP-C02-06, CLM-C02-09
+
+### [2026-10-18T07:22:46Z] Mathematical Skeptic — review (`C02-11`)
+
+Open caution - the uniqueness theorem's novelty is doubtful (canonical number system literature); keep NOT ASSESSED until the Historian audit. The B = m conjecture still lacks the spreading lemma.
+
+*Evidence:* CLM-C02-07, CLM-C02-04
+

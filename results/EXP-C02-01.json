@@ -1,0 +1,49 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C02-01",
+    "file": "experiments/C02/E01_integer_bases.py",
+    "sha256": "dfe04f7572a9c918700026cdd168b20f8d3e525d31abe086c8bdc3e009a4edd0",
+    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+  },
+  "env": {
+    "git_head": "e808ca5fecb882025294f49220af9007c67274fb",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T06:48:27Z",
+  "id": "EXP-C02-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "configurations = multisets of levels (C01)",
+      "b = 2..5"
+    ],
+    "cycle": "C02",
+    "falsification": "Two different normal forms, unequal derivation lengths, a cycle, or a mismatch with base-b digits.",
+    "hypothesis": "Every derivation terminates in the same configuration, namely the base-b digits of n, after exactly (n - s_b(n))/(b - 1) exchanges, s_b the base-b digit sum.",
+    "id": "EXP-C02-01",
+    "methodology": "Exhaustive derivation graphs from n tokens (all orders of exchange) for small n; fast stabilisation compared with base-b digits for n <= 20000.",
+    "question": "Starting from n tokens at level 0 (a unary numeral), what does the exchange rule b[k] -> [k+1] produce, and does the order of exchanges matter?",
+    "title": "Integer bases as normal forms of the exchange rule b tokens -> 1 token one level up"
+  },
+  "results": {
+    "exhaustive_cases": 134,
+    "exhaustive_failures": [],
+    "fast_failures": [],
+    "largest_state_space": 390,
+    "summary": [
+      "134 exhaustive derivation graphs (b = 2..5): 0 failures; largest graph 390 configurations",
+      "fast stabilisation vs base-b digits for n <= 20000, b = 2..5: 0 mismatches"
+    ]
+  },
+  "results_sha256": "6ef3209881c18e2fdc13bdfe7ac375c224fcef46e22a444a62b4e7bffcd0b836",
+  "runtime_s": 0.513,
+  "started": "2026-10-18T06:48:27Z"
+}

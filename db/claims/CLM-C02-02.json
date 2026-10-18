@@ -1,0 +1,25 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-01",
+    "EXP-C02-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-02",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Strong convergence of chip-firing (Bjorner-Lovasz-Shor 1991); abelian sandpile (Dhar 1990); abelian networks (Bond-Levine).",
+  "proof": "proofs/paper/C02.md#theorem-1-clm-c02-02--the-abelian-property",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 1); awaiting independent skeptic review",
+  "statement": "For a carry rule m[k] -> sum_j b_j [k+j], one-step firings at different levels commute. Hence from any\nconfiguration either all maximal derivations are infinite or all are finite with the same endpoint,\nlength and firing vector.",
+  "system": "SYS-A",
+  "title": "Abelian property of carry rules (order of exchanges is irrelevant)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

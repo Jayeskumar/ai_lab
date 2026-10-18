@@ -1,0 +1,79 @@
+{
+  "agent": "Mathematical Skeptic",
+  "analysis": "Uniqueness holds for all 28 rules whose reduced carry polynomial is primitive and irreducible (over all stable configurations, not only integer-valued ones) and fails for the 3 non-primitive ones.",
+  "assumptions": [
+    "the 31 terminating rules",
+    "all stable configurations supported on gZ with at most L supported levels (m^L <= 2e5)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C02-05",
+    "file": "experiments/C02/E05_refined_uniqueness.py",
+    "sha256": "169e3426b52ce14f2f0a14a4b69038d1dba5b825535cda7becdf47758ab09ef0",
+    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+  },
+  "cycle": "C02",
+  "falsification": "A collision for a primitive irreducible P~, or no collision for a non-primitive P~.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:16:11Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Uniqueness holds for all 28 rules whose reduced carry polynomial is primitive and irreducible (over all stable configurations, not only integer-valued ones) and fails for the 3 non-primitive ones.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C02-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "hypothesis": "H-C02-4': let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, distinct stable configurations supported on multiples of g have distinct values; if P~ is not primitive, two such configurations with equal value exist.",
+  "id": "EXP-C02-05",
+  "methodology": "Exact integer evaluation modulo the minimal polynomial (as in EXP-C02-04) restricted to levels 0, g, 2g, ...; compare collisions with the primitive/irreducible prediction.",
+  "question": "Exactly which terminating carry rules have unique stable representations?",
+  "related": [
+    "CLM-C02-07"
+  ],
+  "results_file": "results/EXP-C02-05.json",
+  "results_sha256": "c19304f59ee54e6381d4ddec173daf9391c7b58db2fd3ee23c87036da66dce90",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C02-05",
+        "file": "experiments/C02/E05_refined_uniqueness.py",
+        "sha256": "169e3426b52ce14f2f0a14a4b69038d1dba5b825535cda7becdf47758ab09ef0",
+        "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:16:10Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C02-05.json",
+      "results_sha256": "c19304f59ee54e6381d4ddec173daf9391c7b58db2fd3ee23c87036da66dce90",
+      "runtime_s": 6.604,
+      "started": "2026-10-18T07:16:04Z",
+      "summary": [
+        "31 terminating rules: 28 with primitive irreducible P~ (all collision-free: True), 3 non-primitive (all with collisions: True), 0 primitive but reducible",
+        "violations of H-C02-4': 0"
+      ]
+    }
+  ],
+  "summary": [
+    "31 terminating rules: 28 with primitive irreducible P~ (all collision-free: True), 3 non-primitive (all with collisions: True), 0 primitive but reducible",
+    "violations of H-C02-4': 0"
+  ],
+  "title": "Refined uniqueness: primitive irreducible carry polynomials on the reachable sublattice"
+}

@@ -29,7 +29,9 @@ def _query(q: str) -> dict:
     if wait > 0:
         time.sleep(wait)
     url = "https://oeis.org/search?" + urllib.parse.urlencode({"q": q, "fmt": "json"})
-    with urllib.request.urlopen(url, timeout=60) as resp:
+    req = urllib.request.Request(url, headers={"User-Agent": "curl/8.5.0 (ProjectInfinity research lab)",
+                                               "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=60) as resp:
         raw = resp.read().decode("utf-8")
     _last_call[0] = time.time()
     data = json.loads(raw) if raw.strip() else None

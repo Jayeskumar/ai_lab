@@ -1,0 +1,22 @@
+{
+  "counterexample": "4[k] -> 2[k+1] (base 2 with digits 0..3): the stable configurations '2' and '10' both have value 2. Also 4[k] -> [k+2] on all levels, 4[k] -> 2[k+2], 4[k] -> 2[k+3] (EXP-C02-04).",
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T07:22:46Z"
+    }
+  ],
+  "id": "CLM-C02-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every carry rule with sum b < m, each integer has exactly one stable configuration of that value.",
+  "system": "SYS-C",
+  "title": "H-C02-4: every terminating carry rule gives unique stable representations (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}
