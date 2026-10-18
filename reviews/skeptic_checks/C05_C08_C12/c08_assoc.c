@@ -22,10 +22,9 @@ typedef struct { int n; short idx[160]; i128 dig[160]; } Exp;
 
 static int greedy(i128 n, Exp *e) {   /* returns 0 on failure */
     e->n = 0;
-    if (n < 0) return 0;
+    if (n < 0 || n > LIM) return 0;   /* G[K+1] >= LIM by construction, so the table suffices */
     int k = K;
     while (k >= 0 && G[k] > n) k--;
-    if (k == K && n >= G[K] * 2) return 0; /* beyond the table: refuse */
     for (; k >= 0 && n; k--) {
         if (G[k] <= n) { i128 d = n / G[k]; n -= d * G[k]; e->idx[e->n] = (short)k; e->dig[e->n] = d; e->n++; if (e->n >= 160) return 0; }
     }
