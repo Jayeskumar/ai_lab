@@ -1,0 +1,27 @@
+{
+ "M": 200000,
+ "n_with_at_least_two_factorisations": 75332,
+ "first_multi": 8,
+ "first_multi_factorisations": [
+  [
+   1,
+   1,
+   1
+  ],
+  [
+   2,
+   2
+  ]
+ ],
+ "n_with_factorisations_of_different_lengths": 29577,
+ "max_elasticity": 2.5,
+ "max_elasticity_attained_at": [
+  98700,
+  196405
+ ],
+ "max_number_of_factorisations": 111,
+ "max_factorisation_length": 13,
+ "length_set_DP_consistent_with_factorisation_sets": true,
+ "length_bound_violations": [],
+ "seconds": 14.4
+}

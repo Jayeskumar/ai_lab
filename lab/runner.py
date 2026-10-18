@@ -87,6 +87,14 @@ def run(exp_id: str, record: bool = True, quiet: bool = False) -> dict:
     path = scripts[exp_id]
     mod = _import(path)
     meta = dict(mod.META)
+    # hash the code before running it, so that edits made while a long run is in progress are not attributed to it
+    systems_files = [p for p in SYSTEMS.rglob("*.py")]
+    code = {
+        "file": rel(path),
+        "sha256": sha256_file(path),
+        "systems_sha256": sha256_files(systems_files) if systems_files else None,
+        "command": f"python -m lab run {exp_id}",
+    }
     started = now_iso()
     t0 = time.perf_counter()
     try:
@@ -99,13 +107,6 @@ def run(exp_id: str, record: bool = True, quiet: bool = False) -> dict:
     finished = now_iso()
     stable = {k: v for k, v in results.items() if k not in VOLATILE_KEYS}
     res_hash = sha256_obj(stable)
-    systems_files = [p for p in SYSTEMS.rglob("*.py")]
-    code = {
-        "file": rel(path),
-        "sha256": sha256_file(path),
-        "systems_sha256": sha256_files(systems_files) if systems_files else None,
-        "command": f"python -m lab run {exp_id}",
-    }
     out_path = RESULTS / f"{exp_id}.json"
     previous = read_json(out_path)
     reproduced = None

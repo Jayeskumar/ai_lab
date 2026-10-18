@@ -142,14 +142,14 @@
         "Quot.sound",
         "propext"
       ],
-      "checked": "2026-10-18T09:13:57Z",
+      "checked": "2026-10-18T18:02:56Z",
       "exit_code": 0,
       "native_decide": false,
       "nonstandard_axioms": [],
       "ok": true,
-      "output_tail": "'Infinity.C05.law167_card_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.left_mul_bijective_of_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.T4_law167' depends on axioms: [propext]\n'Infinity.C05.T5_law167' depends on axioms: [propext]\n'Infinity.C05.T4_not_latin' depends on axioms: [propext]\n'Infinity.C05.no_law167_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.no_law66_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.nand2_law' depends on axioms: [propext]\n'Infinity.C05.no_affine_model_mod2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.E467_order9_law' depends on axioms: [propext]\n'Infinity.C05.E677_order5_law' depends on axioms: [propext]\n'Infinity.C05.E677_order7_law' depends on axioms: [propext]\n'Infinity.C05.E677_order9_law' depends on axioms: [propext]\n'Infinity.C05.E883_order10_law' depends on axioms: [propext]\n'Infinity.C05.E1286_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1516_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1719_order10_law' depends on axioms: [propext]\n",
-      "seconds": 11.45,
-      "sha256": "8b5feecbc857d45f1c88bcf18d54a7bef2b6cbc6c98fb1784b3b9b3d64f57b98",
+      "output_tail": "'Infinity.C05.law167_card_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.left_mul_bijective_of_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.T4_law167' depends on axioms: [propext]\n'Infinity.C05.T5_law167' depends on axioms: [propext]\n'Infinity.C05.T4_not_latin' depends on axioms: [propext]\n'Infinity.C05.no_law167_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.no_law66_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.nand2_law' depends on axioms: [propext]\n'Infinity.C05.no_affine_model_mod2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.E467_order9_law' depends on axioms: [propext]\n'Infinity.C05.E677_order5_law' depends on axioms: [propext]\n'Infinity.C05.E677_order7_law' depends on axioms: [propext]\n'Infinity.C05.E677_order9_law' depends on axioms: [propext]\n'Infinity.C05.E883_order10_law' depends on axioms: [propext]\n'Infinity.C05.E1286_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1516_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1719_order10_law' depends on axioms: [propext]\n'Infinity.C05.E677_order16_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order16_law' depends on axioms: [propext]\n'Infinity.C05.E670_order9_law' depends on axioms: [propext]\n",
+      "seconds": 11.63,
+      "sha256": "3b27ee5bcd939d19c985d00e19e115e2c3ac491011253af0bc6aaccf809e61f4",
       "sorry": false,
       "theorems": [
         "pairMap_mk",
@@ -174,7 +174,10 @@
         "E1286_order9_law",
         "E1313_order9_law",
         "E1516_order9_law",
-        "E1719_order10_law"
+        "E1719_order10_law",
+        "E677_order16_law",
+        "E1313_order16_law",
+        "E670_order9_law"
       ]
     },
     "proofs/lean/Infinity/C06_Laver.lean": {
@@ -474,5 +477,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T17:45:17Z"
+  "updated": "2026-10-18T18:02:56Z"
 }

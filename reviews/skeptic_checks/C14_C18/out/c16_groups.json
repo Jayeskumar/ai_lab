@@ -1,0 +1,53 @@
+{
+ "S3": {
+  "order": 6,
+  "max_period": 8,
+  "period_set": [
+   1,
+   3,
+   6,
+   8
+  ]
+ },
+ "D4": {
+  "order": 8,
+  "max_period": 6,
+  "period_set": [
+   1,
+   3,
+   6
+  ]
+ },
+ "Q8": {
+  "order": 8,
+  "max_period": 6,
+  "period_set": [
+   1,
+   3,
+   6
+  ]
+ },
+ "A4": {
+  "order": 12,
+  "max_period": 16,
+  "period_set": [
+   1,
+   3,
+   8,
+   16
+  ]
+ },
+ "S4": {
+  "order": 24,
+  "max_period": 18,
+  "period_set": [
+   1,
+   3,
+   6,
+   8,
+   16,
+   18
+  ]
+ },
+ "runtime_s": 0.0
+}

@@ -28,8 +28,11 @@ pattern is governed by the roots of the sequence's *minimal* recurrence:
 
 Thresholds grow as $|\beta| \to 1$: Pell ($|\beta| = 0.41$) from $s = 1$,
 Fibonacci (0.62) from 2, tribonacci (0.74) not before 4, 4-bonacci not
-before 8, $G_{k+1} = G_k + G_{k-2}$ (0.83) not before 11;
-$G_{k+1} = G_k + G_{k-3}$ ($|\beta| \approx 0.94$) not yet at $s = 20$.
+before 8, $G_{k+1} = G_k + G_{k-2}$ (0.83) not before 11,
+$G_{k+1} = 2G_k + 2G_{k-1}$ not before 7 and $G_{k+1} = 3G_k + 3G_{k-1}$
+(with $G_1 = 5$) not before 12; $G_{k+1} = G_k + G_{k-3}$
+($|\beta| \approx 0.94$) fails at every shift tested ($s \le 16$ in
+EXP-C08-07, $s \le 24$ in the Skeptic's search).
 
 > **Correction (2026-10-18).** The first version of this chapter gave the
 > thresholds 3 (tribonacci), 7 (4-bonacci), 10 ($G_k + G_{k-2}$) and 5
@@ -44,6 +47,18 @@ $G_{k+1} = G_k + G_{k-3}$ ($|\beta| \approx 0.94$) not yet at $s = 20$.
 > certified by an explicit triple; every "from $s$" is a search result,
 > proved only where the literature proves it (Fibonacci: Lean; Pell:
 > Messaoudi 2000; tribonacci $s \ge 6$ and 4-bonacci $s \ge 10$: Messaoudi).
+>
+> **Second correction (2026-10-18).** The re-test was still not good enough.
+> The Skeptic's review found certified failures at shifts the re-test had
+> passed: $G_{k+1} = 2G_k + 2G_{k-1}$ fails at $s = 6$ and
+> $G_{k+1} = 3G_k + 3G_{k-1}$ ($G_1 = 5$) at $s = 10$ and $11$, e.g.
+> $(173938 \circ 173938) \circ 1 \ne 173938 \circ (173938 \circ 1)$. Both the
+> random triples and the small pairs of the re-test avoid the inputs where
+> failures live: numbers whose conjugate coordinates are extreme, so that the
+> conjugate of a product leaves the window. A third search aimed there
+> (EXP-C08-07) reproduces every failure the Skeptic found; the values in the
+> paragraph above are its results, with the same caveat: lower bounds are
+> certified, "not before" is all we can say.
 
 ## Why: a twisted embedding into an algebraic number field
 
@@ -73,7 +88,7 @@ window of greedy expansions, if $|\beta| \ge 1$ nothing can.
 
 For $G = 1, 3, 4, 7, 11, \ldots$ (a Lucas-type sequence) no failure is found
 for $s = 2$, $s = 3$ fails (certified), and no failure is found again for
-$s \ge 4$ — even under the stronger search of EXP-C08-06. Our explanation: $\beta^s$ alternates in
+$s \ge 4$ — even under the targeted search of EXP-C08-07. Our explanation: $\beta^s$ alternates in
 sign when $\beta < 0$, and the window is asymmetric about 0 (for Fibonacci
 $(-0.382, 0.618)$), so an odd shift can push a product's conjugate out.
 
@@ -82,13 +97,19 @@ For quadratic Pisot sequences with positive conjugate root the associative
 shifts form an upward-closed set; non-monotone sets occur only for negative
 conjugates — and, as the Historian pointed out, only for *non-canonical*
 initial values: for canonical sequences Messaoudi's criterion implies
-upward-closure whatever the sign of $\beta$. *Evidence (after the certified
-re-test, EXP-C08-06):* 0 of 30 positive-$\beta$ sequences non-monotone; 10
-non-monotone sequences, all non-canonical with $\beta < 0$. Two of the
-original ten examples were artefacts of random testing.
+upward-closure whatever the sign of $\beta$. *Evidence (after the targeted
+search EXP-C08-07, shifts $0 \ldots 12$):* 0 of 30 positive-$\beta$
+sequences non-monotone; 8 non-monotone sequences, all non-canonical with
+$\beta < 0$. Four of the original ten examples were artefacts of random
+testing. The Skeptic's independent search agrees: 0 of 231 positive-$\beta$
+sequences non-monotone ($s \le 16$), 60 of 396 negative-$\beta$ ones, none
+canonical.
 
-**Conjecture 9.3** *[COMPUTATIONALLY SUPPORTED]*. For non-Pisot sequences the
-circle product is non-associative at every shift.
+**Conjecture 9.3** *[COMPUTATIONALLY SUPPORTED]*. For non-Pisot sequences
+whose dominant root exceeds 1 the circle product is non-associative at every
+shift. (The first version omitted "dominant root exceeds 1"; the Skeptic
+noted that $G_k = k + 1$, with minimal polynomial $(x - 1)^2$, gives
+$a \circ_s b = a + b + s - 1$, associative at every shift.)
 
 ## Comparison with existing mathematics
 

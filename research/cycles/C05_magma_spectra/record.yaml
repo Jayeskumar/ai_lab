@@ -31,6 +31,10 @@ experiments:
     verification: PROVEN
     related: [CLM-C05-08]
 
+  - id: EXP-C05-07
+    analysis: "After the Skeptic's refutation of CLM-C05-09 - linear models x*y = ax + by over every GF(q), q <= 128 (44 prime powers), for the 15 open laws. 0 conflicts with the SAT statuses, the DRUP-certified gaps or the ETP notes. Even orders occur for 14 of the 15 laws (none for 907); 677 and 1313 have models of order 16 (their smallest even linear order). Two sizes left UNKNOWN by EXP-C05-03 are settled - law 670 at n = 9 (not in the notes) and law 907 at n = 9 (already in the notes)."
+    related: [CLM-C05-09, CLM-C05-10]
+
 claims:
   - id: CLM-C05-01
     type: hypothesis
@@ -137,12 +141,26 @@ claims:
   - id: CLM-C05-09
     type: conjecture
     system: SYS-B
-    title: "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5"
+    title: "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have models of order 16)"
     statement: The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.
-    verification: CONJECTURE
-    evidence: [EXP-C05-03, EXP-C05-02]
+    verification: REFUTED
+    counterexample: "Linear models of order 16 (found by the Skeptic, reviews/skeptic_C05_C08_C12.md, Appendix B) - over GF(16) = GF(2)[t]/(t^4 + t + 1), x*y = (1 + t^3)x + t^3 y satisfies law 677 and x*y = t^3 x + (1 + t^3)y satisfies law 1313 (each has 8 such pairs (a, b)). Re-found by EXP-C05-07 and Lean-certified (E677_order16_law, E1313_order16_law, kernel decide on the 16 x 16 tables)."
+    evidence: [EXP-C05-03, EXP-C05-02, EXP-C05-07]
     novelty: NOT ASSESSED
-    limitations: Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.
+    limitations: "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture"
+  - id: CLM-C05-10
+    type: theorem
+    system: SYS-B
+    title: "Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a model x*y = ax + by over GF(q)"
+    statement: "For each of the 15 open ETP laws of EXP-C05-03 the prime powers q <= 128 admitting a linear model x*y = ax + by over GF(q) are exactly those listed in results/EXP-C05-07.json. In particular laws 670, 677, 1076, 1286 and 1313 have models of order 16 (1286 also of order 32), law 670 has a model of order 9, and no law has a linear model at an order excluded by the SAT search, the DRUP certificates (CLM-C05-08) or the ETP notes."
+    verification: PROVEN
+    proof_check: "computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); every model found re-checked on its full table with the generic evaluator; three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)"
+    proof: "proofs/paper/C05.md#theorem-6-clm-c05-10--linear-models-over-finite-fields-computer-assisted"
+    evidence: [EXP-C05-07]
+    novelty: NOT ASSESSED
+    novelty_basis: "Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05)."
+    limitations: Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
 
 journal:
   - key: C05-01
@@ -211,8 +229,19 @@ journal:
     text: "Re-reading Le Floch's notes while writing the textbook chapter found statements missed in the first pass: the list of 31 laws without models of order 2 (incl. 501, 677, 1083, 1719), the list of 14 laws with order-2 but no order-3 models (incl. 883), and the Gaussian-integer models of law 467, which include order 9 = 3^2 + 0^2. CLM-C05-07 no longer counts 467 (order 9) as new, CLM-C05-08 separates new gaps from gaps stated in the notes, and the README frontier table was corrected (1719 has no new facts). Entry C05-10 overstated these points."
     refs: [CLM-C05-07, CLM-C05-08]
 
+  - key: C05-14
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - CLM-C05-09 refuted by linear models of order 16 over GF(16) for both laws (Lean-checked); all other C05 claims upheld (own CNF encodings with CaDiCaL and Kissat reproduce the census and all 15 claimed gaps)."
+    refs: [CLM-C05-09, reviews/skeptic_C05_C08_C12.md]
+  - key: C05-15
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C05-07 - systematic search for linear models over GF(q), q <= 128. 0 conflicts with SAT, DRUP gaps or notes; even orders for 14 of 15 laws; 670 at n = 9 settled (new relative to the notes). Lesson - the Z_n affine search of EXP-C05-05 was blind to non-cyclic additive groups."
+    refs: [EXP-C05-07, CLM-C05-10]
+
 next_directions:
-  - "C05: decide law 1286 at orders 8, 10 and law 677/1313 at 8, 10 with stronger symmetry breaking; certify"
-  - "C05: test the conjecture spec(677) = spec(1313) = {1} + odd n >= 5"
+  - "C05: decide law 1286 at orders 8, 10 and laws 677/1313 at 8, 10, 12, 14 with stronger symmetry breaking; certify"
+  - "C05: which odd orders are in the spectra of 677 and 1313? (677 has no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime power)"
   - "C05: extend the census to order-5 laws and three-variable identities"
   - "C05: Lean-formalise orbit-counting arguments for other laws with a finite-order pair map"

@@ -1,0 +1,3 @@
+lazy strings over 21 levels: values with multiplicity != 1 below 17710 : []
+top-level intervals [F_{t+2}-1, F_{t+3}-2] wrong for t in []
+Corollary 3 (lazy == Zeckendorf iff n = F_k - 1), n < 100000: violations []

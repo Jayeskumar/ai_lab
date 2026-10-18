@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C05-05",
     "file": "experiments/C05/E05_affine_hypothesis.py",
     "sha256": "233501a35ea2b0d99379bebda7765c89bcbafef148432fd17bdae1e93867a52e",
-    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "x = (y*x)*(x*(y*y)): NAND on {0,1} is a model, no affine operation over Z_2 is"
@@ -88,6 +88,25 @@
       "results_sha256": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
       "runtime_s": 8.901,
       "started": "2026-10-18T08:07:51Z",
+      "summary": [
+        "52 identities with spectrum 1..6 full; 4 of them lack an affine model for some order <= 6 (each refutes H-C05-A)",
+        "restricted identities whose SAT spectrum contains orders without affine models: 39; consistency bugs: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-05",
+        "file": "experiments/C05/E05_affine_hypothesis.py",
+        "sha256": "233501a35ea2b0d99379bebda7765c89bcbafef148432fd17bdae1e93867a52e",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:59:53Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C05-05.json",
+      "results_sha256": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
+      "runtime_s": 2.194,
+      "started": "2026-10-18T17:59:51Z",
       "summary": [
         "52 identities with spectrum 1..6 full; 4 of them lack an affine model for some order <= 6 (each refutes H-C05-A)",
         "restricted identities whose SAT spectrum contains orders without affine models: 39; consistency bugs: 0"

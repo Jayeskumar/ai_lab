@@ -1,0 +1,8 @@
+3var_le4 laws 18581 systems 2400 distinct spectra (N<=200) 27 finite systems 2091 infinite systems 308 distinct L 14 max L 27
+2var_le5 laws 75625 systems 3631 distinct spectra (N<=200) 125 finite systems 2624 infinite systems 1006 distinct L 80 max L 328
+distinct L over both families: 80 max 328
+Theorem 1 failures: 0 []
+
+real	0m15.402s
+user	0m14.774s
+sys	0m0.087s

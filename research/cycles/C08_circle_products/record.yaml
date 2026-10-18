@@ -12,14 +12,20 @@ experiments:
     analysis: All 10 non-Pisot sequences fail at every shift 0..8; geometric ones never fail; Pisot ones become associative above thresholds growing with |beta|.
     related: [CLM-C08-02, CLM-C08-03, CLM-C08-05]
   - id: EXP-C08-03
-    analysis: Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine.
+    analysis: "Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine. CORRECTED by EXP-C08-06 - random triples missed rare failures; several of these 'associative' shifts are certified non-associative, and two of the non-monotone examples were artefacts."
     related: [CLM-C08-03, CLM-C08-04, CLM-C08-05]
   - id: EXP-C08-04
-    analysis: Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.
+    analysis: "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root. CORRECTED by EXP-C08-06 - 6 rows listed shifts that are certified non-associative; after the certified re-test 10 rows are still non-monotone, all with beta < 0 and non-canonical initial values."
     related: [CLM-C08-04]
   - id: EXP-C08-05
     analysis: The implementation reproduces OEIS A101330 (Knuth's circle product table).
     related: [CLM-C08-01]
+  - id: EXP-C08-06
+    analysis: "Certified re-test after the Historian's audit - an exact embedding filter (circle product as multiplication in Z[x]/(characteristic polynomial)) and explicit failing triples. Certified thresholds (largest failing shift / first shift without a failure found) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 5/6, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, (3,3;1,5) 9/10. Upper values are 'no failure found', not proofs. Of the 90 quadratic rows of EXP-C08-04, 6 had certified-failing 'associative' shifts; 10 remain non-monotone, none with beta > 0."
+    related: [CLM-C08-03, CLM-C08-04, CLM-C08-05, CLM-C08-07]
+  - id: EXP-C08-07
+    analysis: "After the Skeptic's review - targeted search at extreme conjugates (candidates with extreme conjugate coordinates, pool pairs whose product conjugate leaves an occupancy grid of the window, literature and Historian pairs as seeds; minimal recurrence by Berlekamp-Massey). Certified failures re-found for every named sequence, including the two the Skeptic reported against EXP-C08-06 ((2,2;1,2) at s = 6; (3,3;1,5) at s = 10, 11). Largest certified failing shift / first shift without failure (s <= 16) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 6/7, (3,3;1,5) 11/12, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, G(k+1) = G(k) + G(k-3) fails at every s <= 16. Atlas of 46 sequences - no non-Pisot sequence has a shift without failure (s <= 12). 90 quadratic rows - 27 have newly certified failures at shifts EXP-C08-06 had passed; 8 rows non-monotone on 0..12, all with beta < 0 and non-canonical initial values (0 of 30 beta > 0 rows). 0 uncertified embedding failures. The window filter cannot see failures within one grid cell of the fractal window boundary; the tribonacci failure at s = 3 is found only through the literature seed."
+    related: [CLM-C08-02, CLM-C08-03, CLM-C08-04, CLM-C08-05, CLM-C08-07, CLM-C08-08]
 
 claims:
   - id: CLM-C08-01
@@ -44,14 +50,15 @@ claims:
     system: SYS-C
     title: Circle products over non-Pisot base sequences are never associative
     statement: |
-      If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta
-      other than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.
+      If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a dominant root alpha > 1 and
+      another characteristic root beta with |beta| >= 1 (counted with multiplicity: a repeated dominant root counts as
+      such a beta), then the circle product o_s is non-associative for every s >= 0.
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-02]
+    evidence: [EXP-C08-02, EXP-C08-07]
     novelty: "POTENTIALLY NOVEL"
-    limitations: 10 non-Pisot sequences, shifts 0..8 only.
+    limitations: "10 non-Pisot sequences, shifts 0..8 (EXP-C08-02); the 10 again with certified failures at every s <= 12 (EXP-C08-07); the Skeptic adds 8 more non-Pisot sequences and the double root (x - 2)^2, all failing at every tested shift (s <= 25, resp. 12). The condition alpha > 1 is needed - G_k = k + 1 (minimal polynomial (x - 1)^2) gives a o_s b = a + b + s - 1, associative at every shift; the first wording, without it, was false (Skeptic review 2026-10-18)."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P10) - the statement needs a dominant root > 1; evidence extended by EXP-C08-07"
     novelty_basis: "As a conjecture, low confidence - not found; natural attack via Messaoudi's Cor 1 (window stability); related: property (F) implies Pisot (Frougny-Solomyak 1992) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C08-03
     type: theorem
     system: SYS-C
@@ -62,38 +69,41 @@ claims:
       associative once the shift s is large enough. (The earlier title, "Pisot base sequences ...", overstated
       the published theorem.)
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06]
+    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07]
     novelty: REDISCOVERY
+    limitations: "The lab's supporting thresholds were twice too low (CLM-C08-05, CLM-C08-07); the targeted search EXP-C08-07 still finds a first associative shift for every Pisot sequence of the atlas except G(k+1) = G(k) + G(k-3), which fails at every s <= 16 (the Skeptic - s <= 24) and seems to lie outside the theorem's hypotheses (its coefficients 1, 0, 0, 1 are not non-increasing)."
     novelty_basis: "Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - supporting evidence replaced by the targeted search EXP-C08-07"
   - id: CLM-C08-04
     type: conjecture
     system: SYS-C
     title: Non-monotone associative-shift sets require a negative conjugate root
     statement: |
-      For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is
-      associative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)
-      occur only when beta < 0.
+      For quadratic Pisot base sequences G(k+1) = pG(k) + qG(k-1) with non-canonical initial values (for canonical
+      ones the associative shifts are upward closed whatever the sign of beta, by Messaoudi's Thm 2 as derived by
+      the Historian): if the conjugate root beta is positive, the set of shifts s for which o_s is associative is
+      upward-closed; sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...) occur only when
+      beta < 0.
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-04, EXP-C08-03, EXP-C08-06]
+    evidence: [EXP-C08-07, EXP-C08-06, EXP-C08-04, EXP-C08-03]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md)."
-    limitations: "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative."
-    change_reason: "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing"
+    limitations: "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative. The Skeptic's review found the evidence of EXP-C08-04 contaminated - 31 of its 90 rows (8 with beta > 0) list certified-failing shifts as associative, and 4 of its 10 non-monotone rows are artefacts. After the targeted search EXP-C08-07 (shifts 0..12) 8 rows are non-monotone, all with beta < 0 and non-canonical initial values, and none of the 30 beta > 0 rows; the Skeptic's stronger search finds 0 of 231 beta > 0 sequences non-monotone (s <= 16) and 60 of 396 beta < 0 ones, none canonical."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P3) - statement restricted to non-canonical initial values; evidence replaced by EXP-C08-07"
   - id: CLM-C08-05
     type: observation
     system: SYS-C
-    title: Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)
+    title: Measured associativity thresholds for 46 base sequences (refuted - five of the eight quoted thresholds were too small)
     statement: |
       Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,
       G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;
       G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
     verification: REFUTED
-    counterexample: "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07."
-    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06]
+    counterexample: "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. The Skeptic's review adds G(k+1) = 3G(k) + 3G(k-1) (1,5) at s = 10: (173938 o 173938) o 1 != 173938 o (173938 o 1) - the fifth wrong value. Thresholds after the targeted search in CLM-C08-08."
+    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07]
     novelty: REDISCOVERY
     novelty_basis: "Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works)."
-    change_reason: "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P2) - a fifth wrong threshold; the sequence count is 46, not 45"
   - id: CLM-C08-06
     type: hypothesis
     system: SYS-C
@@ -118,12 +128,32 @@ claims:
       8 <= s <= 10; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10, no failure found for s = 11, 12;
       G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 9, no failure found for 10 <= s <= 12. Every failure is
       certified by an explicit triple; every "no failure" is computational support only.
-    verification: COMPUTATIONALLY SUPPORTED
+    verification: REFUTED
+    counterexample: "Two of its 'no failure found' ranges were wrong (Skeptic review 2026-10-18, reviews/skeptic_C05_C08_C12.md, P2) - G(k+1) = 2G(k) + 2G(k-1) (1,2) fails at s = 6: (314965 o 314965) o 1 != 314965 o (314965 o 1); G(k+1) = 3G(k) + 3G(k-1) (1,5) fails at s = 10 and s = 11: (173938 o 173938) o 1 != 173938 o (173938 o 1). Both re-verified with the lab's code and re-found by EXP-C08-07 (e.g. (5653, 42197, 1) at s = 6; (3192, 173938, 1) at s = 10; (12100, 12100, 1) at s = 11). The certified lower bounds of this claim stand; the thresholds it implied for these two sequences do not. Superseded by CLM-C08-08."
     proof_check: "lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)"
-    evidence: [EXP-C08-06]
+    evidence: [EXP-C08-06, EXP-C08-07]
     novelty: REDISCOVERY
     novelty_basis: "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements."
-    limitations: "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked)."
+    limitations: "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked). The lab's second attempt at these thresholds repeated the first one's mistake - searching where failures are rare."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges"
+  - id: CLM-C08-08
+    type: observation
+    system: SYS-C
+    title: "Associativity thresholds after the targeted search - certified lower bounds, no failure up to s = 16"
+    statement: |
+      For the circle product o_s: Fibonacci (1,2) fails for s <= 1, associative for s >= 2 (Lean, CLM-C08-01); Pell
+      (1,2,5) fails at s = 0 (associative for s >= 1, Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for
+      s <= 6; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 11; tribonacci (1,2,4) fails for s <= 3; 4-bonacci
+      (1,2,4,8) fails for s <= 7; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10; G(k+1) = G(k) + G(k-3) (1,2,3,4)
+      fails for every s <= 16 (the Skeptic - every s <= 24). Every failure is certified by an explicit triple. Above
+      these bounds no failure was found up to s = 16 by the targeted search of EXP-C08-07 and by the Skeptic's
+      independent extreme-conjugate search - computational support only.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C08-07, EXP-C08-06]
+    novelty: REDISCOVERY
+    novelty_basis: "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are measurements. The Skeptic's independent search (reviews/skeptic_C05_C08_C12.md, P2 and Appendix C.1) gives the same lower bounds."
+    limitations: "Two earlier versions of these thresholds (CLM-C08-05, CLM-C08-07) were refuted because failures are rare among random or small inputs. The targeted search is heuristic - its grid cannot see failures within one cell of the fractal window boundary (the tribonacci failure at s = 3 is found only through the literature seed), so the upper values may still be too low."
+
 journal:
   - key: C08-01
     agent: Mathematical Inventor
@@ -182,8 +212,20 @@ journal:
     text: "Lesson recorded for all cycles - random sampling of triples is not a reliable associativity test when failures are rare; use certificate-producing searches (exact embeddings, structured candidates, literature examples) and state 'no failure found' as support only."
     refs: [EXP-C08-06]
 
+  - key: C08-12
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - five of the eight thresholds of CLM-C08-05 fail with explicit triples, and the lab's own corrected values (EXP-C08-06, CLM-C08-07) are still too low for (2,2;1,2) and (3,3;1,5). Root cause - random or small inputs rarely hit the extreme-conjugate inputs that break associativity. CLM-C08-02 needs a dominant root > 1 (G_k = k + 1 is associative at every shift); the evidence of CLM-C08-04 is contaminated, its statement survives a stronger search."
+    refs: [CLM-C08-02, CLM-C08-04, CLM-C08-05, CLM-C08-07, reviews/skeptic_C05_C08_C12.md]
+  - key: C08-13
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C08-07 - a targeted search (extreme conjugates, a window occupancy grid, known pairs as seeds, minimal recurrences) reproduces every certified failure of the review with the lab's own code; thresholds now (2,2;1,2) >= 7, (3,3;1,5) >= 12, tribonacci >= 4, 4-bonacci >= 8, G+G(k-2) >= 11 (CLM-C08-08); 8 non-monotone quadratic rows, all beta < 0 and non-canonical. Lesson for the lab - for rare failures, search where the theory says failures live."
+    refs: [EXP-C08-07, CLM-C08-08, CLM-C08-04]
+
 next_directions:
   - "C08: complete the Lean proof of the shifted Knuth theorem"
-  - "C08: prove non-Pisot never-associativity (CLM-C08-02)"
+  - "C08: prove non-Pisot never-associativity (CLM-C08-02, dominant root > 1)"
+  - "C08: compute greedy windows exactly (Rauzy fractal boundaries) to turn the threshold searches of EXP-C08-07 into proofs"
   - "C08: compute greedy windows to prove the sign-of-beta conjecture (CLM-C08-04)"
   - "C09: arithmetic of the circle semigroup - irreducibles and factorisation"

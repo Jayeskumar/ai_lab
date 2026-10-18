@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C17-02",
     "file": "experiments/C17/E02_anchor_instance.py",
     "sha256": "c3db0b896ed0402e078cdb9af1415eb696b9ef56a792b762bac12724716548ca",
-    "systems_sha256": "1a60f382c0a1d5cf5b3cd6b2e4af9fb8f338536d564535d6ff2346fa4bf41574"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)"
@@ -127,6 +127,26 @@
       "results_sha256": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
       "runtime_s": 75.658,
       "started": "2026-10-18T09:19:59Z",
+      "summary": [
+        "382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31",
+        "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
+        "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-02",
+        "file": "experiments/C17/E02_anchor_instance.py",
+        "sha256": "c3db0b896ed0402e078cdb9af1415eb696b9ef56a792b762bac12724716548ca",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:53:21Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C17-02.json",
+      "results_sha256": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
+      "runtime_s": 73.781,
+      "started": "2026-10-18T17:52:07Z",
       "summary": [
         "382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31",
         "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",

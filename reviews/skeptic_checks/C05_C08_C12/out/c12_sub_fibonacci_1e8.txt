@@ -1,0 +1,14 @@
+fibonacci n=10 P_density=0.272727 max_g=5
+fibonacci n=100 P_density=0.198020 max_g=5
+fibonacci n=1000 P_density=0.173826 max_g=9
+fibonacci n=10000 P_density=0.178882 max_g=12
+fibonacci n=100000 P_density=0.172148 max_g=14
+fibonacci n=1000000 P_density=0.165110 max_g=15
+fibonacci n=6250000 P_density=0.170570 max_g=15
+fibonacci n=10000000 P_density=0.177270 max_g=15
+fibonacci n=12500000 P_density=0.179981 max_g=15
+fibonacci n=25000000 P_density=0.169496 max_g=15
+fibonacci n=50000000 P_density=0.179340 max_g=15
+fibonacci n=100000000 P_density=0.168512 max_g=16
+fibonacci n=100000000 P_density=0.168512 max_g=16
+exit=0 wall=8s

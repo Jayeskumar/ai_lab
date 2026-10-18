@@ -6,3 +6,35 @@
 real	0m1.817s
 user	0m1.895s
 sys	0m0.104s
+[EXP-C17-01] ok in 31.90s (reproduced previous hash)
+    wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27
+    exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53
+    H-C17-1 fails for: ['cyclic+1err', 'left_zero']
+
+real	0m32.923s
+user	0m22.972s
+sys	0m8.579s
+[EXP-C17-02] ok in 73.78s (reproduced previous hash)
+    382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31
+    associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}
+    LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)
+
+real	1m14.693s
+user	1m11.945s
+sys	0m0.686s
+[EXP-C07-01] ok in 86.85s (reproduced previous hash)
+    512 specs -> 134 distinct operations on [0,64)^2; commutative: 34; associative on the tested windows: 11
+    associative operations: R (x8, xor=False, nimprod=False, zero=False); L (x8, xor=False, nimprod=False, zero=False); D[x] (x6, xor=False, nimprod=False, zero=False); D[y] (x6, xor=False, nimprod=False, zero=False); D[x^y^z] (x4, xor=False, nimprod=True, zero=False); L+R (x4, xor=True, nimprod=False, zero=False); L+R+D[z] (x4, xor=False, nimprod=False, zero=False); empty (x1, xor=False, nimprod=False, zero=True); D[z] (x1, xor=False, nimprod=False, zero=False); D[x]+D[y] (x1, xor=False, nimprod=False, zero=False); D[x]+D[y]+D[z] (x1, xor=False, nimprod=False, zero=False)
+    commutative operations not closed on [0,2), [0,4), [0,16): 30
+
+real	1m27.648s
+user	1m23.638s
+sys	0m1.030s
+[EXP-C07-03] ok in 135.60s (reproduced previous hash)
+    222/670 rows (a = 1..5, b < 1500) additively periodic; 22 of 134 operations have all five rows periodic; 40 have none
+    D[x^y] row 2: independent algorithm = mex table (b < 1500): True; Jacobsthal block-swap formula mismatches for b < 32768: 0; involution: True
+    OEIS: row NO MATCH, |g(b)-b| NO MATCH
+
+real	2m16.361s
+user	2m12.071s
+sys	0m0.142s

@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C11-09",
     "file": "experiments/C11/E09_c3_baseline.py",
     "sha256": "58168097e4b352c1a2ba7b17011fe97ab419d96b58bcad6fb16974aa1f3cb39d",
-    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "env": {
-    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "git_head": "7fec8bd6551450f1cdb94c75b9dc5acbce351b3f",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:50:45Z",
+  "finished": "2026-10-18T17:59:48Z",
   "id": "EXP-C11-09",
   "meta": {
     "agent": "Mathematical Skeptic",
@@ -240,6 +240,6 @@
     }
   },
   "results_sha256": "30d4d6e2b7a623f52d5c42feecd97395a5939f711f9f042e20d17ef67a077872",
-  "runtime_s": 0.534,
-  "started": "2026-10-18T08:50:44Z"
+  "runtime_s": 0.855,
+  "started": "2026-10-18T17:59:48Z"
 }

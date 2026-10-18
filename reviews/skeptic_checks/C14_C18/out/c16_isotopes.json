@@ -1,0 +1,442 @@
+{
+ "Z2": {
+  "order": 2,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z4": {
+  "order": 4,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xZ2": {
+  "order": 4,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z6": {
+  "order": 6,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "S3": {
+  "order": 6,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z8": {
+  "order": 8,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xZ4": {
+  "order": 8,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2^3": {
+  "order": 8,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "D4": {
+  "order": 8,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Q8": {
+  "order": 8,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z10": {
+  "order": 10,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "D5": {
+  "order": 10,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z12": {
+  "order": 12,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xZ6": {
+  "order": 12,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "A4": {
+  "order": 12,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "D6": {
+  "order": 12,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Dic3": {
+  "order": 12,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z14": {
+  "order": 14,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "D7": {
+  "order": 14,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z16": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z4xZ4": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xZ8": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "D8": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Q16": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xD4": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z2xQ8": {
+  "order": 16,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 300,
+  "full_period_isotopes": 0
+ },
+ "Z18": {
+  "order": 18,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "D9": {
+  "order": 18,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "Z3xS3": {
+  "order": 18,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "Z20": {
+  "order": 20,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "Dic5": {
+  "order": 20,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "S4": {
+  "order": 24,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "SL(2,3)-free check: Z2xA4": {
+  "order": 24,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "Z24": {
+  "order": 24,
+  "prod_sgn_left_regular": 1,
+  "predicted_(-1)^m": 1,
+  "needed_for_full_period": -1,
+  "isotope_row_sign_products": [
+   1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "Z30": {
+  "order": 30,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "D15": {
+  "order": 30,
+  "prod_sgn_left_regular": -1,
+  "predicted_(-1)^m": -1,
+  "needed_for_full_period": 1,
+  "isotope_row_sign_products": [
+   -1
+  ],
+  "random_isotopes": 60,
+  "full_period_isotopes": 0
+ },
+ "all_consistent": true,
+ "odd_cyclic_isotopes": {
+  "7": {
+   "trials": 3000,
+   "full_period_isotopes": 47,
+   "rate_times_n2": 0.77
+  },
+  "9": {
+   "trials": 3000,
+   "full_period_isotopes": 30,
+   "rate_times_n2": 0.81
+  },
+  "11": {
+   "trials": 3000,
+   "full_period_isotopes": 26,
+   "rate_times_n2": 1.05
+  },
+  "13": {
+   "trials": 3000,
+   "full_period_isotopes": 19,
+   "rate_times_n2": 1.07
+  },
+  "15": {
+   "trials": 3000,
+   "full_period_isotopes": 15,
+   "rate_times_n2": 1.12
+  },
+  "17": {
+   "trials": 3000,
+   "full_period_isotopes": 7,
+   "rate_times_n2": 0.67
+  },
+  "19": {
+   "trials": 3000,
+   "full_period_isotopes": 19,
+   "rate_times_n2": 2.29
+  },
+  "21": {
+   "trials": 3000,
+   "full_period_isotopes": 4,
+   "rate_times_n2": 0.59
+  }
+ },
+ "runtime_s": 1.1
+}

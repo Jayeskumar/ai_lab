@@ -1,0 +1,5 @@
+RESULT affine N<=60: cases 1997717, max!=lcm 0, lcm!=ord3 1, fixed-point cases 1575672, max!=ord2 among them 1
+
+real	1m20.806s
+user	1m17.373s
+sys	0m0.031s

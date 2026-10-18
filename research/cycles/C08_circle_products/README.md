@@ -54,9 +54,25 @@ external validation of the implementation against the OEIS.
 > CLM-C08-03 was retitled to the hypotheses of Grabner–Pethő–Tichy–Woeginger.
 > Random triples up to 10⁶ are not a reliable associativity test.
 
+> **Second correction (2026-10-18, after the Skeptic's review).** EXP-C08-06
+> was still too weak: G(k+1) = 2G(k) + 2G(k−1) (1, 2) fails at s = 6 and
+> G(k+1) = 3G(k) + 3G(k−1) (1, 5) at s = 10 and 11 (e.g. (173938 ∘ 173938) ∘ 1
+> ≠ 173938 ∘ (173938 ∘ 1)). EXP-C08-07 searches where failures live — inputs
+> with extreme conjugates, whose products leave the window — and reproduces
+> every failure of the review. CLM-C08-07 is now REFUTED and CLM-C08-08 holds
+> the current values: (2,2;1,2) ≥ 7, (3,3;1,5) ≥ 12, tribonacci ≥ 4,
+> 4-bonacci ≥ 8, G(k)+G(k−2) ≥ 11 (lower bounds certified, no failure found up
+> to s = 16). The review also found the evidence of EXP-C08-04 contaminated
+> (31 of 90 rows, 8 with β > 0, list failing shifts as associative; 4 of its
+> 10 non-monotone examples are artefacts) — after EXP-C08-07, 8 rows are
+> non-monotone, all with β < 0 and non-canonical initial values. CLM-C08-02
+> now requires a dominant root > 1 (G_k = k + 1 is associative at every
+> shift).
+
 | Experiment | Outcome |
 |---|---|
-| EXP-C08-06 | certified re-test: thresholds now tribonacci ≥ 4, 4-bonacci ≥ 8, (2,2;1,2) ≥ 6, G(k)+G(k−2) ≥ 11 (lower bounds certified, "no failure found" above them); Conjecture 9.2 survives (0/30 positive-β rows non-monotone; all 10 non-monotone rows non-canonical) |
+| EXP-C08-06 | certified re-test: thresholds now tribonacci ≥ 4, 4-bonacci ≥ 8, (2,2;1,2) ≥ 6, G(k)+G(k−2) ≥ 11 (lower bounds certified, "no failure found" above them); Conjecture 9.2 survives (0/30 positive-β rows non-monotone; all 10 non-monotone rows non-canonical) — **still too weak, see the second correction** |
+| EXP-C08-07 | targeted search at extreme conjugates (after the Skeptic's review): (2,2;1,2) ≥ 7, (3,3;1,5) ≥ 12, tribonacci ≥ 4, 4-bonacci ≥ 8, G(k)+G(k−2) ≥ 11, G(k)+G(k−3) fails at every s ≤ 16; no non-Pisot atlas sequence has a shift without failure; 8 non-monotone quadratic rows, all β < 0 and non-canonical |
 
 ## Step 6 — Analysis
 

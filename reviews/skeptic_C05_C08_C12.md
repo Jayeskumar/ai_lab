@@ -19,13 +19,13 @@ CLM-C11-01 … 09, CLM-C12-01 … 13 (52 claims).
   - None of my scripts imports `systems/` or `lab/`. Stored results are only read, for comparison.
   - pysat is used only as a SAT solver (Kissat 4.0.4 and CaDiCaL 1.9.5, not the lab's CaDiCaL 1.5.3 or Glucose 4), on my own CNF encoding. numpy is used for vectorised arithmetic.
   - Heavy enumerations are my own C programs (`c08_assoc.c`, `c08_pairs.c`, `c08_extreme.c`, `c09_circle.c`, `c12_g03.c`, `c12_sub.c`), in exact integer arithmetic (`__int128` with overflow detection where needed).
-  - Every counterexample triple quoted below was re-verified by a separate plain-Python big-integer implementation (`c08_verify_triples.py`, `c08_verify_more.py`).
+  - Every counterexample triple quoted below was re-verified by a separate plain-Python big-integer implementation (`c08_verify_triples.py`, `c08_verify_more.py`, `c08_verify_extra.py`).
   - One Lean file of my own, `c05_order16.lean`, was compiled with `lake env lean` from `proofs/lean`. Nothing in `proofs/` was touched.
 - Lab experiments re-run (allowed): EXP-C05-05, EXP-C08-03, EXP-C09-04, EXP-C10-02, EXP-C11-09, EXP-C12-06 (see (b) R).
   - This rewrote those `results/*.json` and appended runs to `db/experiments/*.json` and `db/audit_log.jsonl`.
   - The pre-run result files are kept in `out/lab_rerun_before/`.
 - Not run: `lab sync`, `lab lean`, `lab book`, any git command. I committed nothing. EXP-C05-06 was not re-run (it needs a drat-trim binary and would overwrite its certificates).
-- All jobs ran under `nice -n 10`, one heavy job of mine at a time, each under 15 minutes. The longest were 137 s (targeted C08 search over 627 sequences) and 107 s (circle semigroup to 10⁸). Another reviewer's jobs shared the machine.
+- All jobs ran under `nice -n 10`, one heavy job of mine at a time, each under 15 minutes. The longest completed runs were 566 s (C05 census at n = 7, 8), 137 s (targeted C08 search over 627 sequences) and 107 s (circle semigroup to 10⁸). I stopped three runs that hung on SAT instances (see (c), harness faults). Another reviewer's jobs shared the machine.
 - Every check reported below was actually run. Where I stopped a run, I say so.
 
 ## Bottom line
@@ -50,14 +50,16 @@ CLM-C11-01 … 09, CLM-C12-01 … 13 (52 claims).
 - **All written proofs awaiting review are correct:** C09 Theorems 1, 3, 4 and C12 Theorem 8. Also correct: the other written proofs of C10, C11 and C12, and C08 Theorem 1, whose Lean file compiles.
   - Wording gaps: CLM-C09-07's bound |N(n)| < (√5/φ)n + 1 is not in the cited proof (a one-line proof is in A.2), and CLM-C09-03's title overstates.
 - **C05 frontier facts re-derived independently.**
-  - All 16 claimed non-memberships (gaps) are UNSAT under my own CNF and Kissat. The 13 with n ≤ 6 are UNSAT even without the extra Latin-row and symmetry-breaking constraints.
+  - All 15 claimed non-memberships (gaps) are UNSAT under my own CNF and Kissat. The 13 with n ≤ 6 are UNSAT even without the extra Latin-row and symmetry-breaking constraints.
   - All 12 certified tables satisfy their laws. Every ETP number used (21 laws) matches the official ETP list.
 - **Everything else I recomputed agrees with the records.** This covers the C05 census, C09 counts and the window obstruction to 10⁸, the C10 constants, the C11 counts, comparisons and benchmarks, and the C12 closed forms. Details in (b).
 - **Other problems** (details in (c)):
-  - P4: the "exhaustive" factorisation enumeration behind CLM-C09-08 was truncated at 64 factorisations per n (41 truncation hits).
+  - P4: the "exhaustive" factorisation enumeration behind CLM-C09-08 was truncated at 64 factorisations per n (41 truncation hits). My exact recount gives the same numbers.
   - P5: a floating-point boundary misclassification in EXP-C09-04 (n = 1).
   - P7: CLM-C10-05's evidence covered only offset-1 rules.
-  - P9, P10: stale C08/C05 documents.
+  - P9: the C08 README and claim records are stale; P1 lists the C05 documents that repeat the refuted conjecture.
+  - P10: CLM-C08-02's wording (G_k = k + 1 is associative at every shift).
+  - CLM-C12-13: subtract-a-Fibonacci reaches Grundy value 15 at n = 206,025, just outside the lab's range, and 16 at 63,331,966. Boundedness is not refuted, but the support is weaker than recorded.
 
 ---
 
@@ -66,14 +68,14 @@ CLM-C11-01 … 09, CLM-C12-01 … 13 (52 claims).
 | Claim | Verdict | Details | Recommended status change |
 |---|---|---|---|
 | CLM-C05-01 (H-C05-1: spectrum {1} or all; refuted) | **UPHELD** | Lean re-run OK (`T4_law167`, `T5_law167`, `law167_card_mod_four`). My own evaluator confirms both tables. Brute force over all 16 + 19,683 tables finds no model of law 167 at orders 2, 3. | None. |
-| CLM-C05-02 (census of 115 identities) | CENSUS_VERDICT | CENSUS_DETAILS | CENSUS_CHANGE |
+| CLM-C05-02 (census of 115 identities) | **UPHELD** | My own enumeration gives the same 115 identities (2 + 15 + 98). Own CNF and CaDiCaL 1.9.5, n ≤ 6, sound constraints only, 300k conflicts: the per-identity spectrum strings equal EXP-C05-01 for **all 115**. That means 52 full, 2 only n = 1, 61 restricted, the same 11 patterns, and the same single UNKNOWN (law 167 at n = 6, excluded by the Lean theorem). Model counts for n ≤ 3 equal brute force. At n = 7, 8 (one identity per EXP-C05-02 pattern, 15 patterns, 1M conflicts) all 25 decided values agree with EXP-C05-02. I additionally decided 670 at n = 7 (absent, as the notes say); 5 instances stayed UNKNOWN, at the lab's '?' positions. Non-memberships remain solver-trusted, as the record says. | None. |
 | CLM-C05-03 (H-C05-Q refuted) | **UPHELD** | T4 row 1 = (0, 2, 2, 2) (Lean `T4_not_latin`, own check). By brute force over all magmas of order ≤ 3, exactly 18 of the 115 identities have a non-quasigroup model of order ≤ 3. | None. |
 | CLM-C05-04 (law 167: n ≡ 0, 1 mod 4) | **UPHELD** | Lean re-run OK, standard axioms. `Law167 op := ∀ x y, op (op y x) (op x y) = x` is exactly x = (yx)(xy). The conclusion `card % 4 = 0 ∨ = 1` is the English. The parenthetical sufficiency (matching the 2-subsets in pairs {a,b} ↔ {c,d}; ab = c, ba = d, cd = b, dc = a; xx = x) was checked for every n ≡ 0, 1 (mod 4) up to 29, with 5 random matchings each. | None. |
 | CLM-C05-05 (left translations bijective) | **UPHELD** | `left_mul_bijective_of_law` matches the x = y∗s(x, y) case. The written path version (Lemma 1) is correct (A.1). | None. |
 | CLM-C05-06 (H-C05-A refuted) | **UPHELD** | NAND model re-checked. Affine models of (yx)(x(yy)) over ℤ_n exist exactly for n ∈ {1, 5} (n ≤ 6, brute force). Own recount: exactly 4 identities are full on 1..6 without affine models at every n ≤ 6, with affine spectra {1,5}, {1,2,5}, {1,2,5}, {1,5}. 39 restricted identities have spectrum members without affine model; no affine model lies outside the SAT spectrum. | None. |
 | CLM-C05-07 (new memberships, POTENTIALLY NOVEL) | **UPHELD** | All 12 Lean tables of the file satisfy their laws under my own evaluator, and the Lean file re-compiles. The ETP numbers 467, 677, 1286, 1313, 1516 (and all other numbers used in C05) match the official ETP list. My own SAT encoding re-finds 677 at 5 and 7; I stopped the re-search at 677@9 because every membership is already Lean-certified. The novelty is explicitly relative to the notes read, which is fair. I read Le Floch's notes myself, and the lab's reading is accurate: 677 "unknown spectrum" with no sizes; 1313 "starting with 1,5,7"; 1286 "1,7"; 1516 "1,5,7,8"; 467: odd k² + l² with k, l of different parity, which covers 9. Note: 677 and 1313 also have models of order 16 (CLM-C05-09). | None (optionally add order 16 for 677 and 1313). |
-| CLM-C05-08 (new gaps, POTENTIALLY NOVEL, computer-assisted) | **UPHELD** | Own CNF (no subterm sharing, exactly-one per node) + Kissat 4.0.4 with only the sound constraints: UNSAT for all 16 listed instances (501@2,3,6,7; 677@2,3,4,6; 883@3,6; 1076@8; 1083@2,5,6; 1719@2). The 13 with n ≤ 6 are also UNSAT under CaDiCaL 1.9.5 **without** the Latin-row and symmetry-breaking constraints, which removes Lemma 4 from the trust base for them. My encoder matches brute force on all 115 identities at n = 2, 3. My runs are solver-trusted; the DRUP certificates are the lab's. Le Floch's notes (read): 501 "containing 1,4,5,8,9", 883 "containing {1,2 mod 3}", 1076 "starting with 1,5, not 6 nor 7", 1083 "containing 1,3,4,7,8,9", 677 no sizes, plus the lists of 31 laws without order-2 models and 14 without order-3 models. So the split into "new" and "stated in the notes" is correct. | None. |
-| CLM-C05-09 (677 and 1313: spectrum {1} ∪ odd n ≥ 5) | **REFUTED** | Both laws have models of order 16: affine maps over GF(16), 8 pairs (a, b) per law. Brute force over all (x, y) and Lean's kernel (`decide`) confirm them; Appendix B. No affine model over GF(8), GF(4), ℤ₈, ℤ₁₀, ℤ₁₆, so orders 8 and 10 remain open. | CONJECTURE → **REFUTED**; record the counterexample. Spectra now contain 1, 5, 7, 9, 16 (and products such as 80). |
+| CLM-C05-08 (new gaps, POTENTIALLY NOVEL, computer-assisted) | **UPHELD** | Own CNF (no subterm sharing, exactly-one per node) + Kissat 4.0.4 with only the sound constraints: UNSAT for all 15 listed instances (501@2,3,6,7; 677@2,3,4,6; 883@3,6; 1076@8; 1083@2,5,6; 1719@2). The 13 with n ≤ 6 are also UNSAT under CaDiCaL 1.9.5 **without** the Latin-row and symmetry-breaking constraints, which removes Lemma 4 from the trust base for them. My encoder matches brute force on all 115 identities at n = 2, 3. My runs are solver-trusted; the DRUP certificates are the lab's. Le Floch's notes (read): 501 "containing 1,4,5,8,9", 883 "containing {1,2 mod 3}", 1076 "starting with 1,5, not 6 nor 7", 1083 "containing 1,3,4,7,8,9", 677 no sizes, plus the lists of 31 laws without order-2 models and 14 without order-3 models. So the split into "new" and "stated in the notes" is correct. | None. |
+| CLM-C05-09 (677 and 1313: spectrum {1} ∪ odd n ≥ 5) | **REFUTED** | Both laws have models of order 16: affine maps over GF(16), 8 pairs (a, b) per law. Brute force over all (x, y) and Lean's kernel (`decide`) confirm them; Appendix B. There is no affine model of order 8 over any abelian group of order 8 (ℤ₈, ℤ₄×ℤ₂, GF(2)³ with matrix coefficients) and none over ℤ₁₀, so orders 8 and 10 remain open. | CONJECTURE → **REFUTED**; record the counterexample. Spectra now contain 1, 5, 7, 9, 16 (and products such as 80). |
 | CLM-C08-01 (all shifted Knuth products associative) | **UPHELD** | Lean re-run OK. `circ t a b` is exactly Σ_{k∈Z(a)} Σ_{l∈Z(b)} F(k+l+t) with Mathlib's Zeckendorf list. The written proof (window, integrality, injectivity) is correct (A.3). Own C checker, from the greedy definition in G-indexing: (2,4,4) at s = 0 and (1,4,4) at s = 1 are the lexicographically first failures. No failure at s = 2…24 on 416,000 triples each (cube [1,60]³ + 200,000 random up to 10⁹). | None. |
 | CLM-C08-02 (non-Pisot ⇒ never associative) | **UPHELD WITH CAVEATS** | No counterexample with dominant root > 1. All 10 lab sequences and 8 new non-Pisot sequences fail at every s = 0…25 with explicit triples: Mersenne 2^(k+1) − 1 (3,−2; 1,3), (3,−2; 1,4), (4,−3; 1,2), (1,4; 1,2), (2,4; 1,3), (1,6; 1,2), (2,8; 1,3), and (1,1,2; 1,2,3) with roots 2 and the primitive cube roots of unity. The double root (x − 2)², G_k = (k+1)2^k, fails at every s ≤ 12. Wording problem: G_k = k + 1 has minimal polynomial (x − 1)² and **is associative at every shift** (a ∘_s b = a + b + s − 1). EXP-C08-02's classifier would call it "non-Pisot". | Keep COMPUTATIONALLY SUPPORTED; require dominant root α > 1 (and say how repeated roots count). |
 | CLM-C08-03 (Pisot ⇒ eventually associative; GPTW) | **UPHELD WITH CAVEATS** | A published theorem, cited. The supporting thresholds are partly wrong (CLM-C08-05), and the title is broader than GPTW, as the Historian notes. In my data G(k+1) = G(k) + G(k−3) fails at every s ≤ 24, consistent with it lying outside GPTW's hypotheses. | Restrict the title to GPTW's class. |
@@ -81,14 +83,14 @@ CLM-C11-01 … 09, CLM-C12-01 … 13 (52 claims).
 | CLM-C08-05 (thresholds for 8 sequences) | **REFUTED (as stated)** | Certified failing triples, re-verified in Python (Appendix C.1): tribonacci at s = 3; 4-bonacci at 7; G(k+1) = G(k) + G(k−2) at 10; (3,3; 1,5) at **10 and 11**; (2,2; 1,2) at **5 and 6**. Only Fibonacci 2, Pell 1 and "G+G(k−3): none ≤ 20" survive; the last extends to s ≤ 24. | COMPUTATIONALLY SUPPORTED → **REFUTED** (or rewrite as lower bounds: ≥ 4, ≥ 8, ≥ 11, ≥ 12, ≥ 7 and cite the triples); correct the C08 README. |
 | CLM-C08-06 (H-C08-1 refuted) | **UPHELD** | Fibonacci with s = 3 is associative by the Lean theorem. | None. |
 | CLM-C09-01 (structure, embedding into ℤ[φ]) | **UPHELD** | Written proof correct (A.2). Exact checks for all n ≤ 10⁸ with products from the Zeckendorf definition, comparing conjugates with ψ-powers by integer sign tests: the window −ψ² < ν′(n) < −ψ holds for every n, and n* = ⌊(n+1)/φ⌋ for every n. | Mark "written proof, skeptic-reviewed". |
-| CLM-C09-02 (unique factorisation refuted) | **UPHELD** | 8 = 1∘1∘1 = 2∘2 re-derived. Exact recount: FACT_FIRST. | None. |
+| CLM-C09-02 (unique factorisation refuted) | **UPHELD** | 8 = 1∘1∘1 = 2∘2 re-derived. An exact recount (no truncation) gives 75,332 n ≤ 2·10⁵ with ≥ 2 factorisations, the first being 8. | None. |
 | CLM-C09-03 (window obstruction, density 1/φ², POTENTIALLY NOVEL) | **UPHELD** | Written proof correct (A.2). Own exact computation to 10⁸: no reducible n outside the zone (ψ³, ψ²); forced-irreducible density 0.381966 at 10⁷ and 10⁸. Wording: the title "a fixed proportion 1/φ² of all integers are circle-irreducible" reads as "the irreducibles have density 1/φ²", which is Conjecture CLM-C09-05. The theorem gives density ≥ 1/φ². | Mark skeptic-reviewed; reword the title ("at least 1/φ²"). |
 | CLM-C09-04 (density → 0 refuted) | **UPHELD** | Follows from CLM-C09-03. Irreducible density 0.5314 at 10⁷, 0.5247 at 10⁸. | None. |
 | CLM-C09-05 (irreducible density exactly 1/φ², conjecture) | **UPHELD** (no counterexample) | The irreducible fraction inside the product zone is 0.2547 at 10⁶, 0.2418 at 10⁷, 0.2310 at 10⁸. This fits c·(log n)^(−0.33) well (successive log-log slopes −0.27, −0.33, −0.33, −0.34, −0.34), so it is consistent with decay to 0, but also with a positive limit. | Keep CONJECTURE; record the 10⁸ data. |
-| CLM-C09-06 (length bound \|ν′(n)\| < \|ψ\|^r) | **UPHELD** | Proof correct (A.2). FACT_BOUND | Mark skeptic-reviewed. |
+| CLM-C09-06 (length bound \|ν′(n)\| < \|ψ\|^r) | **UPHELD** | Proof correct (A.2). Exact test (integer sign arithmetic) with the maximal factorisation length of every n ≤ 2·10⁵, from an exact length-set DP: 0 violations. The maximal length is 13. | Mark skeptic-reviewed. |
 | CLM-C09-07 (norm multiplicative; bound; units) | **UPHELD WITH CAVEATS** | Multiplicativity and N = ±1 ⇔ Fibonacci are in Theorem 1's proof. The bound \|N(n)\| < (√5/φ)n + 1 is **not proved anywhere** in `C09.md`. It is true by one line (A.2). | Add the one-line proof. |
-| CLM-C09-08 (factorisation statistics; PROVEN) | FACT_VERDICT | FACT_DETAILS | FACT_CHANGE |
-| CLM-C10-01 (b/(b−1), 2, 3/2, e − 1, Gray 1) | **UPHELD** | Frequency proofs checked (negabinary and balanced ternary: digit k is determined by n mod b^(k+1) and changes on a cyclic block structure). Own averages over N = 10⁶ increments: 1.999993, 1.499993, 1.111111, 1.999997, 1.5, 1.718277, 1.0. The lab's figures are over 999,999 increments (P8, cosmetic). | None. |
+| CLM-C09-08 (factorisation statistics; PROVEN) | **UPHELD WITH CAVEATS** | Exact recount with my own products and DP, no truncation (14 s): 75,332 n with ≥ 2 factorisations, 29,577 with factorisations of different lengths, maximal elasticity 2.5, maximal length 13. 539,392 irreducibles ≤ 10⁶. All as recorded. The elasticity 2.5 is first attained at n = 98,700 (also at 196,405). Caveat: the lab's enumeration truncated factorisation sets at 64 per n (41 hits; my exact maximum is 111), so it was not the "exhaustive enumeration" the proof_check names. The numbers happen to survive (P4). | None to the status (it now rests on an exact recount); fix the proof_check wording; optionally cite n = 98,700. |
+| CLM-C10-01 (b/(b−1), 2, 3/2, e − 1, Gray 1) | **UPHELD** | Frequency proofs checked (negabinary and balanced ternary: digit k is determined by n mod b^(k+1) and changes on a cyclic block structure). Own averages over N = 10⁶ increments: binary 1.999993, ternary 1.499993, decimal 1.111111, negabinary 1.999997, balanced ternary 1.500000, factorial 1.718277 (e − 1 = 1.718282), Gray 1.0. The lab's figures are over 999,999 increments (P8, cosmetic). | None. |
 | CLM-C10-02 (Zeckendorf T_m) | **UPHELD** | Brute force T_m for m ≤ 30 equals 2G_m − ⌈m/2⌉ − 2 and the recurrence. The potential identity d(n, n+1) = 2 + s(n) − s(n+1) (s = number of 1s) holds for all n < 10⁶, so Σ_{n<N} = 2N − s(N) exactly. That is sharper than the proof's O(log² N). | None. |
 | CLM-C10-03 (H-C10-0 refuted) | **UPHELD** | Both averages tend to 2 (Hamming measure). | None. |
 | CLM-C10-04 (firings 1/(m − B)) | **UPHELD** | Proof correct; token counting alone suffices (A.4). Own counter, 31 rules, N = 400,000: max deviation 3.4·10⁻⁴. The incremental counter equals full stabilisation at sampled n ≤ 3000. | Mark skeptic-reviewed. |
@@ -115,8 +117,8 @@ CLM-C11-01 … 09, CLM-C12-01 … 13 (52 claims).
 | CLM-C12-09 (H-C12-0 inconclusive) | **UPHELD** (status correct) | Ill-posed hypothesis; nothing to check. | None. |
 | CLM-C12-10 (signature hypothesis refuted) | **UPHELD** | All quoted pairs re-computed: G01 (1, 0), G02 (2, 1), G03 (1, 0), G05 (1, 2), G06 (2, 4). | None. |
 | CLM-C12-11 (sparse sets keep positive P-density; refuted) | **UPHELD** | Densities re-computed. | None. |
-| CLM-C12-12 (subtract-a-prime ≤ 11) | **UPHELD** | SUB_PRIME | None. |
-| CLM-C12-13 (subtract-a-Fibonacci bounded) | **UPHELD** (no counterexample) | SUB_FIB | SUB_FIB_CHANGE |
+| CLM-C12-12 (subtract-a-prime ≤ 11) | **UPHELD** | Own bitset computation to 10⁶ (lab: 2·10⁵): max 11 (from n ≤ 1000 on). P-density 0.1549 at 2·10⁵, 0.1639 at 10⁶, still rising. The OEIS bound to 10⁹ is cited correctly. | None. |
+| CLM-C12-13 (subtract-a-Fibonacci bounded) | **UPHELD** (no counterexample; support weaker than recorded) | "Maximum 14 for n ≤ 2·10⁵" is exactly right, but own computation to 10⁸ finds new records just outside that range. First occurrences: 13 at 12,071, 14 at 48,652, **15 at 206,025**, **16 at 63,331,966**. P-density stays in 0.165–0.180 up to 10⁸ (≤ 1/5, as Pond–Howells). | Keep CONJECTURE; record the records 15 and 16 (the limitation "unchanged up to 2e5" is true but misleading). |
 
 ---
 
@@ -133,7 +135,7 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
   - C12: ⊆ {propext, Classical.choice, Quot.sound}.
 - `grep -nE "sorry|admit|native_decide|axiom|unsafe|implemented_by|extern|opaque"` finds no hits (`out/lean_grep.txt`).
 - Statement match was checked for every theorem cited by a claim; see (a).
-- `c05_order16.lean` (my own file): `M677_law`, `M1313_law` by `decide`, exit 0, axioms [propext] (`out/lean_c05_order16.txt`).
+- `c05_order16.lean` (my own file): `M677_law`, `M677i_law`, `M1313_law`, `M1313i_law` (the laws) and `M677i_idem`, `M1313i_idem` (idempotence), all by `decide`. Exit 0, 10 s, axioms [propext] (`out/lean_c05_order16.txt`).
 
 **C05** (`python3 c05_checks.py <part>`; own parser, enumerator, evaluator and CNF):
 
@@ -144,11 +146,12 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
 | tables | the 12 Lean tables re-parsed from the .lean file and evaluated; law 167 and law 66 at n = 2, 3 by brute force; affine models of (yx)(x(yy)) | all satisfy; law 167: 0, 0 models; law 66: 0, 4; affine at n = 1, 5 only |
 | brute3 | all magmas of order ≤ 3 for my own list of the 115 identities | the same 115 identities as EXP-C05-01; model counts n = 1..3 identical for all 115; 18 with non-quasigroup models |
 | affine | affine models over ℤ_n, n ≤ 6 | 4 full-spectrum identities without affine models at all n ≤ 6; 39 restricted with non-affine members; 0 affine outside the spectrum |
-| census | SAT spectra n ≤ 6 for all 115 (sound constraints only; 60 s per instance), n = 7, 8 for 2 identities per pattern | CENSUS_TABLE |
-| frontier (`out/c05_frontier.log`, `out/c05_frontier_summary.json`) | the gaps of CLM-C05-08 with Kissat (sound constraints) and, for n ≤ 6, CaDiCaL without any extra constraint; memberships | 16/16 UNSAT; 13/13 UNSAT without extra constraints; 677 at 5, 7 SAT. I stopped the run during the re-search of 677@9 (memberships are Lean-certified) |
+| census, census78 | SAT spectra n ≤ 6 for all 115 (sound constraints only, CaDiCaL 1.9.5, 300k conflicts; 33 s in total); n = 7, 8 for one identity per EXP-C05-02 pattern (1M conflicts; 566 s) | n ≤ 6: 115/115 strings equal to EXP-C05-01; patterns {111111: 52, 101110: 16, 100010: 14, 110110: 8, 101100: 6, 100110: 6, 101011: 4, 101111: 4, 101000: 2, 100000: 2, 10011?: 1}; only UNKNOWN 167@6. n = 7, 8: 25 decided, 0 disagreements; UNKNOWN 167@7, 670@8, 677@8, 907@8, 1286@8 |
+| frontier (`out/c05_frontier.log`, `out/c05_frontier_summary.json`) | the gaps of CLM-C05-08 with Kissat (sound constraints) and, for n ≤ 6, CaDiCaL without any extra constraint; memberships | 15/15 UNSAT; 13/13 UNSAT without extra constraints; 677 at 5, 7 SAT. I stopped the run during the re-search of 677@9 (memberships are Lean-certified) |
 | `c05_law167_construction.py` | sufficiency construction for law 167 | valid for every n ≡ 0, 1 (mod 4), n ≤ 29 |
 | `c05_gf16.py` | affine models of 677 and 1313 over GF(16), GF(8), GF(4), ℤ₈, ℤ₁₀, ℤ₁₆ | GF(16): 8 models per law (Appendix B); none elsewhere |
-| conj09 | CONJ09_WHAT | CONJ09_RESULT |
+| `c05_odd_affine.py` | idempotent affine models over ℤ_p, p < 200 | 677: p = 5 and every p ≡ 1 (mod 10); 1313: p = 5, 31, 71, 101, 131, 151, 191 |
+| `c05_order8_linear.py` | order-8 affine models of 677 and 1313 over GF(2)³ with arbitrary 3×3 matrix coefficients (all 512² pairs, homogeneous conditions derived in Appendix B; the derivation agrees with brute-force evaluation on 3000 random pairs) and over ℤ₄×ℤ₂ with all endomorphism pairs and constants | none. Together with ℤ₈ (`c05_gf16.py`), no affine model of order 8 over any abelian group of order 8 |
 
 **C08** (own C checkers; `c08_checks.py`, `c08_targeted.py` drive them):
 
@@ -163,7 +166,7 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
 | `python3 c08_checks.py posbeta / negbeta` | the same families with random triples | 0/231 and 67/396 non-monotone (weaker test; kept for comparison) |
 | `python3 c08_checks.py nonpisot` | 10 lab + 8 new non-Pisot sequences, s = 0…25 | every shift fails for every one of them. Two further entries turned out not to be non-Pisot: (1,2,1) is Pisot and (1,1,1,2; 1,2,4,8) is geometric; as controls, both are associative from some s |
 | `./c08_assoc 2 2 -1 1 2 …` | G_k = k + 1 | associative at every tested s (provable: a ∘_s b = a + b + s − 1) |
-| `python3 c08_verify_triples.py`, `c08_verify_more.py` | plain-Python big-integer re-verification | every failing triple quoted in this review confirmed |
+| `python3 c08_verify_triples.py`, `c08_verify_more.py`, `c08_verify_extra.py` | plain-Python big-integer re-verification | every failing triple quoted in this review confirmed (26 triples) |
 
 **C09** (`./c09_circle X`, products from the Zeckendorf definition; conjugates compared exactly with ψ-powers via integer sign tests):
 
@@ -175,7 +178,14 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
 
 - 928,760,784 pairs a ≤ b with ab ≤ 10⁸ were evaluated; the bound a∘b ≥ ab follows from F_{k+l} ≥ F_k F_l, so no monotonicity was assumed.
 - First irreducibles: 1, 2, 4, 6, 7, 9, 10, 12, 14, 15, … as recorded.
-- `python3 c09_fact.py 200000` (exact factorisation sets, no truncation; exact length-set DP; exact length-bound test): FACT_TABLE
+- `python3 c09_fact.py 200000` (exact factorisation sets, no truncation; exact length-set DP; exact length-bound test; 14 s):
+  - ≥ 2 factorisations: 75,332, first 8 = 1∘1∘1 = 2∘2;
+  - different lengths: 29,577;
+  - maximal elasticity 2.5, at n = 98,700 and 196,405;
+  - up to 111 factorisations for one n;
+  - maximal length 13;
+  - the length-set DP equals the lengths of the factorisation sets for every n;
+  - length bound: 0 violations.
 
 **C10** (`python3 c10_checks.py <part>`):
 - classical (N = 10⁶): see (a). Digit functions are validated against their values for n < 2000.
@@ -193,7 +203,9 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
 - `python3 c12_checks.py step3`: mex equation for F at 2^a m, m ≤ 15 odd, 6 ≤ a ≤ 400: 0 failures. Offset sets {v − a : v ≥ a − 4}, presence of 0, and completeness of 1 … a − 5: identical for all a of each parity, 13 ≤ a ≤ 400.
 - `python3 c12_checks.py step2`: exhaustive 17 ≤ m ≤ 3001, 1 ≤ a ≤ 60, and 2,912 random m with known factorisation, a ≤ 200: 0 failures.
 - `python3 c12_checks.py divisor | coprime | misc | split`: 0 mismatches (ranges in (a)).
-- `./c12_sub {squares,triangular,fibonacci,primes} N`: P-densities and maxima at 1.25·10⁴ … 2·10⁵ identical to EXP-C12-03; SUB_EXT
+- `./c12_sub {squares,triangular,fibonacci,primes} N`: P-densities and maxima at 1.25·10⁴ … 2·10⁵ identical to EXP-C12-03.
+  - Extended: Fibonacci to 10⁸ (8 s): records 15 at 206,025 and 16 at 63,331,966 (`out/c12_sub_fibonacci_records.txt`).
+  - Primes to 10⁶ (9 s): max 11, P-density 0.163912.
 
 **R. Reproducibility.**
 - `python3 repro_check.py`: the code sha256 stored in all 35 result files of the six cycles equals the current script (`out/repro_sha.json`).
@@ -201,7 +213,14 @@ Unless noted, commands run from `reviews/skeptic_checks/C05_C08_C12/` with `nice
 
 | experiment | stored sha256 = current script | outcome |
 |---|---|---|
-LAB_RERUNS
+| EXP-C09-04 | yes | reproduced previous hash (4.2 s) |
+| EXP-C10-02 | yes | reproduced previous hash |
+| EXP-C11-09 | yes | reproduced previous hash |
+| EXP-C12-06 | yes | reproduced previous hash |
+| EXP-C05-05 | yes | reproduced previous hash |
+| EXP-C08-03 | yes | reproduced previous hash (24.6 s) |
+
+`python3 lab_rerun_compare.py`: identical `results_sha256` and identical top-level results for all six (`out/lab_rerun_compare.json`). `systems_sha256` is not compared, because it hashes the whole `systems/` directory, which other cycles keep extending.
 
 ---
 
@@ -215,7 +234,9 @@ P1–P3 change mathematical conclusions. The others do not.
 - **P2 (wrong thresholds; stale records, CLM-C08-05).**
   - The claim still reads "(2,2;1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k−2) 10, (3,3;1,5) 10" (history: created only). The C08 README (EXP-C08-03 row, "Thresholds: …") says the same.
   - All five values are refuted by explicit triples (Appendix C.1).
-  - The lab's own correction EXP-C08-06 (17:04) and the corrected textbook chapter fixed tribonacci, 4-bonacci and G+G(k−2), but not the claim or the README.
+  - The lab's own correction EXP-C08-06 (17:04) moved tribonacci, 4-bonacci and G+G(k−2) to 4, 8, 11, consistent with my results. It moved (2,2;1,2) and (3,3;1,5) to 6 and 10, which are still too low.
+  - The corrected textbook chapter states the first three as lower bounds and only says that the (2,2) value 5 was wrong.
+  - Neither correction reached the claim record or the README.
   - EXP-C08-06 itself still reports "no failure found" at (2,2;1,2) s = 6 and (3,3;1,5) s = 10, 11. All three fail: (314965 ∘₆ 314965) ∘₆ 1 ≠ 314965 ∘₆ (314965 ∘₆ 1), and (173938 ∘ 173938) ∘ 1 ≠ 173938 ∘ (173938 ∘ 1) at s = 10 and at s = 11.
   - Root cause: random triples or pairs up to 10⁶ (and pairs below 300) rarely hit the extreme-conjugate inputs that break associativity. Choosing a, b with extreme conjugates finds them immediately (`c08_extreme.c`).
   - Every remaining "no failure found" threshold is computational support only (Fibonacci excepted).
@@ -224,7 +245,10 @@ P1–P3 change mathematical conclusions. The others do not.
   - 4 of its 10 non-monotone rows are artefacts: (4,3;1,5) and (3,3;1,2) (found by the Historian), and (2,2;1,5) at s = 6 and (3,2;1,6) at s = 4 (new; EXP-C08-06 still lists them as non-monotone).
   - Consequently the chapter's "10 non-monotone sequences … two of the original ten examples were artefacts" (`09_circle_products.md`, Conjecture 9.2) should read: 8 on 0…10, 4 artefacts.
   - The conjecture itself survives the stronger search.
-- **P4 (overstated certification, CLM-C09-08 / EXP-C09-02).** FACT_PROBLEM
+- **P4 (overstated certification, CLM-C09-08 / EXP-C09-02).**
+  - `systems/circle_arith.factorizations` truncates factorisation sets at 64 per n. EXP-C09-02 hit the cap 41 times; my exact maximum is 111.
+  - Yet CLM-C09-08 is PROVEN as "computer-assisted exhaustive enumeration", and EXP-C09-04's length-bound test uses the same truncated sets.
+  - My exact recount reproduces every reported number and the bound, so only the wording changes. The record should cite an exact enumeration.
 - **P5 (floating-point boundary, EXP-C09-04).**
   - The script tests ψ³ < nψ + n* < ψ² in floating point. For n = 1 the value is exactly ψ² (a boundary point), but it rounds to 0.3819660112501051 < 0.3819660112501052, so n = 1 is counted inside the open zone.
   - n = 1 is irreducible, so no theorem is affected. The reported "irreducible fraction inside the zone" (0.315534 at 10³) and "forced density" (0.382 at 10³, 0.381966 at 10⁶) are off by that one count. Exact values: 0.314425 and 0.383 at 10³, 0.381967 at 10⁶.
@@ -347,16 +371,20 @@ Faults in my own harness, fixed before the reported runs:
 - **Law 1313.** x = y(((yx)x)y) gives (a²b² + ab²)x + (a + a³b + b²)y. So it holds iff ab²(a + 1) = 1 and a + a³b + b² = 0.
 - **Idempotent case in characteristic 2** (b = 1 + a):
   - Law 677 reduces to b⁴ + b³ + b² + b + 1 = 0, after which ab(1 + b²) = b(1 + b)³ = b + b² + b³ + b⁴ = 1 holds automatically.
-  - Law 1313 reduces to the same equation for a.
+  - With a + b = 1, law 1313 reduces to a⁴ + a³ + a² + a + 1 = 0, after which ab²(a + 1) = a(1 + a)³ = 1 holds automatically.
   - So a primitive 5th root of unity is needed. GF(16) has one: t³, with t⁴ = t + 1.
 - **The models.** In GF(16) = GF(2)[t]/(t⁴ + t + 1), elements as 4-bit masks (bit i ↔ tⁱ):
   - 677: x∗y = (1 + t³)x + t³y, i.e. (a, b) = (9, 8).
   - 1313: x∗y = t³x + (1 + t³)y, i.e. (a, b) = (8, 9).
   - In fact `c05_gf16.py` finds 8 pairs (a, b) for each law over GF(16), checked by brute force over all 256 (x, y). It finds none over GF(8), GF(4), ℤ₈, ℤ₁₀ or ℤ₁₆.
   - The tables are in `out/c05_gf16.json`.
-  - LEAN_B
+  - Lean's kernel checks four of the tables by `decide` (`c05_order16.lean`, axioms: propext only): (6, 11) and the idempotent (9, 8) for 677; (2, 6) and the idempotent (8, 9) for 1313.
+  - No affine model of order 8 exists over ℤ₈, ℤ₄×ℤ₂ or GF(2)³ (any 3×3 matrix coefficients) (`c05_order8_linear.py`).
 - **Consequences.** 16 lies in both spectra, so neither spectrum is {1} ∪ {odd n ≥ 5}. Spectra are closed under products, so 80 = 5·16 and 112 = 7·16 are in too.
-- **Further members.** Over odd characteristic, the idempotent affine models of 677 exist iff GF(q) contains a primitive 10th root of unity, i.e. 10 \| q − 1. Examples: q = 11, 31, 41, 61, 71, 81. These are odd orders, consistent with the old conjecture.
+- **Further members** (`c05_odd_affine.py`, brute force over ℤ_p, p < 200; all odd, so consistent with the old conjecture):
+  - Idempotent affine models of 677 exist exactly for p = 5 and every p ≡ 1 (mod 10).
+  - For 1313 they exist for p = 5, 31, 71, 101, 131, 151, 191.
+  - In odd characteristic the two laws' affine conditions differ; they coincide only in characteristic 2.
 - **Still open.** Orders 8 and 10.
 
 ## Appendix C — C08 thresholds and false "associative" entries

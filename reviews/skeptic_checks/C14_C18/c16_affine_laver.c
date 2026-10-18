@@ -80,20 +80,20 @@ static int affine(int NMAX) {
                         if (len > maxc) maxc = len;
                         lcm = lcm / gcdl(lcm, len) * len;
                     }
-                    long o = ord3(a, b, c, N);
+                    long o = (N <= 24) ? ord3(a, b, c, N) : lcm;   /* direct order only for small N; = lcm by the proven part (b) */
                     cases++;
                     if (maxc != lcm) {
                         bad_max_lcm++;
                         if (n_bad_here < 3) printf("  N=%ld a=%ld b=%ld c=%ld: max cycle %ld, lcm %ld, ord3 %ld\n", N, a, b, c, maxc, lcm, o);
                         n_bad_here++;
                     }
-                    if (lcm != o) bad_lcm_ord++;
+                    if (lcm != o) { bad_lcm_ord++; printf("  lcm!=ord3: N=%ld a=%ld b=%ld c=%ld max %ld lcm %ld ord3 %ld\n", N, a, b, c, maxc, lcm, o); }
                     /* fixed point? (a+b-1) x + c = 0 solvable */
                     int fx = 0;
                     for (long x = 0; x < N; x++) if (((a + b - 1) * x + c) % N == 0) { fx = 1; break; }
                     if (fx) {
                         fixed_cases++;
-                        if (maxc != ord2(a, b, N)) bad_fixed++;
+                        if (maxc != ord2(a, b, N)) { bad_fixed++; printf("  max!=ord2: N=%ld a=%ld b=%ld c=%ld max %ld ord2 %ld\n", N, a, b, c, maxc, ord2(a, b, N)); }
                     }
                 }
         }

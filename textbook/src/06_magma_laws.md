@@ -49,10 +49,10 @@ laws fall into 15 patterns:
 |---|---|---|---|
 | 10111011 | 16 | $x = y(x(xy))$ (63), $x = y((xx)y)$ (115) | 115: conjectured all $n \ne 2, 6$ |
 | 10110010 | 4 | $x = y(x(yy))$ (66) | $n \equiv 0, 1 \pmod 3$, $n \ne 6$ (Mendelsohn) |
-| 10011??1 | 1 | $x = (yx)(xy)$ (167) | $n \equiv 0, 1 \pmod 4$ (Theorem 6.2) |
+| 10011??1 | 1 | $x = (yx)(xy)$ (167) | $n \equiv 0, 1 \pmod 4$ (Theorem 6.2, which also settles the two ? as absent) |
 | 11011011 | 8 | $x = y((xy)(yy))$ (883) | contains $n \equiv 1, 2 \pmod 3$ |
 | 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open |
-| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open (Conjecture 6.6) |
+| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; order 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted |
 | 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open |
 | 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; known sizes 1, 3, 7, 9, 13 |
 | 10011001 | 2 | $x = y(y(x(xy)))$ (501) | open |
@@ -135,13 +135,18 @@ and the independent checker drat-trim verifies it (all 48 frontier
 refutations passed). What remains trusted is drat-trim, the CNF generator and
 the soundness of the two extra constraints. ∎
 
-**Conjecture 6.6** *[CONJECTURE — weak evidence]*. Laws 677 and 1313 both
-have spectrum $\{1\} \cup \{n \text{ odd} : n \ge 5\}$.
+**Conjecture 6.6** *[REFUTED — by the Skeptic's review; see Theorem 6.10]*.
+"Laws 677 and 1313 both have spectrum $\{1\} \cup \{n \text{ odd} : n \ge 5\}$."
 
 Both laws have models of orders 5, 7, 9 and none of orders 2, 3, 4, 6, all
 certified except orders 5 and 7 of law 1313 (stated in the notes, found again
-by SAT, tables re-checked). Orders 8 and 10 are undecided; the order-5 models
-are idempotent quasigroups. This directs the next search; it is no theorem.
+by SAT, tables re-checked). Orders 8 and 10 were undecided; the order-5 models
+are idempotent quasigroups. The first version of this book stated the
+conjecture on this evidence. It is false: both laws have models of order 16
+(Theorem 6.10). The evidence was too thin — four odd sizes and four small
+gaps say little about larger even sizes — and the search space had a blind
+spot: the lab looked for affine models only over $\mathbb{Z}_n$, whose
+additive group is cyclic, never over the fields $\mathrm{GF}(2^k)$.
 
 ## Three bold hypotheses fail
 
@@ -172,6 +177,41 @@ $(yx)(x(yy)) = \lnot\big((\lnot x \lor \lnot y) \land (\lnot x \lor y)\big) = x$
 (`no_affine_model_mod2`); for $n \le 6$ its affine models exist only at
 $n = 1$ and $n = 5$. Three more laws (two mirror pairs in all) behave the same
 way, and in 39 restricted laws some sizes of the spectrum have no affine model.
+
+## After the review: linear models over finite fields
+
+The Skeptic found the counterexample to Conjecture 6.6 by looking at linear
+operations over a field with 16 elements. We then searched every prime power
+$q \le 128$ systematically (EXP-C05-07). For $x \ast y = ax + by$ a term
+$t(x, y)$ evaluates to $\alpha x + \beta y$, where $\alpha$ and $\beta$ are
+polynomials in $a$ and $b$; the law $x = t$ holds exactly when $\alpha = 1$ and
+$\beta = 0$ in $\mathrm{GF}(q)$.
+
+**Theorem 6.10** *[PROVEN — computer-assisted, three tables Lean-checked;
+NOT ASSESSED: linear models are a standard tool of the ETP]*. For the 15 open
+laws of this chapter, the prime powers $q \le 128$ admitting a linear model
+over $\mathrm{GF}(q)$ are those listed in EXP-C05-07. In particular:
+
+* laws 677 and 1313 have models of order 16 — e.g. $x \ast y = (1 + t^3)x + t^3 y$
+  for 677 and $x \ast y = t^3 x + (1 + t^3) y$ for 1313, in
+  $\mathrm{GF}(16) = \mathrm{GF}(2)[t]/(t^4 + t + 1)$ (the Skeptic's
+  examples); our search finds other pairs $(a, b)$ as well;
+* laws 670, 1076 and 1286 also have models of order 16, and 1286 one of
+  order 32;
+* law 670 has a model of order 9, a size the SAT search had left UNKNOWN;
+* no linear model exists at any order that the SAT search, the DRUP
+  certificates or the ETP notes exclude (0 conflicts).
+
+*Proof.* The search is exhaustive over $\mathrm{GF}(q)^2$, and
+$\mathrm{GF}(q)$ is unique up to isomorphism, so "no linear model of order
+$q$" does not depend on the representation. Every model found was re-checked
+on its full table, and Lean's kernel checks the tables `E677_order16_law`,
+`E1313_order16_law` and `E670_order9_law`. ∎
+
+Because direct products of models are models, the spectra of 677 and 1313
+now contain every product of the orders 5, 7, 9, 16, … — including all
+$16 \cdot m$ with $m$ in the spectrum. Which even orders below 16 occur (8,
+10, 12, 14) is open.
 
 ## Experiments
 
@@ -236,8 +276,9 @@ tables, so its count is not used.
 
 ## Open questions
 
-1. Decide laws 677 and 1313 at orders 8 and 10 (Conjecture 6.6), and law
-   1286 at orders 8 and 10, with stronger symmetry breaking.
+1. Decide laws 677 and 1313 at orders 8, 10, 12 and 14 (Conjecture 6.6 is
+   refuted at 16), and law 1286 at orders 8 and 10, with stronger symmetry
+   breaking.
 2. Is the spectrum of law 115 all $n \ne 2, 6$, as the notes conjecture? Our
    data agree up to $n = 8$.
 3. Direct products of models are models, so every spectrum is closed under

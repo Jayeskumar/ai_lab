@@ -51,6 +51,8 @@ def run_mextab(args):
 
 
 def load_tables(path, nr, nc):
+    if not os.path.exists(path) and os.path.basename(path) == "mex64_all.bin":
+        run_mextab(["rect", 64, 64, path])        # binary tables are regenerated on demand (not kept)
     a = np.fromfile(path, dtype=np.int32)
     return a.reshape(-1, nr, nc).astype(np.int64)
 

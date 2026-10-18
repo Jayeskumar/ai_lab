@@ -1,0 +1,5791 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-07",
+    "file": "experiments/C05/E07_finite_field_models.py",
+    "sha256": "83165459f9262183ed4e9cedba1c9373a32edfcd2517655f619abfeeddac5016",
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+  },
+  "env": {
+    "git_head": "7fec8bd6551450f1cdb94c75b9dc5acbce351b3f",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T18:02:24Z",
+  "id": "EXP-C05-07",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "GF(p^k) built as GF(p)[t]/(f) with the first monic irreducible f of degree k in lexicographic order",
+      "exhaustive over all (a, b) in GF(q)^2",
+      "q <= 128"
+    ],
+    "cycle": "C05",
+    "falsification": "A linear model at an order that EXP-C05-03 found UNSAT or that EXP-C05-06 certified as a gap (would expose a bug); for H-C05-F, no linear model of any even order for 677 and 1313.",
+    "hypothesis": "H-C05-F: linear models over GF(p^k), k > 1, give spectrum members that the Z_n search of EXP-C05-05 cannot see - among them even orders for laws whose small even orders are gaps.",
+    "id": "EXP-C05-07",
+    "methodology": "Vectorised evaluation of (alpha, beta) for all (a, b); every model found is re-checked on its full table; comparison with the SAT statuses of EXP-C05-03 and the certified gaps of CLM-C05-08.",
+    "question": "For which prime powers q do the open laws of EXP-C05-03 have a linear model x*y = a x + b y over GF(q), and does this settle sizes that EXP-C05-03 left UNKNOWN or that CLM-C05-09 excluded?",
+    "title": "Linear models over finite fields GF(q), q <= 128, for the 15 open ETP laws"
+  },
+  "results": {
+    "conflicts": [],
+    "orders_tested": [
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      11,
+      13,
+      16,
+      17,
+      19,
+      23,
+      25,
+      27,
+      29,
+      31,
+      32,
+      37,
+      41,
+      43,
+      47,
+      49,
+      53,
+      59,
+      61,
+      64,
+      67,
+      71,
+      73,
+      79,
+      81,
+      83,
+      89,
+      97,
+      101,
+      103,
+      107,
+      109,
+      113,
+      121,
+      125,
+      127,
+      128
+    ],
+    "rows": [
+      {
+        "etp_number": 467,
+        "even_orders": [
+          8,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 21,
+            "b": 81,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 95,
+            "b": 9,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 35,
+            "b": 73,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 16,
+            "b": 76,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 7,
+            "b": 5,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 7,
+            "b": 98,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 7,
+            "b": 5,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 1,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "13": {
+            "a": 2,
+            "b": 8,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "17": {
+            "a": 6,
+            "b": 4,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 7,
+            "b": 13,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 4,
+            "b": 20,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 1,
+            "b": 2,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 15,
+            "b": 22,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 8,
+            "b": 12,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 14,
+            "b": 24,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "41": {
+            "a": 4,
+            "b": 32,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 11,
+            "b": 33,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 6,
+            "b": 2,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 1,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 11,
+            "b": 30,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 5,
+            "b": 55,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 5,
+            "b": 50,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 10,
+            "b": 11,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 8,
+            "b": 60,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 6,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 13,
+            "b": 46,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 21,
+            "b": 59,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 2,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "81": {
+            "a": 16,
+            "b": 15,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 67,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 18,
+            "b": 72,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 4,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 37,
+            "b": 22,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(x(x(yy)))",
+        "linear_model_orders": [
+          5,
+          7,
+          8,
+          9,
+          11,
+          13,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          37,
+          41,
+          43,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          73,
+          79,
+          81,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 501,
+        "even_orders": [
+          4,
+          16,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 45,
+            "b": 91,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 9,
+            "b": 101,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 7,
+            "b": 15,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 59,
+            "b": 74,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 1,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "13": {
+            "a": 2,
+            "b": 5,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 10,
+            "b": 11,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 6,
+            "b": 13,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 1,
+            "b": 3,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "29": {
+            "a": 8,
+            "b": 17,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 9,
+            "b": 29,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "4": {
+            "a": 2,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "41": {
+            "a": 4,
+            "b": 9,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 15,
+            "b": 35,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 1,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 11,
+            "b": 23,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 5,
+            "b": 11,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 56,
+            "b": 57,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "73": {
+            "a": 4,
+            "b": 70,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 16,
+            "b": 21,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "89": {
+            "a": 27,
+            "b": 55,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 4,
+            "b": 6,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 7,
+            "b": 91,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(y(x(xy)))",
+        "linear_model_orders": [
+          4,
+          5,
+          9,
+          13,
+          16,
+          17,
+          25,
+          29,
+          37,
+          41,
+          49,
+          53,
+          61,
+          64,
+          73,
+          81,
+          89,
+          97,
+          101,
+          109,
+          113,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 670,
+        "even_orders": [
+          16
+        ],
+        "examples": {
+          "101": {
+            "a": 19,
+            "b": 36,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 32,
+            "b": 78,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 1,
+            "b": 3,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 1,
+            "b": 3,
+            "models": 7,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "16": {
+            "a": 6,
+            "b": 3,
+            "models": 8,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "19": {
+            "a": 9,
+            "b": 11,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 1,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "29": {
+            "a": 3,
+            "b": 27,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 6,
+            "b": 2,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "41": {
+            "a": 12,
+            "b": 37,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 20,
+            "b": 40,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 6,
+            "b": 58,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 11,
+            "b": 25,
+            "models": 8,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 6,
+            "b": 74,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 5,
+            "b": 66,
+            "models": 8,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "9": {
+            "a": 3,
+            "b": 7,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(x((xy)y))",
+        "linear_model_orders": [
+          5,
+          9,
+          11,
+          16,
+          19,
+          25,
+          29,
+          31,
+          41,
+          59,
+          61,
+          71,
+          79,
+          81,
+          101,
+          109,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 677,
+        "even_orders": [
+          16
+        ],
+        "examples": {
+          "101": {
+            "a": 37,
+            "b": 65,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 46,
+            "b": 59,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 45,
+            "b": 20,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 4,
+            "b": 8,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 4,
+            "b": 8,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "13": {
+            "a": 9,
+            "b": 11,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 2,
+            "b": 3,
+            "models": 8,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "19": {
+            "a": 7,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "31": {
+            "a": 3,
+            "b": 29,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 26,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "41": {
+            "a": 11,
+            "b": 31,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 6,
+            "b": 15,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 2,
+            "b": 15,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 10,
+            "b": 52,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "67": {
+            "a": 29,
+            "b": 32,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 6,
+            "b": 66,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 8,
+            "b": 34,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 1,
+            "b": 17,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "9": {
+            "a": 1,
+            "b": 5,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 61,
+            "b": 8,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(x((yx)y))",
+        "linear_model_orders": [
+          5,
+          7,
+          9,
+          11,
+          13,
+          16,
+          19,
+          25,
+          31,
+          37,
+          41,
+          43,
+          49,
+          61,
+          67,
+          71,
+          73,
+          81,
+          97,
+          101,
+          103,
+          109,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 704,
+        "even_orders": [
+          8,
+          32,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 43,
+            "b": 59,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 81,
+            "b": 23,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 7,
+            "b": 56,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 22,
+            "b": 88,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 1,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 85,
+            "b": 78,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 1,
+            "b": 2,
+            "models": 8,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 120,
+            "b": 42,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 10,
+            "b": 6,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "17": {
+            "a": 8,
+            "b": 10,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 3,
+            "b": 12,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 2,
+            "b": 6,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 1,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 7,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 21,
+            "b": 27,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 3,
+            "b": 12,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "32": {
+            "a": 9,
+            "b": 26,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 21,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "41": {
+            "a": 35,
+            "b": 30,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 4,
+            "b": 20,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 4,
+            "b": 20,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 4,
+            "b": 4,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 44,
+            "b": 10,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 16,
+            "b": 44,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 16,
+            "b": 46,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 11,
+            "b": 10,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 21,
+            "b": 60,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 52,
+            "b": 55,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 5,
+            "b": 75,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 3,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 8,
+            "b": 72,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 22,
+            "b": 68,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 79,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(y((xx)y))",
+        "linear_model_orders": [
+          5,
+          7,
+          8,
+          11,
+          13,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          31,
+          32,
+          37,
+          41,
+          43,
+          47,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 883,
+        "even_orders": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "examples": {
+          "101": {
+            "a": 5,
+            "b": 97,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 23,
+            "b": 81,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 22,
+            "b": 86,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 72,
+            "b": 84,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 7,
+            "b": 9,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 23,
+            "b": 91,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 7,
+            "b": 9,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 7,
+            "b": 70,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "128": {
+            "a": 1,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "13": {
+            "a": 11,
+            "b": 10,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 1,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 10,
+            "b": 8,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 3,
+            "b": 17,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "2": {
+            "a": 1,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 12,
+            "b": 4,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 4,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 3,
+            "b": 7,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 2,
+            "b": 22,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 24,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "32": {
+            "a": 1,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 17,
+            "b": 21,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "4": {
+            "a": 1,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "41": {
+            "a": 17,
+            "b": 21,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 30,
+            "b": 14,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 16,
+            "b": 9,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 4,
+            "b": 4,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 10,
+            "b": 44,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 3,
+            "b": 46,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 46,
+            "b": 16,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 1,
+            "b": 1,
+            "models": 7,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 19,
+            "b": 49,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 43,
+            "b": 24,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 62,
+            "b": 35,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 38,
+            "b": 18,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 1,
+            "b": 1,
+            "models": 7,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "81": {
+            "a": 3,
+            "b": 26,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 44,
+            "b": 40,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 68,
+            "b": 22,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 5,
+            "b": 66,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y((xy)(yy))",
+        "linear_model_orders": [
+          2,
+          4,
+          5,
+          7,
+          8,
+          11,
+          13,
+          16,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          31,
+          32,
+          37,
+          41,
+          43,
+          47,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          71,
+          73,
+          79,
+          81,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125,
+          127,
+          128
+        ]
+      },
+      {
+        "etp_number": 907,
+        "even_orders": [],
+        "examples": {
+          "101": {
+            "a": 18,
+            "b": 84,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 14,
+            "b": 35,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 21,
+            "b": 87,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 52,
+            "b": 95,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 2,
+            "b": 6,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 69,
+            "b": 45,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 2,
+            "b": 6,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 22,
+            "b": 9,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 84,
+            "b": 44,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 6,
+            "b": 8,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "17": {
+            "a": 4,
+            "b": 7,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 8,
+            "b": 14,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 3,
+            "b": 21,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "27": {
+            "a": 2,
+            "b": 2,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 8,
+            "b": 22,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "3": {
+            "a": 2,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 25,
+            "b": 7,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 35,
+            "b": 3,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "41": {
+            "a": 16,
+            "b": 38,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 29,
+            "b": 25,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 3,
+            "b": 33,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 4,
+            "b": 1,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 5,
+            "b": 49,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 39,
+            "b": 21,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 7,
+            "b": 32,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "67": {
+            "a": 63,
+            "b": 5,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 1,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 4,
+            "b": 68,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 12,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 22,
+            "b": 3,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 2,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 14,
+            "b": 70,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 36,
+            "b": 54,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 2,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 94,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y((yx)(xy))",
+        "linear_model_orders": [
+          3,
+          7,
+          9,
+          11,
+          13,
+          17,
+          19,
+          23,
+          27,
+          29,
+          31,
+          37,
+          41,
+          43,
+          47,
+          49,
+          53,
+          59,
+          61,
+          67,
+          71,
+          73,
+          79,
+          81,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 1076,
+        "even_orders": [
+          16
+        ],
+        "examples": {
+          "101": {
+            "a": 29,
+            "b": 73,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 42,
+            "b": 66,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 90,
+            "b": 20,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 7,
+            "b": 107,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 4,
+            "b": 2,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 100,
+            "b": 28,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 5,
+            "b": 9,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 2,
+            "b": 3,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 3,
+            "b": 15,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 4,
+            "b": 16,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 5,
+            "b": 19,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 4,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "31": {
+            "a": 25,
+            "b": 7,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 17,
+            "b": 27,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 12,
+            "b": 36,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 4,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 35,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 32,
+            "b": 28,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "67": {
+            "a": 57,
+            "b": 11,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 24,
+            "b": 48,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 31,
+            "b": 43,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 52,
+            "b": 28,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 32,
+            "b": 62,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        "law": "x = y((x(xy))y)",
+        "linear_model_orders": [
+          5,
+          13,
+          16,
+          17,
+          19,
+          23,
+          25,
+          31,
+          43,
+          47,
+          53,
+          59,
+          67,
+          71,
+          73,
+          79,
+          81,
+          101,
+          107,
+          109,
+          113,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 1083,
+        "even_orders": [
+          4,
+          8,
+          16,
+          64
+        ],
+        "examples": {
+          "103": {
+            "a": 8,
+            "b": 96,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 45,
+            "b": 108,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 6,
+            "b": 9,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 6,
+            "b": 9,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 5,
+            "b": 30,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 19,
+            "b": 126,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 2,
+            "b": 6,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 6,
+            "b": 7,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 14,
+            "b": 6,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 6,
+            "b": 14,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 6,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 5,
+            "b": 4,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 1,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 19,
+            "b": 3,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "3": {
+            "a": 1,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 5,
+            "b": 30,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 3,
+            "b": 12,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "4": {
+            "a": 2,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "43": {
+            "a": 3,
+            "b": 41,
+            "models": 7,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 18,
+            "b": 13,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 2,
+            "b": 6,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 28,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 13,
+            "b": 60,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 10,
+            "b": 47,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 23,
+            "b": 45,
+            "models": 7,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 2,
+            "b": 6,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 8,
+            "b": 72,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 23,
+            "b": 78,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 2,
+            "b": 6,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "81": {
+            "a": 1,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 19,
+            "b": 48,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 70,
+            "b": 75,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 1,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 12,
+            "b": 86,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y((x(yx))y)",
+        "linear_model_orders": [
+          3,
+          4,
+          7,
+          8,
+          9,
+          11,
+          13,
+          16,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          31,
+          37,
+          43,
+          47,
+          49,
+          53,
+          61,
+          64,
+          67,
+          73,
+          79,
+          81,
+          83,
+          89,
+          97,
+          103,
+          109,
+          121,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 1110,
+        "even_orders": [
+          4,
+          8,
+          16,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 23,
+            "b": 100,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 81,
+            "b": 23,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 86,
+            "b": 22,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 11,
+            "b": 108,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 3,
+            "b": 9,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 91,
+            "b": 23,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 3,
+            "b": 9,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 3,
+            "b": 4,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "16": {
+            "a": 10,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 8,
+            "b": 10,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 5,
+            "b": 18,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 8,
+            "b": 16,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 3,
+            "b": 4,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 7,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 6,
+            "b": 28,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 13,
+            "b": 30,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 21,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "4": {
+            "a": 2,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "41": {
+            "a": 7,
+            "b": 40,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 14,
+            "b": 30,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 4,
+            "b": 4,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 3,
+            "b": 4,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 44,
+            "b": 10,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 16,
+            "b": 44,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 16,
+            "b": 46,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 11,
+            "b": 10,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 49,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 9,
+            "b": 70,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 5,
+            "b": 75,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 3,
+            "b": 2,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "81": {
+            "a": 17,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 40,
+            "b": 44,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 10,
+            "b": 88,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 5,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 79,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y((y(xx))y)",
+        "linear_model_orders": [
+          4,
+          5,
+          7,
+          8,
+          9,
+          11,
+          16,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          31,
+          37,
+          41,
+          43,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          71,
+          79,
+          81,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 1279,
+        "even_orders": [
+          8,
+          32,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 2,
+            "b": 72,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 23,
+            "b": 81,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 22,
+            "b": 86,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 52,
+            "b": 17,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 1,
+            "b": 7,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 23,
+            "b": 91,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 1,
+            "b": 7,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 4,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 59,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "17": {
+            "a": 5,
+            "b": 6,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 3,
+            "b": 17,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 15,
+            "b": 9,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 4,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 3,
+            "b": 7,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "29": {
+            "a": 4,
+            "b": 11,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "32": {
+            "a": 2,
+            "b": 29,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 17,
+            "b": 21,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 30,
+            "b": 14,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 42,
+            "b": 38,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 3,
+            "b": 1,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 10,
+            "b": 44,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 7,
+            "b": 53,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 4,
+            "b": 29,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 10,
+            "b": 11,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 19,
+            "b": 49,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 3,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 14,
+            "b": 36,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 3,
+            "b": 28,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 75,
+            "b": 5,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 2,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 32,
+            "b": 34,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 68,
+            "b": 22,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 19,
+            "b": 79,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(((xx)y)y)",
+        "linear_model_orders": [
+          5,
+          7,
+          8,
+          11,
+          17,
+          19,
+          23,
+          25,
+          27,
+          29,
+          32,
+          37,
+          43,
+          47,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          71,
+          73,
+          79,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 1286,
+        "even_orders": [
+          16,
+          32
+        ],
+        "examples": {
+          "103": {
+            "a": 2,
+            "b": 44,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 61,
+            "b": 76,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 49,
+            "b": 61,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 1,
+            "b": 7,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 23,
+            "b": 66,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 1,
+            "b": 7,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "127": {
+            "a": 24,
+            "b": 71,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 4,
+            "b": 8,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 6,
+            "b": 7,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 11,
+            "b": 6,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 6,
+            "b": 14,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 7,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "29": {
+            "a": 20,
+            "b": 27,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 8,
+            "b": 24,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "32": {
+            "a": 8,
+            "b": 30,
+            "models": 5,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 13,
+            "b": 19,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 3,
+            "b": 41,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 3,
+            "b": 18,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 2,
+            "b": 6,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 21,
+            "b": 19,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 22,
+            "b": 32,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "67": {
+            "a": 23,
+            "b": 45,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 2,
+            "b": 6,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 19,
+            "b": 30,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 15,
+            "b": 59,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 13,
+            "b": 60,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 17,
+            "b": 23,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "89": {
+            "a": 24,
+            "b": 85,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 5,
+            "b": 8,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 12,
+            "b": 86,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(((xy)x)y)",
+        "linear_model_orders": [
+          7,
+          9,
+          11,
+          13,
+          16,
+          17,
+          19,
+          23,
+          29,
+          31,
+          32,
+          37,
+          43,
+          47,
+          49,
+          53,
+          59,
+          67,
+          71,
+          73,
+          79,
+          81,
+          89,
+          97,
+          103,
+          107,
+          109,
+          113,
+          121,
+          127
+        ]
+      },
+      {
+        "etp_number": 1313,
+        "even_orders": [
+          16
+        ],
+        "examples": {
+          "101": {
+            "a": 19,
+            "b": 83,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 7,
+            "b": 56,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 20,
+            "b": 88,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 20,
+            "b": 90,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 65,
+            "b": 49,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 2,
+            "b": 4,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "127": {
+            "a": 28,
+            "b": 100,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 6,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 3,
+            "b": 2,
+            "models": 8,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 15,
+            "b": 3,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 5,
+            "b": 11,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 14,
+            "b": 10,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "31": {
+            "a": 7,
+            "b": 25,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 17,
+            "b": 10,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 2,
+            "b": 6,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "47": {
+            "a": 3,
+            "b": 45,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 1,
+            "b": 2,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 2,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 19,
+            "b": 35,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 10,
+            "b": 50,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "67": {
+            "a": 11,
+            "b": 57,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 1,
+            "b": 2,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "71": {
+            "a": 48,
+            "b": 24,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 13,
+            "b": 61,
+            "models": 4,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 28,
+            "b": 52,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 16,
+            "b": 1,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "9": {
+            "a": 4,
+            "b": 1,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 11,
+            "b": 35,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = y(((yx)x)y)",
+        "linear_model_orders": [
+          5,
+          7,
+          9,
+          13,
+          16,
+          17,
+          19,
+          23,
+          25,
+          31,
+          37,
+          43,
+          47,
+          49,
+          53,
+          59,
+          67,
+          71,
+          73,
+          79,
+          81,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          125,
+          127
+        ]
+      },
+      {
+        "etp_number": 1516,
+        "even_orders": [
+          8,
+          16,
+          64
+        ],
+        "examples": {
+          "101": {
+            "a": 21,
+            "b": 81,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "103": {
+            "a": 46,
+            "b": 7,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "107": {
+            "a": 35,
+            "b": 73,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 27,
+            "b": 83,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "11": {
+            "a": 7,
+            "b": 5,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "113": {
+            "a": 55,
+            "b": 59,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 7,
+            "b": 5,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "125": {
+            "a": 3,
+            "b": 3,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "13": {
+            "a": 9,
+            "b": 6,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 10,
+            "b": 6,
+            "models": 4,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "17": {
+            "a": 6,
+            "b": 12,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "19": {
+            "a": 7,
+            "b": 5,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "23": {
+            "a": 4,
+            "b": 20,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 3,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 15,
+            "b": 22,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "31": {
+            "a": 5,
+            "b": 7,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 14,
+            "b": 24,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "43": {
+            "a": 6,
+            "b": 19,
+            "models": 5,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 2,
+            "b": 10,
+            "models": 7,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "5": {
+            "a": 3,
+            "b": 3,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "53": {
+            "a": 38,
+            "b": 16,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "59": {
+            "a": 5,
+            "b": 55,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 58,
+            "b": 4,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 10,
+            "b": 11,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 8,
+            "b": 60,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 4,
+            "b": 1,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 8,
+            "b": 14,
+            "models": 2,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 21,
+            "b": 59,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "8": {
+            "a": 2,
+            "b": 3,
+            "models": 3,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1
+            ]
+          },
+          "81": {
+            "a": 1,
+            "b": 16,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "83": {
+            "a": 67,
+            "b": 17,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "89": {
+            "a": 18,
+            "b": 72,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "9": {
+            "a": 1,
+            "b": 4,
+            "models": 2,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 52,
+            "b": 46,
+            "models": 3,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = (yy)(x(xy))",
+        "linear_model_orders": [
+          5,
+          7,
+          8,
+          9,
+          11,
+          13,
+          16,
+          17,
+          19,
+          23,
+          25,
+          27,
+          31,
+          37,
+          43,
+          49,
+          53,
+          59,
+          61,
+          64,
+          67,
+          73,
+          79,
+          81,
+          83,
+          89,
+          97,
+          101,
+          103,
+          107,
+          109,
+          113,
+          121,
+          125
+        ]
+      },
+      {
+        "etp_number": 1719,
+        "even_orders": [
+          4,
+          16,
+          64
+        ],
+        "examples": {
+          "103": {
+            "a": 47,
+            "b": 57,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "109": {
+            "a": 46,
+            "b": 64,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "121": {
+            "a": 10,
+            "b": 39,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "127": {
+            "a": 20,
+            "b": 108,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "13": {
+            "a": 4,
+            "b": 10,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "16": {
+            "a": 1,
+            "b": 10,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "19": {
+            "a": 8,
+            "b": 12,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "25": {
+            "a": 4,
+            "b": 6,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "27": {
+            "a": 2,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              2,
+              1
+            ]
+          },
+          "3": {
+            "a": 2,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "31": {
+            "a": 6,
+            "b": 26,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "37": {
+            "a": 11,
+            "b": 27,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "4": {
+            "a": 1,
+            "b": 2,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              1,
+              1
+            ]
+          },
+          "43": {
+            "a": 7,
+            "b": 37,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "49": {
+            "a": 3,
+            "b": 5,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "61": {
+            "a": 14,
+            "b": 48,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "64": {
+            "a": 1,
+            "b": 56,
+            "models": 6,
+            "modulus_poly": [
+              1,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          "67": {
+            "a": 30,
+            "b": 38,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "7": {
+            "a": 3,
+            "b": 5,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "73": {
+            "a": 9,
+            "b": 65,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "79": {
+            "a": 24,
+            "b": 56,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          },
+          "81": {
+            "a": 2,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1,
+              1,
+              1
+            ]
+          },
+          "9": {
+            "a": 2,
+            "b": 2,
+            "models": 1,
+            "modulus_poly": [
+              1,
+              0,
+              1
+            ]
+          },
+          "97": {
+            "a": 36,
+            "b": 62,
+            "models": 6,
+            "modulus_poly": [
+              0,
+              1
+            ]
+          }
+        },
+        "law": "x = (yy)((xx)y)",
+        "linear_model_orders": [
+          3,
+          4,
+          7,
+          9,
+          13,
+          16,
+          19,
+          25,
+          27,
+          31,
+          37,
+          43,
+          49,
+          61,
+          64,
+          67,
+          73,
+          79,
+          81,
+          97,
+          103,
+          109,
+          121,
+          127
+        ]
+      }
+    ],
+    "settled_unknowns_n_le_10": [
+      [
+        670,
+        9,
+        "not stated in the notes"
+      ],
+      [
+        907,
+        9,
+        "also stated in the notes"
+      ]
+    ],
+    "summary": [
+      "15 laws, 44 prime powers q <= 128; conflicts with SAT, certified gaps or the notes: 0",
+      "smallest even orders with a linear model: 467: [8, 64]; 501: [4, 16, 64]; 670: [16]; 677: [16]; 704: [8, 32, 64]; 883: [2, 4, 8, 16]; 907: []; 1076: [16]; 1083: [4, 8, 16, 64]; 1110: [4, 8, 16, 64]; 1279: [8, 32, 64]; 1286: [16, 32]; 1313: [16]; 1516: [8, 16, 64]; 1719: [4, 16, 64]",
+      "sizes n <= 10 left UNKNOWN by EXP-C05-03 and settled here: law 670 at n = 9 (not stated in the notes), law 907 at n = 9 (also stated in the notes)",
+      "laws 677 and 1313: linear models of orders 677: [5, 7, 9, 11, 13, 16, 19, 25, 31, 37, 41, 43]; 1313: [5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 37, 43]"
+    ],
+    "tables": {
+      "1313@16": [
+        [
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14,
+          9,
+          11,
+          13,
+          15,
+          1,
+          3,
+          5,
+          7
+        ],
+        [
+          3,
+          1,
+          7,
+          5,
+          11,
+          9,
+          15,
+          13,
+          10,
+          8,
+          14,
+          12,
+          2,
+          0,
+          6,
+          4
+        ],
+        [
+          6,
+          4,
+          2,
+          0,
+          14,
+          12,
+          10,
+          8,
+          15,
+          13,
+          11,
+          9,
+          7,
+          5,
+          3,
+          1
+        ],
+        [
+          5,
+          7,
+          1,
+          3,
+          13,
+          15,
+          9,
+          11,
+          12,
+          14,
+          8,
+          10,
+          4,
+          6,
+          0,
+          2
+        ],
+        [
+          12,
+          14,
+          8,
+          10,
+          4,
+          6,
+          0,
+          2,
+          5,
+          7,
+          1,
+          3,
+          13,
+          15,
+          9,
+          11
+        ],
+        [
+          15,
+          13,
+          11,
+          9,
+          7,
+          5,
+          3,
+          1,
+          6,
+          4,
+          2,
+          0,
+          14,
+          12,
+          10,
+          8
+        ],
+        [
+          10,
+          8,
+          14,
+          12,
+          2,
+          0,
+          6,
+          4,
+          3,
+          1,
+          7,
+          5,
+          11,
+          9,
+          15,
+          13
+        ],
+        [
+          9,
+          11,
+          13,
+          15,
+          1,
+          3,
+          5,
+          7,
+          0,
+          2,
+          4,
+          6,
+          8,
+          10,
+          12,
+          14
+        ],
+        [
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15,
+          8,
+          10,
+          12,
+          14,
+          0,
+          2,
+          4,
+          6
+        ],
+        [
+          2,
+          0,
+          6,
+          4,
+          10,
+          8,
+          14,
+          12,
+          11,
+          9,
+          15,
+          13,
+          3,
+          1,
+          7,
+          5
+        ],
+        [
+          7,
+          5,
+          3,
+          1,
+          15,
+          13,
+          11,
+          9,
+          14,
+          12,
+          10,
+          8,
+          6,
+          4,
+          2,
+          0
+        ],
+        [
+          4,
+          6,
+          0,
+          2,
+          12,
+          14,
+          8,
+          10,
+          13,
+          15,
+          9,
+          11,
+          5,
+          7,
+          1,
+          3
+        ],
+        [
+          13,
+          15,
+          9,
+          11,
+          5,
+          7,
+          1,
+          3,
+          4,
+          6,
+          0,
+          2,
+          12,
+          14,
+          8,
+          10
+        ],
+        [
+          14,
+          12,
+          10,
+          8,
+          6,
+          4,
+          2,
+          0,
+          7,
+          5,
+          3,
+          1,
+          15,
+          13,
+          11,
+          9
+        ],
+        [
+          11,
+          9,
+          15,
+          13,
+          3,
+          1,
+          7,
+          5,
+          2,
+          0,
+          6,
+          4,
+          10,
+          8,
+          14,
+          12
+        ],
+        [
+          8,
+          10,
+          12,
+          14,
+          0,
+          2,
+          4,
+          6,
+          1,
+          3,
+          5,
+          7,
+          9,
+          11,
+          13,
+          15
+        ]
+      ],
+      "670@9": [
+        [
+          0,
+          7,
+          5,
+          4,
+          2,
+          6,
+          8,
+          3,
+          1
+        ],
+        [
+          3,
+          1,
+          8,
+          7,
+          5,
+          0,
+          2,
+          6,
+          4
+        ],
+        [
+          6,
+          4,
+          2,
+          1,
+          8,
+          3,
+          5,
+          0,
+          7
+        ],
+        [
+          2,
+          6,
+          4,
+          3,
+          1,
+          8,
+          7,
+          5,
+          0
+        ],
+        [
+          5,
+          0,
+          7,
+          6,
+          4,
+          2,
+          1,
+          8,
+          3
+        ],
+        [
+          8,
+          3,
+          1,
+          0,
+          7,
+          5,
+          4,
+          2,
+          6
+        ],
+        [
+          1,
+          8,
+          3,
+          5,
+          0,
+          7,
+          6,
+          4,
+          2
+        ],
+        [
+          4,
+          2,
+          6,
+          8,
+          3,
+          1,
+          0,
+          7,
+          5
+        ],
+        [
+          7,
+          5,
+          0,
+          2,
+          6,
+          4,
+          3,
+          1,
+          8
+        ]
+      ],
+      "677@16": [
+        [
+          0,
+          3,
+          6,
+          5,
+          12,
+          15,
+          10,
+          9,
+          1,
+          2,
+          7,
+          4,
+          13,
+          14,
+          11,
+          8
+        ],
+        [
+          2,
+          1,
+          4,
+          7,
+          14,
+          13,
+          8,
+          11,
+          3,
+          0,
+          5,
+          6,
+          15,
+          12,
+          9,
+          10
+        ],
+        [
+          4,
+          7,
+          2,
+          1,
+          8,
+          11,
+          14,
+          13,
+          5,
+          6,
+          3,
+          0,
+          9,
+          10,
+          15,
+          12
+        ],
+        [
+          6,
+          5,
+          0,
+          3,
+          10,
+          9,
+          12,
+          15,
+          7,
+          4,
+          1,
+          2,
+          11,
+          8,
+          13,
+          14
+        ],
+        [
+          8,
+          11,
+          14,
+          13,
+          4,
+          7,
+          2,
+          1,
+          9,
+          10,
+          15,
+          12,
+          5,
+          6,
+          3,
+          0
+        ],
+        [
+          10,
+          9,
+          12,
+          15,
+          6,
+          5,
+          0,
+          3,
+          11,
+          8,
+          13,
+          14,
+          7,
+          4,
+          1,
+          2
+        ],
+        [
+          12,
+          15,
+          10,
+          9,
+          0,
+          3,
+          6,
+          5,
+          13,
+          14,
+          11,
+          8,
+          1,
+          2,
+          7,
+          4
+        ],
+        [
+          14,
+          13,
+          8,
+          11,
+          2,
+          1,
+          4,
+          7,
+          15,
+          12,
+          9,
+          10,
+          3,
+          0,
+          5,
+          6
+        ],
+        [
+          9,
+          10,
+          15,
+          12,
+          5,
+          6,
+          3,
+          0,
+          8,
+          11,
+          14,
+          13,
+          4,
+          7,
+          2,
+          1
+        ],
+        [
+          11,
+          8,
+          13,
+          14,
+          7,
+          4,
+          1,
+          2,
+          10,
+          9,
+          12,
+          15,
+          6,
+          5,
+          0,
+          3
+        ],
+        [
+          13,
+          14,
+          11,
+          8,
+          1,
+          2,
+          7,
+          4,
+          12,
+          15,
+          10,
+          9,
+          0,
+          3,
+          6,
+          5
+        ],
+        [
+          15,
+          12,
+          9,
+          10,
+          3,
+          0,
+          5,
+          6,
+          14,
+          13,
+          8,
+          11,
+          2,
+          1,
+          4,
+          7
+        ],
+        [
+          1,
+          2,
+          7,
+          4,
+          13,
+          14,
+          11,
+          8,
+          0,
+          3,
+          6,
+          5,
+          12,
+          15,
+          10,
+          9
+        ],
+        [
+          3,
+          0,
+          5,
+          6,
+          15,
+          12,
+          9,
+          10,
+          2,
+          1,
+          4,
+          7,
+          14,
+          13,
+          8,
+          11
+        ],
+        [
+          5,
+          6,
+          3,
+          0,
+          9,
+          10,
+          15,
+          12,
+          4,
+          7,
+          2,
+          1,
+          8,
+          11,
+          14,
+          13
+        ],
+        [
+          7,
+          4,
+          1,
+          2,
+          11,
+          8,
+          13,
+          14,
+          6,
+          5,
+          0,
+          3,
+          10,
+          9,
+          12,
+          15
+        ]
+      ]
+    }
+  },
+  "results_sha256": "8a9a46b752bbcc718a90ee58aae177fd488c00ed57d8d11a71f7dbdccca49368",
+  "runtime_s": 0.958,
+  "started": "2026-10-18T18:02:23Z"
+}

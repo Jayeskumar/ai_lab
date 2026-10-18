@@ -1,0 +1,7 @@
+{
+ "direct_s": 0.3771,
+ "factor_s": 0.000184,
+ "speedup": 2046.0,
+ "orders_of_magnitude": 3.31,
+ "max_abs_err": 1.4352963262354024e-12
+}

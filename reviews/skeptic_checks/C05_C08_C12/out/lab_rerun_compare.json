@@ -1,0 +1,68 @@
+[
+ {
+  "id": "EXP-C05-05",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:51Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   8.901,
+   2.194
+  ]
+ },
+ {
+  "id": "EXP-C08-03",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:54Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   32.519,
+   24.637
+  ]
+ },
+ {
+  "id": "EXP-C09-04",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:41Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   7.832,
+   4.197
+  ]
+ },
+ {
+  "id": "EXP-C10-02",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:46Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   1.166,
+   0.628
+  ]
+ },
+ {
+  "id": "EXP-C11-09",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:48Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   0.534,
+   0.855
+  ]
+ },
+ {
+  "id": "EXP-C12-06",
+  "code_sha256_before_eq_script": true,
+  "rerun_started": "2026-10-18T17:59:49Z",
+  "same_results_sha256": true,
+  "differing_top_level_keys": [],
+  "runtime_before_after": [
+   0.837,
+   0.81
+  ]
+ }
+]

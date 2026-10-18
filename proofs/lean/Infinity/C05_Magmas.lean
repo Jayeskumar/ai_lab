@@ -213,6 +213,23 @@ def E1719_order10 : Fin 10 → Fin 10 → Fin 10 := fun a b => ![![0, 9, 1, 8, 2
 
 theorem E1719_order10_law : ∀ x y : Fin 10, (E1719_order10 (E1719_order10 y y) (E1719_order10 (E1719_order10 x x) y)) = x := by decide
 
+/-! Models found after the Skeptic's review (EXP-C05-07): even-order models of laws 677 and 1313 refute CLM-C05-09; the order-9 model of law 670 settles a size the SAT search left UNKNOWN. -/
+
+/-- A linear model x*y = 2x + 3y over GF(16) (elements as base-p digit vectors, modulus [1, 0, 0, 1, 1] from low to high degree) of ETP law 677, `x = y(x((yx)y))`, of order 16 (EXP-C05-07). -/
+def E677_order16 : Fin 16 → Fin 16 → Fin 16 := fun a b => ![![0, 3, 6, 5, 12, 15, 10, 9, 1, 2, 7, 4, 13, 14, 11, 8], ![2, 1, 4, 7, 14, 13, 8, 11, 3, 0, 5, 6, 15, 12, 9, 10], ![4, 7, 2, 1, 8, 11, 14, 13, 5, 6, 3, 0, 9, 10, 15, 12], ![6, 5, 0, 3, 10, 9, 12, 15, 7, 4, 1, 2, 11, 8, 13, 14], ![8, 11, 14, 13, 4, 7, 2, 1, 9, 10, 15, 12, 5, 6, 3, 0], ![10, 9, 12, 15, 6, 5, 0, 3, 11, 8, 13, 14, 7, 4, 1, 2], ![12, 15, 10, 9, 0, 3, 6, 5, 13, 14, 11, 8, 1, 2, 7, 4], ![14, 13, 8, 11, 2, 1, 4, 7, 15, 12, 9, 10, 3, 0, 5, 6], ![9, 10, 15, 12, 5, 6, 3, 0, 8, 11, 14, 13, 4, 7, 2, 1], ![11, 8, 13, 14, 7, 4, 1, 2, 10, 9, 12, 15, 6, 5, 0, 3], ![13, 14, 11, 8, 1, 2, 7, 4, 12, 15, 10, 9, 0, 3, 6, 5], ![15, 12, 9, 10, 3, 0, 5, 6, 14, 13, 8, 11, 2, 1, 4, 7], ![1, 2, 7, 4, 13, 14, 11, 8, 0, 3, 6, 5, 12, 15, 10, 9], ![3, 0, 5, 6, 15, 12, 9, 10, 2, 1, 4, 7, 14, 13, 8, 11], ![5, 6, 3, 0, 9, 10, 15, 12, 4, 7, 2, 1, 8, 11, 14, 13], ![7, 4, 1, 2, 11, 8, 13, 14, 6, 5, 0, 3, 10, 9, 12, 15]] a b
+
+theorem E677_order16_law : ∀ x y : Fin 16, (E677_order16 y (E677_order16 x (E677_order16 (E677_order16 y x) y))) = x := by decide
+
+/-- A linear model x*y = 3x + 2y over GF(16) (elements as base-p digit vectors, modulus [1, 0, 0, 1, 1] from low to high degree) of ETP law 1313, `x = y(((yx)x)y)`, of order 16 (EXP-C05-07). -/
+def E1313_order16 : Fin 16 → Fin 16 → Fin 16 := fun a b => ![![0, 2, 4, 6, 8, 10, 12, 14, 9, 11, 13, 15, 1, 3, 5, 7], ![3, 1, 7, 5, 11, 9, 15, 13, 10, 8, 14, 12, 2, 0, 6, 4], ![6, 4, 2, 0, 14, 12, 10, 8, 15, 13, 11, 9, 7, 5, 3, 1], ![5, 7, 1, 3, 13, 15, 9, 11, 12, 14, 8, 10, 4, 6, 0, 2], ![12, 14, 8, 10, 4, 6, 0, 2, 5, 7, 1, 3, 13, 15, 9, 11], ![15, 13, 11, 9, 7, 5, 3, 1, 6, 4, 2, 0, 14, 12, 10, 8], ![10, 8, 14, 12, 2, 0, 6, 4, 3, 1, 7, 5, 11, 9, 15, 13], ![9, 11, 13, 15, 1, 3, 5, 7, 0, 2, 4, 6, 8, 10, 12, 14], ![1, 3, 5, 7, 9, 11, 13, 15, 8, 10, 12, 14, 0, 2, 4, 6], ![2, 0, 6, 4, 10, 8, 14, 12, 11, 9, 15, 13, 3, 1, 7, 5], ![7, 5, 3, 1, 15, 13, 11, 9, 14, 12, 10, 8, 6, 4, 2, 0], ![4, 6, 0, 2, 12, 14, 8, 10, 13, 15, 9, 11, 5, 7, 1, 3], ![13, 15, 9, 11, 5, 7, 1, 3, 4, 6, 0, 2, 12, 14, 8, 10], ![14, 12, 10, 8, 6, 4, 2, 0, 7, 5, 3, 1, 15, 13, 11, 9], ![11, 9, 15, 13, 3, 1, 7, 5, 2, 0, 6, 4, 10, 8, 14, 12], ![8, 10, 12, 14, 0, 2, 4, 6, 1, 3, 5, 7, 9, 11, 13, 15]] a b
+
+theorem E1313_order16_law : ∀ x y : Fin 16, (E1313_order16 y (E1313_order16 (E1313_order16 (E1313_order16 y x) x) y)) = x := by decide
+
+/-- A linear model x*y = 3x + 7y over GF(9) (elements as base-p digit vectors, modulus [1, 0, 1] from low to high degree) of ETP law 670, `x = y(x((xy)y))`, of order 9 (EXP-C05-07). -/
+def E670_order9 : Fin 9 → Fin 9 → Fin 9 := fun a b => ![![0, 7, 5, 4, 2, 6, 8, 3, 1], ![3, 1, 8, 7, 5, 0, 2, 6, 4], ![6, 4, 2, 1, 8, 3, 5, 0, 7], ![2, 6, 4, 3, 1, 8, 7, 5, 0], ![5, 0, 7, 6, 4, 2, 1, 8, 3], ![8, 3, 1, 0, 7, 5, 4, 2, 6], ![1, 8, 3, 5, 0, 7, 6, 4, 2], ![4, 2, 6, 8, 3, 1, 0, 7, 5], ![7, 5, 0, 2, 6, 4, 3, 1, 8]] a b
+
+theorem E670_order9_law : ∀ x y : Fin 9, (E670_order9 y (E670_order9 x (E670_order9 (E670_order9 x y) y))) = x := by decide
+
 end Frontier
 
 end Infinity.C05
@@ -235,3 +252,6 @@ end Infinity.C05
 #print axioms Infinity.C05.E1313_order9_law
 #print axioms Infinity.C05.E1516_order9_law
 #print axioms Infinity.C05.E1719_order10_law
+#print axioms Infinity.C05.E677_order16_law
+#print axioms Infinity.C05.E1313_order16_law
+#print axioms Infinity.C05.E670_order9_law

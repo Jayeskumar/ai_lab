@@ -1,0 +1,17 @@
+recursion vs exact DP on 202 values n <= 233 mismatches: []
+Theorem 4 vs exact DP: [(1, 1, True), (2, 2, True), (3, 3, True), (4, 5, True), (5, 8, True), (6, 13, True), (7, 21, True), (8, 34, True), (9, 55, True), (10, 89, True), (11, 144, True), (12, 233, True)]
+Theorem 4 vs phase-2 simulation, levels <= 89: bad []
+recursion vs strategy simulation, n < 100000 : mismatches 0 []
+greedy vs exact DP (n <= 233): mismatches []
+CLM-C19-09: D>h(top): 0  L non-increasing: 0  equality D=h(top)>0 for n<400: [3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377]
+two-summand law, j <= 60: 1770 pairs, violations 0 []
+H-C19-1 at n = 12: levels [4, 2, 0] D 0 model 1
+H-C19-2: D(11)-D(3) = 1  D(12)-D(4) = 0  levels [4, 2] [4, 2, 0]
+H-C19-3 lazy-run model, n < 160: runs 46 rank 46 augmented 47
+H-C19-4: fails for 288 of 300; first [(3, 3, 2, 0), (5, 6, 5, 0), (6, 8, 6, 1)]
+recursion vs phase-2 simulation on 3800 large n: 0 mismatches []
+asymptotic ratio (phase-2 strategy values): [(3, 2548, 0.3399, True), (4, 26042, 0.3776, True), (5, 261586, 0.3798, True), (6, 2617743, 0.353, True), (7, 26179925, 0.3698, True), (9, 2618033300, 0.3714, True), (12, 2618033987626, 0.3409, True), (18, 2618033988749891985, 0.3451, True)]
+
+real	0m2.372s
+user	0m2.250s
+sys	0m0.042s

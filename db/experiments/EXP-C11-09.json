@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C11-09",
     "file": "experiments/C11/E09_c3_baseline.py",
     "sha256": "58168097e4b352c1a2ba7b17011fe97ab419d96b58bcad6fb16974aa1f3cb39d",
-    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "cycle": "C11",
   "falsification": "C3 shorter than T_011 for some n > 8; a round-trip failure; C3 better than T_011 on Zipf 1.1, log-uniform or the bursty posting list.",
@@ -93,6 +93,29 @@
       "results_sha256": "30d4d6e2b7a623f52d5c42feecd97395a5939f711f9f042e20d17ef67a077872",
       "runtime_s": 0.534,
       "started": "2026-10-18T08:50:44Z",
+      "summary": [
+        "C3 implementation: problems = 0; first 12 codewords match the paper: True; not prefix-free (5033 prefix pairs among the first codewords); Kraft partial sum 1.0",
+        "n <= 2e6: C3 longer than C1 only for n in [1]; T_011 longer than C3 only for n in [2, 4, 8]; (C3 - T_011) histogram {-1: 3, 0: 832439, 1: 1167558}",
+        "cum inequalities fail only at L = [3, 4, 5] (T_011 vs C3) and L = [2] (C3 vs C1)",
+        "ratios {'cum_011/cum_C3 at L=300': 1.309016994, 'phi^2/2': 1.309016994, 'cum_C3/cum_C1 at L=299': 1.236067977, '2/phi': 1.236067977}",
+        "average length difference (bits) {'2^40': {'C1 - C3': 0.462228, 'C3 - T_011': 0.537772}, '2^80': {'C1 - C3': 0.399663, 'C3 - T_011': 0.600337}, '2^120': {'C1 - C3': 0.480593, 'C3 - T_011': 0.519407}}",
+        "C3 beats T_011 on: ['Zipf(s=1.5, N=1e6)', 'Zipf(s=2.0, N=1e6)', 'Zipf(s=3.0, N=1e6)', 'geometric(p=0.5)', 'geometric(p=0.1)', 'prime gaps <= 1e7 (raw)', 'prime gaps <= 1e7 (halved)']"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-09",
+        "file": "experiments/C11/E09_c3_baseline.py",
+        "sha256": "58168097e4b352c1a2ba7b17011fe97ab419d96b58bcad6fb16974aa1f3cb39d",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:59:48Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C11-09.json",
+      "results_sha256": "30d4d6e2b7a623f52d5c42feecd97395a5939f711f9f042e20d17ef67a077872",
+      "runtime_s": 0.855,
+      "started": "2026-10-18T17:59:48Z",
       "summary": [
         "C3 implementation: problems = 0; first 12 codewords match the paper: True; not prefix-free (5033 prefix pairs among the first codewords); Kraft partial sum 1.0",
         "n <= 2e6: C3 longer than C1 only for n in [1]; T_011 longer than C3 only for n in [2, 4, 8]; (C3 - T_011) histogram {-1: 3, 0: 832439, 1: 1167558}",

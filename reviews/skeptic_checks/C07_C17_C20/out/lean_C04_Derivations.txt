@@ -1,0 +1,13 @@
+'Infinity.C04.random_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.steps_length_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.inv_step' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.normal_iff_inv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.derivation_length_eq_inv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.p_positions' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.unbordered_diamond' depends on axioms: [propext, Quot.sound]
+'Infinity.C04.unbordered_random_descent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C04.length_changing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m5.800s
+user	0m3.383s
+sys	0m2.201s

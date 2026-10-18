@@ -1,0 +1,5 @@
+phase-2 deficit vs full strategy simulation: 4999 n tested, mismatches []
+split-phase length = Psi(lazy(n)) for 2000 n: mismatches []
+1000000 phase-2 moves 26 W 184
+1000000000000 phase-2 moves 53 W 675
+1000000000000000 phase-2 moves 81 W 1082

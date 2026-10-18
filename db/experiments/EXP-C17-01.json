@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C17-01",
     "file": "experiments/C17/E01_assoc_benchmark.py",
     "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
-    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)"
@@ -91,6 +91,26 @@
       "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
       "runtime_s": 31.632,
       "started": "2026-10-18T09:21:35Z",
+      "summary": [
+        "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
+        "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
+        "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-01",
+        "file": "experiments/C17/E01_assoc_benchmark.py",
+        "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:52:04Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C17-01.json",
+      "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
+      "runtime_s": 31.896,
+      "started": "2026-10-18T17:51:32Z",
       "summary": [
         "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
         "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",

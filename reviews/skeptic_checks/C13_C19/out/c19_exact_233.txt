@@ -1,0 +1,1 @@
+233 13783708 566 596 30 -1  reach=0 nterm=1 zeck=1 lazy=-1 bad_dpsi=0 bad_identity=0 bad_strategy=0 bad_split_unique=0 bad_split_len=0

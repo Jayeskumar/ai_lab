@@ -1,0 +1,61 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "named sequences - N = 200000, K = 25, pool 1..1500 plus 1500 random n <= N plus the candidates, the known failing pairs as seeds, shifts 0..16",
+    "atlas (the 45 base sequences of EXP-C08-02) and the 90 quadratic rows of EXP-C08-04 - N = 50000, K = 12, pool 1..800 plus 800 random, shifts 0..12",
+    "window filter - occupancy grid of {c(n) : n <= N}, dilated by one cell; it cannot see failures whose product conjugate lies within one cell of the window (fractal boundaries), which is why the known pairs are added as seeds",
+    "a failing pair is certified only by an explicit triple"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C08-07",
+    "file": "experiments/C08/E07_extreme_conjugates.py",
+    "sha256": "aba207c3a3365e926c71a8a89839cd294a1e4aa905de71b44496f7a78c87f755",
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+  },
+  "cycle": "C08",
+  "falsification": "A certified failure for Fibonacci at s >= 2 (would contradict the Lean theorem CLM-C08-01); a certified failure at a shift listed as associative by EXP-C08-06 (refutes that row); a positive-beta quadratic row whose no-failure set is not upward closed (refutes CLM-C08-04).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T18:11:05Z"
+    }
+  ],
+  "hypothesis": "H-C08-7: targeted inputs find certified failures at shifts that random and small-input searches passed (as the Skeptic reports for (2,2;1,2) at s = 6 and (3,3;1,5) at s = 10); after the targeted search, no Pisot sequence with a positive conjugate root has a non-monotone shift set (CLM-C08-04) and no non-Pisot sequence has a shift without failure (CLM-C08-02).",
+  "id": "EXP-C08-07",
+  "methodology": "Candidate inputs with extreme conjugates; exact embedding test on all candidate pairs and on the pool pairs whose product conjugate falls outside the occupancy grid of the window; explicit triples for failing pairs; per sequence, the shifts with a certified failure and the shifts without any failure found.",
+  "question": "Do the associativity thresholds and the shift sets of EXP-C08-02, -04 and -06 survive a search that targets inputs with extreme conjugate coordinates?",
+  "results_file": "results/EXP-C08-07.json",
+  "results_sha256": "2f8d050c520184c0a27932002b907407ccd43bbcc323b3c3fdd660b2f68553cb",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-07",
+        "file": "experiments/C08/E07_extreme_conjugates.py",
+        "sha256": "aba207c3a3365e926c71a8a89839cd294a1e4aa905de71b44496f7a78c87f755",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T18:11:04Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C08-07.json",
+      "results_sha256": "2f8d050c520184c0a27932002b907407ccd43bbcc323b3c3fdd660b2f68553cb",
+      "runtime_s": 219.771,
+      "started": "2026-10-18T18:07:25Z",
+      "summary": [
+        "named sequences (largest certified failing shift / shifts 0..16 without a failure found): Fibonacci 1,2: 1 / [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; Pell 1,2,5: 0 / [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (2,2) 1,2: 6 / [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (3,3) 1,5: 11 / [12, 13, 14, 15, 16]; tribonacci 1,2,4: 3 / [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; 4-bonacci 1,2,4,8: 7 / [8, 9, 10, 11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-2) 1,2,3: 10 / [11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-3) 1,2,3,4: 16 / []",
+        "atlas: 46 sequences; non-Pisot with a shift without failure: 0 []; Pisot with no shift without failure in 0..12: 1 ['G(k+1)=G(k)+G(k-3); 1,2,3,4']",
+        "quadratic rows: 90; rows with a newly certified failure at a shift EXP-C08-06 passed: 27; non-monotone on 0..12: 8 (beta > 0: 0 of 30 rows; canonical: 0)",
+        "uncertified embedding failures (no triple found): 0"
+      ]
+    }
+  ],
+  "summary": [
+    "named sequences (largest certified failing shift / shifts 0..16 without a failure found): Fibonacci 1,2: 1 / [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; Pell 1,2,5: 0 / [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (2,2) 1,2: 6 / [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (3,3) 1,5: 11 / [12, 13, 14, 15, 16]; tribonacci 1,2,4: 3 / [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; 4-bonacci 1,2,4,8: 7 / [8, 9, 10, 11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-2) 1,2,3: 10 / [11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-3) 1,2,3,4: 16 / []",
+    "atlas: 46 sequences; non-Pisot with a shift without failure: 0 []; Pisot with no shift without failure in 0..12: 1 ['G(k+1)=G(k)+G(k-3); 1,2,3,4']",
+    "quadratic rows: 90; rows with a newly certified failure at a shift EXP-C08-06 passed: 27; non-monotone on 0..12: 8 (beta > 0: 0 of 30 rows; canonical: 0)",
+    "uncertified embedding failures (no triple found): 0"
+  ],
+  "title": "Extreme-conjugate search: certified non-associativity for the named sequences, the 45-sequence atlas and the 90 quadratic rows"
+}

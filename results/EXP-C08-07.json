@@ -1,0 +1,9969 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-07",
+    "file": "experiments/C08/E07_extreme_conjugates.py",
+    "sha256": "aba207c3a3365e926c71a8a89839cd294a1e4aa905de71b44496f7a78c87f755",
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+  },
+  "env": {
+    "git_head": "7fec8bd6551450f1cdb94c75b9dc5acbce351b3f",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T18:11:04Z",
+  "id": "EXP-C08-07",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "named sequences - N = 200000, K = 25, pool 1..1500 plus 1500 random n <= N plus the candidates, the known failing pairs as seeds, shifts 0..16",
+      "atlas (the 45 base sequences of EXP-C08-02) and the 90 quadratic rows of EXP-C08-04 - N = 50000, K = 12, pool 1..800 plus 800 random, shifts 0..12",
+      "window filter - occupancy grid of {c(n) : n <= N}, dilated by one cell; it cannot see failures whose product conjugate lies within one cell of the window (fractal boundaries), which is why the known pairs are added as seeds",
+      "a failing pair is certified only by an explicit triple"
+    ],
+    "cycle": "C08",
+    "falsification": "A certified failure for Fibonacci at s >= 2 (would contradict the Lean theorem CLM-C08-01); a certified failure at a shift listed as associative by EXP-C08-06 (refutes that row); a positive-beta quadratic row whose no-failure set is not upward closed (refutes CLM-C08-04).",
+    "hypothesis": "H-C08-7: targeted inputs find certified failures at shifts that random and small-input searches passed (as the Skeptic reports for (2,2;1,2) at s = 6 and (3,3;1,5) at s = 10); after the targeted search, no Pisot sequence with a positive conjugate root has a non-monotone shift set (CLM-C08-04) and no non-Pisot sequence has a shift without failure (CLM-C08-02).",
+    "id": "EXP-C08-07",
+    "methodology": "Candidate inputs with extreme conjugates; exact embedding test on all candidate pairs and on the pool pairs whose product conjugate falls outside the occupancy grid of the window; explicit triples for failing pairs; per sequence, the shifts with a certified failure and the shifts without any failure found.",
+    "question": "Do the associativity thresholds and the shift sets of EXP-C08-02, -04 and -06 survive a search that targets inputs with extreme conjugate coordinates?",
+    "seed": 807,
+    "title": "Extreme-conjugate search: certified non-associativity for the named sequences, the 45-sequence atlas and the 90 quadratic rows"
+  },
+  "results": {
+    "atlas": [
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            4,
+            4,
+            2
+          ],
+          "1": [
+            4,
+            4,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1622,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            2,
+            6,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            3,
+            8,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "5": [
+            8,
+            8,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            3,
+            10,
+            1
+          ],
+          "3": [
+            1,
+            10,
+            2
+          ],
+          "5": [
+            3,
+            4,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "candidates": 30,
+        "certified_failures": [],
+        "conjugates": [],
+        "dominant_root": 2.0,
+        "examples": {},
+        "kind": "geometric",
+        "largest_certified_failure": null,
+        "minimal_recurrence": [
+          2
+        ],
+        "no_failure_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.0,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "10": [
+            2,
+            2,
+            1
+          ],
+          "11": [
+            1,
+            2,
+            2
+          ],
+          "12": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            1,
+            2,
+            2
+          ],
+          "4": [
+            2,
+            2,
+            1
+          ],
+          "5": [
+            1,
+            2,
+            2
+          ],
+          "6": [
+            2,
+            2,
+            1
+          ],
+          "7": [
+            1,
+            2,
+            2
+          ],
+          "8": [
+            2,
+            2,
+            1
+          ],
+          "9": [
+            1,
+            2,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          2
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.0,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "10": [
+            1,
+            3,
+            2
+          ],
+          "11": [
+            1,
+            2,
+            2
+          ],
+          "12": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            1,
+            2,
+            2
+          ],
+          "4": [
+            1,
+            3,
+            2
+          ],
+          "5": [
+            1,
+            2,
+            2
+          ],
+          "6": [
+            1,
+            3,
+            2
+          ],
+          "7": [
+            1,
+            2,
+            2
+          ],
+          "8": [
+            1,
+            3,
+            2
+          ],
+          "9": [
+            1,
+            2,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          2
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.0,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "10": [
+            2,
+            4,
+            1
+          ],
+          "11": [
+            1,
+            2,
+            2
+          ],
+          "12": [
+            2,
+            4,
+            1
+          ],
+          "2": [
+            2,
+            4,
+            1
+          ],
+          "3": [
+            1,
+            2,
+            2
+          ],
+          "4": [
+            2,
+            4,
+            1
+          ],
+          "5": [
+            1,
+            2,
+            2
+          ],
+          "6": [
+            2,
+            4,
+            1
+          ],
+          "7": [
+            1,
+            2,
+            2
+          ],
+          "8": [
+            2,
+            4,
+            1
+          ],
+          "9": [
+            1,
+            2,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          2
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.302776,
+        "examples": {
+          "0": [
+            2,
+            25,
+            5
+          ],
+          "1": [
+            1,
+            25,
+            2
+          ],
+          "10": [
+            3,
+            3,
+            1
+          ],
+          "11": [
+            3,
+            3,
+            1
+          ],
+          "12": [
+            3,
+            3,
+            1
+          ],
+          "2": [
+            3,
+            3,
+            1
+          ],
+          "3": [
+            3,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            3,
+            1
+          ],
+          "5": [
+            3,
+            3,
+            1
+          ],
+          "6": [
+            3,
+            3,
+            1
+          ],
+          "7": [
+            3,
+            3,
+            1
+          ],
+          "8": [
+            3,
+            3,
+            1
+          ],
+          "9": [
+            3,
+            3,
+            1
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            3
+          ],
+          "10": [
+            1,
+            14,
+            2
+          ],
+          "11": [
+            1,
+            14,
+            2
+          ],
+          "12": [
+            1,
+            14,
+            2
+          ],
+          "2": [
+            1,
+            14,
+            3
+          ],
+          "3": [
+            1,
+            14,
+            2
+          ],
+          "4": [
+            1,
+            14,
+            2
+          ],
+          "5": [
+            1,
+            14,
+            2
+          ],
+          "6": [
+            1,
+            14,
+            3
+          ],
+          "7": [
+            1,
+            14,
+            2
+          ],
+          "8": [
+            1,
+            14,
+            2
+          ],
+          "9": [
+            1,
+            14,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            3
+          ],
+          "10": [
+            1,
+            3,
+            2
+          ],
+          "11": [
+            1,
+            3,
+            2
+          ],
+          "12": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            1,
+            3,
+            2
+          ],
+          "4": [
+            1,
+            3,
+            2
+          ],
+          "5": [
+            1,
+            3,
+            2
+          ],
+          "6": [
+            1,
+            3,
+            2
+          ],
+          "7": [
+            1,
+            3,
+            2
+          ],
+          "8": [
+            1,
+            3,
+            2
+          ],
+          "9": [
+            1,
+            3,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            2,
+            3
+          ],
+          "10": [
+            1,
+            3,
+            2
+          ],
+          "11": [
+            1,
+            3,
+            2
+          ],
+          "12": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            1,
+            3,
+            2
+          ],
+          "4": [
+            1,
+            3,
+            2
+          ],
+          "5": [
+            1,
+            3,
+            2
+          ],
+          "6": [
+            1,
+            3,
+            2
+          ],
+          "7": [
+            1,
+            3,
+            2
+          ],
+          "8": [
+            1,
+            3,
+            2
+          ],
+          "9": [
+            1,
+            3,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            4,
+            11,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            4,
+            4,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            3,
+            27,
+            2
+          ],
+          "1": [
+            3,
+            27,
+            1
+          ],
+          "2": [
+            4,
+            2068,
+            1
+          ],
+          "3": [
+            4,
+            5653,
+            1
+          ],
+          "4": [
+            2068,
+            2068,
+            1
+          ],
+          "5": [
+            2068,
+            5653,
+            1
+          ],
+          "6": [
+            5653,
+            42197,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 6,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            18,
+            1
+          ],
+          "3": [
+            2,
+            18,
+            1
+          ],
+          "4": [
+            18,
+            2826,
+            1
+          ],
+          "5": [
+            18,
+            4378,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1622,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            2,
+            3,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            13,
+            1
+          ],
+          "5": [
+            3,
+            13,
+            1
+          ],
+          "6": [
+            23,
+            5551,
+            1
+          ],
+          "7": [
+            23,
+            5551,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            2,
+            1588,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            4342,
+            1
+          ],
+          "5": [
+            2,
+            1588,
+            1
+          ],
+          "6": [
+            28,
+            32406,
+            1
+          ],
+          "7": [
+            4,
+            1588,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.0,
+        "examples": {
+          "0": [
+            2,
+            6,
+            3
+          ],
+          "1": [
+            1,
+            6,
+            2
+          ],
+          "10": [
+            2,
+            6,
+            1
+          ],
+          "11": [
+            1,
+            6,
+            2
+          ],
+          "12": [
+            2,
+            6,
+            1
+          ],
+          "2": [
+            2,
+            6,
+            1
+          ],
+          "3": [
+            1,
+            6,
+            2
+          ],
+          "4": [
+            2,
+            6,
+            1
+          ],
+          "5": [
+            1,
+            6,
+            2
+          ],
+          "6": [
+            2,
+            6,
+            1
+          ],
+          "7": [
+            1,
+            6,
+            2
+          ],
+          "8": [
+            2,
+            6,
+            1
+          ],
+          "9": [
+            1,
+            6,
+            2
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          2,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "candidates": 30,
+        "certified_failures": [],
+        "conjugates": [],
+        "dominant_root": 3.0,
+        "examples": {},
+        "kind": "geometric",
+        "largest_certified_failure": null,
+        "minimal_recurrence": [
+          3
+        ],
+        "no_failure_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.0,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            3,
+            3
+          ],
+          "10": [
+            2,
+            2,
+            1
+          ],
+          "11": [
+            1,
+            3,
+            3
+          ],
+          "12": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ],
+          "4": [
+            2,
+            2,
+            1
+          ],
+          "5": [
+            1,
+            3,
+            3
+          ],
+          "6": [
+            2,
+            2,
+            1
+          ],
+          "7": [
+            1,
+            3,
+            3
+          ],
+          "8": [
+            2,
+            2,
+            1
+          ],
+          "9": [
+            1,
+            3,
+            3
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          2,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            -1.0,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.0,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            3,
+            3
+          ],
+          "10": [
+            1,
+            4,
+            2
+          ],
+          "11": [
+            1,
+            3,
+            3
+          ],
+          "12": [
+            1,
+            4,
+            2
+          ],
+          "2": [
+            1,
+            4,
+            2
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ],
+          "4": [
+            1,
+            4,
+            2
+          ],
+          "5": [
+            1,
+            3,
+            3
+          ],
+          "6": [
+            1,
+            4,
+            2
+          ],
+          "7": [
+            1,
+            3,
+            3
+          ],
+          "8": [
+            1,
+            4,
+            2
+          ],
+          "9": [
+            1,
+            3,
+            3
+          ]
+        },
+        "kind": "non-Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          2,
+          3
+        ],
+        "no_failure_shifts": [],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            6,
+            15,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            4,
+            4,
+            2
+          ],
+          "1": [
+            4,
+            17,
+            1
+          ],
+          "2": [
+            4,
+            5674,
+            1
+          ],
+          "3": [
+            25,
+            5674,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            1611,
+            1
+          ],
+          "3": [
+            13,
+            3978,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2064,
+            1
+          ],
+          "3": [
+            2,
+            5095,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1623,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ],
+          "2": [
+            2,
+            2517,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "5": [
+            3459,
+            3459,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            8,
+            3
+          ],
+          "1": [
+            1,
+            8,
+            2
+          ],
+          "10": [
+            8396,
+            8396,
+            1
+          ],
+          "2": [
+            4,
+            8,
+            1
+          ],
+          "3": [
+            4,
+            4024,
+            1
+          ],
+          "4": [
+            4,
+            8396,
+            1
+          ],
+          "5": [
+            6,
+            4024,
+            1
+          ],
+          "6": [
+            6,
+            8396,
+            1
+          ],
+          "7": [
+            8,
+            4024,
+            1
+          ],
+          "8": [
+            4024,
+            4024,
+            1
+          ],
+          "9": [
+            4024,
+            8396,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "10": [
+            5465,
+            7922,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            2,
+            5465,
+            1
+          ],
+          "4": [
+            2,
+            5465,
+            1
+          ],
+          "5": [
+            2,
+            5465,
+            1
+          ],
+          "6": [
+            2,
+            5465,
+            1
+          ],
+          "7": [
+            26,
+            5465,
+            1
+          ],
+          "8": [
+            26,
+            5465,
+            1
+          ],
+          "9": [
+            5465,
+            7922,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2640,
+            1
+          ],
+          "3": [
+            2,
+            2640,
+            1
+          ],
+          "4": [
+            2,
+            2640,
+            1
+          ],
+          "5": [
+            2,
+            3801,
+            1
+          ],
+          "6": [
+            3,
+            6906,
+            1
+          ],
+          "7": [
+            3,
+            6906,
+            1
+          ],
+          "8": [
+            2640,
+            3801,
+            1
+          ],
+          "9": [
+            3801,
+            3801,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 9,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "candidates": 54,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            3
+          ],
+          "10": [
+            4594,
+            4594,
+            1
+          ],
+          "11": [
+            4594,
+            4594,
+            1
+          ],
+          "2": [
+            2,
+            4,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "4": [
+            2,
+            3192,
+            1
+          ],
+          "5": [
+            2,
+            4594,
+            1
+          ],
+          "6": [
+            3,
+            4594,
+            1
+          ],
+          "7": [
+            3,
+            4594,
+            1
+          ],
+          "8": [
+            22,
+            4594,
+            1
+          ],
+          "9": [
+            22,
+            4594,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 11,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "candidates": 126,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            -0.419643,
+            0.606291
+          ]
+        ],
+        "dominant_root": 1.839287,
+        "examples": {
+          "0": [
+            3,
+            10,
+            2
+          ],
+          "1": [
+            3,
+            10,
+            1
+          ],
+          "2": [
+            5,
+            3107,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          1,
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1693,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "candidates": 126,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.232786,
+            0.792552
+          ]
+        ],
+        "dominant_root": 1.465571,
+        "examples": {
+          "0": [
+            5,
+            5,
+            2
+          ],
+          "1": [
+            5,
+            5,
+            2
+          ],
+          "10": [
+            3607,
+            11357,
+            1
+          ],
+          "2": [
+            5,
+            5,
+            1
+          ],
+          "3": [
+            5,
+            5,
+            1
+          ],
+          "4": [
+            5,
+            5,
+            1
+          ],
+          "5": [
+            5,
+            5,
+            1
+          ],
+          "6": [
+            5,
+            5,
+            1
+          ],
+          "7": [
+            5,
+            1811,
+            1
+          ],
+          "8": [
+            5,
+            1811,
+            1
+          ],
+          "9": [
+            5,
+            17922,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          1,
+          0,
+          1
+        ],
+        "no_failure_shifts": [
+          11,
+          12
+        ],
+        "pool": 1696,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "candidates": 124,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.273409,
+            0.563821
+          ]
+        ],
+        "dominant_root": 2.546818,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            10,
+            6180,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          2,
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1693,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "candidates": 142,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.076379,
+            0.814704
+          ],
+          [
+            -0.774804,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.927562,
+        "examples": {
+          "0": [
+            3,
+            3,
+            2
+          ],
+          "1": [
+            3,
+            3,
+            2
+          ],
+          "2": [
+            3,
+            3,
+            1
+          ],
+          "3": [
+            3,
+            24,
+            1
+          ],
+          "4": [
+            3,
+            17048,
+            1
+          ],
+          "5": [
+            16,
+            1265,
+            1
+          ],
+          "6": [
+            16,
+            3528,
+            1
+          ],
+          "7": [
+            24,
+            33843,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1710,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "powers of 2",
+        "candidates": 30,
+        "certified_failures": [],
+        "conjugates": [],
+        "dominant_root": 2.0,
+        "examples": {},
+        "kind": "geometric",
+        "largest_certified_failure": null,
+        "minimal_recurrence": [
+          2
+        ],
+        "no_failure_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "powers of 3",
+        "candidates": 30,
+        "certified_failures": [],
+        "conjugates": [],
+        "dominant_root": 3.0,
+        "examples": {},
+        "kind": "geometric",
+        "largest_certified_failure": null,
+        "minimal_recurrence": [
+          3
+        ],
+        "no_failure_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "Pell 1,2,5 (2,1)",
+        "candidates": 54,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            4,
+            11,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1624,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-3); 1,2,3,4",
+        "candidates": 149,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "conjugates": [
+          [
+            0.219447,
+            0.914474
+          ],
+          [
+            -0.819173,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.380278,
+        "examples": {
+          "0": [
+            6,
+            6,
+            2
+          ],
+          "1": [
+            6,
+            6,
+            3
+          ],
+          "10": [
+            6,
+            6,
+            1
+          ],
+          "11": [
+            6,
+            6,
+            1
+          ],
+          "12": [
+            6,
+            6,
+            1
+          ],
+          "2": [
+            6,
+            6,
+            1
+          ],
+          "3": [
+            6,
+            6,
+            1
+          ],
+          "4": [
+            6,
+            6,
+            1
+          ],
+          "5": [
+            6,
+            6,
+            1
+          ],
+          "6": [
+            6,
+            6,
+            1
+          ],
+          "7": [
+            6,
+            6,
+            1
+          ],
+          "8": [
+            6,
+            6,
+            1
+          ],
+          "9": [
+            6,
+            6,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 12,
+        "minimal_recurrence": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "no_failure_shifts": [],
+        "pool": 1717,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)-G(k-1)+G(k-2) (non-Pisot?); 1,2,4",
+        "candidates": 125,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            0.122561,
+            0.744862
+          ]
+        ],
+        "dominant_root": 1.754878,
+        "examples": {
+          "0": [
+            3,
+            3,
+            2
+          ],
+          "1": [
+            3,
+            3,
+            2
+          ],
+          "2": [
+            3,
+            3,
+            1
+          ],
+          "3": [
+            3,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            20,
+            1
+          ],
+          "5": [
+            24,
+            1887,
+            1
+          ],
+          "6": [
+            24,
+            5838,
+            1
+          ],
+          "7": [
+            24,
+            5838,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          2,
+          -1,
+          1
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 1692,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+2G(k-2); 1,2,4",
+        "candidates": 30,
+        "certified_failures": [],
+        "conjugates": [],
+        "dominant_root": 2.0,
+        "examples": {},
+        "kind": "geometric",
+        "largest_certified_failure": null,
+        "minimal_recurrence": [
+          2
+        ],
+        "no_failure_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "pool": 0,
+        "uncertified": [],
+        "upward_closed": true
+      }
+    ],
+    "named": {
+      "(2,2) 1,2": {
+        "candidates": 80,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            3,
+            27,
+            2
+          ],
+          "1": [
+            3,
+            27,
+            1
+          ],
+          "2": [
+            4,
+            5653,
+            1
+          ],
+          "3": [
+            4,
+            5653,
+            1
+          ],
+          "4": [
+            5653,
+            5653,
+            1
+          ],
+          "5": [
+            5653,
+            8756,
+            1
+          ],
+          "6": [
+            5653,
+            42197,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 6,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3050,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "(3,3) 1,5": {
+        "candidates": 80,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            10016,
+            10016,
+            2
+          ],
+          "1": [
+            10016,
+            10016,
+            1
+          ],
+          "10": [
+            3192,
+            173938,
+            1
+          ],
+          "11": [
+            12100,
+            12100,
+            1
+          ],
+          "2": [
+            10016,
+            10016,
+            1
+          ],
+          "3": [
+            10016,
+            10016,
+            1
+          ],
+          "4": [
+            50,
+            96,
+            1
+          ],
+          "5": [
+            50,
+            96,
+            1
+          ],
+          "6": [
+            3,
+            12100,
+            1
+          ],
+          "7": [
+            3,
+            12100,
+            1
+          ],
+          "8": [
+            4,
+            119992,
+            1
+          ],
+          "9": [
+            4,
+            119992,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 11,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3050,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "4-bonacci 1,2,4,8": {
+        "candidates": 269,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.076379,
+            0.814704
+          ],
+          [
+            -0.774804,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.927562,
+        "examples": {
+          "0": [
+            10016,
+            10016,
+            2
+          ],
+          "1": [
+            10016,
+            10016,
+            1
+          ],
+          "2": [
+            3,
+            3,
+            1
+          ],
+          "3": [
+            3,
+            24,
+            1
+          ],
+          "4": [
+            3,
+            93472,
+            1
+          ],
+          "5": [
+            16,
+            6801,
+            1
+          ],
+          "6": [
+            16,
+            9064,
+            1
+          ],
+          "7": [
+            24,
+            33843,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3236,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "Fibonacci 1,2": {
+        "candidates": 80,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            4,
+            4,
+            2
+          ],
+          "1": [
+            4,
+            4,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3049,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "G(k+1)=G(k)+G(k-2) 1,2,3": {
+        "candidates": 230,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.232786,
+            0.792552
+          ]
+        ],
+        "dominant_root": 1.465571,
+        "examples": {
+          "0": [
+            78,
+            248,
+            3
+          ],
+          "1": [
+            78,
+            248,
+            1
+          ],
+          "10": [
+            78,
+            248,
+            1
+          ],
+          "2": [
+            78,
+            248,
+            1
+          ],
+          "3": [
+            78,
+            248,
+            2
+          ],
+          "4": [
+            78,
+            248,
+            1
+          ],
+          "5": [
+            78,
+            248,
+            1
+          ],
+          "6": [
+            78,
+            248,
+            1
+          ],
+          "7": [
+            78,
+            248,
+            1
+          ],
+          "8": [
+            78,
+            248,
+            1
+          ],
+          "9": [
+            78,
+            248,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          1,
+          0,
+          1
+        ],
+        "no_failure_shifts": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3199,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "G(k+1)=G(k)+G(k-3) 1,2,3,4": {
+        "candidates": 279,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "conjugates": [
+          [
+            0.219447,
+            0.914474
+          ],
+          [
+            -0.819173,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.380278,
+        "examples": {
+          "0": [
+            78,
+            248,
+            2
+          ],
+          "1": [
+            78,
+            248,
+            2
+          ],
+          "10": [
+            78,
+            248,
+            1
+          ],
+          "11": [
+            78,
+            248,
+            1
+          ],
+          "12": [
+            78,
+            248,
+            1
+          ],
+          "13": [
+            78,
+            248,
+            1
+          ],
+          "14": [
+            78,
+            248,
+            1
+          ],
+          "15": [
+            78,
+            248,
+            1
+          ],
+          "16": [
+            78,
+            248,
+            1
+          ],
+          "2": [
+            78,
+            248,
+            1
+          ],
+          "3": [
+            78,
+            248,
+            1
+          ],
+          "4": [
+            78,
+            248,
+            1
+          ],
+          "5": [
+            78,
+            248,
+            1
+          ],
+          "6": [
+            78,
+            248,
+            1
+          ],
+          "7": [
+            78,
+            248,
+            1
+          ],
+          "8": [
+            78,
+            248,
+            1
+          ],
+          "9": [
+            78,
+            248,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 16,
+        "minimal_recurrence": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "no_failure_shifts": [],
+        "pool": 3246,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "Pell 1,2,5": {
+        "candidates": 80,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            4,
+            11,
+            2
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3049,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      "tribonacci 1,2,4": {
+        "candidates": 230,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.419643,
+            0.606291
+          ]
+        ],
+        "dominant_root": 1.839287,
+        "examples": {
+          "0": [
+            10016,
+            10016,
+            2
+          ],
+          "1": [
+            10016,
+            10016,
+            1
+          ],
+          "2": [
+            10016,
+            10016,
+            1
+          ],
+          "3": [
+            10016,
+            10016,
+            1
+          ]
+        },
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          1,
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        "pool": 3199,
+        "uncertified": [],
+        "upward_closed": true
+      }
+    },
+    "non_monotone_quadratic_rows": [
+      {
+        "beta": -0.618034,
+        "canonical": false,
+        "g1": 3,
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "q": 1
+      },
+      {
+        "beta": -0.618034,
+        "canonical": false,
+        "g1": 4,
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "q": 1
+      },
+      {
+        "beta": -0.618034,
+        "canonical": false,
+        "g1": 5,
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "q": 1
+      },
+      {
+        "beta": -0.618034,
+        "canonical": false,
+        "g1": 6,
+        "no_failure_shifts": [
+          4,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "q": 1
+      },
+      {
+        "beta": -0.414214,
+        "canonical": false,
+        "g1": 5,
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "q": 1
+      },
+      {
+        "beta": -0.414214,
+        "canonical": false,
+        "g1": 6,
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "q": 1
+      },
+      {
+        "beta": -0.732051,
+        "canonical": false,
+        "g1": 6,
+        "no_failure_shifts": [
+          8,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "q": 2
+      },
+      {
+        "beta": -0.561553,
+        "canonical": false,
+        "g1": 5,
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "q": 2
+      }
+    ],
+    "quadratic_rows": [
+      {
+        "beta": -0.618034,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            4,
+            4,
+            2
+          ],
+          "1": [
+            4,
+            4,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "pool": 1622,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.618034,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            2,
+            6,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.618034,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            3,
+            8,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "5": [
+            8,
+            8,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.618034,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            3,
+            10,
+            1
+          ],
+          "3": [
+            1,
+            10,
+            2
+          ],
+          "5": [
+            3,
+            4,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.618034,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.618034,
+            0.0
+          ]
+        ],
+        "dominant_root": 1.618034,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            3,
+            5,
+            1
+          ],
+          "3": [
+            1,
+            5,
+            2
+          ],
+          "5": [
+            2,
+            4036,
+            1
+          ],
+          "7": [
+            12,
+            4036,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          1,
+          1
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 1,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.414214,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            4,
+            11,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.414214,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.414214,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.414214,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            4,
+            4,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.414214,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.414214,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.414214,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "3": [
+            3,
+            5,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          2,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.732051,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            3,
+            27,
+            2
+          ],
+          "1": [
+            3,
+            27,
+            1
+          ],
+          "2": [
+            4,
+            2068,
+            1
+          ],
+          "3": [
+            4,
+            5653,
+            1
+          ],
+          "4": [
+            2068,
+            2068,
+            1
+          ],
+          "5": [
+            2068,
+            5653,
+            1
+          ],
+          "6": [
+            5653,
+            42197,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 6,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.732051,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            18,
+            1
+          ],
+          "3": [
+            2,
+            18,
+            1
+          ],
+          "4": [
+            18,
+            2826,
+            1
+          ],
+          "5": [
+            18,
+            4378,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1622,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.732051,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            2,
+            3,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            13,
+            1
+          ],
+          "5": [
+            3,
+            13,
+            1
+          ],
+          "6": [
+            23,
+            5551,
+            1
+          ],
+          "7": [
+            23,
+            5551,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.732051,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            2,
+            1588,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            4342,
+            1
+          ],
+          "5": [
+            2,
+            1588,
+            1
+          ],
+          "6": [
+            28,
+            32406,
+            1
+          ],
+          "7": [
+            4,
+            1588,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.732051,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9
+        ],
+        "conjugates": [
+          [
+            -0.732051,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.732051,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            3,
+            2
+          ],
+          "2": [
+            2,
+            19,
+            1
+          ],
+          "3": [
+            2,
+            3,
+            1
+          ],
+          "4": [
+            3,
+            1865,
+            1
+          ],
+          "5": [
+            2,
+            19,
+            1
+          ],
+          "6": [
+            5,
+            21580,
+            1
+          ],
+          "7": [
+            3,
+            1865,
+            1
+          ],
+          "9": [
+            19,
+            1865,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 9,
+        "minimal_recurrence": [
+          2,
+          2
+        ],
+        "no_failure_shifts": [
+          8,
+          10,
+          11,
+          12
+        ],
+        "p": 2,
+        "pool": 1623,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": 0.381966,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.381966,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.618034,
+        "examples": {
+          "0": [
+            3,
+            3,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          3,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.381966,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.381966,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          3,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.381966,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.381966,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.618034,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            3,
+            7,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.381966,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.381966,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.618034,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            3,
+            9,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.381966,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.381966,
+            0.0
+          ]
+        ],
+        "dominant_root": 2.618034,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            3,
+            5,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.302776,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            6,
+            15,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.302776,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.302776,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.302776,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.302776,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.302776,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          3,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.561553,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            4,
+            4,
+            2
+          ],
+          "1": [
+            4,
+            17,
+            1
+          ],
+          "2": [
+            4,
+            5674,
+            1
+          ],
+          "3": [
+            25,
+            5674,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.561553,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            1611,
+            1
+          ],
+          "3": [
+            13,
+            3978,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.561553,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2064,
+            1
+          ],
+          "3": [
+            2,
+            5095,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1623,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.561553,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ],
+          "2": [
+            2,
+            2517,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "5": [
+            3459,
+            3459,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": false
+      },
+      {
+        "beta": -0.561553,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.561553,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.561553,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ],
+          "2": [
+            2,
+            2970,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "4": [
+            2970,
+            4081,
+            1
+          ],
+          "5": [
+            4,
+            4081,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          3,
+          2
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.791288,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            8,
+            3
+          ],
+          "1": [
+            1,
+            8,
+            2
+          ],
+          "10": [
+            8396,
+            8396,
+            1
+          ],
+          "2": [
+            4,
+            8,
+            1
+          ],
+          "3": [
+            4,
+            4024,
+            1
+          ],
+          "4": [
+            4,
+            8396,
+            1
+          ],
+          "5": [
+            6,
+            4024,
+            1
+          ],
+          "6": [
+            6,
+            8396,
+            1
+          ],
+          "7": [
+            8,
+            4024,
+            1
+          ],
+          "8": [
+            4024,
+            4024,
+            1
+          ],
+          "9": [
+            4024,
+            8396,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.791288,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "10": [
+            5465,
+            7922,
+            1
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            2,
+            5465,
+            1
+          ],
+          "4": [
+            2,
+            5465,
+            1
+          ],
+          "5": [
+            2,
+            5465,
+            1
+          ],
+          "6": [
+            2,
+            5465,
+            1
+          ],
+          "7": [
+            26,
+            5465,
+            1
+          ],
+          "8": [
+            26,
+            5465,
+            1
+          ],
+          "9": [
+            5465,
+            7922,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 10,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.791288,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            2640,
+            1
+          ],
+          "3": [
+            2,
+            2640,
+            1
+          ],
+          "4": [
+            2,
+            2640,
+            1
+          ],
+          "5": [
+            2,
+            3801,
+            1
+          ],
+          "6": [
+            3,
+            6906,
+            1
+          ],
+          "7": [
+            3,
+            6906,
+            1
+          ],
+          "8": [
+            2640,
+            3801,
+            1
+          ],
+          "9": [
+            3801,
+            3801,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 9,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          10,
+          11,
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.791288,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            4,
+            3
+          ],
+          "10": [
+            4594,
+            4594,
+            1
+          ],
+          "11": [
+            4594,
+            4594,
+            1
+          ],
+          "2": [
+            2,
+            4,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "4": [
+            2,
+            3192,
+            1
+          ],
+          "5": [
+            2,
+            4594,
+            1
+          ],
+          "6": [
+            3,
+            4594,
+            1
+          ],
+          "7": [
+            3,
+            4594,
+            1
+          ],
+          "8": [
+            22,
+            4594,
+            1
+          ],
+          "9": [
+            22,
+            4594,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 11,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.791288,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "conjugates": [
+          [
+            -0.791288,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.791288,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            4,
+            2
+          ],
+          "10": [
+            26,
+            14189,
+            1
+          ],
+          "11": [
+            26,
+            14189,
+            1
+          ],
+          "2": [
+            2,
+            4,
+            1
+          ],
+          "3": [
+            2,
+            4,
+            1
+          ],
+          "4": [
+            2,
+            3744,
+            1
+          ],
+          "5": [
+            2,
+            5387,
+            1
+          ],
+          "6": [
+            2,
+            9788,
+            1
+          ],
+          "7": [
+            2,
+            9788,
+            1
+          ],
+          "8": [
+            4,
+            5387,
+            1
+          ],
+          "9": [
+            4,
+            5387,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 11,
+        "minimal_recurrence": [
+          3,
+          3
+        ],
+        "no_failure_shifts": [
+          12
+        ],
+        "p": 3,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.585786,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            0.585786,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.414214,
+        "examples": {
+          "0": [
+            3,
+            5,
+            2
+          ],
+          "1": [
+            3,
+            5,
+            1
+          ],
+          "2": [
+            5,
+            7649,
+            1
+          ],
+          "3": [
+            7649,
+            7649,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          -2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.585786,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            0.585786,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            18,
+            1
+          ],
+          "2": [
+            8,
+            28,
+            1
+          ],
+          "3": [
+            8440,
+            8440,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          -2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.585786,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            0.585786,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.414214,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            7,
+            1
+          ],
+          "2": [
+            3,
+            25,
+            1
+          ],
+          "3": [
+            11,
+            5407,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          -2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.585786,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            0.585786,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.414214,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            6990,
+            1
+          ],
+          "2": [
+            3,
+            6990,
+            1
+          ],
+          "3": [
+            14,
+            6990,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          -2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1622,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.585786,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "conjugates": [
+          [
+            0.585786,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.414214,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            11,
+            1
+          ],
+          "2": [
+            3,
+            17,
+            1
+          ],
+          "3": [
+            5,
+            5541,
+            1
+          ],
+          "4": [
+            5541,
+            5541,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 4,
+        "minimal_recurrence": [
+          4,
+          -2
+        ],
+        "no_failure_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.267949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.267949,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.732051,
+        "examples": {
+          "0": [
+            3,
+            5,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          4,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.267949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.267949,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          4,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.267949,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.267949,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.732051,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          4,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.267949,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.267949,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.732051,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            4,
+            14,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.267949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.267949,
+            0.0
+          ]
+        ],
+        "dominant_root": 3.732051,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            4,
+            17,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.236068,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.236068,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.236068,
+        "examples": {
+          "0": [
+            8,
+            19,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          4,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1622,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.236068,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.236068,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.236068,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            986,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.236068,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.236068,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.236068,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.236068,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.236068,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.236068,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.236068,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.236068,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.236068,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            5,
+            2
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.44949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            -0.44949,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.44949,
+        "examples": {
+          "0": [
+            4,
+            6,
+            2
+          ],
+          "1": [
+            6,
+            21,
+            1
+          ],
+          "2": [
+            3672,
+            3672,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          4,
+          2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.44949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.44949,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.44949,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            6626,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          4,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.44949,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            -0.44949,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.44949,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            1499,
+            1499,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          4,
+          2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.44949,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.44949,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.44949,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            1836,
+            1836,
+            1
+          ],
+          "3": [
+            1836,
+            1836,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.44949,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.44949,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.44949,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            5,
+            2
+          ],
+          "2": [
+            5,
+            5,
+            1
+          ],
+          "3": [
+            5,
+            5,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          4,
+          2
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.645751,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.645751,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.645751,
+        "examples": {
+          "0": [
+            2,
+            10,
+            3
+          ],
+          "1": [
+            1,
+            10,
+            2
+          ],
+          "2": [
+            4,
+            10,
+            1
+          ],
+          "3": [
+            8,
+            3456,
+            1
+          ],
+          "4": [
+            8,
+            3456,
+            1
+          ],
+          "5": [
+            4538,
+            21085,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          4,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.645751,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.645751,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.645751,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            9,
+            1
+          ],
+          "2": [
+            2,
+            4761,
+            1
+          ],
+          "3": [
+            2,
+            4761,
+            1
+          ],
+          "4": [
+            2,
+            8273,
+            1
+          ],
+          "5": [
+            4761,
+            8273,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          4,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1623,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.645751,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.645751,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.645751,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            2,
+            6068,
+            1
+          ],
+          "3": [
+            2,
+            10542,
+            1
+          ],
+          "4": [
+            6068,
+            10542,
+            1
+          ],
+          "5": [
+            10542,
+            10542,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          4,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.645751,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.645751,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.645751,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            2,
+            5066,
+            1
+          ],
+          "3": [
+            2,
+            12811,
+            1
+          ],
+          "4": [
+            27,
+            5066,
+            1
+          ],
+          "5": [
+            27,
+            12811,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          4,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.645751,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            -0.645751,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.645751,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            1,
+            5,
+            2
+          ],
+          "2": [
+            2,
+            5,
+            1
+          ],
+          "3": [
+            2,
+            5,
+            1
+          ],
+          "4": [
+            4,
+            2453,
+            1
+          ],
+          "5": [
+            4,
+            2453,
+            1
+          ],
+          "6": [
+            40334,
+            40334,
+            1
+          ],
+          "7": [
+            40334,
+            40334,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          4,
+          3
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 4,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.697224,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            0.697224,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.302776,
+        "examples": {
+          "0": [
+            3,
+            5,
+            2
+          ],
+          "1": [
+            3,
+            19,
+            1
+          ],
+          "2": [
+            5,
+            8963,
+            1
+          ],
+          "3": [
+            5,
+            8963,
+            1
+          ],
+          "4": [
+            19,
+            8963,
+            1
+          ],
+          "5": [
+            8963,
+            8963,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          5,
+          -3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1622,
+        "q": -3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.697224,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "conjugates": [
+          [
+            0.697224,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            2,
+            11789,
+            1
+          ],
+          "3": [
+            2,
+            11789,
+            1
+          ],
+          "4": [
+            5,
+            11789,
+            1
+          ],
+          "5": [
+            23,
+            11789,
+            1
+          ],
+          "6": [
+            11789,
+            11789,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 6,
+        "minimal_recurrence": [
+          5,
+          -3
+        ],
+        "no_failure_shifts": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": -3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.697224,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "conjugates": [
+          [
+            0.697224,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.302776,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            11,
+            1
+          ],
+          "2": [
+            2,
+            11093,
+            1
+          ],
+          "3": [
+            3,
+            11093,
+            1
+          ],
+          "4": [
+            7,
+            11093,
+            1
+          ],
+          "5": [
+            15,
+            47731,
+            1
+          ],
+          "6": [
+            11093,
+            11093,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 6,
+        "minimal_recurrence": [
+          5,
+          -3
+        ],
+        "no_failure_shifts": [
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1622,
+        "q": -3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.697224,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            0.697224,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            13,
+            1
+          ],
+          "2": [
+            2,
+            6877,
+            1
+          ],
+          "3": [
+            3,
+            6877,
+            1
+          ],
+          "4": [
+            4,
+            6877,
+            1
+          ],
+          "5": [
+            9,
+            6877,
+            1
+          ],
+          "6": [
+            6877,
+            6877,
+            1
+          ],
+          "7": [
+            6877,
+            14450,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          5,
+          -3
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1620,
+        "q": -3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.697224,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "conjugates": [
+          [
+            0.697224,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.302776,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            5,
+            1
+          ],
+          "2": [
+            2,
+            11,
+            1
+          ],
+          "3": [
+            2,
+            8474,
+            1
+          ],
+          "4": [
+            3,
+            8474,
+            1
+          ],
+          "5": [
+            5,
+            8474,
+            1
+          ],
+          "6": [
+            17,
+            8474,
+            1
+          ],
+          "7": [
+            8474,
+            8474,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 7,
+        "minimal_recurrence": [
+          5,
+          -3
+        ],
+        "no_failure_shifts": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1622,
+        "q": -3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.438447,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            0.438447,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.561553,
+        "examples": {
+          "0": [
+            3,
+            7,
+            2
+          ],
+          "1": [
+            5,
+            23,
+            1
+          ],
+          "2": [
+            23,
+            6287,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          5,
+          -2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.438447,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.438447,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            5,
+            4715,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          -2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.438447,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            0.438447,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.561553,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            6555,
+            1
+          ],
+          "2": [
+            15,
+            6555,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          5,
+          -2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.438447,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            0.438447,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.561553,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            3,
+            9,
+            1
+          ],
+          "2": [
+            14,
+            6210,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          5,
+          -2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1622,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.438447,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2
+        ],
+        "conjugates": [
+          [
+            0.438447,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.561553,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            7571,
+            1
+          ],
+          "2": [
+            5,
+            23,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 2,
+        "minimal_recurrence": [
+          5,
+          -2
+        ],
+        "no_failure_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1621,
+        "q": -2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.208712,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.208712,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.791288,
+        "examples": {
+          "0": [
+            3,
+            7,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.208712,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.208712,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.208712,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.208712,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.791288,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.208712,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            0.208712,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.791288,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          -1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": 0.208712,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            0.208712,
+            0.0
+          ]
+        ],
+        "dominant_root": 4.791288,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            5,
+            23,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          -1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": -1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.192582,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.192582,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.192582,
+        "examples": {
+          "0": [
+            10,
+            23,
+            2
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.192582,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0
+        ],
+        "conjugates": [
+          [
+            -0.192582,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.192582,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 0,
+        "minimal_recurrence": [
+          5,
+          1
+        ],
+        "no_failure_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.192582,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.192582,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.192582,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.192582,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.192582,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.192582,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.192582,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.192582,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.192582,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          1
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 1,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.372281,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.372281,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.372281,
+        "examples": {
+          "0": [
+            4,
+            6,
+            2
+          ],
+          "1": [
+            6,
+            1781,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.372281,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.372281,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.372281,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            2532,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.372281,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.372281,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.372281,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.372281,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.372281,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.372281,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.372281,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1
+        ],
+        "conjugates": [
+          [
+            -0.372281,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.372281,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 1,
+        "minimal_recurrence": [
+          5,
+          2
+        ],
+        "no_failure_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1623,
+        "q": 2,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.541381,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "conjugates": [
+          [
+            -0.541381,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.541381,
+        "examples": {
+          "0": [
+            2,
+            12,
+            3
+          ],
+          "1": [
+            1,
+            12,
+            2
+          ],
+          "2": [
+            4,
+            12,
+            1
+          ],
+          "3": [
+            8,
+            2036,
+            1
+          ],
+          "4": [
+            10,
+            6916,
+            1
+          ]
+        },
+        "g1": 2,
+        "kind": "Pisot",
+        "largest_certified_failure": 4,
+        "minimal_recurrence": [
+          5,
+          3
+        ],
+        "no_failure_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.541381,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "conjugates": [
+          [
+            -0.541381,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.541381,
+        "examples": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            2,
+            9,
+            1
+          ],
+          "2": [
+            2,
+            2288,
+            1
+          ],
+          "3": [
+            2,
+            9636,
+            1
+          ],
+          "4": [
+            2288,
+            2288,
+            1
+          ]
+        },
+        "g1": 3,
+        "kind": "Pisot",
+        "largest_certified_failure": 4,
+        "minimal_recurrence": [
+          5,
+          3
+        ],
+        "no_failure_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1622,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.541381,
+        "candidates": 54,
+        "canonical": false,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "conjugates": [
+          [
+            -0.541381,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.541381,
+        "examples": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            2,
+            8457,
+            1
+          ],
+          "3": [
+            3,
+            2934,
+            1
+          ]
+        },
+        "g1": 4,
+        "kind": "Pisot",
+        "largest_certified_failure": 3,
+        "minimal_recurrence": [
+          5,
+          3
+        ],
+        "no_failure_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.541381,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.541381,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.541381,
+        "examples": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            2,
+            10320,
+            1
+          ],
+          "3": [
+            3,
+            4,
+            1
+          ],
+          "4": [
+            3580,
+            10320,
+            1
+          ],
+          "5": [
+            4439,
+            30816,
+            1
+          ]
+        },
+        "g1": 5,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          5,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      },
+      {
+        "beta": -0.541381,
+        "candidates": 54,
+        "canonical": true,
+        "certified_failures": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "conjugates": [
+          [
+            -0.541381,
+            0.0
+          ]
+        ],
+        "dominant_root": 5.541381,
+        "examples": {
+          "0": [
+            2,
+            3,
+            6
+          ],
+          "1": [
+            2,
+            3,
+            1
+          ],
+          "2": [
+            2,
+            4226,
+            1
+          ],
+          "3": [
+            2,
+            4226,
+            1
+          ],
+          "4": [
+            4226,
+            4226,
+            1
+          ],
+          "5": [
+            4226,
+            4226,
+            1
+          ]
+        },
+        "g1": 6,
+        "kind": "Pisot",
+        "largest_certified_failure": 5,
+        "minimal_recurrence": [
+          5,
+          3
+        ],
+        "no_failure_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "p": 5,
+        "pool": 1624,
+        "q": 3,
+        "uncertified": [],
+        "upward_closed": true
+      }
+    ],
+    "quadratic_rows_with_new_certified_failures_vs_EXP_C08_06": [
+      {
+        "g1": 2,
+        "p": 2,
+        "q": 2,
+        "shifts": [
+          5,
+          6
+        ]
+      },
+      {
+        "g1": 5,
+        "p": 2,
+        "q": 2,
+        "shifts": [
+          6
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 3,
+        "q": 2,
+        "shifts": [
+          3
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 3,
+        "q": 2,
+        "shifts": [
+          4
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 3,
+        "q": 3,
+        "shifts": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "g1": 3,
+        "p": 3,
+        "q": 3,
+        "shifts": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "g1": 4,
+        "p": 3,
+        "q": 3,
+        "shifts": [
+          8,
+          9
+        ]
+      },
+      {
+        "g1": 5,
+        "p": 3,
+        "q": 3,
+        "shifts": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 3,
+        "q": 3,
+        "shifts": [
+          10
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 4,
+        "q": -2,
+        "shifts": [
+          3
+        ]
+      },
+      {
+        "g1": 3,
+        "p": 4,
+        "q": -2,
+        "shifts": [
+          3
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 4,
+        "q": -2,
+        "shifts": [
+          4
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 4,
+        "q": 2,
+        "shifts": [
+          2
+        ]
+      },
+      {
+        "g1": 4,
+        "p": 4,
+        "q": 2,
+        "shifts": [
+          2
+        ]
+      },
+      {
+        "g1": 5,
+        "p": 4,
+        "q": 2,
+        "shifts": [
+          2,
+          3
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 4,
+        "q": 3,
+        "shifts": [
+          5
+        ]
+      },
+      {
+        "g1": 3,
+        "p": 4,
+        "q": 3,
+        "shifts": [
+          5
+        ]
+      },
+      {
+        "g1": 4,
+        "p": 4,
+        "q": 3,
+        "shifts": [
+          4,
+          5
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 4,
+        "q": 3,
+        "shifts": [
+          6,
+          7
+        ]
+      },
+      {
+        "g1": 2,
+        "p": 5,
+        "q": -3,
+        "shifts": [
+          4,
+          5
+        ]
+      },
+      {
+        "g1": 3,
+        "p": 5,
+        "q": -3,
+        "shifts": [
+          6
+        ]
+      },
+      {
+        "g1": 4,
+        "p": 5,
+        "q": -3,
+        "shifts": [
+          5,
+          6
+        ]
+      },
+      {
+        "g1": 5,
+        "p": 5,
+        "q": -3,
+        "shifts": [
+          6,
+          7
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 5,
+        "q": -3,
+        "shifts": [
+          6,
+          7
+        ]
+      },
+      {
+        "g1": 3,
+        "p": 5,
+        "q": 3,
+        "shifts": [
+          4
+        ]
+      },
+      {
+        "g1": 5,
+        "p": 5,
+        "q": 3,
+        "shifts": [
+          4,
+          5
+        ]
+      },
+      {
+        "g1": 6,
+        "p": 5,
+        "q": 3,
+        "shifts": [
+          4,
+          5
+        ]
+      }
+    ],
+    "summary": [
+      "named sequences (largest certified failing shift / shifts 0..16 without a failure found): Fibonacci 1,2: 1 / [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; Pell 1,2,5: 0 / [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (2,2) 1,2: 6 / [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (3,3) 1,5: 11 / [12, 13, 14, 15, 16]; tribonacci 1,2,4: 3 / [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; 4-bonacci 1,2,4,8: 7 / [8, 9, 10, 11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-2) 1,2,3: 10 / [11, 12, 13, 14, 15, 16]; G(k+1)=G(k)+G(k-3) 1,2,3,4: 16 / []",
+      "atlas: 46 sequences; non-Pisot with a shift without failure: 0 []; Pisot with no shift without failure in 0..12: 1 ['G(k+1)=G(k)+G(k-3); 1,2,3,4']",
+      "quadratic rows: 90; rows with a newly certified failure at a shift EXP-C08-06 passed: 27; non-monotone on 0..12: 8 (beta > 0: 0 of 30 rows; canonical: 0)",
+      "uncertified embedding failures (no triple found): 0"
+    ],
+    "timings": {
+      "atlas_s": 48.0,
+      "named_s": 73.5,
+      "quadratic_s": 98.3
+    }
+  },
+  "results_sha256": "2f8d050c520184c0a27932002b907407ccd43bbcc323b3c3fdd660b2f68553cb",
+  "runtime_s": 219.771,
+  "started": "2026-10-18T18:07:25Z"
+}

@@ -1,7 +1,7 @@
 # Cycle C05 — Spectra of single-identity magma varieties
 
 **Branch:** B (invented composition rules) · **Status:** complete
-**Experiments:** EXP-C05-01 … EXP-C05-06 · **Claims:** CLM-C05-01 … CLM-C05-09
+**Experiments:** EXP-C05-01 … EXP-C05-07 · **Claims:** CLM-C05-01 … CLM-C05-10
 **Proofs:** `proofs/lean/Infinity/C05_Magmas.lean`, `proofs/paper/C05.md`
 **Toolkit:** `systems/magma.py` (terms, identities, exact SAT encoding, isomorphism classes, affine models)
 
@@ -66,13 +66,13 @@ drat-trim build are in **Reproducibility** below. Lean:
 | 10110011 | 2 | y((x(yx))y) = x (1083) | quasigroups, not Mendelsohn | notes: contains 1,3,4,7,8,9 |
 | 11011011 | 8 | y((xy)(yy)) = x (883) | quasigroups | notes: contains {1, 2 mod 3} |
 | 10001011 | 8 | y(x(x(yy))) = x (467), y(y((xx)y)) = x (704) | quasigroups, medial | notes: starting 1,5,7,8 |
-| 1000101? | 4 | y(x((yx)y)) = x (677), y(((yx)x)y) = x (1313) | idempotent quasigroups | 677: *no sizes in the notes* |
+| 1000101? | 4 | y(x((yx)y)) = x (677), y(((yx)x)y) = x (1313) | idempotent quasigroups | 677: *no sizes in the notes*; both have order-16 models (EXP-C05-07) |
 | 10001000 | 2 | y((x(xy))y) = x (1076) | idempotent quasigroups | notes: 1,5, not 6, 7 |
 | 1010001? | 2 | y((yx)(xy)) = x (907) | Steiner quasigroup at n = 3 | notes: 1,3,7,9,13; not 2,4,5,6 |
 | 10011001 | 2 | y(y(x(xy))) = x (501) | non-quasigroup models (15 classes at n = 4) | notes: contains 1,4,5,8,9 |
 | 10011011 | 2 | y((y(xx))y) = x (1110) | quasigroups | notes: 1,4,5,7,8,9 |
 | 100110?? | 2 | y(x((xy)y)) = x (670) | non-quasigroup models | notes: 1,4,5, not 6, 7 |
-| 10011??1 | 1 | (yx)(xy) = x (167) | 58 classes at n = 4, non-quasigroups | {0, 1 mod 4} (Theorem 2) |
+| 10011??1 | 1 | (yx)(xy) = x (167) | 58 classes at n = 4, non-quasigroups | {0, 1 mod 4} (Theorem 2; it decides the two '?' - no models of orders 6, 7) |
 | 10101111 | 4 | y(x(y(xy))) = x (474) | non-quasigroups | N∖{2, 4} (ETP) |
 | 10111111 | 4 | (yx)((xy)y) = x (1685) | some non-quasigroups | N∖{2} (ETP) |
 | 1000001? | 2 | y(((xy)x)y) = x (1286) | none of order 2..6 | notes: starting 1, 7 |
@@ -230,12 +230,28 @@ Chapter 6, `textbook/src/06_magma_laws.md` (Volume 2).
   the two ETP PDFs while reading the literature; no experiment or module
   imports it.
 
+## Review (2026-10-18) and follow-up EXP-C05-07
+
+The independent Skeptic review (`reviews/skeptic_C05_C08_C12.md`) upheld
+CLM-C05-01 … 08 — its own CNF encodings, solved with CaDiCaL 1.9.5 and
+Kissat 4.0.4, reproduce the 115-identity census and all 15 claimed gaps (the
+13 gaps with n ≤ 6 even without the extra Latin-row and symmetry-breaking
+constraints). It **refuted CLM-C05-09**: laws 677 and 1313 have models of
+order 16, linear over GF(16). EXP-C05-07 then searched linear models over
+every GF(q), q ≤ 128, for all 15 open laws (CLM-C05-10): 0 conflicts with SAT,
+DRUP gaps or the notes; even orders for 14 of the 15 laws; law 670 at n = 9
+settled. The blind spot was methodological: EXP-C05-05 tried affine models
+only over ℤ_n, whose additive group is cyclic.
+
 ## Next directions
 
-1. Decide the remaining sizes (law 1286 at 8 and 10; law 677 at 8, 10) with
-   stronger symmetry breaking (fix the cycle type of row 0) and certify.
-2. Conjecture-level patterns to test further: law 677 and 1313 spectra
-   start 1, 5, 7, 9 (odd n ≥ 5?); law 1286 starts 1, 7, 9.
+1. Decide the remaining sizes (law 1286 at 8 and 10; laws 677 and 1313 at
+   8, 10, 12, 14) with stronger symmetry breaking (fix the cycle type of row
+   0) and certify.
+2. ~~Test the conjecture spec(677) = spec(1313) = {1} ∪ {odd n ≥ 5}~~ —
+   refuted by the Skeptic: both laws have linear models of order 16 over
+   GF(16) (CLM-C05-09). Which odd orders occur is open (law 1286 starts
+   1, 7, 9).
 3. Order-5 laws and three-variable identities (the ETP notes treat order ≤ 4).
 4. Formalise in Lean the general orbit-counting principle behind law 167
    for other laws with a "pair map" of finite order.

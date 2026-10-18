@@ -1,0 +1,119 @@
+{
+ "6": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "7": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": true,
+  "construction": "isotope of Z_n"
+ },
+ "8": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "9": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": true,
+  "construction": "isotope of Z_n"
+ },
+ "10": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "11": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": true,
+  "construction": "isotope of Z_n"
+ },
+ "12": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "13": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": true,
+  "construction": "isotope of Z_n"
+ },
+ "14": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "15": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": true,
+  "construction": "isotope of Z_n"
+ },
+ "16": {
+  "latin": true,
+  "single_cycle_n2": true,
+  "parity_ok": true,
+  "isotopic_to_group": false,
+  "construction": "random Latin square"
+ },
+ "products": {
+  "5x6": {
+   "latin": true,
+   "full_period": true
+  },
+  "5x7": {
+   "latin": true,
+   "full_period": true
+  },
+  "5x8": {
+   "latin": true,
+   "full_period": true
+  },
+  "6x7": {
+   "latin": true,
+   "full_period": true
+  },
+  "7x8": {
+   "latin": true,
+   "full_period": true
+  },
+  "5x9": {
+   "latin": true,
+   "full_period": true
+  },
+  "7x9": {
+   "latin": true,
+   "full_period": true
+  },
+  "8x9": {
+   "latin": true,
+   "full_period": true
+  },
+  "6x6 (control, not coprime)": {
+   "latin": true,
+   "full_period": false,
+   "max_cycle": 36
+  }
+ },
+ "runtime_s": 0.0
+}

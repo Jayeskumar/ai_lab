@@ -144,7 +144,8 @@ def main(NMAX):
         report['orders'][N] = {'multisets': len(ms), 'spectral_classes': len(buckets),
                                'spectral_coincidence_groups': len(cand_groups),
                                'multisets_in_coincidence_groups': sum(len(b) for b in cand_groups),
-                               'exact_tests': n_exact}
+                               'exact_tests': n_exact,
+                               'max_coincidence_group': max((len(b) for b in cand_groups), default=0)}
         total_ms += len(ms)
         total_candidates += sum(len(b) for b in cand_groups)
         total_exact += n_exact

@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C07-01",
     "file": "experiments/C07/E01_mex_census.py",
     "sha256": "e8b6f38e92dd6276a01a39d229d6490f30500625eba1f733e2b6ea9ee5c5c771",
-    "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "env": {
-    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "git_head": "7fec8bd6551450f1cdb94c75b9dc5acbce351b3f",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:52:44Z",
+  "finished": "2026-10-18T17:54:52Z",
   "id": "EXP-C07-01",
   "meta": {
     "agent": "Mathematical Explorer",
@@ -11647,6 +11647,6 @@
     ]
   },
   "results_sha256": "e2022b82a7e62eb4c40a34744edf1b43d0ebbd302851e7829e8e5649efd3025b",
-  "runtime_s": 95.687,
-  "started": "2026-10-18T08:51:08Z"
+  "runtime_s": 86.848,
+  "started": "2026-10-18T17:53:25Z"
 }

@@ -8,7 +8,7 @@
     "command": "python -m lab run EXP-C10-02",
     "file": "experiments/C10/E02_zeckendorf_exact.py",
     "sha256": "80711d33530f7ad996ffe33b7454d55839c069fb3fa0b4c918c64397457e693a",
-    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "cycle": "C10",
   "falsification": "Recurrence and brute force disagree, or T_m/G_m does not approach 2.",
@@ -64,6 +64,26 @@
       "results_sha256": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
       "runtime_s": 1.166,
       "started": "2026-10-18T07:50:09Z",
+      "summary": [
+        "recurrence agrees with brute force for m <= 24: True",
+        "T_m/G_m at m = 10, 20, 40, 60, 89: [1.951388888889, 1.999322454971, 1.999999917884, 1.999999999992, 2.0]",
+        "D_m = 2G_m - T_m: [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10]"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C10-02",
+        "file": "experiments/C10/E02_zeckendorf_exact.py",
+        "sha256": "80711d33530f7ad996ffe33b7454d55839c069fb3fa0b4c918c64397457e693a",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:59:47Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C10-02.json",
+      "results_sha256": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
+      "runtime_s": 0.628,
+      "started": "2026-10-18T17:59:46Z",
       "summary": [
         "recurrence agrees with brute force for m <= 24: True",
         "T_m/G_m at m = 10, 20, 40, 60, 89: [1.951388888889, 1.999322454971, 1.999999917884, 1.999999999992, 2.0]",

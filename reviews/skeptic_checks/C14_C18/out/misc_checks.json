@@ -1,0 +1,8 @@
+{
+ "C14-11: 2K1[C4+K1] ~ 2C4+2K1": true,
+ "C14-11: (2K2+K1)[2K1] ~ 2C4+2K1": true,
+ "63-vertex collision cartesian": true,
+ "63-vertex collision strong": true,
+ "C16-17: lowest bit period": 3,
+ "C16-17: low-byte chi2 (df 255, 2^18 outputs)": 320395.1796875
+}

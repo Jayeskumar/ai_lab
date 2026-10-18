@@ -1,0 +1,21 @@
+{
+ "4": {
+  "max_period": 8,
+  "pisano(q-1)": 8,
+  "zero_pairs_reach_00_in_2_steps": true,
+  "subfield_closed": true
+ },
+ "16": {
+  "max_period": 40,
+  "pisano(q-1)": 40,
+  "zero_pairs_reach_00_in_2_steps": true,
+  "subfield_closed": true
+ },
+ "256": {
+  "max_period": 360,
+  "pisano(q-1)": 360,
+  "zero_pairs_reach_00_in_2_steps": true,
+  "subfield_closed": true
+ },
+ "runtime_s": 0.0
+}

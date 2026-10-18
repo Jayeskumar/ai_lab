@@ -1,0 +1,18 @@
+RESULT laver n=0 N=1: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 0 (cycles 0), other states with top 0, max transient 0
+RESULT laver n=1 N=2: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 2 (cycles 1), other states with top 0, max transient 1
+RESULT laver n=2 N=4: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 6 (cycles 3), other states with top 0, max transient 3
+RESULT laver n=3 N=8: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 14 (cycles 7), other states with top 0, max transient 3
+RESULT laver n=4 N=16: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 30 (cycles 15), other states with top 0, max transient 5
+RESULT laver n=5 N=32: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 62 (cycles 31), other states with top 0, max transient 5
+RESULT laver n=6 N=64: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 126 (cycles 63), other states with top 0, max transient 5
+RESULT laver n=7 N=128: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 254 (cycles 127), other states with top 0, max transient 5
+RESULT laver n=8 N=256: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 510 (cycles 255), other states with top 0, max transient 5
+RESULT laver n=9 N=512: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 1022 (cycles 511), other states with top 0, max transient 5
+RESULT laver n=10 N=1024: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 2046 (cycles 1023), other states with top 0, max transient 5
+RESULT laver n=11 N=2048: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 4094 (cycles 2047), other states with top 0, max transient 5
+RESULT laver n=12 N=4096: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 8190 (cycles 4095), other states with top 0, max transient 5
+RESULT laver n=13 N=8192: LD failures(N<=64 checked) 0, fixed states 1, states on 2-cycles 16382 (cycles 8191), other states with top 0, max transient 5
+
+real	0m1.817s
+user	0m1.597s
+sys	0m0.110s

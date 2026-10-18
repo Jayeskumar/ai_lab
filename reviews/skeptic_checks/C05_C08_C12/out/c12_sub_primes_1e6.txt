@@ -1,0 +1,12 @@
+primes n=10 P_density=0.363636 max_g=4
+primes n=100 P_density=0.118812 max_g=10
+primes n=1000 P_density=0.114885 max_g=11
+primes n=10000 P_density=0.132487 max_g=11
+primes n=62500 P_density=0.147166 max_g=11
+primes n=100000 P_density=0.150658 max_g=11
+primes n=125000 P_density=0.152023 max_g=11
+primes n=250000 P_density=0.156275 max_g=11
+primes n=500000 P_density=0.160254 max_g=11
+primes n=1000000 P_density=0.163912 max_g=11
+primes n=1000000 P_density=0.163912 max_g=11
+exit=0 wall=9s

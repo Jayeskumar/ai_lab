@@ -1,0 +1,85 @@
+{
+ "part": "census78",
+ "result": {
+  "rows": {
+   "y(x(xy)) = x": {
+    "lab_1_8": "10111011",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y(x(yy)) = x": {
+    "lab_1_8": "10110010",
+    "mine_7_8": "10",
+    "agree_where_both_decided": true
+   },
+   "(yx)(xy) = x": {
+    "lab_1_8": "10011??1",
+    "mine_7_8": "?1",
+    "agree_where_both_decided": true
+   },
+   "y(x(x(yy))) = x": {
+    "lab_1_8": "10001011",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y(x(y(xy))) = x": {
+    "lab_1_8": "10101111",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y(y(x(xy))) = x": {
+    "lab_1_8": "10011001",
+    "mine_7_8": "01",
+    "agree_where_both_decided": true
+   },
+   "y(x((xx)y)) = x": {
+    "lab_1_8": "11011011",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y(x((xy)y)) = x": {
+    "lab_1_8": "100110??",
+    "mine_7_8": "0?",
+    "agree_where_both_decided": true
+   },
+   "y(x((yx)y)) = x": {
+    "lab_1_8": "1000101?",
+    "mine_7_8": "1?",
+    "agree_where_both_decided": true
+   },
+   "y((yx)(xy)) = x": {
+    "lab_1_8": "1010001?",
+    "mine_7_8": "1?",
+    "agree_where_both_decided": true
+   },
+   "y((x(xy))y) = x": {
+    "lab_1_8": "10001000",
+    "mine_7_8": "00",
+    "agree_where_both_decided": true
+   },
+   "y((x(yx))y) = x": {
+    "lab_1_8": "10110011",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y((y(xx))y) = x": {
+    "lab_1_8": "10011011",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "(yx)((xy)y) = x": {
+    "lab_1_8": "10111111",
+    "mine_7_8": "11",
+    "agree_where_both_decided": true
+   },
+   "y(((xy)x)y) = x": {
+    "lab_1_8": "1000001?",
+    "mine_7_8": "1?",
+    "agree_where_both_decided": true
+   }
+  },
+  "disagreements": [],
+  "seconds": 565.6
+ },
+ "wall_seconds": 565.6
+}

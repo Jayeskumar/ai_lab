@@ -30,7 +30,7 @@ int main(int argc, char **argv) {
             if (v >= 255) { fprintf(stderr, "value too large\n"); return 1; }
             g[n] = (uint8_t)v;
             if (v == 0) P++;
-            if (v > maxg) maxg = v;
+            if (v > maxg) { maxg = v; printf("%s record n=%ld g=%d\n", kind, n, v); }
             for (int c = 0; c < nc; c++) if (checkpoints[c] == n) printf("%s n=%ld P_density=%.6f max_g=%d\n", kind, n, (double)P / (n + 1), maxg);
         }
     } else {

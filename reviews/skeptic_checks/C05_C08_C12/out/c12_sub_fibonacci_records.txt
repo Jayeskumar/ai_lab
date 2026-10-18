@@ -1,0 +1,6 @@
+fibonacci record n=2725 g=11
+fibonacci record n=2726 g=12
+fibonacci record n=12071 g=13
+fibonacci record n=48652 g=14
+fibonacci record n=206025 g=15
+fibonacci record n=63331966 g=16

@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C07-03",
     "file": "experiments/C07/E03_rows.py",
     "sha256": "97483c0ecb39cb7388af2dfb152957e2bb228de6082ff405766fede2a11e5c9e",
-    "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "Row 2 of D[x^y] is not additively periodic (|f(2,b) - b| = J_k unbounded, Theorem 3)"
@@ -92,6 +92,26 @@
       "results_sha256": "67c185cf15e3cba74eddf8bee2bd8eccee1d627491e9f1d7fec53560e837807d",
       "runtime_s": 155.526,
       "started": "2026-10-18T09:06:33Z",
+      "summary": [
+        "222/670 rows (a = 1..5, b < 1500) additively periodic; 22 of 134 operations have all five rows periodic; 40 have none",
+        "D[x^y] row 2: independent algorithm = mex table (b < 1500): True; Jacobsthal block-swap formula mismatches for b < 32768: 0; involution: True",
+        "OEIS: row NO MATCH, |g(b)-b| NO MATCH"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C07-03",
+        "file": "experiments/C07/E03_rows.py",
+        "sha256": "97483c0ecb39cb7388af2dfb152957e2bb228de6082ff405766fede2a11e5c9e",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:57:11Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C07-03.json",
+      "results_sha256": "67c185cf15e3cba74eddf8bee2bd8eccee1d627491e9f1d7fec53560e837807d",
+      "runtime_s": 135.603,
+      "started": "2026-10-18T17:54:56Z",
       "summary": [
         "222/670 rows (a = 1..5, b < 1500) additively periodic; 22 of 134 operations have all five rows periodic; 40 have none",
         "D[x^y] row 2: independent algorithm = mex table (b < 1500): True; Jacobsthal block-swap formula mismatches for b < 32768: 0; involution: True",
