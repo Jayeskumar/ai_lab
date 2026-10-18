@@ -138,7 +138,9 @@ coprime sizes $N$ and $M$, it has one of size $NM$.
 $\mathbb{Z}/NM$ along the Chinese remainder isomorphism, which sends $x + 1$
 to $(x + 1, x + 1)$ and therefore preserves the anchor. ∎
 
-So a spectrum can never be the set of primes: with 2 and 3 it contains 6.
+Every spectrum contains $N = 1$; Theorem 7.8 adds that a spectrum containing
+two primes contains their product, so it can never be $\{1\}$ together with
+an infinite set of primes.
 Every spectrum we have seen is also closed under *divisors*; whether that is
 always so is the first question of the next cycle.
 

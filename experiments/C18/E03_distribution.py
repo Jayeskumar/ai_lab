@@ -51,7 +51,7 @@ def key_sets(rng):
             if rng.random() < 0.3:
                 w += CONS[rng.integers(len(CONS))]
         words.add(w)
-    return {"random": rand, "sequential": seq, "near_duplicates": near, "words": sorted(words)}
+    return {"random": rand, "sequential": seq, "near_duplicates": near, "words": [w.encode() for w in sorted(words)]}
 
 
 def run():

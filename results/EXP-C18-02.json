@@ -1,0 +1,258 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C18-02",
+    "file": "experiments/C18/E02_avalanche.py",
+    "sha256": "eb4dd3e4311e79dc252e1b131f7d45eead9ff3ddbfd4c4e8bddfd3ffe83f46fd",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "env": {
+    "git_head": "8c7b7fa755aa4874448f22daf5a151a733a5a29a",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T16:44:52Z",
+  "id": "EXP-C18-02",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "2000 random 16-byte keys (seeded); all 128 input bits flipped",
+      "bias = |P(output bit flips) - 1/2|; with 2000 keys the sampling standard deviation per cell is about 0.011, so BLAKE2b's values estimate the noise floor",
+      "CRC32 has 32 output bits"
+    ],
+    "cycle": "C18",
+    "falsification": "H-C18-1: a difference > 0.01 in mean or maximal bias. H-C18-2: a structured quasigroup with maximal bias <= that of QG-LS p2+rev. H-C18-3a: NIMINV mean bias above FNV-1a's. H-C18-5: a forward-only variant with maximal bias < 0.5.",
+    "hypothesis": "H-C18-1 (bold): QG-LS with 2 passes and a reverse pass has mean and maximal avalanche bias within 0.01 of BLAKE2b-64. H-C18-2: every structured quasigroup (AFF, XOR, ARP, ALP) is worse than the random Latin square on maximal avalanche bias. H-C18-3a (bold): the nimber inversion quasigroup (NIMINV, 2 passes + reverse) has avalanche at least as good as FNV-1a-64. H-C18-5 (from Theorem 2): every forward-only variant has maximal bias 0.5.",
+    "id": "EXP-C18-02",
+    "methodology": "For each hash and input bit, flip the bit in all keys and record which output bits change; report mean flip rate, mean and maximal bias, cells with bias > 0.1, deterministic cells, and the maximal/mean absolute correlation between output-bit changes (bit independence).",
+    "question": "How close to an ideal 64-bit mixer are e-transformation hashes over the seven quasigroups, with 1, 2 or 4 passes and with or without a reverse pass?",
+    "seed": 1802,
+    "title": "Strict avalanche and bit independence: 13 quasigroup hash variants against FNV-1a, MX64, BLAKE2b and CRC32"
+  },
+  "results": {
+    "H-C18-1_holds": true,
+    "H-C18-2_holds": true,
+    "H-C18-3a_holds": true,
+    "H-C18-5_holds": true,
+    "ranking_by_max_bias": [
+      "QG-LS p2+rev",
+      "QG-NIMINV p2+rev",
+      "QG-NIMINV p1+rev",
+      "QG-LS p1+rev",
+      "QG-ARP p2+rev",
+      "QG-ISO p2+rev",
+      "MX64",
+      "BLAKE2b-64",
+      "QG-LS p4+rev",
+      "QG-LS p2",
+      "QG-LS p1",
+      "FNV-1a-64",
+      "QG-ARP p1",
+      "QG-ALP p2+rev",
+      "QG-AFF p2+rev",
+      "QG-XOR p2+rev",
+      "CRC32"
+    ],
+    "results": {
+      "BLAKE2b-64": {
+        "bic_max_abs_corr": 0.1124,
+        "bic_mean_abs_corr": 0.0178,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.045,
+        "mean_bias": 0.0089,
+        "mean_flip_rate": 0.4999
+      },
+      "CRC32": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": null,
+        "cells": 4096,
+        "cells_bias_gt_0.1": 4096,
+        "deterministic_cells": 4096,
+        "max_bias": 0.5,
+        "mean_bias": 0.5,
+        "mean_flip_rate": 0.4871
+      },
+      "FNV-1a-64": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0251,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 1688,
+        "deterministic_cells": 940,
+        "max_bias": 0.5,
+        "mean_bias": 0.098,
+        "mean_flip_rate": 0.44
+      },
+      "MX64": {
+        "bic_max_abs_corr": 0.1129,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0445,
+        "mean_bias": 0.009,
+        "mean_flip_rate": 0.5
+      },
+      "QG-AFF p2+rev": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0513,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 7181,
+        "deterministic_cells": 5232,
+        "max_bias": 0.5,
+        "mean_bias": 0.3862,
+        "mean_flip_rate": 0.2935
+      },
+      "QG-ALP p2+rev": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.2297,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 6441,
+        "deterministic_cells": 4736,
+        "max_bias": 0.5,
+        "mean_bias": 0.3438,
+        "mean_flip_rate": 0.2257
+      },
+      "QG-ARP p1": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0817,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 1378,
+        "deterministic_cells": 1344,
+        "max_bias": 0.5,
+        "mean_bias": 0.1031,
+        "mean_flip_rate": 0.4222
+      },
+      "QG-ARP p2+rev": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0504,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.043,
+        "mean_bias": 0.0091,
+        "mean_flip_rate": 0.4998
+      },
+      "QG-ISO p2+rev": {
+        "bic_max_abs_corr": 0.1039,
+        "bic_mean_abs_corr": 0.018,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.044,
+        "mean_bias": 0.009,
+        "mean_flip_rate": 0.5
+      },
+      "QG-LS p1": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0178,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 1344,
+        "deterministic_cells": 1344,
+        "max_bias": 0.5,
+        "mean_bias": 0.0897,
+        "mean_flip_rate": 0.4195
+      },
+      "QG-LS p1+rev": {
+        "bic_max_abs_corr": 0.1227,
+        "bic_mean_abs_corr": 0.018,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.043,
+        "mean_bias": 0.0088,
+        "mean_flip_rate": 0.4999
+      },
+      "QG-LS p2": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 1344,
+        "deterministic_cells": 1344,
+        "max_bias": 0.5,
+        "mean_bias": 0.0895,
+        "mean_flip_rate": 0.4179
+      },
+      "QG-LS p2+rev": {
+        "bic_max_abs_corr": 0.111,
+        "bic_mean_abs_corr": 0.018,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.041,
+        "mean_bias": 0.0089,
+        "mean_flip_rate": 0.4999
+      },
+      "QG-LS p4+rev": {
+        "bic_max_abs_corr": 0.1163,
+        "bic_mean_abs_corr": 0.018,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0505,
+        "mean_bias": 0.0089,
+        "mean_flip_rate": 0.5
+      },
+      "QG-NIMINV p1+rev": {
+        "bic_max_abs_corr": 0.1082,
+        "bic_mean_abs_corr": 0.0181,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0415,
+        "mean_bias": 0.0091,
+        "mean_flip_rate": 0.4999
+      },
+      "QG-NIMINV p2+rev": {
+        "bic_max_abs_corr": 0.1065,
+        "bic_mean_abs_corr": 0.0182,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0415,
+        "mean_bias": 0.009,
+        "mean_flip_rate": 0.4998
+      },
+      "QG-XOR p2+rev": {
+        "bic_max_abs_corr": 1.0,
+        "bic_mean_abs_corr": null,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 8192,
+        "deterministic_cells": 8192,
+        "max_bias": 0.5,
+        "mean_bias": 0.5,
+        "mean_flip_rate": 0.0645
+      }
+    },
+    "summary": [
+      "QG-LS p2+rev: mean bias 0.0089, max bias 0.041, cells>0.1 0/8192, BIC max 0.111",
+      "QG-NIMINV p2+rev: mean bias 0.009, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1065",
+      "QG-NIMINV p1+rev: mean bias 0.0091, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1082",
+      "QG-LS p1+rev: mean bias 0.0088, max bias 0.043, cells>0.1 0/8192, BIC max 0.1227",
+      "QG-ARP p2+rev: mean bias 0.0091, max bias 0.043, cells>0.1 0/8192, BIC max 1.0",
+      "QG-ISO p2+rev: mean bias 0.009, max bias 0.044, cells>0.1 0/8192, BIC max 0.1039",
+      "MX64: mean bias 0.009, max bias 0.0445, cells>0.1 0/8192, BIC max 0.1129",
+      "BLAKE2b-64: mean bias 0.0089, max bias 0.045, cells>0.1 0/8192, BIC max 0.1124",
+      "QG-LS p4+rev: mean bias 0.0089, max bias 0.0505, cells>0.1 0/8192, BIC max 0.1163",
+      "QG-LS p2: mean bias 0.0895, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0",
+      "QG-LS p1: mean bias 0.0897, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0",
+      "FNV-1a-64: mean bias 0.098, max bias 0.5, cells>0.1 1688/8192, BIC max 1.0",
+      "QG-ARP p1: mean bias 0.1031, max bias 0.5, cells>0.1 1378/8192, BIC max 1.0",
+      "QG-ALP p2+rev: mean bias 0.3438, max bias 0.5, cells>0.1 6441/8192, BIC max 1.0",
+      "QG-AFF p2+rev: mean bias 0.3862, max bias 0.5, cells>0.1 7181/8192, BIC max 1.0",
+      "QG-XOR p2+rev: mean bias 0.5, max bias 0.5, cells>0.1 8192/8192, BIC max 1.0",
+      "CRC32: mean bias 0.5, max bias 0.5, cells>0.1 4096/4096, BIC max 1.0",
+      "H-C18-1 True; H-C18-2 True; H-C18-3a True; H-C18-5 True"
+    ]
+  },
+  "results_sha256": "f07d330c4df32579c093196809e5cbe1833f819367ad265c2a09e5e2c289a4ed",
+  "runtime_s": 42.198,
+  "started": "2026-10-18T16:44:10Z"
+}

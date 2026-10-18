@@ -1,0 +1,24 @@
+{
+  "cycle": "C20",
+  "evidence": [
+    "EXP-C20-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C20",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
+    }
+  ],
+  "id": "CLM-C20-01",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Termination is a rediscovery - the rule is right barren in McNaughton's sense (OVL(r,l) = {a}, r_alpha = abab; OVL(l,r) = {ab}, l_beta = a, never a suffix of (abab)^k), and every non-overlapping left/right barren one-rule system terminates (R. McNaughton, RPI tech. reports 94-18 and 95-15; A. Geser, ICASE Report 2002-33, Thm 3.2/3.3, https://ntrs.nasa.gov/api/citations/20020088729/downloads/20020088729.pdf). The exact complexity 2^(n-2) - 1 was not found in the sources read (the report proves linear lengths only for its non-barren case).",
+  "proof": "proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2",
+  "proof_check": "written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent); verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review",
+  "statement": "The one-rule system aab -> ababa over {a, b} (and its images under reversal and letter exchange) terminates, and the maximal derivation length from words of length n >= 2 is exactly 2^(n-2) - 1, attained by a^(n-1) b.",
+  "system": "SYS-A",
+  "title": "aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

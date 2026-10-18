@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, and p_positions = the kernel property of the even-inversion words; standard axioms only); the steps 'kernel = P-positions' (terminating game) and D(n) = max_k k(n-k) = floor(n^2/4) are written arguments (skeptic review 2026-10-18)",
+      "old": "Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - Lean coverage restated (kernel property only)",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "id": "CLM-C04-04",
@@ -19,7 +28,7 @@
   "novelty": "REDISCOVERY",
   "novelty_basis": "Classical (bubble-sort inversions); extremal case of Metivier's conjecture proved by Bertrand (TCS 123, 1994); cited as the quadratic example in derivational-complexity literature (Kobayashi).",
   "proof": "proofs/paper/C04.md#theorem-5-clm-c04-04--the-rule-ab--ba",
-  "proof_check": "Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument",
+  "proof_check": "Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, and p_positions = the kernel property of the even-inversion words; standard axioms only); the steps 'kernel = P-positions' (terminating game) and D(n) = max_k k(n-k) = floor(n^2/4) are written arguments (skeptic review 2026-10-18)",
   "statement": "For the rule ab -> ba every step lowers the number of inversions by exactly one; the normal forms are the\nwords b^i a^j; every complete derivation from w has exactly inv(w) steps; the derivational complexity is\nfloor(n^2/4); and in the rewriting game the P-positions are exactly the words with an even number of\ninversions.",
   "system": "SYS-A",
   "title": "ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inversion count",

@@ -33,7 +33,7 @@ prove independently.
 
 *H-C03-2 [REFUTED, Lean-checked]: "a rule terminates iff $r < 2q$ or
 $s < 2p$."* The rule $011 \to 11100$ has $r = 3 < 4 = 2q$ yet loops:
-$001111 \to^4 111\,001111\,00100$ (Lean: `not_terminating_0_11`). There are 35
+$001111 \to^4 111\,001111\,00100$ (Lean: `not_terminating_0_11`). There are 40
 counterexamples with parameters $\le 5$.
 
 ## Divisibility

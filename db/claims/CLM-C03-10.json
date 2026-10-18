@@ -11,10 +11,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).",
+      "old": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.",
+      "reason": "Skeptic review 2026-10-18 - conjecture survives; limitations completed (unstored loop certificates, literature unavailable)",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "id": "CLM-C03-10",
-  "limitations": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.",
+  "limitations": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.",
   "statement": "0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,\nq < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.",

@@ -1,0 +1,22 @@
+{
+  "cycle": "C20",
+  "evidence": [
+    "EXP-C03-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C20",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
+    }
+  ],
+  "id": "CLM-C20-04",
+  "limitations": "Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.",
+  "novelty": "NOT ASSESSED",
+  "statement": "The published complete characterisation of termination of 0^p 1^q -> 1^r 0^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-*), because the full text could not be retrieved from this environment.",
+  "system": "SYS-A",
+  "title": "C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text inaccessible)",
+  "type": "observation",
+  "verification": "INCONCLUSIVE"
+}

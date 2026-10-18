@@ -16,3 +16,4 @@
 | [C12](C12_relational_games/README.md) | Relational one-heap games | D | complete | 6 | 13 |
 | [C14](C14_graph_products/README.md) | Graphs as quantities: the 256 local graph products | D | complete | 7 | 13 |
 | [C17](C17_law_testing/README.md) | Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check | B-algorithms | complete | 2 | 7 |
+| [C20](C20_open_problems/README.md) | Open problems revisited: the last one-rule systems of C04, and a literature check for C03 | A | complete | 1 | 4 |

@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T16:49:32Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -502,7 +502,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right); swap case (s, r) = (p, q) Lean-verified (terminating_swap); 62 of the 64 conserving rules with parameters <= 4 also have matrix-interpretation certificates; awaiting independent skeptic review
+  written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); swap case (s, r) = (p, q) Lean-verified (terminating_swap)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -514,6 +514,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **lean:** proofs/lean/Infinity/C03_Termination.lean
 - **evidence:** EXP-C03-01
 - **novelty_basis:** Covered by the complete characterization of Zantema and Geser (RTA 1995 / AAECC 2000); our proof was found independently.
+- **status history:**
 
 ### CLM-C03-03: Self-embedding derivations prove non-termination; the doubling region r >= 2q, s >= 2p always loops
 
@@ -613,7 +614,11 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **novelty:** NOT ASSESSED
 - **statement:** The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.
 - **evidence:** EXP-C03-01; EXP-C03-02
-- **counterexample:** 011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02).
+- **counterexample:**
+
+  011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review).
+
+- **status history:**
 
 ### CLM-C03-09: H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)
 
@@ -648,8 +653,9 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 
 - **limitations:**
 
-  Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.
+  Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).
 
+- **status history:**
 
 ### CLM-C03-11: Loop lengths in the base family grow like k^q
 
@@ -702,18 +708,30 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C04
 - **type:** conjecture
 - **system:** SYS-A
-- **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent); all words of length <= 12 verified (EXP-C20-01); awaiting independent skeptic review
+
+- **novelty:** REDISCOVERY
 - **statement:**
 
   The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
   letter exchange) are terminating.
 
-- **evidence:** EXP-C04-02
+- **proof:** proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
+- **evidence:** EXP-C04-02; EXP-C20-01
+- **novelty_basis:**
+
+  Both rules are right barren in McNaughton's sense, and barren one-rule systems terminate (McNaughton; A. Geser, ICASE Report 2002-33, Thm 3.2-3.3); the lab's proof is independent and also gives the exact complexities (CLM-C20-01/02).
+
 - **limitations:**
 
   All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
 
+- **status history:**
+  - 2026-10-18T16:49:32Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C04; Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the Skeptic's review (which found no loop and no matrix interpretation) predates the proof)
+  - 2026-10-18T16:49:32Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the Skeptic's review (which found no loop and no matrix interpretation) predates the proof)
 
 ### CLM-C04-04: ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inversion count
 
@@ -721,7 +739,10 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument
+- **proof_check:**
+
+  Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, and p_positions = the kernel property of the even-inversion words; standard axioms only); the steps 'kernel = P-positions' (terminating game) and D(n) = max_k k(n-k) = floor(n^2/4) are written arguments (skeptic review 2026-10-18)
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -734,6 +755,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **lean:** proofs/lean/Infinity/C04_Derivations.lean
 - **evidence:** EXP-C04-03; EXP-C04-07
 - **novelty_basis:** Classical (bubble-sort inversions); extremal case of Metivier's conjecture proved by Bertrand (TCS 123, 1994); cited as the quadratic example in derivational-complexity literature (Kobayashi).
+- **status history:**
 
 ### CLM-C04-05: One-rule systems with an unbordered left-hand side have random descent (Lean-verified)
 
@@ -766,7 +788,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C04.md Theorem 2); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps; awaiting independent skeptic review
+  written proof (proofs/paper/C04.md Theorem 2), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps
 
 - **novelty:** NOT ASSESSED
 - **statement:**
@@ -788,6 +810,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 
   Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
 
+- **status history:**
 
 ### CLM-C04-07: H-C04-1: random descent iff the left-hand side is unbordered (refuted)
 
@@ -826,7 +849,10 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C04.md Theorem 7); per-word formula checked on all words of length <= 21, closed form to n = 20000; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C04.md Theorem 7), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); derivation lengths checked on all words of length <= 21; the arithmetic identity of proof steps (iv)-(v) checked to n = 20000
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -841,6 +867,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 
   Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
 
+- **status history:**
 
 ### CLM-C04-10: Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba
 
@@ -848,17 +875,21 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a tail bound; valid for n >= 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); verified for 1 <= n <= 1500 with n + 80 bits and by the Skeptic for n <= 1200 with n + 120 bits
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
-  Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then
-  A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the
-  one-rule system aab -> ba.
+  Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983, offset 1). Then for
+  every n >= 1, A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational
+  complexity of the one-rule system aab -> ba. (At n = 0 the identity fails: A(0) = 1 but D(2) = 0.)
 
 - **proof:** proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
 - **evidence:** EXP-C04-09; EXP-C04-10
 - **novelty_basis:** The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
+- **status history:**
 
 ### CLM-C04-11: H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)
 
@@ -896,7 +927,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review
+  written proof (proofs/paper/C04.md Theorem 10), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -909,6 +940,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C04.md#theorem-10-clm-c04-13--unary-left-hand-sides-give-take-and-break-games
 - **evidence:** EXP-C04-07; EXP-C04-08
 - **novelty_basis:** Octal games are classically described as rows of pins (Berlekamp-Conway-Guy, Winning Ways); the rewriting presentation is a change of notation.
+- **status history:**
 
 ### CLM-C04-14: H-C04-6: Grundy values of rewriting games never exceed 3 (refuted)
 
@@ -1049,27 +1081,29 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
   x = (y*x)*(x*(y*y)) has models of every order 1..6 (EXP-C05-01); of order 2 it is satisfied by NAND (Lean: nand2_law), yet no affine operation over Z_2 satisfies it (Lean: no_affine_model_mod2); its affine models exist only for n in {1, 5}. Three further identities behave alike (EXP-C05-05).
 
 
-### CLM-C05-07: New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9
+### CLM-C05-07: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9
 
 - **cycle:** C05
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** Lean 4 kernel decide on explicit tables (E467_order9_law, E677_order5_law, E677_order7_law, E677_order9_law, E1286_order9_law, E1313_order9_law, E1516_order9_law); only propext
+- **proof_check:** Lean 4 kernel decide on explicit tables (E677_order5_law, E677_order7_law, E677_order9_law, E1286_order9_law, E1313_order9_law, E1516_order9_law; also E467_order9_law); only propext
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   Each of the following order-4 laws has a model of the stated order (explicit Cayley tables):
-  467 x = y(x(x(yy))) - order 9; 677 x = y(x((yx)y)) - orders 5, 7, 9; 1286 x = y(((xy)x)y) - order 9;
-  1313 x = y(((yx)x)y) - order 9; 1516 x = (yy)(x(xy)) - order 9.
+  677 x = y(x((yx)y)) - orders 5, 7, 9; 1286 x = y(((xy)x)y) - order 9; 1313 x = y(((yx)x)y) - order 9;
+  1516 x = (yy)(x(xy)) - order 9. (A certified order-9 model of law 467, x = y(x(x(yy))), is also recorded, but
+  that order is already covered by the notes' construction on Z[i]/(k+il) with k = 3, l = 0.)
 
 - **proof:** proofs/lean/Infinity/C05_Magmas.lean (section Frontier)
 - **lean:** proofs/lean/Infinity/C05_Magmas.lean
 - **evidence:** EXP-C05-03; EXP-C05-04
 - **novelty_basis:**
 
-  Not stated in B. Le Floch's ETP notes (which list 467, 1313, 1516 as 'starting with' sizes up to 8 or 7, 1286 as 'starting with 1, 7', and give no sizes for 677); the ETP paper (arXiv:2512.07087, v2) separates full from non-full spectra and defers detailed spectra to a forthcoming publication. Our reading of that paper was partial (the spectrum section was truncated in retrieval), and ETP model searches may already contain these models; novelty is therefore only relative to the sources read (2026-10-18).
+  Not stated in B. Le Floch's notes 'Spectra of equational laws' (ETP, July 10, 2025), which list 1313 and 1516 as 'starting with' 1,5,7 and 1,5,7,8, 1286 as 'starting with 1,7', and give no sizes for 677. A second reading (2026-10-18) found that the notes' Gaussian-integer models of law 467 (all odd k^2 + l^2 with k, l of different parities) include 9 = 3^2 + 0^2, so 467 is not counted (the check is written out in proofs/paper/C05.md, Remark 5). The ETP paper (arXiv:2512.07087) defers detailed spectra to a forthcoming publication and was only partly retrieved; ETP model searches may already contain these models, so novelty is only relative to the sources read.
 
+- **status history:**
 
 ### CLM-C05-08: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6
 
@@ -1084,16 +1118,18 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
-  No magma of the stated order satisfies: 501 x = y(y(x(xy))) - orders 2, 3, 6, 7; 677 x = y(x((yx)y)) - orders
-  2, 3, 4, 6; 883 x = y((xy)(yy)) - orders 3, 6; 1076 x = y((x(xy))y) - order 8; 1083 x = y((x(yx))y) -
-  orders 2, 5, 6; 1719 x = (yy)((xx)y) - order 2.
+  No magma of the stated order satisfies the law. Not stated in Le Floch's notes: 501 x = y(y(x(xy))) - orders
+  3, 6, 7; 677 x = y(x((yx)y)) - orders 3, 4, 6; 883 x = y((xy)(yy)) - order 6; 1076 x = y((x(xy))y) - order 8;
+  1083 x = y((x(yx))y) - orders 5, 6. Also certified, but already stated in the notes: no model of order 2 for
+  501, 677, 1083 and 1719 x = (yy)((xx)y), and none of order 3 for 883.
 
 - **proof:** proofs/paper/C05.md#lemma-4--soundness-of-the-extra-sat-constraints-exp-c05-03--04--06
 - **evidence:** EXP-C05-03; EXP-C05-06
 - **novelty_basis:**
 
-  Not stated in Le Floch's notes (which say 'containing' for 501, 883, 1083, 'unknown' for 677, 'not 6 nor 7' for 1076). Sizes 2 and 3 are surely known to the ETP (it determined size-2 and size-3 model existence for all order-4 laws), and small sizes may be in its finite-magma searches; only the gaps at n >= 5 (501: 6,7; 677: 6; 883: 6; 1076: 8; 1083: 5,6) are plausible additions.
+  Le Floch's notes list the 31 laws without a model of order 2 (including 501, 677, 1083, 1719) and the 14 with a model of order 2 but none of order 3 (including 883); otherwise they say 'containing' for 501, 883, 1083, 'unknown spectrum' for 677 and 'not 6 nor 7' for 1076. The gaps at orders 3 and 4 are small enough that ETP finite-magma searches probably settle them; the plausible additions are the gaps at n >= 5 (501: 6, 7; 677: 6; 883: 6; 1076: 8; 1083: 5, 6).
 
+- **status history:**
 
 ### CLM-C05-09: Laws 677 and 1313 have spectrum {1} together with all odd n >= 5
 
@@ -1181,7 +1217,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C06.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02) and 7776 at N = 6 (Skeptic)
 - **novelty:** NOT ASSESSED
 - **statement:**
 
@@ -1190,6 +1226,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models
 - **evidence:** EXP-C06-02
 - **novelty_basis:** Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.
+- **status history:**
 
 ### CLM-C06-06: An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique
 
@@ -1211,7 +1248,10 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -1226,6 +1266,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 
   The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables).
 
+- **status history:**
 
 ### CLM-C06-08: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156)
 
@@ -1307,15 +1348,19 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C06.md Theorem 8); consistent with every spectrum observed in EXP-C06-02..04; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C06.md Theorem 8), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); the Skeptic transported 9 actual model pairs (e.g. golden 5 x 11, odd 5 x 7) and all satisfy law and anchor
+
 - **novelty:** NOT ASSESSED
 - **statement:**
 
-  For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no law has the set of primes as its anchored spectrum.
+  For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no anchored spectrum (which always contains 1) has the form {1} together with a set of primes containing two primes but not their product - for example {1} together with an infinite set of primes.
 
 - **proof:** proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products
 - **evidence:** EXP-C06-03; EXP-C06-04
 - **novelty_basis:** Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
+- **status history:**
 
 ### CLM-C07-01: The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives
 
@@ -2638,6 +2683,83 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
   18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.
 
 
+### CLM-C20-01: aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1
+
+- **cycle:** C20
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent); verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  The one-rule system aab -> ababa over {a, b} (and its images under reversal and letter exchange) terminates, and the maximal derivation length from words of length n >= 2 is exactly 2^(n-2) - 1, attained by a^(n-1) b.
+
+- **proof:** proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
+- **evidence:** EXP-C20-01
+- **novelty_basis:**
+
+  Termination is a rediscovery - the rule is right barren in McNaughton's sense (OVL(r,l) = {a}, r_alpha = abab; OVL(l,r) = {ab}, l_beta = a, never a suffix of (abab)^k), and every non-overlapping left/right barren one-rule system terminates (R. McNaughton, RPI tech. reports 94-18 and 95-15; A. Geser, ICASE Report 2002-33, Thm 3.2/3.3, https://ntrs.nasa.gov/api/citations/20020088729/downloads/20020088729.pdf). The exact complexity 2^(n-2) - 1 was not found in the sources read (the report proves linear lengths only for its non-barren case).
+
+
+### CLM-C20-02: aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b)/2) - 1)
+
+- **cycle:** C20
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C20.md Theorem 2 - a pair of a's travels to the last run in d steps, doubling d; random descent); per-word formula and D(n) verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  The one-rule system aab -> babaa (and its symmetric images) terminates. For w = a^(x_0) b a^(x_1) b ... b a^(x_m),
+  every maximal derivation has length sum_{k=m-1..0} d_k (2^floor(x_k/2) - 1) with d_k = (m - k) + (steps
+  contributed by the runs right of k); the derivational complexity is D(n) = max_{1<=b<=n} b(2^floor((n-b)/2) - 1),
+  attained by a^(n-b) b^b.
+
+- **proof:** proofs/paper/C20.md#theorem-2-clm-c20-02--aab--babaa-terminates-an-exact-formula-for-dw
+- **evidence:** EXP-C20-01
+- **novelty_basis:**
+
+  Termination follows from the right-barren criterion (OVL(r,l) = {a, aa} with r_alpha in {baba, bab}; OVL(l,r) = {b}, l_beta = aa, never a suffix) - a rediscovery; the exact per-word formula and the complexity were not found in McNaughton's or Geser's reports (searches 2026-10-18). Small.
+
+
+### CLM-C20-03: The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r| <= 5 terminate
+
+- **cycle:** C20
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:** computer-assisted certificates for 860 rules (EXP-C04-02, CLM-C04-01/02 methods) plus Theorems 1-2 of proofs/paper/C20.md and the symmetry argument for the 8 remaining rules
+- **novelty:** NOT ASSESSED
+- **statement:** Of the 868 one-rule systems l -> r over {a, b} with 1 <= |l| <= 3, |r| <= 5 (EXP-C04-02), exactly 480 terminate and 388 do not.
+- **proof:** proofs/paper/C20.md#corollary-3-clm-c20-03--the-c04-census-is-complete
+- **evidence:** EXP-C04-02; EXP-C20-01
+- **novelty_basis:** A census; one-rule termination for small rules is classical territory (Kurth 1990; McNaughton; Geser).
+
+### CLM-C20-04: C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text inaccessible)
+
+- **cycle:** C20
+- **type:** observation
+- **system:** SYS-A
+- **verification:** INCONCLUSIVE
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The published complete characterisation of termination of 0^p 1^q -> 1^r 0^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-*), because the full text could not be retrieved from this environment.
+
+- **evidence:** EXP-C03-01
+- **limitations:**
+
+  Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.
+
+
 ## Experiments
 
 ### EXP-C01-01: Commutation congruence: classes, complete invariant and normal forms
@@ -3350,7 +3472,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **summary:** 467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]; 670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]; 677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]; 907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]; 1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]; 1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]; 1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]; 1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]; 1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []; disagreements with the notes: 0
 - **analysis:**
 
-  15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes lists sizes not literally enumerated in the notes; the README table separates the facts genuinely absent from the notes.
+  15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes compares only with the sizes in each law's own paragraph of the notes; the notes' lists of laws without models of order 2 (or 3) and their Gaussian-integer models of law 467 cover several of those sizes, so CLM-C05-07/08 and the README frontier table list only facts absent from the notes.
 
 - **related:** CLM-C05-07; CLM-C05-08; CLM-C05-09
 - **runs:** 1; last 2026-10-18T09:06:51Z (2795.777 s), results sha256 `81c21f0a1a59b00c…`, code `experiments/C05/E03_frontier_push.py`
@@ -3496,7 +3618,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** (xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8); (xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8); x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)
 - **verification:** REFUTED
 - **related:** CLM-C06-04
-- **runs:** 2; last 2026-10-18T09:20:06Z (37.067 s), results sha256 `6dabd8b777b2264e…`, code `experiments/C06/E03_law_family_spectra.py`
+- **runs:** 3; last 2026-10-18T16:43:28Z (41.846 s), results sha256 `600036cb0b6a4071…`, code `experiments/C06/E03_law_family_spectra.py`
 
 ### EXP-C06-04: Affine anchored models and the arithmetic of anchored spectra
 
@@ -3525,7 +3647,7 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1; x(yz) = y((yx)z) has a non-affine anchored model at N = 2
 - **verification:** PROVEN
 - **related:** CLM-C06-06; CLM-C06-07; CLM-C06-09; CLM-C06-10; CLM-C06-11
-- **runs:** 1; last 2026-10-18T08:33:18Z (318.236 s), results sha256 `8a8aca5cd93cd72e…`, code `experiments/C06/E04_affine_spectra.py`
+- **runs:** 2; last 2026-10-18T16:49:20Z (350.164 s), results sha256 `6db1760839cea0f0…`, code `experiments/C06/E04_affine_spectra.py`
 
 ### EXP-C07-01: Census of mex-defined binary operations: closure, associativity, identities, distributivity
 
@@ -4288,6 +4410,56 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
   - UNKNOWN instances: 12
 - **runs:** 1; last 2026-10-18T09:22:43Z (339.574 s), results sha256 `b7e03113813b1b93…`, code `experiments/C13/E02_rigidity_infinite.py`
 
+### EXP-C13-03: Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves
+
+- **cycle:** C13
+- **agent:** Formal Verifier
+- **question:**
+
+  Are the anchored models of (xy)z = x(y W(z)) exactly the affine tables x + a*y + 1 with a*c_W(a) = 1 (mod N), c_W(a) = sum over leaves of a^(right depth), as Theorem 3 of proofs/paper/C13.md asserts? Which arithmetic sets do these laws realise?
+
+- **hypothesis:** H-C13-4 (derived): for all 23 terms W with <= 5 leaves and all N <= 9 the number of anchored models equals the number of roots of a*c_W(a) - 1 modulo N, and every model is affine.
+- **assumptions:** complete SAT enumeration of anchored models (limit 100) for N = 1..9; spectra up to 200 from the root condition; OEIS lookups for the distinct polynomials
+- **methodology:** For each W: build the law, compute c_W and the root counts; enumerate all anchored models with MagmaSAT and test each for affinity and for the root condition; compare counts.
+- **falsification:** A model count differing from the root count, or a non-affine model.
+- **summary:**
+  - 23 terms W; N = 1..9; mismatches with Theorem 3: 0
+  - 16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1
+  - OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 …
+- **runs:** 1; last 2026-10-18T09:25:48Z (88.84 s), results sha256 `706180c29321176d…`, code `experiments/C13/E03_w_family.py`
+
+### EXP-C13-04: Non-affine models of the 17 finite-spectrum laws of CLM-C06-10, N <= 12
+
+- **cycle:** C13
+- **agent:** Mathematical Skeptic
+- **question:** Do the seven {1,3}-laws and ten {1,2}-laws of CLM-C06-10 have anchored models (affine or not) for any N in 2..12 outside their conjectured spectra?
+- **hypothesis:** CLM-C06-10 (from C06): spectra exactly {1,3} and {1,2}; all models affine except the known non-affine N = 2 model of x(yz) = y((yx)z).
+- **assumptions:**
+  - N = 2..12; one SAT call per law and N with every affine table blocked (conflict budget 4,000,000); affine models counted separately from the affine system
+- **methodology:** Spectrum(N) = (affine roots exist) or (SAT finds a non-affine model).
+- **falsification:** A model at N outside {1,3} resp. {1,2}, or a non-affine model other than the known one.
+- **summary:** 17 laws; spectrum (N <= 12) equals the conjectured set for 17; non-affine models: x(yz)=y((yx)z) at [2]; UNKNOWN instances: 0
+- **runs:** 1; last 2026-10-18T09:27:41Z (66.864 s), results sha256 `e2dc4a04980df47f…`, code `experiments/C13/E04_finite_spectra.py`
+
+### EXP-C13-07: Spectra of one-variable laws and the failure of divisor-closure
+
+- **cycle:** C13
+- **agent:** Mathematical Explorer
+- **question:**
+
+  For every law t1(x) = t2(x) with t1 != t2 one-variable terms of at most 5 leaves, which N <= 12 admit an anchored model? Which spectra violate divisor-closure, and is every spectrum either {1} or cofinite?
+
+- **hypothesis:** H-C13-5 (bold): every one-variable law has anchored spectrum {1} or a cofinite set (all N beyond some bound), because such a law only constrains the orbit of each element under its own diagonal maps.
+- **assumptions:** 253 laws (23 terms with <= 5 leaves; unordered pairs); N = 1..12, complete SAT (conflict budget 2,000,000; UNKNOWN recorded); cofiniteness is only suggested, not proved, by N <= 12
+- **methodology:** MagmaSAT with the anchor for every law and N; divisor-closure violations (N, d); spectra patterns; affine roots for comparison.
+- **falsification:** A law whose spectrum up to 12 is neither {1} nor of the form 'all N >= n0 plus a set of small N' (e.g. a law with models exactly at the even sizes).
+- **summary:**
+  - 253 one-variable laws; spectrum {1}: 9; models for every N in 7..12: 237; other: 7 ['x = (xx)x', 'x = ((xx)x)x', 'x = (((xx)x)x)x', 'xx = ((xx)x)x']
+  - divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]
+  - missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]
+  - UNKNOWN: 0
+- **runs:** 1; last 2026-10-18T09:26:15Z (5.756 s), results sha256 `fc82fdab5cb9183e…`, code `experiments/C13/E07_one_variable_laws.py`
+
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
 
 - **cycle:** C14
@@ -4496,7 +4668,127 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** A rule number that is not a multiple of 17, or an XOR light cone that is not 2^popcount(t).
 - **summary:** rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True); XOR (rule 102) essential cells = 2^popcount(t): True; surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]; streaming width > 4 at t = 18: []
-- **runs:** 1; last 2026-10-18T09:23:04Z (9.743 s), results sha256 `a47c3d15ea6d2c6b…`, code `experiments/C15/E01_order2.py`
+- **runs:** 2; last 2026-10-18T16:47:58Z (12.939 s), results sha256 `a47c3d15ea6d2c6b…`, code `experiments/C15/E01_order2.py`
+
+### EXP-C15-02: Order-3 magma automata: light cones, streaming widths, surjectivity and cyclic dynamics
+
+- **cycle:** C15
+- **agent:** Mathematical Explorer
+- **question:**
+
+  For all 1734 magmas of order 3 up to isomorphism and anti-isomorphism: how complex are the t-step local maps of c'_i = c_i * c_{i+1}, which automata are surjective, and how do they behave on cyclic rows?
+
+- **hypothesis:**
+
+  H-C15-1 (bold, inventor): no intermediate growth - the streaming width lambda(t) (the smaller of the forward and backward ordered-BDD widths of F_t) is either bounded or grows geometrically. H-C15-2 (bold, inventor): bounded streaming width holds exactly for semigroups, affine magmas x*y = ax + by + c over Z_3, and magmas whose light cone depends on at most two cells. H-C15-3 (explorer): the automaton is surjective on bi-infinite rows iff the table has all rows or all columns permutations (permutive).
+
+- **assumptions:**
+  - light cones to t = 9 (tables of 3^10 entries)
+  - cyclic rows of length L = 1..7
+  - growth classes judged on t <= 9 only: bounded = eventually 2-periodic from t = 5; linear = lambda(t+2) - lambda(t) positive and constant on each parity for t = 4..7; geometric = lambda(t+2) >= 1.8 lambda(t) for t = 5, 6, 7; other = the rest
+  - statistics are invariant under anti-isomorphism (mirror)
+- **methodology:**
+
+  Canonical representatives by minimum code over the 12 (anti-)relabellings; for each: algebraic properties, essential variables and widths of F_t (t <= 9), nilpotency, pair-graph surjectivity and injectivity, functional-graph statistics of the global map on cyclic rows.
+
+- **falsification:**
+
+  H-C15-1: a magma with growing but sub-geometric width. H-C15-2: a bounded-width magma outside the three classes or a semigroup/affine magma with unbounded width. H-C15-3: a surjective non-permutive table or a non-surjective permutive one.
+
+- **summary:** 1734 classes; width classes {'bounded': 808, 'linear': 104, 'other': 522, 'geometric': 300}; nilpotent by t=9: 34; associative 18, commutative 129, medial 48, affine 8, surjective 43, injective 7, bounded dependence 106; H-C15-1 non-bounded, non-geometric magmas: 626 (linear: 104); bounded-width magmas explained by semigroup/affine/bounded dependence/eventual image: 163 of 808; H-C15-2: bounded outside the three classes 685; semigroup/affine not bounded 0; H-C15-3 counterexamples (surjective != permutive): 0
+- **runs:** 3; last 2026-10-18T16:49:19Z (79.214 s), results sha256 `d818189ec799ef73…`, code `experiments/C15/E02_order3_census.py`
+
+### EXP-C15-03: Fast-forwarding magma automata: polynomial powers, exponent arithmetic and burn times vs simulation
+
+- **cycle:** C15
+- **agent:** Application Researcher
+- **question:**
+
+  How much faster than direct simulation are the exact fast-forward algorithms for affine magmas (operator powers modulo S^L - 1), commutative semigroups (binomial exponents) and the fuse magma (burn times), and where do they not pay off?
+
+- **hypothesis:** H-C15-6: each fast-forward is exact, and for cyclic rows of length L = 1024 it beats direct numpy simulation by more than 100x at t = 10^5, while losing for t below a few hundred steps.
+- **assumptions:**
+  - cyclic rows; seeded random initial rows
+  - direct simulation measured up to t = 10^5 (L <= 1024) and t = 10^4 (L = 4096); larger t only for the fast-forward algorithms
+  - timings depend on the (shared, loaded) machine: only orders of magnitude are meaningful; they are stored under 'timings', which the result hash ignores
+- **methodology:**
+
+  For each magma and (L, t), compute the row at time t by the fast-forward algorithm and, where measured, by direct simulation; record agreement and wall-clock times (best of 3 for the fast-forward, 1 run for direct).
+
+- **falsification:** Any disagreement with direct simulation; a speedup below 100x at L = 1024, t = 10^5.
+- **summary:** 99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)
+- **runs:** 1; last 2026-10-18T09:31:25Z (45.725 s), results sha256 `60337b19e325b458…`, code `experiments/C15/E03_algebraic_fast_forward.py`
+
+### EXP-C15-04: Cycle detection as a universal fast-forward: transient plus period of random cyclic rows
+
+- **cycle:** C15
+- **agent:** Application Researcher
+- **question:**
+
+  For each of the 1734 order-3 magma automata, after how many steps (transient mu plus period lambda) does a random cyclic row of length L = 16, 32, 64 repeat? Cycle detection answers any query t in mu + lambda simulated steps.
+
+- **hypothesis:**
+
+  H-C15-5 (bold): for most classes (at least half), a random cyclic row of length 32 repeats within 5000 steps, so cycle detection fast-forwards most magma automata; long cycles occur only for classes with geometric streaming width.
+
+- **assumptions:** one seeded random row per class and length; cap 5000 simulated steps (rows that do not repeat within the cap are reported as 'not found'); width classes from EXP-C15-02
+- **methodology:** cycle_fast_forward with a dictionary of visited rows; record mu, lambda or 'not found'; group by the width class of EXP-C15-02.
+- **falsification:** Fewer than half of the classes repeat within the cap at L = 32, or a bounded/linear-width class that does not repeat within the cap.
+- **summary:** L=16: 1693/1734 repeat within 5000 steps; median mu 4.0, median lambda 2.0; bounded/linear-width classes not repeating: 0; L=32: 1590/1734 repeat within 5000 steps; median mu 5.0, median lambda 2.0; bounded/linear-width classes not repeating: 4; L=64: 1561/1734 repeat within 5000 steps; median mu 6.0, median lambda 2.0; bounded/linear-width classes not repeating: 4
+- **runs:** 1; last 2026-10-18T09:32:28Z (28.086 s), results sha256 `e2a0d442418ecca9…`, code `experiments/C15/E04_cycle_detection.py`
+
+### EXP-C15-05: Case studies: fuse widths to t = 12, Laver tables, GF(4), anchored affine models, an order-4 band
+
+- **cycle:** C15
+- **agent:** Formal Verifier
+- **question:**
+
+  Does the fuse magma's streaming width keep growing linearly beyond t = 9, and does the residual family of the lower-bound proof really separate? How do the lab's earlier structures (Laver tables, nimbers on [0,4), anchored models of C06) behave as automata? Is 'surjective iff permutive' special to orders <= 3?
+
+- **hypothesis:**
+
+  The fuse magma has lambda(t) = t + 2 for t = 1..12, and the prefixes 2 (12)^b 2^(m-1-2b) give pairwise distinct residuals at level m = t/2; the order-4 rectangular band (b,c)*(b',c') = (b,c') is surjective (even injective) without being permutive.
+
+- **assumptions:** light cones to t = 12 (fuse), t = 8 (order 4), t = 5 (order 8)
+- **methodology:** Ordered-BDD widths and essential variables of F_t; explicit residual check for the lower-bound family; pair-graph surjectivity/injectivity; OEIS look-ups of the sequences produced.
+- **falsification:** A fuse width differing from t + 2, coinciding residuals in the lower-bound family, or a non-surjective or permutive rectangular band.
+- **summary:**
+  - fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}
+  - Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]
+  - GF(4) mult lambda bounded: 4; XOR[0,4) widths 4
+  - rectangular band order 4: surjective True, injective True, permutive False
+  - OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []
+- **runs:** 1; last 2026-10-18T16:38:01Z (7.762 s), results sha256 `e298d006e6541e19…`, code `experiments/C15/E05_case_studies.py`
+
+### EXP-C16-01: Cycle structure of the Fibonacci pair map (a, b) -> (b, b*a) for all small magmas
+
+- **cycle:** C16
+- **agent:** Mathematical Explorer
+- **question:** How long can the sequence x_{k+1} = x_k * x_{k-1} cycle in an n-element magma, when is the pair map a permutation, and which magmas attain the longest periods?
+- **hypothesis:**
+
+  H-C16-1 (bold, Inventor): as for Pisano periods, where (0, 0) is fixed, the maximal period on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups. H-C16-2 (Formal Verifier): the pair map is a permutation iff every left translation a -> b*a is a bijection, so exactly (n!)^n tables give permutations. H-C16-3 (Formal Verifier, after the n = 2 data): the tables with a single cycle through all n^2 states correspond to de Bruijn cycles of order 2, (n!)^n / n^2 of them (1, 24, 20736 for n = 2, 3, 4).
+
+- **assumptions:**
+  - all 16 tables of order 2 and all 19683 of order 3; for order 4 only the (4!)^4 = 331776 tables whose rows are permutations (the only candidates for a full cycle by H-C16-2)
+  - isomorphism classes by brute-force canonical codes (n <= 3; full-period tables for n = 4)
+  - the mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the transposed table; checked on the order-3 census
+- **methodology:**
+
+  Batch functional-graph analysis (orbit doubling, periods, transients) of the pair maps; count permutation pair maps and full-period tables; test the quasigroup property of the full-period tables; distributions of the maximal period; OEIS check of the counts.
+
+- **falsification:**
+
+  H-C16-1: a table with a period n^2, or a non-quasigroup attaining the maximum. H-C16-2: a permutation pair map with a non-bijective left translation or vice versa, or a count different from (n!)^n. H-C16-3: a full-period count different from (n!)^n / n^2.
+
+- **summary:**
+  - max period over all tables: n=2: 4, n=3: 9, n=4: 16
+  - permutation pair maps (predicted (n!)^n): n=2: 4 (4), criterion violations 0, n=3: 216 (216), criterion violations 0, n=4: 331776 (331776), criterion violations 0
+  - full-period tables (predicted (n!)^n/n^2): n=2: 1 (1), of which quasigroups 0, n=3: 24 (24), of which quasigroups 0, n=4: 20736 (20736), of which quasigroups 0
+  - max period among quasigroups: n=2: 3, n=3: 8, n=4: 15
+  - order 3: 3330 isomorphism classes, max-period distribution {1: 4563, 2: 4581, 3: 5316, 4: 2877, 5: 1458, 6: 540, 7: 216, 8: 108, 9: 24}
+  - mirror dynamics = forward dynamics of the transpose (order 3): True
+- **runs:** 1; last 2026-10-18T09:27:31Z (7.899 s), results sha256 `0550e32b9f950756…`, code `experiments/C16/E01_small_magmas.py`
 
 ### EXP-C17-01: Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples
 
@@ -4552,4 +4844,166 @@ _Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; 
 - **verification:** REFUTED
 - **related:** CLM-C17-02; CLM-C17-05; CLM-C17-07
 - **runs:** 2; last 2026-10-18T09:21:14Z (75.658 s), results sha256 `f4c5466ad1841f84…`, code `experiments/C17/E02_anchor_instance.py`
+
+### EXP-C18-01: Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems
+
+- **cycle:** C18
+- **agent:** Formal Verifier
+- **question:**
+
+  Are the constructed tables quasigroups, which of them are T-functions or GF(2)-affine, and do the predictions of Theorems 1-5 (bijectivity, forward-only difference propagation, the T-function obstruction, linearity, anagram blindness) hold on random inputs?
+
+- **hypothesis:**
+
+  Theorems 1-5 of proofs/paper/C18.md: e-transformations are bijections with the d-transformation as inverse; a single-position input difference at i changes exactly the output positions >= i; for T-function quasigroups output bits below the flipped bit position never change; for XOR every output difference is independent of the key; the 1-pass x + c(y) hash is blind to permutations of the message prefix.
+
+- **assumptions:** random inputs: 2000 strings of 24 bytes (seeded); the random Latin square is built row by row with randomly relabelled maximum matchings and is not uniformly distributed
+- **methodology:**
+
+  Direct checks on all 256 x 256 tables; e/d round trips; single-byte differences at random positions; bit flips at every bit position r for the T-function quasigroups; output differences for XOR across keys; 1-pass ARP hashes of keys and of permutations of their prefixes.
+
+- **falsification:**
+
+  Any failed check (a non-Latin table, a failed round trip, a changed output position < i, a changed output bit below position r for a T-function quasigroup, a key-dependent XOR difference, a changed 1-pass ARP hash under prefix permutation).
+
+- **summary:**
+  - quasigroups: LS (T-fn False, GF2-affine False), ISO (T-fn False, GF2-affine False), NIMINV (T-fn False, GF2-affine False), AFF (T-fn True, GF2-affine False), XOR (T-fn True, GF2-affine True), ARP (T-fn False, GF2-affine False), ALP (T-fn True, GF2-affine False)
+  - nim-product on [0,256): quasigroup False, nonzero part a group True; nim_mul = C07 table on [0,64): True
+  - d(e(X)) = X for all: True; single-difference violations: 0
+  - T-function obstruction violations (AFF, XOR, ALP): {'AFF': 0, 'XOR': 0, 'ALP': 0}; XOR: 1 distinct output difference(s) over 2000 keys
+  - ARP 1-pass: 2000/2000 hashes unchanged under prefix permutation (2000 keys changed); QG-LS p2+rev unchanged: 0
+- **runs:** 1; last 2026-10-18T09:31:39Z (1.366 s), results sha256 `393d97c570b911b4…`, code `experiments/C18/E01_structure.py`
+
+### EXP-C18-02: Strict avalanche and bit independence: 13 quasigroup hash variants against FNV-1a, MX64, BLAKE2b and CRC32
+
+- **cycle:** C18
+- **agent:** Application Researcher
+- **question:** How close to an ideal 64-bit mixer are e-transformation hashes over the seven quasigroups, with 1, 2 or 4 passes and with or without a reverse pass?
+- **hypothesis:**
+
+  H-C18-1 (bold): QG-LS with 2 passes and a reverse pass has mean and maximal avalanche bias within 0.01 of BLAKE2b-64. H-C18-2: every structured quasigroup (AFF, XOR, ARP, ALP) is worse than the random Latin square on maximal avalanche bias. H-C18-3a (bold): the nimber inversion quasigroup (NIMINV, 2 passes + reverse) has avalanche at least as good as FNV-1a-64. H-C18-5 (from Theorem 2): every forward-only variant has maximal bias 0.5.
+
+- **assumptions:**
+  - 2000 random 16-byte keys (seeded); all 128 input bits flipped
+  - bias = |P(output bit flips) - 1/2|; with 2000 keys the sampling standard deviation per cell is about 0.011, so BLAKE2b's values estimate the noise floor
+  - CRC32 has 32 output bits
+- **methodology:**
+
+  For each hash and input bit, flip the bit in all keys and record which output bits change; report mean flip rate, mean and maximal bias, cells with bias > 0.1, deterministic cells, and the maximal/mean absolute correlation between output-bit changes (bit independence).
+
+- **falsification:**
+
+  H-C18-1: a difference > 0.01 in mean or maximal bias. H-C18-2: a structured quasigroup with maximal bias <= that of QG-LS p2+rev. H-C18-3a: NIMINV mean bias above FNV-1a's. H-C18-5: a forward-only variant with maximal bias < 0.5.
+
+- **summary:** QG-LS p2+rev: mean bias 0.0089, max bias 0.041, cells>0.1 0/8192, BIC max 0.111; QG-NIMINV p2+rev: mean bias 0.009, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1065; QG-NIMINV p1+rev: mean bias 0.0091, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1082; QG-LS p1+rev: mean bias 0.0088, max bias 0.043, cells>0.1 0/8192, BIC max 0.1227; QG-ARP p2+rev: mean bias 0.0091, max bias 0.043, cells>0.1 0/8192, BIC max 1.0; QG-ISO p2+rev: mean bias 0.009, max bias 0.044, cells>0.1 0/8192, BIC max 0.1039; MX64: mean bias 0.009, max bias 0.0445, cells>0.1 0/8192, BIC max 0.1129; BLAKE2b-64: mean bias 0.0089, max bias 0.045, cells>0.1 0/8192, BIC max 0.1124; QG-LS p4+rev: mean bias 0.0089, max bias 0.0505, cells>0.1 0/8192, BIC max 0.1163; QG-LS p2: mean bias 0.0895, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0; QG-LS p1: mean bias 0.0897, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0; FNV-1a-64: mean bias 0.098, max bias 0.5, cells>0.1 1688/8192, BIC max 1.0; QG-ARP p1: mean bias 0.1031, max bias 0.5, cells>0.1 1378/8192, BIC max 1.0; QG-ALP p2+rev: mean bias 0.3438, max bias 0.5, cells>0.1 6441/8192, BIC max 1.0; QG-AFF p2+rev: mean bias 0.3862, max bias 0.5, cells>0.1 7181/8192, BIC max 1.0; QG-XOR p2+rev: mean bias 0.5, max bias 0.5, cells>0.1 8192/8192, BIC max 1.0; CRC32: mean bias 0.5, max bias 0.5, cells>0.1 4096/4096, BIC max 1.0; H-C18-1 True; H-C18-2 True; H-C18-3a True; H-C18-5 True
+- **runs:** 1; last 2026-10-18T16:44:52Z (42.198 s), results sha256 `f07d330c4df32579…`, code `experiments/C18/E02_avalanche.py`
+
+### EXP-C18-03: Hash-table behaviour: chi-square of bucket counts (1024 buckets by mask, 1021 by modulus) and collisions in 2^16 buckets on random, sequential, near-duplicate and word-like keys
+
+- **cycle:** C18
+- **agent:** Application Researcher
+- **question:** Do quasigroup hashes distribute realistic key sets as evenly as standard hashes?
+- **hypothesis:**
+
+  H-C18-3b (bold): the nimber inversion hash (QG-NIMINV p2+rev) has |chi-square z| <= 3 on every key set and bucket-collision ratio within 2% of the uniform expectation, like FNV-1a-64. H-C18-6: the 1-pass x + c(y) hash (QG-ARP p1) fails on near-duplicate keys.
+
+- **assumptions:**
+  - key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65296 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)
+  - z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits
+- **methodology:**
+
+  Hash every key set with every variant; compute z-scores for 1024 buckets (low 10 bits) and 1021 buckets (h mod 1021); count keys landing in an occupied bucket among 2^16 (low 16 bits) and full 64-bit collisions.
+
+- **falsification:** H-C18-3b: |z| > 3 or a collision ratio outside [0.98, 1.02] for NIMINV. H-C18-6: QG-ARP p1 within bounds on near-duplicates.
+- **summary:**
+  - QG-LS p1: flagged on ['random', 'sequential', 'near_duplicates', 'words']
+  - QG-LS p1+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-LS p2: flagged on none
+  - QG-LS p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-LS p4+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-ISO p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-NIMINV p1+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-NIMINV p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-AFF p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-XOR p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-ARP p1: flagged on ['random', 'sequential', 'near_duplicates', 'words']
+  - QG-ARP p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - QG-ALP p2+rev: flagged on ['sequential', 'near_duplicates', 'words']
+  - FNV-1a-64: flagged on ['sequential', 'near_duplicates']
+  - MX64: flagged on none
+  - BLAKE2b-64: flagged on none
+  - CRC32: flagged on ['sequential', 'near_duplicates']
+  - QG-ARP p1 near-duplicates: {'z_mask1024': np.float64(4308.32), 'z_mod1021': np.float64(138.79), 'bucket_collisions': 65024, 'expected': 23947.5, 'ratio': 2.7153, 'full_64bit_collisions': 36720}
+- **runs:** 2; last 2026-10-18T16:45:41Z (5.253 s), results sha256 `4f66fa5fac9a7cff…`, code `experiments/C18/E03_distribution.py`
+
+### EXP-C18-04: Throughput in bytes per second for batches of equal-length keys
+
+- **cycle:** C18
+- **agent:** Application Researcher
+- **question:** What does the mixing quality of quasigroup hashes cost in speed, compared with the baselines in comparable implementations?
+- **hypothesis:** H-C18-4: every quasigroup variant with a reverse pass is slower than FNV-1a-64 when both are implemented in the same numpy batch style.
+- **assumptions:**
+  - batches of 16384 keys of 8 and of 64 bytes (seeded)
+  - QG, FNV-1a and MX64 are numpy-vectorised over keys (Python loop over byte positions); BLAKE2b and CRC32 are C library calls, one per key (per-call overhead included)
+  - median of 3 runs; the machine is shared with other jobs, so absolute numbers are indicative only; checksums of the outputs make the result deterministic
+- **methodology:** Time hash_fixed on each batch; report MB/s; record an XOR checksum of all outputs.
+- **falsification:** H-C18-4: a reverse-pass quasigroup variant at least as fast as FNV-1a-64 on both batches.
+- **summary:** checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings
+- **runs:** 1; last 2026-10-18T16:49:11Z (3.127 s), results sha256 `fc4153a514764663…`, code `experiments/C18/E04_throughput.py`
+
+### EXP-C18-05: Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state
+
+- **cycle:** C18
+- **agent:** Application Researcher
+- **question:**
+
+  EXP-C18-03 showed massive collisions of the tail-output hashes on structured keys. Does the tail-information bound (Theorem 6) account for them exactly, and does a cascade whose output is the final state of 8 parallel passes behave like the good baselines?
+
+- **hypothesis:**
+
+  H-C18-7: for the reverse-pass hash, keys sharing their first 7 bytes receive at most 256 distinct hash values; for the p-pass forward hash, keys sharing the last 7 message bytes receive at most 256^p values (Theorem 6, checked on data). H-C18-8 (bold): the cascade QC (8 passes, final state output, 8 zero bytes of finalisation) over the random Latin square, the group isotope and the nimber inversion quasigroup has avalanche at the BLAKE2b noise floor, |z| <= 3 and collision ratio within 2% on all four key sets, and no full 64-bit collisions. H-C18-9: the cascade over x + c(y) (ARP) still fails bit independence.
+
+- **assumptions:** same keys as EXP-C18-02 (avalanche, seed 1802) and EXP-C18-03 (key sets, seed 1803); throughput (batch of 16384 keys of 64 bytes, median of 3, shared machine) is stored under timings only
+- **methodology:**
+
+  (a) For 50 random 7-byte prefixes, hash 4096 keys with that prefix (random 9-byte suffixes) with QG-LS p2+rev and count distinct values; for 50 random 7-byte suffixes do the same with the forward 1-pass hash (bound 256). (b) Avalanche, bit independence, chi-square and collisions for the four cascades, exactly as in EXP-C18-02/03.
+
+- **falsification:** H-C18-7: more than 256 (resp. 256^p) distinct values. H-C18-8: any flag for QC-LS, QC-ISO or QC-NIMINV. H-C18-9: QC-ARP with BIC max < 0.5.
+- **summary:**
+  - tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)
+  - QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none
+  - QC-ISO d8: mean bias 0.0091, max bias 0.046, BIC max 0.1064, flagged on none
+  - QC-NIMINV d8: mean bias 0.0091, max bias 0.0845, BIC max 0.146, flagged on ['words']
+  - QC-ARP d8: mean bias 0.0108, max bias 0.116, BIC max 0.1759, flagged on none
+  - MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none
+  - BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none
+  - H-C18-8 False; H-C18-9 False
+- **runs:** 1; last 2026-10-18T16:48:40Z (35.152 s), results sha256 `b65260e9bb0972c2…`, code `experiments/C18/E05_cascade.py`
+
+### EXP-C20-01: Termination and exact derivational complexity of aab -> ababa and aab -> babaa
+
+- **cycle:** C20
+- **agent:** Formal Verifier
+- **question:** Do the two one-rule systems left open in C04 terminate, and what is their derivational complexity?
+- **hypothesis:**
+
+  H-C20-1 (from the run-encoding analysis, proofs/paper/C20.md): both terminate; D(n) = 2^(n-2) - 1 for aab -> ababa (n >= 2) and D(n) = max_b b(2^floor((n-b)/2) - 1) for aab -> babaa; for aab -> babaa every word has D(w) = sum_k d_k (2^floor(x_k/2) - 1) (runs x_k of a's, d_k = b's to the right of run k when its journeys start).
+
+- **assumptions:** all words over {a, b} of length <= 12 (formulas) and <= 8 (exhaustive maximal derivations); the 8 rules of the two symmetry classes (reversal, letter exchange) are checked separately
+- **methodology:**
+
+  Simulate the rightmost and the leftmost strategy on every word; compare with the exact maximal derivation length from the full derivation DAG (n <= 8); compare D(w) with the per-word formula for aab -> babaa and D(n) with both closed forms.
+
+- **falsification:** A word whose strategies give different lengths (would contradict random descent), a word whose derivation does not end within 10^6 steps, or any mismatch with the formulas.
+- **summary:**
+  - 8 rules (2 classes): words of length <= 12 - non-terminating within 10^6 steps: 0; rightmost vs leftmost mismatches: 0; vs exhaustive maximum (n <= 8): 0
+  - aab -> ababa D(n), n = 1..12: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]; = 2^(n-2) - 1: True
+  - aab -> babaa D(n): [0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62]; = max_b b(2^floor((n-b)/2) - 1): True; per-word formula mismatches: 0
+- **analysis:**
+
+  All 8 rules of the two classes aab -> ababa and aab -> babaa terminate on every word of length <= 12 (rightmost and leftmost strategies agree on every word, and agree with the exact maximal derivation length on all words of length <= 8, as random descent predicts). D(n) for aab -> ababa is 0, 0, 1, 3, 7, ..., 1023 = 2^(n-2) - 1; for aab -> babaa 0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62 = max_b b(2^floor((n-b)/2) - 1); the per-word formula for aab -> babaa matches every word of length <= 12.
+
+- **verification:** PROVEN
+- **related:** CLM-C20-01; CLM-C20-02; CLM-C20-03
+- **runs:** 1; last 2026-10-18T09:30:35Z (0.521 s), results sha256 `ca16de94a06cb31d…`, code `experiments/C20/E01_last_one_rule_cases.py`
 

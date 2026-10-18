@@ -1,0 +1,725 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C18-03",
+    "file": "experiments/C18/E03_distribution.py",
+    "sha256": "e91ca5b63b09f036fed6229f919b811634446505a521a91bda76ee043203d26b",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "env": {
+    "git_head": "8c7b7fa755aa4874448f22daf5a151a733a5a29a",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T16:45:41Z",
+  "id": "EXP-C18-03",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65296 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)",
+      "z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits"
+    ],
+    "cycle": "C18",
+    "falsification": "H-C18-3b: |z| > 3 or a collision ratio outside [0.98, 1.02] for NIMINV. H-C18-6: QG-ARP p1 within bounds on near-duplicates.",
+    "hypothesis": "H-C18-3b (bold): the nimber inversion hash (QG-NIMINV p2+rev) has |chi-square z| <= 3 on every key set and bucket-collision ratio within 2% of the uniform expectation, like FNV-1a-64. H-C18-6: the 1-pass x + c(y) hash (QG-ARP p1) fails on near-duplicate keys.",
+    "id": "EXP-C18-03",
+    "methodology": "Hash every key set with every variant; compute z-scores for 1024 buckets (low 10 bits) and 1021 buckets (h mod 1021); count keys landing in an occupied bucket among 2^16 (low 16 bits) and full 64-bit collisions.",
+    "question": "Do quasigroup hashes distribute realistic key sets as evenly as standard hashes?",
+    "seed": 1803,
+    "title": "Hash-table behaviour: chi-square of bucket counts (1024 buckets by mask, 1021 by modulus) and collisions in 2^16 buckets on random, sequential, near-duplicate and word-like keys"
+  },
+  "results": {
+    "H-C18-3b_holds": false,
+    "H-C18-6_holds": true,
+    "flagged": {
+      "BLAKE2b-64": [],
+      "CRC32": [
+        "sequential",
+        "near_duplicates"
+      ],
+      "FNV-1a-64": [
+        "sequential",
+        "near_duplicates"
+      ],
+      "MX64": [],
+      "QG-AFF p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-ALP p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-ARP p1": [
+        "random",
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-ARP p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-ISO p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-LS p1": [
+        "random",
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-LS p1+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-LS p2": [],
+      "QG-LS p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-LS p4+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-NIMINV p1+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-NIMINV p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ],
+      "QG-XOR p2+rev": [
+        "sequential",
+        "near_duplicates",
+        "words"
+      ]
+    },
+    "key_set_sizes": {
+      "near_duplicates": 65280,
+      "random": 65536,
+      "sequential": 65536,
+      "words": 65536
+    },
+    "results": {
+      "BLAKE2b-64": {
+        "near_duplicates": {
+          "bucket_collisions": 23931,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9993,
+          "z_mask1024": 0.51,
+          "z_mod1021": 0.04
+        },
+        "random": {
+          "bucket_collisions": 24104,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9998,
+          "z_mask1024": 0.6,
+          "z_mod1021": 0.52
+        },
+        "sequential": {
+          "bucket_collisions": 24004,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9956,
+          "z_mask1024": 1.72,
+          "z_mod1021": 0.21
+        },
+        "words": {
+          "bucket_collisions": 24252,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0059,
+          "z_mask1024": 0.39,
+          "z_mod1021": -0.33
+        }
+      },
+      "CRC32": {
+        "near_duplicates": {
+          "bucket_collisions": 23500,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9813,
+          "z_mask1024": -4.04,
+          "z_mod1021": -1.82
+        },
+        "random": {
+          "bucket_collisions": 24090,
+          "expected": 24109.2,
+          "full_64bit_collisions": 2,
+          "ratio": 0.9992,
+          "z_mask1024": -0.49,
+          "z_mod1021": -0.92
+        },
+        "sequential": {
+          "bucket_collisions": 21794,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.904,
+          "z_mask1024": -20.5,
+          "z_mod1021": 2.06
+        },
+        "words": {
+          "bucket_collisions": 24034,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9969,
+          "z_mask1024": -0.39,
+          "z_mod1021": 0.43
+        }
+      },
+      "FNV-1a-64": {
+        "near_duplicates": {
+          "bucket_collisions": 23784,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9932,
+          "z_mask1024": -7.05,
+          "z_mod1021": -0.56
+        },
+        "random": {
+          "bucket_collisions": 24068,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9983,
+          "z_mask1024": -0.05,
+          "z_mod1021": 1.26
+        },
+        "sequential": {
+          "bucket_collisions": 23996,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9953,
+          "z_mask1024": -9.77,
+          "z_mod1021": -7.99
+        },
+        "words": {
+          "bucket_collisions": 23993,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9952,
+          "z_mask1024": -1.19,
+          "z_mod1021": -1.16
+        }
+      },
+      "MX64": {
+        "near_duplicates": {
+          "bucket_collisions": 24065,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0049,
+          "z_mask1024": 0.67,
+          "z_mod1021": 1.64
+        },
+        "random": {
+          "bucket_collisions": 24102,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9997,
+          "z_mask1024": -0.51,
+          "z_mod1021": 2.41
+        },
+        "sequential": {
+          "bucket_collisions": 24199,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0037,
+          "z_mask1024": -0.5,
+          "z_mod1021": 0.57
+        },
+        "words": {
+          "bucket_collisions": 24161,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0022,
+          "z_mask1024": 1.12,
+          "z_mod1021": 0.79
+        }
+      },
+      "QG-AFF p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57344,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3946,
+          "z_mask1024": 334.83,
+          "z_mod1021": 112.87
+        },
+        "random": {
+          "bucket_collisions": 24099,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9996,
+          "z_mask1024": 0.78,
+          "z_mod1021": -0.29
+        },
+        "sequential": {
+          "bucket_collisions": 63231,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6227,
+          "z_mask1024": 103.0,
+          "z_mod1021": -5.67
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 352.76,
+          "z_mod1021": -0.74
+        }
+      },
+      "QG-ALP p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57435,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3984,
+          "z_mask1024": 1851.27,
+          "z_mod1021": 797.2
+        },
+        "random": {
+          "bucket_collisions": 24125,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0007,
+          "z_mask1024": 0.14,
+          "z_mod1021": -0.56
+        },
+        "sequential": {
+          "bucket_collisions": 64250,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.665,
+          "z_mask1024": 5735.0,
+          "z_mod1021": 1.7
+        },
+        "words": {
+          "bucket_collisions": 60960,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5285,
+          "z_mask1024": 1171.35,
+          "z_mod1021": 0.93
+        }
+      },
+      "QG-ARP p1": {
+        "near_duplicates": {
+          "bucket_collisions": 65024,
+          "expected": 23947.5,
+          "full_64bit_collisions": 36720,
+          "ratio": 2.7153,
+          "z_mask1024": 4308.32,
+          "z_mod1021": 138.79
+        },
+        "random": {
+          "bucket_collisions": 58624,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.4316,
+          "z_mask1024": 221.34,
+          "z_mod1021": -1.19
+        },
+        "sequential": {
+          "bucket_collisions": 65280,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.7077,
+          "z_mask1024": 4878.65,
+          "z_mod1021": -0.51
+        },
+        "words": {
+          "bucket_collisions": 63877,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6495,
+          "z_mask1024": 523.35,
+          "z_mod1021": -1.55
+        }
+      },
+      "QG-ARP p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57448,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3989,
+          "z_mask1024": 515.32,
+          "z_mod1021": 97.39
+        },
+        "random": {
+          "bucket_collisions": 23948,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9933,
+          "z_mask1024": -1.1,
+          "z_mod1021": -0.07
+        },
+        "sequential": {
+          "bucket_collisions": 63240,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6231,
+          "z_mask1024": 601.37,
+          "z_mod1021": -0.75
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 53.18,
+          "z_mod1021": 1.74
+        }
+      },
+      "QG-ISO p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57446,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3988,
+          "z_mask1024": 216.45,
+          "z_mod1021": 110.53
+        },
+        "random": {
+          "bucket_collisions": 24211,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0042,
+          "z_mask1024": -2.13,
+          "z_mod1021": -1.63
+        },
+        "sequential": {
+          "bucket_collisions": 63248,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6234,
+          "z_mask1024": 651.49,
+          "z_mod1021": -0.01
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 219.3,
+          "z_mod1021": 0.79
+        }
+      },
+      "QG-LS p1": {
+        "near_duplicates": {
+          "bucket_collisions": 65024,
+          "expected": 23947.5,
+          "full_64bit_collisions": 36720,
+          "ratio": 2.7153,
+          "z_mask1024": 4308.32,
+          "z_mod1021": 123.11
+        },
+        "random": {
+          "bucket_collisions": 58627,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.4317,
+          "z_mask1024": 155.05,
+          "z_mod1021": 0.86
+        },
+        "sequential": {
+          "bucket_collisions": 65280,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.7077,
+          "z_mask1024": 4343.61,
+          "z_mod1021": 0.85
+        },
+        "words": {
+          "bucket_collisions": 63873,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6493,
+          "z_mask1024": 1060.7,
+          "z_mod1021": 1.07
+        }
+      },
+      "QG-LS p1+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57459,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3994,
+          "z_mask1024": 216.06,
+          "z_mod1021": 106.89
+        },
+        "random": {
+          "bucket_collisions": 24058,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9979,
+          "z_mask1024": -0.86,
+          "z_mod1021": -1.26
+        },
+        "sequential": {
+          "bucket_collisions": 63251,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6235,
+          "z_mask1024": 659.31,
+          "z_mod1021": 0.33
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 217.35,
+          "z_mod1021": 0.77
+        }
+      },
+      "QG-LS p2": {
+        "near_duplicates": {
+          "bucket_collisions": 23851,
+          "expected": 23947.5,
+          "full_64bit_collisions": 723,
+          "ratio": 0.996,
+          "z_mask1024": 0.75,
+          "z_mod1021": 0.57
+        },
+        "random": {
+          "bucket_collisions": 24036,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.997,
+          "z_mask1024": -0.82,
+          "z_mod1021": -2.51
+        },
+        "sequential": {
+          "bucket_collisions": 24096,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9995,
+          "z_mask1024": 0.43,
+          "z_mod1021": 0.75
+        },
+        "words": {
+          "bucket_collisions": 24019,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9963,
+          "z_mask1024": 1.26,
+          "z_mod1021": -1.08
+        }
+      },
+      "QG-LS p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57454,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32625,
+          "ratio": 2.3992,
+          "z_mask1024": 242.27,
+          "z_mod1021": 114.65
+        },
+        "random": {
+          "bucket_collisions": 24024,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9965,
+          "z_mask1024": -0.51,
+          "z_mod1021": 0.47
+        },
+        "sequential": {
+          "bucket_collisions": 63240,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6231,
+          "z_mask1024": 661.13,
+          "z_mod1021": -1.16
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 245.83,
+          "z_mod1021": -0.77
+        }
+      },
+      "QG-LS p4+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57447,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3989,
+          "z_mask1024": 206.09,
+          "z_mod1021": 111.68
+        },
+        "random": {
+          "bucket_collisions": 24054,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9977,
+          "z_mask1024": -1.63,
+          "z_mod1021": 1.6
+        },
+        "sequential": {
+          "bucket_collisions": 63238,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.623,
+          "z_mask1024": 671.53,
+          "z_mod1021": 1.5
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 225.88,
+          "z_mod1021": 0.2
+        }
+      },
+      "QG-NIMINV p1+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57461,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3995,
+          "z_mask1024": 119.54,
+          "z_mod1021": 120.48
+        },
+        "random": {
+          "bucket_collisions": 24136,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0011,
+          "z_mask1024": -0.38,
+          "z_mod1021": 0.5
+        },
+        "sequential": {
+          "bucket_collisions": 63244,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.6232,
+          "z_mask1024": 861.86,
+          "z_mod1021": 1.15
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 99.65,
+          "z_mod1021": -1.92
+        }
+      },
+      "QG-NIMINV p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57459,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3994,
+          "z_mask1024": 277.07,
+          "z_mod1021": 116.23
+        },
+        "random": {
+          "bucket_collisions": 24125,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0007,
+          "z_mask1024": 0.65,
+          "z_mod1021": -1.87
+        },
+        "sequential": {
+          "bucket_collisions": 63239,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.623,
+          "z_mask1024": 1083.75,
+          "z_mod1021": -0.72
+        },
+        "words": {
+          "bucket_collisions": 60928,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5272,
+          "z_mask1024": 307.16,
+          "z_mod1021": 0.9
+        }
+      },
+      "QG-XOR p2+rev": {
+        "near_duplicates": {
+          "bucket_collisions": 57344,
+          "expected": 23947.5,
+          "full_64bit_collisions": 32624,
+          "ratio": 2.3946,
+          "z_mask1024": 25544.85,
+          "z_mod1021": 5722.16
+        },
+        "random": {
+          "bucket_collisions": 24139,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0012,
+          "z_mask1024": -0.39,
+          "z_mod1021": 2.24
+        },
+        "sequential": {
+          "bucket_collisions": 65301,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.7086,
+          "z_mask1024": 26323.1,
+          "z_mod1021": -3.18
+        },
+        "words": {
+          "bucket_collisions": 62656,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 2.5988,
+          "z_mask1024": 2346.14,
+          "z_mod1021": 0.79
+        }
+      }
+    },
+    "summary": [
+      "QG-LS p1: flagged on ['random', 'sequential', 'near_duplicates', 'words']",
+      "QG-LS p1+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-LS p2: flagged on none",
+      "QG-LS p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-LS p4+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-ISO p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-NIMINV p1+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-NIMINV p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-AFF p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-XOR p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-ARP p1: flagged on ['random', 'sequential', 'near_duplicates', 'words']",
+      "QG-ARP p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "QG-ALP p2+rev: flagged on ['sequential', 'near_duplicates', 'words']",
+      "FNV-1a-64: flagged on ['sequential', 'near_duplicates']",
+      "MX64: flagged on none",
+      "BLAKE2b-64: flagged on none",
+      "CRC32: flagged on ['sequential', 'near_duplicates']",
+      "QG-ARP p1 near-duplicates: {'z_mask1024': np.float64(4308.32), 'z_mod1021': np.float64(138.79), 'bucket_collisions': 65024, 'expected': 23947.5, 'ratio': 2.7153, 'full_64bit_collisions': 36720}"
+    ]
+  },
+  "results_sha256": "4f66fa5fac9a7cff31d92b5518c0d2018539f5d7c48fee97c6712d1280ac7613",
+  "runtime_s": 5.253,
+  "started": "2026-10-18T16:45:36Z"
+}

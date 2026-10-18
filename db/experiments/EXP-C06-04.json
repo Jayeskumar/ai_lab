@@ -9,8 +9,8 @@
   "code": {
     "command": "python -m lab run EXP-C06-04",
     "file": "experiments/C06/E04_affine_spectra.py",
-    "sha256": "51342141842f409b203f3b2a245296e20511259d3540cce7fac729a7f954c361",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "sha256": "77ff094de5bff97e4bf8c20b0ac0af44321b4faa363492d0fd7f4042f8198afb",
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
   "counterexamples": [
     "x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1",
@@ -83,7 +83,7 @@
     "CLM-C06-11"
   ],
   "results_file": "results/EXP-C06-04.json",
-  "results_sha256": "8a8aca5cd93cd72ec42e12e9c20861e9a27a5cce9730ddeac7c504e3d4508f82",
+  "results_sha256": "6db1760839cea0f085b6a4ac8d807d81cb4904f0e2f48505f79642603d67ac9f",
   "runs": [
     {
       "code": {
@@ -99,6 +99,27 @@
       "results_sha256": "8a8aca5cd93cd72ec42e12e9c20861e9a27a5cce9730ddeac7c504e3d4508f82",
       "runtime_s": 318.236,
       "started": "2026-10-18T08:28:00Z",
+      "summary": [
+        "382 laws; affine vs SAT spectrum (N<=6) mismatches: 6 ['x(yz) = y(x(xz))', 'x(yz) = y(x(yz))', 'x(yz) = y(y(xz))', 'x(yz) = y((yx)z)', 'x(yz) = (xy)(xz)', 'x(yz) = (yx)(yz)']",
+        "restricted laws: 22; laws with non-affine anchored models (N<=9): {'x(yz) = y((yx)z)': {2: 1}, 'x(yz) = (xy)(xz)': {2: 1, 4: 1, 8: 1}}",
+        "golden law counts predicted {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0} observed {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0}",
+        "odd law counts {1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1, 10: 0, 11: 1, 12: 0}"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C06-04",
+        "file": "experiments/C06/E04_affine_spectra.py",
+        "sha256": "77ff094de5bff97e4bf8c20b0ac0af44321b4faa363492d0fd7f4042f8198afb",
+        "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:49:20Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C06-04.json",
+      "results_sha256": "6db1760839cea0f085b6a4ac8d807d81cb4904f0e2f48505f79642603d67ac9f",
+      "runtime_s": 350.164,
+      "started": "2026-10-18T16:43:29Z",
       "summary": [
         "382 laws; affine vs SAT spectrum (N<=6) mismatches: 6 ['x(yz) = y(x(xz))', 'x(yz) = y(x(yz))', 'x(yz) = y(y(xz))', 'x(yz) = y((yx)z)', 'x(yz) = (xy)(xz)', 'x(yz) = (yx)(yz)']",
         "restricted laws: 22; laws with non-affine anchored models (N<=9): {'x(yz) = y((yx)z)': {2: 1}, 'x(yz) = (xy)(xz)': {2: 1, 4: 1, 8: 1}}",

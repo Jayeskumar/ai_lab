@@ -9,15 +9,15 @@ from systems.anchored import (affine_roots, affine_spectrum, affine_system, anch
 META = {
     "id": "EXP-C13-06",
     "cycle": "C13",
-    "title": "Divisor-closure of anchored spectra: 600 random 3-variable laws and 200 random pairs of 2-variable laws",
+    "title": "Divisor-closure of anchored spectra: 250 random 3-variable laws and 120 random pairs of 2-variable laws",
     "agent": "Mathematical Skeptic",
     "question": "Does any 3-variable law (<= 4 leaves per side) or any conjunction of two 2-variable laws have an "
                 "anchored model of a size N but not of some divisor d of N?",
     "hypothesis": "H-C13-1 (bold): every anchored spectrum is closed under divisors.",
-    "assumptions": ["600 laws sampled (seed 13) among the 3-variable laws whose affine spectrum is not all N and "
-                    "which survive the zero filter; sizes 2, 3, 5 always decided, composite 4, 6, 8, 9 only when a "
-                    "proper divisor is UNSAT", "200 pairs of 2-variable laws (<= 4 leaves per side, seed 13); sizes "
-                    "2..10 with the same pruning", "conflict budget 300,000; UNKNOWN recorded"],
+    "assumptions": ["250 laws sampled (seed 13) among the 3-variable laws whose affine spectrum is not all N and "
+                    "which survive the zero filter; sizes 2, 3, 5 always decided, composite 4, 6, 8 only when a "
+                    "proper divisor is UNSAT", "120 pairs of 2-variable laws (<= 4 leaves per side, seed 13); sizes "
+                    "2..8 with the same pruning", "conflict budget 300,000; UNKNOWN recorded"],
     "methodology": "As EXP-C13-05: zero filter, affine roots, SAT; violations are pairs (N, d), N SAT, d | N UNSAT.",
     "falsification": "Any such pair.",
     "seed": 13,
@@ -72,29 +72,29 @@ def run():
         if len(affine_spectrum(affine_system(law), 12)) == 12:
             continue
         pool.append(k)
-    sample = rng.sample(pool, 600)
+    sample = rng.sample(pool, 250)
     res3, viol3, unk3 = [], [], []
     tot = {"zero": 0, "affine": 0, "sat": 0, "skipped": 0}
     for k in sample:
         law = law_from_key(k)
-        st, v, calls = profile([law], [2, 3, 5, 4, 6, 8, 9], zero_modulus(law))
+        st, v, calls = profile([law], [2, 3, 5, 4, 6, 8], zero_modulus(law))
         for c in calls:
             tot[c] += calls[c]
         if v:
             viol3.append({"law": law_str(k), "pairs": v, "status": st})
         if "UNKNOWN" in st.values():
             unk3.append(law_str(k))
-        if any(st.get(n) == "SAT" for n in (2, 3, 4, 5, 6, 8, 9)):
+        if any(st.get(n) == "SAT" for n in (2, 3, 4, 5, 6, 8)):
             res3.append({"law": law_str(k), "status": st})
     two = [k for k in enumerate_laws(("x", "y"), 4) if zero_modulus(law_from_key(k)) != 1]
-    pairs = [tuple(rng.sample(two, 2)) for _ in range(200)]
+    pairs = [tuple(rng.sample(two, 2)) for _ in range(120)]
     resp, violp, unkp = [], [], []
     for k1, k2 in pairs:
         laws = [law_from_key(k1), law_from_key(k2)]
         m = _zero_of_laws(laws)
         if m == 1:
             continue
-        st, v, calls = profile(laws, [2, 3, 5, 4, 6, 8, 9, 10], m)
+        st, v, calls = profile(laws, [2, 3, 5, 4, 6, 8], m)
         for c in calls:
             tot[c] += calls[c]
         name = f"{law_str(k1)} & {law_str(k2)}"
@@ -102,12 +102,12 @@ def run():
             violp.append({"laws": name, "pairs": v, "status": st})
         if "UNKNOWN" in st.values():
             unkp.append(name)
-        if any(st.get(n) == "SAT" for n in (2, 3, 4, 5, 6, 8, 9, 10)):
+        if any(st.get(n) == "SAT" for n in (2, 3, 4, 5, 6, 8)):
             resp.append({"laws": name, "status": st})
     return {"pool_size": len(pool), "sample": [law_str(k) for k in sample], "violations_3var": viol3,
             "violations_pairs": violp, "unknown_3var": unk3, "unknown_pairs": unkp, "with_models_3var": res3,
             "with_models_pairs": resp, "calls": tot, "runtime_s": round(time.perf_counter() - t0, 1),
-            "summary": [f"3-var: {len(sample)} of {len(pool)} candidate laws; {len(res3)} with a model of size 2..9; "
+            "summary": [f"3-var: {len(sample)} of {len(pool)} candidate laws; {len(res3)} with a model of size 2..8; "
                         f"violations {len(viol3)} {[v['law'] for v in viol3[:4]]}; UNKNOWN {len(unk3)}",
-                        f"pairs: 200; {len(resp)} with a model of size 2..10; violations {len(violp)} "
+                        f"pairs: 120; {len(resp)} with a model of size 2..8; violations {len(violp)} "
                         f"{[v['laws'] for v in violp[:3]]}; UNKNOWN {len(unkp)}", f"decisions {tot}"]}

@@ -1,5 +1,5 @@
 {
-  "counterexample": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02).",
+  "counterexample": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review).",
   "cycle": "C03",
   "evidence": [
     "EXP-C03-01",
@@ -11,6 +11,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review).",
+      "old": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02).",
+      "reason": "Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "id": "CLM-C03-08",

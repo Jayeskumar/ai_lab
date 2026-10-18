@@ -1,0 +1,25 @@
+{
+  "cycle": "C20",
+  "evidence": [
+    "EXP-C04-02",
+    "EXP-C20-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C20",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
+    }
+  ],
+  "id": "CLM-C20-03",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "A census; one-rule termination for small rules is classical territory (Kurth 1990; McNaughton; Geser).",
+  "proof": "proofs/paper/C20.md#corollary-3-clm-c20-03--the-c04-census-is-complete",
+  "proof_check": "computer-assisted certificates for 860 rules (EXP-C04-02, CLM-C04-01/02 methods) plus Theorems 1-2 of proofs/paper/C20.md and the symmetry argument for the 8 remaining rules",
+  "statement": "Of the 868 one-rule systems l -> r over {a, b} with 1 <= |l| <= 3, |r| <= 5 (EXP-C04-02), exactly 480 terminate and 388 do not.",
+  "system": "SYS-A",
+  "title": "The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r| <= 5 terminate",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

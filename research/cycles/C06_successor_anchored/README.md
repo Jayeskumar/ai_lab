@@ -77,7 +77,8 @@ Counterexamples: (xy)z = x((yz)z), (xy)z = x(y(zz)), x(yz) = ((zx)x)y
 ## Step 8 — Comparison with existing mathematics (Historian)
 
 * LD + anchor: Laver's theorem — for every N a unique operation with
-  p ⋆ 1 = p + 1 and p ⋆ (q ⋆ 1) = (p ⋆ q) ⋆ (p ⋆ 1) exists, and it is
+  p ⋆ 1 = p + 1 (mod N) and p ⋆ (q + 1) = (p ⋆ q) ⋆ (p + 1) for q < N (the
+  recursion without its wrap-around instance) exists, and it is
   left-distributive iff N is a power of 2 (Laver; elementary proof by Drápal;
   Dehornoy, *Braids and Self-Distributivity*, 2000, Ch. X; Dehornoy,
   [arXiv:1711.09792](https://arxiv.org/pdf/1711.09792); Biane,

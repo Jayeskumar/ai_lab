@@ -42,12 +42,13 @@ claims:
       The rule 0^p 1^q -> 1^r 0^s terminates whenever s = p or r = q. For (s, r) = (p, q) the number of (0,1)
       inversions drops by pq at each step.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right); swap case (s, r) = (p, q) Lean-verified (terminating_swap); 62 of the 64 conserving rules with parameters <= 4 also have matrix-interpretation certificates; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); swap case (s, r) = (p, q) Lean-verified (terminating_swap)"
     proof: proofs/paper/C03.md#theorem-2-clm-c03-02--conservation
     lean: [proofs/lean/Infinity/C03_Termination.lean]
     evidence: [EXP-C03-01]
     novelty: REDISCOVERY
     novelty_basis: Covered by the complete characterization of Zantema and Geser (RTA 1995 / AAECC 2000); our proof was found independently.
+    change_reason: Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld
   - id: CLM-C03-03
     type: theorem
     system: SYS-A
@@ -119,9 +120,10 @@ claims:
     title: "H-C03-2: terminates iff r < 2q or s < 2p (refuted)"
     statement: The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.
     verification: REFUTED
-    counterexample: "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02)."
+    counterexample: "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review)."
     evidence: [EXP-C03-01, EXP-C03-02]
     novelty: NOT ASSESSED
+    change_reason: Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)
   - id: CLM-C03-09
     type: hypothesis
     system: SYS-A
@@ -142,7 +144,8 @@ claims:
     evidence: [EXP-C03-02, EXP-C03-03, EXP-C03-04]
     novelty: REDISCOVERY
     novelty_basis: Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.
-    limitations: Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.
+    limitations: Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).
+    change_reason: Skeptic review 2026-10-18 - conjecture survives; limitations completed (unstored loop certificates, literature unavailable)
   - id: CLM-C03-11
     type: observation
     system: SYS-A
@@ -216,6 +219,17 @@ journal:
     kind: proof
     text: Lean file C03_Termination.lean compiles with standard axioms only - counting termination, inversion termination for the swap rule, loops imply non-termination, lifting lemma, the doubling-region loop and the explicit loop of 011 -> 11100.
     refs: [proofs/lean/Infinity/C03_Termination.lean]
+
+  - key: C03-13
+    agent: Mathematical Skeptic
+    kind: review
+    text: 'Independent review (reviews/skeptic_C03_C04_C06.md) - no claim refuted; 76 loops and 218 matrix certificates re-verified with independent code; H-C03-2 has 40 counterexamples with parameters <= 5 (not 35); the 24 open rules still have no loop; base-family loops extended to q = 7.'
+    refs: [CLM-C03-06, CLM-C03-08, CLM-C03-10, reviews/skeptic_C03_C04_C06.md]
+  - key: C03-14
+    agent: Formal Verifier
+    kind: correction
+    text: 'Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.'
+    refs: [reviews/skeptic_C03_C04_C06.md]
 
 next_directions:
   - "C03: retrieve the Zantema-Geser theorem statement and compare with H-C03-4"

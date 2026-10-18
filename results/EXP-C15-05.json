@@ -1,0 +1,391 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C15-05",
+    "file": "experiments/C15/E05_case_studies.py",
+    "sha256": "52d0846d387b3832fd45eadbd44abae7cf8025bb3cb4944aeb81bf3ea09a9789",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "env": {
+    "git_head": "8c7b7fa755aa4874448f22daf5a151a733a5a29a",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T16:38:01Z",
+  "id": "EXP-C15-05",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "light cones to t = 12 (fuse), t = 8 (order 4), t = 5 (order 8)"
+    ],
+    "cycle": "C15",
+    "falsification": "A fuse width differing from t + 2, coinciding residuals in the lower-bound family, or a non-surjective or permutive rectangular band.",
+    "hypothesis": "The fuse magma has lambda(t) = t + 2 for t = 1..12, and the prefixes 2 (12)^b 2^(m-1-2b) give pairwise distinct residuals at level m = t/2; the order-4 rectangular band (b,c)*(b',c') = (b,c') is surjective (even injective) without being permutive.",
+    "id": "EXP-C15-05",
+    "methodology": "Ordered-BDD widths and essential variables of F_t; explicit residual check for the lower-bound family; pair-graph surjectivity/injectivity; OEIS look-ups of the sequences produced.",
+    "question": "Does the fuse magma's streaming width keep growing linearly beyond t = 9, and does the residual family of the lower-bound proof really separate? How do the lab's earlier structures (Laver tables, nimbers on [0,4), anchored models of C06) behave as automata? Is 'surjective iff permutive' special to orders <= 3?",
+    "title": "Case studies: fuse widths to t = 12, Laver tables, GF(4), anchored affine models, an order-4 band"
+  },
+  "results": {
+    "GF(4) multiplication": {
+      "associative": true,
+      "essential": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "injective": false,
+      "surjective": false,
+      "width_bw": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "width_fw": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "Laver A2 (order 4)": {
+      "associative": false,
+      "essential": [
+        1,
+        2,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "injective": false,
+      "surjective": false,
+      "width_bw": [
+        4,
+        4,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "width_fw": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "Laver A3 (order 8)": {
+      "associative": false,
+      "essential": [
+        1,
+        2,
+        3,
+        4,
+        4,
+        4
+      ],
+      "injective": false,
+      "surjective": false,
+      "width_bw": [
+        8,
+        8,
+        14,
+        13,
+        13,
+        13
+      ],
+      "width_fw": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ]
+    },
+    "XOR on [0,4)": {
+      "associative": true,
+      "essential": [
+        1,
+        2,
+        2,
+        4,
+        2,
+        4,
+        4,
+        8,
+        2
+      ],
+      "injective": false,
+      "surjective": true,
+      "width_bw": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "width_fw": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ]
+    },
+    "fuse": {
+      "essential": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "lambda": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "lambda_is_t_plus_2": true,
+      "residual_family": {
+        "10": [
+          3,
+          3
+        ],
+        "12": [
+          3,
+          3
+        ],
+        "6": [
+          2,
+          2
+        ],
+        "8": [
+          2,
+          2
+        ]
+      },
+      "width_bw": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "width_fw": [
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ]
+    },
+    "golden law N=11 (a=3)": {
+      "affine_detected": "n/a (N > 7)",
+      "anchored": true,
+      "col_permutive": true,
+      "injective": false,
+      "lambda_t4": 11,
+      "row_permutive": true,
+      "surjective": true
+    },
+    "golden law N=5 (a=2)": {
+      "affine_detected": true,
+      "anchored": true,
+      "col_permutive": true,
+      "injective": false,
+      "lambda_t4": 5,
+      "row_permutive": true,
+      "surjective": true
+    },
+    "odd law N=5 (a=3)": {
+      "affine_detected": true,
+      "anchored": true,
+      "col_permutive": true,
+      "injective": false,
+      "lambda_t4": 5,
+      "row_permutive": true,
+      "surjective": true
+    },
+    "oeis": {
+      "surjective tables n=1,2,3": {
+        "hits": [
+          {
+            "anumber": "A273820",
+            "name": "Least common multiple of (2^n, 2^n + 1, ..., 2^(n+1) - 1)."
+          }
+        ],
+        "query": [
+          1,
+          6,
+          420
+        ],
+        "status": "MATCH"
+      },
+      "widths of [[0,1,2],[2,0,0],[1,2,0]]": {
+        "hits": [],
+        "query": [
+          3,
+          3,
+          6,
+          9,
+          19,
+          42,
+          88,
+          183,
+          355,
+          649
+        ],
+        "status": "NO MATCH"
+      },
+      "x+y mod 3: essential cells of F_t": {
+        "hits": [
+          {
+            "anumber": "A006047",
+            "name": "Number of entries in n-th row of Pascal's triangle not divisible by 3."
+          },
+          {
+            "anumber": "A130830",
+            "name": "Irregular triangle read by rows: row(n) consists of the first A011764(n-1) terms of A006047."
+          }
+        ],
+        "query": [
+          1,
+          2,
+          3,
+          2,
+          4,
+          6,
+          3,
+          6,
+          9,
+          2,
+          4,
+          6,
+          4
+        ],
+        "status": "MATCH"
+      }
+    },
+    "rectangular band 2x2 (order 4)": {
+      "associative": true,
+      "col_permutive": false,
+      "injective": true,
+      "row_permutive": false,
+      "surjective": true,
+      "table": [
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          2,
+          3,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          2,
+          3
+        ]
+      ]
+    },
+    "summary": [
+      "fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}",
+      "Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]",
+      "GF(4) mult lambda bounded: 4; XOR[0,4) widths 4",
+      "rectangular band order 4: surjective True, injective True, permutive False",
+      "OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []"
+    ]
+  },
+  "results_sha256": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
+  "runtime_s": 7.762,
+  "started": "2026-10-18T16:37:53Z"
+}

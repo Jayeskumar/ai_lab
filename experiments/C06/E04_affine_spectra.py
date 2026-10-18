@@ -139,7 +139,7 @@ def run():
         "golden_affine_spectrum_le40": [N for N in range(1, 41) if rows[GOLDEN]["affine_counts"][N] > 0],
         "odd_affine_spectrum_le40": [N for N in range(1, 41) if rows[ODD]["affine_counts"][N] > 0],
         "rows": rows,
-        "runtime_s": round(time.perf_counter() - t0, 1),
+        "timings": {"total_s": round(time.perf_counter() - t0, 1)},
         "summary": [f"{len(rows)} laws; affine vs SAT spectrum (N<=6) mismatches: {len(mismatches)} {mismatches}",
                     f"restricted laws: {len(restricted)}; laws with non-affine anchored models (N<=9): "
                     f"{ {n: v for n, v in non_affine.items()} }",

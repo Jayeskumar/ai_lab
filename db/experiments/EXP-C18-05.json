@@ -1,0 +1,67 @@
+{
+  "agent": "Application Researcher",
+  "assumptions": [
+    "same keys as EXP-C18-02 (avalanche, seed 1802) and EXP-C18-03 (key sets, seed 1803)",
+    "throughput (batch of 16384 keys of 64 bytes, median of 3, shared machine) is stored under timings only"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C18-05",
+    "file": "experiments/C18/E05_cascade.py",
+    "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+  },
+  "cycle": "C18",
+  "falsification": "H-C18-7: more than 256 (resp. 256^p) distinct values. H-C18-8: any flag for QC-LS, QC-ISO or QC-NIMINV. H-C18-9: QC-ARP with BIC max < 0.5.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T16:48:40Z"
+    }
+  ],
+  "hypothesis": "H-C18-7: for the reverse-pass hash, keys sharing their first 7 bytes receive at most 256 distinct hash values; for the p-pass forward hash, keys sharing the last 7 message bytes receive at most 256^p values (Theorem 6, checked on data). H-C18-8 (bold): the cascade QC (8 passes, final state output, 8 zero bytes of finalisation) over the random Latin square, the group isotope and the nimber inversion quasigroup has avalanche at the BLAKE2b noise floor, |z| <= 3 and collision ratio within 2% on all four key sets, and no full 64-bit collisions. H-C18-9: the cascade over x + c(y) (ARP) still fails bit independence.",
+  "id": "EXP-C18-05",
+  "methodology": "(a) For 50 random 7-byte prefixes, hash 4096 keys with that prefix (random 9-byte suffixes) with QG-LS p2+rev and count distinct values; for 50 random 7-byte suffixes do the same with the forward 1-pass hash (bound 256). (b) Avalanche, bit independence, chi-square and collisions for the four cascades, exactly as in EXP-C18-02/03.",
+  "question": "EXP-C18-03 showed massive collisions of the tail-output hashes on structured keys. Does the tail-information bound (Theorem 6) account for them exactly, and does a cascade whose output is the final state of 8 parallel passes behave like the good baselines?",
+  "results_file": "results/EXP-C18-05.json",
+  "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C18-05",
+        "file": "experiments/C18/E05_cascade.py",
+        "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
+        "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:48:40Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C18-05.json",
+      "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
+      "runtime_s": 35.152,
+      "started": "2026-10-18T16:48:04Z",
+      "summary": [
+        "tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)",
+        "QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none",
+        "QC-ISO d8: mean bias 0.0091, max bias 0.046, BIC max 0.1064, flagged on none",
+        "QC-NIMINV d8: mean bias 0.0091, max bias 0.0845, BIC max 0.146, flagged on ['words']",
+        "QC-ARP d8: mean bias 0.0108, max bias 0.116, BIC max 0.1759, flagged on none",
+        "MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none",
+        "BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none",
+        "H-C18-8 False; H-C18-9 False"
+      ]
+    }
+  ],
+  "summary": [
+    "tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)",
+    "QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none",
+    "QC-ISO d8: mean bias 0.0091, max bias 0.046, BIC max 0.1064, flagged on none",
+    "QC-NIMINV d8: mean bias 0.0091, max bias 0.0845, BIC max 0.146, flagged on ['words']",
+    "QC-ARP d8: mean bias 0.0108, max bias 0.116, BIC max 0.1759, flagged on none",
+    "MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none",
+    "BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none",
+    "H-C18-8 False; H-C18-9 False"
+  ],
+  "title": "Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state"
+}

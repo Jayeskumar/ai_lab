@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C15-02",
     "file": "experiments/C15/E02_order3_census.py",
     "sha256": "3df7115d616534f3cdd52e6a363f86df188cf426bab97a4a50fee44ac1cd5e78",
-    "systems_sha256": "cd279a7fe85a444ee0bb7eab26145547773f046fa4e33af6554ee4f6246d0547"
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
   "cycle": "C15",
   "falsification": "H-C15-1: a magma with growing but sub-geometric width. H-C15-2: a bounded-width magma outside the three classes or a semigroup/affine magma with unbounded width. H-C15-3: a surjective non-permutive table or a non-surjective permutive one.",
@@ -93,6 +93,29 @@
       "results_sha256": "d818189ec799ef736b59ccb087865b0d50057f16d355a13d5540e1918999bb8b",
       "runtime_s": 61.423,
       "started": "2026-10-18T09:28:33Z",
+      "summary": [
+        "1734 classes; width classes {'bounded': 808, 'linear': 104, 'other': 522, 'geometric': 300}; nilpotent by t=9: 34",
+        "associative 18, commutative 129, medial 48, affine 8, surjective 43, injective 7, bounded dependence 106",
+        "H-C15-1 non-bounded, non-geometric magmas: 626 (linear: 104)",
+        "bounded-width magmas explained by semigroup/affine/bounded dependence/eventual image: 163 of 808",
+        "H-C15-2: bounded outside the three classes 685; semigroup/affine not bounded 0",
+        "H-C15-3 counterexamples (surjective != permutive): 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C15-02",
+        "file": "experiments/C15/E02_order3_census.py",
+        "sha256": "3df7115d616534f3cdd52e6a363f86df188cf426bab97a4a50fee44ac1cd5e78",
+        "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:49:19Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C15-02.json",
+      "results_sha256": "d818189ec799ef736b59ccb087865b0d50057f16d355a13d5540e1918999bb8b",
+      "runtime_s": 79.214,
+      "started": "2026-10-18T16:48:00Z",
       "summary": [
         "1734 classes; width classes {'bounded': 808, 'linear': 104, 'other': 522, 'geometric': 300}; nilpotent by t=9: 34",
         "associative 18, commutative 129, medial 48, affine 8, surjective 43, injective 7, bounded dependence 106",

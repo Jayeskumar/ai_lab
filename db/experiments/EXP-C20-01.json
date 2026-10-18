@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "All 8 rules of the two classes aab -> ababa and aab -> babaa terminate on every word of length <= 12 (rightmost and leftmost strategies agree on every word, and agree with the exact maximal derivation length on all words of length <= 8, as random descent predicts). D(n) for aab -> ababa is 0, 0, 1, 3, 7, ..., 1023 = 2^(n-2) - 1; for aab -> babaa 0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62 = max_b b(2^floor((n-b)/2) - 1); the per-word formula for aab -> babaa matches every word of length <= 12.",
   "assumptions": [
     "all words over {a, b} of length <= 12 (formulas) and <= 8 (exhaustive maximal derivations)",
     "the 8 rules of the two symmetry classes (reversal, letter exchange) are checked separately"
@@ -18,12 +19,48 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:30:36Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 8 rules of the two classes aab -> ababa and aab -> babaa terminate on every word of length <= 12 (rightmost and leftmost strategies agree on every word, and agree with the exact maximal derivation length on all words of length <= 8, as random descent predicts). D(n) for aab -> ababa is 0, 0, 1, 3, 7, ..., 1023 = 2^(n-2) - 1; for aab -> babaa 0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62 = max_b b(2^floor((n-b)/2) - 1); the per-word formula for aab -> babaa matches every word of length <= 12.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C20-01",
+        "CLM-C20-02",
+        "CLM-C20-03"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "hypothesis": "H-C20-1 (from the run-encoding analysis, proofs/paper/C20.md): both terminate; D(n) = 2^(n-2) - 1 for aab -> ababa (n >= 2) and D(n) = max_b b(2^floor((n-b)/2) - 1) for aab -> babaa; for aab -> babaa every word has D(w) = sum_k d_k (2^floor(x_k/2) - 1) (runs x_k of a's, d_k = b's to the right of run k when its journeys start).",
   "id": "EXP-C20-01",
   "methodology": "Simulate the rightmost and the leftmost strategy on every word; compare with the exact maximal derivation length from the full derivation DAG (n <= 8); compare D(w) with the per-word formula for aab -> babaa and D(n) with both closed forms.",
   "question": "Do the two one-rule systems left open in C04 terminate, and what is their derivational complexity?",
+  "related": [
+    "CLM-C20-01",
+    "CLM-C20-02",
+    "CLM-C20-03"
+  ],
   "results_file": "results/EXP-C20-01.json",
   "results_sha256": "ca16de94a06cb31d7f07d1e82454245eb60b32d2fda85fae228a717ac9d2b2a3",
   "runs": [
@@ -53,5 +90,6 @@
     "aab -> ababa D(n), n = 1..12: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]; = 2^(n-2) - 1: True",
     "aab -> babaa D(n): [0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62]; = max_b b(2^floor((n-b)/2) - 1): True; per-word formula mismatches: 0"
   ],
-  "title": "Termination and exact derivational complexity of aab -> ababa and aab -> babaa"
+  "title": "Termination and exact derivational complexity of aab -> ababa and aab -> babaa",
+  "verification": "PROVEN"
 }

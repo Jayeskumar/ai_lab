@@ -41,7 +41,8 @@ as $|r| = 4$ is allowed: $ab \to bbaa$ does not terminate although $ab$ does
 not occur in $bbaa$:
 $$aab \to a\,bbaa = abbaa \to bbaa\,baa = bb\cdot aab\cdot aa .$$
 The extended census ($|r| \le 5$, 868 rules) has 18 such rules; two symmetry
-classes ($aab \to ababa$, $aab \to babaa$) remain undecided (EXP-C04-02).
+classes ($aab \to ababa$, $aab \to babaa$) were left undecided here
+(EXP-C04-02) and are settled — both terminate — in Chapter 21.
 
 ## One rule, one invariant
 
@@ -126,8 +127,11 @@ The same numbers turned up somewhere unexpected. OEIS A247983 counts how many
 terms of the series $\log 2 = \sum_{h \ge 1} 1/(h\,2^h)$ are needed for $n$
 bits of accuracy; the entry gives no formula.
 
-**Theorem 5.9** *[PROVEN — written; POTENTIALLY NOVEL (small)]*. A247983$(n)$
+**Theorem 5.9** *[PROVEN — written, Skeptic-reviewed; POTENTIALLY NOVEL
+(small)]*. For every $n \ge 1$, A247983$(n)$
 $= n - \max\{j \ge 0 : 2^j + j \le n + 1\} = D(n+2)$ for $aab \to ba$.
+(The Skeptic noted that the identity fails at $n = 0$, outside the OEIS
+offset.)
 
 *Proof idea.* The tail $\log 2 - \sum_{h \le k} 1/(h 2^h)$ lies between
 $2^{-k}/(k+2)$ (Jensen) and $2^{-k}/(k+1)$, which pins down the first $k$
@@ -199,7 +203,8 @@ practical improvement over existing tools is claimed.
 
 ## Open questions
 
-1. Do $aab \to ababa$ and $aab \to babaa$ terminate?
+1. ~~Do $aab \to ababa$ and $aab \to babaa$ terminate?~~ Yes — see
+   Chapter 21, which also gives their exact (exponential) complexities.
 2. For $\lvert l\rvert = 4$, do complexities other than polynomial,
    exponential and $n - \Theta(\log n)$ appear?
 3. Is the Grundy sequence of $aaa \to ab$ (octal game 0.06) ultimately

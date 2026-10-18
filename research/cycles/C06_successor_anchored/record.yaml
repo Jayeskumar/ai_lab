@@ -77,11 +77,12 @@ claims:
     title: Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them
     statement: If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C06.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02) and 7776 at N = 6 (Skeptic)"
     proof: proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models
     evidence: [EXP-C06-02]
     novelty: NOT ASSESSED
     novelty_basis: Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.
+    change_reason: Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld
   - id: CLM-C06-06
     type: theorem
     system: SYS-B
@@ -104,11 +105,12 @@ claims:
       e in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)
       and the number of models is the number of roots (OEIS A087781).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19"
     proof: proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z
     evidence: [EXP-C06-04]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables)."
+    change_reason: Independent skeptic review 2026-10-18 - proof upheld; enumeration extended to N <= 17 and N = 19
   - id: CLM-C06-08
     type: theorem
     system: SYS-B
@@ -161,13 +163,14 @@ claims:
     type: theorem
     system: SYS-B
     title: Anchored spectra are closed under coprime products
-    statement: For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no law has the set of primes as its anchored spectrum.
+    statement: For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no anchored spectrum (which always contains 1) has the form {1} together with a set of primes containing two primes but not their product - for example {1} together with an infinite set of primes.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C06.md Theorem 8); consistent with every spectrum observed in EXP-C06-02..04; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C06.md Theorem 8), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); the Skeptic transported 9 actual model pairs (e.g. golden 5 x 11, odd 5 x 7) and all satisfy law and anchor"
     proof: proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products
     evidence: [EXP-C06-03, EXP-C06-04]
     novelty: NOT ASSESSED
     novelty_basis: Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
+    change_reason: Skeptic review 2026-10-18 - proof upheld; consequence reworded ({1} together with primes)
 
 journal:
   - key: C06-01
@@ -215,6 +218,17 @@ journal:
     kind: proof
     text: Lean file C06_Laver.lean extended - anchored_rd_unique, the odd law (no even sizes, unique formula, existence) and the left-permutable structure theorem (a pairwise commuting family that reaches every point from e exactly once is closed under composition and contains the identity); all with standard axioms only.
     refs: [proofs/lean/Infinity/C06_Laver.lean, CLM-C06-03, CLM-C06-06, CLM-C06-08]
+
+  - key: C06-10
+    agent: Mathematical Skeptic
+    kind: review
+    text: 'Independent review - all C06 claims upheld; golden-law counts confirmed by complete enumeration for N <= 17 and N = 19; finite spectra (CLM-C06-10) survive to N = 16; mirror twins (CLM-C06-11) to N = 13; right-permutable count 7776 at N = 6; CLM-C06-12 reworded.'
+    refs: [CLM-C06-07, CLM-C06-10, CLM-C06-11, CLM-C06-12, reviews/skeptic_C03_C04_C06.md]
+  - key: C06-11
+    agent: Formal Verifier
+    kind: correction
+    text: "EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run."
+    refs: [EXP-C06-03, EXP-C06-04]
 
 next_directions:
   - "C06: prove the finite spectra {1,2} and {1,3} (CLM-C06-10) by showing every anchored model of those laws is affine"

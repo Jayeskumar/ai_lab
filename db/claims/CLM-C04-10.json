@@ -10,14 +10,32 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "statement",
+      "new": "Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983, offset 1). Then for\nevery n >= 1, A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational\ncomplexity of the one-rule system aab -> ba. (At n = 0 the identity fails: A(0) = 1 but D(2) = 0.)",
+      "old": "Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then\nA(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the\none-rule system aab -> ba.",
+      "reason": "Skeptic review 2026-10-18 - proof upheld for n >= 1; statement restricted to n >= 1 (false at n = 0)",
+      "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a tail bound; valid for n >= 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); verified for 1 <= n <= 1500 with n + 80 bits and by the Skeptic for n <= 1200 with n + 120 bits",
+      "old": "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 - proof upheld for n >= 1; statement restricted to n >= 1 (false at n = 0)",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "id": "CLM-C04-10",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.",
   "proof": "proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983",
-  "proof_check": "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review",
-  "statement": "Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then\nA(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the\none-rule system aab -> ba.",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a tail bound; valid for n >= 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); verified for 1 <= n <= 1500 with n + 80 bits and by the Skeptic for n <= 1200 with n + 120 bits",
+  "statement": "Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983, offset 1). Then for\nevery n >= 1, A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational\ncomplexity of the one-rule system aab -> ba. (At n = 0 the identity fails: A(0) = 1 but D(2) = 0.)",
   "system": "SYS-A",
   "title": "Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba",
   "type": "theorem",

@@ -1,6 +1,6 @@
 {
   "agent": "Formal Verifier",
-  "analysis": "15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes lists sizes not literally enumerated in the notes; the README table separates the facts genuinely absent from the notes.",
+  "analysis": "15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes compares only with the sizes in each law's own paragraph of the notes; the notes' lists of laws without models of order 2 (or 3) and their Gaussian-integer models of law 467 cover several of those sizes, so CLM-C05-07/08 and the README frontier table list only facts absent from the notes.",
   "assumptions": [
     "laws and partial knowledge taken from B. Le Floch's ETP notes 'spectrum.pdf' (Lean Zulip)",
     "for laws of the form x = y*(...), every left translation is onto, hence a bijection in a finite magma, so 'every row is a permutation' is added as a sound implied constraint",
@@ -43,6 +43,15 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:23:59Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes compares only with the sizes in each law's own paragraph of the notes; the notes' lists of laws without models of order 2 (or 3) and their Gaussian-integer models of law 467 cover several of those sizes, so CLM-C05-07/08 and the README frontier table list only facts absent from the notes.",
+      "old": "15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes lists sizes not literally enumerated in the notes; the README table separates the facts genuinely absent from the notes.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "hypothesis": "Several open laws have unresolved small sizes that SAT can decide; our results must agree with every membership/non-membership already stated in the notes.",

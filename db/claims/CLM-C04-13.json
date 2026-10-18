@@ -10,13 +10,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C04.md Theorem 10), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules",
+      "old": "written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review",
+      "reason": "Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld",
+      "ts": "2026-10-18T16:49:32Z"
     }
   ],
   "id": "CLM-C04-13",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Octal games are classically described as rows of pins (Berlekamp-Conway-Guy, Winning Ways); the rewriting presentation is a change of notation.",
   "proof": "proofs/paper/C04.md#theorem-10-clm-c04-13--unary-left-hand-sides-give-take-and-break-games",
-  "proof_check": "written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 10), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules",
   "statement": "For a terminating rule a^k -> u the rewriting game on w is the disjoint sum of games on the maximal a-runs,\nwith explicit moves; in particular aa -> b (bb, bbb, bab) is the octal game 0.07 (Dawson's Kayles),\naa -> ab (ba, abb, bba) is 0.6 (Officers), aaa -> b (bb, bbb, bab) is 0.007 (Treblecross), aaa -> ab\n(ba, abb, bba) is 0.06 and aaa -> aba is 0.4.",
   "system": "SYS-D",
   "title": "Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> ab is Officers",

@@ -9,17 +9,20 @@ from systems.anchored import (affine_roots, affine_system, anchored_status, divi
 META = {
     "id": "EXP-C13-05",
     "cycle": "C13",
-    "title": "Divisor-closure of anchored spectra: all 2-variable laws with <= 4 leaves per side, N <= 10",
+    "title": "Divisor-closure of anchored spectra: 600 random 2-variable laws with <= 4 leaves per side, N <= 10",
     "agent": "Mathematical Skeptic",
     "question": "Is there a law with an anchored model of some size N <= 10 but none of some size d | N?",
     "hypothesis": "H-C13-1 (bold): every anchored spectrum is closed under divisors.",
-    "assumptions": ["laws over {x,y} with at most 4 leaves per side, up to renaming and exchange of sides",
+    "assumptions": ["600 laws sampled (seed 5) from the 2601 laws over {x,y} with at most 4 leaves per side (up to "
+                    "renaming and exchange of sides); a timing run on 272 laws took 310 s, so the full family did "
+                    "not fit the 15-minute budget",
                     "sizes 2, 3, 5 always decided; a composite N in {4, 6, 8, 9, 10} is decided only when one of "
                     "its proper divisors is UNSAT (otherwise no violation is possible at N)",
                     "affine models decide SAT without a solver; conflict budget 2,000,000; UNKNOWN recorded"],
     "methodology": "For each law: zero-substitution filter (N | m); affine roots; otherwise MagmaSAT with the anchor. "
                    "Report every pair (N, d) with N SAT and d | N UNSAT.",
     "falsification": "Any such pair.",
+    "seed": 5,
 }
 
 ORDER = [2, 3, 5, 4, 6, 8, 9, 10]
@@ -36,7 +39,7 @@ def decide(law, sysm, n, m):
 
 def run():
     t0 = time.perf_counter()
-    keys = enumerate_laws(("x", "y"), 4)
+    keys = random.Random(META["seed"]).sample(enumerate_laws(("x", "y"), 4), 600)
     rows, violations, unknown = [], [], []
     calls = {"zero": 0, "affine": 0, "sat": 0, "skipped": 0}
     for k in keys:
@@ -64,6 +67,6 @@ def run():
             rows.append({"law": law_str(k), "status": st})
     return {"n_laws": len(keys), "n_with_nontrivial_models": len(rows), "violations": violations,
             "unknown": unknown, "calls": calls, "rows": rows, "runtime_s": round(time.perf_counter() - t0, 1),
-            "summary": [f"{len(keys)} laws; {len(rows)} have a model of some size 2..10",
+            "summary": [f"{len(keys)} sampled laws; {len(rows)} have a model of some size 2..10",
                         f"divisor-closure violations: {len(violations)} {[v['law'] for v in violations[:5]]}",
                         f"UNKNOWN: {len(unknown)}; decisions {calls}"]}

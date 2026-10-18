@@ -967,3 +967,84 @@ EXP-C17-02 refuted the bold H-C17-2 (18 laws whose anchor instance admits non-mo
 
 *Evidence:* EXP-C17-02, CLM-C17-05, CLM-C17-07, CLM-C06-01
 
+
+## C03
+
+### [2026-10-18T16:49:32Z] Mathematical Skeptic — review (`C03-13`)
+
+Independent review (reviews/skeptic_C03_C04_C06.md) - no claim refuted; 76 loops and 218 matrix certificates re-verified with independent code; H-C03-2 has 40 counterexamples with parameters <= 5 (not 35); the 24 open rules still have no loop; base-family loops extended to q = 7.
+
+*Evidence:* CLM-C03-06, CLM-C03-08, CLM-C03-10, reviews/skeptic_C03_C04_C06.md
+
+### [2026-10-18T16:49:32Z] Formal Verifier — correction (`C03-14`)
+
+Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C04
+
+### [2026-10-18T16:49:32Z] Mathematical Skeptic — review (`C04-16`)
+
+Independent review - all C04 claims upheld; written proofs of CLM-C04-06/09/10/13 checked (CLM-C04-10 needs n >= 1, now stated); Lean p_positions covers the kernel property, the rest of CLM-C04-04 is written; no loop or matrix interpretation for the open rules.
+
+*Evidence:* CLM-C04-04, CLM-C04-10, reviews/skeptic_C03_C04_C06.md
+
+### [2026-10-18T16:49:32Z] Formal Verifier — decision (`C04-17`)
+
+CLM-C04-03 (termination of aab -> ababa, aab -> babaa) upgraded to PROVEN by the proofs of cycle C20; the same theorems give exponential complexities 2^(n-2) - 1 and max_b b(2^floor((n-b)/2) - 1).
+
+*Evidence:* CLM-C04-03, CLM-C20-01, CLM-C20-02
+
+
+## C05
+
+### [2026-10-18T16:49:32Z] Historian and Novelty Analyst — revision (`C05-13`)
+
+Re-reading Le Floch's notes while writing the textbook chapter found statements missed in the first pass: the list of 31 laws without models of order 2 (incl. 501, 677, 1083, 1719), the list of 14 laws with order-2 but no order-3 models (incl. 883), and the Gaussian-integer models of law 467, which include order 9 = 3^2 + 0^2. CLM-C05-07 no longer counts 467 (order 9) as new, CLM-C05-08 separates new gaps from gaps stated in the notes, and the README frontier table was corrected (1719 has no new facts). Entry C05-10 overstated these points.
+
+*Evidence:* CLM-C05-07, CLM-C05-08
+
+
+## C06
+
+### [2026-10-18T16:49:32Z] Mathematical Skeptic — review (`C06-10`)
+
+Independent review - all C06 claims upheld; golden-law counts confirmed by complete enumeration for N <= 17 and N = 19; finite spectra (CLM-C06-10) survive to N = 16; mirror twins (CLM-C06-11) to N = 13; right-permutable count 7776 at N = 6; CLM-C06-12 reworded.
+
+*Evidence:* CLM-C06-07, CLM-C06-10, CLM-C06-11, CLM-C06-12, reviews/skeptic_C03_C04_C06.md
+
+### [2026-10-18T16:49:32Z] Formal Verifier — correction (`C06-11`)
+
+EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C20
+
+### [2026-10-18T16:49:32Z] Mathematical Inventor — hypothesis (`C20-01`)
+
+Open problem from C04 - the 8 rules aab -> ababa, aab -> babaa (and images) were neither shown to loop nor certified terminating. Idea - aab is unbordered, so random descent reduces termination to ONE strategy; in the run encoding the rightmost strategy moves a single surplus a (resp. a pair) to the right until it is absorbed.
+
+*Evidence:* CLM-C04-03
+
+### [2026-10-18T16:49:32Z] Formal Verifier — proof (`C20-02`)
+
+Proved termination of both rules (journeys are finite, the number of journeys is bounded) and the exact complexities - a journey at most doubles the number of b's, which gives 2^(n-2) - 1 for aab -> ababa and max_b b(2^floor((n-b)/2) - 1) for aab -> babaa, both attained.
+
+*Evidence:* CLM-C20-01, CLM-C20-02, proofs/paper/C20.md
+
+### [2026-10-18T16:49:32Z] Mathematical Explorer — result (`C20-03`)
+
+EXP-C20-01 - no counterexample on all words of length <= 12 for all 8 rules; strategy independence holds exactly; both closed forms and the per-word formula match.
+
+*Evidence:* EXP-C20-01
+
+### [2026-10-18T16:49:32Z] Historian — novelty (`C20-04`)
+
+Both rules are right barren (McNaughton; Geser, ICASE 2002-33, Thm 3.2-3.3), so their termination was already known in principle - recorded as a rediscovery; the exact complexities were not found. The Zantema-Geser characterisation for C03 could not be retrieved (403/500/Cloudflare) - C03 Conjecture 4.6 stays unverified against it.
+
+*Evidence:* CLM-C20-01, CLM-C20-02, CLM-C20-04
+

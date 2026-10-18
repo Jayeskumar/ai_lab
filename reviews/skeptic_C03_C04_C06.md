@@ -11,13 +11,16 @@
 - Literature (for CLM-C03-07/09/10): Geser–Hofbauer–Waldmann, arXiv:2003.01696 (read: Example 7.11 gives automated termination proofs of Zantema's problem a²b² → b³a³); Geser–Zantema, RAIRO ITA 33 (1999); Geser–Waldmann–Wenzel, WST 2016. Like the Historian, **I could not retrieve the statement of the Zantema–Geser characterization** (Utrecht repository 403/500, Springer paywalled; none of the papers I could open restates it).
 
 **Rules followed:**
-- No existing file was edited. My code is in `reviews/skeptic_checks/C03_C04_C06/` (`c03_checks.py`, `c04_checks.py`, `c06_checks.py`), raw outputs in `reviews/skeptic_checks/C03_C04_C06/out/`. None of my scripts imports `systems/` or `lab/`; they only *read* stored results to compare (pysat is used only as a SAT solver, with my own CNF encoding; mpmath and sympy as arithmetic libraries).
+- No existing file was edited. My code is in `reviews/skeptic_checks/C03_C04_C06/` (`c03_checks.py`, `c04_checks.py`, `c06_checks.py`, `c06_single.py`, `c06_wrap.py`), raw outputs in `reviews/skeptic_checks/C03_C04_C06/out/`. None of my scripts imports `systems/` or `lab/`; they only *read* stored results to compare (pysat is used only as a SAT solver, with my own CNF encoding; mpmath and sympy as arithmetic libraries).
+- The session's container was restarted part-way.
+  - All outputs except `out/c06_wrap.json` were written before the restart. The N = 19 golden-law run had finished at 09:41.
+  - After the restart I re-read the two records updated meanwhile: CLM-C06-12 (already reviewed) and the corrected Laver citation of CLM-C06-01. I added `c06_wrap.py` to check the latter.
 - Lab experiments re-run (allowed): EXP-C03-02, EXP-C03-03, EXP-C04-04, EXP-C04-06, EXP-C04-10, EXP-C06-03.
   - This rewrote those `results/*.json`, appended runs to `db/experiments/*.json` and `db/audit_log.jsonl`, and may have refreshed git-ignored `__pycache__` files.
   - The pre-run result files are kept in `out/lab_rerun_before/`.
   - The audit log now holds a `reproduced: false` entry for EXP-C06-03. It is a false alarm caused by bug C1.
-- Not run: `lab sync`, `lab lean`, `lab book`, any git command. Nothing committed.
-- All heavy jobs ran under `nice -n 10`, one at a time, each well under 15 minutes. Every check below was actually run.
+- Not run: `lab sync`, `lab lean`, `lab book`, any git command. I committed nothing; the coordinator checkpointed the work in progress at the restart.
+- All heavy jobs ran under `nice -n 10`, one at a time, each under 15 minutes (the longest was 616 s: the N = 19 golden-law enumeration). Every check below was actually run.
 
 ## Bottom line
 
@@ -26,16 +29,19 @@
   - CLM-C04-10 is false at n = 0 and must say n ≥ 1 (harmless: OEIS A247983 has offset 1).
   - CLM-C06-12's "no law has the set of primes as its spectrum" is trivially true because N = 1 lies in every spectrum; the meaningful statement is about {1} ∪ P.
 - **Lean:** all three files compile (exit 0), only propext / Classical.choice / Quot.sound, no `sorry`/`admit`/`native_decide`. The formal statements say what the claims say, with two coverage caveats (CLM-C04-04: `p_positions` is the kernel property, not P-positions; CLM-C06-02/03/08: the converse/inverse parts are written, not formal).
+- **CLM-C06-01's corrected citation is right.** With the recursion imposed for q < N, every N ≤ 64 has a unique solution, left-distributive exactly at powers of 2. With the wrap-around instance there is none at any non-power. The README still has the old wording (C12).
 - **The conjectures survive larger searches:**
   - CLM-C06-10: all 17 laws have exactly the conjectured spectrum for every N ≤ 16 (lab: N ≤ 9).
+  - The golden-law correspondence (CLM-C06-07, proved) is confirmed by complete enumeration to N = 17 and at N = 19 (2 affine models).
   - CLM-C03-10: no loop for any of the 24 rules predicted terminating; own loops for all 76 predicted looping rules and for 12 new base rules with q = 7.
   - CLM-C04-03: no loop and no matrix interpretation found.
-- **Sharper observation for CLM-C03-11:** the loop length is exactly (k^q − 1)/(k − 1) + 1 in all 26 tested cases (q = 2…7), not just "like k^q" (Appendix B).
+- **Sharper observation for CLM-C03-11:** the loop length is exactly (k^q − 1)/(k − 1) + 1 in all 27 tested cases (q = 2…7), not just "like k^q" (Appendix B).
 - **Problems found** (details in (c)):
   - C1: EXP-C06-03 and EXP-C06-04 hash a wall-clock `runtime_s`, so `lab verify` reports them as CHANGED on every re-run. Confirmed by re-running EXP-C06-03.
   - C2: a C03 journal entry claims matrix-interpretation searches that no committed experiment performs.
   - C3: the C03 paper labels the divisibility conjecture as CLM-C03-08 (it is CLM-C03-10).
   - C4: the loop certificates behind CLM-C03-10's "proved for q ≤ 6" are not stored.
+  - C12: the C06 README keeps the uncorrected Laver citation.
   - Minor count and wording issues.
 
 ---
@@ -54,7 +60,7 @@
 | CLM-C03-08 (H-C03-2 refuted) | **UPHELD** | The counterexample is Lean-verified. With the 5 mirror loops of EXP-C03-03 there are **40** counterexamples with parameters ≤ 5, not 35 (the 35 counts EXP-C03-02 only). | Optionally update the count. |
 | CLM-C03-09 (H-C03-3 inconclusive) | **UPHELD** (status correct) | H-C03-3 predicts loops for 8 of the 24 open rules (e.g. 0011 → 11100000). I found none, and all strategy runs and reachable sets are finite. Note the asymmetry: H-C03-1 was refuted by citing a published termination proof. If the Zantema–Geser theorem classifies (2,2,3,5) as terminating, H-C03-3 is refuted the same way. | None until the Zantema–Geser statement is obtained. |
 | CLM-C03-10 (divisibility characterization) | **UPHELD** (no counterexample) | Own loops for all 76 rules predicted non-terminating with parameters ≤ 5. Own loops for all 75 base rules (1,q,r,k) with q ≤ 6, k ≤ 6, plus 12 new ones with q = 7, k = 2, 3. For the 24 rules predicted terminating: no loop in a larger search; 2,768/2,768 leftmost/rightmost runs from 0^a 1^b reach a normal form; 6,019 words of length ≤ 10 have finite reachable sets. Caveat C4 (unstored base loops). Novelty "REDISCOVERY" presumes agreement with Zantema–Geser, which nobody has checked. | Keep COMPUTATIONALLY SUPPORTED. |
-| CLM-C03-11 (loop lengths ~ k^q) | **UPHELD** | My own rightmost simulation gives exactly 16, 32, 64 and 260, 1556, 9332 steps, with final lengths 53, 95, 171 and 1581, 9367, 56035. Stronger: steps = (k^q − 1)/(k − 1) + 1 in all 26 cases with r = q + 1, q = 2…7 (Appendix B). | Optionally state the exact (conjectural) formula. |
+| CLM-C03-11 (loop lengths ~ k^q) | **UPHELD** | My own rightmost simulation gives exactly 16, 32, 64 and 260, 1556, 9332 steps, with final lengths 53, 95, 171 and 1581, 9367, 56035. Stronger: steps = (k^q − 1)/(k − 1) + 1 in all 27 cases with r = q + 1, q = 2…7 (Appendix B). | Optionally state the exact (conjectural) formula. |
 | CLM-C04-01 (census \|l\|,\|r\| ≤ 3) | **UPHELD** | Own certificates for all 162 terminating rules: 70 length-decreasing; 70 length-preserving, with the lexicographic argument (proof checked; 0 direction inconsistencies in random contexts); 20 own 2×2 matrix interpretations; 2 factor counts (aa, bb). The 34 non-terminating rules are exactly those where l is a factor of r. | None. |
 | CLM-C04-02 (H-C04-0 refuted) | **UPHELD** | ab → bbaa loop replayed. Own re-check of all 868 records of EXP-C04-02: every certificate passes my independent checker (linear interpretations, factor counts, the 8 LP-found weighted factor counts in exact integers, self-embeddings). Exactly 18 looping rules have l not a factor of r. A loop hunt on the 332 certified length-increasing rules found none. | None. |
 | CLM-C04-03 (aab → ababa / babaa terminate) | **UPHELD** (conjecture; no counterexample) | No loop (strategy runs from all seeds of length ≤ 12 containing aab). No matrix interpretation (2×2 full, entries ≤ 5; 3×3 upper-triangular, entries ≤ 3). Exhaustive D_max: aab → ababa 0,0,0,1,3,7,15,31,63,127,255 (n ≤ 10, one more than the lab); aab → babaa 0,0,0,1,2,3,6,9,14,21,30,45 (n ≤ 11). | Keep COMPUTATIONALLY SUPPORTED. |
@@ -71,17 +77,17 @@
 | CLM-C04-14 (H-C04-6 refuted) | **UPHELD** | Own derivation-graph Grundy value of a¹⁴ under aa → b is 4 (first n with value 4). Max over n ≤ 3000: 0.07 → 9, 0.6 → 91. | None. |
 | CLM-C04-15 (Dawson's Kayles period 34 from 53) | **UPHELD** | Own 0.07 recursion: G(n+34) = G(n) on the Guy–Smith window 53 ≤ n < 2·53 + 34 + 2, and it **fails at n = 52**, so 53 is the exact preperiod. 0.4 = 0.07 shifted by one (period 34 from 54). | None. |
 | CLM-C04-16 (Officers, 0.007, 0.06 periodic?) | **UPHELD** (status correct) | Own recursion to 3000: no period ≤ 300 for any of the three (max values 91, 120, 117). OEIS search for the first 20 terms of 0.06 returns no match (2026-10-18). A395248 is ".007" in the cache. | None. |
-| CLM-C06-01 (Laver tables) | **UPHELD** | Own SAT encoding: anchored LD models 1,1,0,1,0,0,0,1,0,0 for N = 1…10; the models at N = 2, 4, 8 equal my Laver tables. My own recursion: LD exactly at N = 1, 2, 4, …, 64 for N ≤ 64 (it never breaks down; non-powers give non-LD tables). A_n LD exhaustively to N = 256. Lean `laver3` equals my A₃. | Optional: the finite statement (N ≤ 10) is now established by two independent complete SAT enumerations; it could be PROVEN (computer-assisted). |
+| CLM-C06-01 (Laver tables) | **UPHELD** | Own SAT encoding: anchored LD models 1,1,0,1,0,0,0,1,0,0 for N = 1…10; the models at N = 2, 4, 8 equal my Laver tables. My own recursion: LD exactly at N = 1, 2, 4, …, 64 for N ≤ 64 (it never breaks down; non-powers give non-LD tables). A_n LD exhaustively to N = 256. Lean `laver3` equals my A₃. **Corrected citation** (recursion imposed for q < N only; checked by `c06_wrap.py`): for every N ≤ 64 that system has a unique solution, and the solution satisfies the wrap-around instance and LD exactly at the powers of 2. So the corrected wording is right, and the old wording (all q) has no solution at any non-power N ≤ 64. The README still carries the old wording (C12). | Optional: the finite statement (N ≤ 10) is now established by two independent complete SAT enumerations; it could be PROVEN (computer-assisted). Fix the README wording (C12). |
 | CLM-C06-02 (anchored associativity) | **UPHELD** | Lean `anchored_assoc_unique` for every N ≥ 1 (NeZero). The converse is not in Lean (trivial; checked: SAT count 1 for N ≤ 10 and the model is x+y+1). | None. |
 | CLM-C06-03 (anchored RD) | **UPHELD** | Lean `anchored_rd_unique`; the written proof is correct. SAT count 1 for N ≤ 10, model x + 1. | None. |
 | CLM-C06-04 (H-C06-2 refuted) | **UPHELD** | Own enumeration of all 382 laws and own SAT for N ≤ 6: 283 trivial, 77 all-N, 22 restricted. The per-law spectra are identical to the lab's for all 382 laws. | None. |
 | CLM-C06-05 (right-permutable: x + c(y), N^(N−1)) | **UPHELD** | The written proof is correct (R_y commutes with the successor ⇒ translation). Own SAT counts 1, 2, 9, 64, 625, **7776** (N ≤ 6, one more than the lab). Every model for N ≤ 5 has the form x + c(y). | Mark skeptic-reviewed. |
 | CLM-C06-06 (odd law) | **UPHELD** | Lean: even sizes impossible; 2(x⋆y − x − 1) = y for odd N; existence. They match the English (N = 1 included). Own SAT: exactly one model at each odd N ≤ 13, none at even N; it equals x + 1 + y/2. | None. |
-| CLM-C06-07 (golden law) | **UPHELD** | The written proof is correct, steps (i)–(v) (Appendix A.4). Own SAT counts equal the root counts of a² + a ≡ 1 and every model is affine with a = root, for N ≤ 13 (2 models at N = 11) — RESULT_GOLDEN19. The spectrum description equals the root set for N ≤ 2000, and the count equals 2^ω(m) there. The cached A089270 (55 terms) and A087781 (105 terms) match my own computation. | Mark skeptic-reviewed. |
+| CLM-C06-07 (golden law) | **UPHELD** | The written proof is correct, steps (i)–(v) (Appendix A.4). Own SAT counts equal the root counts of a² + a ≡ 1, and every model is affine with a = root, for **N ≤ 17 and N = 19** (lab: N ≤ 12). Complete enumerations give exactly 2 models at N = 11 (a = 3, 7) and at N = 19 (a = 4, 14), and 0 for N = 12…17. N = 18 has no roots and was skipped for time. The spectrum description equals the root set for N ≤ 2000, and the count equals 2^ω(m) there. The cached A089270 (55 terms) and A087781 (105 terms) match my own computation. | Mark skeptic-reviewed. |
 | CLM-C06-08 (left-permutable ↔ commutative monoids) | **UPHELD** | The Lean core matches (a·b := (a−1)⋆b is an associative, commutative monoid with identity 0); the converse is a correct written step. Two independent counts agree: own SAT LP counts 1, 2, 9, 94, 1486, and own brute-force count of commutative monoids with identity 0 gives the same. The cached A058156 data match. | None. |
 | CLM-C06-09 (H-C06-3 refuted) | **UPHELD** | The four named laws have models for all N ≤ 6 (own SAT), and their affine conditions have no common complex root. Affine spectrum {1} for N ≤ 300. x(yz) = y((yx)z) has a model at N = 2 but affine spectrum {1}. | None. |
 | CLM-C06-10 (17 finite spectra) | **UPHELD** (conjecture survives) | Own SAT: every one of the 17 laws has exactly the conjectured spectrum for all **N ≤ 16** (lab: N ≤ 9). The affine conditions of the 16 affine-only laws have no common complex root, and their affine spectra are {1,3}/{1,2} for N ≤ 300. | Keep COMPUTATIONALLY SUPPORTED; record N ≤ 16. |
-| CLM-C06-11 (mirror twins) | **UPHELD** | Own SAT counts of both twins equal those of the golden and odd laws, with all models affine, for N ≤ 13 — RESULT_TWIN19. By hand: the twins' affine conditions are a² + a = 1 and 2a = 1. | Optionally record the larger range. |
+| CLM-C06-11 (mirror twins) | **UPHELD** | Own SAT counts of both twins equal those of the golden and odd laws, with all models affine, for N ≤ 13 (lab: N ≤ 9). By hand: the twins' affine conditions are a² + a = 1 and 2a = 1. | Optionally record the larger range. |
 | CLM-C06-12 (coprime products) | **UPHELD WITH CAVEATS** | The proof is correct. Own CRT transports of actual models (9 law/size pairs, e.g. golden 5×11, odd 5×7, LP 3×4) all satisfy law and anchor. Wording: since N = 1 lies in every spectrum, "exactly the primes" is impossible for a trivial reason. The paper's "every spectrum is determined by which products of prime powers it contains" is vacuous. | Reword to "{1} ∪ P, P an infinite set of primes (indeed any set containing two primes but not their product)"; mark skeptic-reviewed. |
 
 ---
@@ -131,7 +137,8 @@ Unless noted, commands run from `reviews/skeptic_checks/C03_C04_C06/` with `nice
 | laver | recursion LD exactly at powers of 2 (N ≤ 64); A_n LD for N ≤ 256; Lean A₃ = own A₃; SAT models = Laver tables at 2, 4, 8 |
 | family | 382 laws, N ≤ 6: 283 / 77 / 22, identical per-law spectra to EXP-C06-03 |
 | conj10 1 12, conj10 13 16 | all 17 laws exactly as conjectured for N ≤ 16 (slowest instance 29.5 s, x(yz) = y((yx)z) at N = 16) |
-| golden 13 / golden 19 | counts = roots, all models affine; twins equal; RESULT_GOLDEN19_TABLE |
+| golden 13; golden 19 (stopped); `c06_single.py "(xy)z=x(y(zz))" 19` | Counts = roots and all models affine for N ≤ 13; twins equal for N ≤ 13. N = 14–17 golden only, from the run I stopped for time (`out/c06_golden_19.log`): 0 models each, as predicted. N = 19 (616 s): exactly 2 models, both affine, a ∈ {4, 14} = roots |
+| `c06_wrap.py` (CLM-C06-01 citation) | For every N ≤ 64, the system p⋆1 = p+1, p⋆(q+1) = (p⋆q)⋆(p+1) for q < N has a unique solution (row-by-row forcing never needs an uncomputed row). That solution satisfies the wrap-around instance q = N and is left-distributive exactly at N = 1, 2, 4, …, 64 |
 | products | CRT transports of real models: 9/9 law–size pairs valid (all model pairs) |
 | affine | affine conditions of the 17 + 4 laws, no common complex root (sympy Gröbner over ℚ), spectra for N ≤ 300 |
 
@@ -180,6 +187,11 @@ None of these changes a mathematical conclusion.
   - Intended content: no spectrum contains two primes p ≠ q without pq.
 - **C10 (garbled summary, EXP-C03-02).** "H-C03-3 predicts ['NON-TERMINATING', 'TERMINATING'] for all unknown rules" means H-C03-3 predicts loops for some of them (8 of the final 24).
 - **C11 (minor, C06 README).** "12 theorems" in `C06_Laver.lean`: the file has 19 theorem declarations, 12 of which are printed with `#print axioms`.
+- **C12 (stale citation, C06 README Step 8).**
+  - The CLM-C06-01 record now cites Laver's theorem with the recursion imposed for q < N only. `research/cycles/C06_successor_anchored/README.md` (Step 8) still says "for every N a unique operation with p ⋆ 1 = p + 1 and p ⋆ (q ⋆ 1) = (p ⋆ q) ⋆ (p ⋆ 1) exists".
+  - Read for all q, that sentence is false at every non-power of 2. `c06_wrap.py` shows that for N ≤ 64 the unique q < N solution violates the q = N instance exactly when N is not a power of 2.
+  - `proofs/paper/C06.md` Theorem 3 does not state the recursion theorem and is fine.
+  - The old wording appears nowhere else outside the claim's history.
 
 Audited and found correct:
 - `check_loop`, `lift_zeros` and `mirror` (C03).
@@ -195,6 +207,9 @@ Faults in my own harness, fixed before the reported runs:
 - The first conserving-rule check used words ≤ 10 with a 200,000-word cap. It ran too long on rules with exponential reachable sets; I stopped it and reduced the check to words ≤ 8 with a 50,000 cap, reporting the over-limit words as inconclusive.
 - The first `ext` loop hunt used seeds that mostly did not contain l, so it was vacuous. I rewrote it to use seeds containing l.
 - The base-family extension's first budget was too small for (1,6,7,6), which needs 9332 steps. The `obs11` run itself found that loop.
+- The full `golden 19` run took too long: instance time roughly doubles per N, and N = 17 alone took 125 s.
+  - I stopped it after N = 17 and ran N = 19 alone (`c06_single.py`, 616 s). N = 18 was skipped.
+  - The `pkill -f` pattern used to stop it also matched my own issuing shell. That command aborted, so I re-created `c06_single.py` in a separate step; nothing else was affected.
 
 ---
 
@@ -221,7 +236,10 @@ Faults in my own harness, fixed before the reported runs:
 - (ii) aab is unbordered.
 - (iii) V is invariant, and the normal form (x_k ≤ 1 for k < m) is unique for a given V.
 - (iv) Lower bound s₂(ρ) + q ≥ ⌈T/2^m⌉ (both cases checked). The upper bound by splitting tokens down from q = ⌈T/2^m⌉ tokens on level m works because q ≤ T ≤ q·2^m.
-- (v) f(n) ≤ k + 1 ⇔ n ≤ 2^k + k. The "only if" uses g(m+1) − g(m) = 1 + 2^m(k − m − 1) ≥ 0; the cases m ≥ k + 1 and n ≤ k are handled by m = n. With f ≥ 1 this gives f = 1 + κ.
+- (v) f(n) ≤ k + 1 ⇔ n ≤ 2^k + k.
+  - "If": take m = k, or m = n when n < k.
+  - "Only if": m ≥ k + 1 forces n = m = k + 1; for m ≤ k it uses g(m+1) − g(m) = 1 + 2^m(k − m − 1) ≥ 0.
+  - With f ≥ 1 this gives f = 1 + κ.
 - (vi) Non-rationality: a sequence with finitely many values that satisfies a linear recurrence is eventually periodic, but the stalls have unbounded gaps. **Correct.**
 
 **A.3′ C04 Theorem 8 (CLM-C04-10).**
@@ -255,4 +273,4 @@ Faults in my own harness, fixed before the reported runs:
 
 ## Appendix B — exact loop lengths in the base family (observation)
 
-For 0 1^q → 1^{q+1} 0^k, my own rightmost-redex simulation from 0 1^{q(q+1)} first contains the start word after exactly (k^q − 1)/(k − 1) + 1 steps, in all 26 computed cases: q = 2…6 with k = 2…6, and q = 7 with k = 2, 3. For example 9332 = (6⁶ − 1)/5 + 1, and 1094 = (3⁷ − 1)/2 + 1 for (1,7,8,3). The lab's six data points are special cases. This is an observation, not proved. It sharpens CLM-C03-11 ("grow like k^q") and is a natural target for the "explain the k^q loop lengths" direction in the C03 README. Data: `out/c03_obs11.json`.
+For 0 1^q → 1^{q+1} 0^k, my own rightmost-redex simulation from 0 1^{q(q+1)} first contains the start word after exactly (k^q − 1)/(k − 1) + 1 steps, in all 27 computed cases: q = 2…6 with k = 2…6, and q = 7 with k = 2, 3. Twenty-six come from the `obs11` extension run; (q, k) = (6, 6), with 9332 steps, comes from the CLM-C03-11 part of the same run. For example 9332 = (6⁶ − 1)/5 + 1, and 1094 = (3⁷ − 1)/2 + 1 for (1,7,8,3). The lab's six data points are special cases. This is an observation, not proved. It sharpens CLM-C03-11 ("grow like k^q") and is a natural target for the "explain the k^q loop lengths" direction in the C03 README. Data: `out/c03_obs11.json`.

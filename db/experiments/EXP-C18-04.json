@@ -1,0 +1,54 @@
+{
+  "agent": "Application Researcher",
+  "assumptions": [
+    "batches of 16384 keys of 8 and of 64 bytes (seeded)",
+    "QG, FNV-1a and MX64 are numpy-vectorised over keys (Python loop over byte positions); BLAKE2b and CRC32 are C library calls, one per key (per-call overhead included)",
+    "median of 3 runs; the machine is shared with other jobs, so absolute numbers are indicative only; checksums of the outputs make the result deterministic"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C18-04",
+    "file": "experiments/C18/E04_throughput.py",
+    "sha256": "2ee55c7a56946d7b6ef9dd2203a9b927e755b182de65df80c9ea0fd890e0e3a2",
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+  },
+  "cycle": "C18",
+  "falsification": "H-C18-4: a reverse-pass quasigroup variant at least as fast as FNV-1a-64 on both batches.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T16:49:12Z"
+    }
+  ],
+  "hypothesis": "H-C18-4: every quasigroup variant with a reverse pass is slower than FNV-1a-64 when both are implemented in the same numpy batch style.",
+  "id": "EXP-C18-04",
+  "methodology": "Time hash_fixed on each batch; report MB/s; record an XOR checksum of all outputs.",
+  "question": "What does the mixing quality of quasigroup hashes cost in speed, compared with the baselines in comparable implementations?",
+  "results_file": "results/EXP-C18-04.json",
+  "results_sha256": "fc4153a514764663d28ec7baef28b3fa87cda971c671636eb44c2af1b68a6494",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C18-04",
+        "file": "experiments/C18/E04_throughput.py",
+        "sha256": "2ee55c7a56946d7b6ef9dd2203a9b927e755b182de65df80c9ea0fd890e0e3a2",
+        "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:49:11Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C18-04.json",
+      "results_sha256": "fc4153a514764663d28ec7baef28b3fa87cda971c671636eb44c2af1b68a6494",
+      "runtime_s": 3.127,
+      "started": "2026-10-18T16:49:08Z",
+      "summary": [
+        "checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings"
+      ]
+    }
+  ],
+  "summary": [
+    "checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings"
+  ],
+  "title": "Throughput in bytes per second for batches of equal-length keys"
+}

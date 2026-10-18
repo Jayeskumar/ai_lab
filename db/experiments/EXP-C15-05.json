@@ -1,0 +1,60 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "light cones to t = 12 (fuse), t = 8 (order 4), t = 5 (order 8)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C15-05",
+    "file": "experiments/C15/E05_case_studies.py",
+    "sha256": "52d0846d387b3832fd45eadbd44abae7cf8025bb3cb4944aeb81bf3ea09a9789",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "cycle": "C15",
+  "falsification": "A fuse width differing from t + 2, coinciding residuals in the lower-bound family, or a non-surjective or permutive rectangular band.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T16:38:06Z"
+    }
+  ],
+  "hypothesis": "The fuse magma has lambda(t) = t + 2 for t = 1..12, and the prefixes 2 (12)^b 2^(m-1-2b) give pairwise distinct residuals at level m = t/2; the order-4 rectangular band (b,c)*(b',c') = (b,c') is surjective (even injective) without being permutive.",
+  "id": "EXP-C15-05",
+  "methodology": "Ordered-BDD widths and essential variables of F_t; explicit residual check for the lower-bound family; pair-graph surjectivity/injectivity; OEIS look-ups of the sequences produced.",
+  "question": "Does the fuse magma's streaming width keep growing linearly beyond t = 9, and does the residual family of the lower-bound proof really separate? How do the lab's earlier structures (Laver tables, nimbers on [0,4), anchored models of C06) behave as automata? Is 'surjective iff permutive' special to orders <= 3?",
+  "results_file": "results/EXP-C15-05.json",
+  "results_sha256": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C15-05",
+        "file": "experiments/C15/E05_case_studies.py",
+        "sha256": "52d0846d387b3832fd45eadbd44abae7cf8025bb3cb4944aeb81bf3ea09a9789",
+        "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:38:01Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C15-05.json",
+      "results_sha256": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
+      "runtime_s": 7.762,
+      "started": "2026-10-18T16:37:53Z",
+      "summary": [
+        "fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}",
+        "Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]",
+        "GF(4) mult lambda bounded: 4; XOR[0,4) widths 4",
+        "rectangular band order 4: surjective True, injective True, permutive False",
+        "OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []"
+      ]
+    }
+  ],
+  "summary": [
+    "fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}",
+    "Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]",
+    "GF(4) mult lambda bounded: 4; XOR[0,4) widths 4",
+    "rectangular band order 4: surjective True, injective True, permutive False",
+    "OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []"
+  ],
+  "title": "Case studies: fuse widths to t = 12, Laver tables, GF(4), anchored affine models, an order-4 band"
+}

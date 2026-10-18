@@ -88,7 +88,7 @@ def run():
         "unknown": unknown,
         "all_complete": not unknown,
         "rows": rows,
-        "runtime_s": round(time.perf_counter() - t0, 1),
+        "timings": {"total_s": round(time.perf_counter() - t0, 1)},
         "summary": [f"{len(rows)} laws: " + ", ".join(f"{k}: {len(v)}" for k, v in classes.items()),
                     f"restricted spectra: {restricted}", f"UNKNOWN instances: {len(unknown)}"],
     }

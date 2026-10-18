@@ -74,9 +74,13 @@ claims:
     statement: |
       The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
       letter exchange) are terminating.
-    verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C04-02]
-    novelty: NOT ASSESSED
+    verification: PROVEN
+    proof_check: "written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent); all words of length <= 12 verified (EXP-C20-01); awaiting independent skeptic review"
+    proof: proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
+    evidence: [EXP-C04-02, EXP-C20-01]
+    change_reason: "Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the Skeptic's review (which found no loop and no matrix interpretation) predates the proof"
+    novelty: REDISCOVERY
+    novelty_basis: "Both rules are right barren in McNaughton's sense, and barren one-rule systems terminate (McNaughton; A. Geser, ICASE Report 2002-33, Thm 3.2-3.3); the lab's proof is independent and also gives the exact complexities (CLM-C20-01/02)."
     limitations: All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
   - id: CLM-C04-04
     type: theorem
@@ -88,12 +92,13 @@ claims:
       floor(n^2/4); and in the rewriting game the P-positions are exactly the words with an even number of
       inversions.
     verification: PROVEN
-    proof_check: Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument
+    proof_check: "Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, and p_positions = the kernel property of the even-inversion words; standard axioms only); the steps 'kernel = P-positions' (terminating game) and D(n) = max_k k(n-k) = floor(n^2/4) are written arguments (skeptic review 2026-10-18)"
     proof: proofs/paper/C04.md#theorem-5-clm-c04-04--the-rule-ab--ba
     lean: [proofs/lean/Infinity/C04_Derivations.lean]
     evidence: [EXP-C04-03, EXP-C04-07]
     novelty: REDISCOVERY
     novelty_basis: Classical (bubble-sort inversions); extremal case of Metivier's conjecture proved by Bertrand (TCS 123, 1994); cited as the quadratic example in derivational-complexity literature (Kobayashi).
+    change_reason: Skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - Lean coverage restated (kernel property only)
   - id: CLM-C04-05
     type: theorem
     system: SYS-A
@@ -121,13 +126,14 @@ claims:
       sums of the c-positions of l and r differ). Consequently all derivations between two given words have the same
       number of steps, and a terminating one-rule system is confluent iff it has random descent.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C04.md Theorem 2); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C04.md Theorem 2), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps"
     proof: proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential
     lean: [proofs/lean/Infinity/C04_Derivations.lean]
     evidence: [EXP-C04-05, EXP-C04-06]
     novelty: NOT ASSESSED
     novelty_basis: Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.
     notes: Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
+    change_reason: Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld
   - id: CLM-C04-07
     type: hypothesis
     system: SYS-A
@@ -159,25 +165,27 @@ claims:
       the generating function of D is not rational. The proof identifies the rule with the binary exchange system
       2[k] -> [k+1] (cycle C02) with an inert top level.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C04.md Theorem 7); per-word formula checked on all words of length <= 21, closed form to n = 20000; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C04.md Theorem 7), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); derivation lengths checked on all words of length <= 21; the arithmetic identity of proof steps (iv)-(v) checked to n = 20000"
     proof: proofs/paper/C04.md#theorem-7-clm-c04-09--aab--ba-has-complexity-n--log-n--o1
     evidence: [EXP-C04-03, EXP-C04-04]
     novelty: POTENTIALLY NOVEL
     novelty_basis: Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
+    change_reason: Skeptic review 2026-10-18 - proof upheld; verification range restated
   - id: CLM-C04-10
     type: theorem
     system: SYS-A
     title: "Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba"
     statement: |
-      Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then
-      A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the
-      one-rule system aab -> ba.
+      Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983, offset 1). Then for
+      every n >= 1, A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational
+      complexity of the one-rule system aab -> ba. (At n = 0 the identity fails: A(0) = 1 but D(2) = 0.)
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a tail bound; valid for n >= 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); verified for 1 <= n <= 1500 with n + 80 bits and by the Skeptic for n <= 1200 with n + 120 bits"
     proof: proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
     evidence: [EXP-C04-09, EXP-C04-10]
     novelty: POTENTIALLY NOVEL
     novelty_basis: The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
+    change_reason: Skeptic review 2026-10-18 - proof upheld for n >= 1; statement restricted to n >= 1 (false at n = 0)
   - id: CLM-C04-11
     type: hypothesis
     system: SYS-A
@@ -210,11 +218,12 @@ claims:
       aa -> ab (ba, abb, bba) is 0.6 (Officers), aaa -> b (bb, bbb, bab) is 0.007 (Treblecross), aaa -> ab
       (ba, abb, bba) is 0.06 and aaa -> aba is 0.4.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C04.md Theorem 10), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules"
     proof: proofs/paper/C04.md#theorem-10-clm-c04-13--unary-left-hand-sides-give-take-and-break-games
     evidence: [EXP-C04-07, EXP-C04-08]
     novelty: REDISCOVERY
     novelty_basis: Octal games are classically described as rows of pins (Berlekamp-Conway-Guy, Winning Ways); the rewriting presentation is a change of notation.
+    change_reason: Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld
   - id: CLM-C04-14
     type: hypothesis
     system: SYS-D
@@ -321,6 +330,17 @@ journal:
     kind: infrastructure
     text: Lessons - a pkill pattern again matched the issuing shell (it contained the rerun command); kill and rerun must be separate commands. A quadratic big-integer loop in a closed-form check was bounded by an early break.
     refs: [EXP-C04-04]
+
+  - key: C04-16
+    agent: Mathematical Skeptic
+    kind: review
+    text: 'Independent review - all C04 claims upheld; written proofs of CLM-C04-06/09/10/13 checked (CLM-C04-10 needs n >= 1, now stated); Lean p_positions covers the kernel property, the rest of CLM-C04-04 is written; no loop or matrix interpretation for the open rules.'
+    refs: [CLM-C04-04, CLM-C04-10, reviews/skeptic_C03_C04_C06.md]
+  - key: C04-17
+    agent: Formal Verifier
+    kind: decision
+    text: 'CLM-C04-03 (termination of aab -> ababa, aab -> babaa) upgraded to PROVEN by the proofs of cycle C20; the same theorems give exponential complexities 2^(n-2) - 1 and max_b b(2^floor((n-b)/2) - 1).'
+    refs: [CLM-C04-03, CLM-C20-01, CLM-C20-02]
 
 next_directions:
   - "C04: decide termination of aab -> ababa and aab -> babaa"

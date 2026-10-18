@@ -1,0 +1,31 @@
+{
+ "recursion_never_breaks_down_N_le_64": true,
+ "all_satisfy_q_lt_N_and_anchor": true,
+ "wrap_around_holds_exactly_at": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "LD_exactly_at": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "powers_of_two": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+ ]
+}

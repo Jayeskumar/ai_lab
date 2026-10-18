@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T09:24:23Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T16:49:32Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 83 |
-| COMPUTATIONALLY SUPPORTED | 24 |
+| PROVEN | 87 |
+| COMPUTATIONALLY SUPPORTED | 23 |
 | CONJECTURE | 4 |
 | REFUTED | 28 |
-| INCONCLUSIVE | 2 |
+| INCONCLUSIVE | 3 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 58 |
-| POTENTIALLY NOVEL | 26 |
-| NOT ASSESSED | 57 |
+| REDISCOVERY | 60 |
+| POTENTIALLY NOVEL | 27 |
+| NOT ASSESSED | 58 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -48,25 +48,26 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C03-05 | Lifting lemma - loops transfer along letter morphisms (explains divisibility) | Lean 4 + Mathlib (step_map, loop_map); 147 + 225 lifted cer… | REDISCOVERY | EXP-C03-03, EXP-C03-04 |
 | CLM-C03-06 | Classification of 601 of the 625 rules with p, q, r, s <= 5 (computer-assisted) | computer-assisted (Python) - theorems CLM-C03-01/02 for the… | REDISCOVERY | EXP-C03-01, EXP-C03-02, EXP-C03-03 |
 | CLM-C04-01 | Termination census of one-rule systems with |l|, |r| <= 3: non-terminating iff l is a fac… | computer-assisted (Python) - explicit termination certifica… | NOT ASSESSED | EXP-C04-01 |
+| CLM-C04-03 | The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate | written proof in cycle C20 (proofs/paper/C20.md Theorems 1-… | REDISCOVERY | EXP-C04-02, EXP-C20-01 |
 | CLM-C04-04 | ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inve… | Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation… | REDISCOVERY | EXP-C04-03, EXP-C04-07 |
 | CLM-C04-05 | One-rule systems with an unbordered left-hand side have random descent (Lean-verified) | Lean 4 + Mathlib (random_descent, unbordered_diamond, unbor… | REDISCOVERY | EXP-C04-05 |
-| CLM-C04-06 | Every one-rule system has a constant-step potential; for terminating ones confluence is e… | written proof (proofs/paper/C04.md Theorem 2); abstract con… | NOT ASSESSED | EXP-C04-05, EXP-C04-06 |
+| CLM-C04-06 | Every one-rule system has a constant-step potential; for terminating ones confluence is e… | written proof (proofs/paper/C04.md Theorem 2), skeptic-revi… | NOT ASSESSED | EXP-C04-05, EXP-C04-06 |
 | CLM-C04-08 | Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2) | written proof (proofs/paper/C04.md Theorem 9, induction on … | REDISCOVERY | EXP-C04-07 |
-| CLM-C04-09 | The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-… | written proof (proofs/paper/C04.md Theorem 7); per-word for… | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
+| CLM-C04-09 | The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-… | written proof (proofs/paper/C04.md Theorem 7), skeptic-revi… | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
 | CLM-C04-10 | Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -… | written proof (proofs/paper/C04.md Theorem 8, Jensen's ineq… | POTENTIALLY NOVEL | EXP-C04-09, EXP-C04-10 |
-| CLM-C04-13 | Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> … | written proof (proofs/paper/C04.md Theorem 10); word games … | REDISCOVERY | EXP-C04-07, EXP-C04-08 |
+| CLM-C04-13 | Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> … | written proof (proofs/paper/C04.md Theorem 10), skeptic-rev… | REDISCOVERY | EXP-C04-07, EXP-C04-08 |
 | CLM-C04-15 | The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53 | computer-assisted - octal recursion to n = 3000 and the Guy… | REDISCOVERY | EXP-C04-08 |
 | CLM-C05-04 | Law 167, x = (y*x)*(x*y): every finite model has order 0 or 1 mod 4 | Lean 4 + Mathlib (Infinity.C05.law167_card_mod_four; standa… | REDISCOVERY | EXP-C05-01 |
 | CLM-C05-05 | Identities x = y*s(x, y) make every left translation of a finite model bijective | Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_biject… | REDISCOVERY | EXP-C05-03 |
-| CLM-C05-07 | New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9;… | Lean 4 kernel decide on explicit tables (E467_order9_law, E… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
+| CLM-C05-07 | New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 … | Lean 4 kernel decide on explicit tables (E677_order5_law, E… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
 | CLM-C05-08 | New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; … | computer-assisted - DRUP refutations from Glucose 4 verifie… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-06 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | NOT ASSESSED | EXP-C06-02 |
-| CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | written proof (proofs/paper/C06.md Theorem 4); counts 1, 2,… | NOT ASSESSED | EXP-C06-02 |
+| CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | written proof (proofs/paper/C06.md Theorem 4), skeptic-revi… | NOT ASSESSED | EXP-C06-02 |
 | CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | Lean 4 + Mathlib (odd_law_even_impossible, odd_law_formula,… | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
-| CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | written proof (proofs/paper/C06.md Theorem 6); model counts… | POTENTIALLY NOVEL | EXP-C06-04 |
+| CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | written proof (proofs/paper/C06.md Theorem 6), skeptic-revi… | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | Lean 4 + Mathlib for the structural core (centralizer_eq, c… | POTENTIALLY NOVEL | EXP-C06-02 |
-| CLM-C06-12 | Anchored spectra are closed under coprime products | written proof (proofs/paper/C06.md Theorem 8); consistent w… | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
+| CLM-C06-12 | Anchored spectra are closed under coprime products | written proof (proofs/paper/C06.md Theorem 8), skeptic-revi… | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
 | CLM-C07-01 | The associative mex operations are 0, projections, min, +, XOR, nim-product and four rela… | written proof for the 11 canonical formulas (proofs/paper/C… | POTENTIALLY NOVEL | EXP-C07-01 |
 | CLM-C07-03 | In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbi… | written proof (proofs/paper/C07.md Theorem 2, two-line indu… | NOT ASSESSED | EXP-C07-02 |
 | CLM-C07-05 | The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_… | written proof (proofs/paper/C07.md Theorem 3, induction ove… | POTENTIALLY NOVEL | EXP-C07-03 |
@@ -107,6 +108,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C17-01 | Light's test: generators suffice for associativity | written proof (proofs/paper/C17.md Theorem 1, four-line clo… | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-02 | Associativity of an anchored magma is decided by one O(n^2) identity | written proof (proofs/paper/C17.md Corollary 2) from C06 Th… | NOT ASSESSED | EXP-C17-01, EXP-C17-02 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | one-sidedness proved (proofs/paper/C17.md Theorem 3, biline… | REDISCOVERY | EXP-C17-01 |
+| CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | written proof (proofs/paper/C20.md Theorem 1 - run encoding… | REDISCOVERY | EXP-C20-01 |
+| CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | written proof (proofs/paper/C20.md Theorem 2 - a pair of a'… | POTENTIALLY NOVEL | EXP-C20-01 |
+| CLM-C20-03 | The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r|… | computer-assisted certificates for 860 rules (EXP-C04-02, C… | NOT ASSESSED | EXP-C04-02, EXP-C20-01 |
 
 ## 2. Unproven conjectures (CONJECTURE and COMPUTATIONALLY SUPPORTED)
 
@@ -121,7 +125,6 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C01-11 | Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contain… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C01-08 |
 | CLM-C03-10 | Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C03-02, EXP-C03-03, EXP-C03-04 |
 | CLM-C03-11 | Loop lengths in the base family grow like k^q | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C03-04 |
-| CLM-C04-03 | The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C04-02 |
 | CLM-C04-12 | Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3 | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C04-03 |
 | CLM-C05-02 | Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C05-01, EXP-C05-02 |
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
@@ -154,7 +157,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C02-11 | Termination classification of carry rules: terminating from every unary start iff sum b <… | PROVEN | POTENTIALLY NOVEL | EXP-C02-03, EXP-C02-07 |
 | CLM-C04-09 | The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-… | PROVEN | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
 | CLM-C04-10 | Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -… | PROVEN | POTENTIALLY NOVEL | EXP-C04-09, EXP-C04-10 |
-| CLM-C05-07 | New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9;… | PROVEN | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
+| CLM-C05-07 | New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 … | PROVEN | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
 | CLM-C05-08 | New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; … | PROVEN | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-06 |
 | CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | PROVEN | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | PROVEN | POTENTIALLY NOVEL | EXP-C06-04 |
@@ -173,6 +176,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
+| CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | PROVEN | POTENTIALLY NOVEL | EXP-C20-01 |
 
 ## 4. Rediscovered existing mathematics
 
@@ -202,6 +206,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C03-05 | Lifting lemma - loops transfer along letter morphisms (explains divisibility) | PROVEN | REDISCOVERY | EXP-C03-03, EXP-C03-04 |
 | CLM-C03-06 | Classification of 601 of the 625 rules with p, q, r, s <= 5 (computer-assisted) | PROVEN | REDISCOVERY | EXP-C03-01, EXP-C03-02, EXP-C03-03 |
 | CLM-C03-10 | Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C03-02, EXP-C03-03, EXP-C03-04 |
+| CLM-C04-03 | The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate | PROVEN | REDISCOVERY | EXP-C04-02, EXP-C20-01 |
 | CLM-C04-04 | ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inve… | PROVEN | REDISCOVERY | EXP-C04-03, EXP-C04-07 |
 | CLM-C04-05 | One-rule systems with an unbordered left-hand side have random descent (Lean-verified) | PROVEN | REDISCOVERY | EXP-C04-05 |
 | CLM-C04-08 | Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2) | PROVEN | REDISCOVERY | EXP-C04-07 |
@@ -236,6 +241,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C17-01 | Light's test: generators suffice for associativity | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
+| CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | PROVEN | REDISCOVERY | EXP-C20-01 |
 
 ## 5. Practical algorithmic results
 
@@ -283,4 +289,5 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 |---|---|---|---|---|
 | CLM-C03-09 | H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evi… | INCONCLUSIVE | NOT ASSESSED | EXP-C03-02, EXP-C03-03 |
 | CLM-C12-09 | H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inc… | INCONCLUSIVE | NOT ASSESSED | EXP-C12-01, EXP-C12-02, EXP-C12-06, EXP-C12-03 |
+| CLM-C20-04 | C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text ina… | INCONCLUSIVE | NOT ASSESSED | EXP-C03-01 |
 

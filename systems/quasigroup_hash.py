@@ -403,3 +403,74 @@ def collisions(h: np.ndarray, m_bits: int = 16) -> dict:
     return {"bucket_collisions": int(n - occupied), "expected": round(n - expected_occupied, 1),
             "ratio": round((n - occupied) / (n - expected_occupied), 4),
             "full_64bit_collisions": int(n - np.unique(h).size)}
+
+
+# ------------------------------------------------------------------ the cascade (wide-state) construction
+def qg_cascade_fixed(T: np.ndarray, X: np.ndarray, depth: int = 8, final: int = 8) -> np.ndarray:
+    """Cascade of `depth` e-transformations run in parallel over the message key || len || 0^final; the output is
+    the final state (last byte) of every pass, pass 1 in the high byte.  The state update for one input byte is a
+    bijection of the depth-byte state (Theorem 7 of proofs/paper/C18.md)."""
+    n, L = X.shape
+    M = np.zeros((n, L + 1 + final), dtype=np.uint8)
+    M[:, :L] = X
+    M[:, L] = L % 256
+    s = [np.full(n, LEADERS[j % len(LEADERS)], dtype=np.uint8) for j in range(depth)]
+    for i in range(M.shape[1]):
+        x = M[:, i]
+        for j in range(depth):
+            s[j] = T[s[j], x]
+            x = s[j]
+    out = np.zeros(n, dtype=np.uint64)
+    for j in range(depth):
+        out = (out << np.uint64(8)) | s[j].astype(np.uint64)
+    return out
+
+
+def qg_cascade_batch(T: np.ndarray, keys: list[bytes], depth: int = 8, final: int = 8) -> np.ndarray:
+    return _by_length(keys, lambda X: qg_cascade_fixed(T, X, depth, final))
+
+
+CASCADES = [("QC-LS d8", "LS"), ("QC-ISO d8", "ISO"), ("QC-NIMINV d8", "NIMINV"), ("QC-ARP d8", "ARP")]
+
+
+def hash_keys_ext(name: str, keys: list[bytes], qgs: dict) -> np.ndarray:
+    c = next((c for c in CASCADES if c[0] == name), None)
+    if c:
+        return qg_cascade_batch(qgs[c[1]], keys)
+    return hash_keys(name, keys, qgs)
+
+
+def hash_fixed_ext(name: str, X: np.ndarray, qgs: dict) -> np.ndarray:
+    c = next((c for c in CASCADES if c[0] == name), None)
+    if c:
+        return qg_cascade_fixed(qgs[c[1]], X)
+    return hash_fixed(name, X, qgs)
+
+
+def avalanche_ext(name: str, X: np.ndarray, qgs: dict) -> dict:
+    """avalanche() for the extended zoo (cascades included)."""
+    nb = OUT_BITS.get(name, 64)
+    base = hash_fixed_ext(name, X, qgs)
+    L = X.shape[1]
+    P = np.zeros((8 * L, nb))
+    bic_max, bic_sum, bic_cnt = 0.0, 0.0, 0
+    for i in range(8 * L):
+        Xf = X.copy()
+        Xf[:, i // 8] ^= np.uint8(1 << (i % 8))
+        d = bits_of(base ^ hash_fixed_ext(name, Xf, qgs), nb).astype(np.float64)
+        P[i] = d.mean(axis=0)
+        ok = d.std(axis=0) > 0
+        if ok.sum() >= 2:
+            C = np.corrcoef(d[:, ok].T)
+            off = np.abs(C[~np.eye(C.shape[0], dtype=bool)])
+            bic_max = max(bic_max, float(off.max()))
+            bic_sum += float(off.sum())
+            bic_cnt += off.size
+        if (~ok).sum() >= 2:
+            bic_max = 1.0
+    bias = np.abs(P - 0.5)
+    return {"mean_flip_rate": round(float(P.mean()), 4), "mean_bias": round(float(bias.mean()), 4),
+            "max_bias": round(float(bias.max()), 4), "cells_bias_gt_0.1": int((bias > 0.1).sum()),
+            "deterministic_cells": int(((P == 0) | (P == 1)).sum()), "cells": int(P.size),
+            "bic_max_abs_corr": round(bic_max, 4),
+            "bic_mean_abs_corr": round(bic_sum / bic_cnt, 4) if bic_cnt else None}
