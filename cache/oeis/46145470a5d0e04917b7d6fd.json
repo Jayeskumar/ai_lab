@@ -1,0 +1,290 @@
+{
+  "fetched": "2026-10-18T08:18:50Z",
+  "query": "0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3",
+  "response": [
+    {
+      "author": "_John Tromp_, Dec 11 1996",
+      "comment": [
+        "This sequence is an exception to my usual rule that when every other term of a sequence is 0 then those 0's should be omitted. In this case we would get A001511. - _N. J. A. Sloane_",
+        "To construct the sequence: start with 0,1, concatenate to get 0,1,0,1. Add + 1 to last term gives 0,1,0,2. Concatenate those 4 terms to get 0,1,0,2,0,1,0,2. Add + 1 to last term etc. - _Benoit Cloitre_, Mar 06 2003",
+        "The sequence is invariant under the following two transformations: increment every element by one (1, 2, 1, 3, 1, 2, 1, 4, ...), put a zero in front and between adjacent elements (0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, ...). The intermediate result is A001511. - Ralf Hinze (ralf(AT)informatik.uni-bonn.de), Aug 26 2003",
+        "Fixed point of the morphism 0->01, 1->02, 2->03, 3->04, ..., n->0(n+1), ..., starting from a(1) = 0. - _Philippe Deléham_, Mar 15 2004",
+        "Fixed point of the morphism 0->010, 1->2, 2->3, ..., n->(n+1), .... - _Joerg Arndt_, Apr 29 2014",
+        "a(n) is also the number of times to repeat a step on an even number in the hailstone sequence referenced in the Collatz conjecture. - Alex T. Flood (whiteangelsgrace(AT)gmail.com), Sep 22 2006",
+        "Let F(n) be the n-th Fermat number (A000215). Then F(a(r-1)) divides F(n)+2^k for r = k mod 2^n and r != 1. - _T. D. Noe_, Jul 12 2007",
+        "The following relation holds: 2^A007814(n)*(2*A025480(n-1)+1) = A001477(n) = n. (See functions hd, tl and cons in [Paul Tarau 2009].)",
+        "a(n) is the number of 0's at the end of n when n is written in base 2.",
+        "a(n+1) is the number of 1's at the end of n when n is written in base 2. - _M. F. Hasler_, Aug 25 2012",
+        "Shows which bit to flip when creating the binary reflected Gray code (bits are numbered from the right, offset is 0). That is, A003188(n) XOR A003188(n+1) == 2^A007814(n). - _Russ Cox_, Dec 04 2010",
+        "The sequence is squarefree (in the sense of not containing any subsequence of the form XX) [Allouche and Shallit]. Of course it contains individual terms that are squares (such as 4). - Comment expanded by _N. J. A. Sloane_, Jan 28 2019",
+        "a(n) is the number of zero coefficients in the n-th Stern polynomial, A125184. - _T. D. Noe_, Mar 01 2011",
+        "Lemma: For n < m with r = a(n) = a(m) there exists n < k < m with a(k) > r. Proof: We have n=b2^r and m=c2^r with b < c both odd; choose an even i between them; now a(i2^r) > r and n < i2^r < m. QED. Corollary: Every finite run of consecutive integers has a unique maximum 2-adic valuation. - _Jason Kimberley_, Sep 09 2011",
+        "a(n-2) is the 2-adic valuation of A000166(n) for n >= 2. - _Joerg Arndt_, Sep 06 2014",
+        "a(n) = number of 1's in the partition having Heinz number n. We define the Heinz number of a partition p = [p_1, p_2, ..., p_r] as Product_{j=1..r} p_j-th prime (concept used by _Alois P. Heinz_ in A215366 as an \"encoding\" of a partition). For example, for the partition [1, 1, 2, 4, 10] we get 2*2*3*7*29 = 2436. Example: a(24)=3; indeed, the partition having Heinz number 24 = 2*2*2*3 is [1,1,1,2]. - _Emeric Deutsch_, Jun 04 2015",
+        "a(n+1) is the difference between the two largest parts in the integer partition having viabin number n (0 is assumed to be a part). Example: a(20) = 2. Indeed, we have 19 = 10011_2, leading to the Ferrers board of the partition [3,1,1]. For the definition of viabin number see the comment in A290253. - _Emeric Deutsch_, Aug 24 2017",
+        "Apart from being squarefree, as noted above, the sequence has the property that every consecutive subsequence contains at least one number an odd number of times. - _Jon Richfield_, Dec 20 2018",
+        "a(n+1) is the 2-adic valuation of Sum_{e=0..n} u^e = (1 + u + u^2 + ... + u^n), for any u of the form 4k+1 (A016813). - _Antti Karttunen_, Aug 15 2020",
+        "{a(n)} represents the \"first black hat\" strategy for the game of countably infinitely many hats, with a probability of success of 1/3; cf. the Numberphile link below. - _Frederic Ruget_, Jun 14 2021",
+        "a(n) is the least nonnegative integer k for which there does not exist i+j=n and a(i)=a(j)=k (cf. A322523). - _Rémy Sigrist_ and _Jianing Song_, Aug 23 2022",
+        "a(n) is also the number of consecutive odd terms at the start of the trajectory of n-1 under iterations of the Collatz map T = A014682: e.g., a(1) = 0 because 1-1 = 0 is even, a(2) = 1 because 2-1 = 1 is odd but T(1) = (3*1+1)/2 = 2 is even, a(4) = 2 because 4-1 = 3 and T(3) = 5 are odd, but T(5) = 8 is even. - _M. F. Hasler_, Oct 09 2026"
+      ],
+      "created": "1996-03-15T03:00:00-05:00",
+      "data": "0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,6,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0",
+      "example": [
+        "2^3 divides 24, so a(24)=3.",
+        "From _Omar E. Pol_, Jun 12 2009: (Start)",
+        "Triangle begins:",
+        "  0;",
+        "  1,0;",
+        "  2,0,1,0;",
+        "  3,0,1,0,2,0,1,0;",
+        "  4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0;",
+        "  5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0;",
+        "  6,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,...",
+        "(End)"
+      ],
+      "ext": [
+        "Formula index adapted to the offset of A025480 by _R. J. Mathar_, Jul 20 2010",
+        "Edited by _Ralf Stephan_, Feb 08 2014"
+      ],
+      "formula": [
+        "a(n) = A001511(n) - 1.",
+        "a(2*n) = A050603(2*n-2) = A001511(n).",
+        "a(n) = A091090(n-1) + A036987(n-1) - 1 for n >= 2.",
+        "a(n) = 0 if n is odd, otherwise 1 + a(n/2). - _Reinhard Zumkeller_, Aug 11 2001",
+        "Sum_{k=1..n} a(k) = n - A000120(n). - _Benoit Cloitre_, Oct 19 2002",
+        "G.f.: A(x) = Sum_{k>=1} x^(2^k)/(1-x^(2^k)). - _Ralf Stephan_, Apr 10 2002",
+        "G.f. A(x) satisfies A(x) = A(x^2) + x^2/(1-x^2). A(x) = B(x^2) = B(x) - x/(1-x), where B(x) is the g.f. for A001511. - _Franklin T. Adams-Watters_, Feb 09 2006",
+        "Totally additive with a(p) = 1 if p = 2, 0 otherwise.",
+        "Dirichlet g.f.: zeta(s)/(2^s-1). - _Ralf Stephan_, Jun 17 2007",
+        "Define 0 <= k <= 2^n - 1; binary: k = b(0) + 2*b(1) + 4*b(2) + ... + 2^(n-1)*b(n-1); where b(x) are 0 or 1 for 0 <= x <= n - 1; define c(x) = 1 - b(x) for 0 <= x <= n - 1; Then: a(k) = c(0) + c(0)*c(1) + c(0)*c(1)*c(2) + ... + c(0)*c(1)...c(n-1); a(k+1) = b(0) + b(0)*b(1) + b(0)*b(1)*b(2) + ... + b(0)*b(1)...b(n-1). - Arie Werksma (werksma(AT)tiscali.nl), May 10 2008",
+        "a(n) = floor(A002487(n - 1) / A002487(n)). - _Reikku Kulon_, Oct 05 2008",
+        "Sum_{k=1..n} (-1)^A000120(n-k)*a(k) = (-1)^(A000120(n)-1)*(A000120(n) - A000035(n)). - _Vladimir Shevelev_, Mar 17 2009",
+        "a(A001147(n) + A057077(n-1)) = a(2*n). - _Vladimir Shevelev_, Mar 21 2009",
+        "For n>=1, a(A004760(n+2)) = a(n). - _Vladimir Shevelev_, Apr 15 2009",
+        "2^(a(n)) = A006519(n). - _Philippe Deléham_, Apr 22 2009",
+        "a(n) = A063787(n) - A000120(n). - _Gary W. Adamson_, Jun 04 2009",
+        "a(C(n,k)) = A000120(k) + A000120(n-k) - A000120(n). - _Vladimir Shevelev_, Jul 19 2009",
+        "a(n!) = n - A000120(n). - _Vladimir Shevelev_, Jul 20 2009",
+        "v_{2}(n) = Sum_{r>=1} (r / 2^(r+1)) Sum_{k=0..2^(r+1)-1} e^(2(k*Pi*i(n+2^r))/(2^(r+1))). - _A. Neves_, Sep 28 2010, corrected Oct 04 2010",
+        "a(n) mod 2 = A096268(n-1). - _Robert G. Wilson v_, Jan 18 2012",
+        "a(A005408(n)) = 1; a(A016825(n)) = 3; A017113(a(n)) = 5; A051062(a(n)) = 7; a(n) = (A037227(n)-1)/2. - _Reinhard Zumkeller_, Jun 30 2012",
+        "a((2*n-1)*2^p) = p, p >= 0 and n >= 1. - _Johannes W. Meijer_, Feb 04 2013",
+        "a(n) = A067255(n,1). - _Reinhard Zumkeller_, Jun 11 2013",
+        "a(n) = log_2(n - (n AND n-1)). - _Gary Detlefs_, Jun 13 2014",
+        "a(n) = 1 + A000120(n-1) - A000120(n), where A000120 is the Hamming weight function. - _Stanislav Sykora_, Jul 14 2014",
+        "A053398(n,k) = a(A003986(n-1,k-1)+1); a(n) = A053398(n,1) = A053398(n,n) = A053398(2*n-1,n) = Min_{k=1..n} A053398(n,k). - _Reinhard Zumkeller_, Aug 04 2014",
+        "a((2*x-1)*2^n) = a((2*y-1)*2^n) for positive n, x and y. - _Juri-Stepan Gerasimov_, Aug 04 2016",
+        "a(n) = A285406(n) - A281264(n). - _Ralf Steiner_, Apr 18 2017",
+        "a(n) = A000005(n)/(A000005(2*n) - A000005(n)) - 1. - conjectured by _Velin Yanev_, Jun 30 2017, proved by _Nicholas Stearns_, Sep 11 2017",
+        "Equivalently to above formula, a(n) = A183063(n) / A001227(n), i.e., a(n) is the number of even divisors of n divided by number of odd divisors of n. - _Franklin T. Adams-Watters_, Oct 31 2018",
+        "a(n)*(n mod 4) = 2*floor(((n+1) mod 4)/3). - _Gary Detlefs_, Feb 16 2019",
+        "Asymptotic mean: lim_{m->oo} (1/m) * Sum_{k=1..m} a(k) = 1. - _Amiram Eldar_, Jul 11 2020",
+        "a(n) = 2*Sum_{j=1..floor(log_2(n))} frac(binomial(n, 2^j)*2^(j-1)/n). - _Dario T. de Castro_, Jul 08 2022",
+        "a(n) = A070939(n) - A070939(A030101(n)). - _Andrew T. Porter_, Dec 16 2022",
+        "a(n) = floor((gcd(n, 2^n)^(n+1) mod (2^(n+1)-1)^2)/(2^(n+1)-1)) (see Lemma 3.4 from Mazzanti's 2002 article). - _Lorenzo Sauras Altuzarra_, Mar 10 2024",
+        "a(n) = 1 - A088705(n). - _Chai Wah Wu_, Sep 18 2024",
+        "a(n) = (1/2)*(2 + (-1)^n - Sum_{e | d | n} (-1)^(n/d+e) * mobius(e)). - _Peter Bala_, Sep 15 2026"
+      ],
+      "keyword": "nonn,nice,easy,changed",
+      "link": [
+        "T. D. Noe, <a href=\"/A007814/b007814.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Yagub Aliyev, <a href=\"https://cms.math.ca/wp-content/uploads/2023/01/Wholeissue_48_10.pdf\">The number of 2s in prime factorization of superfactorials and Vandermonde determinants</a>, Crux Mathematicorum, Vol. 48(10), December 2022, 623-627.",
+        "Joerg Arndt, <a href=\"https://arxiv.org/abs/1405.6503\">Subset-lex: did we miss an order?</a>, arXiv:1405.6503 [math.CO], 2014.",
+        "Krassimir T. Atanassov, <a href=\"https://fs.unm.edu/Atanassov-SomeProblems.pdf\">On Some of the Smarandache's Problems</a>.",
+        "Andrew Au, <a href=\"https://arxiv.org/abs/2608.23357\">A Geometric Derivation of the Bitner-Ehrlich-Reingold Loopless Gray Code Algorithm</a>, arXiv:2608.23357 [cs.DS], 2026.",
+        "Alain Connes, Caterina Consani, and Henri Moscovici, <a href=\"https://arxiv.org/abs/2310.18423\">Zeta zeros and prolate wave operators</a>, arXiv:2310.18423 [math.NT], 2023.",
+        "Dario T. de Castro, <a href=\"https://math.colgate.edu/~integers/w61/w61.pdf\">P-adic Order of Positive Integers via Binomial Coefficients</a>, INTEGERS, Electronic J. of Combinatorial Number Theory, Vol. 22, Paper A61, 2022.",
+        "Mathieu Guay-Paquet and Jeffrey Shallit, <a href=\"https://doi.org/10.1016/j.disc.2009.06.004\">Avoiding Squares and Overlaps Over the Natural Numbers</a>, Discrete Math., 309 (2009), 6245-6254.",
+        "Mathieu Guay-Paquet and Jeffrey Shallit, <a href=\"https://arxiv.org/abs/0901.1397\">Avoiding Squares and Overlaps Over the Natural Numbers</a>, arXiv:0901.1397 [math.CO], 2009.",
+        "M. Hassani, <a href=\"https://web.archive.org/web/20080723064725/http://jipam.vu.edu.au/article.php?sid=498\">Equations and inequalities involving v_p(n!)</a>, J. Inequ. Pure Appl. Math. 6 (2005) vol. 2, #29.",
+        "Andreas M. Hinz, Sandi Klavžar, Uroš Milutinović, and Ciril Petr, <a href=\"https://doi.org/10.1007/978-3-0348-0237-6\">The Tower of Hanoi - Myths and Maths</a>, Birkhäuser 2013. See page 61. <a href=\"http://tohbook.info\">Book's website</a>.",
+        "Ralf Hinze, <a href=\"https://www.cs.ox.ac.uk/people/ralf.hinze/publications/CSC.pdf\">Concrete stream calculus: An extended study</a>, J. Funct. Progr. 20 (5-6) (2010) 463-535, <a href=\"https://doi.org/10.1017/S0956796810000213\">doi</a>, Section 3.2.3.",
+        "Clark Kimberling, <a href=\"https://doi.org/10.1016/S0012-365X(03)00085-2\">Affinely recursive sets and orderings of languages</a>, Discrete Math., 274 (2004), 147-160.",
+        "Francis Laclé, <a href=\"https://hal.science/hal-03201180v2\">2-adic parity explorations of the 3n+1 problem</a>, hal-03201180v2 [cs.DM], 2021.",
+        "Shuo Li, <a href=\"https://arxiv.org/abs/2007.08317\">Palindromic length sequence of the ruler sequence and of the period-doubling sequence</a>, arXiv:2007.08317 [math.CO], 2020.",
+        "Nicolas Mallet, <a href=\"https://arxiv.org/abs/1507.05039\">Trial for a proof of the Syracuse conjecture</a>, arXiv preprint arXiv:1507.05039 [math.GM], 2015.",
+        "Stefano Mazzanti, <a href=\"https://doi.org/10.1002/1521-3870(200201)48:1%3C93::AID-MALQ93%3E3.0.CO;2-8\">Plain Bases for Classes of Primitive Recursive Functions</a>, Mathematical Logic Quarterly, 48 (2002), 93-104.",
+        "Matthew Andres Moreno, Luis Zaman, and Emily Dolson, <a href=\"https://arxiv.org/abs/2409.06199\">Structured Downsampling for Fast, Memory-efficient Curation of Online Data Streams</a>, arXiv:2409.06199 [cs.DS], 2024. See p. 5.",
+        "Sascha Mücke, <a href=\"https://arxiv.org/abs/2310.19373\">Faster QUBO Brute-Force Solving using Gray Code</a>, arXiv:2310.19373 [cs.DS], 2023.",
+        "Sam Northshield, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL18/Northshield/north4.html\">An Analogue of Stern's Sequence for Z[sqrt(2)]</a>, Journal of Integer Sequences, 18 (2015), #15.11.6.",
+        "Numberphile, <a href=\"https://www.youtube.com/watch?v=laAtv310pyk\">Hat Problems - Numberphile</a>.",
+        "Giovanni Pighizzini, <a href=\"https://doi.org/10.1007/978-3-030-23247-4_4\">Limited Automata: Properties, Complexity and Variants</a>, International Conference on Descriptional Complexity of Formal Systems (DCFS 2019) Descriptional Complexity of Formal Systems, Lecture Notes in Computer Science (LNCS, Vol. 11612) Springer, Cham, 57-73.",
+        "Simon Plouffe, <a href=\"https://arxiv.org/abs/1310.7195\">On the values of the functions ... [zeta and Gamma] ...</a>, arXiv preprint arXiv:1310.7195 [math.NT], 2013.",
+        "Alexander Postnikov (MIT) and Bruce Sagan, <a href=\"https://arxiv.org/abs/math/0601339\">What power of two divides a weighted Catalan number?</a>, arXiv:math/0601339 [math.CO], 2006.",
+        "Lara Pudwell and Eric Rowland, <a href=\"https://arxiv.org/abs/1510.02807\">Avoiding fractional powers over the natural numbers</a>, arXiv:1510.02807 [math.CO], 2015. Also Electronic Journal of Combinatorics, Volume 25(2) (2018), #P2.27. See Section 2.",
+        "Ville Salo, <a href=\"https://arxiv.org/abs/1411.6644\">Decidability and Universality of Quasiminimal Subshifts</a>, arXiv preprint arXiv:1411.6644 [math.DS], 2014.",
+        "Vladimir Shevelev, <a href=\"https://arxiv.org/abs/0904.2101\">Several results on sequences which are similar to the positive integers</a>, arXiv:0904.2101 [math.NT], 2014.",
+        "Florentin Smarandache, <a href=\"https://fs.unm.edu/OPNS.pdf\">Only Problems, Not Solutions!</a>.",
+        "Ralf Stephan, <a href=\"/somedcgf.html\">Some divide-and-conquer sequences ...</a>",
+        "Ralf Stephan, <a href=\"/A079944/a079944.ps\">Table of generating functions</a>",
+        "Paul Tarau, <a href=\"http://scholar.google.com/scholar?cluster=284705751770513453\">A Groupoid of Isomorphic Data Transformations</a>. Calculemus 2009, 8th International Conference, MKM 2009, pp. 170-185, Springer, LNAI 5625.",
+        "Paul M. B. Vitányi, <a href=\"https://doi.org/10.1137/0214001\">An optimal simulation of counter machines</a>, SIAM J. Comput, 14:1(1985), 1-33.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/Binary.html\">Binary</a>, <a href=\"https://mathworld.wolfram.com/BinaryCarrySequence.html\">Binary Carry Sequence</a>, and <a href=\"https://mathworld.wolfram.com/Double-FreeSet.html\">Double-Free Set</a>.",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/P-adic_valuation\">p-adic valuation</a>.",
+        "<a href=\"/index/Fi#FIXEDPOINTS\">Index entries for sequences that are fixed points of mappings</a>",
+        "<a href=\"/index/Bi#binary\">Index entries for sequences related to binary expansion of n</a>"
+      ],
+      "maple": [
+        "ord := proc(n) local i,j; if n=0 then return 0; fi; i:=0; j:=n; while j mod 2 <> 1 do i:=i+1; j:=j/2; od: i; end proc: seq(ord(n), n=1..111);",
+        "A007814 := n -> padic[ordp](n,2): seq(A007814(n), n=1..111); # _Peter Luschny_, Nov 26 2010"
+      ],
+      "mathematica": [
+        "Table[IntegerExponent[n, 2], {n, 64}] (* _Eric W. Weisstein_ *)",
+        "(* Alternative: *)",
+        "IntegerExponent[Range[64], 2] (* _Eric W. Weisstein_, Feb 01 2024 *)",
+        "(* Alternative: *)",
+        "p=2; Array[ If[Mod[ #, p ]==0, Select[FactorInteger[#], Function[q, q[[1]]==p], 1][[1, 2]], 0 ]&, 96 ]",
+        "(* Alternative: *)",
+        "Nest[Join[ #, ReplacePart[ #, Length[ # ] -> Last[ # ] + 1]] &, {0, 1}, 5] (* N. J. Gunther, May 23 2009 *)",
+        "(* Alternative: *)",
+        "Nest[ Flatten[# /. a_Integer -> {0, a + 1}] &, {0}, 7] (* _Robert G. Wilson v_, Jan 17 2011 *)"
+      ],
+      "name": "Exponent of highest power of 2 dividing n, a.k.a. the binary carry sequence, the ruler sequence, or the 2-adic valuation of n.",
+      "number": 7814,
+      "offset": "1,4",
+      "program": [
+        "(PARI) A007814(n)=valuation(n,2);",
+        "(Haskell)",
+        "a007814 n = if m == 0 then 1 + a007814 n' else 0",
+        "            where (n', m) = divMod n 2",
+        "-- _Reinhard Zumkeller_, Jul 05 2013, May 14 2011, Apr 08 2011",
+        "(Haskell)",
+        "a007814 n | odd n = 0 | otherwise = 1 + a007814 (n `div` 2)",
+        "-- _Walt Rorie-Baety_, Mar 22 2013",
+        "(Haskell)",
+        "a007814_list = 0 : concatMap ((: [0]) . (+ 1)) a007814_list",
+        "-- _Heath Davison Lunt_, Mar 21 2025",
+        "(R) sapply(1:100,function(x) sum(gmp::factorize(x)==2)) # _Christian N. K. Anderson_, Jun 20 2013",
+        "(Magma) [Valuation(n, 2): n in [1..120]]; // _Bruno Berselli_, Aug 05 2013",
+        "(Python)",
+        "import math",
+        "def a(n): return int(math.log(n - (n & n - 1), 2)) # _Indranil Ghosh_, Apr 18 2017",
+        "(Python)",
+        "def A007814(n): return (~n & n-1).bit_length() # _Chai Wah Wu_, Jul 01 2022",
+        "(Scheme) (define (A007814 n) (let loop ((n n) (e 0)) (if (odd? n) e (loop (/ n 2) (+ 1 e))))) ;; _Antti Karttunen_, Oct 06 2017"
+      ],
+      "reference": [
+        "J.-P. Allouche and J. Shallit, Automatic Sequences, Cambridge Univ. Press, 2003, p. 27.",
+        "K. Atanassov, On the 37th and the 38th Smarandache Problems, Notes on Number Theory and Discrete Mathematics, Sophia, Bulgaria, Vol. 5 (1999), No. 2, 83-85.",
+        "Michel Rigo, Formal Languages, Automata and Numeration Systems, 2 vols., Wiley, 2014. Mentions this sequence - see \"List of Sequences\" in Vol. 2."
+      ],
+      "references": 1040,
+      "revision": 549,
+      "time": "2026-10-13T23:37:48-04:00",
+      "xref": [
+        "Cf. A011371 (partial sums), A094267 (first differences), A001511 (bisection), A346070 (mod 4).",
+        "Bisection of A050605 and |A088705|. Pairwise sums are A050603 and A136480. Difference of A285406 and A281264.",
+        "This is Guy Steele's sequence GS(1, 4) (see A135416). Cf. A053398(1,n). Column/row 1 of table A050602.",
+        "Cf. A007949 (3-adic), A235127 (4-adic), A112765 (5-adic), A122841 (6-adic), A214411 (7-adic), A244413 (8-adic), A122840 (10-adic).",
+        "Cf. A000079, A002487, A006519, A051064, A055457, A063787, A215366, A220466.",
+        "Cf. A086463 (Dgf at s=2)."
+      ]
+    },
+    {
+      "author": "_Antti Karttunen_, Apr 19 2024",
+      "comment": [
+        "When a(n) is applied to square array A257852 we obtain square array A004736, or in other words, a(n) applied to any odd number gives the index of the row where it is located in array A257852.",
+        "See further comments in A087230.",
+        "The asymptotic density of the occurrences of k = 0, 1, 2, ... is 1/2^(k+1). The asymptotic mean of this sequence is 1. - _Amiram Eldar_, May 28 2024"
+      ],
+      "created": "2024-04-20T16:36:40-04:00",
+      "data": "0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,6,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,8,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2",
+      "formula": [
+        "a(n) = A007814(A016777(n)).",
+        "For all n >= 0, A067745(1+n) = A016777(n) / 2^a(n).",
+        "G.f.: Sum_{k>=1} k*x^(-1/3 + (-2)^(k + 1)/3 + 2^k)/(1 - x^(2^(k + 1))). - _Miles Wilson_, Sep 30 2024"
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Antti Karttunen, <a href=\"/A371093/b371093.txt\">Table of n, a(n) for n = 0..65537</a>"
+      ],
+      "mathematica": [
+        "Table[IntegerExponent[3*n+1, 2], {n, 0, 105}] (* _James C. McMahon_, Apr 21 2024 *)"
+      ],
+      "name": "a(n) is the 2-adic valuation of 3n+1.",
+      "number": 371093,
+      "offset": "0,2",
+      "program": [
+        "(PARI) A371093(n) = valuation(1+3*n,2);",
+        "(Python)",
+        "def A371093(n): return ((m:=3*n) & ~(m+1)).bit_length() # _Chai Wah Wu_, Apr 20 2024"
+      ],
+      "references": 11,
+      "revision": 29,
+      "time": "2024-10-25T10:10:36-04:00",
+      "xref": [
+        "Bisections: A000004, A087230.",
+        "Cf. A004736, A007814, A016777, A067745, A257852.",
+        "Cf. also A371092."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_, based on a message from Guy Steele and _Don Knuth_, Mar 01 2008",
+      "created": "2008-06-29T03:00:00-04:00",
+      "data": "1,2,0,3,0,1,0,4,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,6,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,7,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0",
+      "formula": [
+        "G.f.: x + Sum_{k>=1} x^(2^k)*(1 + 1/(1 - x^(2^k))). - _Ilya Gutkovskiy_, Mar 30 2017",
+        "a(n) = A135560(n) - 1. _Antti Karttunen_, Sep 27 2018"
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Antti Karttunen, <a href=\"/A135523/b135523.txt\">Table of n, a(n) for n = 1..65537</a>"
+      ],
+      "maple": [
+        "GS(4,1,200); # see A135416."
+      ],
+      "name": "a(n) = A007814(n) + A209229(n).",
+      "number": 135523,
+      "offset": "1,2",
+      "program": [
+        "(PARI) A135523(n) = (valuation(n,2)+(n && !bitand(n,n-1))); \\\\ _Antti Karttunen_, Sep 27 2018",
+        "(Python)",
+        "def A135523(n): return (~n& n-1).bit_length()+int(not(n&-n)^n) # _Chai Wah Wu_, Jul 08 2022"
+      ],
+      "references": 5,
+      "revision": 25,
+      "time": "2026-04-12T19:36:28-04:00",
+      "xref": [
+        "Cf. A135416, A007814, A036987.",
+        "This is Guy Steele's sequence GS(4, 1) (see A135416).",
+        "One less than A135560."
+      ]
+    },
+    {
+      "author": "_Antti Karttunen_, Dec 18 2015",
+      "created": "2015-12-29T03:06:58-05:00",
+      "data": "0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,6,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,6,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,3",
+      "example": [
+        "For n = 32, in base-3 \"1012\" [= A007089(32)], when we reverse it, we get \"2101\" [= A007089(64)], and 2-adic valuation of 64 [= \"1000000\" = A007088(64)] is 6, thus a(32) = 6."
+      ],
+      "formula": [
+        "a(n) = A007814(A263273(n)).",
+        "a(2n+1) = 0, a(2n) = 1 + a(A265352(n))."
+      ],
+      "keyword": "nonn,base",
+      "link": [
+        "Antti Karttunen, <a href=\"/A265330/b265330.txt\">Table of n, a(n) for n = 1..6561</a>"
+      ],
+      "name": "Zero-based row index to A265345; 2-adic valuation of bijective base-3 reversal of n: a(n) = A007814(A263273(n)).",
+      "number": 265330,
+      "offset": "1,4",
+      "program": [
+        "(Scheme) ;; Two variants.",
+        "(definec (A265330 n) (if (odd? n) 0 (+ 1 (A265330 (A265352 (/ n 2))))))",
+        "(define (A265330 n) (A007814 (A263273 n)))"
+      ],
+      "references": 4,
+      "revision": 12,
+      "time": "2025-09-11T21:44:05-04:00",
+      "xref": [
+        "One less than A265331.",
+        "Cf. A007088, A007089, A263273, A265345, A265352.",
+        "Cf. A265910 (corresponding other index).",
+        "Cf. also A265336, A265337, A265340.",
+        "Differs from A007814 for the first time at n=32, where a(32) = 6, while A007814(32) = 5."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=0%2C1%2C0%2C2%2C0%2C1%2C0%2C3%2C0%2C1%2C0%2C2%2C0%2C1%2C0%2C4%2C0%2C1%2C0%2C2%2C0%2C1%2C0%2C3%2C0%2C1%2C0%2C2%2C0%2C1%2C0%2C5%2C0%2C1%2C0%2C2%2C0%2C1%2C0%2C3&fmt=json"
+}

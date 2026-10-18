@@ -1,0 +1,140 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "universal codes: all n <= 5000 plus 3000 random n up to 2^60",
+    "Golomb/Rice codes: n <= 5000 (unary quotients make huge n impractical)",
+    "pattern codes: all 60 patterns of length 2..5 plus the unary pattern 1 (0 is its mirror image)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C11-01",
+    "file": "experiments/C11/E01_correctness.py",
+    "sha256": "c501cff11dd7a3c2130c3fd5db4d804342d1953e513234b5e61c1f405628fb0e",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "cycle": "C11",
+  "falsification": "Any mismatch, prefix relation, decreasing length step, or Kraft sum exceeding 1.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:22:39Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "methodology",
+      "new": "Encode/decode single values and concatenated streams; trie check of the first 20000 codewords; length(n) == len(encode(n)); monotonicity of length(n) on n <= 2e5 and on sorted random big n; exact Kraft partial sums over lengths <= 1500 for pattern codes.",
+      "old": "Encode/decode single values and concatenated streams; trie check of the first 20000 codewords; length(n) == len(encode(n)); monotonicity of length(n) on n <= 2e5 and on sorted random big n; exact Kraft partial sums over lengths <= 120 for pattern codes.",
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T08:23:51Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "universal codes: all n <= 5000 plus 3000 random n up to 2^60",
+        "Golomb/Rice codes: n <= 5000 (unary quotients make huge n impractical)",
+        "pattern codes: all 60 patterns of length 2..5 plus the unary pattern 1 (0 is its mirror image)"
+      ],
+      "old": [
+        "universal codes: all n <= 5000 plus 3000 random n up to 2^60",
+        "Golomb/Rice codes: n <= 5000 (unary quotients make huge n impractical)",
+        "pattern codes: all 62 patterns of length 1..5"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T08:36:40Z"
+    }
+  ],
+  "hypothesis": "Every implemented code round-trips on random data; every pattern-terminated code T_p is prefix-free with Kraft sum tending to 1; T_11 has exactly the length function of the Fibonacci C1 code.",
+  "id": "EXP-C11-01",
+  "methodology": "Encode/decode single values and concatenated streams; trie check of the first 20000 codewords; length(n) == len(encode(n)); monotonicity of length(n) on n <= 2e5 and on sorted random big n; exact Kraft partial sums over lengths <= 1500 for pattern codes.",
+  "question": "Are the encoders/decoders exact inverses, prefix-free, with nondecreasing length functions, and are pattern-terminated codes complete (Kraft sum 1)?",
+  "results_file": "results/EXP-C11-01.json",
+  "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-01",
+        "file": "experiments/C11/E01_correctness.py",
+        "sha256": "c0d2b08edcb9b0cbe5d51636a8338d133fe3da7eb08d7babfba5a32e1b344c11",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": true,
+      "finished": "2026-10-18T08:22:38Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C11-01.json",
+      "results_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "runtime_s": 0.793,
+      "started": "2026-10-18T08:22:37Z",
+      "summary": null
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-01",
+        "file": "experiments/C11/E01_correctness.py",
+        "sha256": "1194231572c226c70648f7db122cc81b4d87a83b0acc0a112610f579f6eb0522",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:23:14Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C11-01.json",
+      "results_sha256": "62d4258e2234576bd6eaf3160f2378d3b40c26f592ccbba9d068bd24cab080c1",
+      "runtime_s": 21.938,
+      "started": "2026-10-18T08:22:52Z",
+      "summary": [
+        "9 baseline + 61 pattern + 8 Golomb codes: problems = 70",
+        "Kraft partial sums (lengths <= 120) of pattern codes in [0.865307109911, 1.000000000000]",
+        "Fibonacci C1 length function == T_11 for n <= 2e5: True"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-01",
+        "file": "experiments/C11/E01_correctness.py",
+        "sha256": "ad99cd8e618dfc50a42409e4d0c64ceca3bd6c0ec68ab6ed917962fe9800aafb",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:23:50Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C11-01.json",
+      "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
+      "runtime_s": 19.14,
+      "started": "2026-10-18T08:23:31Z",
+      "summary": [
+        "9 baseline + 61 pattern + 8 Golomb codes: problems = 0",
+        "Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]",
+        "Fibonacci C1 length function == T_11 for n <= 2e5: True"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-01",
+        "file": "experiments/C11/E01_correctness.py",
+        "sha256": "c501cff11dd7a3c2130c3fd5db4d804342d1953e513234b5e61c1f405628fb0e",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:36:40Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C11-01.json",
+      "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
+      "runtime_s": 14.731,
+      "started": "2026-10-18T08:36:25Z",
+      "summary": [
+        "9 baseline + 61 pattern + 8 Golomb codes: problems = 0",
+        "Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]",
+        "Fibonacci C1 length function == T_11 for n <= 2e5: True"
+      ]
+    }
+  ],
+  "summary": [
+    "9 baseline + 61 pattern + 8 Golomb codes: problems = 0",
+    "Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]",
+    "Fibonacci C1 length function == T_11 for n <= 2e5: True"
+  ],
+  "title": "Correctness of the code implementations and of the pattern-terminated family"
+}

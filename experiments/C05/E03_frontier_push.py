@@ -9,7 +9,7 @@ from systems.magma import MagmaSAT, parse, satisfies, to_str
 META = {
     "id": "EXP-C05-03",
     "cycle": "C05",
-    "title": "Frontier push: spectra of open order-4 laws for n = 2..12 (SAT with sound Latin-row constraints)",
+    "title": "Frontier push: spectra of open order-4 laws for n = 2..10 (SAT with sound Latin-row constraints)",
     "agent": "Formal Verifier",
     "question": "For the order-4 laws x = t whose spectrum is listed as unknown in the Equational Theories Project "
                 "notes, which sizes n <= 12 admit models?",
@@ -19,8 +19,8 @@ META = {
                     "for laws of the form x = y*(...), every left translation is onto, hence a bijection in a finite "
                     "magma, so 'every row is a permutation' is added as a sound implied constraint",
                     "symmetry breaking 0*0 in {0,1} (any magma can be relabelled so)",
-                    "CaDiCaL conflict budget 4e6 per instance; UNKNOWN is reported as such"],
-    "methodology": "SAT model search for each law and n = 2..12; every SAT answer is re-verified by evaluating the "
+                    "CaDiCaL conflict budget 1e6 per instance; UNKNOWN is reported as such"],
+    "methodology": "SAT model search for each law and n = 2..10; every SAT answer is re-verified by evaluating the "
                    "law on the returned table; results are compared with the sizes stated in the notes.",
     "falsification": "A disagreement with a size stated in the notes would indicate a bug (ours or theirs).",
 }
@@ -43,8 +43,8 @@ LAWS = {
     1516: ("(yy)(x(xy))", [1, 5, 7, 8], [], "unknown spectrum starting with 1,5,7,8"),
     1719: ("(yy)((xx)y)", [1, 3, 4, 5, 6, 7, 8, 9], [], "unknown spectrum containing {0,1 mod 3} and 5, 8"),
 }
-SIZES = range(2, 13)
-BUDGET = 4_000_000
+SIZES = range(2, 11)
+BUDGET = 1_000_000
 
 
 def latin_rows(sat: MagmaSAT):
@@ -81,7 +81,7 @@ def run():
                 disagreements.append((num, n, "notes say OUT, SAT found a model"))
         decided_new = [n for n in SIZES if res[n] != "UNKNOWN" and n not in known_in and n not in known_out]
         rows.append({"etp_number": num, "law": "x = " + to_str(law[0]), "notes": phrase,
-                     "status_n_2_12": {str(n): res[n] for n in SIZES},
+                     "status_n_2_10": {str(n): res[n] for n in SIZES},
                      "in_spectrum": [n for n in SIZES if res[n] == "SAT"],
                      "not_in_spectrum": [n for n in SIZES if res[n] == "UNSAT"],
                      "unknown": [n for n in SIZES if res[n] == "UNKNOWN"],

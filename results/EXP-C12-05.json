@@ -1,0 +1,115 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C12-05",
+    "file": "experiments/C12/E05_signature_hypothesis.py",
+    "sha256": "61d4bb0812e34e75b5a2a966ac75b5f124b0866236cc08224f9015c3d6d2aa25",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:18:41Z",
+  "id": "EXP-C12-05",
+  "meta": {
+    "agent": "Mathematical Inventor",
+    "assumptions": [
+      "n <= 5000"
+    ],
+    "cycle": "C12",
+    "falsification": "Two numbers with the same signature and different Grundy values.",
+    "hypothesis": "H-C12-1 (bold): for each of G01-G06, g(n) depends only on the prime signature of n.",
+    "id": "EXP-C12-05",
+    "methodology": "Group n by prime signature and look for two numbers with equal signature and different Grundy values.",
+    "question": "Games G01-G06 are defined by multiplicative relations; is their Grundy value a function of the prime signature (sorted exponent vector) alone?",
+    "title": "Prime-signature hypothesis for divisibility and coprimality games"
+  },
+  "results": {
+    "rows": {
+      "G01 subtract a divisor d<n": {
+        "counterexample": {
+          "g1": 1,
+          "g2": 0,
+          "n1": 2,
+          "n2": 3,
+          "signature": [
+            1
+          ]
+        },
+        "signature_dependent_up_to_5000": false
+      },
+      "G02 subtract any divisor": {
+        "counterexample": {
+          "g1": 2,
+          "g2": 1,
+          "n1": 2,
+          "n2": 3,
+          "signature": [
+            1
+          ]
+        },
+        "signature_dependent_up_to_5000": false
+      },
+      "G03 subtract a nontrivial proper divisor": {
+        "counterexample": {
+          "g1": 1,
+          "g2": 0,
+          "n1": 4,
+          "n2": 9,
+          "signature": [
+            2
+          ]
+        },
+        "signature_dependent_up_to_5000": false
+      },
+      "G04 move to a proper divisor": {
+        "counterexample": null,
+        "signature_dependent_up_to_5000": true
+      },
+      "G05 move to a smaller coprime": {
+        "counterexample": {
+          "g1": 1,
+          "g2": 2,
+          "n1": 2,
+          "n2": 3,
+          "signature": [
+            1
+          ]
+        },
+        "signature_dependent_up_to_5000": false
+      },
+      "G06 move to a smaller non-coprime": {
+        "counterexample": {
+          "g1": 2,
+          "g2": 4,
+          "n1": 6,
+          "n2": 10,
+          "signature": [
+            1,
+            1
+          ]
+        },
+        "signature_dependent_up_to_5000": false
+      }
+    },
+    "summary": [
+      "G01 subtract a divisor d<n: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 0}",
+      "G02 subtract any divisor: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 2, 'g2': 1}",
+      "G03 subtract a nontrivial proper divisor: signature-only = False {'n1': 4, 'n2': 9, 'signature': [2], 'g1': 1, 'g2': 0}",
+      "G04 move to a proper divisor: signature-only = True ",
+      "G05 move to a smaller coprime: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 2}",
+      "G06 move to a smaller non-coprime: signature-only = False {'n1': 6, 'n2': 10, 'signature': [1, 1], 'g1': 2, 'g2': 4}"
+    ]
+  },
+  "results_sha256": "d4ca22ecc3ae95f45119d0e4e53f9f11e1c949ebb9dc62e5117ac0d0506b530d",
+  "runtime_s": 0.249,
+  "started": "2026-10-18T08:18:41Z"
+}

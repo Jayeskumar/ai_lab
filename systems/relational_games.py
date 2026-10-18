@@ -106,14 +106,16 @@ def grundy_split(N: int, allowed) -> list[int]:
 # ------------------------------------------------------------------ structure detection
 def eventual_period(seq, max_period: int = 2000, min_reps: int = 3):
     """Smallest period p (with its least preperiod) such that seq[n + p] = seq[n] for every
-    n >= pre inside the data and the periodic tail covers at least ``min_reps`` periods.
+    n >= pre inside the data, the periodic tail covers at least ``min_reps`` periods AND at
+    least half of the data (pre <= L/2), and the sequence is not constant on the tail of a
+    step function (a period-1 tail must also satisfy the half-range rule).
     Returns (pre, p) or None."""
     a = np.asarray(seq)
     L = len(a)
     for p in range(1, min(max_period, L // min_reps) + 1):
         diff = np.nonzero(a[p:] != a[:-p])[0]
         pre = 0 if diff.size == 0 else int(diff[-1]) + 1
-        if L - pre >= min_reps * p and L - pre >= p + 1:
+        if L - pre >= min_reps * p and 2 * pre <= L:
             return pre, p
     return None
 
@@ -129,7 +131,7 @@ def arithmetic_period(seq, max_period: int = 2000, min_reps: int = 3):
             continue
         bad = np.nonzero(d != s)[0]
         pre = 0 if bad.size == 0 else int(bad[-1]) + 1
-        if L - pre >= min_reps * p and L - pre >= p + 1:
+        if L - pre >= min_reps * p and 2 * pre <= L:
             return pre, p, int(s)
     return None
 

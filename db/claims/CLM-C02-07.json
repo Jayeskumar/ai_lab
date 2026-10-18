@@ -27,6 +27,24 @@
       "old": "Gauss-lemma uniqueness arguments are classical for canonical number systems and generalized radix representations (Kovacs, Petho; Akiyama et al.); generalises the uniqueness of rational-base representations (Akiyama-Frougny-Sakarovitch 2008). Probably known; pending Historian audit.",
       "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "statement",
+      "new": "Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then\ndistinct stable configurations supported on multiples of g have distinct values; in particular, if\nsum_j b_j < m, every n has exactly one stable representation there, namely rep(n). If P~ is not primitive\nand sum_j b_j <= m (more generally every b_(gi) < m*d, d the content of P~), two such configurations with\nequal value exist.",
+      "old": "Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then\ndistinct stable configurations supported on multiples of g have distinct values; in particular every n has\nexactly one stable representation there, namely rep(n). If P~ is not primitive, two such configurations with\nequal value exist.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C01_C02.md) - statement restricted, existence needs sum b < m and the converse sum b <= m",
+      "ts": "2026-10-18T08:39:48Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); statement restricted after the review (the converse fails for 2[k] -> 4[k+1], existence fails for 2[k] -> 3[k+1])",
+      "old": "Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C01_C02.md) - statement restricted, existence needs sum b < m and the converse sum b <= m",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C02-07",
@@ -36,8 +54,8 @@
   "novelty": "REDISCOVERY",
   "novelty_basis": "In substance S. Akiyama, C. Frougny, J. Sakarovitch, Israel J. Math. 168 (2008) 53-91, Lemma 5 (the same Gauss-lemma and constant-term argument for qX - p) transplanted to sum b_j y^j - m; general framework K. Scheicher, P. Surer, J. Thuswaldner, C. van de Woestijne, Digit systems over commutative rings, IJNT 10 (2014) 1459-1483; monic ancestor Kovacs-Petho (1991). The Lean formalisation is a verification asset.",
   "proof": "proofs/paper/C02.md#theorem-7-clm-c02-07--uniqueness-of-representations",
-  "proof_check": "Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof",
-  "statement": "Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then\ndistinct stable configurations supported on multiples of g have distinct values; in particular every n has\nexactly one stable representation there, namely rep(n). If P~ is not primitive, two such configurations with\nequal value exist.",
+  "proof_check": "Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); statement restricted after the review (the converse fails for 2[k] -> 4[k+1], existence fails for 2[k] -> 3[k+1])",
+  "statement": "Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then\ndistinct stable configurations supported on multiples of g have distinct values; in particular, if\nsum_j b_j < m, every n has exactly one stable representation there, namely rep(n). If P~ is not primitive\nand sum_j b_j <= m (more generally every b_(gi) < m*d, d the content of P~), two such configurations with\nequal value exist.",
   "system": "SYS-C",
   "title": "Uniqueness of representations when the reduced carry polynomial is primitive and irreducible",
   "type": "theorem",

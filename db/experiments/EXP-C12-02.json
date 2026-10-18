@@ -1,0 +1,80 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "exact Grundy values from EXP-C12-01 (n <= 1e5 / 5e3 / 2e4)",
+    "power-of-k games recomputed for k = 2..20, n <= 2e4",
+    "40 random splitting relations (each n >= 2 keeps the split 1 + (n-1) plus random others), n <= 1500; seed 12"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C12-02",
+    "file": "experiments/C12/E02_closed_forms.py",
+    "sha256": "e105f8a6c69c4d4683cb856c2ff5c93b6aca78ba491db8b1afd254bd2942729a",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "cycle": "C12",
+  "falsification": "Any mismatch.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:16:08Z"
+    }
+  ],
+  "hypothesis": "G01 = v2(n); G02 = v2(n)+1; G03 P-positions = odd numbers and 2^(2j+1); G04 = Omega(n); G05 = index of the smallest prime factor (and 'subtract k coprime to n' is the same game); G06: g(2k) = k-1, g(odd m) <= (m-1)/2, P-positions = {1} and the primes; subtract-a-power-of-k = the subtraction game {1, k}; any splitting game in which every heap >= 2 has an allowed split has g(n) = [n even]; G13 = popcount; G19 = floor(log2((n+1)/3)) + 1 (n >= 2); G20 = floor(log2 n).",
+  "id": "EXP-C12-02",
+  "methodology": "Compare each closed form term by term with the exact values; count mismatches.",
+  "question": "Do the conjectured closed forms hold on the whole computed range, and do the general structure theorems (power-of-k reduction, splitting parity) hold on new instances?",
+  "results_file": "results/EXP-C12-02.json",
+  "results_sha256": "1b93f3e7a5761ea939a5352b2e801654037156cd39eaa63db372af1608f47ad1",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C12-02",
+        "file": "experiments/C12/E02_closed_forms.py",
+        "sha256": "e105f8a6c69c4d4683cb856c2ff5c93b6aca78ba491db8b1afd254bd2942729a",
+        "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:16:07Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C12-02.json",
+      "results_sha256": "1b93f3e7a5761ea939a5352b2e801654037156cd39eaa63db372af1608f47ad1",
+      "runtime_s": 3.484,
+      "started": "2026-10-18T08:16:04Z",
+      "summary": [
+        "closed-form mismatches over all checks: 0; power-of-k failures (k=2..20): 0",
+        "G01 subtract a divisor d<n: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+        "G02 subtract any divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+        "G04 move to a proper divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+        "G05 move to a smaller coprime: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+        "G13 move to a proper binary submask: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+        "G16 split into coprime parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+        "G17 split into dividing parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+        "G19 move to a remainder: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+        "G20 move to a quotient: {'range': [1, 20000], 'mismatches': 0, 'first_mismatch': []}",
+        "G03 P-positions = odd numbers and 2^(2j+1): {'range': [1, 100000], 'mismatches': 0}",
+        "G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes: {'even_mismatches': 0, 'odd_bound_violations': 0, 'P_mismatches': 0, 'max_ratio_odd': 0.24984984984984984}",
+        "G07 subtract a coprime = G05: {'mismatches': 0}",
+        "random splitting relations (every n>=2 splittable): {'relations': 40, 'mismatches': 0}"
+      ]
+    }
+  ],
+  "summary": [
+    "closed-form mismatches over all checks: 0; power-of-k failures (k=2..20): 0",
+    "G01 subtract a divisor d<n: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+    "G02 subtract any divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+    "G04 move to a proper divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+    "G05 move to a smaller coprime: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+    "G13 move to a proper binary submask: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+    "G16 split into coprime parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+    "G17 split into dividing parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+    "G19 move to a remainder: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+    "G20 move to a quotient: {'range': [1, 20000], 'mismatches': 0, 'first_mismatch': []}",
+    "G03 P-positions = odd numbers and 2^(2j+1): {'range': [1, 100000], 'mismatches': 0}",
+    "G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes: {'even_mismatches': 0, 'odd_bound_violations': 0, 'P_mismatches': 0, 'max_ratio_odd': 0.24984984984984984}",
+    "G07 subtract a coprime = G05: {'mismatches': 0}",
+    "random splitting relations (every n>=2 splittable): {'relations': 40, 'mismatches': 0}"
+  ],
+  "title": "Closed forms for relational games: verification against exact Grundy values"
+}

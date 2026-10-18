@@ -27,13 +27,22 @@
       "old": null,
       "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C02.md Theorem 6, gap closed by the highest-firing-level argument), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); 0 inversions for 31 rules up to n = 3000 and (Skeptic, LIFO order) 448 rules up to n = 1500",
+      "old": "written proof (proofs/paper/C02.md Theorem 6); 0 inversions for 31 rules up to n = 3000; awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C01_C02.md) - proof gap closed by the highest-firing-level argument",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C02-08",
   "novelty": "REDISCOVERY",
   "novelty_basis": "In substance AFS 2008 Prop. 11 (radix order agrees with numerical order for rational bases) via the odometer argument; the general rule was not found verbatim.",
   "proof": "proofs/paper/C02.md#theorem-6-clm-c02-08--representations-respect-the-radix-order",
-  "proof_check": "written proof (proofs/paper/C02.md Theorem 6); 0 inversions for 31 rules up to n = 3000; awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C02.md Theorem 6, gap closed by the highest-firing-level argument), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); 0 inversions for 31 rules up to n = 3000 and (Skeptic, LIFO order) 448 rules up to n = 1500",
   "statement": "For every carry rule with sum b < m and every n, rep(n) < rep(n+1) in radix order.",
   "system": "SYS-C",
   "title": "Exchange representations respect the radix order",

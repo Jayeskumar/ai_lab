@@ -5,3 +5,5 @@ qui_k4_hard_n9: tested 76 relation orbits (hard 76, common border 0), n<= 9: fai
 bin_k10_hard_n22: tested 52540 relation orbits (hard 52540, common border 1346), n<= 22: failures 0  [119.6 s]
 targeted q=2 k=10..16 n<=26: 600 hard relations with common borders (#common borders: {1: 508, 2: 80, 3: 8, 4: 4}); failures 0 [60.2 s]
 targeted q=3 k=6..9 n<=15: 600 hard relations with common borders (#common borders: {1: 579, 2: 21}); failures 0 [10.7 s]
+targeted q=4 k=5..7 n<=12: 241 hard relations with common borders (#common borders: {1: 241}); failures 0 [180.6 s]
+bin_k11_hard_n22: tested 210642 relation orbits (hard 210642, common border 6391), n<= 22: failures 0  [564.8 s]

@@ -1,0 +1,25 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-03",
+    "EXP-C04-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-09",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.",
+  "proof": "proofs/paper/C04.md#theorem-7-clm-c04-09--aab--ba-has-complexity-n--log-n--o1",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 7); per-word formula checked on all words of length <= 21, closed form to n = 20000; awaiting independent skeptic review",
+  "statement": "For aab -> ba over {a,b}, the maximal derivation length over words of length n >= 1 is\nD(n) = n - 1 - kappa(n) with kappa(n) = min{k >= 0 : 2^k + k >= n}; D stalls exactly at n = 2^k + k + 1, and\nthe generating function of D is not rational. The proof identifies the rule with the binary exchange system\n2[k] -> [k+1] (cycle C02) with an inert top level.",
+  "system": "SYS-A",
+  "title": "The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-rational)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

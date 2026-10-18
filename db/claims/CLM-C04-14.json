@@ -1,0 +1,22 @@
+{
+  "counterexample": "aa -> b: the word a^14 has Grundy value 4 (computed from its own derivation graph); Dawson's Kayles reaches 9, Officers 91 for n <= 3000 (EXP-C04-08).",
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-14",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every rewriting game of a terminating one-rule system with |l|, |r| <= 3 has Sprague-Grundy values <= 3.",
+  "system": "SYS-D",
+  "title": "H-C04-6: Grundy values of rewriting games never exceed 3 (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

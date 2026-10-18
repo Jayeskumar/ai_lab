@@ -27,14 +27,32 @@
       "old": null,
       "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "statement",
+      "new": "For each of the 1632 relations listed under proven_certificates in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",
+      "old": "For each of the 1632 relations marked PROVEN in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",
+      "reason": "Skeptic review 2026-10-18 - certificates now stored, soundness checked (EXP-C01-07 re-run); independently re-verified by the Skeptic",
+      "ts": "2026-10-18T08:39:48Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted (Python) - convergent completions (rules decreasing, critical pairs joinable, u and v joinable), soundness (every completed rule derived from u = v by BFS), Aho-Corasick automaton, recurrence-order bound s+k; all 1632 certificates stored in results/EXP-C01-07.json; independently re-verified by the Skeptic with separate code incl. soundness and an exact Goulden-Jackson cluster identity (reviews/skeptic_C01_C02.md); not Lean-checked",
+      "old": "computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked",
+      "reason": "Skeptic review 2026-10-18 - certificates now stored, soundness checked (EXP-C01-07 re-run); independently re-verified by the Skeptic",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C01-07",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Of the 1632 relations, 833 are instances of the containment theorem (Kurth 1987 + Guibas-Odlyzko) and 787 have no common border (published c = 1 case, see CLM-C01-09); only 12 (one common border each) fall in the unpublished case (CLM-C01-10). The method (finite completion, automaton of normal words, rational series) is Ufnarovski's framework (Encycl. Math. Sci. 57, 1995).",
   "proof": "proofs/paper/C01.md#theorem-6-clm-c01-07--computer-assisted-proofs-for-1632-specific-relations",
-  "proof_check": "computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked",
-  "statement": "For each of the 1632 relations marked PROVEN in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",
+  "proof_check": "computer-assisted (Python) - convergent completions (rules decreasing, critical pairs joinable, u and v joinable), soundness (every completed rule derived from u = v by BFS), Aho-Corasick automaton, recurrence-order bound s+k; all 1632 certificates stored in results/EXP-C01-07.json; independently re-verified by the Skeptic with separate code incl. soundness and an exact Goulden-Jackson cluster identity (reviews/skeptic_C01_C02.md); not Lean-checked",
+  "statement": "For each of the 1632 relations listed under proven_certificates in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",
   "system": "SYS-A",
   "title": "Common-border formula proved for 1632 specific relations by verified finite completions",
   "type": "theorem",

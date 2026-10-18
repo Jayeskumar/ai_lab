@@ -1,0 +1,25 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-09",
+    "EXP-C04-10"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-10",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.",
+  "proof": "proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review",
+  "statement": "Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then\nA(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the\none-rule system aab -> ba.",
+  "system": "SYS-A",
+  "title": "Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

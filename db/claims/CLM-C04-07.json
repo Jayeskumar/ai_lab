@@ -1,0 +1,22 @@
+{
+  "counterexample": "aa -> a has the bordered left-hand side aa but random descent (every derivation from w has sum over a-runs of (length - 1) steps and ends in the same word); 18 bordered rules with |l|, |r| <= 3 have random descent (EXP-C04-05). The 'if' direction is CLM-C04-05.",
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-07",
+  "novelty": "NOT ASSESSED",
+  "statement": "A terminating one-rule system has random descent iff its left-hand side is unbordered.",
+  "system": "SYS-A",
+  "title": "H-C04-1: random descent iff the left-hand side is unbordered (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

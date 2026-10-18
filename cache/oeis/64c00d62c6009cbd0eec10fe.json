@@ -1,0 +1,37 @@
+{
+  "fetched": "2026-10-18T08:19:42Z",
+  "query": "0,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+  "response": [
+    {
+      "author": "_Ralf Stephan_, Oct 21 2004",
+      "created": "2005-02-20T03:00:00-05:00",
+      "data": "0,0,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6",
+      "ext": [
+        "Definition corrected by _Georg Fischer_, Aug 31 2021"
+      ],
+      "formula": [
+        "G.f.: (1/(1-x)) * Sum_{k>=0} x^(3*2^k)."
+      ],
+      "keyword": "nonn,easy",
+      "maple": [
+        "0, seq(ilog2(2/3*n), n=2..110); # _Georg Fischer_, Aug 31 2021"
+      ],
+      "mathematica": [
+        "Join[{0},Floor[Log[2,2/3 Range[2,110]]]] (* _Harvey P. Dale_, Mar 01 2012 *)"
+      ],
+      "name": "a(n) = floor(log_2((2/3)*n)) for n >= 2, a(1) = 0.",
+      "number": 99396,
+      "offset": "1,6",
+      "program": [
+        "(PARI) a(n) = if(n == 1, 0, my(L = logint(n, 2)); L + bittest(n, L-1) - 1) \\\\ _Mikhail Kurkov_, Mar 13 2024"
+      ],
+      "references": 4,
+      "revision": 28,
+      "time": "2024-04-25T23:59:51-04:00",
+      "xref": [
+        "First differences are in A099395. Cf. A004762, A007283."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=0%2C1%2C1%2C1%2C2%2C2%2C2%2C2%2C2%2C2%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C3%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4%2C4&fmt=json"
+}

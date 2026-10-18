@@ -1,0 +1,93 @@
+{
+  "agent": "Historian and Novelty Analyst",
+  "assumptions": [
+    "OEIS search API with on-disk cache",
+    "Grundy sequences queried from n = 1 (n = 0 is not a position for several games); P-position sequences from the first positive P-position"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C12-04",
+    "file": "experiments/C12/E04_novelty.py",
+    "sha256": "0efa4360a41ec05153ad6d555ff359a93dff994fff3675a88c8a7e5b2c6ab317",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "cycle": "C12",
+  "falsification": "n/a (literature check)",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:19:45Z"
+    }
+  ],
+  "hypothesis": "Classical closed forms (v2, Omega, popcount, n mod 3, Grundy's game) are catalogued; some relational games may not be.",
+  "id": "EXP-C12-04",
+  "methodology": "novelty_check on the first 40 terms; the matched entries' names are recorded for manual reading (a shifted-window hit is not accepted as a match without inspection).",
+  "question": "Which of the 19 Grundy sequences and P-position sets are already catalogued?",
+  "results_file": "results/EXP-C12-04.json",
+  "results_sha256": "b7eb439c285686fa78a4723b692b6b367548537eabc3aafc9eab4833c24f2160",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C12-04",
+        "file": "experiments/C12/E04_novelty.py",
+        "sha256": "0efa4360a41ec05153ad6d555ff359a93dff994fff3675a88c8a7e5b2c6ab317",
+        "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:19:44Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C12-04.json",
+      "results_sha256": "b7eb439c285686fa78a4723b692b6b367548537eabc3aafc9eab4833c24f2160",
+      "runtime_s": 54.528,
+      "started": "2026-10-18T08:18:49Z",
+      "summary": [
+        "Grundy sequences without OEIS match: ['G03 subtract a nontrivial proper divisor']",
+        "P-position sets without match: ['G03 subtract a nontrivial proper divisor']",
+        "G01 subtract a divisor d<n: G MATCH ['A007814', 'A371093'] | P MATCH ['A005408', 'A060747']",
+        "G02 subtract any divisor: G MATCH ['A001511', 'A091090'] | P TOO FEW P-POSITIONS []",
+        "G03 subtract a nontrivial proper divisor: G NO MATCH [] | P NO MATCH []",
+        "G04 move to a proper divisor: G MATCH ['A001222'] | P TOO FEW P-POSITIONS []",
+        "G05 move to a smaller coprime: G MATCH ['A055396'] | P TOO FEW P-POSITIONS []",
+        "G06 move to a smaller non-coprime: G MATCH ['A279119'] | P MATCH ['A008578', 'A015919']",
+        "G08 subtract a square: G MATCH ['A014586'] | P MATCH ['A030193']",
+        "G09 subtract a Fibonacci number: G MATCH ['A014588'] | P MATCH ['A001581']",
+        "G10 subtract a power of 2: G MATCH ['A010872'] | P MATCH ['A008585', 'A008486']",
+        "G10b subtract a power of 3: G MATCH ['A000035', 'A059841'] | P MATCH ['A005843', 'A004275']",
+        "G10c subtract a power of 4: G MATCH (shifted window) ['A014586'] | P MATCH ['A047215', 'A038126']",
+        "G11 subtract a prime: G MATCH ['A014589'] | P MATCH ['A025043']",
+        "G12 subtract a triangular number: G MATCH ['A019509'] | P MATCH ['A030194']",
+        "G13 move to a proper binary submask: G MATCH ['A000120', 'A048881'] | P TOO FEW P-POSITIONS []",
+        "G16 split into coprime parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+        "G17 split into dividing parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+        "G18 Grundy's game (unequal split): G MATCH ['A002188'] | P MATCH ['A036685']",
+        "G19 move to a remainder: G MATCH ['A099396'] | P TOO FEW P-POSITIONS []",
+        "G20 move to a quotient: G MATCH ['A000523'] | P TOO FEW P-POSITIONS []"
+      ]
+    }
+  ],
+  "summary": [
+    "Grundy sequences without OEIS match: ['G03 subtract a nontrivial proper divisor']",
+    "P-position sets without match: ['G03 subtract a nontrivial proper divisor']",
+    "G01 subtract a divisor d<n: G MATCH ['A007814', 'A371093'] | P MATCH ['A005408', 'A060747']",
+    "G02 subtract any divisor: G MATCH ['A001511', 'A091090'] | P TOO FEW P-POSITIONS []",
+    "G03 subtract a nontrivial proper divisor: G NO MATCH [] | P NO MATCH []",
+    "G04 move to a proper divisor: G MATCH ['A001222'] | P TOO FEW P-POSITIONS []",
+    "G05 move to a smaller coprime: G MATCH ['A055396'] | P TOO FEW P-POSITIONS []",
+    "G06 move to a smaller non-coprime: G MATCH ['A279119'] | P MATCH ['A008578', 'A015919']",
+    "G08 subtract a square: G MATCH ['A014586'] | P MATCH ['A030193']",
+    "G09 subtract a Fibonacci number: G MATCH ['A014588'] | P MATCH ['A001581']",
+    "G10 subtract a power of 2: G MATCH ['A010872'] | P MATCH ['A008585', 'A008486']",
+    "G10b subtract a power of 3: G MATCH ['A000035', 'A059841'] | P MATCH ['A005843', 'A004275']",
+    "G10c subtract a power of 4: G MATCH (shifted window) ['A014586'] | P MATCH ['A047215', 'A038126']",
+    "G11 subtract a prime: G MATCH ['A014589'] | P MATCH ['A025043']",
+    "G12 subtract a triangular number: G MATCH ['A019509'] | P MATCH ['A030194']",
+    "G13 move to a proper binary submask: G MATCH ['A000120', 'A048881'] | P TOO FEW P-POSITIONS []",
+    "G16 split into coprime parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+    "G17 split into dividing parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+    "G18 Grundy's game (unequal split): G MATCH ['A002188'] | P MATCH ['A036685']",
+    "G19 move to a remainder: G MATCH ['A099396'] | P TOO FEW P-POSITIONS []",
+    "G20 move to a quotient: G MATCH ['A000523'] | P TOO FEW P-POSITIONS []"
+  ],
+  "title": "OEIS look-ups for the Grundy and P-position sequences of the 19 games"
+}

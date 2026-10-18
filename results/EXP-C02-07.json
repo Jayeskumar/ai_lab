@@ -1,0 +1,1365 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C02-07",
+    "file": "experiments/C02/E07_critical_rules_all_large_n.py",
+    "sha256": "db2473b626e9fc88ba9f5b137dcee86ad658ef01a544f25f7b1578f01572812f",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:18:24Z",
+  "id": "EXP-C02-07",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "all critical rules with m <= 5, J <= 4, b_j <= 4 and gcd of support 1 (b_J > 0)",
+      "starts n = 1..2000"
+    ],
+    "cycle": "C02",
+    "falsification": "A rule with an eigenvalue of modulus >= 1 other than the simple eigenvalue 1, or a terminating start after the first certified one beyond a stable tail.",
+    "hypothesis": "T-C02-12: if sum b = m and gcd{j : b_j > 0} = 1, the window map's linearisation has the simple eigenvalue 1 (eigenvector T = tail sums) and all other eigenvalues of modulus < 1; consequently every unary start n >= n0 reaches a window dominating T and never terminates.",
+    "id": "EXP-C02-07",
+    "methodology": "For each rule: eigenvalues of the J x J linear map (A x)_i = x_(i+1) + (b_i/m) x_1; sweep every start up to 2000 with periodic/pumping certificates; record the largest terminating start n0 - 1 and check that every larger start has a certificate.",
+    "question": "Is non-termination of critical rules (sum b = m) a property of all large starts, as a spectral argument predicts?",
+    "title": "Critical rules: non-termination from all large unary starts and the spectral gap"
+  },
+  "results": {
+    "max_largest_terminating_start": 124,
+    "n_rules": 98,
+    "rows": [
+      {
+        "b": [
+          2
+        ],
+        "largest_terminating_start": 1,
+        "m": 2,
+        "n_terminating_starts": 1,
+        "rho_second_eigenvalue": 0.0,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1
+        ],
+        "largest_terminating_start": 3,
+        "m": 2,
+        "n_terminating_starts": 3,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          1
+        ],
+        "largest_terminating_start": 7,
+        "m": 2,
+        "n_terminating_starts": 7,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          1
+        ],
+        "largest_terminating_start": 7,
+        "m": 2,
+        "n_terminating_starts": 7,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 2,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.878547,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "largest_terminating_start": 11,
+        "m": 2,
+        "n_terminating_starts": 11,
+        "rho_second_eigenvalue": 0.82256,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3
+        ],
+        "largest_terminating_start": 2,
+        "m": 3,
+        "n_terminating_starts": 2,
+        "rho_second_eigenvalue": 0.0,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2
+        ],
+        "largest_terminating_start": 8,
+        "m": 3,
+        "n_terminating_starts": 8,
+        "rho_second_eigenvalue": 0.666667,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1
+        ],
+        "largest_terminating_start": 5,
+        "m": 3,
+        "n_terminating_starts": 5,
+        "rho_second_eigenvalue": 0.333333,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          2
+        ],
+        "largest_terminating_start": 23,
+        "m": 3,
+        "n_terminating_starts": 23,
+        "rho_second_eigenvalue": 0.816497,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          1
+        ],
+        "largest_terminating_start": 8,
+        "m": 3,
+        "n_terminating_starts": 8,
+        "rho_second_eigenvalue": 0.57735,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          2
+        ],
+        "largest_terminating_start": 23,
+        "m": 3,
+        "n_terminating_starts": 23,
+        "rho_second_eigenvalue": 0.816497,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          1
+        ],
+        "largest_terminating_start": 8,
+        "m": 3,
+        "n_terminating_starts": 8,
+        "rho_second_eigenvalue": 0.57735,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          1
+        ],
+        "largest_terminating_start": 8,
+        "m": 3,
+        "n_terminating_starts": 8,
+        "rho_second_eigenvalue": 0.57735,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          1,
+          2
+        ],
+        "largest_terminating_start": 35,
+        "m": 3,
+        "n_terminating_starts": 35,
+        "rho_second_eigenvalue": 0.915195,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          2,
+          1
+        ],
+        "largest_terminating_start": 23,
+        "m": 3,
+        "n_terminating_starts": 23,
+        "rho_second_eigenvalue": 0.867933,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          1,
+          1
+        ],
+        "largest_terminating_start": 17,
+        "m": 3,
+        "n_terminating_starts": 17,
+        "rho_second_eigenvalue": 0.718057,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          0,
+          2
+        ],
+        "largest_terminating_start": 35,
+        "m": 3,
+        "n_terminating_starts": 35,
+        "rho_second_eigenvalue": 0.895952,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          1,
+          1
+        ],
+        "largest_terminating_start": 17,
+        "m": 3,
+        "n_terminating_starts": 17,
+        "rho_second_eigenvalue": 0.77686,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "largest_terminating_start": 14,
+        "m": 3,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.783894,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          0,
+          1
+        ],
+        "largest_terminating_start": 14,
+        "m": 3,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.72451,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          4
+        ],
+        "largest_terminating_start": 3,
+        "m": 4,
+        "n_terminating_starts": 3,
+        "rho_second_eigenvalue": 0.0,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          3
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.75,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          2
+        ],
+        "largest_terminating_start": 7,
+        "m": 4,
+        "n_terminating_starts": 7,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          1
+        ],
+        "largest_terminating_start": 7,
+        "m": 4,
+        "n_terminating_starts": 7,
+        "rho_second_eigenvalue": 0.25,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          3
+        ],
+        "largest_terminating_start": 47,
+        "m": 4,
+        "n_terminating_starts": 47,
+        "rho_second_eigenvalue": 0.866025,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          2
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          3,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          3
+        ],
+        "largest_terminating_start": 47,
+        "m": 4,
+        "n_terminating_starts": 47,
+        "rho_second_eigenvalue": 0.866025,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          2
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          2
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1,
+          1
+        ],
+        "largest_terminating_start": 7,
+        "m": 4,
+        "n_terminating_starts": 7,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          0,
+          1
+        ],
+        "largest_terminating_start": 11,
+        "m": 4,
+        "n_terminating_starts": 11,
+        "rho_second_eigenvalue": 0.5,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          1,
+          3
+        ],
+        "largest_terminating_start": 75,
+        "m": 4,
+        "n_terminating_starts": 75,
+        "rho_second_eigenvalue": 0.936217,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          2,
+          2
+        ],
+        "largest_terminating_start": 31,
+        "m": 4,
+        "n_terminating_starts": 31,
+        "rho_second_eigenvalue": 0.878547,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          3,
+          1
+        ],
+        "largest_terminating_start": 47,
+        "m": 4,
+        "n_terminating_starts": 47,
+        "rho_second_eigenvalue": 0.884646,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          1,
+          2
+        ],
+        "largest_terminating_start": 31,
+        "m": 4,
+        "n_terminating_starts": 31,
+        "rho_second_eigenvalue": 0.825315,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          2,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          1,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.771845,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          0,
+          3
+        ],
+        "largest_terminating_start": 75,
+        "m": 4,
+        "n_terminating_starts": 75,
+        "rho_second_eigenvalue": 0.926417,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          1,
+          2
+        ],
+        "largest_terminating_start": 31,
+        "m": 4,
+        "n_terminating_starts": 31,
+        "rho_second_eigenvalue": 0.845412,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          2,
+          1
+        ],
+        "largest_terminating_start": 27,
+        "m": 4,
+        "n_terminating_starts": 27,
+        "rho_second_eigenvalue": 0.781385,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          0,
+          2
+        ],
+        "largest_terminating_start": 31,
+        "m": 4,
+        "n_terminating_starts": 31,
+        "rho_second_eigenvalue": 0.85197,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.642384,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.818,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          0,
+          2
+        ],
+        "largest_terminating_start": 23,
+        "m": 4,
+        "n_terminating_starts": 23,
+        "rho_second_eigenvalue": 0.82256,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          1,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.707107,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1,
+          0,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.676605,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          0,
+          0,
+          1
+        ],
+        "largest_terminating_start": 15,
+        "m": 4,
+        "n_terminating_starts": 15,
+        "rho_second_eigenvalue": 0.660106,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          4
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.8,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          3
+        ],
+        "largest_terminating_start": 14,
+        "m": 5,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.6,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          2
+        ],
+        "largest_terminating_start": 9,
+        "m": 5,
+        "n_terminating_starts": 9,
+        "rho_second_eigenvalue": 0.4,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          4,
+          1
+        ],
+        "largest_terminating_start": 9,
+        "m": 5,
+        "n_terminating_starts": 9,
+        "rho_second_eigenvalue": 0.2,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          4
+        ],
+        "largest_terminating_start": 74,
+        "m": 5,
+        "n_terminating_starts": 74,
+        "rho_second_eigenvalue": 0.894427,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          3
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.774597,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          3,
+          2
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.632456,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          4,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.723607,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          4
+        ],
+        "largest_terminating_start": 74,
+        "m": 5,
+        "n_terminating_starts": 74,
+        "rho_second_eigenvalue": 0.894427,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          3
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.774597,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2,
+          2
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.632456,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          3,
+          1
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.447214,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          3
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.774597,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1,
+          2
+        ],
+        "largest_terminating_start": 14,
+        "m": 5,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.632456,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          2,
+          1
+        ],
+        "largest_terminating_start": 14,
+        "m": 5,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.447214,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          0,
+          2
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.632456,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          1,
+          1
+        ],
+        "largest_terminating_start": 9,
+        "m": 5,
+        "n_terminating_starts": 9,
+        "rho_second_eigenvalue": 0.447214,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          4,
+          0,
+          1
+        ],
+        "largest_terminating_start": 14,
+        "m": 5,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.447214,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          1,
+          4
+        ],
+        "largest_terminating_start": 124,
+        "m": 5,
+        "n_terminating_starts": 124,
+        "rho_second_eigenvalue": 0.949051,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          2,
+          3
+        ],
+        "largest_terminating_start": 64,
+        "m": 5,
+        "n_terminating_starts": 64,
+        "rho_second_eigenvalue": 0.899212,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          3,
+          2
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.866638,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          0,
+          4,
+          1
+        ],
+        "largest_terminating_start": 74,
+        "m": 5,
+        "n_terminating_starts": 74,
+        "rho_second_eigenvalue": 0.902657,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          1,
+          3
+        ],
+        "largest_terminating_start": 54,
+        "m": 5,
+        "n_terminating_starts": 54,
+        "rho_second_eigenvalue": 0.871797,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          2,
+          2
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.76429,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          1,
+          3,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.756797,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          1,
+          2
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.848474,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          2,
+          2,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.595133,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          0,
+          3,
+          1,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.810879,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          0,
+          4
+        ],
+        "largest_terminating_start": 124,
+        "m": 5,
+        "n_terminating_starts": 124,
+        "rho_second_eigenvalue": 0.943102,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          1,
+          3
+        ],
+        "largest_terminating_start": 69,
+        "m": 5,
+        "n_terminating_starts": 69,
+        "rho_second_eigenvalue": 0.881976,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          2,
+          2
+        ],
+        "largest_terminating_start": 29,
+        "m": 5,
+        "n_terminating_starts": 29,
+        "rho_second_eigenvalue": 0.822536,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          0,
+          3,
+          1
+        ],
+        "largest_terminating_start": 39,
+        "m": 5,
+        "n_terminating_starts": 39,
+        "rho_second_eigenvalue": 0.80522,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          0,
+          3
+        ],
+        "largest_terminating_start": 54,
+        "m": 5,
+        "n_terminating_starts": 54,
+        "rho_second_eigenvalue": 0.886579,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.740577,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.665344,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2,
+          0,
+          2
+        ],
+        "largest_terminating_start": 34,
+        "m": 5,
+        "n_terminating_starts": 34,
+        "rho_second_eigenvalue": 0.86923,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.655326,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          1,
+          3,
+          0,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.843855,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          0,
+          3
+        ],
+        "largest_terminating_start": 64,
+        "m": 5,
+        "n_terminating_starts": 64,
+        "rho_second_eigenvalue": 0.868831,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          1,
+          2
+        ],
+        "largest_terminating_start": 29,
+        "m": 5,
+        "n_terminating_starts": 29,
+        "rho_second_eigenvalue": 0.790793,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          0,
+          2,
+          1
+        ],
+        "largest_terminating_start": 24,
+        "m": 5,
+        "n_terminating_starts": 24,
+        "rho_second_eigenvalue": 0.719361,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1,
+          0,
+          2
+        ],
+        "largest_terminating_start": 29,
+        "m": 5,
+        "n_terminating_starts": 29,
+        "rho_second_eigenvalue": 0.762924,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "largest_terminating_start": 14,
+        "m": 5,
+        "n_terminating_starts": 14,
+        "rho_second_eigenvalue": 0.607245,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          2,
+          2,
+          0,
+          1
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.712947,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          0,
+          0,
+          2
+        ],
+        "largest_terminating_start": 34,
+        "m": 5,
+        "n_terminating_starts": 34,
+        "rho_second_eigenvalue": 0.767635,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          0,
+          1,
+          1
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.655883,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          3,
+          1,
+          0,
+          1
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.60983,
+        "tail_all_certified": true,
+        "unknown": 0
+      },
+      {
+        "b": [
+          4,
+          0,
+          0,
+          1
+        ],
+        "largest_terminating_start": 19,
+        "m": 5,
+        "n_terminating_starts": 19,
+        "rho_second_eigenvalue": 0.61339,
+        "tail_all_certified": true,
+        "unknown": 0
+      }
+    ],
+    "spectral_violations": [],
+    "summary": [
+      "98 critical rules with gcd-1 support (m <= 5, J <= 4): spectral violations 0",
+      "every start beyond the largest terminating one is certified non-terminating: True (largest terminating start over all rules: 124)",
+      "max second-eigenvalue modulus: 0.949051"
+    ],
+    "tail_violations": []
+  },
+  "results_sha256": "2062c9e1f8cc54e45a1885f191332cae49d81b92cc0c692ccef39ac77b7cfa45",
+  "runtime_s": 99.175,
+  "started": "2026-10-18T08:16:45Z"
+}

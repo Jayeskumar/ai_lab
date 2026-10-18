@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "The configuration (binary-counter-with-sink) formula for aab -> ba matches every word up to length 21 and the exhaustive graphs; D(n) = n - 1 - min{k : 2^k + k >= n} up to n = 20000; stalls exactly at n = 2^k + k + 1.",
   "assumptions": [
     "random descent of aab -> ba (unbordered left-hand side, CLM-C04-05)",
     "exhaustive derivation graphs up to n = 17 (EXP-C04-03)"
@@ -18,12 +19,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T07:40:53Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The configuration (binary-counter-with-sink) formula for aab -> ba matches every word up to length 21 and the exhaustive graphs; D(n) = n - 1 - min{k : 2^k + k >= n} up to n = 20000; stalls exactly at n = 2^k + k + 1.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-09"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-L: writing w = a^x0 b a^x1 ... b a^xm, each step is the carry 2[k] -> [k+1] (k < m) with level m a sink; hence D(n) = max over m of (n - m) - ceil((n - m)/2^m), i.e. n - D(n) = min_m (m + ceil((n-m)/2^m)) = log2(n) + O(1). Predicted first terms where D stalls: n = 4, 7, 12, 21, 38, ...",
   "id": "EXP-C04-04",
   "methodology": "(1) Exhaustive derivation graphs for n <= 14 (independent of the reduction). (2) For n <= 21, one leftmost derivation per word (valid by random descent) over all 2^n words. (3) Per-word check of the configuration formula D(w) = T - s2(V mod 2^m) - floor(V/2^m).",
   "question": "Why does the derivational complexity of aab -> ba admit no linear recurrence?",
+  "related": [
+    "CLM-C04-09"
+  ],
   "results_file": "results/EXP-C04-04.json",
   "results_sha256": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
   "runs": [
@@ -75,5 +108,6 @@
     "n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]",
     "closed form D(n) = n - 1 - min{k : 2^k + k >= n} (n <= 20000): True; stalls exactly at n = 2^k + k + 1: True"
   ],
-  "title": "The rule aab -> ba is a truncated binary exchange system: D(n) = max_m (n-m) - ceil((n-m)/2^m)"
+  "title": "The rule aab -> ba is a truncated binary exchange system: D(n) = max_m (n-m) - ceil((n-m)/2^m)",
+  "verification": "PROVEN"
 }

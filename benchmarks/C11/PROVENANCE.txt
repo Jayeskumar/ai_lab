@@ -1,0 +1,5 @@
+C11 benchmark tables, exported verbatim by make_tables.py from recorded runs.
+Timings (speed_cpython.csv) are machine-dependent and outside the result hash.
+synthetic_redundancy.csv: results/EXP-C11-03.json (file sha256 fdd2e79b765fcae46b126d874b3430279451b4c5bbb844c93f194e3eab724d43)
+data_bits_per_value.csv: results/EXP-C11-04.json (file sha256 6534b1e9dbbae3b1569381ff9661d2fa7283243790c2c08d6768d96720a5ba97)
+speed_cpython.csv: results/EXP-C11-05.json (file sha256 bac116899fdc4e3c4b0170b6e6fcd10a830efa352fb9d3321cfa5b71b8bdd07c)

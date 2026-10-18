@@ -1,0 +1,34 @@
+{
+  "cycle": "C02",
+  "evidence": [
+    "EXP-C02-03",
+    "EXP-C02-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C02",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proofs (proofs/paper/C02.md Theorem 3, skeptic-reviewed; Theorems 9 and 10 - two independent proofs of the critical case, Theorem 10 by the Skeptic and checked by the Director); 98 critical rules checked for all starts <= 2000 (EXP-C02-07)",
+      "old": "written proof (proofs/paper/C02.md Theorems 3 and 9); 98 critical rules checked for all starts <= 2000 (EXP-C02-07); awaiting independent skeptic review",
+      "reason": "Second independent proof (Skeptic, Appendix A) checked by the Director 2026-10-18; Theorem 3 skeptic-reviewed",
+      "ts": "2026-10-18T08:39:48Z"
+    }
+  ],
+  "id": "CLM-C02-11",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Historian audit found no equivalent for the critical case (closest - Propp 2017 proposed the rule family; Bond-Levine, Abelian networks II (2016) prove the analogous critical-case non-halting for FINITE networks via the spectral radius; the half-line network here is infinite). The sum b < m and sum b > m halves are folklore (CLM-C02-03).",
+  "proof": "proofs/paper/C02.md#theorem-9-clm-c02-11--critical-rules-never-terminate-from-large-starts",
+  "proof_check": "written proofs (proofs/paper/C02.md Theorem 3, skeptic-reviewed; Theorems 9 and 10 - two independent proofs of the critical case, Theorem 10 by the Skeptic and checked by the Director); 98 critical rules checked for all starts <= 2000 (EXP-C02-07)",
+  "statement": "A carry rule m[k] -> sum_j b_j [k+j] terminates from every unary start iff sum_j b_j < m. If sum_j b_j = m,\nevery derivation from n tokens at level 0 is infinite for all sufficiently large n (the sweep window converges,\nup to bounded error, to a large multiple of the tail-sum vector T and then dominates T).",
+  "system": "SYS-C",
+  "title": "Termination classification of carry rules: terminating from every unary start iff sum b < m",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

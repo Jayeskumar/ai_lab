@@ -1,0 +1,430 @@
+{
+  "fetched": "2026-10-18T08:19:21Z",
+  "query": "2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80",
+  "response": [
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "-2, -4, -6, -8, -10, -12, -14, ... are the trivial zeros of the Riemann zeta function. - Vivek Suri (vsuri(AT)jhu.edu), Jan 24 2008",
+        "If a 2-set Y and an (n-2)-set Z are disjoint subsets of an n-set X then a(n-2) is the number of 2-subsets of X intersecting both Y and Z. - _Milan Janjic_, Sep 19 2007",
+        "A134452(a(n)) = 0; A134451(a(n)) = 2 for n > 0. - _Reinhard Zumkeller_, Oct 27 2007",
+        "Omitting the initial zero gives the number of prime divisors with multiplicity of product of terms of n-th row of A077553. - _Ray Chandler_, Aug 21 2003",
+        "A059841(a(n))=1, A000035(a(n))=0. - _Reinhard Zumkeller_, Sep 29 2008",
+        "(APSO) Alternating partial sums of (a-b+c-d+e-f+g...) = (a+b+c+d+e+f+g...) - 2*(b+d+f...), it appears that APSO(A005843)(n) = (-1)^(n+1)*A052928(n+1) = 2*A116471(n) - A002378(n), with A116471=2*A008794. - _Eric Desbiaux_, Oct 28 2008",
+        "The corrected conjectures by Desbiaux are true (see Fried link). - _Sela Fried_, Dec 03 2025",
+        "A056753(a(n)) = 1. - _Reinhard Zumkeller_, Aug 23 2009",
+        "Twice the nonnegative numbers. - _Juri-Stepan Gerasimov_, Dec 12 2009",
+        "The number of hydrogen atoms in straight-chain (C(n)H(2n+2)), branched (C(n)H(2n+2), n > 3), and cyclic, n-carbon alkanes (C(n)H(2n), n > 2). - _Paul Muljadi_, Feb 18 2010",
+        "For n >= 1; a(n) = the smallest numbers m with the number of steps n of iterations of {r - (smallest prime divisor of r)} needed to reach 0 starting at r = m. See A175126 and A175127. A175126(a(n)) = A175126(A175127(n)) = n. Example (a(4)=8): 8-2=6, 6-2=4, 4-2=2, 2-2=0; iterations has 4 steps and number 8 is the smallest number with such result. - _Jaroslav Krizek_, Feb 15 2010",
+        "For n >= 1, a(n) = numbers k such that arithmetic mean of the first k positive integers is not integer. A040001(a(n)) > 1. See A145051 and A040001. - _Jaroslav Krizek_, May 28 2010",
+        "Union of A179082 and A179083. - _Reinhard Zumkeller_, Jun 28 2010",
+        "a(k) is the (Moore lower bound on and the) order of the (k,4)-cage: the smallest k-regular graph having girth four: the complete bipartite graph with k vertices in each part. - _Jason Kimberley_, Oct 30 2011",
+        "For n > 0: A048272(a(n)) <= 0. - _Reinhard Zumkeller_, Jan 21 2012",
+        "Let n be the number of pancakes that have to be divided equally between n+1 children. a(n) is the minimal number of radial cuts needed to accomplish the task. - _Ivan N. Ianakiev_, Sep 18 2013",
+        "For n > 0, a(n) is the largest number k such that (k!-n)/(k-n) is an integer. - _Derek Orr_, Jul 02 2014",
+        "a(n) when n > 2 is also the number of permutations simultaneously avoiding 213, 231 and 321 in the classical sense which can be realized as labels on an increasing strict binary tree with 2n-1 nodes. See A245904 for more information on increasing strict binary trees. - _Manda Riehl_ Aug 07 2014",
+        "It appears that for n > 2, a(n) = A020482(n) + A002373(n), where all sequences are infinite. This is consistent with Goldbach's conjecture, which states that every even number > 2 can be expressed as the sum of two prime numbers. - _Bob Selcoe_, Mar 08 2015",
+        "Number of partitions of 4n into exactly 2 parts. - _Colin Barker_, Mar 23 2015",
+        "Number of neighbors in von Neumann neighborhood. - _Dmitry Zaitsev_, Nov 30 2015",
+        "Unique solution b( ) of the complementary equation a(n) = a(n-1)^2 - a(n-2)*b(n-1), where a(0) = 1, a(1) = 3, and a( ) and b( ) are increasing complementary sequences. - _Clark Kimberling_, Nov 21 2017",
+        "Also the maximum number of non-attacking bishops on an (n+1) X (n+1) board (n>0). (Cf. A000027 for rooks and queens (n>3), A008794 for kings or A030978 for knights.) - _Martin Renner_, Jan 26 2020",
+        "Integer k is even positive iff phi(2k) > phi(k), where phi is Euler's totient (A000010) [see reference De Koninck & Mercier]. - _Bernard Schott_, Dec 10 2020",
+        "Number of 3-permutations of n elements avoiding the patterns 132, 213, 312 and also number of 3-permutations avoiding the patterns 213, 231, 321. See Bonichon and Sun. - _Michel Marcus_, Aug 20 2022",
+        "a(n) gives the y-value of the integral solution (x,y) of the Pellian equation x^2 - (n^2 + 1)*y^2 = 1. The x-value is given by 2*n^2 + 1 (see Tattersall). - _Stefano Spezia_, Jul 24 2025",
+        "For n > 1, a(n) is the (n-1)-dimensional surface of the unit hypercube [0,1]^n. - _Michael Shmoish_, Mar 09 2026",
+        "For n > 2, a(n) is the number of exterior angles of a convex n-gon. - _Stefano Spezia_, Oct 17 2026"
+      ],
+      "created": "1991-07-11T03:00:00-04:00",
+      "data": "0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120",
+      "example": [
+        "G.f. = 2*x + 4*x^2 + 6*x^3 + 8*x^4 + 10*x^5 + 12*x^6 + 14*x^7 + 16*x^8 + ..."
+      ],
+      "formula": [
+        "G.f.: 2*x/(1-x)^2.",
+        "E.g.f.: 2*x*exp(x). - _Geoffrey Critzer_, Aug 25 2012",
+        "G.f. with interpolated zeros: 2x^2/((1-x)^2 * (1+x)^2); e.g.f. with interpolated zeros: x*sinh(x). - _Geoffrey Critzer_, Aug 25 2012",
+        "Inverse binomial transform of A036289, n*2^n. - _Joshua Zucker_, Jan 13 2006",
+        "a(0) = 0, a(1) = 2, a(n) = 2a(n-1) - a(n-2). - _Jaume Oliver Lafont_, May 07 2008",
+        "a(n) = Sum_{k=1..n+1} floor(2n/2^k + 1/2). - _Vladimir Shevelev_, Jun 04 2009 [corrected by _Falk Hüffner_, Jun 14 2026]",
+        "a(n) = A034856(n+1) - A000124(n) = A000217(n) + A005408(n) - A000124(n) = A005408(n) - 1. - _Jaroslav Krizek_, Sep 05 2009",
+        "a(n) = Sum_{k>=0} A030308(n,k)*A000079(k+1). - _Philippe Deléham_, Oct 17 2011",
+        "Digit sequence 22 read in base n-1. - _Jason Kimberley_, Oct 30 2011",
+        "a(n) = 3*a(n-1) - 3*a(n-2) + a(n-3). - _Vincenzo Librandi_, Dec 23 2011",
+        "a(n) = 2*n = Product_{k=1..2*n-1} 2*sin(Pi*k/(2*n)), n >= 0 (undefined product := 1). See an Oct 09 2013 formula contribution in A000027 with a reference. - _Wolfdieter Lang_, Oct 10 2013",
+        "From _Ilya Gutkovskiy_, Aug 19 2016: (Start)",
+        "Convolution of A007395 and A057427.",
+        "Sum_{n>=1} (-1)^(n+1)/a(n) = log(2)/2 = (1/2)*A002162 = (1/10)*A016655. (End)",
+        "From _Bernard Schott_, Dec 10 2020: (Start)",
+        "Sum_{n>=1} 1/a(n)^2 = Pi^2/24 = A222171.",
+        "Sum_{n>=1} (-1)^(n+1)/a(n)^2 = Pi^2/48 = A245058. (End)"
+      ],
+      "id": "M0985",
+      "keyword": "nonn,easy,core,nice,changed",
+      "link": [
+        "N. J. A. Sloane, <a href=\"/A005843/b005843.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "Nicolas Bonichon and Pierre-Jean Morel, <a href=\"https://arxiv.org/abs/2202.12677\">Baxter d-permutations and other pattern avoiding classes</a>, arXiv:2202.12677 [math.CO], 2022.",
+        "David Callan, <a href=\"https://arxiv.org/abs/1911.02209\">On Ascent, Repetition and Descent Sequences</a>, arXiv:1911.02209 [math.CO], 2019.",
+        "Charles Cratty, Samuel Erickson, Frehiwet Negass, and Lara Pudwell, <a href=\"https://web.archive.org/web/20151222224319/http://www.valpo.edu/mathematics-statistics/files/2015/07/Pattern-Avoidance-in-Double-Lists.pdf\">Pattern Avoidance in Double Lists</a>, preprint, 2015.",
+        "Kevin Fagan, <a href=\"http://chesswanks.com/pot/IntelligenceTest.jpg\">Drabble cartoon, Jun 15 1987: Intelligence Test</a>",
+        "Sela Fried, <a href=\"/A005843/a005843.pdf\">Proof of two conjectures stated in A005843</a>, 2025.",
+        "Adam M. Goyt and Lara K. Pudwell, <a href=\"https://arxiv.org/abs/1203.3786\">Avoiding colored partitions of two elements in the pattern sense</a>, arXiv preprint arXiv:1203.3786 [math.CO], 2012, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL15/Goyt/goyt4.html\">J. Int. Seq. 15 (2012) # 12.6.2</a>",
+        "Milan Janjic, <a href=\"https://old.pmf.unibl.org/wp-content/uploads/2017/10/enumfor.pdf\">Two Enumerative Functions</a>",
+        "Tanya Khovanova, <a href=\"https://www.tanyakhovanova.com/RecursiveSequences/RecursiveSequences.html\">Recursive Sequences</a>",
+        "Simon Plouffe, <a href=\"https://arxiv.org/abs/0911.4975\">Approximations de séries génératrices et quelques conjectures</a>, Dissertation, Université du Québec à Montréal, 1992; arXiv:0911.4975 [math.NT], 2009.",
+        "Simon Plouffe, <a href=\"/A000051/a000051_2.pdf\">1031 Generating Functions</a>, Appendix to Thesis, Montreal, 1992.",
+        "Nathan Sun, <a href=\"https://arxiv.org/abs/2208.08506\">On d-permutations and Pattern Avoidance Classes</a>, arXiv:2208.08506 [math.CO], 2022.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/EvenNumber.html\">Even Number</a>",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/HamiltonianCycle.html\">Hamiltonian Cycle</a>",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/RiemannZetaFunctionZeros.html\">Riemann Zeta Function Zeros</a>",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Alkane\">Alkane</a>",
+        "<a href=\"/index/Cor#core\">Index entries for \"core\" sequences</a>",
+        "<a href=\"/index/Rec#order_02\">Index entries for linear recurrences with constant coefficients</a>, signature (2,-1)."
+      ],
+      "maple": [
+        "A005843 := n->2*n;",
+        "A005843:=2/(z-1)**2; # _Simon Plouffe_ in his 1992 dissertation"
+      ],
+      "mathematica": [
+        "Range[0,120,2] (* _Harvey P. Dale_, Aug 16 2011 *)"
+      ],
+      "name": "The nonnegative even numbers: a(n) = 2n.",
+      "number": 5843,
+      "offset": "0,2",
+      "program": [
+        "(Magma) [ 2*n : n in [0..100]];",
+        "(R) seq(0,200,2)",
+        "(PARI) A005843(n) = 2*n",
+        "(Haskell)",
+        "a005843 = (* 2)",
+        "a005843_list = [0, 2 ..]  -- _Reinhard Zumkeller_, Feb 11 2012",
+        "(Python) def a(n): return 2*n # _Martin Gergov_, Oct 20 2022"
+      ],
+      "reference": [
+        "T. M. Apostol, Introduction to Analytic Number Theory, Springer-Verlag, 1976, page 2.",
+        "John H. Conway and Richard K. Guy, The Book of Numbers, New York: Springer-Verlag, 1996. See p. 28.",
+        "Harold Davenport, The Higher Arithmetic, Cambridge University Press, 8th ed., 2008, p. 5.",
+        "J.-M. De Koninck and A. Mercier, 1001 Problèmes en Théorie Classique des Nombres, Problème 529a pp. 71 and 257, Ellipses, 2004, Paris.",
+        "William Dunham, Journey Through Genius, Wiley, 1990, Chapter 11, p. 255.",
+        "Konrad Knopp, Theory and application of infinite series, Blackie & Son Limited, London and Glasgow, 1954. See p. 14.",
+        "N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence).",
+        "James J. Tattersall, Elementary Number Theory in Nine Chapters, Cambridge University Press, 1999, page 256."
+      ],
+      "references": 815,
+      "revision": 307,
+      "time": "2026-10-17T21:04:23-04:00",
+      "xref": [
+        "a(n)=2*A001477(n). - _Juri-Stepan Gerasimov_, Dec 12 2009",
+        "Cf. A000027, A002061, A005408, A001358, A077553, A077554, A077555, A002024, A087112, A157888, A157889, A140811, A157872, A157909, A157910, A165900.",
+        "Moore lower bound on the order of a (k,g) cage: A198300 (square); rows: A000027 (k=2), A027383 (k=3), A062318 (k=4), A061547 (k=5), A198306 (k=6), A198307 (k=7), A198308 (k=8), A198309 (k=9), A198310 (k=10), A094626 (k=11); columns: A020725 (g=3), this sequence (g=4), A002522 (g=5), A051890 (g=6), A188377 (g=7). - _Jason Kimberley_, Oct 30 2011",
+        "Cf. A231200 (boustrophedon transform)."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "A091090(a(n)) = 1. - _Reinhard Zumkeller_, Mar 13 2011",
+        "Base-4 analog of A031149: floor(n^2/4) is a square. - _M. F. Hasler_, Jan 15 2012",
+        "From _Eric M. Schmidt_, Jul 17 2017: (Start)",
+        "Number of sequences (e(1), ..., e(n)), 0 <= e(i) < i, such that there is no triple i < j < k with e(i) != e(j) and e(i) != e(k). [Martinez and Savage, 2.2]",
+        "Number of sequences (e(1), ..., e(n)), 0 <= e(i) < i, such that there is no triple i < j < k with e(i) >= e(j) and e(i) != e(k). [Martinez and Savage, 2.2]",
+        "(End)"
+      ],
+      "created": "1996-12-11T03:00:00-05:00",
+      "data": "0,1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124",
+      "formula": [
+        "G.f.: x*(1+x^2)/(1-x)^2. - _Paul Barry_, Feb 28 2003",
+        "a(n) = floor((2*n^2)/(1 + n)). - _Enrique Pérez Herrero_, Apr 05 2010",
+        "a(n) = 2n - 2 + floor(2/(n+1)) = max(n, 2n-2) = 2n - 1 + sgn(1-n). Also, a(0)=0, a(1)=1, a(n) = 2n-2 for n > 1. - _Wesley Ivan Hurt_, Nov 05 2013",
+        "E.g.f.: 2 + 2*exp(x)*(x - 1) + x. - _Stefano Spezia_, Jun 16 2024"
+      ],
+      "keyword": "easy,nonn,changed",
+      "link": [
+        "Vincenzo Librandi, <a href=\"/A004275/b004275.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "Megan A. Martinez and Carla D. Savage, <a href=\"https://arxiv.org/abs/1609.08106\">Patterns in Inversion Sequences II: Inversion Sequences Avoiding Triples of Relations</a>, arXiv:1609.08106 [math.CO], 2016.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/PermutationPattern.html\">Permutation Pattern</a>.",
+        "<a href=\"/index/Rec#order_02\">Index entries for linear recurrences with constant coefficients</a>, signature (2,-1)."
+      ],
+      "maple": [
+        "A004275:= n-> 2*n - 2 + floor(2/(n+1)); seq(A004275(k), k=0..100); # _Wesley Ivan Hurt_, Nov 05 2013"
+      ],
+      "mathematica": [
+        "A004275[n_]:=Floor[(2 n^2)/(1 + n)]; (* _Enrique Pérez Herrero_, Apr 05 2010 *)",
+        "(* Alternative: *)",
+        "Insert[Range[0,110,2],1,2] (* _Harvey P. Dale_, Feb 27 2015 *)"
+      ],
+      "name": "1 together with nonnegative even numbers.",
+      "number": 4275,
+      "offset": "0,3",
+      "program": [
+        "(Magma) [Floor((2*n^2)/(1 + n)): n in [0..60] ]; // _Vincenzo Librandi_, Aug 19 2011",
+        "(Haskell)",
+        "a004275 n = 2 * n - 1 + signum (1 - n)",
+        "a004275_list = 0 : 1 : [2, 4 ..]  -- _Reinhard Zumkeller_, Dec 18 2013"
+      ],
+      "references": 46,
+      "revision": 60,
+      "time": "2026-10-17T15:41:22-04:00",
+      "xref": [
+        "Cf. A004277.",
+        "Range of A007457."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "Also number of non-attacking bishops on n X n board. - Koksal Karakus (karakusk(AT)hotmail.com), May 27 2002",
+        "Engel expansion of e^(1/2) (see A006784 for definition) [when offset by 1]. - _Henry Bottomley_, Dec 18 2000",
+        "Numbers n such that a 2n-group (i.e., a group of order 2n) has subgroup C_2. - _Lekraj Beedassy_, Oct 14 2004",
+        "Image of 1/(1-2x) under the mapping g(x)->g(x/(1+x^2)). - _Paul Barry_, Jan 16 2005",
+        "Position of n in A113322: A113322(a(n-1)) = n for n>0. - _Reinhard Zumkeller_, Oct 26 2005",
+        "Incrementally largest terms in the continued fraction for e. - Nick Hobson, Jan 11 2007",
+        "Conjecturally, the differences of two consecutive primes (without repetition). - _Juri-Stepan Gerasimov_, Nov 09 2009",
+        "Equals (1, 2, 2, 2, ...) convolved with (1, 0, 2, 0, 2, 0, 2, ...). - _Gary W. Adamson_, Mar 03 2010",
+        "a(n) is the number of 0-dimensional elements (vertices) in an n-cross polytope. - _Patrick J. McNab_, Jul 06 2015",
+        "Numbers k such that in the symmetric representation of sigma(k) there is no pair bars as its ends (Cf. A237593). - _Omar E. Pol_, Sep 28 2018",
+        "Also, the coordination sequence of the L-lattice (see A332419). - _Sean A. Irvine_, Jul 29 2020",
+        "The Jordan totient function is defined by the formula J_k(n) = n^k * Product_{p prime divisor of n} (1-1/p^k). Now define the Jordan cototient function by CoJ_k(n) = n^k - J_k(n). Then it appears that the terms of this sequence are precisely the values of n for which CoJ_k(n) achieves a new record for sufficiently large k. - _Hal M. Switkay_, Nov 30 2025",
+        "a(n) is the number of regions into which the plane is divided by n circles passing through two fixed distinct points. - _Hung Yang Hsu_, Jul 14 2026"
+      ],
+      "created": "1996-12-11T03:00:00-05:00",
+      "data": "1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132",
+      "ext": [
+        "Corrected by _Charles R Greathouse IV_, Mar 18 2010"
+      ],
+      "formula": [
+        "G.f.: (1+x^2)/(1-x)^2. - _Paul Barry_, Feb 28 2003",
+        "Inverse binomial transform of Cullen numbers A002064. a(n)=2n+0^n. - _Paul Barry_, Jun 12 2003",
+        "a(n) = Sum_{k=0..floor(n/2)} binomial(n-k-1)*(-1)^k*2^(n-2k). - _Paul Barry_, Jan 16 2005",
+        "Equals binomial transform of [1, 1, 1, -1, 1, -1, 1, ...]. - _Gary W. Adamson_, Jul 15 2008",
+        "E.g.f.: 1+x*sinh(x) (aerated sequence). - _Paul Barry_, Oct 11 2009",
+        "a(n) = 0^n + 2*n = A000007(n) + A005843(n). - _Reinhard Zumkeller_, Jan 11 2012",
+        "E.g.f.: 1 + 2*x*exp(x). - _Stefano Spezia_, Dec 22 2025"
+      ],
+      "keyword": "easy,nonn",
+      "link": [
+        "Zhuorui He, <a href=\"/A004277/b004277.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "E. Friedman, <a href=\"https://erich-friedman.github.io/mathmagic/0201.html\">Math. Magic</a>",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/CrossPolytope.html\">Cross Polytope</a>",
+        "<a href=\"/index/El#Engel\">Index entries for sequences related to Engel expansions</a>",
+        "<a href=\"/index/Rec#order_02\">Index entries for linear recurrences with constant coefficients</a>, signature (2, -1)."
+      ],
+      "mathematica": [
+        "Join[{1}, Table[2*n, {n, 200}]] (* _Vladimir Joseph Stephan Orlovsky_, Jul 10 2011 *)",
+        "Select[Range@ 105, PowerMod[#, #, # + 1] == 1 &] (* _Robert G. Wilson v_, Sep 26 2016 *)"
+      ],
+      "name": "1 together with positive even numbers.",
+      "number": 4277,
+      "offset": "0,2",
+      "program": [
+        "(Haskell)",
+        "a004277 n = 2 * n - 1 + signum (1 - n)",
+        "a004277_list = 1 : [2, 4 ..]  -- _Reinhard Zumkeller_, Dec 19 2013",
+        "(Magma) [1] cat [2*n: n in [1..80]]; // _Vincenzo Librandi_, Jul 11 2015"
+      ],
+      "references": 40,
+      "revision": 90,
+      "time": "2026-07-15T01:01:48-04:00",
+      "xref": [
+        "Cf. A004275, A008486, A030978, A097134.",
+        "INVERT transformation yields A098182 without A098182(0). - _R. J. Mathar_, Sep 11 2008"
+      ]
+    },
+    {
+      "author": "_Joss Langford_, Feb 04 2018",
+      "comment": [
+        "Possible periods of Post's {00, 1101} tag system. - _Charles R Greathouse IV_, Dec 13 2021",
+        "Numbers m such that 2^m - m is divisible by 2. - _Bernard Schott_, Dec 15 2021"
+      ],
+      "created": "2018-03-27T09:53:15-04:00",
+      "data": "2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130,132,134,136,138,140,142,144",
+      "formula": [
+        "a(n) = 2*n, n >= 1.",
+        "G.f.: 2*x/(1 - x)^2. [Corrected by _Ilya Gutkovskiy_, Mar 29 2018]",
+        "a(n) = 2*a(n-1) - a(n-2). - _Wesley Ivan Hurt_, Jul 17 2025",
+        "E.g.f.: 2*x*exp(x). - _Elmo R. Oliveira_, Jul 21 2026"
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Joss Langford, <a href=\"https://www.archinterface.co.uk/2018/02/integer-sequences\">Simple Integer Sequences</a>.",
+        "James B. Shearer, <a href=\"https://web.archive.org/web/20140714234145/http://bit-player.org/wp-content/extras/bph-publications/AmSci-1996-01-Hayes-sequences.pdf\">Periods of strings</a>, American Scientist Vol. 84, No. 3 (May-June 1996), p. 207. (See final page of pdf, and see also pp. 3-4 for an introduction.) [Wayback Machine link]",
+        "<a href=\"/index/Rec#order_02\">Index entries for linear recurrences with constant coefficients</a>, signature (2,-1)."
+      ],
+      "maple": [
+        "A299174 := n->2*n;"
+      ],
+      "mathematica": [
+        "Range[2, 180, 2]"
+      ],
+      "name": "The positive even integers.",
+      "number": 299174,
+      "offset": "1,1",
+      "program": [
+        "(R) seq(2, 180, 2)",
+        "(PARI) a(n)=2*n \\\\ _Charles R Greathouse IV_, Dec 13 2021"
+      ],
+      "references": 33,
+      "revision": 71,
+      "time": "2026-07-21T14:09:18-04:00",
+      "xref": [
+        "Equals A005843 without the leading zero.",
+        "Bisection of A000027. Complement of A004273. - _Omar E. Pol_, Feb 25 2018",
+        "First row of A083140.",
+        "Cf. A005408.",
+        "Cf. A000325, A047257.",
+        "Essentially the same as A163300, A103517, A051755, A005843 and A004277."
+      ]
+    },
+    {
+      "author": "_Zak Seidov_, Apr 01 2005",
+      "created": "2005-04-09T03:00:00-04:00",
+      "data": "1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,93,95,97,99,103,107,109,111,113,115,117,119",
+      "keyword": "nonn",
+      "name": "Records in A105358.",
+      "number": 105360,
+      "offset": "1,2",
+      "references": 7,
+      "revision": 2,
+      "time": "2012-03-30T17:26:14-04:00",
+      "xref": [
+        "Cf. A105353 - A105359."
+      ]
+    },
+    {
+      "author": "_Dmitry Kamenetsky_, Mar 09 2018",
+      "comment": [
+        "This is a logic puzzle. There is a castle with n rooms arranged in a line. The princess living in the castle sleeps in a different room each night, but always one adjacent to the one in which she slept on the previous night. She is free to choose any room in which to sleep on the first night. A prince would like to find the princess, but she will not tell him where she is going to sleep each night. Each night the prince can look in a single room. What strategy should he follow in order to guarantee that he finds the princess in a minimum number of nights?",
+        "The strategy to find the princess guaranteed within a(n) nights takes on average k(n) nights until the princess is found with lim_{n->oo} k(n) = n-1.5. For n>4, strategies with lower average numbers of trials exist; A386462 provides this strategy for n=8. See there for more information. - _Ruediger Jehn_, Aug 05 2025",
+        "Christian Perfect (see link) considered the case when the rooms are arranged as a general graph. He showed that the set of solvable graphs is exactly the set of trees not containing the \"threesy\" subgraph, which is A130131. He also showed that for d-level binary trees with 1 <= d <= 4 the number of required nights is 1, 2, 6, 18. Binary trees with d >= 5 are unsolvable as they contain \"threesy\"."
+      ],
+      "created": "2018-03-12T22:47:24-04:00",
+      "data": "1,2,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122",
+      "example": [
+        "For n = 1, there is only one room to search, so a(1) = 1.",
+        "For n = 2, the prince searches room 1 on the first night. If the princess is not there that means she was in room 2. If the prince searches room 1 again then he is guaranteed to see the princess as she has to move from room 2 to room 1 (she cannot stay in the same room). So a(2) = 2.",
+        "For n = 3, the prince searches room 2 on the first night. If the princess is not there that means she was either in room 1 or 3. On the second night she must go to room 2 and this is where the prince will find her. So a(3) = 2.",
+        "For n = 4, a solution that guarantees to find the princess in a(4)=4 nights is to search rooms (2,3,3,2).",
+        "For n = 5, a solution that guarantees to find the princess in a(5)=6 nights is to search rooms (2,3,4,4,3,2).",
+        "In the general case for n >= 3, a solution guaranteeing success in the minimum number of nights is to search rooms (2,3,...,n-1,n-1,...,3,2), so a(n) = 2*n - 4."
+      ],
+      "formula": [
+        "For n >= 3, a(n) = 2*n - 4.",
+        "From _Chai Wah Wu_, Apr 14 2024: (Start)",
+        "a(n) = 2*a(n-1) - a(n-2) for n > 4.",
+        "G.f.: x*(2*x^3 - x^2 + 1)/(x - 1)^2. (End)",
+        "E.g.f.: 4 + 2*exp(x)*(x - 2) + 3*x + x^2. - _Stefano Spezia_, Aug 15 2025"
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Christian Perfect, <a href=\"https://www.checkmyworking.com/2011/12/solving-the-princess-on-a-graph-puzzle/\">Solving the princess on a graph puzzle</a>.",
+        "Puzzling Stack Exchange, <a href=\"https://puzzling.stackexchange.com/questions/455/why-does-this-solution-guarantee-that-the-prince-knocks-on-the-right-door-to-fin\">Why does this solution guarantee that the prince knocks on the right door to find the princess?</a>.",
+        "standupmaths, Youtube, <a href=\"https://www.youtube.com/watch?v=nv0Onj3wXCE\">The Castle and the Princess Puzzle</a>.",
+        "<a href=\"/index/Rec#order_02\">Index entries for linear recurrences with constant coefficients</a>, signature (2,-1)."
+      ],
+      "mathematica": [
+        "CoefficientList[ Series[(2x^3 - x^2 + 1)/(x - 1)^2, {x, 0, 62}], x] (* _Robert G. Wilson v_, Mar 12 2018 *)",
+        "Join[{1,2},Range[2,200,2]] (* _Harvey P. Dale_, Jan 25 2019 *)"
+      ],
+      "name": "Number of nights required in the worst case to find the princess in a castle with n rooms arranged in a line (Castle and princess puzzle).",
+      "number": 300576,
+      "offset": "1,2",
+      "references": 6,
+      "revision": 68,
+      "time": "2025-08-16T10:03:55-04:00",
+      "xref": [
+        "Essentially the same as A005843, A004277 and A004275.",
+        "Cf. A130131, A130132, A331693, A386462."
+      ]
+    },
+    {
+      "author": "_Franklin T. Adams-Watters_, May 19 2006",
+      "comment": [
+        "Equivalently, numbers k such that totient(k) <= cototient(k).",
+        "Using the primes up to 23 it is possible to show that this sequence has (lower) density greater than 0.51. - _Charles R Greathouse IV_, Oct 26 2015",
+        "The asymptotic density of this sequence is in the interval (0.51120, 0.51176) (Kobayashi, 2016, improving the bounds 0.5105 and 0.5241 that were given by Wall, 1972). - _Amiram Eldar_, Oct 15 2020"
+      ],
+      "created": "2006-05-19T03:00:00-04:00",
+      "data": "2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,105,106,108,110,112,114,116,118,120,122,124,126,128,130",
+      "formula": [
+        "Elements of A054741 together with all 2^n for n>0."
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Amiram Eldar, <a href=\"/A119432/b119432.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Mitsuo Kobayashi, <a href=\"https://doi.org/10.1142/S1793042116500445\">A generalization of a series for the density of abundant numbers</a>, International Journal of Number Theory, Vol. 12, No. 3 (2016), pp. 671-677.",
+        "Charles R. Wall, <a href=\"https://doi.org/10.1090/S0025-5718-1972-0327701-9\">Density bounds for Euler's function</a>, Mathematics of Computation, Vol. 26, No. 119 (1972), pp. 779-783."
+      ],
+      "mathematica": [
+        "Select[Range[130], 2*EulerPhi[#] <= # &] (* _Amiram Eldar_, Feb 29 2020 *)"
+      ],
+      "name": "Numbers k such that 2*phi(k) <= k.",
+      "number": 119432,
+      "offset": "1,1",
+      "program": [
+        "(PARI) is(n)=2*eulerphi(n)<=n \\\\ _Charles R Greathouse IV_, Oct 26 2015"
+      ],
+      "references": 5,
+      "revision": 17,
+      "time": "2020-10-15T03:58:58-04:00",
+      "xref": [
+        "Disjoint union of A119434 and A299174. - _Amiram Eldar_, Oct 15 2020",
+        "Cf. A000010, A054741, A119433."
+      ]
+    },
+    {
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,130",
+      "keyword": "dead",
+      "name": "Duplicate of A004277.",
+      "number": 76032,
+      "offset": "1,2",
+      "references": 3,
+      "revision": 13,
+      "time": "2012-07-26T11:03:04-04:00"
+    },
+    {
+      "author": "_N. J. A. Sloane_, Oct 18 2006",
+      "created": "2006-12-06T03:00:00-05:00",
+      "data": "2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,120,126,128,130,132,134,136,138,140,142,150,240",
+      "formula": [
+        "a(n) = 2*n up to n = 58, but not beyond: After 116, increasingly many even numbers are missing. - _M. F. Hasler_, Jul 13 2026"
+      ],
+      "keyword": "nonn,fini,full",
+      "link": [
+        "Mathieu Dutour Sikirić, Achill Schürmann, and Frank Vallentin, <a href=\"https://doi.org/10.1090/S1079-6762-07-00171-0\">Classification of eight-dimensional perfect forms</a>, Electron. Res. Announc. Amer. Math. Soc. 13 (2007), 21-32; <a href=\"https://arxiv.org/abs/math/0609388\">arXiv preprint</a>, arXiv:math/0609388 [math.NT], 2006-2009."
+      ],
+      "name": "Kissing numbers of 8-dimensional perfect lattices.",
+      "number": 122080,
+      "offset": "1,1",
+      "references": 2,
+      "revision": 13,
+      "time": "2026-07-14T00:29:53-04:00",
+      "xref": [
+        "Cf. A004026, A122079."
+      ]
+    },
+    {
+      "author": "_Daniël Karssen_, Jul 24 2018",
+      "comment": [
+        "Equal to A299174 for n<=2930; a(2931)=5861, A299174(2931)=5862.",
+        "A317106 is finite, so this sequence is infinite.",
+        "See A317106 for further information."
+      ],
+      "created": "2018-07-27T16:53:46-04:00",
+      "data": "2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128",
+      "keyword": "nonn",
+      "link": [
+        "Daniël Karssen, <a href=\"/A317108/b317108.txt\">Table of n, a(n) for n = 1..67087</a>"
+      ],
+      "name": "Numbers missing from A317106.",
+      "number": 317108,
+      "offset": "1,1",
+      "references": 2,
+      "revision": 13,
+      "time": "2018-07-27T16:53:46-04:00",
+      "xref": [
+        "Cf. A299174, A317106."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=2%2C4%2C6%2C8%2C10%2C12%2C14%2C16%2C18%2C20%2C22%2C24%2C26%2C28%2C30%2C32%2C34%2C36%2C38%2C40%2C42%2C44%2C46%2C48%2C50%2C52%2C54%2C56%2C58%2C60%2C62%2C64%2C66%2C68%2C70%2C72%2C74%2C76%2C78%2C80&fmt=json"
+}

@@ -11,10 +11,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Proved modulo one lemma - injectivity of b -> b([u'_-] - [v'_-]) on ZM[z], asserted but not proved in the Historian's derivation (Skeptic, reviews/skeptic_C01_C02.md (d)(3c)); identities (P), (E) and the injectivity premise hold numerically (3638 (P)-terms, 5648 (E)-terms, 2591 injectivity instances on 272 relations, 0 failures); verified for the 12 lab relations for all n by finite completion.",
+      "old": "Derivation not yet checked by the Skeptic; verified for the 12 lab relations (all n, by finite completion) and further relations by the Historian.",
+      "reason": "Skeptic check 2026-10-18 - identity (P) upheld, (E) has one gap (injectivity lemma); status kept until the lemma is proved",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C01-10",
-  "limitations": "Derivation not yet checked by the Skeptic; verified for the 12 lab relations (all n, by finite completion) and further relations by the Historian.",
+  "limitations": "Proved modulo one lemma - injectivity of b -> b([u'_-] - [v'_-]) on ZM[z], asserted but not proved in the Historian's derivation (Skeptic, reviews/skeptic_C01_C02.md (d)(3c)); identities (P), (E) and the injectivity premise hold numerically (3638 (P)-terms, 5648 (E)-terms, 2591 injectivity instances on 272 relations, 0 failures); verified for the 12 lab relations for all n by finite completion.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Historian derivation (reviews/historian_C01_C02.md, section 2 (C)): identities (P) H = G_y + x^(k-|y|) G_z and (E) H(1 - qx) + x^k G_z = 1 read off Gray-Steinberg 2022 Thm 6.6 and Props 8.3, 8.5 (G_w = growth series of the left ideal M[w]); for y = z they give the formula. No published statement of the growth formula found.",
   "statement": "If u != v of length k share exactly one common border z (neither border set containing the other), the class\ncounts have generating function c/(x^k + (1 - q x) c) with c = 1 + x^(k - |z|).",

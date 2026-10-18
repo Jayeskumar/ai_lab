@@ -1,0 +1,56 @@
+{
+  "agent": "Application Researcher",
+  "assumptions": [
+    "1e5 values, log-uniform on [1, 2^20], seeded",
+    "CPython string implementations; absolute speeds are NOT representative of optimised bit-level code, only the relative ordering of these implementations",
+    "timings are machine-dependent and excluded from the result hash"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C11-05",
+    "file": "experiments/C11/E05_speed.py",
+    "sha256": "9efc826d28f9d458cfbeb6c2396c159c49980db3afd693e3be1f68ea9294889e",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "cycle": "C11",
+  "falsification": "n/a (measurement)",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:26:48Z"
+    }
+  ],
+  "hypothesis": "Enumerative pattern codes are markedly slower than gamma/delta in a naive implementation (rank/unrank against a count table per bit).",
+  "id": "EXP-C11-05",
+  "methodology": "Encode the stream, decode it back, check equality; record total bits (deterministic) and microseconds per value (timings).",
+  "question": "What do pattern-terminated codes cost computationally relative to classical codes?",
+  "results_file": "results/EXP-C11-05.json",
+  "results_sha256": "27bfc39153c790f44263baa25ab3e6095ea605a53cf15bd546b759d830b34fad",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-05",
+        "file": "experiments/C11/E05_speed.py",
+        "sha256": "9efc826d28f9d458cfbeb6c2396c159c49980db3afd693e3be1f68ea9294889e",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:26:47Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C11-05.json",
+      "results_sha256": "27bfc39153c790f44263baa25ab3e6095ea605a53cf15bd546b759d830b34fad",
+      "runtime_s": 10.11,
+      "started": "2026-10-18T08:26:37Z",
+      "summary": [
+        "all round trips ok: True",
+        "bits per value: Elias gamma 19.98, Elias delta 15.89, Elias omega 17.04, Levenshtein 17.85, Fibonacci C1 15.57, LEB128 varint 15.57, Exp-Golomb(0) 19.98, Exp-Golomb(2) 18.40, Exp-Golomb(4) 17.14, Rice(6) 1193.51, T_11 15.57, T_111 14.31, T_0111 14.20, T_101 14.41"
+      ]
+    }
+  ],
+  "summary": [
+    "all round trips ok: True",
+    "bits per value: Elias gamma 19.98, Elias delta 15.89, Elias omega 17.04, Levenshtein 17.85, Fibonacci C1 15.57, LEB128 varint 15.57, Exp-Golomb(0) 19.98, Exp-Golomb(2) 18.40, Exp-Golomb(4) 17.14, Rice(6) 1193.51, T_11 15.57, T_111 14.31, T_0111 14.20, T_101 14.41"
+  ],
+  "title": "Throughput of the reference implementations (Python, string-based)"
+}

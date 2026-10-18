@@ -1,0 +1,59 @@
+{
+  "fetched": "2026-10-18T08:19:11Z",
+  "query": "2,5,7,10,12,15,17,20,22,34,39,44,52,57,62,65,67,72,85,95,109,119,124,127,130,132,137,142,147,150,170,177,180,182,187,192,197,204,210,215",
+  "response": [
+    {
+      "author": "_Jan Kristian Haugland_",
+      "comment": [
+        "Consider the following game: two players make moves in turn, initially the number on the board is n, each move consists of subtracting a perfect square from the number on the board, the player who faces 0 loses. This sequence is the set of losing positions in this game. - Mikhail Dvorkin (mikhail.dvorkin(AT)gmail.com), Jan 27 2008",
+        "This sequence was investigated by Golomb (1966), who proved that it is infinite. More strongly (as Ruzsa 1984 notes) the number of values up to any given n is at least proportional to sqrt(n). No two numbers in this sequence differ by a square, and this sequence can be defined as the lexicographically first (greedy) sequence with no square differences. It follows from the Furstenberg-Sárközy theorem (e.g., see Sárközy 1978) that its natural density is zero. - _David Eppstein_, Nov 20 2016"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "0,2,5,7,10,12,15,17,20,22,34,39,44,52,57,62,65,67,72,85,95,109,119,124,127,130,132,137,142,147,150,170,177,180,182,187,192,197,204,210,215,238,243,249,255,257,260,262,267,272,275,312,317,322,327,332,335,340",
+      "ext": [
+        "More terms from _Karl W. Heuer_, Jun 13 2013"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Karl W. Heuer, <a href=\"/A030193/b030193.txt\">Table of n, a(n) for n = 0..61299</a>",
+        "Code Golf Stack Exchange, <a href=\"https://codegolf.stackexchange.com/questions/220159/first-sequence-with-no-square-differences\">First sequence with no square differences</a>, 2021.",
+        "David Eppstein, <a href=\"https://arxiv.org/abs/1804.06515\">Faster Evaluation of Subtraction Games</a>, Proceedings of the 9th International Conference on Fun with Algorithms (FUN 2018), Leibniz International Proceedings in Informatics, arXiv:1804.06515 [cs.DS], 2018.",
+        "S. W. Golomb, <a href=\"https://doi.org/10.1016/S0021-9800(66)80016-9\">A mathematical investigation of games of \"take-away\"</a>, J. Combinatorial Theory, 1 (1966), 443-458.",
+        "Ben Green and Mehtaab Sawhney, <a href=\"https://arxiv.org/abs/2411.17448\">New bounds for the Furstenberg-Sárközy theorem</a>, arXiv:2411.17448 [math.NT], 2024-2025. See p. 2.",
+        "I. Ruzsa, <a href=\"https://doi.org/10.1007/BF02454169\">Difference sets without squares</a>, Period. Math. Hungar. 15 (1984), no. 3, 205-209.",
+        "A. Sárközy, <a href=\"https://doi.org/10.1007/BF01896079\">On difference sets of sequences of integers I</a>, Acta Mathematica Academiae Scientiarum Hungarica, March 1978, Volume 31, Issue 1, pp 125-149.",
+        "A. Sárközy, <a href=\"https://doi.org/10.1007/BF01901984\">On difference sets of sequences of integers III</a>, Acta Mathematica Academiae Scientiarum Hungarica, September 1978, Volume 31, Issue 3, pp 355-386.",
+        "A. Sárközy, <a href=\"https://annalesm.elte.hu/annales21-1978/Annales_1978_T-XXI.pdf\">On the difference sets of sequences of integers II</a>, Eotvos Sect. Math. 21(1978), 45-53."
+      ],
+      "mathematica": [
+        "moves[n_] := Table[n - i^2, {i, 1, Sqrt[n]}]; gana[n_] := Which[n == 0, False, True,!Select[moves[n], !gana[#] &] =={}]; Select[Range[40] - 1, ! gana[#] &] (* _José María Grau Ribas_, Jul 19 2013 *)",
+        "(* Alternative: *)",
+        "Nest[Append[#, Block[{k = Last[#]}, While[AnyTrue[k - #, IntegerQ@ Sqrt@ # &], k++]; k]] &, {0}, 60] (* _Michael De Vlieger_, Jul 11 2018 *)"
+      ],
+      "name": "Let S = squares; a(0)=0; a(n) = smallest m such that m - a(i) is not in S for any i < n.",
+      "number": 30193,
+      "offset": "0,2",
+      "program": [
+        "(Python)",
+        "import itertools",
+        "import math",
+        "def a030193_gen():",
+        "    losing = {0}",
+        "    yield 0",
+        "    for i in itertools.count(1):",
+        "        if all(i - t**2 not in losing for t in range(1, math.isqrt(i) + 1)):",
+        "            losing.add(i)",
+        "            yield i",
+        "a030193_list = list(itertools.islice(a030193_gen(), 60)) # _Adam Reichert_, Aug 10 2026",
+        "(PARI) lista(nn) = my(v=vector(nn)); for (n=2, nn, my(m=1); while(vecsum(vector(n, i, issquare(m-v[i]))), m++); v[n] = m;); v; \\\\ _Michel Marcus_, Aug 10 2026"
+      ],
+      "references": 9,
+      "revision": 62,
+      "time": "2026-08-17T22:16:00-04:00",
+      "xref": [
+        "Cf. A000037, A000290."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=2%2C5%2C7%2C10%2C12%2C15%2C17%2C20%2C22%2C34%2C39%2C44%2C52%2C57%2C62%2C65%2C67%2C72%2C85%2C95%2C109%2C119%2C124%2C127%2C130%2C132%2C137%2C142%2C147%2C150%2C170%2C177%2C180%2C182%2C187%2C192%2C197%2C204%2C210%2C215&fmt=json"
+}

@@ -1,0 +1,22 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-03",
+  "limitations": "All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.",
+  "novelty": "NOT ASSESSED",
+  "statement": "The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and\nletter exchange) are terminating.",
+  "system": "SYS-A",
+  "title": "The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

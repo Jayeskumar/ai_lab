@@ -33,7 +33,7 @@
       "POTENTIALLY NOVEL"
     ],
     "CLM-C01-09": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "REDISCOVERY"
     ],
     "CLM-C01-10": [
@@ -57,7 +57,7 @@
       "REDISCOVERY"
     ],
     "CLM-C02-04": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "POTENTIALLY NOVEL"
     ],
     "CLM-C02-05": [
@@ -83,6 +83,10 @@
     "CLM-C02-10": [
       "PROVEN",
       "REDISCOVERY"
+    ],
+    "CLM-C02-11": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C03-01": [
       "PROVEN",
@@ -127,6 +131,70 @@
     "CLM-C03-11": [
       "COMPUTATIONALLY SUPPORTED",
       "NOT ASSESSED"
+    ],
+    "CLM-C04-01": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-02": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-03": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-04": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C04-05": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C04-06": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-07": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-08": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C04-09": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C04-10": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C04-11": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-12": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-13": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C04-14": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C04-15": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C04-16": [
+      "CONJECTURE",
+      "REDISCOVERY"
     ],
     "CLM-C08-01": [
       "PROVEN",
@@ -217,6 +285,7 @@
     "C01",
     "C02",
     "C03",
+    "C04",
     "C08",
     "C09",
     "C10"
@@ -229,14 +298,15 @@
     "EXP-C01-04": "0478849346fbd6ce075519e398262e2e02091cdbc604ece096e3077d119d06a2",
     "EXP-C01-05": "305a422a5ddd2df14c0658b2c1551d22e520b431db40c1db311b329d2d2dfba3",
     "EXP-C01-06": "3a8d0162c2dde5c6b91ed7d343a33dee35059a1b8f86e022b702b7b845e6e542",
-    "EXP-C01-07": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c",
+    "EXP-C01-07": "2fe6e6bb63630d3892cbbeaf82ba6f6208f061f8cf854e8184e8f120a62ebb28",
     "EXP-C01-08": "637010735fc351eca624278c3b4e573b43028056536d62b872023440215cb34c",
     "EXP-C02-01": "6ef3209881c18e2fdc13bdfe7ac375c224fcef46e22a444a62b4e7bffcd0b836",
     "EXP-C02-02": "5e6cb7eb646e2ba15595c1fb4a9a24ad89823d52cc52892cf63e6574e2210a5a",
-    "EXP-C02-03": "90286589173dec13827a7337597a8346a6aa2e1212ab8e72ce55b8b9f2688e23",
+    "EXP-C02-03": "0fb4267c2593ecea452016d4698fead01bd2e52fd56372da8e71a3a7b2d4f31a",
     "EXP-C02-04": "1d2c1c367ef9a9bffa1bb051863e9c5f16c82715e78567345226aa5942050dac",
     "EXP-C02-05": "c19304f59ee54e6381d4ddec173daf9391c7b58db2fd3ee23c87036da66dce90",
     "EXP-C02-06": "8daf1207b9ded668d8aab37ef7b7220a8b9a208fabee50caed818100a564355a",
+    "EXP-C02-07": "2062c9e1f8cc54e45a1885f191332cae49d81b92cc0c692ccef39ac77b7cfa45",
     "EXP-C03-01": "6d2d95a20fd4742dddeb1bad092f61532574283e2088d28962e7f843ba91e8fa",
     "EXP-C03-02": "9c3a165b60fd3638a17f0ed237f54a3635091d9737b27dd8f968b3880a370a9d",
     "EXP-C03-03": "1a84189b39cd83c4d8bbe30c63745db97cec23e7f66f21c191529348b54a39f8",
@@ -254,6 +324,9 @@
     "EXP-C05-01": "607a0e46158d394b1935f596caf45f8fcc7fb29ba4f6cc60a6ffd6c6c2a71d9d",
     "EXP-C05-05": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
     "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
+    "EXP-C06-02": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
+    "EXP-C06-03": "abc56c929f0aa54ad8eed798844e2a422a152de6c815d66f4765f3937f61e395",
+    "EXP-C06-04": "8a8aca5cd93cd72ec42e12e9c20861e9a27a5cce9730ddeac7c504e3d4508f82",
     "EXP-C08-01": "625f0e8a640f0889c6f25074762c27671cc3a084acd41647efc92d3cee15ff53",
     "EXP-C08-02": "ef9c7e962a91d915d9d34f52d08ddcd1adbb05f598ad20abb47692c010900289",
     "EXP-C08-03": "d941931eb126e5fc09da9382a88e5756a1efa494e0333461abd3ffd0c36cbba1",
@@ -267,28 +340,45 @@
     "EXP-C10-02": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
     "EXP-C10-03": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
     "EXP-C10-04": "2d945a77304f631a69e19bf18dd9d64ab011f9a9bde54f593c23f6334c147368",
-    "EXP-C12-01": "4ff08061267384a5b7198639315bf9c3011c475a956cc28bf32bc811e7f4cced"
+    "EXP-C11-01": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
+    "EXP-C11-02": "44eb2516b244b91f6b40646218c00d18a8751cec3900fdb199e8fd717091ab9f",
+    "EXP-C11-03": "a67c4269318e034f4ddc12544e8c720361a187700cb2fc984ddffd2326fa8108",
+    "EXP-C11-04": "06e9eae27066d241322154dc4bcafcd1dfdb048d186503fbc1a0edc6bcb856b5",
+    "EXP-C11-05": "27bfc39153c790f44263baa25ab3e6095ea605a53cf15bd546b759d830b34fad",
+    "EXP-C11-06": "4188be25b5ce210f3e97f1c40f9e387d3e231730d5680f8bef7d7b6ca41c3247",
+    "EXP-C11-07": "d5f3d2ea6e605cf901aefc4abc8a9a323e67898edec12c741dcc3cb34f5442a0",
+    "EXP-C11-08": "627c7f71c24cf0bc80c33f76e8bdae38de1b74c8cf25998e471c22ee6f12fc8a",
+    "EXP-C12-01": "987180423b983168b408fa5b2f5200c5888d6bea373a0013b0cdf1df25c8a7c9",
+    "EXP-C12-02": "1b93f3e7a5761ea939a5352b2e801654037156cd39eaa63db372af1608f47ad1",
+    "EXP-C12-03": "cf179710040f928e62121cc2c84a716ca0fff482bae805a05b28f6089679dbac",
+    "EXP-C12-04": "b7eb439c285686fa78a4723b692b6b367548537eabc3aafc9eab4833c24f2160",
+    "EXP-C12-05": "d4ca22ecc3ae95f45119d0e4e53f9f11e1c949ebb9dc62e5117ac0d0506b530d"
   },
   "lean": {
     "proofs/lean/Infinity/C00_Smoke.lean": true,
     "proofs/lean/Infinity/C01_Quantity.lean": true,
     "proofs/lean/Infinity/C02_Exchange.lean": true,
     "proofs/lean/Infinity/C03_Termination.lean": true,
+    "proofs/lean/Infinity/C04_Derivations.lean": true,
     "proofs/lean/Infinity/C06_Laver.lean": true,
     "proofs/lean/Infinity/C08_Knuth.lean": true
   },
   "next_priorities": [
-    "C01: prove the common-border conjecture (Hilbert series / Anick chains, or parametric completions)",
+    "C01: prove the injectivity lemma that completes the one-common-border case (CLM-C01-10), then attack two or more common borders",
     "C01: full Lean formalisation of the border-containment theorem",
     "C01: Lean formalisation of the min/gcd theorem (Bezout over N)",
     "C01: common-border formula for pairs of relations?",
-    "C02: prove the sum-b = m glider conjecture (spreading lemma)",
+    "C02: explicit bound n0 for critical rules; Lean formalisation of Theorem 10 (Perron-Frobenius argument)",
     "C02: longest Zeckendorf game - closed form or asymptotics",
     "C02: which carry rules have regular representation languages?",
     "C03: retrieve the Zantema-Geser theorem statement and compare with H-C03-4",
     "C03: implement RFC match-bounds to prove termination of the 24 open rules (start with 0011 -> 111000 and 0011 -> 11100000)",
     "C03: prove that every base rule 0 1^q -> 1^r 0^k (q < r < 2q, k >= 2) loops from 0 1^(q(q+1)); explain k^q loop lengths",
     "C03: Lean formalisation of the conservation theorem (s = p)",
+    "C04: decide termination of aab -> ababa and aab -> babaa",
+    "C04: games of aba -> u and bab -> u (alternating runs)",
+    "C04: complexity census for |l| = 4 - new non-rational classes? cubic growth?",
+    "C04: OEIS submissions (0.06 Grundy values; formula for A247983) - human decision",
     "C08: complete the Lean proof of the shifted Knuth theorem",
     "C08: prove non-Pisot never-associativity (CLM-C08-02)",
     "C08: compute greedy windows to prove the sign-of-beta conjecture (CLM-C08-04)",
@@ -298,5 +388,5 @@
     "C09: arithmetic of other associative circle products (Pell, tribonacci)",
     "C10: exact multi-offset counting constants via the invariant measure of the digit process"
   ],
-  "updated": "2026-10-18T08:13:57Z"
+  "updated": "2026-10-18T08:39:48Z"
 }

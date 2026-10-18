@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "Extending to |r| <= 5 refutes the bold factor hypothesis H-C04-0 (18 non-trivial looping rules, e.g. ab -> bbaa); 860 of 868 rules decided by certificates (linear interpretations with coefficients <= 7 and LP-found, exactly re-verified weighted factor counts added); 8 rules in two symmetry classes remain open.",
   "assumptions": [
     "System A over {a,b}",
     "1 <= |l| <= 3, 0 <= |r| <= 5, l != r: 868 rules"
@@ -10,6 +11,9 @@
     "sha256": "7f4774b07cbd9b5d94c69f9c6d9857791272423252d88f59a90e559262d302c2",
     "systems_sha256": "e05b16b3883f7427a4950e304350d3ff08a50980b4974bfa33126aff91540ed6"
   },
+  "counterexamples": [
+    "ab -> bbaa: aab -> abbaa -> bbaabaa contains aab (self-embedding)"
+  ],
   "cycle": "C04",
   "falsification": "A non-terminating rule whose lhs is not a factor of its rhs refutes H-C04-0.",
   "history": [
@@ -18,12 +22,57 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T07:34:52Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Extending to |r| <= 5 refutes the bold factor hypothesis H-C04-0 (18 non-trivial looping rules, e.g. ab -> bbaa); 860 of 868 rules decided by certificates (linear interpretations with coefficients <= 7 and LP-found, exactly re-verified weighted factor counts added); 8 rules in two symmetry classes remain open.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "ab -> bbaa: aab -> abbaa -> bbaabaa contains aab (self-embedding)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-02",
+        "CLM-C04-03"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-0 (bold): a one-rule system l -> r with |l| <= 3 terminates iff l is not a factor of r.",
   "id": "EXP-C04-02",
   "methodology": "Certificate cascade of EXP-C04-01, then linear interpretations with coefficients <= 7, integer weighted factor counts (|f| <= 4) found by LP and re-verified exactly, and a deeper self-embedding search (seeds up to length 10). Undecided rules get bounded evidence.",
   "question": "In EXP-C04-01 every non-terminating rule had l as a factor of r. Is that a law?",
+  "related": [
+    "CLM-C04-02",
+    "CLM-C04-03"
+  ],
   "results_file": "results/EXP-C04-02.json",
   "results_sha256": "94726db18a386c7eb4192736e8f4edb71f8e817d3fe51e58a8a918a3fe4ac00b",
   "runs": [
@@ -53,5 +102,6 @@
     "H-C04-0 counterexamples (non-terminating, l not a factor of r): 18, e.g. ['ab', 'bbaa'] via ['aab', 'abbaa', 'bbaabaa']",
     "undecided rules: 8 ['aab->ababa', 'aab->babaa', 'abb->babab', 'abb->bbaba', 'baa->aabab', 'baa->ababa', 'bba->ababb', 'bba->babab']"
   ],
-  "title": "Extended termination census (|l| <= 3, |r| <= 5) and the factor hypothesis"
+  "title": "Extended termination census (|l| <= 3, |r| <= 5) and the factor hypothesis",
+  "verification": "REFUTED"
 }

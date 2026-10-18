@@ -14,9 +14,9 @@ finite model?*
 
 | ID | Hypothesis | Proposer | Outcome |
 |---|---|---|---|
-| H-C05-1 | *(bold)* Every identity t = x has spectrum {1} or all n. | Inventor | **refuted** (law 167 and 57 other identities) |
-| H-C05-Q | *(bold)* Every nontrivial identity t = x forces its finite models to be quasigroups. | Inventor | **refuted** (a 4-element non-Latin model of law 167) |
-| H-C05-A | *(bold)* Full spectrum ⇔ affine models x∗y = ax + by + c over every ℤ_n. | Inventor | see EXP-C05-05 |
+| H-C05-1 | *(bold)* Every identity t = x has spectrum {1} or all n. | Inventor | **refuted** (law 167; 61 of 115 identities have restricted spectra on n ≤ 6) |
+| H-C05-Q | *(bold)* Every nontrivial identity t = x forces its finite models to be quasigroups. | Inventor | **refuted** (a 4-element non-Latin model of law 167; 18 identities with non-quasigroup models of order ≤ 3) |
+| H-C05-A | *(bold)* Full spectrum ⇔ affine models x∗y = ax + by + c over every ℤ_n (tested on n ≤ 6). | Inventor | **refuted** (x = (yx)(x(yy)): NAND is an order-2 model, no affine model over ℤ₂) |
 | H-C05-2 | Restricted spectra are classical design spectra (Mendelsohn, Steiner, Euler's 36 officers…). | Explorer | partly supported |
 | H-C05-3 | The open spectra of the ETP notes can be extended by SAT to n ≤ 12. | Verifier | see EXP-C05-03 |
 

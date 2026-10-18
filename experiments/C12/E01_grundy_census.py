@@ -17,7 +17,7 @@ META = {
     "hypothesis": "H-C12-0 (exploratory): every game shows one of three behaviours within the computed range - "
                   "eventually periodic, arithmetic-periodic, or a closed form in a number-theoretic function.",
     "assumptions": ["heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n)",
-                    "period search p <= 2000 with at least 3 repetitions of the periodic tail"],
+                    "period search p <= 2000; the periodic tail must repeat >= 3 times and cover >= half of the range (a first run without the half-range rule reported spurious end-of-range periods)"],
     "methodology": "Exact Grundy computation (bitset method for sparse subtraction sets); record max value, "
                    "growth, P-position density, eventual (arithmetic) periodicity.",
     "falsification": "A game with none of the three behaviours refutes H-C12-0 within the range.",

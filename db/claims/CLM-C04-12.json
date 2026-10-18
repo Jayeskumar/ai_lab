@@ -1,0 +1,22 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-12",
+  "limitations": "Closed forms are verified on n <= 12-20 only; proofs exist for ab -> ba (CLM-C04-04), the doubling rules (proofs/paper/C04.md Theorem 6) and aab -> ba (CLM-C04-09).",
+  "novelty": "NOT ASSESSED",
+  "statement": "The 162 terminating rules (55 symmetry classes) have derivational complexity linear (144 rules, of which 4\nare n - Theta(log n)), quadratic (14: floor(n^2/4), floor(n(n-1)/6), floor(n^2/8)) or exponential\n(4: 2^(n-1) - 1); for 54 of the 55 classes D(n) = floor((a n^2 + b n + c)/d) or 2^(n-1) - 1 on all computed\nterms.",
+  "system": "SYS-A",
+  "title": "Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

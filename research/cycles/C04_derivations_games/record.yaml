@@ -1,0 +1,329 @@
+cycle: C04
+title: "Derivation lengths, random descent and rewriting games"
+branch: A-D
+status: complete
+systems: [SYS-A, SYS-D]
+
+experiments:
+  - id: EXP-C04-01
+    analysis: All 196 one-rule systems with |l|, |r| <= 3 are decided by checkable certificates; the 34 non-terminating ones are exactly those whose left-hand side is a factor of the right-hand side.
+    verification: PROVEN
+    related: [CLM-C04-01]
+  - id: EXP-C04-02
+    analysis: Extending to |r| <= 5 refutes the bold factor hypothesis H-C04-0 (18 non-trivial looping rules, e.g. ab -> bbaa); 860 of 868 rules decided by certificates (linear interpretations with coefficients <= 7 and LP-found, exactly re-verified weighted factor counts added); 8 rules in two symmetry classes remain open.
+    counterexamples: ["ab -> bbaa: aab -> abbaa -> bbaabaa contains aab (self-embedding)"]
+    verification: REFUTED
+    related: [CLM-C04-02, CLM-C04-03]
+  - id: EXP-C04-03
+    analysis: Derivational complexity of the 162 terminating rules - 140 linear, 14 quadratic, 4 exponential, 4 non-rational (the aab -> ba class); simple floor-quadratic or 2^(n-1)-1 closed forms for 54 of 55 symmetry classes. Among length-preserving rules with |l| >= 2 only ab <-> ba attains floor(n^2/4), consistent with Bertrand's theorem.
+    related: [CLM-C04-11, CLM-C04-12, CLM-C04-04]
+  - id: EXP-C04-04
+    analysis: "The configuration (binary-counter-with-sink) formula for aab -> ba matches every word up to length 21 and the exhaustive graphs; D(n) = n - 1 - min{k : 2^k + k >= n} up to n = 20000; stalls exactly at n = 2^k + k + 1."
+    verification: PROVEN
+    related: [CLM-C04-09]
+  - id: EXP-C04-05
+    analysis: All 84 unbordered rules have random descent; 18 of 78 bordered rules also do (H-C04-1 refuted); random descent agrees with equal-length joinability of critical peaks in all 162 cases; no rule is length-uniform without being confluent in this family.
+    counterexamples: ["aa -> a: bordered left-hand side but random descent"]
+    related: [CLM-C04-05, CLM-C04-07, CLM-C04-06]
+  - id: EXP-C04-06
+    analysis: The constant-step potential of Theorem 2 exists and works for all 5365 tested rules (0 violations on 470,927 steps, K <= 2); among 770 bordered length-preserving rules with |l| = 4, 5 every confluent rule is length-uniform, while 126 are length-uniform without being confluent.
+    verification: PROVEN
+    related: [CLM-C04-06]
+  - id: EXP-C04-07
+    analysis: Parity theorem holds for all RD rules; unary-lhs games decompose over a-runs for all 58 such rules; maximal Grundy value 3 on words of length <= 10 (60 rules).
+    related: [CLM-C04-08, CLM-C04-13]
+  - id: EXP-C04-08
+    analysis: Unary rewriting games coincide with octal games (Dawson's Kayles, Officers, 0.007, 0.06, 0.4); Dawson's Kayles and 0.4 have period 34 (Guy-Smith window verified); Officers, 0.007, 0.06 show no period <= 300 up to n = 3000; a^14 has Grundy value 4 under aa -> b.
+    counterexamples: ["aa -> b: Grundy value of a^14 is 4 (H-C04-6 refuted)"]
+    related: [CLM-C04-13, CLM-C04-14, CLM-C04-15, CLM-C04-16]
+  - id: EXP-C04-09
+    analysis: Quadratic, exponential and octal sequences are catalogued (A002620, A001840, A130519, A000225, A002187, A046695, A395248). The octal 0.06 Grundy sequence has no OEIS match. The complexity of aab -> ba matches A247983, whose definition (a truncation index for log 2) is different - investigated in EXP-C04-10. A372475 (shifted window) is a coincidental match.
+    related: [CLM-C04-10, CLM-C04-16]
+  - id: EXP-C04-10
+    analysis: "A247983(n) = n - max{j : 2^j + j <= n + 1} = D(n + 2) for all n <= 1500 in high-precision arithmetic; the identity is proved in proofs/paper/C04.md Theorem 8."
+    verification: PROVEN
+    related: [CLM-C04-10]
+
+claims:
+  - id: CLM-C04-01
+    type: theorem
+    system: SYS-A
+    title: "Termination census of one-rule systems with |l|, |r| <= 3: non-terminating iff l is a factor of r"
+    statement: |
+      Among the 196 rules l -> r over {a,b} with 1 <= |l| <= 3, 0 <= |r| <= 3, l != r, exactly the 34 rules in
+      which l is a factor of r are non-terminating; the other 162 terminate.
+    verification: PROVEN
+    proof_check: computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently
+    proof: proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3
+    evidence: [EXP-C04-01]
+    novelty: NOT ASSESSED
+    novelty_basis: A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz "Open. Closed. Open.", RTA 2005) and this observation is likely folklore.
+  - id: CLM-C04-02
+    type: hypothesis
+    system: SYS-A
+    title: "H-C04-0: a rule with |l| <= 3 terminates iff l is not a factor of r (refuted)"
+    statement: A one-rule system l -> r with |l| <= 3 is non-terminating iff l is a factor of r.
+    verification: REFUTED
+    counterexample: "ab -> bbaa is non-terminating although ab is not a factor of bbaa: aab -> abbaa -> bbaabaa = bb.aab.aa. In total 18 such rules with |r| <= 5 (EXP-C04-02)."
+    evidence: [EXP-C04-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C04-03
+    type: conjecture
+    system: SYS-A
+    title: The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate
+    statement: |
+      The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
+      letter exchange) are terminating.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C04-02]
+    novelty: NOT ASSESSED
+    limitations: All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
+  - id: CLM-C04-04
+    type: theorem
+    system: SYS-A
+    title: "ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inversion count"
+    statement: |
+      For the rule ab -> ba every step lowers the number of inversions by exactly one; the normal forms are the
+      words b^i a^j; every complete derivation from w has exactly inv(w) steps; the derivational complexity is
+      floor(n^2/4); and in the rewriting game the P-positions are exactly the words with an even number of
+      inversions.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument
+    proof: proofs/paper/C04.md#theorem-5-clm-c04-04--the-rule-ab--ba
+    lean: [proofs/lean/Infinity/C04_Derivations.lean]
+    evidence: [EXP-C04-03, EXP-C04-07]
+    novelty: REDISCOVERY
+    novelty_basis: Classical (bubble-sort inversions); extremal case of Metivier's conjecture proved by Bertrand (TCS 123, 1994); cited as the quadratic example in derivational-complexity literature (Kobayashi).
+  - id: CLM-C04-05
+    type: theorem
+    system: SYS-A
+    title: One-rule systems with an unbordered left-hand side have random descent (Lean-verified)
+    statement: |
+      (a) Abstractly: if every local peak b <- a -> c is joinable by two derivations of equal length, then whenever
+      a reaches a normal form b in n steps, every derivation from a has at most n steps and every derivation from a
+      to a normal form has exactly n steps and ends in b. (b) For any rule l -> r over any alphabet with l
+      unbordered, two distinct one-step reducts of a word have a common one-step reduct; hence (a) applies.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (random_descent, unbordered_diamond, unbordered_random_descent; standard axioms only)
+    proof: proofs/paper/C04.md#theorem-4-clm-c04-05--unbordered-left-hand-sides-give-random-descent
+    lean: [proofs/lean/Infinity/C04_Derivations.lean]
+    evidence: [EXP-C04-05]
+    novelty: REDISCOVERY
+    novelty_basis: Local characterisation of random descent - V. van Oostrom, "Random descent", RTA 2007, LNCS 4533, 314-328 (Isabelle formalisation in arXiv:1802.08437); one-step diamond lemma for non-overlapping redexes is classical (Newman 1942). The Lean development here is an independent formalisation.
+  - id: CLM-C04-06
+    type: theorem
+    system: SYS-A
+    title: Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent
+    statement: |
+      For every rule l -> r (l != r) over a finite alphabet there are Phi : words -> Z and delta != 0 with
+      Phi(v) = Phi(u) + delta for every step u -> v (Phi = length if |l| != |r|; otherwise
+      Phi(w) = sum of i^K over positions i carrying a suitable letter c, K the least exponent at which the power
+      sums of the c-positions of l and r differ). Consequently all derivations between two given words have the same
+      number of steps, and a terminating one-rule system is confluent iff it has random descent.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C04.md Theorem 2); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps; awaiting independent skeptic review
+    proof: proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential
+    lean: [proofs/lean/Infinity/C04_Derivations.lean]
+    evidence: [EXP-C04-05, EXP-C04-06]
+    novelty: NOT ASSESSED
+    novelty_basis: Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.
+    notes: Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
+  - id: CLM-C04-07
+    type: hypothesis
+    system: SYS-A
+    title: "H-C04-1: random descent iff the left-hand side is unbordered (refuted)"
+    statement: A terminating one-rule system has random descent iff its left-hand side is unbordered.
+    verification: REFUTED
+    counterexample: "aa -> a has the bordered left-hand side aa but random descent (every derivation from w has sum over a-runs of (length - 1) steps and ends in the same word); 18 bordered rules with |l|, |r| <= 3 have random descent (EXP-C04-05). The 'if' direction is CLM-C04-05."
+    evidence: [EXP-C04-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C04-08
+    type: theorem
+    system: SYS-D
+    title: Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2)
+    statement: If a one-rule system has random descent, the Sprague-Grundy value of its rewriting game at w is D(w) mod 2, D(w) the common length of all maximal derivations from w; the P-positions are the words with even D(w).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C04.md Theorem 9, induction on D); the instance ab -> ba is Lean-verified (p_positions); checked on all 102 RD rules and all words of length <= 10
+    proof: proofs/paper/C04.md#theorem-9-clm-c04-08--parity-for-random-descent-games
+    lean: [proofs/lean/Infinity/C04_Derivations.lean]
+    evidence: [EXP-C04-07]
+    novelty: REDISCOVERY
+    novelty_basis: Elementary combinatorial game theory - a game in which every play has the same length is decided by parity.
+  - id: CLM-C04-09
+    type: theorem
+    system: SYS-A
+    title: "The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-rational)"
+    statement: |
+      For aab -> ba over {a,b}, the maximal derivation length over words of length n >= 1 is
+      D(n) = n - 1 - kappa(n) with kappa(n) = min{k >= 0 : 2^k + k >= n}; D stalls exactly at n = 2^k + k + 1, and
+      the generating function of D is not rational. The proof identifies the rule with the binary exchange system
+      2[k] -> [k+1] (cycle C02) with an inert top level.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C04.md Theorem 7); per-word formula checked on all words of length <= 21, closed form to n = 20000; awaiting independent skeptic review
+    proof: proofs/paper/C04.md#theorem-7-clm-c04-09--aab--ba-has-complexity-n--log-n--o1
+    evidence: [EXP-C04-03, EXP-C04-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
+  - id: CLM-C04-10
+    type: theorem
+    system: SYS-A
+    title: "Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba"
+    statement: |
+      Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then
+      A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the
+      one-rule system aab -> ba.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review
+    proof: proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
+    evidence: [EXP-C04-09, EXP-C04-10]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
+  - id: CLM-C04-11
+    type: hypothesis
+    system: SYS-A
+    title: "H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)"
+    statement: For every terminating one-rule system over {a,b} with |l|, |r| <= 3, the derivational complexity D(n) satisfies a linear recurrence.
+    verification: REFUTED
+    counterexample: "aab -> ba (and its 3 symmetric images): D(n) = n - 1 - kappa(n) is not given by any linear recurrence (CLM-C04-09)."
+    evidence: [EXP-C04-03, EXP-C04-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C04-12
+    type: observation
+    system: SYS-A
+    title: Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3
+    statement: |
+      The 162 terminating rules (55 symmetry classes) have derivational complexity linear (144 rules, of which 4
+      are n - Theta(log n)), quadratic (14: floor(n^2/4), floor(n(n-1)/6), floor(n^2/8)) or exponential
+      (4: 2^(n-1) - 1); for 54 of the 55 classes D(n) = floor((a n^2 + b n + c)/d) or 2^(n-1) - 1 on all computed
+      terms.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C04-03]
+    novelty: NOT ASSESSED
+    limitations: Closed forms are verified on n <= 12-20 only; proofs exist for ab -> ba (CLM-C04-04), the doubling rules (proofs/paper/C04.md Theorem 6) and aab -> ba (CLM-C04-09).
+  - id: CLM-C04-13
+    type: theorem
+    system: SYS-D
+    title: "Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> ab is Officers"
+    statement: |
+      For a terminating rule a^k -> u the rewriting game on w is the disjoint sum of games on the maximal a-runs,
+      with explicit moves; in particular aa -> b (bb, bbb, bab) is the octal game 0.07 (Dawson's Kayles),
+      aa -> ab (ba, abb, bba) is 0.6 (Officers), aaa -> b (bb, bbb, bab) is 0.007 (Treblecross), aaa -> ab
+      (ba, abb, bba) is 0.06 and aaa -> aba is 0.4.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review
+    proof: proofs/paper/C04.md#theorem-10-clm-c04-13--unary-left-hand-sides-give-take-and-break-games
+    evidence: [EXP-C04-07, EXP-C04-08]
+    novelty: REDISCOVERY
+    novelty_basis: Octal games are classically described as rows of pins (Berlekamp-Conway-Guy, Winning Ways); the rewriting presentation is a change of notation.
+  - id: CLM-C04-14
+    type: hypothesis
+    system: SYS-D
+    title: "H-C04-6: Grundy values of rewriting games never exceed 3 (refuted)"
+    statement: Every rewriting game of a terminating one-rule system with |l|, |r| <= 3 has Sprague-Grundy values <= 3.
+    verification: REFUTED
+    counterexample: "aa -> b: the word a^14 has Grundy value 4 (computed from its own derivation graph); Dawson's Kayles reaches 9, Officers 91 for n <= 3000 (EXP-C04-08)."
+    evidence: [EXP-C04-08]
+    novelty: NOT ASSESSED
+  - id: CLM-C04-15
+    type: theorem
+    system: SYS-D
+    title: "The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53"
+    statement: The Sprague-Grundy values G(n) of the rewriting game of aa -> b on the word a^n satisfy G(n + 34) = G(n) for all n >= 53 (likewise for aaa -> aba from n >= 54).
+    verification: PROVEN
+    proof_check: computer-assisted - octal recursion to n = 3000 and the Guy-Smith periodicity window n0 <= n < 2 n0 + p + t checked explicitly, plus CLM-C04-13
+    proof: results/EXP-C04-08.json (guy_smith_window_verified) with the Guy-Smith periodicity theorem (Winning Ways)
+    evidence: [EXP-C04-08]
+    novelty: REDISCOVERY
+    novelty_basis: Periodicity of Dawson's Kayles (Guy and Smith, 1956); OEIS A002187.
+  - id: CLM-C04-16
+    type: conjecture
+    system: SYS-D
+    title: "Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.06) ultimately periodic?"
+    statement: The Grundy sequences of the rewriting games of aa -> ab, aaa -> b and aaa -> ab on the words a^n are ultimately periodic.
+    verification: CONJECTURE
+    evidence: [EXP-C04-08, EXP-C04-09]
+    novelty: REDISCOVERY
+    novelty_basis: Equivalent to the open periodicity problems for Officers (0.6), Treblecross (0.007, OEIS A395248) and 0.06 (Guy's conjecture that finite octal games are ultimately periodic). Our computation (n <= 3000) finds no period <= 300; the 0.06 Grundy sequence is not in the OEIS.
+
+journal:
+  - key: C04-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Opened C04 with the question of how long derivations of a single rule can be, when their order is irrelevant, and which games rules define. Proposed the bold H-C04-0 after noticing that every non-terminating rule with |l|, |r| <= 3 contains l in r.
+    refs: [EXP-C04-01, CLM-C04-01]
+  - key: C04-02
+    agent: Formal Verifier
+    kind: result
+    text: All 196 rules decided by checkable certificates; two length-increasing rules (aa -> aba, bb -> bab) needed a new certificate type - a factor whose occurrence count drops by exactly one in every context.
+    refs: [EXP-C04-01]
+  - key: C04-03
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C04-0 refuted by the extended census - ab -> bbaa loops via aab -> abbaa -> bb.aab.aa although ab is not a factor of bbaa; 18 such rules with |r| <= 5.
+    refs: [EXP-C04-02, CLM-C04-02]
+  - key: C04-04
+    agent: Formal Verifier
+    kind: result
+    text: Added linear interpretations with larger coefficients and LP-found integer factor weights (re-verified exactly); 860 of 868 rules decided. aab -> ababa and aab -> babaa (two symmetry classes) stay open.
+    refs: [EXP-C04-02, CLM-C04-03]
+  - key: C04-05
+    agent: Mathematical Explorer
+    kind: surprise
+    text: The complexity of aab -> ba admitted no linear recurrence. Pattern guesses (zeros at k^2 + 3, or Fibonacci - 1) both predicted the next stall wrongly; deriving the binary-counter-with-sink model gave stalls at 2^k + k + 1, confirmed by simulation to n = 21.
+    refs: [EXP-C04-03, EXP-C04-04, CLM-C04-09]
+  - key: C04-06
+    agent: Historian and Novelty Analyst
+    kind: surprise
+    text: "The OEIS returned A247983 (least k such that the tail of sum 1/(h 2^h) for log 2 is below 2^-n) for our complexity sequence. Proved the identity A(n) = n - max{j : 2^j + j <= n+1} = D(n+2) with Jensen's inequality and checked it to n = 1500."
+    refs: [EXP-C04-09, EXP-C04-10, CLM-C04-10]
+  - key: C04-07
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Proposed the bold H-C04-1 - random descent iff unbordered left-hand side.
+    refs: [CLM-C04-07]
+  - key: C04-08
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C04-1 refuted by aa -> a and 17 other bordered rules with random descent. The critical-peak criterion (H-C04-2) matched observed random descent in all 162 cases.
+    refs: [EXP-C04-05, CLM-C04-07]
+  - key: C04-09
+    agent: Mathematical Explorer
+    kind: pattern
+    text: No terminating rule was confluent without random descent. Found the reason - every one-rule system has a potential changing by a fixed nonzero amount per step (length, or a power-sum moment of one letter's positions), so derivation lengths are fixed by their endpoints.
+    refs: [EXP-C04-06, CLM-C04-06]
+  - key: C04-10
+    agent: Formal Verifier
+    kind: revision
+    text: Terminology corrected - the first random-descent test only compared minimal and maximal lengths (length uniformity). Random descent also requires a unique normal form; 126 length-preserving rules with |l| = 4, 5 are length-uniform but not confluent. E05/E06 were re-run with the correct definitions; conclusions for |l| <= 3 were unaffected.
+    refs: [EXP-C04-05, EXP-C04-06]
+  - key: C04-11
+    agent: Formal Verifier
+    kind: proof
+    text: Lean 4 + Mathlib - random_descent (van Oostrom's local criterion), steps_length_unique, unbordered_diamond and unbordered_random_descent for arbitrary one-rule systems, length_changing_unique, and the ab -> ba theorems (inv_step, derivation_length_eq_inv, p_positions). 19 theorems, standard axioms only.
+    refs: [proofs/lean/Infinity/C04_Derivations.lean, CLM-C04-05, CLM-C04-04]
+  - key: C04-12
+    agent: Mathematical Explorer
+    kind: result
+    text: Rewriting games - parity for every RD rule; for unary left sides the game is a sum of run games. aa -> b is Dawson's Kayles (period 34 from 53), aa -> ab is Officers, aaa -> b is Treblecross 0.007, aaa -> ab is 0.06.
+    refs: [EXP-C04-07, EXP-C04-08, CLM-C04-13, CLM-C04-15]
+  - key: C04-13
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C04-6 (Grundy values <= 3, true on all words of length <= 10) refuted - a^14 has value 4 under aa -> b. Small-window evidence was misleading.
+    refs: [EXP-C04-08, CLM-C04-14]
+  - key: C04-14
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: Random descent and its local criterion are van Oostrom's (RTA 2007); n^2/4 for length-preserving one-rule systems is Metivier's conjecture proved by Bertrand (1994); octal games as pins in a row are classical; Officers, 0.007 and 0.06 have open periodicity. Potentially novel - the aab -> ba complexity formula and its identity with A247983; the 0.06 Grundy sequence is absent from the OEIS.
+    refs: [CLM-C04-05, CLM-C04-09, CLM-C04-10, CLM-C04-16]
+  - key: C04-15
+    agent: Formal Verifier
+    kind: infrastructure
+    text: Lessons - a pkill pattern again matched the issuing shell (it contained the rerun command); kill and rerun must be separate commands. A quadratic big-integer loop in a closed-form check was bounded by an early break.
+    refs: [EXP-C04-04]
+
+next_directions:
+  - "C04: decide termination of aab -> ababa and aab -> babaa"
+  - "C04: games of aba -> u and bab -> u (alternating runs)"
+  - "C04: complexity census for |l| = 4 - new non-rational classes? cubic growth?"
+  - "C04: OEIS submissions (0.06 Grundy values; formula for A247983) - human decision"

@@ -1,0 +1,208 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C11-04",
+    "file": "experiments/C11/E04_data_benchmarks.py",
+    "sha256": "4713c2998197a2d39c673c17e29215e690e77689020a6aa8fb47a6025d976ab1",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:26:18Z",
+  "id": "EXP-C11-04",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "primes <= 1e7 by sieve (664579 primes); gaps coded raw and halved (gap/2, first gap dropped)",
+      "posting lists: 1e5 geometric(0.001) gaps; bursty: 100 segments x 1000 gaps with p drawn from {0.1, 0.01, 0.001, 0.0001}",
+      "seeded numpy generator",
+      "zeroth-order empirical entropy as reference (codes are memoryless)"
+    ],
+    "cycle": "C11",
+    "falsification": "Pattern codes never best among universal codes on these data.",
+    "hypothesis": "On prime gaps (light tail, mean ~15) gamma-like codes or Fibonacci win; on bursty posting-list gaps (heavy-tailed mixture) pattern codes beat both classical universal codes and a tuned Golomb code; on homogeneous posting lists (geometric gaps) tuned Golomb wins.",
+    "id": "EXP-C11-04",
+    "methodology": "Average bits per value for every code (exact, from the empirical distribution); tuned codes are tuned on the same data (optimistic for them).",
+    "question": "Do the synthetic conclusions survive on concrete integer sequences?",
+    "seed": 1107,
+    "title": "Benchmark on in-repo data: prime gaps up to 1e7 and simulated posting lists"
+  },
+  "results": {
+    "summary": [
+      "prime gaps <= 1e7 (raw) (n=664578, H0=4.1709): best classical ['Exp-Golomb(4)', 5.7208], best fixed ['Exp-Golomb(4)', 5.7208], best overall ['tuned Golomb(M=10)', 5.2713]",
+      "prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]",
+      "posting list geometric(0.001) (n=100000, H0=11.3626): best classical ['Fibonacci C1', 14.3563], best fixed ['T_0111', 13.1548], best overall ['tuned Golomb(M=693)', 11.446]",
+      "bursty posting list (mixture) (n=100000, H0=10.7142): best classical ['Fibonacci C1', 12.1459], best fixed ['T_101', 11.4728], best overall ['T_101', 11.4728]"
+    ],
+    "table": {
+      "bursty posting list (mixture)": {
+        "best_classical": [
+          "Fibonacci C1",
+          12.1459
+        ],
+        "best_fixed_universal": [
+          "T_101",
+          11.4728
+        ],
+        "best_overall": [
+          "T_101",
+          11.4728
+        ],
+        "bits_per_value": {
+          "Elias delta": 12.8501,
+          "Elias gamma": 15.2313,
+          "Elias omega": 13.6949,
+          "Exp-Golomb(0)": 15.2313,
+          "Exp-Golomb(2)": 13.6319,
+          "Exp-Golomb(4)": 12.4456,
+          "Fibonacci C1": 12.1459,
+          "LEB128 varint": 12.6468,
+          "Levenshtein": 14.5058,
+          "T_00111": 12.2521,
+          "T_0101": 11.7596,
+          "T_011": 11.5408,
+          "T_0111": 11.5172,
+          "T_101": 11.4728,
+          "T_1011": 11.6454,
+          "T_111": 11.6078,
+          "T_1111": 12.2233,
+          "T_11111": 13.094,
+          "tuned Exp-Golomb(k=7)": 11.7868,
+          "tuned Golomb(M=1885)": 12.8038
+        },
+        "count": 100000,
+        "entropy_bits": 10.7142,
+        "max": 109966
+      },
+      "posting list geometric(0.001)": {
+        "best_classical": [
+          "Fibonacci C1",
+          14.3563
+        ],
+        "best_fixed_universal": [
+          "T_0111",
+          13.1548
+        ],
+        "best_overall": [
+          "tuned Golomb(M=693)",
+          11.446
+        ],
+        "bits_per_value": {
+          "Elias delta": 15.4042,
+          "Elias gamma": 18.3095,
+          "Elias omega": 16.3788,
+          "Exp-Golomb(0)": 18.3095,
+          "Exp-Golomb(2)": 16.3581,
+          "Exp-Golomb(4)": 14.5019,
+          "Fibonacci C1": 14.3563,
+          "LEB128 varint": 15.0558,
+          "Levenshtein": 17.3618,
+          "T_00111": 13.822,
+          "T_0101": 13.4477,
+          "T_011": 13.4418,
+          "T_0111": 13.1548,
+          "T_101": 13.3598,
+          "T_1011": 13.3345,
+          "T_111": 13.4079,
+          "T_1111": 13.9125,
+          "T_11111": 14.7453,
+          "tuned Exp-Golomb(k=9)": 11.6952,
+          "tuned Golomb(M=693)": 11.446
+        },
+        "count": 100000,
+        "entropy_bits": 11.3626,
+        "max": 11343
+      },
+      "prime gaps <= 1e7 (halved)": {
+        "best_classical": [
+          "Exp-Golomb(2)",
+          4.5787
+        ],
+        "best_fixed_universal": [
+          "Exp-Golomb(2)",
+          4.5787
+        ],
+        "best_overall": [
+          "tuned Golomb(M=5)",
+          4.2713
+        ],
+        "bits_per_value": {
+          "Elias delta": 5.6359,
+          "Elias gamma": 5.1263,
+          "Elias omega": 5.6103,
+          "Exp-Golomb(0)": 5.1263,
+          "Exp-Golomb(2)": 4.5787,
+          "Exp-Golomb(4)": 5.1754,
+          "Fibonacci C1": 4.9385,
+          "LEB128 varint": 8.0,
+          "Levenshtein": 6.0771,
+          "T_00111": 7.0632,
+          "T_0101": 6.2037,
+          "T_011": 5.1068,
+          "T_0111": 6.064,
+          "T_101": 5.2712,
+          "T_1011": 6.1029,
+          "T_111": 5.79,
+          "T_1111": 6.7752,
+          "T_11111": 7.7743,
+          "tuned Exp-Golomb(k=2)": 4.5787,
+          "tuned Golomb(M=5)": 4.2713
+        },
+        "count": 664577,
+        "entropy_bits": 4.1708,
+        "max": 77
+      },
+      "prime gaps <= 1e7 (raw)": {
+        "best_classical": [
+          "Exp-Golomb(4)",
+          5.7208
+        ],
+        "best_fixed_universal": [
+          "Exp-Golomb(4)",
+          5.7208
+        ],
+        "best_overall": [
+          "tuned Golomb(M=10)",
+          5.2713
+        ],
+        "bits_per_value": {
+          "Elias delta": 7.4084,
+          "Elias gamma": 7.1263,
+          "Elias omega": 8.011,
+          "Exp-Golomb(0)": 7.1263,
+          "Exp-Golomb(2)": 5.7783,
+          "Exp-Golomb(4)": 5.7208,
+          "Fibonacci C1": 6.1756,
+          "LEB128 varint": 8.0002,
+          "Levenshtein": 8.3437,
+          "T_00111": 8.0632,
+          "T_0101": 7.2097,
+          "T_011": 6.1389,
+          "T_0111": 7.0668,
+          "T_101": 6.4174,
+          "T_1011": 7.1287,
+          "T_111": 6.8659,
+          "T_1111": 7.7856,
+          "T_11111": 8.7752,
+          "tuned Exp-Golomb(k=3)": 5.5787,
+          "tuned Golomb(M=10)": 5.2713
+        },
+        "count": 664578,
+        "entropy_bits": 4.1709,
+        "max": 154
+      }
+    }
+  },
+  "results_sha256": "06e9eae27066d241322154dc4bcafcd1dfdb048d186503fbc1a0edc6bcb856b5",
+  "runtime_s": 0.209,
+  "started": "2026-10-18T08:26:18Z"
+}

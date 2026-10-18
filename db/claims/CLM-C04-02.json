@@ -1,0 +1,22 @@
+{
+  "counterexample": "ab -> bbaa is non-terminating although ab is not a factor of bbaa: aab -> abbaa -> bbaabaa = bb.aab.aa. In total 18 such rules with |r| <= 5 (EXP-C04-02).",
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-02",
+  "novelty": "NOT ASSESSED",
+  "statement": "A one-rule system l -> r with |l| <= 3 is non-terminating iff l is a factor of r.",
+  "system": "SYS-A",
+  "title": "H-C04-0: a rule with |l| <= 3 terminates iff l is not a factor of r (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

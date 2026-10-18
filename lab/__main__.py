@@ -101,8 +101,17 @@ def cmd_report(args):
 
 
 def cmd_book(args):
-    from . import book
+    from . import book, catalogue
+    for f in catalogue.build():
+        print(f"[catalogue] wrote {f}")
     return book.build(pdf=not args.no_pdf)
+
+
+def cmd_catalogue(args):
+    from . import catalogue
+    for f in catalogue.build():
+        print(f"[catalogue] wrote {f}")
+    return 0
 
 
 def main(argv=None):
@@ -141,6 +150,8 @@ def main(argv=None):
     b = sub.add_parser("book", help="build the textbook (HTML + PDF)")
     b.add_argument("--no-pdf", action="store_true")
     b.set_defaults(func=cmd_book)
+    c = sub.add_parser("catalogue", help="regenerate the catalogue volumes (results, failures, open problems)")
+    c.set_defaults(func=cmd_catalogue)
     args = p.parse_args(argv)
     return args.func(args)
 

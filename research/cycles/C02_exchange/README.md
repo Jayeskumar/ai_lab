@@ -45,7 +45,7 @@ explorer, Fibonacci rules). Reproduce: `python -m lab run --cycle C02`.
 | EXP-C02-02 | Fibonacci exchanges: unary n ≤ 40 and all 2167 configurations of value ≤ 26 reach the Zeckendorf representation, no cycles; min/max derivation lengths recorded |
 | EXP-C02-03 | 189 carry rules: exactly the 31 with Σ b < m terminate; all 158 others carry a certificate of an infinite derivation; 0 radix-order inversions up to n = 3000 |
 | EXP-C02-04 | **H-C02-4 refuted** for 4 rules (e.g. 4[k] → 2[k+1]: "2" and "10" both have value 2); merge-and-stabilise addition: 0 failures in 62,000 trials |
-| EXP-C02-05 | **H-C02-4′ confirmed**: 28 rules with primitive irreducible reduced polynomial are collision-free over *all* stable configurations; the 3 non-primitive ones collide; 0 violations |
+| EXP-C02-05 | **H-C02-4′ confirmed**: 28 rules with primitive irreducible reduced polynomial are collision-free over all stable configurations with at most L levels (m^L <= 2·10^5; Theorem 7 covers all configurations); the 3 non-primitive ones collide; 0 violations |
 | EXP-C02-06 | OEIS: base-3/2 representations = A024629 (rational base), shortest Fibonacci derivation = A219641 (n − z(n)); longest Fibonacci derivation lengths and the representations in bases r ≈ 1.3028 (3[k] → [k+1]+[k+2]) and others: no OEIS match. One hit (A089881, twin primes) is a spurious shifted-window coincidence. |
 
 ## Step 6 — Analysis
@@ -70,6 +70,11 @@ explorer, Fibonacci rules). Reproduce: `python -m lab run --cycle C02`.
 ## Step 7 — Proofs and counterexamples
 
 Lean: `exists_large_coeff`, `digits_unique` (uniqueness theorem's core).
+**Theorem 9 (added after the audit):** critical rules (Σb = m) never terminate
+from large starts — a spectral-gap argument for the linearised window map
+proves the former Conjecture 4 and completes the classification *terminating
+from all unary starts ⟺ Σb < m* (EXP-C02-07: 98 rules, all large starts
+certified).
 Written proofs: Theorems 1–8 in `proofs/paper/C02.md`. Computer-assisted:
 non-termination certificates for 158 rules. Counterexample: 4[k] → 2[k+1].
 
@@ -98,7 +103,7 @@ Revised after the independent Historian audit (`reviews/historian_C01_C02.md`).
   (identical to our N ≤ 40); Cusenza et al. (2022) prove the greedy strategy
   optimal; a general closed form is open. **REDISCOVERY**; the sequence is not
   yet in the OEIS.
-* Uniform glider for B = m (Conjecture 4) and its 28 certificates: Propp
+* Uniform glider for B = m (former Conjecture 4, now Theorem 9) and its 28 certificates: Propp
   (2017) proposed the rule family without results; nothing equivalent found.
   **POTENTIALLY NOVEL** (low–medium confidence).
 
@@ -120,7 +125,7 @@ Revised after the independent Historian audit (`reviews/historian_C01_C02.md`).
 
 ## Next directions
 
-1. Prove the B = m conjecture (a spreading lemma for the sweep).
+1. Explicit n0 and a Lean formalisation of Theorem 9 (critical rules).
 2. Closed form / growth of the longest Fibonacci exchange (Zeckendorf game).
 3. Lean: formalise the abelian property and the termination dichotomy.
 4. Which carry rules give *regular* languages of representations?

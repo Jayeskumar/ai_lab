@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -47,7 +47,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C01.md, Theorem 3); computationally corroborated on 6159 relation sets; awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C01.md, Theorem 3), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); computationally corroborated on 6159 relation sets and (Skeptic) 4000 random sets
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -57,6 +57,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C01.md#theorem-3-clm-c01-03--one-symbol-several-relations
 - **evidence:** EXP-C01-02
 - **novelty_basis:** Standard description of finitely generated congruences on (N,+) / cyclic semigroups.
+- **status history:**
 
 ### CLM-C01-04: Multiplication emerges as composition of substitutions; with two symbols it is non-commutative
 
@@ -64,7 +65,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C01.md, Theorem 4) with exhaustive check of all laws on a^0..a^12 (EXP-C01-03); awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C01.md, Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); exhaustive check of all laws on a^0..a^12 (EXP-C01-03)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -74,6 +75,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C01.md#theorem-4-clm-c01-04--multiplication-as-composition-of-transformations
 - **evidence:** EXP-C01-03
 - **novelty_basis:** Endomorphism semiring of (N,+) is (N,+,x); endomorphisms of N^2 are 2x2 matrices over N.
+- **status history:**
 
 ### CLM-C01-05: H-C01-4: a single rearranging relation generates counting equivalence on long words (refuted)
 
@@ -102,7 +104,10 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C01.md, Theorem 5); its overlap lemma is Lean-verified (common_border_joinable); corroborated by 756 + 1632 relations; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C01.md, Theorem 5), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); Lean covers only the list identities of the one-step critical-pair join (common_border_joinable) - the overlap analysis, Newman's lemma and Guibas-Odlyzko are not formalised; corroborated by 756 + 1632 relations and (Skeptic) local confluence of 168,936 containment pairs
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -129,11 +134,14 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked
+- **proof_check:**
+
+  computer-assisted (Python) - convergent completions (rules decreasing, critical pairs joinable, u and v joinable), soundness (every completed rule derived from u = v by BFS), Aho-Corasick automaton, recurrence-order bound s+k; all 1632 certificates stored in results/EXP-C01-07.json; independently re-verified by the Skeptic with separate code incl. soundness and an exact Goulden-Jackson cluster identity (reviews/skeptic_C01_C02.md); not Lean-checked
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
-  For each of the 1632 relations marked PROVEN in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),
+  For each of the 1632 relations listed under proven_certificates in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),
   the class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.
 
 - **proof:** proofs/paper/C01.md#theorem-6-clm-c01-07--computer-assisted-proofs-for-1632-specific-relations
@@ -165,7 +173,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **limitations:**
 
-  Case c = 1 settled by the literature (pending the Skeptic's check of the deduction), one common border derived from Gray-Steinberg 2022 identities (CLM-C01-10, pending check); two or more common borders open (checked for three k = 8 relations up to n = 13, EXP-C01-08).
+  Case c = 1 PROVEN from the literature (CLM-C01-09, deduction checked by the Skeptic); containment PROVEN (CLM-C01-06); exactly one common border proved modulo one injectivity lemma (CLM-C01-10); two or more common borders without containment open. Skeptic search (reviews/skeptic_C01_C02.md): 295,358 relation orbits (binary k <= 11, alphabets up to 6 letters, n up to 27) and 1,491 targeted relations with 1-4 common borders, 0 failures.
 
 - **status history:**
 
@@ -174,19 +182,26 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C01
 - **type:** theorem
 - **system:** SYS-A
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  derivation from published theorems (Gray-Steinberg 2026 Thm 8.1 / 2022 Thm 3.3(2)(i); Anick 1982) written by the Historian (reviews/historian_C01_C02.md section 2); every step checked against the sources by the Skeptic (reviews/skeptic_C01_C02.md section (d), steps 1a-1d); relies on the cited theorems, not re-proved
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
   If u != v have length k over a q-letter alphabet and no word is a border of both, the class counts of length-n
   words modulo u = v have generating function 1/(1 - q x + x^k).
 
+- **proof:** proofs/paper/C01.md#theorem-8-clm-c01-09--the-case-without-common-borders-a-corollary-of-published-theorems
 - **evidence:** EXP-C01-06; EXP-C01-07; EXP-C01-08
 - **novelty_basis:**
 
   Derived by the Historian from Gray-Steinberg 2026 Thm 8.1 (no common border => Hochschild cohomological dimension <= 2 => gl.dim K<A>/(u-v) <= 2 => u - v strongly free, Anick 1982 => Hilbert series 1/(1-qx+x^k)); for different first or last letters also Albenque-Nadeau 2009 Cor. 3 + Adjan's cancellativity. All 527 relations left open by EXP-C01-07 are in this case.
 
-- **limitations:** The deduction from the cited theorems is pending an independent Skeptic check; until then the status stays COMPUTATIONALLY SUPPORTED (1314 hard relations up to n = 12 / 7).
+- **limitations:** Relies on the published theorems of Gray-Steinberg and Anick (not re-proved by the lab). Settles all 527 relations left open by EXP-C01-07 (527/527 have c = 1, re-checked by the Skeptic).
+- **status history:**
+  - 2026-10-18T08:39:48Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C01; Skeptic check of the Historian's derivation 2026-10-18 (reviews/skeptic_C01_C02.md (d)) - every step upheld; upgraded to PROVEN)
 
 ### CLM-C01-10: Common-border formula with exactly one common border (derivation sketch from Gray-Steinberg 2022)
 
@@ -205,7 +220,11 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
   Historian derivation (reviews/historian_C01_C02.md, section 2 (C)): identities (P) H = G_y + x^(k-|y|) G_z and (E) H(1 - qx) + x^k G_z = 1 read off Gray-Steinberg 2022 Thm 6.6 and Props 8.3, 8.5 (G_w = growth series of the left ideal M[w]); for y = z they give the formula. No published statement of the growth formula found.
 
-- **limitations:** Derivation not yet checked by the Skeptic; verified for the 12 lab relations (all n, by finite completion) and further relations by the Historian.
+- **limitations:**
+
+  Proved modulo one lemma - injectivity of b -> b([u'_-] - [v'_-]) on ZM[z], asserted but not proved in the Historian's derivation (Skeptic, reviews/skeptic_C01_C02.md (d)(3c)); identities (P), (E) and the injectivity premise hold numerically (3638 (P)-terms, 5648 (E)-terms, 2591 injectivity instances on 272 relations, 0 failures); verified for the 12 lab relations for all n by finite completion.
+
+- **status history:**
 
 ### CLM-C01-11: Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contained in Borders(v)
 
@@ -227,7 +246,10 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C02.md Theorem 2) + exhaustive check of 134 derivation graphs and n <= 20000; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C02.md Theorem 2), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); exhaustive check of 134 derivation graphs and n <= 20000; Skeptic enumerated all derivations for b = 2..7, 360 cases
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -245,7 +267,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C02.md Theorem 1); awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C02.md Theorem 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); induction cited from Bjorner-Lovasz-Shor; 1500 random rules, 0 violations
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -256,6 +278,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C02.md#theorem-1-clm-c02-02--the-abelian-property
 - **evidence:** EXP-C02-01; EXP-C02-04
 - **novelty_basis:** Strong convergence of chip-firing (Bjorner-Lovasz-Shor 1991); abelian sandpile (Dhar 1990); abelian networks (Bond-Levine).
+- **status history:**
 
 ### CLM-C02-03: Termination dichotomy for carry rules away from sum b = m
 
@@ -263,7 +286,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C02.md Theorem 3); awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C02.md Theorem 3), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -282,25 +305,31 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 ### CLM-C02-04: Carry rules with sum b = m never terminate from all unary starts (uniform glider)
 
 - **cycle:** C02
-- **type:** conjecture
+- **type:** theorem
 - **system:** SYS-C
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  two independent written proofs - proofs/paper/C02.md Theorem 9 (spectral, by the Director) and Theorem 10 (Perron-Frobenius, by the Skeptic, checked line by line by the Director/Formal Verifier 2026-10-18); corroborated by EXP-C02-03, EXP-C02-07 and the Skeptic's simulation of 668,793 aperiodic critical rules
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the
-  uniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (or its g-sparse analogue, g the gcd of
-  the support of b); consequently its derivations from n are infinite. (Proved: T is a fixed point of the
-  window map and any window dominating T forces infinitely many firings.)
+  uniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (if g = gcd{j : b_j > 0} > 1: the glider T'
+  of the reduced rule b'_i = b_(gi) on the levels g*N); consequently its derivations from n are infinite. In fact
+  every unary start n >= t*·m has this property (Theorems 9-10).
 
+- **proof:** proofs/paper/C02.md#theorem-9-clm-c02-11--critical-rules-never-terminate-from-large-starts
 - **evidence:** EXP-C02-03
 - **novelty_basis:**
 
   Closest prior work - J. Propp, 'How do you write one hundred in base 3/2?' (2017, endnote 3) proposes the family m -> p(x) with no results; Borodin et al., Minnesota J. Undergrad. Math. 6 (2021) (two-directional firing, always terminating); Bond-Levine 2016 (critical case, finite networks only). No statement of the uniform glider found (low-medium confidence).
 
-- **limitations:** Holds for all 28 surveyed rules (m <= 4, J <= 3, b_j <= 3); the general spreading step is unproved.
+- **limitations:** Theorem 10 gives an explicit but crude bound t* (via a Wielandt exponent); observed n0 <= 125 for the 98 rules of EXP-C02-07; largest first gliding t found by the Skeptic is 2744.
 - **status history:**
   - 2026-10-18T08:13:57Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C02; Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3))
+  - 2026-10-18T08:20:07Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C02; Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result)
 
 ### CLM-C02-05: Termination classification for all 189 small carry rules (computer-assisted)
 
@@ -341,13 +370,17 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof
+- **proof_check:**
+
+  Lean 4 + Mathlib for the polynomial core (digits_unique, exists_large_coeff; standard axioms only); reduction to the lattice and the converse by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); statement restricted after the review (the converse fails for 2[k] -> 4[k+1], existence fails for 2[k] -> 3[k+1])
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
   Let g = gcd{j : b_j > 0} and P~(y) = sum_i b_(gi) y^i - m. If P~ is primitive and irreducible over Q, then
-  distinct stable configurations supported on multiples of g have distinct values; in particular every n has
-  exactly one stable representation there, namely rep(n). If P~ is not primitive, two such configurations with
+  distinct stable configurations supported on multiples of g have distinct values; in particular, if
+  sum_j b_j < m, every n has exactly one stable representation there, namely rep(n). If P~ is not primitive
+  and sum_j b_j <= m (more generally every b_(gi) < m*d, d the content of P~), two such configurations with
   equal value exist.
 
 - **proof:** proofs/paper/C02.md#theorem-7-clm-c02-07--uniqueness-of-representations
@@ -366,7 +399,10 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C02.md Theorem 6); 0 inversions for 31 rules up to n = 3000; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C02.md Theorem 6, gap closed by the highest-firing-level argument), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); 0 inversions for 31 rules up to n = 3000 and (Skeptic, LIFO order) 448 rules up to n = 1500
+
 - **novelty:** REDISCOVERY
 - **statement:** For every carry rule with sum b < m and every n, rep(n) < rep(n+1) in radix order.
 - **proof:** proofs/paper/C02.md#theorem-6-clm-c02-08--representations-respect-the-radix-order
@@ -381,7 +417,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C02.md Theorem 8); exhaustive check of 2167 configurations; awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C02.md Theorem 8), skeptic-reviewed 2026-10-18 (reviews/skeptic_C01_C02.md); exhaustive check of 2167 configurations (Skeptic - 6617, own code)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -392,6 +428,7 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C02.md#theorem-8-clm-c02-09--the-fibonacci-exchange-system-zeckendorf-game
 - **evidence:** EXP-C02-02; EXP-C02-06
 - **novelty_basis:** The Zeckendorf game (Baird-Smith, Epstein, Flint, Miller, arXiv:1809.04881) - termination and shortest game N - Z(N); OEIS A219641.
+- **status history:**
 
 ### CLM-C02-10: Longest Fibonacci exchange derivations (longest Zeckendorf games) for n <= 40
 
@@ -411,6 +448,31 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **novelty_basis:**
 
   Published - Baird-Smith, Epstein, Flint, Miller, The Zeckendorf Game (PROMS 297, 2020; arXiv:1809.04881) Figs 3-4 list the longest games for n <= 49 (identical to our n <= 40); Cusenza et al., Fibonacci Quart. 60 (2022) prove the greedy strategy optimal and give a closed form only for n = F_k - 1; Cheigh et al. (PROMS 2025) state the general closed form is open. The sequence is not yet in the OEIS (possible documentation contribution).
+
+- **status history:**
+
+### CLM-C02-11: Termination classification of carry rules: terminating from every unary start iff sum b < m
+
+- **cycle:** C02
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proofs (proofs/paper/C02.md Theorem 3, skeptic-reviewed; Theorems 9 and 10 - two independent proofs of the critical case, Theorem 10 by the Skeptic and checked by the Director); 98 critical rules checked for all starts <= 2000 (EXP-C02-07)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  A carry rule m[k] -> sum_j b_j [k+j] terminates from every unary start iff sum_j b_j < m. If sum_j b_j = m,
+  every derivation from n tokens at level 0 is infinite for all sufficiently large n (the sweep window converges,
+  up to bounded error, to a large multiple of the tail-sum vector T and then dominates T).
+
+- **proof:** proofs/paper/C02.md#theorem-9-clm-c02-11--critical-rules-never-terminate-from-large-starts
+- **evidence:** EXP-C02-03; EXP-C02-07
+- **novelty_basis:**
+
+  Historian audit found no equivalent for the critical case (closest - Propp 2017 proposed the rule family; Bond-Levine, Abelian networks II (2016) prove the analogous critical-case non-halting for FINITE networks via the spectral radius; the half-line network here is infinite). The sum b < m and sum b > m halves are folklore (CLM-C02-03).
 
 - **status history:**
 
@@ -603,6 +665,288 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **evidence:** EXP-C03-04
 - **novelty_basis:** Related to Geser, Hofbauer, Waldmann, "Loops of superexponential lengths in one-rule string rewriting" (RTA 2002).
+
+### CLM-C04-01: Termination census of one-rule systems with |l|, |r| <= 3: non-terminating iff l is a factor of r
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Among the 196 rules l -> r over {a,b} with 1 <= |l| <= 3, 0 <= |r| <= 3, l != r, exactly the 34 rules in
+  which l is a factor of r are non-terminating; the other 162 terminate.
+
+- **proof:** proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3
+- **evidence:** EXP-C04-01
+- **novelty_basis:** A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz "Open. Closed. Open.", RTA 2005) and this observation is likely folklore.
+
+### CLM-C04-02: H-C04-0: a rule with |l| <= 3 terminates iff l is not a factor of r (refuted)
+
+- **cycle:** C04
+- **type:** hypothesis
+- **system:** SYS-A
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** A one-rule system l -> r with |l| <= 3 is non-terminating iff l is a factor of r.
+- **evidence:** EXP-C04-02
+- **counterexample:** ab -> bbaa is non-terminating although ab is not a factor of bbaa: aab -> abbaa -> bbaabaa = bb.aab.aa. In total 18 such rules with |r| <= 5 (EXP-C04-02).
+
+### CLM-C04-03: The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate
+
+- **cycle:** C04
+- **type:** conjecture
+- **system:** SYS-A
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
+  letter exchange) are terminating.
+
+- **evidence:** EXP-C04-02
+- **limitations:**
+
+  All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
+
+
+### CLM-C04-04: ab -> ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even inversion count
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (inv_step, normal_iff_inv_zero, derivation_length_eq_inv, p_positions; standard axioms only); D(n) = max_k k(n-k) by a one-line written argument
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For the rule ab -> ba every step lowers the number of inversions by exactly one; the normal forms are the
+  words b^i a^j; every complete derivation from w has exactly inv(w) steps; the derivational complexity is
+  floor(n^2/4); and in the rewriting game the P-positions are exactly the words with an even number of
+  inversions.
+
+- **proof:** proofs/paper/C04.md#theorem-5-clm-c04-04--the-rule-ab--ba
+- **lean:** proofs/lean/Infinity/C04_Derivations.lean
+- **evidence:** EXP-C04-03; EXP-C04-07
+- **novelty_basis:** Classical (bubble-sort inversions); extremal case of Metivier's conjecture proved by Bertrand (TCS 123, 1994); cited as the quadratic example in derivational-complexity literature (Kobayashi).
+
+### CLM-C04-05: One-rule systems with an unbordered left-hand side have random descent (Lean-verified)
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (random_descent, unbordered_diamond, unbordered_random_descent; standard axioms only)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  (a) Abstractly: if every local peak b <- a -> c is joinable by two derivations of equal length, then whenever
+  a reaches a normal form b in n steps, every derivation from a has at most n steps and every derivation from a
+  to a normal form has exactly n steps and ends in b. (b) For any rule l -> r over any alphabet with l
+  unbordered, two distinct one-step reducts of a word have a common one-step reduct; hence (a) applies.
+
+- **proof:** proofs/paper/C04.md#theorem-4-clm-c04-05--unbordered-left-hand-sides-give-random-descent
+- **lean:** proofs/lean/Infinity/C04_Derivations.lean
+- **evidence:** EXP-C04-05
+- **novelty_basis:**
+
+  Local characterisation of random descent - V. van Oostrom, "Random descent", RTA 2007, LNCS 4533, 314-328 (Isabelle formalisation in arXiv:1802.08437); one-step diamond lemma for non-overlapping redexes is classical (Newman 1942). The Lean development here is an independent formalisation.
+
+
+### CLM-C04-06: Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C04.md Theorem 2); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps; awaiting independent skeptic review
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For every rule l -> r (l != r) over a finite alphabet there are Phi : words -> Z and delta != 0 with
+  Phi(v) = Phi(u) + delta for every step u -> v (Phi = length if |l| != |r|; otherwise
+  Phi(w) = sum of i^K over positions i carrying a suitable letter c, K the least exponent at which the power
+  sums of the c-positions of l and r differ). Consequently all derivations between two given words have the same
+  number of steps, and a terminating one-rule system is confluent iff it has random descent.
+
+- **proof:** proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential
+- **lean:** proofs/lean/Infinity/C04_Derivations.lean
+- **evidence:** EXP-C04-05; EXP-C04-06
+- **novelty_basis:**
+
+  Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.
+
+- **notes:**
+
+  Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
+
+
+### CLM-C04-07: H-C04-1: random descent iff the left-hand side is unbordered (refuted)
+
+- **cycle:** C04
+- **type:** hypothesis
+- **system:** SYS-A
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** A terminating one-rule system has random descent iff its left-hand side is unbordered.
+- **evidence:** EXP-C04-05
+- **counterexample:**
+
+  aa -> a has the bordered left-hand side aa but random descent (every derivation from w has sum over a-runs of (length - 1) steps and ends in the same word); 18 bordered rules with |l|, |r| <= 3 have random descent (EXP-C04-05). The 'if' direction is CLM-C04-05.
+
+
+### CLM-C04-08: Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2)
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C04.md Theorem 9, induction on D); the instance ab -> ba is Lean-verified (p_positions); checked on all 102 RD rules and all words of length <= 10
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If a one-rule system has random descent, the Sprague-Grundy value of its rewriting game at w is D(w) mod 2, D(w) the common length of all maximal derivations from w; the P-positions are the words with even D(w).
+
+- **proof:** proofs/paper/C04.md#theorem-9-clm-c04-08--parity-for-random-descent-games
+- **lean:** proofs/lean/Infinity/C04_Derivations.lean
+- **evidence:** EXP-C04-07
+- **novelty_basis:** Elementary combinatorial game theory - a game in which every play has the same length is decided by parity.
+
+### CLM-C04-09: The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-rational)
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C04.md Theorem 7); per-word formula checked on all words of length <= 21, closed form to n = 20000; awaiting independent skeptic review
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For aab -> ba over {a,b}, the maximal derivation length over words of length n >= 1 is
+  D(n) = n - 1 - kappa(n) with kappa(n) = min{k >= 0 : 2^k + k >= n}; D stalls exactly at n = 2^k + k + 1, and
+  the generating function of D is not rational. The proof identifies the rule with the binary exchange system
+  2[k] -> [k+1] (cycle C02) with an inert top level.
+
+- **proof:** proofs/paper/C04.md#theorem-7-clm-c04-09--aab--ba-has-complexity-n--log-n--o1
+- **evidence:** EXP-C04-03; EXP-C04-04
+- **novelty_basis:**
+
+  Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
+
+
+### CLM-C04-10: Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -> ba
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-A
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C04.md Theorem 8, Jensen's inequality and a trivial tail bound); verified for n <= 1500 with n + 80 bits of precision; awaiting independent skeptic review
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Let A(n) be the least k >= 1 with log 2 - sum_{h=1..k} 1/(h 2^h) < 2^-n (OEIS A247983). Then
+  A(n) = n - max{j >= 0 : 2^j + j <= n + 1}, and A(n) = D(n + 2) where D is the derivational complexity of the
+  one-rule system aab -> ba.
+
+- **proof:** proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
+- **evidence:** EXP-C04-09; EXP-C04-10
+- **novelty_basis:** The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
+
+### CLM-C04-11: H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)
+
+- **cycle:** C04
+- **type:** hypothesis
+- **system:** SYS-A
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every terminating one-rule system over {a,b} with |l|, |r| <= 3, the derivational complexity D(n) satisfies a linear recurrence.
+- **evidence:** EXP-C04-03; EXP-C04-04
+- **counterexample:** aab -> ba (and its 3 symmetric images): D(n) = n - 1 - kappa(n) is not given by any linear recurrence (CLM-C04-09).
+
+### CLM-C04-12: Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3
+
+- **cycle:** C04
+- **type:** observation
+- **system:** SYS-A
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The 162 terminating rules (55 symmetry classes) have derivational complexity linear (144 rules, of which 4
+  are n - Theta(log n)), quadratic (14: floor(n^2/4), floor(n(n-1)/6), floor(n^2/8)) or exponential
+  (4: 2^(n-1) - 1); for 54 of the 55 classes D(n) = floor((a n^2 + b n + c)/d) or 2^(n-1) - 1 on all computed
+  terms.
+
+- **evidence:** EXP-C04-03
+- **limitations:** Closed forms are verified on n <= 12-20 only; proofs exist for ab -> ba (CLM-C04-04), the doubling rules (proofs/paper/C04.md Theorem 6) and aab -> ba (CLM-C04-09).
+
+### CLM-C04-13: Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> ab is Officers
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C04.md Theorem 10); word games = run games for n <= 20 and = octal recursions for n <= 3000; decomposition checked on all words <= 10 for 58 rules; awaiting independent skeptic review
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For a terminating rule a^k -> u the rewriting game on w is the disjoint sum of games on the maximal a-runs,
+  with explicit moves; in particular aa -> b (bb, bbb, bab) is the octal game 0.07 (Dawson's Kayles),
+  aa -> ab (ba, abb, bba) is 0.6 (Officers), aaa -> b (bb, bbb, bab) is 0.007 (Treblecross), aaa -> ab
+  (ba, abb, bba) is 0.06 and aaa -> aba is 0.4.
+
+- **proof:** proofs/paper/C04.md#theorem-10-clm-c04-13--unary-left-hand-sides-give-take-and-break-games
+- **evidence:** EXP-C04-07; EXP-C04-08
+- **novelty_basis:** Octal games are classically described as rows of pins (Berlekamp-Conway-Guy, Winning Ways); the rewriting presentation is a change of notation.
+
+### CLM-C04-14: H-C04-6: Grundy values of rewriting games never exceed 3 (refuted)
+
+- **cycle:** C04
+- **type:** hypothesis
+- **system:** SYS-D
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Every rewriting game of a terminating one-rule system with |l|, |r| <= 3 has Sprague-Grundy values <= 3.
+- **evidence:** EXP-C04-08
+- **counterexample:** aa -> b: the word a^14 has Grundy value 4 (computed from its own derivation graph); Dawson's Kayles reaches 9, Officers 91 for n <= 3000 (EXP-C04-08).
+
+### CLM-C04-15: The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53
+
+- **cycle:** C04
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** computer-assisted - octal recursion to n = 3000 and the Guy-Smith periodicity window n0 <= n < 2 n0 + p + t checked explicitly, plus CLM-C04-13
+- **novelty:** REDISCOVERY
+- **statement:** The Sprague-Grundy values G(n) of the rewriting game of aa -> b on the word a^n satisfy G(n + 34) = G(n) for all n >= 53 (likewise for aaa -> aba from n >= 54).
+- **proof:** results/EXP-C04-08.json (guy_smith_window_verified) with the Guy-Smith periodicity theorem (Winning Ways)
+- **evidence:** EXP-C04-08
+- **novelty_basis:** Periodicity of Dawson's Kayles (Guy and Smith, 1956); OEIS A002187.
+
+### CLM-C04-16: Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.06) ultimately periodic?
+
+- **cycle:** C04
+- **type:** conjecture
+- **system:** SYS-D
+- **verification:** CONJECTURE
+- **novelty:** REDISCOVERY
+- **statement:** The Grundy sequences of the rewriting games of aa -> ab, aaa -> b and aaa -> ab on the words a^n are ultimately periodic.
+- **evidence:** EXP-C04-08; EXP-C04-09
+- **novelty_basis:**
+
+  Equivalent to the open periodicity problems for Officers (0.6), Treblecross (0.007, OEIS A395248) and 0.06 (Guy's conjecture that finite octal games are ultimately periodic). Our computation (n <= 3000) finds no period <= 300; the 0.06 Grundy sequence is not in the OEIS.
+
 
 ### CLM-C08-01: Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative (t >= 0)
 
@@ -1067,16 +1411,17 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **assumptions:** Newman's lemma and the critical-pair lemma for string rewriting; Cayley-Hamilton bound on the order of DFA count recurrences
 - **methodology:**
 
-  For each relation and each of 2*q! shortlex orders: run bounded Knuth-Bendix; on success, independently re-verify convergence (rules decreasing, all critical pairs joinable, u and v have equal normal forms); build the Aho-Corasick DFA of the left-hand sides (s live states); compare s + k + 5 count terms with the formula (sufficient for equality of all terms); cross-check against brute-force class counts for n <= 8.
+  For each relation and each of 2*q! shortlex orders: run bounded Knuth-Bendix; on success, independently re-verify convergence (rules decreasing, all critical pairs joinable, u and v have equal normal forms); check soundness directly (every completed rule l -> r is derived from u <-> v by breadth-first search in the class of l); build the Aho-Corasick DFA of the left-hand sides (s live states); compare s + k + 5 count terms with the formula (sufficient for equality of all terms); cross-check against brute-force class counts for n <= 8; store every certificate.
 
 - **falsification:** A verified convergent completion whose irreducible-word counts differ from the formula would refute H-C01-7 for that relation.
 - **summary:**
   - 2159 relations attempted; 1632 proved for all n by verified finite completion; 527 without a finite completion (formula still only checked for n <= 12/7); refutations: 0; internal inconsistencies: 0
   - per case: {'ab/k=2': {'containment PROVEN': 5, 'hard PROVEN': 1}, 'ab/k=3': {'containment PROVEN': 24, 'hard PROVEN': 3, 'hard NO FINITE COMPLETION FOUND': 1}, 'ab/k=4': {'containment PROVEN': 87, 'hard PROVEN': 15, 'hard NO FINITE COMPLETION FOUND': 18}, 'ab/k=5': {'containment PROVEN': 360, 'hard PROVEN': 74, 'hard NO FINITE COMPLETION FOUND': 62}, 'ab/k=6/hard-only': {'hard PROVEN': 331, 'hard…
+  - 1632 certificates stored; soundness of completed rules (BFS derivation from u = v): {'ok': 1632}
 - **analysis:** 1632 relations proved for all n by independently re-verified finite completions; 527 hard relations have infinite completions within the search bounds.
 - **related:** CLM-C01-07; CLM-C01-08
 - **future:** Parametric (regular) completions for the 527 open relations
-- **runs:** 1; last 2026-10-18T06:37:45Z (14.073 s), results sha256 `455810f0a4d54dad…`, code `experiments/C01/E07_automatic_proofs.py`
+- **runs:** 2; last 2026-10-18T08:38:17Z (17.262 s), results sha256 `2fe6e6bb63630d38…`, code `experiments/C01/E07_automatic_proofs.py`
 
 ### EXP-C01-08: Replication of the novelty audit's computations: confluence criterion, open cases, two common borders
 
@@ -1146,13 +1491,13 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
   Batch-firing upward sweep. After level k is processed the future depends only on the window (c_{k+1}, ..., c_{k+J}), and the window map is monotone; a window W with an entry >= m that is later dominated componentwise (periodic glider if equal) certifies infinitely many firings. Radix order = compare length, then digits from the top.
 
 - **falsification:** A rule with sum b < m and an infinite derivation, a rule with sum b >= m terminating from all n <= 200 with no glider, or a radix-order inversion.
-- **summary:** 189 carry rules; 31 terminate from all unary n <= 200, all with sum b < m; H-C02-1 violations: 0; every non-terminating rule has a periodic-glider certificate: True; H-C02-2 (radix monotonicity) violations among terminating rules: 0
+- **summary:** 189 carry rules; 31 terminate from all unary n <= 200, all with sum b < m; H-C02-1 violations: 0; every non-terminating rule has a certificate (periodic glider or monotone pumping): True; H-C02-2 (radix monotonicity) violations among terminating rules: 0
 - **analysis:**
 
   Termination from unary starts holds exactly for the 31 rules with sum b < m; every one of the 158 other rules has a periodic-glider or monotone-pumping certificate; no radix-order inversion up to n = 3000.
 
 - **related:** CLM-C02-03; CLM-C02-04; CLM-C02-05; CLM-C02-08
-- **runs:** 2; last 2026-10-18T06:52:37Z (2.075 s), results sha256 `90286589173dec13…`, code `experiments/C02/E03_carry_rule_survey.py`
+- **runs:** 3; last 2026-10-18T08:36:48Z (2.286 s), results sha256 `0fb4267c2593ecea…`, code `experiments/C02/E03_carry_rule_survey.py`
 
 ### EXP-C02-04: Uniqueness of stable representations in emergent bases; addition by merging
 
@@ -1218,6 +1563,29 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **related:** CLM-C02-09; CLM-C02-10
 - **runs:** 2; last 2026-10-18T07:18:37Z (24.18 s), results sha256 `8daf1207b9ded668…`, code `experiments/C02/E06_novelty_checks.py`
+
+### EXP-C02-07: Critical rules: non-termination from all large unary starts and the spectral gap
+
+- **cycle:** C02
+- **agent:** Formal Verifier
+- **question:** Is non-termination of critical rules (sum b = m) a property of all large starts, as a spectral argument predicts?
+- **hypothesis:**
+
+  T-C02-12: if sum b = m and gcd{j : b_j > 0} = 1, the window map's linearisation has the simple eigenvalue 1 (eigenvector T = tail sums) and all other eigenvalues of modulus < 1; consequently every unary start n >= n0 reaches a window dominating T and never terminates.
+
+- **assumptions:** all critical rules with m <= 5, J <= 4, b_j <= 4 and gcd of support 1 (b_J > 0); starts n = 1..2000
+- **methodology:**
+
+  For each rule: eigenvalues of the J x J linear map (A x)_i = x_(i+1) + (b_i/m) x_1; sweep every start up to 2000 with periodic/pumping certificates; record the largest terminating start n0 - 1 and check that every larger start has a certificate.
+
+- **falsification:** A rule with an eigenvalue of modulus >= 1 other than the simple eigenvalue 1, or a terminating start after the first certified one beyond a stable tail.
+- **summary:** 98 critical rules with gcd-1 support (m <= 5, J <= 4): spectral violations 0; every start beyond the largest terminating one is certified non-terminating: True (largest terminating start over all rules: 124); max second-eigenvalue modulus: 0.949051
+- **analysis:**
+
+  All 98 critical rules (m <= 5, J <= 4, b_j <= 4, gcd-1 support) have a simple eigenvalue 1 and all other eigenvalues of modulus < 1 (max 0.949); every start beyond the largest terminating one (<= 124) is certified non-terminating - as Theorem 9 predicts.
+
+- **related:** CLM-C02-04; CLM-C02-11
+- **runs:** 1; last 2026-10-18T08:18:24Z (99.175 s), results sha256 `2062c9e1f8cc54e4…`, code `experiments/C02/E07_critical_rules_all_large_n.py`
 
 ### EXP-C03-01: Termination survey of the 256 rules 0^p 1^q -> 1^r 0^s (p, q, r, s <= 4)
 
@@ -1326,6 +1694,9 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
   - 196 rules: {'TERMINATING': 162, 'NON-TERMINATING': 34}; certificates by kind: {'length decreases': 70, 'length-preserving, lexicographically monotone': 70, 'self-embedding': 34, 'linear interpretation': 20, 'factor count decreases': 2}
   - unknown: 0; certificates failing the independent check: 0
   - 22 length-increasing rules terminate (linear interpretation or factor count)
+- **analysis:** All 196 one-rule systems with |l|, |r| <= 3 are decided by checkable certificates; the 34 non-terminating ones are exactly those whose left-hand side is a factor of the right-hand side.
+- **verification:** PROVEN
+- **related:** CLM-C04-01
 - **runs:** 1; last 2026-10-18T07:32:35Z (0.003 s), results sha256 `1bc8184c4a5f40dc…`, code `experiments/C04/E01_termination_census.py`
 
 ### EXP-C04-02: Extended termination census (|l| <= 3, |r| <= 5) and the factor hypothesis
@@ -1341,6 +1712,13 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** A non-terminating rule whose lhs is not a factor of its rhs refutes H-C04-0.
 - **summary:** 868 rules: {'TERMINATING': 472, 'NON-TERMINATING': 388, 'UNKNOWN': 8}; H-C04-0 counterexamples (non-terminating, l not a factor of r): 18, e.g. ['ab', 'bbaa'] via ['aab', 'abbaa', 'bbaabaa']; undecided rules: 8 ['aab->ababa', 'aab->babaa', 'abb->babab', 'abb->bbaba', 'baa->aabab', 'baa->ababa', 'bba->ababb', 'bba->babab']
+- **analysis:**
+
+  Extending to |r| <= 5 refutes the bold factor hypothesis H-C04-0 (18 non-trivial looping rules, e.g. ab -> bbaa); 860 of 868 rules decided by certificates (linear interpretations with coefficients <= 7 and LP-found, exactly re-verified weighted factor counts added); 8 rules in two symmetry classes remain open.
+
+- **counterexamples:** ab -> bbaa: aab -> abbaa -> bbaabaa contains aab (self-embedding)
+- **verification:** REFUTED
+- **related:** CLM-C04-02; CLM-C04-03
 - **runs:** 1; last 2026-10-18T07:34:52Z (11.724 s), results sha256 `94726db18a386c7e…`, code `experiments/C04/E02_extended_census.py`
 
 ### EXP-C04-03: Derivational complexity of terminating one-rule systems (|l|, |r| <= 3)
@@ -1363,6 +1741,11 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
   - doubling-rule formula verified against exhaustive graphs on 2044 words
   - symmetry classes without a floor((a n^2+b n+c)/d) or 2^(n-1)-1 closed form: ['aab->ba']
   - ab->ba D_max: [0, 0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30, 36]; ab->bba D_max: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095]
+- **analysis:**
+
+  Derivational complexity of the 162 terminating rules - 140 linear, 14 quadratic, 4 exponential, 4 non-rational (the aab -> ba class); simple floor-quadratic or 2^(n-1)-1 closed forms for 54 of 55 symmetry classes. Among length-preserving rules with |l| >= 2 only ab <-> ba attains floor(n^2/4), consistent with Bertrand's theorem.
+
+- **related:** CLM-C04-11; CLM-C04-12; CLM-C04-04
 - **runs:** 3; last 2026-10-18T07:55:27Z (163.601 s), results sha256 `5039ce5f4ad2cc7e…`, code `experiments/C04/E03_derivational_complexity.py`
 
 ### EXP-C04-04: The rule aab -> ba is a truncated binary exchange system: D(n) = max_m (n-m) - ceil((n-m)/2^m)
@@ -1381,6 +1764,12 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Any n <= 21 where the maximum over words differs from the formula, or any word whose derivation length differs from the configuration formula.
 - **summary:** max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]; formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0; n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]; closed form D(n) = n - 1 - min{k : 2^k + k >= n} (n <= 20000): True; stalls exactly at n = 2^k + k + 1: True
+- **analysis:**
+
+  The configuration (binary-counter-with-sink) formula for aab -> ba matches every word up to length 21 and the exhaustive graphs; D(n) = n - 1 - min{k : 2^k + k >= n} up to n = 20000; stalls exactly at n = 2^k + k + 1.
+
+- **verification:** PROVEN
+- **related:** CLM-C04-09
 - **runs:** 2; last 2026-10-18T07:52:35Z (27.493 s), results sha256 `be51ed9422ae3039…`, code `experiments/C04/E04_aab_ba_formula.py`
 
 ### EXP-C04-05: Random descent of one-rule systems: unbordered left-hand sides versus critical peaks
@@ -1399,6 +1788,12 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** H-C04-1: a bordered rule with random descent or an unbordered one without. H-C04-2: disagreement between observed random descent and the critical-peak test.
 - **summary:** 162 terminating rules; (bordered, RD, confluent) counts: {'False/True/True': 84, 'True/False/False': 60, 'True/True/True': 18}; H-C04-1 counterexamples: 18 (e.g. [['aa', ''], ['aa', 'a'], ['aa', 'aba'], ['bb', '']]); unbordered rules without RD: 0; H-C04-2 disagreements (RD vs equal-length joinable critical peaks): 0; length-uniform but not confluent: 0
+- **analysis:**
+
+  All 84 unbordered rules have random descent; 18 of 78 bordered rules also do (H-C04-1 refuted); random descent agrees with equal-length joinability of critical peaks in all 162 cases; no rule is length-uniform without being confluent in this family.
+
+- **counterexamples:** aa -> a: bordered left-hand side but random descent
+- **related:** CLM-C04-05; CLM-C04-07; CLM-C04-06
 - **runs:** 2; last 2026-10-18T08:00:11Z (51.462 s), results sha256 `aaaaa7a552736929…`, code `experiments/C04/E05_random_descent.py`
 
 ### EXP-C04-06: Constant-step potentials for one-rule systems; confluence versus random descent
@@ -1419,6 +1814,12 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **summary:**
   - constant-step potential verified for 5365 rules on 470927 one-step pairs: 0 violations (largest exponent K needed: 2)
   - length-preserving bordered rules |l| = 4, 5: 770 tested, 94 confluent (all of them length-uniform: True), 220 length-uniform, of which 126 are not confluent
+- **analysis:**
+
+  The constant-step potential of Theorem 2 exists and works for all 5365 tested rules (0 violations on 470,927 steps, K <= 2); among 770 bordered length-preserving rules with |l| = 4, 5 every confluent rule is length-uniform, while 126 are length-uniform without being confluent.
+
+- **verification:** PROVEN
+- **related:** CLM-C04-06
 - **runs:** 2; last 2026-10-18T08:00:20Z (8.127 s), results sha256 `31cca82d9f4c7cee…`, code `experiments/C04/E06_step_potential.py`
 
 ### EXP-C04-07: Rewriting games: parity for random-descent rules, run decomposition for unary left-hand sides
@@ -1437,6 +1838,8 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** A random-descent word with g != D mod 2; a word whose Grundy value differs from the XOR of run values; a Grundy value >= 4.
 - **summary:** 162 rewriting games; random-descent rules violating g = D mod 2: 0; unary-lhs rules checked against the run decomposition: 58, failures: 0; histogram of max Grundy value per rule: {1: 102, 3: 60}; highest: [(['aa', 'b'], 3), (['aa', 'ab'], 3), (['aa', 'ba'], 3), (['aa', 'bb'], 3), (['aa', 'abb'], 3)]
+- **analysis:** Parity theorem holds for all RD rules; unary-lhs games decompose over a-runs for all 58 such rules; maximal Grundy value 3 on words of length <= 10 (60 rules).
+- **related:** CLM-C04-08; CLM-C04-13
 - **runs:** 1; last 2026-10-18T08:01:26Z (33.458 s), results sha256 `c3e4b5f1b21dcfdc…`, code `experiments/C04/E07_rewriting_games.py`
 
 ### EXP-C04-08: Unary rewriting games = octal games: Dawson's Kayles (aa -> b), Officers (aa -> ab) and others
@@ -1455,6 +1858,12 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Any n <= 20 where the word game, the run game and the octal recursion disagree; a Grundy value >= 4 refutes H-C04-6.
 - **summary:** word game = run game for n <= 20 and run game = octal recursion for n <= 3000: True; aa->b (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14; aa->bb (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14; aa->bab (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14; aa->ab (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11; aa->abb (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11; aa->ba (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11; aaa->b (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15; aaa->bab (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15; aaa->ab (octal 0.06): period None (none <= 300 up to n=3000), max G 117, first G>=4 at n=15; aaa->aba (octal 0.4): period 34 from n0=54, max G 9, first G>=4 at n=15; aaa->aab (not octal (left heap >= 2)): period 4 from n0=2, max G 3, first G>=4 at n=None
+- **analysis:**
+
+  Unary rewriting games coincide with octal games (Dawson's Kayles, Officers, 0.007, 0.06, 0.4); Dawson's Kayles and 0.4 have period 34 (Guy-Smith window verified); Officers, 0.007, 0.06 show no period <= 300 up to n = 3000; a^14 has Grundy value 4 under aa -> b.
+
+- **counterexamples:** aa -> b: Grundy value of a^14 is 4 (H-C04-6 refuted)
+- **related:** CLM-C04-13; CLM-C04-14; CLM-C04-15; CLM-C04-16
 - **runs:** 1; last 2026-10-18T08:04:27Z (113.072 s), results sha256 `cc88379390a35467…`, code `experiments/C04/E08_octal_games.py`
 
 ### EXP-C04-09: Novelty checks of C04 sequences against the OEIS
@@ -1467,6 +1876,11 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Query the first terms (skipping leading zeros where they make the query trivial); record hits.
 - **falsification:** A catalogued sequence for something labelled potentially novel.
 - **summary:** 11 sequences checked; no OEIS match: ['Grundy aaa->ab on a^n (octal 0.06)']; errors: []; D_max aab->ba (n - 1 - kappa(n)): MATCH ['A247983 Least number k such that log(2) - sum{1/(h*2^h), h=1..k} < 1']; n - D(n) for aab->ba (1 + kappa(n)): MATCH (shifted window) ['A372475 Length of binary expansion (or number of bits) of the n-th s']; D_max aab->aba (floor(n(n-1)/6)): MATCH ['A001840 Expansion of g.f. x/((1 - x)^2*(1 - x^3)).']; D_max aab->baa (floor(n^2/8)): MATCH ['A130519 a(n) = Sum_{k=0..n} floor(k/4). (Partial sums of A002265.)']; D_max ab->ba (floor(n^2/4)): MATCH ['A002620 Quarter-squares: a(n) = floor(n/2)*ceiling(n/2). Equivalentl']; D_max ab->bba (2^(n-1)-1): MATCH ['A000225 a(n) = 2^n - 1. (Sometimes called Mersenne numbers, although']; Grundy aa->b on a^n (Dawson's Kayles 0.07): MATCH (shifted window) ["A002187 Sprague-Grundy values for Dawson's Chess (octal game .137)."]; Grundy aa->ab on a^n (Officers 0.6): MATCH ['A046695 Sprague-Grundy values for the game Couples-are-Forever (and ']; Grundy aaa->b on a^n (octal 0.007): MATCH ['A395248 Sprague-Grundy values for the octal game .007.']; Grundy aaa->ab on a^n (octal 0.06): NO MATCH []; Grundy aaa->aba on a^n (octal 0.4): MATCH (shifted window) ["A002187 Sprague-Grundy values for Dawson's Chess (octal game .137)."]
+- **analysis:**
+
+  Quadratic, exponential and octal sequences are catalogued (A002620, A001840, A130519, A000225, A002187, A046695, A395248). The octal 0.06 Grundy sequence has no OEIS match. The complexity of aab -> ba matches A247983, whose definition (a truncation index for log 2) is different - investigated in EXP-C04-10. A372475 (shifted window) is a coincidental match.
+
+- **related:** CLM-C04-10; CLM-C04-16
 - **runs:** 1; last 2026-10-18T08:05:46Z (24.44 s), results sha256 `b27de23695054b60…`, code `experiments/C04/E09_novelty_checks.py`
 
 ### EXP-C04-10: D(n+2) for aab -> ba equals A247983(n) = least k with log 2 - sum_{h<=k} 1/(h 2^h) < 2^-n
@@ -1482,6 +1896,9 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Any n with a mismatch.
 - **summary:** A247983(n) computed for n = 1..1500 with n+80 bits: mismatches with n - J(n) or D(n+2): 0; closest decisive comparison is 2^-19.0 away in relative terms (precision n+80 bits)
+- **analysis:** A247983(n) = n - max{j : 2^j + j <= n + 1} = D(n + 2) for all n <= 1500 in high-precision arithmetic; the identity is proved in proofs/paper/C04.md Theorem 8.
+- **verification:** PROVEN
+- **related:** CLM-C04-10
 - **runs:** 2; last 2026-10-18T08:07:44Z (8.439 s), results sha256 `930951e6e50817a9…`, code `experiments/C04/E10_log2_connection.py`
 
 ### EXP-C05-01: Spectrum census of two-variable identities t = x (2-4 operations), sizes 1-6
@@ -1529,6 +1946,80 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **falsification:** An LD table from the recursion for N not a power of 2, a power of 2 failing LD, or a period sequence differing from A098820.
 - **summary:** Laver's recursion gives an LD table exactly for N in [1, 2, 4, 8, 16, 32, 64] (N <= 64); A_n LD-verified for n <= 12 (exhaustive up to N = 256): True; row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']
 - **runs:** 1; last 2026-10-18T07:55:31Z (23.624 s), results sha256 `9a343d0263e25062…`, code `experiments/C06/E01_laver_tables.py`
+
+### EXP-C06-02: Spectra and model counts of successor-anchored magmas for invented identities
+
+- **cycle:** C06
+- **agent:** Mathematical Inventor
+- **question:** If left-distributivity is replaced by another composition law, which sizes N admit a magma with x * 0 = x + 1 (mod N), and how many are there?
+- **hypothesis:**
+
+  H-C06-1: LD + anchor has exactly one model for N in {1,2,4,8} and none otherwise (N <= 10). H-C06-2 (bold, inventor): restricted 'power-of-two' spectra are special to left-distributivity; other balanced 3-variable laws give either every N or no N > 1.
+
+- **assumptions:** sizes N = 1..10 (LD, RD up to 10; others up to 8); complete enumeration with blocking clauses (limit 2000 models); anchor fixes the whole column 0
+- **methodology:**
+
+  MagmaSAT (exact encoding from C05) with unit clauses v[x,0,x+1]; count all models (anchored structures have no non-trivial anchored isomorphisms, so tables = classes); record spectrum and counts; independent of Laver's recursion.
+
+- **falsification:** An LD-anchored model for N not a power of two, two models for a power of two, or a non-LD law with a restricted non-trivial spectrum.
+- **summary:**
+  - LD anchored model counts N=1..10: {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}
+  - LD x(yz)=(xy)(xz): spectrum [1, 2, 4, 8] counts {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}
+  - RD (xy)z=(xz)(yz): spectrum [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1, '9': 1, '10': 1}
+  - assoc x(yz)=(xy)z: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}
+  - left-permutable x(yz)=y(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 94, '5': 1486, '6': 2000, '7': 2000, '8': 2000}
+  - right-permutable (xy)z=(xz)y: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 64, '5': 625, '6': 2000, '7': 2000, '8': 2000}
+  - x(yz)=(xy)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}
+  - x(yz)=(xz)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}
+  - (xy)z=(xy)(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}
+  - x(yz)=(yx)(zx): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}
+  - x(xy)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 24, '4': 2000, '5': 2000, '6': 2000, '7': 2000, '8': 2000}
+  - x(yx)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}
+  - (xy)y=xy: spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}
+- **runs:** 1; last 2026-10-18T08:23:38Z (53.475 s), results sha256 `b78c9dca41e89a8e…`, code `experiments/C06/E02_anchored_spectra.py`
+
+### EXP-C06-03: Anchored spectra of all laws x(yz) = t and (xy)z = t with t of 3-4 leaves over {x,y,z}
+
+- **cycle:** C06
+- **agent:** Mathematical Skeptic
+- **question:**
+
+  Among all laws whose left side is x(yz) or (xy)z and whose right side is any term with 3 or 4 leaves using exactly the variables x, y, z, which admit a successor-anchored model (x*0 = x+1 mod N) for which N <= 6?
+
+- **hypothesis:** H-C06-2 (bold): every such law other than left-distributivity has anchored spectrum {1} or {1,...,6}; a restricted non-trivial spectrum is special to LD.
+- **assumptions:** sizes N = 1..6; laws with a restricted spectrum are re-run for N = 7, 8; SAT conflict budget 2,000,000 per instance; UNKNOWN is recorded, never guessed; laws are taken up to renaming of variables (left side normalised to x(yz) or (xy)z)
+- **methodology:**
+
+  Enumerate right sides (2 shapes x 6 labelings for 3 leaves, 5 shapes x 36 surjective labelings for 4 leaves), drop t equal to the left side, solve MagmaSAT(N, law, anchor) for N = 1..6, classify spectra, extend restricted ones to N = 8.
+
+- **falsification:** Any law other than x(yz) = (xy)(xz) with a spectrum strictly between {1} and {1..6}.
+- **summary:**
+  - 382 laws: all N <= 6: 77, trivial only: 283, restricted: 22
+  - restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N…
+  - UNKNOWN instances: 0
+- **runs:** 1; last 2026-10-18T08:25:42Z (46.81 s), results sha256 `abc56c929f0aa54a…`, code `experiments/C06/E03_law_family_spectra.py`
+
+### EXP-C06-04: Affine anchored models and the arithmetic of anchored spectra
+
+- **cycle:** C06
+- **agent:** Mathematical Explorer
+- **question:**
+
+  For the 382 laws of EXP-C06-03, does the anchored spectrum coincide with the set of N for which some affine table x*y = x + a*y + 1 (mod N) satisfies the law? Are all anchored models of the restricted-spectrum laws affine?
+
+- **hypothesis:**
+
+  H-C06-3 (bold): apart from left-distributivity, every law of the family has anchored spectrum equal to its affine spectrum for N <= 6. H-C06-4 (derived by hand): the anchored models of (xy)z = x(y(zz)) are exactly x*y = x + a*y + 1 with a^2 + a = 1 (mod N); predicted counts 1 (N=1), 1 (N=5), 2 (N=11), 0 for other N <= 12. H-C06-5 (derived by hand): (xy)z = x((yz)z) has exactly one anchored model for odd N and none for even N.
+
+- **assumptions:** affine spectrum computed for N <= 40 by direct evaluation; SAT spectra for N <= 6 for all laws; model enumeration (limit 1000) for N <= 9 for the restricted laws; N = 10..12 solved for selected laws; conflict budget 2,000,000; UNKNOWN recorded
+- **methodology:** Evaluate every affine table for every a in Z_N; compare with SAT; enumerate all anchored models of restricted laws and test each for affinity (T[x][y] - x - 1 = a*y for a single a).
+- **falsification:** A law (other than LD) whose SAT spectrum differs from its affine spectrum; a non-affine model of (xy)z = x(y(zz)) or (xy)z = x((yz)z); a model count different from the predicted root count.
+- **summary:**
+  - 382 laws; affine vs SAT spectrum (N<=6) mismatches: 6 ['x(yz) = y(x(xz))', 'x(yz) = y(x(yz))', 'x(yz) = y(y(xz))', 'x(yz) = y((yx)z)', 'x(yz) = (xy)(xz)', 'x(yz) = (yx)(yz)']
+  - restricted laws: 22; laws with non-affine anchored models (N<=9): {'x(yz) = y((yx)z)': {2: 1}, 'x(yz) = (xy)(xz)': {2: 1, 4: 1, 8: 1}}
+  - golden law counts predicted {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0} observed {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0}
+  - odd law counts {1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1, 10: 0, 11: 1, 12: 0}
+- **runs:** 1; last 2026-10-18T08:33:18Z (318.236 s), results sha256 `8a8aca5cd93cd72e…`, code `experiments/C06/E04_affine_spectra.py`
 
 ### EXP-C08-01: Associativity atlas of circle products a o b = sum d_i(a) d_j(b) G_(i+j+s)
 
@@ -1749,6 +2240,157 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
 - **related:** CLM-C10-02
 - **runs:** 1; last 2026-10-18T07:51:28Z (5.777 s), results sha256 `2d945a77304f631a…`, code `experiments/C10/E04_novelty.py`
 
+### EXP-C11-01: Correctness of the code implementations and of the pattern-terminated family
+
+- **cycle:** C11
+- **agent:** Formal Verifier
+- **question:** Are the encoders/decoders exact inverses, prefix-free, with nondecreasing length functions, and are pattern-terminated codes complete (Kraft sum 1)?
+- **hypothesis:** Every implemented code round-trips on random data; every pattern-terminated code T_p is prefix-free with Kraft sum tending to 1; T_11 has exactly the length function of the Fibonacci C1 code.
+- **assumptions:** universal codes: all n <= 5000 plus 3000 random n up to 2^60; Golomb/Rice codes: n <= 5000 (unary quotients make huge n impractical); pattern codes: all 60 patterns of length 2..5 plus the unary pattern 1 (0 is its mirror image)
+- **methodology:**
+
+  Encode/decode single values and concatenated streams; trie check of the first 20000 codewords; length(n) == len(encode(n)); monotonicity of length(n) on n <= 2e5 and on sorted random big n; exact Kraft partial sums over lengths <= 1500 for pattern codes.
+
+- **falsification:** Any mismatch, prefix relation, decreasing length step, or Kraft sum exceeding 1.
+- **summary:** 9 baseline + 61 pattern + 8 Golomb codes: problems = 0; Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]; Fibonacci C1 length function == T_11 for n <= 2e5: True
+- **runs:** 4; last 2026-10-18T08:36:40Z (14.731 s), results sha256 `8cb4a80a78a8c4a8…`, code `experiments/C11/E01_correctness.py`
+
+### EXP-C11-02: Pattern-terminated codes: growth rates, the all-ones maximum, and the best terminator per range
+
+- **cycle:** C11
+- **agent:** Mathematical Explorer
+- **question:** How does the terminator pattern p control the code T_p? Is 1^k best among patterns of length k?
+- **hypothesis:**
+
+  H-C11-1: among binary patterns of length k, exactly 1^k and 0^k maximise the growth rate lambda_p (hence the asymptotic efficiency 1/log2 lambda_p). H-C11-2 (bold, inventor): for every n beyond a small threshold, the best length-k terminator is 1^k. H-C11-3: unbordered patterns of length k have lambda equal to the (k-1)-bonacci constant.
+
+- **assumptions:** all binary patterns of length 2..10 (2044 patterns); codeword counts by exact dynamic programming (big integers), growth rates from the denominator x^k + (1-2x) c_p(x); range analysis for n <= 2^64
+- **methodology:**
+
+  Compute lambda_p two ways (polynomial root; count ratio at length 400); rank patterns; compare cumulative codeword counts of 1^k with unbordered patterns; compute, for every n <= 2^64, the pattern of length <= 8 giving the shortest codeword (envelope) and crossover points against Elias gamma/delta/omega/Levenshtein; OEIS checks of count sequences.
+
+- **falsification:** A length-k pattern other than 0^k, 1^k with lambda >= lambda_(1^k); a range of large n where a pattern beats 1^k of the same length (refutes H-C11-2).
+- **summary:**
+  - H-C11-1 (1^k, 0^k uniquely maximise lambda, k=2..10): violations []
+  - H-C11-3 (unbordered => (k-1)-bonacci lambda): violations 0
+  - root-vs-count-ratio max error 1.33e-15
+  - H-C11-2 rival wins over 1^k for n >= 1000: {3: 0, 4: 762, 5: 972, 6: 1127}
+  - cumulative-count ratios unbordered/1^(k-1): {'cum_011/cum_11 at L=300': 1.618033989, 'cum_0111/cum_111 at L=300': 1.191487884, 'cum_01111/cum_1111 at L=300': 1.078095078}
+  - OEIS: {'011': 'MATCH', '101': 'MATCH', '0101': 'MATCH', '0111': 'MATCH', '1011': 'MATCH', '0110': 'MATCH'}
+- **runs:** 1; last 2026-10-18T08:24:42Z (7.954 s), results sha256 `44eb2516b244b91f…`, code `experiments/C11/E02_pattern_theory.py`
+
+### EXP-C11-03: Benchmark: expected length minus entropy on Zipf, geometric, uniform and log-uniform sources
+
+- **cycle:** C11
+- **agent:** Application Researcher
+- **question:** Where do pattern-terminated codes beat classical universal codes, and how do they compare with a Golomb-Rice code tuned to the source?
+- **hypothesis:**
+
+  H-C11-4: some fixed pattern code (not 11) beats every classical universal baseline (gamma, delta, omega, Levenshtein, Fibonacci, LEB128, fixed Exp-Golomb) on at least one realistic source; tuned Golomb-Rice wins on geometric sources.
+
+- **assumptions:** exact expectations from length breakpoints and cdfs (no sampling); Zipf truncated at 1e6; geometric tails below 1e-18 ignored; oracle pattern = best pattern of length <= 8 (up to complement) chosen per source, i.e. a tuned code like Golomb-Rice
+- **methodology:** Expected codeword length E and redundancy E - H for 12 sources and all codes; winners among (a) fixed universal codes and (b) all codes including tuned ones.
+- **falsification:** No fixed pattern code (other than 11) is ever the best universal code.
+- **summary:**
+  - Zipf(s=1.1, N=1e6): H=10.8974; best classical ['Fibonacci C1', 0.769]; best fixed ['T_101', 0.1935]; best overall ['T_101', 0.1935]
+  - Zipf(s=1.5, N=1e6): H=4.6179; best classical ['Fibonacci C1', 0.0999]; best fixed ['Fibonacci C1', 0.0999]; best overall ['Fibonacci C1', 0.0999]
+  - Zipf(s=2.0, N=1e6): H=2.3626; best classical ['Elias gamma', 0.0837]; best fixed ['Elias gamma', 0.0837]; best overall ['Elias gamma', 0.0837]
+  - Zipf(s=3.0, N=1e6): H=0.9789; best classical ['Levenshtein', 0.3907]; best fixed ['Levenshtein', 0.3907]; best overall ['tuned Golomb(M=1)', 0.3896]
+  - geometric(p=0.5): H=2.0; best classical ['Levenshtein', 0.1915]; best fixed ['Levenshtein', 0.1915]; best overall ['tuned Golomb(M=1)', 0.0]
+  - geometric(p=0.1): H=4.69; best classical ['Exp-Golomb(2)', 0.2954]; best fixed ['Exp-Golomb(2)', 0.2954]; best overall ['tuned Golomb(M=7)', 0.0352]
+  - geometric(p=0.01): H=8.0793; best classical ['Exp-Golomb(4)', 0.7001]; best fixed ['Exp-Golomb(4)', 0.7001]; best overall ['tuned Golomb(M=68)', 0.0258]
+  - geometric(p=0.001): H=11.4078; best classical ['Fibonacci C1', 2.9342]; best fixed ['T_0111', 1.735]; best overall ['tuned Golomb(M=693)', 0.0281]
+  - uniform [1, 2^8]: H=8.0; best classical ['Exp-Golomb(4)', 1.75]; best fixed ['Exp-Golomb(4)', 1.75]; best overall ['tuned Golomb(M=64)', 0.5]
+  - uniform [1, 2^16]: H=16.0; best classical ['LEB128 varint', 5.9844]; best fixed ['T_0111', 3.2978]; best overall ['tuned Golomb(M=16384)', 0.5]
+  - uniform [1, 2^32]: H=32.0; best classical ['LEB128 varint', 7.4961]; best fixed ['T_00111', 4.4391]; best overall ['tuned Golomb(M=1073741824)', 0.5]
+  - log-uniform 1/n on [1,1e+06]: H=13.4061; best classical ['Fibonacci C1', 1.6368]; best fixed ['T_0111', 0.4006]; best overall ['T_0111', 0.4006]
+- **runs:** 1; last 2026-10-18T08:25:40Z (7.548 s), results sha256 `a67c4269318e034f…`, code `experiments/C11/E03_synthetic_benchmarks.py`
+
+### EXP-C11-04: Benchmark on in-repo data: prime gaps up to 1e7 and simulated posting lists
+
+- **cycle:** C11
+- **agent:** Application Researcher
+- **question:** Do the synthetic conclusions survive on concrete integer sequences?
+- **hypothesis:**
+
+  On prime gaps (light tail, mean ~15) gamma-like codes or Fibonacci win; on bursty posting-list gaps (heavy-tailed mixture) pattern codes beat both classical universal codes and a tuned Golomb code; on homogeneous posting lists (geometric gaps) tuned Golomb wins.
+
+- **assumptions:** primes <= 1e7 by sieve (664579 primes); gaps coded raw and halved (gap/2, first gap dropped); posting lists: 1e5 geometric(0.001) gaps; bursty: 100 segments x 1000 gaps with p drawn from {0.1, 0.01, 0.001, 0.0001}; seeded numpy generator; zeroth-order empirical entropy as reference (codes are memoryless)
+- **methodology:** Average bits per value for every code (exact, from the empirical distribution); tuned codes are tuned on the same data (optimistic for them).
+- **falsification:** Pattern codes never best among universal codes on these data.
+- **summary:**
+  - prime gaps <= 1e7 (raw) (n=664578, H0=4.1709): best classical ['Exp-Golomb(4)', 5.7208], best fixed ['Exp-Golomb(4)', 5.7208], best overall ['tuned Golomb(M=10)', 5.2713]
+  - prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]
+  - posting list geometric(0.001) (n=100000, H0=11.3626): best classical ['Fibonacci C1', 14.3563], best fixed ['T_0111', 13.1548], best overall ['tuned Golomb(M=693)', 11.446]
+  - bursty posting list (mixture) (n=100000, H0=10.7142): best classical ['Fibonacci C1', 12.1459], best fixed ['T_101', 11.4728], best overall ['T_101', 11.4728]
+- **runs:** 1; last 2026-10-18T08:26:18Z (0.209 s), results sha256 `06e9eae27066d241…`, code `experiments/C11/E04_data_benchmarks.py`
+
+### EXP-C11-05: Throughput of the reference implementations (Python, string-based)
+
+- **cycle:** C11
+- **agent:** Application Researcher
+- **question:** What do pattern-terminated codes cost computationally relative to classical codes?
+- **hypothesis:** Enumerative pattern codes are markedly slower than gamma/delta in a naive implementation (rank/unrank against a count table per bit).
+- **assumptions:**
+  - 1e5 values, log-uniform on [1, 2^20], seeded
+  - CPython string implementations; absolute speeds are NOT representative of optimised bit-level code, only the relative ordering of these implementations
+  - timings are machine-dependent and excluded from the result hash
+- **methodology:** Encode the stream, decode it back, check equality; record total bits (deterministic) and microseconds per value (timings).
+- **falsification:** n/a (measurement)
+- **summary:**
+  - all round trips ok: True
+  - bits per value: Elias gamma 19.98, Elias delta 15.89, Elias omega 17.04, Levenshtein 17.85, Fibonacci C1 15.57, LEB128 varint 15.57, Exp-Golomb(0) 19.98, Exp-Golomb(2) 18.40, Exp-Golomb(4) 17.14, Rice(6) 1193.51, T_11 15.57, T_111 14.31, T_0111 14.20, T_101 14.41
+- **runs:** 1; last 2026-10-18T08:26:47Z (10.11 s), results sha256 `27bfc39153c790f4…`, code `experiments/C11/E05_speed.py`
+
+### EXP-C11-06: Unbordered terminators: count series x/(1-x) times the all-ones series; T_011 beats Fibonacci by one bit
+
+- **cycle:** C11
+- **agent:** Formal Verifier
+- **question:** Why do unbordered terminators beat 1^k at practical sizes although 1^k has the larger growth rate?
+- **hypothesis:**
+
+  T-C11-A: for every unbordered u of length k+1, the codeword counts satisfy f_u(L) = sum_{l<L} f_(1^k)(l) (generating function x/(1-x) times that of T_(1^k)); hence cum_u/cum_(1^k) -> 1/(lambda_k - 1) and T_u is shorter than T_(1^k) by log_(lambda_k)(1/(lambda_k - 1)) bits on average (exactly 1 bit for k = 2). T-C11-B: for n >= 5, T_011 is never longer than the Fibonacci code and is exactly one bit shorter except for at most L values of n in each block of F_L integers.
+
+- **assumptions:** all unbordered patterns of length 3..9, lengths L <= 200 (exact integers); exhaustive comparison n <= 2e6 and block-wise comparison up to L = 90
+- **methodology:** Exact count identities; exact length comparison; average length gap over [1, 2^40] from breakpoints compared with the predicted constant.
+- **falsification:** Any count mismatch, any n >= 5 where T_011 is longer than Fibonacci, or more than L equal-length n in a block.
+- **summary:**
+  - x/(1-x) identity: mismatches 0 over all unbordered patterns of length 3..9
+  - T_011 longer than Fibonacci only for n in [1, 2, 4]; length differences (Fib - T011) for n <= 2e6: {-1: 3, 0: 429, 1: 1999568}
+  - block-wise check L = 5..90: violations []
+  - average gaps vs prediction: {'011': {'avg_gap_bits_[1,2^40]': 1.0, 'predicted_log_lambda(1/(lambda-1))': 1.0}, '0111': {'avg_gap_bits_[1,2^40]': 0.2282, 'predicted_log_lambda(1/(lambda-1))': 0.2875}, '01111': {'avg_gap_bits_[1,2^40]': 0.0844, 'predicted_log_lambda(1/(lambda-1))': 0.1146}, '011111': {'avg_gap_bits_[1,2^40]': 0.0395, 'predicted_log_lambda(1/(lambda-1))': 0.0513}}
+- **runs:** 1; last 2026-10-18T08:28:59Z (1.131 s), results sha256 `4188be25b5ce210f…`, code `experiments/C11/E06_unbordered_theorem.py`
+
+### EXP-C11-07: Average one-bit gain of unbordered terminators: corrected constant (2 - lambda)/(lambda - 1)^2
+
+- **cycle:** C11
+- **agent:** Mathematical Skeptic
+- **question:** EXP-C11-06 refuted the predicted average gain log_lambda(1/(lambda-1)) for k >= 3. Does the level-fraction argument give the right constant?
+- **hypothesis:**
+
+  H-C11-5: the average length gain of T_u (u unbordered, |u| = k+1) over T_(1^k) on [1, N] tends to (r - 1)/(lambda - 1) = (2 - lambda)/(lambda - 1)^2 with r = 1/(lambda - 1), lambda the k-bonacci constant (each saved codeword saves exactly one bit).
+
+- **assumptions:** N = 2^40, 2^80, 2^120 (exact, from cumulative counts)
+- **methodology:** Exact average codeword lengths from cumulative counts; compare with both formulas.
+- **falsification:** Disagreement with (2 - lambda)/(lambda - 1)^2 that does not shrink as N grows.
+- **summary:** 011: corrected 1.0, old 1.0, measured {'2^40': 1.0, '2^80': 1.0, '2^120': 1.0}; 0111: corrected 0.228155, old 0.287511, measured {'2^40': 0.228181, '2^80': 0.309709, '2^120': 0.228548}; 01111: corrected 0.084194, old 0.114583, measured {'2^40': 0.084414, '2^80': 0.137827, '2^120': 0.117081}; 011111: corrected 0.036495, old 0.051252, measured {'2^40': 0.039521, '2^80': 0.039092, '2^120': 0.038667}; 0111111: corrected 0.01697, old 0.024169, measured {'2^40': 0.025472, '2^80': 0.018318, '2^120': 0.02613}
+- **runs:** 1; last 2026-10-18T08:29:30Z (0.144 s), results sha256 `d5f3d2ea6e605cf9…`, code `experiments/C11/E07_gap_formula.py`
+
+### EXP-C11-08: Running average gain of unbordered terminators: liminf (2-l)/(l-1)^2, limsup l(2-l)/(l-1)
+
+- **cycle:** C11
+- **agent:** Mathematical Skeptic
+- **question:** EXP-C11-07 showed the average gain over [1, N] does not converge for k >= 3. Are its extreme values the ones predicted by the level structure?
+- **hypothesis:**
+
+  H-C11-6: let lambda = k-bonacci constant, O = T_(1^k), U = T_u (u unbordered, |u| = k+1). At the ends of O's length levels, the running average gain tends to (2-lambda)/(lambda-1)^2 (its liminf); at the ends of the saved initial segments of the levels it tends to lambda(2-lambda)/(lambda-1) (its limsup). For k = 2 both equal 1.
+
+- **assumptions:** levels L up to 500 (exact integers); k = 2..6
+- **methodology:** Exact running sums of the length difference evaluated at N = cum_O(L) and at N = cum_U(L-1) for large L; compare with both constants.
+- **falsification:** Values at large L not approaching the two constants.
+- **summary:** 011: liminf pred 1.0 vs [1.0, 1.0, 1.0]; limsup pred 1.0 vs [1.0, 1.0, 1.0]; 0111: liminf pred 0.228155 vs [0.228155, 0.228155, 0.228155]; limsup pred 0.352201 vs [0.352201, 0.352201, 0.352201]; 01111: liminf pred 0.084194 vs [0.084194, 0.084194, 0.084194]; limsup pred 0.150533 vs [0.150533, 0.150533, 0.150533]; 011111: liminf pred 0.036495 vs [0.036495, 0.036495, 0.036495]; limsup pred 0.069304 vs [0.069304, 0.069304, 0.069304]; 0111111: liminf pred 0.01697 vs [0.01697, 0.01697, 0.01697]; limsup pred 0.033108 vs [0.033108, 0.033108, 0.033108]
+- **runs:** 1; last 2026-10-18T08:30:03Z (0.169 s), results sha256 `627c7f71c24cf0bc…`, code `experiments/C11/E08_gain_oscillation.py`
+
 ### EXP-C12-01: Grundy census of 19 relational one-heap games
 
 - **cycle:** C12
@@ -1758,9 +2400,80 @@ _Generated 2026-10-18T08:13:57Z from `db/`. The JSON records are authoritative; 
   What structure do Sprague-Grundy values have when the moves of a one-heap game are defined by relations (divisibility, coprimality, membership in a sparse set, bitwise inclusion, splitting) instead of fixed magnitudes?
 
 - **hypothesis:** H-C12-0 (exploratory): every game shows one of three behaviours within the computed range - eventually periodic, arithmetic-periodic, or a closed form in a number-theoretic function.
-- **assumptions:** heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n); period search p <= 2000 with at least 3 repetitions of the periodic tail
+- **assumptions:**
+  - heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n)
+  - period search p <= 2000; the periodic tail must repeat >= 3 times and cover >= half of the range (a first run without the half-range rule reported spurious end-of-range periods)
 - **methodology:** Exact Grundy computation (bitset method for sparse subtraction sets); record max value, growth, P-position density, eventual (arithmetic) periodicity.
 - **falsification:** A game with none of the three behaviours refutes H-C12-0 within the range.
-- **summary:** 19 games; eventually periodic: 8; arithmetic-periodic: 0; neither (within range): 11; G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005; G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05; G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085; G04 move to a proper divisor: max 16 (N=100000), period None, arith None, P-density 2e-05; G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004; G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173; G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781; G09 subtract a Fibonacci number: max 14 (N=100000), period (99970, 10), arith None, P-density 0.172148; G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337; G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005; G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006; G11 subtract a prime: max 11 (N=100000), period None, arith None, P-density 0.150658; G12 subtract a triangular number: max 110 (N=100000), period None, arith None, P-density 0.01524; G13 move to a proper binary submask: max 16 (N=100000), period None, arith None, P-density 1e-05; G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398; G19 move to a remainder: max 11 (N=5000), period (3071, 1), arith None, P-density 0.0004; G20 move to a quotient: max 14 (N=20000), period (16384, 1), arith None, P-density 0.0001
-- **runs:** 1; last 2026-10-18T08:11:00Z (45.541 s), results sha256 `4ff08061267384a5…`, code `experiments/C12/E01_grundy_census.py`
+- **summary:** 19 games; eventually periodic: 5; arithmetic-periodic: 0; neither (within range): 14; G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005; G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05; G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085; G04 move to a proper divisor: max 16 (N=100000), period None, arith None, P-density 2e-05; G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004; G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173; G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781; G09 subtract a Fibonacci number: max 14 (N=100000), period None, arith None, P-density 0.172148; G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337; G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005; G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006; G11 subtract a prime: max 11 (N=100000), period None, arith None, P-density 0.150658; G12 subtract a triangular number: max 110 (N=100000), period None, arith None, P-density 0.01524; G13 move to a proper binary submask: max 16 (N=100000), period None, arith None, P-density 1e-05; G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398; G19 move to a remainder: max 11 (N=5000), period None, arith None, P-density 0.0004; G20 move to a quotient: max 14 (N=20000), period None, arith None, P-density 0.0001
+- **runs:** 2; last 2026-10-18T08:15:13Z (50.971 s), results sha256 `987180423b983168…`, code `experiments/C12/E01_grundy_census.py`
+
+### EXP-C12-02: Closed forms for relational games: verification against exact Grundy values
+
+- **cycle:** C12
+- **agent:** Formal Verifier
+- **question:** Do the conjectured closed forms hold on the whole computed range, and do the general structure theorems (power-of-k reduction, splitting parity) hold on new instances?
+- **hypothesis:**
+
+  G01 = v2(n); G02 = v2(n)+1; G03 P-positions = odd numbers and 2^(2j+1); G04 = Omega(n); G05 = index of the smallest prime factor (and 'subtract k coprime to n' is the same game); G06: g(2k) = k-1, g(odd m) <= (m-1)/2, P-positions = {1} and the primes; subtract-a-power-of-k = the subtraction game {1, k}; any splitting game in which every heap >= 2 has an allowed split has g(n) = [n even]; G13 = popcount; G19 = floor(log2((n+1)/3)) + 1 (n >= 2); G20 = floor(log2 n).
+
+- **assumptions:** exact Grundy values from EXP-C12-01 (n <= 1e5 / 5e3 / 2e4); power-of-k games recomputed for k = 2..20, n <= 2e4; 40 random splitting relations (each n >= 2 keeps the split 1 + (n-1) plus random others), n <= 1500; seed 12
+- **methodology:** Compare each closed form term by term with the exact values; count mismatches.
+- **falsification:** Any mismatch.
+- **summary:**
+  - closed-form mismatches over all checks: 0; power-of-k failures (k=2..20): 0
+  - G01 subtract a divisor d<n: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}
+  - G02 subtract any divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}
+  - G04 move to a proper divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}
+  - G05 move to a smaller coprime: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}
+  - G13 move to a proper binary submask: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}
+  - G16 split into coprime parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}
+  - G17 split into dividing parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}
+  - G19 move to a remainder: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}
+  - G20 move to a quotient: {'range': [1, 20000], 'mismatches': 0, 'first_mismatch': []}
+  - G03 P-positions = odd numbers and 2^(2j+1): {'range': [1, 100000], 'mismatches': 0}
+  - G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes: {'even_mismatches': 0, 'odd_bound_violations': 0, 'P_mismatches': 0, 'max_ratio_odd': 0.24984984984984984}
+  - G07 subtract a coprime = G05: {'mismatches': 0}
+  - random splitting relations (every n>=2 splittable): {'relations': 40, 'mismatches': 0}
+- **runs:** 1; last 2026-10-18T08:16:07Z (3.484 s), results sha256 `1b93f3e7a5761ea9…`, code `experiments/C12/E02_closed_forms.py`
+
+### EXP-C12-03: Sparse subtraction sets: Grundy growth and the density of P-positions
+
+- **cycle:** C12
+- **agent:** Mathematical Inventor
+- **question:** Do subtraction games whose move sets are sparse (squares, triangular numbers, Fibonacci numbers, primes) keep a positive proportion of losing positions?
+- **hypothesis:** H-C12-2 (bold): for every such game the P-positions have positive density.
+- **assumptions:** n <= 2e5; densities measured at N/16, N/8, N/4, N/2, N
+- **methodology:** Exact Grundy values (bitset method); P-position density and maximal Grundy value by scale; implementation check that no two P-positions differ by an element of the move set.
+- **falsification:** A game whose P-density provably tends to 0 (e.g. by a difference-set theorem) refutes H-C12-2.
+- **summary:**
+  - squares: P-density {'12500': 0.053756, '25000': 0.042758, '50000': 0.034479, '100000': 0.02781, '200000': 0.02217}, max g {'12500': 36, '25000': 45, '50000': 58, '100000': 74, '200000': 95}, clash None
+  - triangular: P-density {'12500': 0.034397, '25000': 0.026039, '50000': 0.01998, '100000': 0.01524, '200000': 0.01163}, max g {'12500': 50, '25000': 65, '50000': 84, '100000': 110, '200000': 144}, clash None
+  - Fibonacci: P-density {'12500': 0.168547, '25000': 0.170833, '50000': 0.173877, '100000': 0.172148, '200000': 0.180444}, max g {'12500': 13, '25000': 13, '50000': 14, '100000': 14, '200000': 14}, clash None
+  - primes: P-density {'12500': 0.134709, '25000': 0.140234, '50000': 0.145497, '100000': 0.150658, '200000': 0.154854}, max g {'12500': 11, '25000': 11, '50000': 11, '100000': 11, '200000': 11}, clash None
+- **runs:** 1; last 2026-10-18T08:18:40Z (103.606 s), results sha256 `cf179710040f928e…`, code `experiments/C12/E03_sparse_subtraction.py`
+
+### EXP-C12-04: OEIS look-ups for the Grundy and P-position sequences of the 19 games
+
+- **cycle:** C12
+- **agent:** Historian and Novelty Analyst
+- **question:** Which of the 19 Grundy sequences and P-position sets are already catalogued?
+- **hypothesis:** Classical closed forms (v2, Omega, popcount, n mod 3, Grundy's game) are catalogued; some relational games may not be.
+- **assumptions:** OEIS search API with on-disk cache; Grundy sequences queried from n = 1 (n = 0 is not a position for several games); P-position sequences from the first positive P-position
+- **methodology:** novelty_check on the first 40 terms; the matched entries' names are recorded for manual reading (a shifted-window hit is not accepted as a match without inspection).
+- **falsification:** n/a (literature check)
+- **summary:** Grundy sequences without OEIS match: ['G03 subtract a nontrivial proper divisor']; P-position sets without match: ['G03 subtract a nontrivial proper divisor']; G01 subtract a divisor d<n: G MATCH ['A007814', 'A371093'] | P MATCH ['A005408', 'A060747']; G02 subtract any divisor: G MATCH ['A001511', 'A091090'] | P TOO FEW P-POSITIONS []; G03 subtract a nontrivial proper divisor: G NO MATCH [] | P NO MATCH []; G04 move to a proper divisor: G MATCH ['A001222'] | P TOO FEW P-POSITIONS []; G05 move to a smaller coprime: G MATCH ['A055396'] | P TOO FEW P-POSITIONS []; G06 move to a smaller non-coprime: G MATCH ['A279119'] | P MATCH ['A008578', 'A015919']; G08 subtract a square: G MATCH ['A014586'] | P MATCH ['A030193']; G09 subtract a Fibonacci number: G MATCH ['A014588'] | P MATCH ['A001581']; G10 subtract a power of 2: G MATCH ['A010872'] | P MATCH ['A008585', 'A008486']; G10b subtract a power of 3: G MATCH ['A000035', 'A059841'] | P MATCH ['A005843', 'A004275']; G10c subtract a power of 4: G MATCH (shifted window) ['A014586'] | P MATCH ['A047215', 'A038126']; G11 subtract a prime: G MATCH ['A014589'] | P MATCH ['A025043']; G12 subtract a triangular number: G MATCH ['A019509'] | P MATCH ['A030194']; G13 move to a proper binary submask: G MATCH ['A000120', 'A048881'] | P TOO FEW P-POSITIONS []; G16 split into coprime parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']; G17 split into dividing parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']; G18 Grundy's game (unequal split): G MATCH ['A002188'] | P MATCH ['A036685']; G19 move to a remainder: G MATCH ['A099396'] | P TOO FEW P-POSITIONS []; G20 move to a quotient: G MATCH ['A000523'] | P TOO FEW P-POSITIONS []
+- **runs:** 1; last 2026-10-18T08:19:44Z (54.528 s), results sha256 `b7eb439c285686fa…`, code `experiments/C12/E04_novelty.py`
+
+### EXP-C12-05: Prime-signature hypothesis for divisibility and coprimality games
+
+- **cycle:** C12
+- **agent:** Mathematical Inventor
+- **question:** Games G01-G06 are defined by multiplicative relations; is their Grundy value a function of the prime signature (sorted exponent vector) alone?
+- **hypothesis:** H-C12-1 (bold): for each of G01-G06, g(n) depends only on the prime signature of n.
+- **assumptions:** n <= 5000
+- **methodology:** Group n by prime signature and look for two numbers with equal signature and different Grundy values.
+- **falsification:** Two numbers with the same signature and different Grundy values.
+- **summary:** G01 subtract a divisor d<n: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 0}; G02 subtract any divisor: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 2, 'g2': 1}; G03 subtract a nontrivial proper divisor: signature-only = False {'n1': 4, 'n2': 9, 'signature': [2], 'g1': 1, 'g2': 0}; G04 move to a proper divisor: signature-only = True ; G05 move to a smaller coprime: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 2}; G06 move to a smaller non-coprime: signature-only = False {'n1': 6, 'n2': 10, 'signature': [1, 1], 'g1': 2, 'g2': 4}
+- **runs:** 1; last 2026-10-18T08:18:41Z (0.249 s), results sha256 `d4ca22ecc3ae95f4…`, code `experiments/C12/E05_signature_hypothesis.py`
 

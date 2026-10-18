@@ -1,0 +1,23 @@
+{
+  "counterexample": "aab -> ba (and its 3 symmetric images): D(n) = n - 1 - kappa(n) is not given by any linear recurrence (CLM-C04-09).",
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-03",
+    "EXP-C04-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-11",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every terminating one-rule system over {a,b} with |l|, |r| <= 3, the derivational complexity D(n) satisfies a linear recurrence.",
+  "system": "SYS-A",
+  "title": "H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

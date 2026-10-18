@@ -1,0 +1,81 @@
+data,count,H0_bits,code,bits_per_value
+bursty posting list (mixture),100000,10.7142,Elias delta,12.8501
+bursty posting list (mixture),100000,10.7142,Elias gamma,15.2313
+bursty posting list (mixture),100000,10.7142,Elias omega,13.6949
+bursty posting list (mixture),100000,10.7142,Exp-Golomb(0),15.2313
+bursty posting list (mixture),100000,10.7142,Exp-Golomb(2),13.6319
+bursty posting list (mixture),100000,10.7142,Exp-Golomb(4),12.4456
+bursty posting list (mixture),100000,10.7142,Fibonacci C1,12.1459
+bursty posting list (mixture),100000,10.7142,LEB128 varint,12.6468
+bursty posting list (mixture),100000,10.7142,Levenshtein,14.5058
+bursty posting list (mixture),100000,10.7142,T_00111,12.2521
+bursty posting list (mixture),100000,10.7142,T_0101,11.7596
+bursty posting list (mixture),100000,10.7142,T_011,11.5408
+bursty posting list (mixture),100000,10.7142,T_0111,11.5172
+bursty posting list (mixture),100000,10.7142,T_101,11.4728
+bursty posting list (mixture),100000,10.7142,T_1011,11.6454
+bursty posting list (mixture),100000,10.7142,T_111,11.6078
+bursty posting list (mixture),100000,10.7142,T_1111,12.2233
+bursty posting list (mixture),100000,10.7142,T_11111,13.094
+bursty posting list (mixture),100000,10.7142,tuned Exp-Golomb(k=7),11.7868
+bursty posting list (mixture),100000,10.7142,tuned Golomb(M=1885),12.8038
+posting list geometric(0.001),100000,11.3626,Elias delta,15.4042
+posting list geometric(0.001),100000,11.3626,Elias gamma,18.3095
+posting list geometric(0.001),100000,11.3626,Elias omega,16.3788
+posting list geometric(0.001),100000,11.3626,Exp-Golomb(0),18.3095
+posting list geometric(0.001),100000,11.3626,Exp-Golomb(2),16.3581
+posting list geometric(0.001),100000,11.3626,Exp-Golomb(4),14.5019
+posting list geometric(0.001),100000,11.3626,Fibonacci C1,14.3563
+posting list geometric(0.001),100000,11.3626,LEB128 varint,15.0558
+posting list geometric(0.001),100000,11.3626,Levenshtein,17.3618
+posting list geometric(0.001),100000,11.3626,T_00111,13.822
+posting list geometric(0.001),100000,11.3626,T_0101,13.4477
+posting list geometric(0.001),100000,11.3626,T_011,13.4418
+posting list geometric(0.001),100000,11.3626,T_0111,13.1548
+posting list geometric(0.001),100000,11.3626,T_101,13.3598
+posting list geometric(0.001),100000,11.3626,T_1011,13.3345
+posting list geometric(0.001),100000,11.3626,T_111,13.4079
+posting list geometric(0.001),100000,11.3626,T_1111,13.9125
+posting list geometric(0.001),100000,11.3626,T_11111,14.7453
+posting list geometric(0.001),100000,11.3626,tuned Exp-Golomb(k=9),11.6952
+posting list geometric(0.001),100000,11.3626,tuned Golomb(M=693),11.446
+prime gaps <= 1e7 (halved),664577,4.1708,Elias delta,5.6359
+prime gaps <= 1e7 (halved),664577,4.1708,Elias gamma,5.1263
+prime gaps <= 1e7 (halved),664577,4.1708,Elias omega,5.6103
+prime gaps <= 1e7 (halved),664577,4.1708,Exp-Golomb(0),5.1263
+prime gaps <= 1e7 (halved),664577,4.1708,Exp-Golomb(2),4.5787
+prime gaps <= 1e7 (halved),664577,4.1708,Exp-Golomb(4),5.1754
+prime gaps <= 1e7 (halved),664577,4.1708,Fibonacci C1,4.9385
+prime gaps <= 1e7 (halved),664577,4.1708,LEB128 varint,8.0
+prime gaps <= 1e7 (halved),664577,4.1708,Levenshtein,6.0771
+prime gaps <= 1e7 (halved),664577,4.1708,T_00111,7.0632
+prime gaps <= 1e7 (halved),664577,4.1708,T_0101,6.2037
+prime gaps <= 1e7 (halved),664577,4.1708,T_011,5.1068
+prime gaps <= 1e7 (halved),664577,4.1708,T_0111,6.064
+prime gaps <= 1e7 (halved),664577,4.1708,T_101,5.2712
+prime gaps <= 1e7 (halved),664577,4.1708,T_1011,6.1029
+prime gaps <= 1e7 (halved),664577,4.1708,T_111,5.79
+prime gaps <= 1e7 (halved),664577,4.1708,T_1111,6.7752
+prime gaps <= 1e7 (halved),664577,4.1708,T_11111,7.7743
+prime gaps <= 1e7 (halved),664577,4.1708,tuned Exp-Golomb(k=2),4.5787
+prime gaps <= 1e7 (halved),664577,4.1708,tuned Golomb(M=5),4.2713
+prime gaps <= 1e7 (raw),664578,4.1709,Elias delta,7.4084
+prime gaps <= 1e7 (raw),664578,4.1709,Elias gamma,7.1263
+prime gaps <= 1e7 (raw),664578,4.1709,Elias omega,8.011
+prime gaps <= 1e7 (raw),664578,4.1709,Exp-Golomb(0),7.1263
+prime gaps <= 1e7 (raw),664578,4.1709,Exp-Golomb(2),5.7783
+prime gaps <= 1e7 (raw),664578,4.1709,Exp-Golomb(4),5.7208
+prime gaps <= 1e7 (raw),664578,4.1709,Fibonacci C1,6.1756
+prime gaps <= 1e7 (raw),664578,4.1709,LEB128 varint,8.0002
+prime gaps <= 1e7 (raw),664578,4.1709,Levenshtein,8.3437
+prime gaps <= 1e7 (raw),664578,4.1709,T_00111,8.0632
+prime gaps <= 1e7 (raw),664578,4.1709,T_0101,7.2097
+prime gaps <= 1e7 (raw),664578,4.1709,T_011,6.1389
+prime gaps <= 1e7 (raw),664578,4.1709,T_0111,7.0668
+prime gaps <= 1e7 (raw),664578,4.1709,T_101,6.4174
+prime gaps <= 1e7 (raw),664578,4.1709,T_1011,7.1287
+prime gaps <= 1e7 (raw),664578,4.1709,T_111,6.8659
+prime gaps <= 1e7 (raw),664578,4.1709,T_1111,7.7856
+prime gaps <= 1e7 (raw),664578,4.1709,T_11111,8.7752
+prime gaps <= 1e7 (raw),664578,4.1709,tuned Exp-Golomb(k=3),5.5787
+prime gaps <= 1e7 (raw),664578,4.1709,tuned Golomb(M=10),5.2713

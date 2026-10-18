@@ -1,6 +1,7 @@
 """EXP-C01-07: computer-assisted proofs of the common-border formula, one relation at a time."""
 
 import itertools
+from collections import deque
 
 from systems.automata import avoid_dfa, count_accepted
 from systems.rewriting import (critical_pairs, knuth_bendix, length_preserving_classes, normal_form,
@@ -21,9 +22,11 @@ META = {
                     "Cayley-Hamilton bound on the order of DFA count recurrences"],
     "methodology": "For each relation and each of 2*q! shortlex orders: run bounded Knuth-Bendix; on success, "
                    "independently re-verify convergence (rules decreasing, all critical pairs joinable, u and v "
-                   "have equal normal forms); build the Aho-Corasick DFA of the left-hand sides (s live "
-                   "states); compare s + k + 5 count terms with the formula (sufficient for equality of all "
-                   "terms); cross-check against brute-force class counts for n <= 8.",
+                   "have equal normal forms); check soundness directly (every completed rule l -> r is derived "
+                   "from u <-> v by breadth-first search in the class of l); build the Aho-Corasick DFA of the "
+                   "left-hand sides (s live states); compare s + k + 5 count terms with the formula (sufficient "
+                   "for equality of all terms); cross-check against brute-force class counts for n <= 8; store "
+                   "every certificate.",
     "falsification": "A verified convergent completion whose irreducible-word counts differ from the formula "
                      "would refute H-C01-7 for that relation.",
 }
@@ -48,6 +51,29 @@ def verify_convergent(rules, order, u, v):
     return True, "ok"
 
 
+def derivable(l, r, u, v, cap=200_000):
+    """True if l can be transformed into r by replacing factors u <-> v (BFS); None if the cap is reached."""
+    if l == r:
+        return True
+    k = len(u)
+    seen, todo = {l}, deque([l])
+    while todo:
+        w = todo.popleft()
+        for i in range(len(w) - k + 1):
+            f = w[i:i + k]
+            for a, b in ((u, v), (v, u)):
+                if f == a:
+                    x = w[:i] + b + w[i + k:]
+                    if x == r:
+                        return True
+                    if x not in seen:
+                        if len(seen) >= cap:
+                            return None
+                        seen.add(x)
+                        todo.append(x)
+    return False
+
+
 def try_prove(u, v, alphabet):
     q, k = len(alphabet), len(u)
     for perm in itertools.permutations(alphabet):
@@ -65,14 +91,17 @@ def try_prove(u, v, alphabet):
             counts = count_accepted(delta, start, N)[1:]
             pred, common = predicted(u, v, q, N)
             brute = [len(length_preserving_classes([(u, v)], alphabet, n)) for n in range(1, 9)]
+            sound = [derivable(l, r, uu, vv) for l, r in rules]
+            soundness = ("ok" if all(x is True for x in sound) else
+                         "UNSOUND" if any(x is False for x in sound) else "unchecked (cap)")
             return {"status": "PROVEN" if counts == pred else "REFUTED", "order": order, "direction": direction,
                     "n_rules": len(rules), "dfa_states": s, "terms_compared": N,
-                    "brute_force_agrees": brute == counts[:8], "rules": rules if len(rules) <= 6 else rules[:6]}
+                    "brute_force_agrees": brute == counts[:8], "soundness": soundness, "rules": rules}
     return {"status": "NO FINITE COMPLETION FOUND"}
 
 
 def run():
-    per_case, open_cases, bugs, refuted = {}, [], [], []
+    per_case, open_cases, bugs, refuted, certificates = {}, [], [], [], []
     for alphabet, k, hard_only in CASES:
         tally = {}
         for u, v in itertools.combinations(list(words(alphabet, k)), 2):
@@ -92,6 +121,12 @@ def run():
                 open_cases.append({"alphabet": alphabet, "relation": [u, v], "hard": hard})
             elif not res["brute_force_agrees"]:
                 bugs.append({"relation": [u, v], "why": "brute force disagrees", **res})
+            elif res["soundness"] == "UNSOUND":
+                bugs.append({"relation": [u, v], "why": "completed rule not derivable from u = v", **res})
+            if st == "PROVEN":
+                certificates.append({"alphabet": alphabet, "relation": [u, v], "hard": hard,
+                                     **{key: res[key] for key in ("order", "direction", "dfa_states",
+                                                                  "terms_compared", "soundness", "rules")}})
         per_case[f"{alphabet}/k={k}{'/hard-only' if hard_only else ''}"] = tally
     n_proven = sum(v for t in per_case.values() for lab, v in t.items() if lab.endswith("PROVEN"))
     n_total = sum(v for t in per_case.values() for v in t.values())
@@ -101,10 +136,15 @@ def run():
         "n_open": len(open_cases),
         "refuted": refuted,
         "bugs": bugs,
+        "proven_certificates": certificates,
+        "soundness_tally": {x: sum(1 for c in certificates if c["soundness"] == x)
+                            for x in sorted({c["soundness"] for c in certificates})},
         "summary": [
             f"{n_total} relations attempted; {n_proven} proved for all n by verified finite completion; "
             f"{len(open_cases)} without a finite completion (formula still only checked for n <= 12/7); "
             f"refutations: {len(refuted)}; internal inconsistencies: {len(bugs)}",
             f"per case: {per_case}",
+            f"{len(certificates)} certificates stored; soundness of completed rules (BFS derivation from u = v): "
+            f"{ {x: sum(1 for c in certificates if c['soundness'] == x) for x in sorted({c['soundness'] for c in certificates})} }",
         ],
     }

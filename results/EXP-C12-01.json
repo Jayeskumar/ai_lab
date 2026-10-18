@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C12-01",
     "file": "experiments/C12/E01_grundy_census.py",
-    "sha256": "2733670bf990a6c5ff7bf8c09829d3e35abf47a557536aa878890b67c1a1df69",
-    "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+    "sha256": "e96ecab611ac9235ea674c106ad2194d59020ce007bc1e4e6e874fcfa3c0f810",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
   },
   "env": {
-    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,13 +17,13 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:11:00Z",
+  "finished": "2026-10-18T08:15:13Z",
   "id": "EXP-C12-01",
   "meta": {
     "agent": "Mathematical Explorer",
     "assumptions": [
       "heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n)",
-      "period search p <= 2000 with at least 3 repetitions of the periodic tail"
+      "period search p <= 2000; the periodic tail must repeat >= 3 times and cover >= half of the range (a first run without the half-range rule reported spurious end-of-range periods)"
     ],
     "cycle": "C12",
     "falsification": "A game with none of the three behaviours refutes H-C12-0 within the range.",
@@ -43,20 +43,20 @@
       "G05 move to a smaller coprime",
       "G06 move to a smaller non-coprime",
       "G08 subtract a square",
+      "G09 subtract a Fibonacci number",
       "G11 subtract a prime",
       "G12 subtract a triangular number",
       "G13 move to a proper binary submask",
-      "G18 Grundy's game (unequal split)"
+      "G18 Grundy's game (unequal split)",
+      "G19 move to a remainder",
+      "G20 move to a quotient"
     ],
     "periodic": [
-      "G09 subtract a Fibonacci number",
       "G10 subtract a power of 2",
       "G10b subtract a power of 3",
       "G10c subtract a power of 4",
       "G16 split into coprime parts",
-      "G17 split into dividing parts",
-      "G19 move to a remainder",
-      "G20 move to a quotient"
+      "G17 split into dividing parts"
     ],
     "rows": {
       "G01 subtract a divisor d<n": {
@@ -567,10 +567,7 @@
         "P_density": 0.172148,
         "arithmetic_period": null,
         "description": "n -> n-F, F in {1,2,3,5,8,...}",
-        "eventual_period": [
-          99970,
-          10
-        ],
+        "eventual_period": null,
         "first_P_positions": [
           0,
           4,
@@ -1396,10 +1393,7 @@
         "P_density": 0.0004,
         "arithmetic_period": null,
         "description": "n -> n mod k, 1 <= k < n",
-        "eventual_period": [
-          3071,
-          1
-        ],
+        "eventual_period": null,
         "first_P_positions": [
           0,
           1
@@ -1455,10 +1449,7 @@
         "P_density": 0.0001,
         "arithmetic_period": null,
         "description": "n -> floor(n/k), 2 <= k <= n",
-        "eventual_period": [
-          16384,
-          1
-        ],
+        "eventual_period": null,
         "first_P_positions": [
           0,
           1
@@ -1515,7 +1506,7 @@
       "sha256": "9c46e06c587939497386b4e70f3278066162cf40a84a7cbc0c4493977b90fd6c"
     },
     "summary": [
-      "19 games; eventually periodic: 8; arithmetic-periodic: 0; neither (within range): 11",
+      "19 games; eventually periodic: 5; arithmetic-periodic: 0; neither (within range): 14",
       "G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005",
       "G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05",
       "G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085",
@@ -1523,7 +1514,7 @@
       "G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004",
       "G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173",
       "G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781",
-      "G09 subtract a Fibonacci number: max 14 (N=100000), period (99970, 10), arith None, P-density 0.172148",
+      "G09 subtract a Fibonacci number: max 14 (N=100000), period None, arith None, P-density 0.172148",
       "G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337",
       "G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005",
       "G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006",
@@ -1533,11 +1524,11 @@
       "G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
       "G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
       "G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398",
-      "G19 move to a remainder: max 11 (N=5000), period (3071, 1), arith None, P-density 0.0004",
-      "G20 move to a quotient: max 14 (N=20000), period (16384, 1), arith None, P-density 0.0001"
+      "G19 move to a remainder: max 11 (N=5000), period None, arith None, P-density 0.0004",
+      "G20 move to a quotient: max 14 (N=20000), period None, arith None, P-density 0.0001"
     ]
   },
-  "results_sha256": "4ff08061267384a5b7198639315bf9c3011c475a956cc28bf32bc811e7f4cced",
-  "runtime_s": 45.541,
-  "started": "2026-10-18T08:10:15Z"
+  "results_sha256": "987180423b983168b408fa5b2f5200c5888d6bea373a0013b0cdf1df25c8a7c9",
+  "runtime_s": 50.971,
+  "started": "2026-10-18T08:14:22Z"
 }

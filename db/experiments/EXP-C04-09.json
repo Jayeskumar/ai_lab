@@ -1,5 +1,6 @@
 {
   "agent": "Historian and Novelty Analyst",
+  "analysis": "Quadratic, exponential and octal sequences are catalogued (A002620, A001840, A130519, A000225, A002187, A046695, A395248). The octal 0.06 Grundy sequence has no OEIS match. The complexity of aab -> ba matches A247983, whose definition (a truncation index for log 2) is different - investigated in EXP-C04-10. A372475 (shifted window) is a coincidental match.",
   "assumptions": [
     "OEIS search API, cached in cache/oeis",
     "a match must be read: equal terms need not mean the same definition"
@@ -18,12 +19,37 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:05:46Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Quadratic, exponential and octal sequences are catalogued (A002620, A001840, A130519, A000225, A002187, A046695, A395248). The octal 0.06 Grundy sequence has no OEIS match. The complexity of aab -> ba matches A247983, whose definition (a truncation index for log 2) is different - investigated in EXP-C04-10. A372475 (shifted window) is a coincidental match.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-10",
+        "CLM-C04-16"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "Quadratic/exponential complexity sequences and the octal-game Grundy sequences are known; the derivational complexity of aab -> ba may not be.",
   "id": "EXP-C04-09",
   "methodology": "Query the first terms (skipping leading zeros where they make the query trivial); record hits.",
   "question": "Which derivation-length and game sequences of cycle C04 are already catalogued?",
+  "related": [
+    "CLM-C04-10",
+    "CLM-C04-16"
+  ],
   "results_file": "results/EXP-C04-09.json",
   "results_sha256": "b27de23695054b60a6bc918347a1a9b9c2e14704f5815ba86035261d06a75053",
   "runs": [

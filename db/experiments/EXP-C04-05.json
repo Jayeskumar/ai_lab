@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "All 84 unbordered rules have random descent; 18 of 78 bordered rules also do (H-C04-1 refuted); random descent agrees with equal-length joinability of critical peaks in all 162 cases; no rule is length-uniform without being confluent in this family.",
   "assumptions": [
     "the 162 terminating rules of EXP-C04-01",
     "all words of length <= 11 (<= 8 for the four doubling rules)"
@@ -10,6 +11,9 @@
     "sha256": "d3984d3ab76ec0fc97868e18f7b57f89b7f284c205bcfadae286bd5d01004759",
     "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
   },
+  "counterexamples": [
+    "aa -> a: bordered left-hand side but random descent"
+  ],
   "cycle": "C04",
   "falsification": "H-C04-1: a bordered rule with random descent or an unbordered one without. H-C04-2: disagreement between observed random descent and the critical-peak test.",
   "history": [
@@ -27,12 +31,50 @@
       "old": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; critical peaks joined by breadth-first search over exact step counts.",
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T08:00:12Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 84 unbordered rules have random descent; 18 of 78 bordered rules also do (H-C04-1 refuted); random descent agrees with equal-length joinability of critical peaks in all 162 cases; no rule is length-uniform without being confluent in this family.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "aa -> a: bordered left-hand side but random descent"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-05",
+        "CLM-C04-07",
+        "CLM-C04-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-1 (bold): a terminating one-rule system has random descent iff its left-hand side is unbordered. H-C04-2: a terminating one-rule system has random descent iff each of its critical peaks (r s <- p b s -> p r for l = p b = b s) is joinable by two derivations of EQUAL length.",
   "id": "EXP-C04-05",
   "methodology": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; random descent = all maximal derivations from each word have the same length AND the same normal form (van Oostrom); critical peaks joined by breadth-first search over exact step counts.",
   "question": "When do all maximal derivations from every word have the same length (random descent)?",
+  "related": [
+    "CLM-C04-05",
+    "CLM-C04-07",
+    "CLM-C04-06"
+  ],
   "results_file": "results/EXP-C04-05.json",
   "results_sha256": "aaaaa7a552736929877f09e8655e715df36ebc6eec42153f810bb3694965b360",
   "runs": [

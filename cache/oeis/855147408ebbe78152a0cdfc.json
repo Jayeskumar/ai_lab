@@ -1,0 +1,44 @@
+{
+  "fetched": "2026-10-18T08:24:38Z",
+  "query": "1,2,3,6,12,22,41,78,147,276,520,980,1845,3474,6543,12322,23204,43698,82293,154974,291847,549608,1035024,1949160,3670665,6912610,13017851,24515262,46167228,86942286",
+  "response": [
+    {
+      "author": "_Paul Barry_, Sep 14 2005",
+      "comment": [
+        "The Chebyshev transform of the second kind maps the sequence with g.f. g(x) to the sequence with g.f. (1/(1+x^2))g(x/(1+x^2))."
+      ],
+      "created": "2005-09-21T03:00:00-04:00",
+      "data": "0,1,2,3,6,12,22,41,78,147,276,520,980,1845,3474,6543,12322,23204,43698,82293,154974,291847,549608,1035024,1949160,3670665,6912610,13017851,24515262,46167228,86942286,163730017,308336942,580661211,1093503228,2059289112",
+      "formula": [
+        "G.f.: x/(1-2*x+x^2-2*x^3+x^4).",
+        "a(n) = Sum_{k=0..floor(n/2)} (-1)^k*C(n-k, k)*A000129(n-2k).",
+        "a(n) = Sum_{k=0..n} (-1)^((n-k)/2)*C((n+k)/2, k)*(1+(-1)^(n-k))*A000129(k)/2."
+      ],
+      "keyword": "easy,nonn",
+      "link": [
+        "G. C. Greubel, <a href=\"/A112575/b112575.txt\">Table of n, a(n) for n = 0..1000</a>",
+        "Jia Huang, <a href=\"https://arxiv.org/abs/2501.07463\">A coin flip game and generalizations of Fibonacci numbers</a>, arXiv:2501.07463 [math.CO], 2025. See pp. 9-10.",
+        "<a href=\"/index/Rec#order_04\">Index entries for linear recurrences with constant coefficients</a>, signature (2,-1,2,-1)."
+      ],
+      "mathematica": [
+        "Table[Sum[(-1)^k*Binomial[n-k, k]*Fibonacci[n-2*k, 2], {k,0,Floor[n/2]}], {n, 0, 40}] (* _G. C. Greubel_, Jan 14 2022 *)"
+      ],
+      "name": "Chebyshev transform of the second kind of the Pell numbers.",
+      "number": 112575,
+      "offset": "0,3",
+      "program": [
+        "(SageMath) [sum((-1)^k*binomial(n-k,k)*lucas_number1(n-2*k, 2, -1) for k in (0..(n/2))) for n in (0..40)] # _G. C. Greubel_, Jan 14 2022",
+        "(Magma)",
+        "C<I>:= ComplexField();",
+        "[(&+[Binomial(n-k,k)*Round(I^(n-1)*Evaluate(ChebyshevU(n-2*k), -I)): k in [0..Floor(n/2)]]) : n in [0..40]]; // _G. C. Greubel_, Jan 14 2022"
+      ],
+      "references": 6,
+      "revision": 31,
+      "time": "2025-09-22T16:00:48-04:00",
+      "xref": [
+        "Cf. A000129."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C2%2C3%2C6%2C12%2C22%2C41%2C78%2C147%2C276%2C520%2C980%2C1845%2C3474%2C6543%2C12322%2C23204%2C43698%2C82293%2C154974%2C291847%2C549608%2C1035024%2C1949160%2C3670665%2C6912610%2C13017851%2C24515262%2C46167228%2C86942286&fmt=json"
+}

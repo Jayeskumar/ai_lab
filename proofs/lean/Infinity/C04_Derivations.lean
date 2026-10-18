@@ -17,6 +17,11 @@ import Mathlib.Tactic
   step lowers the inversion count by exactly one, normal forms are the words without inversions,
   every complete derivation has exactly `inv w` steps, and in the rewriting game the
   P-positions (previous player wins) are exactly the words with an even inversion count.
+* `unbordered_diamond`, `unbordered_random_descent` (CLM-C04-05): for ANY single rule `l → r`
+  over any alphabet with an unbordered left-hand side, two distinct one-step reducts have a common
+  one-step reduct, hence the system has random descent.
+* `length_changing_unique` (CLM-C04-06, case `|l| ≠ |r|`): all derivations between two given
+  words have the same number of steps.
 -/
 
 namespace Infinity.C04

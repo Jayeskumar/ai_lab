@@ -57,27 +57,50 @@ levels evolves by a monotone map whose fixed point is the tail-sum vector
 $T = (\sum_{j\ge 1} b_j, \sum_{j \ge 2} b_j, \ldots)$: every level fires
 exactly once.
 
-**Conjecture 3.4** *[COMPUTATIONALLY SUPPORTED; POTENTIALLY NOVEL — Propp
-(2017) proposed this rule family but gave no results]*. Every carry rule with
-$\sum b_j = m$ fails to terminate from some unary start. Verified for all 28
-such rules with $m \le 4$, $J \le 3$, $b_j \le 3$; each produced exactly the
-glider $T$ (or its sparse analogue). Together with Theorem 3.3 this gives a
-complete termination classification of the 189 small rules
-**[PROVEN — computer-assisted certificates]**.
+**Theorem 3.4** (critical rules) *[PROVEN — two written proofs; POTENTIALLY NOVEL — Propp
+(2017) proposed this rule family without results]*. If $\sum b_j = m$, every
+derivation from $n$ tokens is infinite for all sufficiently large $n$. Hence a
+carry rule terminates from every unary start **if and only if**
+$\sum b_j < m$.
+
+*Proof idea.* Write the window map as $F(x) = Ax - \varphi(x)\,b$ with
+$\varphi \in [0,1)$ the floor error. The eigenvalues of $A$ are $1/\mu$ for the
+roots of $\sum_j b_j \mu^j = m$; when the support of $b$ has gcd 1, $\mu = 1$ is
+a simple root and every other root satisfies $|\mu| > 1$. So $A$ has the simple
+eigenvalue 1 (eigenvector $T$, left eigenvector $(1, \ldots, 1)$ — token
+conservation) and all other eigenvalues inside the unit disk. The floor errors
+stay bounded off the $T$-direction, so after $O(\log n)$ levels the window is
+a large multiple of $T$ plus a bounded error, hence dominates $T$, and the
+glider runs forever. ∎ For all 98 critical rules with $m \le 5$, $J \le 4$
+every start beyond 124 is certified non-terminating (EXP-C02-07).
+
+The lab's Skeptic, asked to break this theorem, instead found a second proof
+that uses only positivity: the linearised window map is a *primitive*
+non-negative matrix (its cycles have lengths $j$ with $b_j > 0$, of gcd 1), so
+some power of it is strictly positive and a large enough start dominates $T$
+after a bounded number of levels. This second proof was checked line by line
+by the laboratory's Formal Verifier, so the theorem rests on a reviewed proof;
+the Skeptic also simulated 668,793 critical rules, all of which glide.
 
 **Theorem 3.5** (radix order) *[PROVEN — written; REDISCOVERY in substance:
 Akiyama–Frougny–Sakarovitch 2008, Prop. 11]*. For terminating carry
 rules, $n < n'$ implies that the representation of $n$ precedes that of $n'$
-in radix order. (The highest level changed when one token is added cannot
-have fired, so it only gained tokens.)
+in radix order. (Add one token and stabilise. If $H$ is the highest level
+that fires, the levels $H + j$ with $b_j > 0$ gain tokens and never fire, so
+the highest level whose count changes lies above $H$: it only gained tokens.
+An earlier version of this argument had a gap, found by the Skeptic.)
 
 **Theorem 3.6** (uniqueness) *[PROVEN — Lean core: `digits_unique`;
 REDISCOVERY in substance: Akiyama–Frougny–Sakarovitch 2008, Lemma 5]*.
 Let $g$ be the gcd of the levels reachable in one exchange and $\tilde P$ the
 carry polynomial in the variable $y = x^g$. If $\tilde P$ is primitive and
 irreducible over $\mathbb{Q}$, distinct stable configurations on the reachable
-levels have distinct values; in particular each integer has exactly one
-representation. If $\tilde P$ is not primitive, uniqueness fails.
+levels have distinct values; in particular, when $\sum b_j < m$, each integer
+has exactly one representation. If $\tilde P$ is not primitive and
+$\sum b_j \le m$, uniqueness fails. (Both side conditions are needed: the
+Skeptic's counterexamples are $2[k] \to 4[k+1]$, non-primitive yet without
+collisions, and $2[k] \to 3[k+1]$, which has no stable configuration of
+value 2.)
 
 *Proof idea.* A difference $\Delta$ of two digit strings with equal value
 vanishes at the root; an irreducible $\tilde P$ must then divide $\Delta$ over
@@ -109,6 +132,6 @@ known only for $n = F_k - 1$. The sequence is not yet in the OEIS.
 
 ## Limitations and open questions
 
-1. Prove Conjecture 3.4 (a "spreading" lemma for the sweep).
+1. An explicit bound $n_0$ for Theorem 3.4, and its Lean formalisation.
 2. Which carry rules give *regular* languages of representations?
 3. A closed form for the longest Zeckendorf game.

@@ -1,0 +1,23 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-08",
+    "EXP-C04-09"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-16",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Equivalent to the open periodicity problems for Officers (0.6), Treblecross (0.007, OEIS A395248) and 0.06 (Guy's conjecture that finite octal games are ultimately periodic). Our computation (n <= 3000) finds no period <= 300; the 0.06 Grundy sequence is not in the OEIS.",
+  "statement": "The Grundy sequences of the rewriting games of aa -> ab, aaa -> b and aaa -> ab on the words a^n are ultimately periodic.",
+  "system": "SYS-D",
+  "title": "Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.06) ultimately periodic?",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

@@ -1,0 +1,78 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "sizes N = 1..10 (LD, RD up to 10; others up to 8)",
+    "complete enumeration with blocking clauses (limit 2000 models)",
+    "anchor fixes the whole column 0"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C06-02",
+    "file": "experiments/C06/E02_anchored_spectra.py",
+    "sha256": "98cdc67f870f259aa6b87b25b56fcdfade7c503afdcf3b499b4d4942449125b5",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "cycle": "C06",
+  "falsification": "An LD-anchored model for N not a power of two, two models for a power of two, or a non-LD law with a restricted non-trivial spectrum.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:23:38Z"
+    }
+  ],
+  "hypothesis": "H-C06-1: LD + anchor has exactly one model for N in {1,2,4,8} and none otherwise (N <= 10). H-C06-2 (bold, inventor): restricted 'power-of-two' spectra are special to left-distributivity; other balanced 3-variable laws give either every N or no N > 1.",
+  "id": "EXP-C06-02",
+  "methodology": "MagmaSAT (exact encoding from C05) with unit clauses v[x,0,x+1]; count all models (anchored structures have no non-trivial anchored isomorphisms, so tables = classes); record spectrum and counts; independent of Laver's recursion.",
+  "question": "If left-distributivity is replaced by another composition law, which sizes N admit a magma with x * 0 = x + 1 (mod N), and how many are there?",
+  "results_file": "results/EXP-C06-02.json",
+  "results_sha256": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C06-02",
+        "file": "experiments/C06/E02_anchored_spectra.py",
+        "sha256": "98cdc67f870f259aa6b87b25b56fcdfade7c503afdcf3b499b4d4942449125b5",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:23:38Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C06-02.json",
+      "results_sha256": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
+      "runtime_s": 53.475,
+      "started": "2026-10-18T08:22:44Z",
+      "summary": [
+        "LD anchored model counts N=1..10: {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}",
+        "LD  x(yz)=(xy)(xz): spectrum [1, 2, 4, 8] counts {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}",
+        "RD  (xy)z=(xz)(yz): spectrum [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1, '9': 1, '10': 1}",
+        "assoc  x(yz)=(xy)z: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+        "left-permutable  x(yz)=y(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 94, '5': 1486, '6': 2000, '7': 2000, '8': 2000}",
+        "right-permutable  (xy)z=(xz)y: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 64, '5': 625, '6': 2000, '7': 2000, '8': 2000}",
+        "x(yz)=(xy)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+        "x(yz)=(xz)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+        "(xy)z=(xy)(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+        "x(yz)=(yx)(zx): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+        "x(xy)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 24, '4': 2000, '5': 2000, '6': 2000, '7': 2000, '8': 2000}",
+        "x(yx)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+        "(xy)y=xy: spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}"
+      ]
+    }
+  ],
+  "summary": [
+    "LD anchored model counts N=1..10: {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}",
+    "LD  x(yz)=(xy)(xz): spectrum [1, 2, 4, 8] counts {'1': 1, '2': 1, '3': 0, '4': 1, '5': 0, '6': 0, '7': 0, '8': 1, '9': 0, '10': 0}",
+    "RD  (xy)z=(xz)(yz): spectrum [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1, '9': 1, '10': 1}",
+    "assoc  x(yz)=(xy)z: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+    "left-permutable  x(yz)=y(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 94, '5': 1486, '6': 2000, '7': 2000, '8': 2000}",
+    "right-permutable  (xy)z=(xz)y: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 9, '4': 64, '5': 625, '6': 2000, '7': 2000, '8': 2000}",
+    "x(yz)=(xy)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+    "x(yz)=(xz)(yz): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+    "(xy)z=(xy)(xz): spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+    "x(yz)=(yx)(zx): spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}",
+    "x(xy)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 24, '4': 2000, '5': 2000, '6': 2000, '7': 2000, '8': 2000}",
+    "x(yx)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}",
+    "(xy)y=xy: spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}"
+  ],
+  "title": "Spectra and model counts of successor-anchored magmas for invented identities"
+}

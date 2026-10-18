@@ -1,0 +1,24 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-15",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Periodicity of Dawson's Kayles (Guy and Smith, 1956); OEIS A002187.",
+  "proof": "results/EXP-C04-08.json (guy_smith_window_verified) with the Guy-Smith periodicity theorem (Winning Ways)",
+  "proof_check": "computer-assisted - octal recursion to n = 3000 and the Guy-Smith periodicity window n0 <= n < 2 n0 + p + t checked explicitly, plus CLM-C04-13",
+  "statement": "The Sprague-Grundy values G(n) of the rewriting game of aa -> b on the word a^n satisfy G(n + 34) = G(n) for all n >= 53 (likewise for aaa -> aba from n >= 54).",
+  "system": "SYS-D",
+  "title": "The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

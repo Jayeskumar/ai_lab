@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Parity theorem holds for all RD rules; unary-lhs games decompose over a-runs for all 58 such rules; maximal Grundy value 3 on words of length <= 10 (60 rules).",
   "assumptions": [
     "the 162 terminating rules",
     "all words of length <= 10 (<= 8 for the doubling rules)"
@@ -18,12 +19,37 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:01:27Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Parity theorem holds for all RD rules; unary-lhs games decompose over a-runs for all 58 such rules; maximal Grundy value 3 on words of length <= 10 (60 rules).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-08",
+        "CLM-C04-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-4: for random-descent rules g(w) = D(w) mod 2 (D the unique derivation length), so P-positions are exactly the words with even D (for ab -> ba: an even number of inversions). H-C04-5: for a rule a^k -> u the game is the disjoint sum of a take-and-break game on the maximal a-runs, g(w) = XOR over runs of G(run length). H-C04-6 (bold): every rewriting game in the family has Grundy values <= 3 on words of length <= 10.",
   "id": "EXP-C04-07",
   "methodology": "Grundy values by mex over the exact derivation graph. For unary left-hand sides the run game G is computed independently from its definition (heap n, rewrite position i, resulting heaps i + e_0, e_1, ..., n - k - i + e_t from the a-blocks e_j of u).",
   "question": "What do the Sprague-Grundy values of rewriting games look like?",
+  "related": [
+    "CLM-C04-08",
+    "CLM-C04-13"
+  ],
   "results_file": "results/EXP-C04-07.json",
   "results_sha256": "c3e4b5f1b21dcfdc1753dcbad7eabea2819d1e3b25f143dcdd955468c845025f",
   "runs": [

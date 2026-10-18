@@ -1,0 +1,835 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C12-04",
+    "file": "experiments/C12/E04_novelty.py",
+    "sha256": "0efa4360a41ec05153ad6d555ff359a93dff994fff3675a88c8a7e5b2c6ab317",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:19:44Z",
+  "id": "EXP-C12-04",
+  "meta": {
+    "agent": "Historian and Novelty Analyst",
+    "assumptions": [
+      "OEIS search API with on-disk cache",
+      "Grundy sequences queried from n = 1 (n = 0 is not a position for several games); P-position sequences from the first positive P-position"
+    ],
+    "cycle": "C12",
+    "falsification": "n/a (literature check)",
+    "hypothesis": "Classical closed forms (v2, Omega, popcount, n mod 3, Grundy's game) are catalogued; some relational games may not be.",
+    "id": "EXP-C12-04",
+    "methodology": "novelty_check on the first 40 terms; the matched entries' names are recorded for manual reading (a shifted-window hit is not accepted as a match without inspection).",
+    "question": "Which of the 19 Grundy sequences and P-position sets are already catalogued?",
+    "title": "OEIS look-ups for the Grundy and P-position sequences of the 19 games"
+  },
+  "results": {
+    "P_no_match": [
+      "G03 subtract a nontrivial proper divisor"
+    ],
+    "checks": {
+      "G01 subtract a divisor d<n": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A005408",
+              "name": "The odd numbers: a(n) = 2*n + 1."
+            },
+            {
+              "anumber": "A060747",
+              "name": "a(n) = 2*n - 1."
+            },
+            {
+              "anumber": "A004273",
+              "name": "0 together with odd numbers."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            33,
+            35,
+            37,
+            39
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A007814",
+              "name": "Exponent of highest power of 2 dividing n, a.k.a. the binary carry sequence, the ruler sequence, or the 2-adic valuation of n."
+            },
+            {
+              "anumber": "A371093",
+              "name": "a(n) is the 2-adic valuation of 3n+1."
+            },
+            {
+              "anumber": "A135523",
+              "name": "a(n) = A007814(n) + A209229(n)."
+            }
+          ],
+          "query": "0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,4,0,1,0,2,0,1,0,3,0,1,0,2,0,1,0,5,0,1,0,2,0,1,0,3",
+          "status": "MATCH"
+        }
+      },
+      "G02 subtract any divisor": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": []
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A001511",
+              "name": "The ruler function: exponent of the highest power of 2 dividing 2n. Equivalently, the 2-adic valuation of 2n."
+            },
+            {
+              "anumber": "A091090",
+              "name": "In binary representation: number of editing steps (delete, insert, or substitute) to transform n into n + 1."
+            },
+            {
+              "anumber": "A087230",
+              "name": "a(n) is the 2-adic valuation of 6*n + 4."
+            }
+          ],
+          "query": "1,2,1,3,1,2,1,4,1,2,1,3,1,2,1,5,1,2,1,3,1,2,1,4,1,2,1,3,1,2,1,6,1,2,1,3,1,2,1,4",
+          "status": "MATCH"
+        }
+      },
+      "G03 subtract a nontrivial proper divisor": {
+        "P_positions": {
+          "hits": [],
+          "status": "NO MATCH",
+          "terms": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            32,
+            33
+          ]
+        },
+        "grundy": {
+          "hits": [],
+          "query": "0,0,0,1,0,2,0,0,0,1,0,3,0,1,0,2,0,1,0,3,0,1,0,4,0,1,0,2,0,1,0,0,0,1,0,2,0,1,0,4",
+          "status": "NO MATCH"
+        }
+      },
+      "G04 move to a proper divisor": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": [
+            1
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A001222",
+              "name": "Number of prime divisors of n counted with multiplicity (also called big omega of n, bigomega(n) or Omega(n))."
+            }
+          ],
+          "query": "0,1,1,2,1,2,1,3,2,2,1,3,1,2,2,4,1,3,1,3,2,2,1,4,2,2,3,3,1,3,1,5,2,2,2,4,1,2,2,4",
+          "status": "MATCH"
+        }
+      },
+      "G05 move to a smaller coprime": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": [
+            1
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A055396",
+              "name": "Smallest prime dividing n is a(n)-th prime (a(1)=0)."
+            }
+          ],
+          "query": "0,1,2,1,3,1,4,1,2,1,5,1,6,1,2,1,7,1,8,1,2,1,9,1,3,1,2,1,10,1,11,1,2,1,3,1,12,1,2,1",
+          "status": "MATCH"
+        }
+      },
+      "G06 move to a smaller non-coprime": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A008578",
+              "name": "Prime numbers at the beginning of the 20th century (today 1 is no longer regarded as a prime)."
+            },
+            {
+              "anumber": "A015919",
+              "name": "Positive integers k such that 2^k == 2 (mod k)."
+            },
+            {
+              "anumber": "A158611",
+              "name": "0, 1 and the primes."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            11,
+            13,
+            17,
+            19,
+            23,
+            29,
+            31,
+            37,
+            41,
+            43,
+            47,
+            53,
+            59,
+            61,
+            67
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A279119",
+              "name": "Lexicographically earliest sequence such that, for any distinct i and j, a(i)=a(j) implies gcd(i, j)=1."
+            }
+          ],
+          "query": "0,0,0,1,0,2,0,3,1,4,0,5,0,6,3,7,0,8,0,9,4,10,0,11,1,12,6,13,0,14,0,15,7,16,2,17,0,18,9,19",
+          "status": "MATCH"
+        }
+      },
+      "G08 subtract a square": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A030193",
+              "name": "Let S = squares; a(0)=0; a(n) = smallest m such that m - a(i) is not in S for any i < n."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            2,
+            5,
+            7,
+            10,
+            12,
+            15,
+            17,
+            20,
+            22,
+            34,
+            39,
+            44,
+            52,
+            57,
+            62,
+            65,
+            67,
+            72,
+            85,
+            95
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A014586",
+              "name": "Nim-Grundy function for Take-a-Square (or Subtract-a-Square) game."
+            }
+          ],
+          "query": "1,0,1,2,0,1,0,1,2,0,1,0,1,2,0,1,0,1,2,0,1,0,1,2,3,2,3,4,5,3,2,3,4,0,1,2,3,2,0,1",
+          "status": "MATCH"
+        }
+      },
+      "G09 subtract a Fibonacci number": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A001581",
+              "name": "Winning moves in Fibonacci nim."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            4,
+            10,
+            14,
+            20,
+            24,
+            30,
+            36,
+            40,
+            46,
+            50,
+            56,
+            60,
+            66,
+            72,
+            76,
+            82,
+            86,
+            92,
+            96,
+            102
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A014588",
+              "name": "Nim function for Take-a-Fibonacci-Game (a subtraction game)."
+            }
+          ],
+          "query": "1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,0",
+          "status": "MATCH"
+        }
+      },
+      "G10 subtract a power of 2": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A008585",
+              "name": "a(n) = 3*n."
+            },
+            {
+              "anumber": "A008486",
+              "name": "Expansion of (1 + x + x^2)/(1 - x)^2."
+            },
+            {
+              "anumber": "A296515",
+              "name": "Number of edges in a maximal planar graph with n vertices."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            3,
+            6,
+            9,
+            12,
+            15,
+            18,
+            21,
+            24,
+            27,
+            30,
+            33,
+            36,
+            39,
+            42,
+            45,
+            48,
+            51,
+            54,
+            57,
+            60
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A010872",
+              "name": "a(n) = n mod 3."
+            }
+          ],
+          "query": "1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1,2,0,1",
+          "status": "MATCH"
+        }
+      },
+      "G10b subtract a power of 3": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A005843",
+              "name": "The nonnegative even numbers: a(n) = 2n."
+            },
+            {
+              "anumber": "A004275",
+              "name": "1 together with nonnegative even numbers."
+            },
+            {
+              "anumber": "A004277",
+              "name": "1 together with positive even numbers."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            2,
+            4,
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18,
+            20,
+            22,
+            24,
+            26,
+            28,
+            30,
+            32,
+            34,
+            36,
+            38,
+            40
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A000035",
+              "name": "Period 2: repeat [0, 1]; a(n) = n mod 2; parity of n."
+            },
+            {
+              "anumber": "A059841",
+              "name": "Period 2: Repeat [1,0]. a(n) = 1 - (n mod 2); Characteristic function of even numbers."
+            },
+            {
+              "anumber": "A135528",
+              "name": "1, then repeat 1,0."
+            }
+          ],
+          "query": "1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0",
+          "status": "MATCH"
+        }
+      },
+      "G10c subtract a power of 4": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A047215",
+              "name": "Numbers that are congruent to {0, 2} mod 5."
+            },
+            {
+              "anumber": "A038126",
+              "name": "a(n) = floor( sqrt(2*Pi)*n ) (a Beatty sequence)."
+            },
+            {
+              "anumber": "A075328",
+              "name": "Difference between n-th pair in A075325."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            2,
+            5,
+            7,
+            10,
+            12,
+            15,
+            17,
+            20,
+            22,
+            25,
+            27,
+            30,
+            32,
+            35,
+            37,
+            40,
+            42,
+            45,
+            47,
+            50
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A014586",
+              "name": "Nim-Grundy function for Take-a-Square (or Subtract-a-Square) game."
+            }
+          ],
+          "query": "1,2,0,1,0,1,2,0,1,0,1,2,0,1,0,1,2,0,1,0",
+          "status": "MATCH (shifted window)"
+        }
+      },
+      "G11 subtract a prime": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A025043",
+              "name": "a(n) is not of the form prime + a(k), k < n."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            9,
+            10,
+            25,
+            34,
+            35,
+            49,
+            55,
+            85,
+            91,
+            100,
+            115,
+            121,
+            125,
+            133,
+            145,
+            155,
+            169,
+            175,
+            187
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A014589",
+              "name": "Nim function for Take-a-Prime (or Subtract-a-Prime) Game."
+            }
+          ],
+          "query": "0,1,1,2,2,3,3,4,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,0,4,1,5,2,6,3,4,7,0,0,1,1,2,2,3",
+          "status": "MATCH"
+        }
+      },
+      "G12 subtract a triangular number": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A030194",
+              "name": "a(0)=0; a(n) is the smallest m such that m - a(i) is not a triangular number for any i < n."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            2,
+            4,
+            9,
+            11,
+            13,
+            18,
+            20,
+            22,
+            27,
+            29,
+            31,
+            51,
+            53,
+            60,
+            62,
+            69,
+            71,
+            85,
+            94,
+            101
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A019509",
+              "name": "Nim-values for the impartial game Take-a-Triangle."
+            }
+          ],
+          "query": "1,0,1,0,1,2,3,2,0,1,0,1,0,1,2,3,2,0,1,0,1,0,1,2,3,2,0,1,0,1,0,1,2,3,2,3,2,3,4,5",
+          "status": "MATCH"
+        }
+      },
+      "G13 move to a proper binary submask": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": []
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A000120",
+              "name": "Ones-counting sequence: number of 1's in binary expansion of n (or the binary weight of n)."
+            },
+            {
+              "anumber": "A048881",
+              "name": "a(n) = A000120(n+1) - 1 = wt(n+1) - 1."
+            },
+            {
+              "anumber": "A106487",
+              "name": "Number of leaves in combinatorial game trees."
+            }
+          ],
+          "query": "1,1,2,1,2,2,3,1,2,2,3,2,3,3,4,1,2,2,3,2,3,3,4,2,3,3,4,3,4,4,5,1,2,2,3,2,3,3,4,2",
+          "status": "MATCH"
+        }
+      },
+      "G16 split into coprime parts": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A005408",
+              "name": "The odd numbers: a(n) = 2*n + 1."
+            },
+            {
+              "anumber": "A060747",
+              "name": "a(n) = 2*n - 1."
+            },
+            {
+              "anumber": "A004273",
+              "name": "0 together with odd numbers."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            33,
+            35,
+            37,
+            39
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A000035",
+              "name": "Period 2: repeat [0, 1]; a(n) = n mod 2; parity of n."
+            },
+            {
+              "anumber": "A059841",
+              "name": "Period 2: Repeat [1,0]. a(n) = 1 - (n mod 2); Characteristic function of even numbers."
+            },
+            {
+              "anumber": "A135528",
+              "name": "1, then repeat 1,0."
+            }
+          ],
+          "query": "0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1",
+          "status": "MATCH"
+        }
+      },
+      "G17 split into dividing parts": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A005408",
+              "name": "The odd numbers: a(n) = 2*n + 1."
+            },
+            {
+              "anumber": "A060747",
+              "name": "a(n) = 2*n - 1."
+            },
+            {
+              "anumber": "A004273",
+              "name": "0 together with odd numbers."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23,
+            25,
+            27,
+            29,
+            31,
+            33,
+            35,
+            37,
+            39
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A000035",
+              "name": "Period 2: repeat [0, 1]; a(n) = n mod 2; parity of n."
+            },
+            {
+              "anumber": "A059841",
+              "name": "Period 2: Repeat [1,0]. a(n) = 1 - (n mod 2); Characteristic function of even numbers."
+            },
+            {
+              "anumber": "A135528",
+              "name": "1, then repeat 1,0."
+            }
+          ],
+          "query": "0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1",
+          "status": "MATCH"
+        }
+      },
+      "G18 Grundy's game (unequal split)": {
+        "P_positions": {
+          "hits": [
+            {
+              "anumber": "A036685",
+              "name": "List of single-heap P-positions in Grundy's game."
+            }
+          ],
+          "status": "MATCH",
+          "terms": [
+            1,
+            2,
+            4,
+            7,
+            10,
+            20,
+            23,
+            26,
+            50,
+            53,
+            270,
+            273,
+            276,
+            282,
+            285,
+            288,
+            316,
+            334,
+            337,
+            340
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A002188",
+              "name": "Sprague-Grundy value for Grundy's game when starting with n tokens."
+            }
+          ],
+          "query": "0,0,1,0,2,1,0,2,1,0,2,1,3,2,1,3,2,4,3,0,4,3,0,4,3,0,4,1,2,3,1,2,4,1,2,4,1,2,4,1",
+          "status": "MATCH"
+        }
+      },
+      "G19 move to a remainder": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": [
+            1
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A099396",
+              "name": "a(n) = floor(log_2((2/3)*n)) for n >= 2, a(1) = 0."
+            }
+          ],
+          "query": "0,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+          "status": "MATCH"
+        }
+      },
+      "G20 move to a quotient": {
+        "P_positions": {
+          "hits": [],
+          "status": "TOO FEW P-POSITIONS",
+          "terms": [
+            1
+          ]
+        },
+        "grundy": {
+          "hits": [
+            {
+              "anumber": "A000523",
+              "name": "a(n) = floor(log_2(n))."
+            }
+          ],
+          "query": "0,1,1,2,2,2,2,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5",
+          "status": "MATCH"
+        }
+      }
+    },
+    "grundy_no_match": [
+      "G03 subtract a nontrivial proper divisor"
+    ],
+    "summary": [
+      "Grundy sequences without OEIS match: ['G03 subtract a nontrivial proper divisor']",
+      "P-position sets without match: ['G03 subtract a nontrivial proper divisor']",
+      "G01 subtract a divisor d<n: G MATCH ['A007814', 'A371093'] | P MATCH ['A005408', 'A060747']",
+      "G02 subtract any divisor: G MATCH ['A001511', 'A091090'] | P TOO FEW P-POSITIONS []",
+      "G03 subtract a nontrivial proper divisor: G NO MATCH [] | P NO MATCH []",
+      "G04 move to a proper divisor: G MATCH ['A001222'] | P TOO FEW P-POSITIONS []",
+      "G05 move to a smaller coprime: G MATCH ['A055396'] | P TOO FEW P-POSITIONS []",
+      "G06 move to a smaller non-coprime: G MATCH ['A279119'] | P MATCH ['A008578', 'A015919']",
+      "G08 subtract a square: G MATCH ['A014586'] | P MATCH ['A030193']",
+      "G09 subtract a Fibonacci number: G MATCH ['A014588'] | P MATCH ['A001581']",
+      "G10 subtract a power of 2: G MATCH ['A010872'] | P MATCH ['A008585', 'A008486']",
+      "G10b subtract a power of 3: G MATCH ['A000035', 'A059841'] | P MATCH ['A005843', 'A004275']",
+      "G10c subtract a power of 4: G MATCH (shifted window) ['A014586'] | P MATCH ['A047215', 'A038126']",
+      "G11 subtract a prime: G MATCH ['A014589'] | P MATCH ['A025043']",
+      "G12 subtract a triangular number: G MATCH ['A019509'] | P MATCH ['A030194']",
+      "G13 move to a proper binary submask: G MATCH ['A000120', 'A048881'] | P TOO FEW P-POSITIONS []",
+      "G16 split into coprime parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+      "G17 split into dividing parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']",
+      "G18 Grundy's game (unequal split): G MATCH ['A002188'] | P MATCH ['A036685']",
+      "G19 move to a remainder: G MATCH ['A099396'] | P TOO FEW P-POSITIONS []",
+      "G20 move to a quotient: G MATCH ['A000523'] | P TOO FEW P-POSITIONS []"
+    ]
+  },
+  "results_sha256": "b7eb439c285686fa78a4723b692b6b367548537eabc3aafc9eab4833c24f2160",
+  "runtime_s": 54.528,
+  "started": "2026-10-18T08:18:49Z"
+}

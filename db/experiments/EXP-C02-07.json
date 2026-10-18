@@ -1,0 +1,83 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "All 98 critical rules (m <= 5, J <= 4, b_j <= 4, gcd-1 support) have a simple eigenvalue 1 and all other eigenvalues of modulus < 1 (max 0.949); every start beyond the largest terminating one (<= 124) is certified non-terminating - as Theorem 9 predicts.",
+  "assumptions": [
+    "all critical rules with m <= 5, J <= 4, b_j <= 4 and gcd of support 1 (b_J > 0)",
+    "starts n = 1..2000"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C02-07",
+    "file": "experiments/C02/E07_critical_rules_all_large_n.py",
+    "sha256": "db2473b626e9fc88ba9f5b137dcee86ad658ef01a544f25f7b1578f01572812f",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "cycle": "C02",
+  "falsification": "A rule with an eigenvalue of modulus >= 1 other than the simple eigenvalue 1, or a terminating start after the first certified one beyond a stable tail.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:18:25Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 98 critical rules (m <= 5, J <= 4, b_j <= 4, gcd-1 support) have a simple eigenvalue 1 and all other eigenvalues of modulus < 1 (max 0.949); every start beyond the largest terminating one (<= 124) is certified non-terminating - as Theorem 9 predicts.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C02-04",
+        "CLM-C02-11"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "hypothesis": "T-C02-12: if sum b = m and gcd{j : b_j > 0} = 1, the window map's linearisation has the simple eigenvalue 1 (eigenvector T = tail sums) and all other eigenvalues of modulus < 1; consequently every unary start n >= n0 reaches a window dominating T and never terminates.",
+  "id": "EXP-C02-07",
+  "methodology": "For each rule: eigenvalues of the J x J linear map (A x)_i = x_(i+1) + (b_i/m) x_1; sweep every start up to 2000 with periodic/pumping certificates; record the largest terminating start n0 - 1 and check that every larger start has a certificate.",
+  "question": "Is non-termination of critical rules (sum b = m) a property of all large starts, as a spectral argument predicts?",
+  "related": [
+    "CLM-C02-04",
+    "CLM-C02-11"
+  ],
+  "results_file": "results/EXP-C02-07.json",
+  "results_sha256": "2062c9e1f8cc54e45a1885f191332cae49d81b92cc0c692ccef39ac77b7cfa45",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C02-07",
+        "file": "experiments/C02/E07_critical_rules_all_large_n.py",
+        "sha256": "db2473b626e9fc88ba9f5b137dcee86ad658ef01a544f25f7b1578f01572812f",
+        "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:18:24Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C02-07.json",
+      "results_sha256": "2062c9e1f8cc54e45a1885f191332cae49d81b92cc0c692ccef39ac77b7cfa45",
+      "runtime_s": 99.175,
+      "started": "2026-10-18T08:16:45Z",
+      "summary": [
+        "98 critical rules with gcd-1 support (m <= 5, J <= 4): spectral violations 0",
+        "every start beyond the largest terminating one is certified non-terminating: True (largest terminating start over all rules: 124)",
+        "max second-eigenvalue modulus: 0.949051"
+      ]
+    }
+  ],
+  "summary": [
+    "98 critical rules with gcd-1 support (m <= 5, J <= 4): spectral violations 0",
+    "every start beyond the largest terminating one is certified non-terminating: True (largest terminating start over all rules: 124)",
+    "max second-eigenvalue modulus: 0.949051"
+  ],
+  "title": "Critical rules: non-termination from all large unary starts and the spectral gap"
+}

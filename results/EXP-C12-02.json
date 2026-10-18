@@ -1,0 +1,233 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C12-02",
+    "file": "experiments/C12/E02_closed_forms.py",
+    "sha256": "e105f8a6c69c4d4683cb856c2ff5c93b6aca78ba491db8b1afd254bd2942729a",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:16:07Z",
+  "id": "EXP-C12-02",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "exact Grundy values from EXP-C12-01 (n <= 1e5 / 5e3 / 2e4)",
+      "power-of-k games recomputed for k = 2..20, n <= 2e4",
+      "40 random splitting relations (each n >= 2 keeps the split 1 + (n-1) plus random others), n <= 1500; seed 12"
+    ],
+    "cycle": "C12",
+    "falsification": "Any mismatch.",
+    "hypothesis": "G01 = v2(n); G02 = v2(n)+1; G03 P-positions = odd numbers and 2^(2j+1); G04 = Omega(n); G05 = index of the smallest prime factor (and 'subtract k coprime to n' is the same game); G06: g(2k) = k-1, g(odd m) <= (m-1)/2, P-positions = {1} and the primes; subtract-a-power-of-k = the subtraction game {1, k}; any splitting game in which every heap >= 2 has an allowed split has g(n) = [n even]; G13 = popcount; G19 = floor(log2((n+1)/3)) + 1 (n >= 2); G20 = floor(log2 n).",
+    "id": "EXP-C12-02",
+    "methodology": "Compare each closed form term by term with the exact values; count mismatches.",
+    "question": "Do the conjectured closed forms hold on the whole computed range, and do the general structure theorems (power-of-k reduction, splitting parity) hold on new instances?",
+    "seed": 12,
+    "title": "Closed forms for relational games: verification against exact Grundy values"
+  },
+  "results": {
+    "checks": {
+      "G01 subtract a divisor d<n": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          100000
+        ]
+      },
+      "G02 subtract any divisor": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          100000
+        ]
+      },
+      "G03 P-positions = odd numbers and 2^(2j+1)": {
+        "mismatches": 0,
+        "range": [
+          1,
+          100000
+        ]
+      },
+      "G04 move to a proper divisor": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          100000
+        ]
+      },
+      "G05 move to a smaller coprime": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          5000
+        ]
+      },
+      "G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes": {
+        "P_mismatches": 0,
+        "even_mismatches": 0,
+        "max_ratio_odd": 0.24984984984984984,
+        "odd_bound_violations": 0
+      },
+      "G07 subtract a coprime = G05": {
+        "mismatches": 0
+      },
+      "G13 move to a proper binary submask": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          100000
+        ]
+      },
+      "G16 split into coprime parts": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          5000
+        ]
+      },
+      "G17 split into dividing parts": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          5000
+        ]
+      },
+      "G19 move to a remainder": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          5000
+        ]
+      },
+      "G20 move to a quotient": {
+        "first_mismatch": [],
+        "mismatches": 0,
+        "range": [
+          1,
+          20000
+        ]
+      },
+      "random splitting relations (every n>=2 splittable)": {
+        "mismatches": 0,
+        "relations": 40
+      },
+      "subtract a power of k vs {1,k}": {
+        "10": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "11": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "12": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "13": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "14": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "15": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "16": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "17": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "18": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "19": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "2": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "20": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "3": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "4": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "5": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "6": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "7": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "8": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        },
+        "9": {
+          "equal_to_{1,k}_game": true,
+          "matches_pattern": true
+        }
+      }
+    },
+    "power_of_k_failures": 0,
+    "summary": [
+      "closed-form mismatches over all checks: 0; power-of-k failures (k=2..20): 0",
+      "G01 subtract a divisor d<n: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+      "G02 subtract any divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+      "G04 move to a proper divisor: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+      "G05 move to a smaller coprime: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+      "G13 move to a proper binary submask: {'range': [1, 100000], 'mismatches': 0, 'first_mismatch': []}",
+      "G16 split into coprime parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+      "G17 split into dividing parts: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+      "G19 move to a remainder: {'range': [1, 5000], 'mismatches': 0, 'first_mismatch': []}",
+      "G20 move to a quotient: {'range': [1, 20000], 'mismatches': 0, 'first_mismatch': []}",
+      "G03 P-positions = odd numbers and 2^(2j+1): {'range': [1, 100000], 'mismatches': 0}",
+      "G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes: {'even_mismatches': 0, 'odd_bound_violations': 0, 'P_mismatches': 0, 'max_ratio_odd': 0.24984984984984984}",
+      "G07 subtract a coprime = G05: {'mismatches': 0}",
+      "random splitting relations (every n>=2 splittable): {'relations': 40, 'mismatches': 0}"
+    ],
+    "total_mismatches": 0
+  },
+  "results_sha256": "1b93f3e7a5761ea939a5352b2e801654037156cd39eaa63db372af1608f47ad1",
+  "runtime_s": 3.484,
+  "started": "2026-10-18T08:16:04Z"
+}

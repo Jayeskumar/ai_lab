@@ -1,0 +1,784 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C11-02",
+    "file": "experiments/C11/E02_pattern_theory.py",
+    "sha256": "2d820eb175a6b9077be7e3e343805645ef0756020a3f7d9c340c198ed0865ce5",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:24:42Z",
+  "id": "EXP-C11-02",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "all binary patterns of length 2..10 (2044 patterns)",
+      "codeword counts by exact dynamic programming (big integers), growth rates from the denominator x^k + (1-2x) c_p(x)",
+      "range analysis for n <= 2^64"
+    ],
+    "cycle": "C11",
+    "falsification": "A length-k pattern other than 0^k, 1^k with lambda >= lambda_(1^k); a range of large n where a pattern beats 1^k of the same length (refutes H-C11-2).",
+    "hypothesis": "H-C11-1: among binary patterns of length k, exactly 1^k and 0^k maximise the growth rate lambda_p (hence the asymptotic efficiency 1/log2 lambda_p). H-C11-2 (bold, inventor): for every n beyond a small threshold, the best length-k terminator is 1^k. H-C11-3: unbordered patterns of length k have lambda equal to the (k-1)-bonacci constant.",
+    "id": "EXP-C11-02",
+    "methodology": "Compute lambda_p two ways (polynomial root; count ratio at length 400); rank patterns; compare cumulative codeword counts of 1^k with unbordered patterns; compute, for every n <= 2^64, the pattern of length <= 8 giving the shortest codeword (envelope) and crossover points against Elias gamma/delta/omega/Levenshtein; OEIS checks of count sequences.",
+    "question": "How does the terminator pattern p control the code T_p? Is 1^k best among patterns of length k?",
+    "title": "Pattern-terminated codes: growth rates, the all-ones maximum, and the best terminator per range"
+  },
+  "results": {
+    "best_by_k": {
+      "2": {
+        "best": [
+          "00",
+          "11"
+        ],
+        "lambda": 1.618033989,
+        "lambda_1^k": 1.618033989
+      },
+      "3": {
+        "best": [
+          "000",
+          "111"
+        ],
+        "lambda": 1.839286755,
+        "lambda_1^k": 1.839286755
+      },
+      "4": {
+        "best": [
+          "0000",
+          "1111"
+        ],
+        "lambda": 1.927561975,
+        "lambda_1^k": 1.927561975
+      },
+      "5": {
+        "best": [
+          "00000",
+          "11111"
+        ],
+        "lambda": 1.965948237,
+        "lambda_1^k": 1.965948237
+      },
+      "6": {
+        "best": [
+          "000000",
+          "111111"
+        ],
+        "lambda": 1.983582843,
+        "lambda_1^k": 1.983582843
+      },
+      "7": {
+        "best": [
+          "0000000",
+          "1111111"
+        ],
+        "lambda": 1.991964197,
+        "lambda_1^k": 1.991964197
+      },
+      "8": {
+        "best": [
+          "00000000",
+          "11111111"
+        ],
+        "lambda": 1.99603118,
+        "lambda_1^k": 1.99603118
+      },
+      "9": {
+        "best": [
+          "000000000",
+          "111111111"
+        ],
+        "lambda": 1.99802947,
+        "lambda_1^k": 1.99802947
+      },
+      "10": {
+        "best": [
+          "0000000000",
+          "1111111111"
+        ],
+        "lambda": 1.999018633,
+        "lambda_1^k": 1.999018633
+      }
+    },
+    "crossovers_vs_elias": {
+      "00111": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.944
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.986
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        }
+      },
+      "011": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 159612677,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.932
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 311743,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.913
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.996
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 33554432,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.928
+        }
+      },
+      "0111": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.997
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.971
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        }
+      },
+      "101": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 167366022499768,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.967
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 68719476736,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.93
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.995
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 17592186044416,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.959
+        }
+      },
+      "1011": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.997
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.973
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.992
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        }
+      },
+      "11": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 23726566,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.927
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 65536,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.669
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.996
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 8388608,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.919
+        }
+      },
+      "111": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.998
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.957
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.992
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.994
+        }
+      },
+      "1111": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.945
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.985
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        }
+      },
+      "11111": {
+        "Levenshtein": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.993
+        },
+        "delta": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.806
+        },
+        "gamma": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.971
+        },
+        "omega": {
+          "max_sample_where_pattern_shorter": 18446744073709551616,
+          "min_sample_where_pattern_longer": 1,
+          "pattern_shorter_on_fraction_of_samples": 0.987
+        }
+      }
+    },
+    "distinct_lambda_values_by_k": {
+      "2": [
+        1.618034,
+        1.0
+      ],
+      "3": [
+        1.839287,
+        1.754878,
+        1.618034
+      ],
+      "4": [
+        1.927562,
+        1.883204,
+        1.86676,
+        1.839287
+      ],
+      "5": [
+        1.965948,
+        1.947892,
+        1.941713,
+        1.937629,
+        1.933185,
+        1.927562
+      ],
+      "6": [
+        1.983583,
+        1.974819,
+        1.971133,
+        1.97021,
+        1.969314,
+        1.968263
+      ],
+      "7": [
+        1.991964,
+        1.987845,
+        1.985743,
+        1.985329,
+        1.984869,
+        1.984626
+      ]
+    },
+    "envelope_samples": [
+      [
+        1,
+        2,
+        [
+          "11"
+        ]
+      ],
+      [
+        2,
+        3,
+        [
+          "11"
+        ]
+      ],
+      [
+        3,
+        4,
+        [
+          "100",
+          "101",
+          "11",
+          "110"
+        ]
+      ],
+      [
+        5,
+        5,
+        [
+          "100",
+          "101",
+          "11",
+          "110"
+        ]
+      ],
+      [
+        10,
+        6,
+        [
+          "100",
+          "101",
+          "11",
+          "110"
+        ]
+      ],
+      [
+        30,
+        8,
+        [
+          "100",
+          "1000",
+          "101",
+          "11"
+        ]
+      ],
+      [
+        100,
+        10,
+        [
+          "100",
+          "1000",
+          "101",
+          "110"
+        ]
+      ],
+      [
+        1000,
+        14,
+        [
+          "1000",
+          "1001",
+          "101",
+          "1010"
+        ]
+      ],
+      [
+        1024,
+        14,
+        [
+          "1000",
+          "1001",
+          "101",
+          "1010"
+        ]
+      ],
+      [
+        2048,
+        15,
+        [
+          "1000",
+          "1001",
+          "1010",
+          "1011"
+        ]
+      ],
+      [
+        1048576,
+        25,
+        [
+          "1000",
+          "10000",
+          "10001",
+          "1001"
+        ]
+      ],
+      [
+        1073741824,
+        36,
+        [
+          "10000",
+          "100000",
+          "100001",
+          "10001"
+        ]
+      ],
+      [
+        1099511627776,
+        46,
+        [
+          "10000",
+          "100000",
+          "100001",
+          "10001"
+        ]
+      ],
+      [
+        1125899906842624,
+        57,
+        [
+          "10000",
+          "100000",
+          "1000000",
+          "1000001"
+        ]
+      ],
+      [
+        18446744073709551616,
+        71,
+        [
+          "100000",
+          "1000000",
+          "1000001",
+          "100001"
+        ]
+      ]
+    ],
+    "h1_violations": [],
+    "h2_rival_wins": {
+      "3": {
+        "examples": [],
+        "largest_n_with_rival_win": null,
+        "n_samples_where_some_rival_beats_1^k": 0
+      },
+      "4": {
+        "examples": [
+          [
+            1000,
+            [
+              "1000",
+              "1001",
+              "1010"
+            ],
+            1
+          ],
+          [
+            1001,
+            [
+              "1000",
+              "1001",
+              "1010"
+            ],
+            1
+          ],
+          [
+            1002,
+            [
+              "1000",
+              "1001",
+              "1010"
+            ],
+            1
+          ]
+        ],
+        "largest_n_with_rival_win": 311743,
+        "n_samples_where_some_rival_beats_1^k": 762
+      },
+      "5": {
+        "examples": [
+          [
+            1000,
+            [
+              "10000",
+              "10001",
+              "10010"
+            ],
+            1
+          ],
+          [
+            1001,
+            [
+              "10000",
+              "10001",
+              "10010"
+            ],
+            1
+          ],
+          [
+            1002,
+            [
+              "10000",
+              "10001",
+              "10010"
+            ],
+            1
+          ]
+        ],
+        "largest_n_with_rival_win": 35184372088832,
+        "n_samples_where_some_rival_beats_1^k": 972
+      },
+      "6": {
+        "examples": [
+          [
+            1000,
+            [
+              "100000",
+              "100001",
+              "100010"
+            ],
+            1
+          ],
+          [
+            1001,
+            [
+              "100000",
+              "100001",
+              "100010"
+            ],
+            1
+          ],
+          [
+            1002,
+            [
+              "100000",
+              "100001",
+              "100010"
+            ],
+            1
+          ]
+        ],
+        "largest_n_with_rival_win": 13043817825332783104,
+        "n_samples_where_some_rival_beats_1^k": 1127
+      }
+    },
+    "h3_violations": [],
+    "lambda_examples": {
+      "0101": 1.883203506,
+      "011": 1.618033989,
+      "0110": 1.866760399,
+      "0111": 1.839286755,
+      "101": 1.754877666,
+      "1011": 1.866760399,
+      "11": 1.618033989,
+      "111": 1.839286755,
+      "1111": 1.927561975,
+      "11111": 1.965948237
+    },
+    "max_ratio_check_error": 1.3322676295501878e-15,
+    "oeis": {
+      "0101": {
+        "counts": [
+          1,
+          2,
+          3,
+          6,
+          12,
+          22,
+          41,
+          78,
+          147,
+          276,
+          520,
+          980,
+          1845,
+          3474,
+          6543,
+          12322
+        ],
+        "hits": [
+          "A112575 Chebyshev transform of the second kind of the Pell numbers."
+        ],
+        "status": "MATCH"
+      },
+      "011": {
+        "counts": [
+          1,
+          2,
+          4,
+          7,
+          12,
+          20,
+          33,
+          54,
+          88,
+          143,
+          232,
+          376,
+          609,
+          986,
+          1596,
+          2583
+        ],
+        "hits": [
+          "A000071 a(n) = Fibonacci(n) - 1."
+        ],
+        "status": "MATCH"
+      },
+      "0110": {
+        "counts": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          45,
+          84,
+          157,
+          293,
+          547,
+          1021,
+          1906,
+          3558,
+          6642,
+          12399
+        ],
+        "hits": [
+          "A059633 Expansion of g.f. x^3/(1 - 2*x + x^3 - x^4)."
+        ],
+        "status": "MATCH"
+      },
+      "0111": {
+        "counts": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          28,
+          52,
+          96,
+          177,
+          326,
+          600,
+          1104,
+          2031,
+          3736,
+          6872,
+          12640
+        ],
+        "hits": [
+          "A008937 a(n) = Sum_{k=0..n} T(k) where T(n) are the tribonacci numbe"
+        ],
+        "status": "MATCH"
+      },
+      "101": {
+        "counts": [
+          1,
+          2,
+          3,
+          5,
+          9,
+          16,
+          28,
+          49,
+          86,
+          151,
+          265,
+          465,
+          816,
+          1432,
+          2513,
+          4410
+        ],
+        "hits": [
+          "A005314 For n = 0, 1, 2, a(n) = n; thereafter, a(n) = 2*a(n-1) - a(n",
+          "A099529 Expansion of (1+x)^2/((1+x)^2+x^3)."
+        ],
+        "status": "MATCH"
+      },
+      "1011": {
+        "counts": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          45,
+          84,
+          157,
+          293,
+          547,
+          1021,
+          1906,
+          3558,
+          6642,
+          12399
+        ],
+        "hits": [
+          "A059633 Expansion of g.f. x^3/(1 - 2*x + x^3 - x^4)."
+        ],
+        "status": "MATCH"
+      }
+    },
+    "summary": [
+      "H-C11-1 (1^k, 0^k uniquely maximise lambda, k=2..10): violations []",
+      "H-C11-3 (unbordered => (k-1)-bonacci lambda): violations 0",
+      "root-vs-count-ratio max error 1.33e-15",
+      "H-C11-2 rival wins over 1^k for n >= 1000: {3: 0, 4: 762, 5: 972, 6: 1127}",
+      "cumulative-count ratios unbordered/1^(k-1): {'cum_011/cum_11 at L=300': 1.618033989, 'cum_0111/cum_111 at L=300': 1.191487884, 'cum_01111/cum_1111 at L=300': 1.078095078}",
+      "OEIS: {'011': 'MATCH', '101': 'MATCH', '0101': 'MATCH', '0111': 'MATCH', '1011': 'MATCH', '0110': 'MATCH'}"
+    ],
+    "unbordered_vs_ones_cum_ratio": {
+      "cum_011/cum_11 at L=300": 1.618033989,
+      "cum_0111/cum_111 at L=300": 1.191487884,
+      "cum_01111/cum_1111 at L=300": 1.078095078
+    }
+  },
+  "results_sha256": "44eb2516b244b91f6b40646218c00d18a8751cec3900fdb199e8fd717091ab9f",
+  "runtime_s": 7.954,
+  "started": "2026-10-18T08:24:34Z"
+}

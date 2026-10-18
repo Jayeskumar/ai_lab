@@ -27,15 +27,89 @@
       "old": null,
       "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "type",
+      "new": "theorem",
+      "old": "conjecture",
+      "reason": "Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C02.md#theorem-9-clm-c02-11--critical-rules-never-terminate-from-large-starts",
+      "old": null,
+      "reason": "Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "limitations",
+      "new": "The proof gives no explicit n0; observed n0 <= 125 for the 98 rules of EXP-C02-07.",
+      "old": "Holds for all 28 surveyed rules (m <= 4, J <= 3, b_j <= 3); the general spreading step is unproved.",
+      "reason": "Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C02.md Theorem 9 - spectral gap of the linearised window map); corroborated by EXP-C02-03 and EXP-C02-07 (98 rules, all large starts certified); awaiting independent skeptic review",
+      "old": null,
+      "reason": "Proved by the Director (Theorem 9, spectral argument) after the Historian audit marked it the only unpublished C02 result",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "statement",
+      "new": "For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the\nuniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (if g = gcd{j : b_j > 0} > 1: the glider T'\nof the reduced rule b'_i = b_(gi) on the levels g*N); consequently its derivations from n are infinite. In fact\nevery unary start n >= t*·m has this property (Theorems 9-10).",
+      "old": "For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the\nuniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (or its g-sparse analogue, g the gcd of\nthe support of b); consequently its derivations from n are infinite. (Proved: T is a fixed point of the\nwindow map and any window dominating T forces infinitely many firings.)",
+      "reason": "Second independent proof (Skeptic, Appendix A) checked by the Director; statement made precise for g > 1 (skeptic review 2026-10-18)",
+      "ts": "2026-10-18T08:39:48Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Theorem 10 gives an explicit but crude bound t* (via a Wielandt exponent); observed n0 <= 125 for the 98 rules of EXP-C02-07; largest first gliding t found by the Skeptic is 2744.",
+      "old": "The proof gives no explicit n0; observed n0 <= 125 for the 98 rules of EXP-C02-07.",
+      "reason": "Second independent proof (Skeptic, Appendix A) checked by the Director; statement made precise for g > 1 (skeptic review 2026-10-18)",
+      "ts": "2026-10-18T08:39:48Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "two independent written proofs - proofs/paper/C02.md Theorem 9 (spectral, by the Director) and Theorem 10 (Perron-Frobenius, by the Skeptic, checked line by line by the Director/Formal Verifier 2026-10-18); corroborated by EXP-C02-03, EXP-C02-07 and the Skeptic's simulation of 668,793 aperiodic critical rules",
+      "old": "written proof (proofs/paper/C02.md Theorem 9 - spectral gap of the linearised window map); corroborated by EXP-C02-03 and EXP-C02-07 (98 rules, all large starts certified); awaiting independent skeptic review",
+      "reason": "Second independent proof (Skeptic, Appendix A) checked by the Director; statement made precise for g > 1 (skeptic review 2026-10-18)",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C02-04",
-  "limitations": "Holds for all 28 surveyed rules (m <= 4, J <= 3, b_j <= 3); the general spreading step is unproved.",
+  "limitations": "Theorem 10 gives an explicit but crude bound t* (via a Wielandt exponent); observed n0 <= 125 for the 98 rules of EXP-C02-07; largest first gliding t found by the Skeptic is 2744.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Closest prior work - J. Propp, 'How do you write one hundred in base 3/2?' (2017, endnote 3) proposes the family m -> p(x) with no results; Borodin et al., Minnesota J. Undergrad. Math. 6 (2021) (two-directional firing, always terminating); Bond-Levine 2016 (critical case, finite networks only). No statement of the uniform glider found (low-medium confidence).",
-  "statement": "For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the\nuniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (or its g-sparse analogue, g the gcd of\nthe support of b); consequently its derivations from n are infinite. (Proved: T is a fixed point of the\nwindow map and any window dominating T forces infinitely many firings.)",
+  "proof": "proofs/paper/C02.md#theorem-9-clm-c02-11--critical-rules-never-terminate-from-large-starts",
+  "proof_check": "two independent written proofs - proofs/paper/C02.md Theorem 9 (spectral, by the Director) and Theorem 10 (Perron-Frobenius, by the Skeptic, checked line by line by the Director/Formal Verifier 2026-10-18); corroborated by EXP-C02-03, EXP-C02-07 and the Skeptic's simulation of 668,793 aperiodic critical rules",
+  "statement": "For every carry rule with sum_j b_j = m there is a unary start n whose sweep reaches a window dominating the\nuniform-firing glider T = (T_1, ..., T_J), T_i = sum_{j >= i} b_j (if g = gcd{j : b_j > 0} > 1: the glider T'\nof the reduced rule b'_i = b_(gi) on the levels g*N); consequently its derivations from n are infinite. In fact\nevery unary start n >= t*·m has this property (Theorems 9-10).",
   "system": "SYS-C",
   "title": "Carry rules with sum b = m never terminate from all unary starts (uniform glider)",
-  "type": "conjecture",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "type": "theorem",
+  "verification": "PROVEN"
 }

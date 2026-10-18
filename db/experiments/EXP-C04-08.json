@@ -1,5 +1,6 @@
 {
   "agent": "Historian and Novelty Analyst",
+  "analysis": "Unary rewriting games coincide with octal games (Dawson's Kayles, Officers, 0.007, 0.06, 0.4); Dawson's Kayles and 0.4 have period 34 (Guy-Smith window verified); Officers, 0.007, 0.06 show no period <= 300 up to n = 3000; a^14 has Grundy value 4 under aa -> b.",
   "assumptions": [
     "run decomposition (EXP-C04-07)",
     "Guy-Smith periodicity theorem for finite octal games"
@@ -10,6 +11,9 @@
     "sha256": "0034fbafcd5f37ae649989dec9ea9fba6b31cdeb937c296211bd0854cff18c92",
     "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
   },
+  "counterexamples": [
+    "aa -> b: Grundy value of a^14 is 4 (H-C04-6 refuted)"
+  ],
   "cycle": "C04",
   "falsification": "Any n <= 20 where the word game, the run game and the octal recursion disagree; a Grundy value >= 4 refutes H-C04-6.",
   "history": [
@@ -18,12 +22,52 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:04:28Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Unary rewriting games coincide with octal games (Dawson's Kayles, Officers, 0.007, 0.06, 0.4); Dawson's Kayles and 0.4 have period 34 (Guy-Smith window verified); Officers, 0.007, 0.06 show no period <= 300 up to n = 3000; a^14 has Grundy value 4 under aa -> b.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "aa -> b: Grundy value of a^14 is 4 (H-C04-6 refuted)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-13",
+        "CLM-C04-14",
+        "CLM-C04-15",
+        "CLM-C04-16"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-7: on the word a^n, the game of aa -> b (also bb, bbb, bab) is Dawson's Kayles 0.07; aa -> ab (also ba, abb, bba) is Officers 0.6; aaa -> b (bb, bbb, bab) is 0.007; aaa -> ab (ba, abb, bba) is 0.06; aaa -> aba is 0.4. H-C04-6 (bold, from EXP-C04-07): Grundy values of rewriting games in the family never exceed 3.",
   "id": "EXP-C04-08",
   "methodology": "(1) Grundy value of the single word a^n from its exact derivation graph (no decomposition), n <= 20, compared with the octal recursion and with the generic run-game recursion. (2) Octal Grundy values to n = 3000; smallest period p <= 300 with preperiod n0 holding over the whole range, and the Guy-Smith window n0 <= n < 2 n0 + p + t checked explicitly.",
   "question": "Which classical take-and-break games are the rewriting games of rules a^k -> u?",
+  "related": [
+    "CLM-C04-13",
+    "CLM-C04-14",
+    "CLM-C04-15",
+    "CLM-C04-16"
+  ],
   "results_file": "results/EXP-C04-08.json",
   "results_sha256": "cc88379390a354670e44ced0b59f682485ad901eb04cd11b6059e26005ab55c1",
   "runs": [

@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C02-03",
     "file": "experiments/C02/E03_carry_rule_survey.py",
-    "sha256": "6219f96a60dffde1a57e3f7120427eaaabf3fa1937d9b02cc48cd3a67a519735",
-    "systems_sha256": "70211b059549209d512661f5891d52883db5f0f50279e645b14f814d16da3e29"
+    "sha256": "32e8f26021ffda6b070dd7d98abf61d752c97b3ba15b2e31c4b8a84918dd14ec",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
   },
   "env": {
-    "git_head": "e808ca5fecb882025294f49220af9007c67274fb",
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T06:52:37Z",
+  "finished": "2026-10-18T08:36:48Z",
   "id": "EXP-C02-03",
   "meta": {
     "agent": "Mathematical Explorer",
@@ -5987,11 +5987,11 @@
     ],
     "summary": [
       "189 carry rules; 31 terminate from all unary n <= 200, all with sum b < m; H-C02-1 violations: 0",
-      "every non-terminating rule has a periodic-glider certificate: True",
+      "every non-terminating rule has a certificate (periodic glider or monotone pumping): True",
       "H-C02-2 (radix monotonicity) violations among terminating rules: 0"
     ]
   },
-  "results_sha256": "90286589173dec13827a7337597a8346a6aa2e1212ab8e72ce55b8b9f2688e23",
-  "runtime_s": 2.075,
-  "started": "2026-10-18T06:52:35Z"
+  "results_sha256": "0fb4267c2593ecea452016d4698fead01bd2e52fd56372da8e71a3a7b2d4f31a",
+  "runtime_s": 2.286,
+  "started": "2026-10-18T08:36:46Z"
 }

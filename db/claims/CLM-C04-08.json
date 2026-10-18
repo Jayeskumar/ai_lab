@@ -1,0 +1,27 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-08",
+  "lean": [
+    "proofs/lean/Infinity/C04_Derivations.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Elementary combinatorial game theory - a game in which every play has the same length is decided by parity.",
+  "proof": "proofs/paper/C04.md#theorem-9-clm-c04-08--parity-for-random-descent-games",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 9, induction on D); the instance ab -> ba is Lean-verified (p_positions); checked on all 102 RD rules and all words of length <= 10",
+  "statement": "If a one-rule system has random descent, the Sprague-Grundy value of its rewriting game at w is D(w) mod 2, D(w) the common length of all maximal derivations from w; the P-positions are the words with even D(w).",
+  "system": "SYS-D",
+  "title": "Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

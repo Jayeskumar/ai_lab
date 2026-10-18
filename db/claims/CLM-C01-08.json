@@ -29,10 +29,19 @@
       "old": "Proved only in the border-containment case and for 1632 individual relations; 527 small relations remain open (infinite completions).",
       "reason": "Historian novelty audit 2026-10-18 - claim split into CLM-C01-09/10/11",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Case c = 1 PROVEN from the literature (CLM-C01-09, deduction checked by the Skeptic); containment PROVEN (CLM-C01-06); exactly one common border proved modulo one injectivity lemma (CLM-C01-10); two or more common borders without containment open. Skeptic search (reviews/skeptic_C01_C02.md): 295,358 relation orbits (binary k <= 11, alphabets up to 6 letters, n up to 27) and 1,491 targeted relations with 1-4 common borders, 0 failures.",
+      "old": "Case c = 1 settled by the literature (pending the Skeptic's check of the deduction), one common border derived from Gray-Steinberg 2022 identities (CLM-C01-10, pending check); two or more common borders open (checked for three k = 8 relations up to n = 13, EXP-C01-08).",
+      "reason": "Skeptic review 2026-10-18 - 295,358 further relation orbits without counterexample; case analysis updated",
+      "ts": "2026-10-18T08:39:48Z"
     }
   ],
   "id": "CLM-C01-08",
-  "limitations": "Case c = 1 settled by the literature (pending the Skeptic's check of the deduction), one common border derived from Gray-Steinberg 2022 identities (CLM-C01-10, pending check); two or more common borders open (checked for three k = 8 relations up to n = 13, EXP-C01-08).",
+  "limitations": "Case c = 1 PROVEN from the literature (CLM-C01-09, deduction checked by the Skeptic); containment PROVEN (CLM-C01-06); exactly one common border proved modulo one injectivity lemma (CLM-C01-10); two or more common borders without containment open. Skeptic search (reviews/skeptic_C01_C02.md): 295,358 relation orbits (binary k <= 11, alphabets up to 6 letters, n up to 27) and 1,491 targeted relations with 1-4 common borders, 0 failures.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Novel only in the case 'common border without containment'. The case with no common border (c = 1) follows from R. D. Gray, B. Steinberg, Forum Math. Sigma 14 (2026) e58, Thm 8.1 (https://doi.org/10.1017/fms.2026.10209) with Anick's strong freeness, and for different first/last letters from M. Albenque, P. Nadeau, FPSAC 2009 Cor. 3 + Adjan (CLM-C01-09); the containment case is Kurth 1987 (CLM-C01-06). The homological counterpart of the common-border dichotomy is Gray-Steinberg, Selecta Math. 28 (2022) art. 59, Thm B (https://doi.org/10.1007/s00029-022-00773-3). Searched without finding the growth formula: Anick, Piontkovski, Iyudu-Shkarin, Ufnarovski, Cain-Gray-Malheiro, Nyberg-Brodda survey, Rigo, OEIS (Historian audit).",
   "statement": "For all words u != v of equal length k over a q-letter alphabet, the number of congruence classes of\nlength-n words modulo u = v has generating function c(x) / (x^k + (1 - q x) c(x)), where\nc(x) = 1 + sum over words b that are borders of both u and v of x^(k - |b|).",

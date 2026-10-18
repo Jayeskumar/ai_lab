@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Derivational complexity of the 162 terminating rules - 140 linear, 14 quadratic, 4 exponential, 4 non-rational (the aab -> ba class); simple floor-quadratic or 2^(n-1)-1 closed forms for 54 of 55 symmetry classes. Among length-preserving rules with |l| >= 2 only ab <-> ba attains floor(n^2/4), consistent with Bertrand's theorem.",
   "assumptions": [
     "the 162 rules proved terminating in EXP-C04-01",
     "exhaustive derivation graphs from all words of length <= 12 (<= 8 for four exponential rules, extended to 20 by a verified formula)"
@@ -18,12 +19,39 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T07:36:24Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Derivational complexity of the 162 terminating rules - 140 linear, 14 quadratic, 4 exponential, 4 non-rational (the aab -> ba class); simple floor-quadratic or 2^(n-1)-1 closed forms for 54 of 55 symmetry classes. Among length-preserving rules with |l| >= 2 only ab <-> ba attains floor(n^2/4), consistent with Bertrand's theorem.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C04-11",
+        "CLM-C04-12",
+        "CLM-C04-04"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
     }
   ],
   "hypothesis": "H-C04-G: every terminating rule in the family has derivational complexity D(n) = max over words of length n of the longest derivation that is linear, quadratic or exponential, and D(n) is given by a linear recurrence (rational generating function).",
   "id": "EXP-C04-03",
   "methodology": "Exact min/max derivation lengths per word from the acyclic derivation graph; D_max(n), D_min(n); minimal linear recurrence (Berlekamp-Massey, over-determined) and the moduli/multiplicities of its characteristic roots give the growth class. Rules are grouped by the symmetries reversal and letter exchange.",
   "question": "How long can derivations of a terminating one-rule system be, as a function of the length of the start word, and which growth classes occur?",
+  "related": [
+    "CLM-C04-11",
+    "CLM-C04-12",
+    "CLM-C04-04"
+  ],
   "results_file": "results/EXP-C04-03.json",
   "results_sha256": "5039ce5f4ad2cc7e0a05283e79c79b19356343fc67e35cef38726b1d22afba6d",
   "runs": [

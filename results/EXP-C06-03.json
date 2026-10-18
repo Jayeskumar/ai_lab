@@ -1,0 +1,6533 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C06-03",
+    "file": "experiments/C06/E03_law_family_spectra.py",
+    "sha256": "c1f5a8ccfe091c472ac1c2a5da41a5b150646d637fd8f4b0b89dc9044fc6d584",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:25:42Z",
+  "id": "EXP-C06-03",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "sizes N = 1..6; laws with a restricted spectrum are re-run for N = 7, 8",
+      "SAT conflict budget 2,000,000 per instance; UNKNOWN is recorded, never guessed",
+      "laws are taken up to renaming of variables (left side normalised to x(yz) or (xy)z)"
+    ],
+    "cycle": "C06",
+    "falsification": "Any law other than x(yz) = (xy)(xz) with a spectrum strictly between {1} and {1..6}.",
+    "hypothesis": "H-C06-2 (bold): every such law other than left-distributivity has anchored spectrum {1} or {1,...,6}; a restricted non-trivial spectrum is special to LD.",
+    "id": "EXP-C06-03",
+    "methodology": "Enumerate right sides (2 shapes x 6 labelings for 3 leaves, 5 shapes x 36 surjective labelings for 4 leaves), drop t equal to the left side, solve MagmaSAT(N, law, anchor) for N = 1..6, classify spectra, extend restricted ones to N = 8.",
+    "question": "Among all laws whose left side is x(yz) or (xy)z and whose right side is any term with 3 or 4 leaves using exactly the variables x, y, z, which admit a successor-anchored model (x*0 = x+1 mod N) for which N <= 6?",
+    "title": "Anchored spectra of all laws x(yz) = t and (xy)z = t with t of 3-4 leaves over {x,y,z}"
+  },
+  "results": {
+    "all_complete": true,
+    "class_counts": {
+      "all N <= 6": 77,
+      "restricted": 22,
+      "trivial only": 283
+    },
+    "n_laws": 382,
+    "restricted": [
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = y((yx)z)",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "SAT"
+        },
+        "law": "x(yz) = (xy)(xz)",
+        "sat_le6": [
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xx)y)z",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xx)z)y",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)x)z",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)y)z",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)z)x",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)z)y",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)x)y",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)y)x",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)y)y",
+        "sat_le6": [
+          1,
+          2
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zx)x)y",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zx)y)x",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zy)x)x",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x(y(zz))",
+        "sat_le6": [
+          1,
+          5
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x(z(yy))",
+        "sat_le6": [
+          1,
+          5
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "SAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x((yz)z)",
+        "sat_le6": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "SAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x((zy)y)",
+        "sat_le6": [
+          1,
+          3,
+          5
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = y((zx)y)",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = y((zy)x)",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = z((yx)z)",
+        "sat_le6": [
+          1,
+          3
+        ]
+      },
+      {
+        "N7_8": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = z((yz)x)",
+        "sat_le6": [
+          1,
+          3
+        ]
+      }
+    ],
+    "rows": [
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(zy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = y(xz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = y(zx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = z(xy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = z(yx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (xy)z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (xz)y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (yx)z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (yz)x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (zx)y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (zy)x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(x(yz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(x(zy))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(y(xz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(y(yz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(y(zx))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(y(zy))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(y(zz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(z(xy))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(z(yx))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(z(yy))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(z(yz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x(z(zy))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = y(x(xz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = y(x(yz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(x(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(x(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(x(zz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = y(y(xz))",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(y(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(z(xx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(z(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(z(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(z(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y(z(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(x(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(x(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(x(yy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(x(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(x(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(y(xx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(y(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(y(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(y(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(y(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(z(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z(z(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((xy)z)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((xz)y)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((yx)z)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((yy)z)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((yz)x)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((yz)y)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((yz)z)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((zx)y)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((zy)x)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((zy)y)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((zy)z)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = x((zz)y)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((xx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((xy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((xz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((xz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((xz)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = y((yx)z)",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((yz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((zx)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((zx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((zx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((zy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = y((zz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((xx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((xy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((xy)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((xy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((xz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((yx)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((yx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((yx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((yy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((yz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((zx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = z((zy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xx)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xx)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "SAT"
+        },
+        "law": "x(yz) = (xy)(xz)",
+        "sat": [
+          1,
+          2,
+          4
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xy)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xy)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xy)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xy)(zz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xz)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xz)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xz)(yy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xz)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (xz)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yx)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = (yx)(yz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yx)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yx)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yx)(zz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yy)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yy)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yz)(xx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yz)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yz)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yz)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (yz)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zx)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zx)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zx)(yy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zx)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zx)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zy)(xx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zy)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zy)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zy)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zy)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zz)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (zz)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(xy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(xz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(yx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(yy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(yz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(yz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(yz))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(zx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(zy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(zy))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(zy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (x(zz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(xx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(xy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(xz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(xz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(xz))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(yx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(yz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(zx))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(zx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(zx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(zy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (y(zz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(xx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(xy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(xy))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(xy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(xz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(yx))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(yx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(yx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(yy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(yz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(zx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = (z(zy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xx)y)z",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xx)z)y",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)x)z",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)y)z",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)z)x",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xy)z)y",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = ((xy)z)z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)x)y",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)y)x",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((xz)y)y",
+        "sat": [
+          1,
+          2
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = ((xz)y)z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "x(yz) = ((xz)z)y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yx)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yx)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yx)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yx)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yx)z)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yy)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yy)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yz)x)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yz)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yz)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yz)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((yz)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zx)x)y",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zx)y)x",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zx)y)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zx)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zx)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "x(yz) = ((zy)x)x",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zy)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zy)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zy)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zy)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zz)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "x(yz) = ((zz)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = x(yz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = x(zy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = y(xz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = y(zx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = z(xy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = z(yx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (yx)z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (yz)x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (zx)y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (zy)x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(x(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(x(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(y(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(y(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(y(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(y(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x(y(zz))",
+        "sat": [
+          1,
+          5
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(z(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(z(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x(z(yy))",
+        "sat": [
+          1,
+          5
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(z(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x(z(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(x(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(x(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(x(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(x(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(x(zz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(y(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(y(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(z(xx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(z(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(z(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(z(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y(z(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(x(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(x(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(x(yy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(x(yz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(x(zy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(y(xx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(y(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(y(xz))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(y(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(y(zx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(z(xy))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z(z(yx))",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((xy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((xz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((yx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((yy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((yz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((yz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "SAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x((yz)z)",
+        "sat": [
+          1,
+          3,
+          5
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((zx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((zy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "SAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = x((zy)y)",
+        "sat": [
+          1,
+          3,
+          5
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((zy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = x((zz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((xx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((xy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((xz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((xz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((xz)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((yx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((yz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((zx)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = y((zx)y)",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((zx)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = y((zy)x)",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = y((zz)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((xx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((xy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((xy)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((xy)z)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((xz)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((yx)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((yx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = z((yx)z)",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((yy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "restricted",
+        "extended": {
+          "7": "UNSAT",
+          "8": "UNSAT"
+        },
+        "law": "(xy)z = z((yz)x)",
+        "sat": [
+          1,
+          3
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((zx)y)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = z((zy)x)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xx)(yz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xx)(zy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xy)(xz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xy)(yz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xy)(zx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xy)(zy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xy)(zz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)(xy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)(yx)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)(yy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)(yz)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (xz)(zy)",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yx)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yx)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yx)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yx)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yx)(zz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yy)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yy)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yz)(xx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yz)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yz)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yz)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (yz)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zx)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zx)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zx)(yy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zx)(yz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zx)(zy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zy)(xx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zy)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zy)(xz)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zy)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zy)(zx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zz)(xy)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (zz)(yx)",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(xy))z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(xz))y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(yx))z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(yy))z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(yz))x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(yz))y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(yz))z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(zx))y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(zy))x",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(zy))y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(zy))z",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "all N <= 6",
+        "law": "(xy)z = (x(zz))y",
+        "sat": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(xx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(xy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(xz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(xz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(xz))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(yx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(yz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(zx))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(zx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(zx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(zy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (y(zz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(xx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(xy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(xy))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(xy))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(xz))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(yx))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(yx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(yx))z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(yy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(yz))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(zx))y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = (z(zy))x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xx)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xx)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xy)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xy)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xy)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xy)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xy)z)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xz)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xz)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xz)y)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xz)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((xz)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yx)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yx)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yx)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yx)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yx)z)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yy)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yy)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yz)x)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yz)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yz)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yz)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((yz)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zx)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zx)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zx)y)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zx)y)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zx)z)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zy)x)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zy)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zy)x)z",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zy)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zy)z)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zz)x)y",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      },
+      {
+        "class": "trivial only",
+        "law": "(xy)z = ((zz)y)x",
+        "sat": [
+          1
+        ],
+        "spectrum": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT"
+        }
+      }
+    ],
+    "runtime_s": 46.8,
+    "summary": [
+      "382 laws: all N <= 6: 77, trivial only: 283, restricted: 22",
+      "restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)x)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)x)y', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)y)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zy)x)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(y(zz))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(z(yy))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((yz)z)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((zy)y)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zx)y)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zy)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yx)z)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yz)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}]",
+      "UNKNOWN instances: 0"
+    ],
+    "unknown": []
+  },
+  "results_sha256": "abc56c929f0aa54ad8eed798844e2a422a152de6c815d66f4765f3937f61e395",
+  "runtime_s": 46.81,
+  "started": "2026-10-18T08:24:56Z"
+}

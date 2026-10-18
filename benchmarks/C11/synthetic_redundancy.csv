@@ -1,0 +1,265 @@
+source,entropy_bits,code,redundancy_bits
+"Zipf(s=1.1, N=1e6)",10.8974,Elias delta,1.195
+"Zipf(s=1.1, N=1e6)",10.8974,Elias gamma,3.6631
+"Zipf(s=1.1, N=1e6)",10.8974,Elias omega,2.0038
+"Zipf(s=1.1, N=1e6)",10.8974,Exp-Golomb(0),3.6631
+"Zipf(s=1.1, N=1e6)",10.8974,Exp-Golomb(2),2.5273
+"Zipf(s=1.1, N=1e6)",10.8974,Exp-Golomb(4),1.8812
+"Zipf(s=1.1, N=1e6)",10.8974,Fibonacci C1,0.769
+"Zipf(s=1.1, N=1e6)",10.8974,LEB128 varint,1.9772
+"Zipf(s=1.1, N=1e6)",10.8974,Levenshtein,2.642
+"Zipf(s=1.1, N=1e6)",10.8974,T_00111,1.0434
+"Zipf(s=1.1, N=1e6)",10.8974,T_0101,0.4928
+"Zipf(s=1.1, N=1e6)",10.8974,T_011,0.4162
+"Zipf(s=1.1, N=1e6)",10.8974,T_0111,0.3251
+"Zipf(s=1.1, N=1e6)",10.8974,T_101,0.1935
+"Zipf(s=1.1, N=1e6)",10.8974,T_1011,0.4103
+"Zipf(s=1.1, N=1e6)",10.8974,T_111,0.2533
+"Zipf(s=1.1, N=1e6)",10.8974,T_1111,0.8694
+"Zipf(s=1.1, N=1e6)",10.8974,T_11111,1.7379
+"Zipf(s=1.1, N=1e6)",10.8974,oracle pattern T_101,0.1935
+"Zipf(s=1.1, N=1e6)",10.8974,tuned Exp-Golomb(k=6),1.7189
+"Zipf(s=1.1, N=1e6)",10.8974,tuned Golomb(M=30115),5.3783
+"Zipf(s=1.1, N=1e6)",10.8974,tuned Rice(k=15),6.0492
+"Zipf(s=1.5, N=1e6)",4.6179,Elias delta,0.2621
+"Zipf(s=1.5, N=1e6)",4.6179,Elias gamma,0.2768
+"Zipf(s=1.5, N=1e6)",4.6179,Elias omega,0.3994
+"Zipf(s=1.5, N=1e6)",4.6179,Exp-Golomb(0),0.2768
+"Zipf(s=1.5, N=1e6)",4.6179,Exp-Golomb(2),0.4549
+"Zipf(s=1.5, N=1e6)",4.6179,Exp-Golomb(4),1.4273
+"Zipf(s=1.5, N=1e6)",4.6179,Fibonacci C1,0.0999
+"Zipf(s=1.5, N=1e6)",4.6179,LEB128 varint,3.9584
+"Zipf(s=1.5, N=1e6)",4.6179,Levenshtein,0.5575
+"Zipf(s=1.5, N=1e6)",4.6179,T_00111,2.344
+"Zipf(s=1.5, N=1e6)",4.6179,T_0101,1.4749
+"Zipf(s=1.5, N=1e6)",4.6179,T_011,0.5169
+"Zipf(s=1.5, N=1e6)",4.6179,T_0111,1.3771
+"Zipf(s=1.5, N=1e6)",4.6179,T_101,0.5981
+"Zipf(s=1.5, N=1e6)",4.6179,T_1011,1.4137
+"Zipf(s=1.5, N=1e6)",4.6179,T_111,0.8262
+"Zipf(s=1.5, N=1e6)",4.6179,T_1111,1.7641
+"Zipf(s=1.5, N=1e6)",4.6179,T_11111,2.7458
+"Zipf(s=1.5, N=1e6)",4.6179,oracle pattern T_11,0.0999
+"Zipf(s=1.5, N=1e6)",4.6179,tuned Exp-Golomb(k=1),0.2518
+"Zipf(s=1.5, N=1e6)",4.6179,tuned Golomb(M=471),6.0719
+"Zipf(s=1.5, N=1e6)",4.6179,tuned Rice(k=9),6.8294
+"Zipf(s=2.0, N=1e6)",2.3626,Elias delta,0.3162
+"Zipf(s=2.0, N=1e6)",2.3626,Elias gamma,0.0837
+"Zipf(s=2.0, N=1e6)",2.3626,Elias omega,0.2178
+"Zipf(s=2.0, N=1e6)",2.3626,Exp-Golomb(0),0.0837
+"Zipf(s=2.0, N=1e6)",2.3626,Exp-Golomb(2),1.0858
+"Zipf(s=2.0, N=1e6)",2.3626,Exp-Golomb(4),2.7569
+"Zipf(s=2.0, N=1e6)",2.3626,Fibonacci C1,0.6106
+"Zipf(s=2.0, N=1e6)",2.3626,LEB128 varint,5.6756
+"Zipf(s=2.0, N=1e6)",2.3626,Levenshtein,0.1721
+"Zipf(s=2.0, N=1e6)",2.3626,T_00111,3.3614
+"Zipf(s=2.0, N=1e6)",2.3626,T_0101,2.3966
+"Zipf(s=2.0, N=1e6)",2.3626,T_011,1.3802
+"Zipf(s=2.0, N=1e6)",2.3626,T_0111,2.3644
+"Zipf(s=2.0, N=1e6)",2.3626,T_101,1.4164
+"Zipf(s=2.0, N=1e6)",2.3626,T_1011,2.3723
+"Zipf(s=2.0, N=1e6)",2.3626,T_111,1.5615
+"Zipf(s=2.0, N=1e6)",2.3626,T_1111,2.5526
+"Zipf(s=2.0, N=1e6)",2.3626,T_11111,3.5506
+"Zipf(s=2.0, N=1e6)",2.3626,oracle pattern T_11,0.6106
+"Zipf(s=2.0, N=1e6)",2.3626,tuned Exp-Golomb(k=0),0.0837
+"Zipf(s=2.0, N=1e6)",2.3626,tuned Golomb(M=7),1.9969
+"Zipf(s=2.0, N=1e6)",2.3626,tuned Rice(k=2),2.4328
+"Zipf(s=3.0, N=1e6)",0.9789,Elias delta,0.5831
+"Zipf(s=3.0, N=1e6)",0.9789,Elias gamma,0.4432
+"Zipf(s=3.0, N=1e6)",0.9789,Elias omega,0.472
+"Zipf(s=3.0, N=1e6)",0.9789,Exp-Golomb(0),0.4432
+"Zipf(s=3.0, N=1e6)",0.9789,Exp-Golomb(2),2.0684
+"Zipf(s=3.0, N=1e6)",0.9789,Exp-Golomb(4),4.0246
+"Zipf(s=3.0, N=1e6)",0.9789,Fibonacci C1,1.2852
+"Zipf(s=3.0, N=1e6)",0.9789,LEB128 varint,7.0213
+"Zipf(s=3.0, N=1e6)",0.9789,Levenshtein,0.3907
+"Zipf(s=3.0, N=1e6)",0.9789,T_00111,4.2322
+"Zipf(s=3.0, N=1e6)",0.9789,T_0101,3.2359
+"Zipf(s=3.0, N=1e6)",0.9789,T_011,2.2327
+"Zipf(s=3.0, N=1e6)",0.9789,T_0111,3.2322
+"Zipf(s=3.0, N=1e6)",0.9789,T_101,2.2369
+"Zipf(s=3.0, N=1e6)",0.9789,T_1011,3.2326
+"Zipf(s=3.0, N=1e6)",0.9789,T_111,2.2818
+"Zipf(s=3.0, N=1e6)",0.9789,T_1111,3.2815
+"Zipf(s=3.0, N=1e6)",0.9789,T_11111,4.2814
+"Zipf(s=3.0, N=1e6)",0.9789,oracle pattern T_11,1.2852
+"Zipf(s=3.0, N=1e6)",0.9789,tuned Exp-Golomb(k=0),0.4432
+"Zipf(s=3.0, N=1e6)",0.9789,tuned Golomb(M=1),0.3896
+"Zipf(s=3.0, N=1e6)",0.9789,tuned Rice(k=0),0.3896
+geometric(p=0.001),11.4078,Elias delta,3.9806
+geometric(p=0.001),11.4078,Elias gamma,6.8782
+geometric(p=0.001),11.4078,Elias omega,4.9583
+geometric(p=0.001),11.4078,Exp-Golomb(0),6.8782
+geometric(p=0.001),11.4078,Exp-Golomb(2),4.9261
+geometric(p=0.001),11.4078,Exp-Golomb(4),3.0711
+geometric(p=0.001),11.4078,Fibonacci C1,2.9342
+geometric(p=0.001),11.4078,LEB128 varint,3.6306
+geometric(p=0.001),11.4078,Levenshtein,5.942
+geometric(p=0.001),11.4078,T_00111,2.4025
+geometric(p=0.001),11.4078,T_0101,2.0272
+geometric(p=0.001),11.4078,T_011,2.0205
+geometric(p=0.001),11.4078,T_0111,1.735
+geometric(p=0.001),11.4078,T_101,1.9399
+geometric(p=0.001),11.4078,T_1011,1.9167
+geometric(p=0.001),11.4078,T_111,1.9878
+geometric(p=0.001),11.4078,T_1111,2.4941
+geometric(p=0.001),11.4078,T_11111,3.3259
+geometric(p=0.001),11.4078,oracle pattern T_1000,1.735
+geometric(p=0.001),11.4078,tuned Exp-Golomb(k=9),0.277
+geometric(p=0.001),11.4078,tuned Golomb(M=693),0.0281
+geometric(p=0.001),11.4078,tuned Rice(k=9),0.0869
+geometric(p=0.01),8.0793,Elias delta,2.7006
+geometric(p=0.01),8.0793,Elias gamma,3.676
+geometric(p=0.01),8.0793,Elias omega,3.8862
+geometric(p=0.01),8.0793,Exp-Golomb(0),3.676
+geometric(p=0.01),8.0793,Exp-Golomb(2),1.9647
+geometric(p=0.01),8.0793,Exp-Golomb(4),0.7001
+geometric(p=0.01),8.0793,Fibonacci C1,1.5594
+geometric(p=0.01),8.0793,LEB128 varint,2.1307
+geometric(p=0.01),8.0793,Levenshtein,4.7666
+geometric(p=0.01),8.0793,T_00111,2.3363
+geometric(p=0.01),8.0793,T_0101,1.7781
+geometric(p=0.01),8.0793,T_011,0.9332
+geometric(p=0.01),8.0793,T_0111,1.4503
+geometric(p=0.01),8.0793,T_101,1.246
+geometric(p=0.01),8.0793,T_1011,1.6235
+geometric(p=0.01),8.0793,T_111,1.5719
+geometric(p=0.01),8.0793,T_1111,2.3352
+geometric(p=0.01),8.0793,T_11111,3.2633
+geometric(p=0.01),8.0793,oracle pattern T_100,0.9332
+geometric(p=0.01),8.0793,tuned Exp-Golomb(k=6),0.2846
+geometric(p=0.01),8.0793,tuned Golomb(M=68),0.0258
+geometric(p=0.01),8.0793,tuned Rice(k=6),0.0286
+geometric(p=0.1),4.69,Elias delta,1.4193
+geometric(p=0.1),4.69,Elias gamma,1.0153
+geometric(p=0.1),4.69,Elias omega,1.6384
+geometric(p=0.1),4.69,Exp-Golomb(0),1.0153
+geometric(p=0.1),4.69,Exp-Golomb(2),0.2954
+geometric(p=0.1),4.69,Exp-Golomb(4),0.6934
+geometric(p=0.1),4.69,Fibonacci C1,0.5928
+geometric(p=0.1),4.69,LEB128 varint,3.3101
+geometric(p=0.1),4.69,Levenshtein,2.0055
+geometric(p=0.1),4.69,T_00111,2.6628
+geometric(p=0.1),4.69,T_0101,1.8406
+geometric(p=0.1),4.69,T_011,0.7188
+geometric(p=0.1),4.69,T_0111,1.6679
+geometric(p=0.1),4.69,T_101,0.9296
+geometric(p=0.1),4.69,T_1011,1.7089
+geometric(p=0.1),4.69,T_111,1.3691
+geometric(p=0.1),4.69,T_1111,2.3319
+geometric(p=0.1),4.69,T_11111,3.3276
+geometric(p=0.1),4.69,oracle pattern T_11,0.5928
+geometric(p=0.1),4.69,tuned Exp-Golomb(k=2),0.2954
+geometric(p=0.1),4.69,tuned Golomb(M=7),0.0352
+geometric(p=0.1),4.69,tuned Rice(k=3),0.0659
+geometric(p=0.5),2.0,Elias delta,0.6485
+geometric(p=0.5),2.0,Elias gamma,0.2657
+geometric(p=0.5),2.0,Elias omega,0.3829
+geometric(p=0.5),2.0,Exp-Golomb(0),0.2657
+geometric(p=0.5),2.0,Exp-Golomb(2),1.1255
+geometric(p=0.5),2.0,Exp-Golomb(4),3.0
+geometric(p=0.5),2.0,Fibonacci C1,0.8206
+geometric(p=0.5),2.0,LEB128 varint,6.0
+geometric(p=0.5),2.0,Levenshtein,0.1915
+geometric(p=0.5),2.0,T_00111,3.6328
+geometric(p=0.5),2.0,T_0101,2.6409
+geometric(p=0.5),2.0,T_011,1.6329
+geometric(p=0.5),2.0,T_0111,2.6328
+geometric(p=0.5),2.0,T_101,1.6411
+geometric(p=0.5),2.0,T_1011,2.6329
+geometric(p=0.5),2.0,T_111,1.8164
+geometric(p=0.5),2.0,T_1111,2.8164
+geometric(p=0.5),2.0,T_11111,3.8164
+geometric(p=0.5),2.0,oracle pattern T_11,0.8206
+geometric(p=0.5),2.0,tuned Exp-Golomb(k=0),0.2657
+geometric(p=0.5),2.0,tuned Golomb(M=1),0.0
+geometric(p=0.5),2.0,tuned Rice(k=0),0.0
+"log-uniform 1/n on [1,1e+06]",13.4061,Elias delta,1.9401
+"log-uniform 1/n on [1,1e+06]",13.4061,Elias gamma,5.8426
+"log-uniform 1/n on [1,1e+06]",13.4061,Elias omega,3.0345
+"log-uniform 1/n on [1,1e+06]",13.4061,Exp-Golomb(0),5.8426
+"log-uniform 1/n on [1,1e+06]",13.4061,Exp-Golomb(2),4.3642
+"log-uniform 1/n on [1,1e+06]",13.4061,Exp-Golomb(4),3.219
+"log-uniform 1/n on [1,1e+06]",13.4061,Fibonacci C1,1.6368
+"log-uniform 1/n on [1,1e+06]",13.4061,LEB128 varint,1.8593
+"log-uniform 1/n on [1,1e+06]",13.4061,Levenshtein,3.8128
+"log-uniform 1/n on [1,1e+06]",13.4061,T_00111,0.9722
+"log-uniform 1/n on [1,1e+06]",13.4061,T_0101,0.5551
+"log-uniform 1/n on [1,1e+06]",13.4061,T_011,1.0479
+"log-uniform 1/n on [1,1e+06]",13.4061,T_0111,0.4006
+"log-uniform 1/n on [1,1e+06]",13.4061,T_101,0.5581
+"log-uniform 1/n on [1,1e+06]",13.4061,T_1011,0.4844
+"log-uniform 1/n on [1,1e+06]",13.4061,T_111,0.4656
+"log-uniform 1/n on [1,1e+06]",13.4061,T_1111,0.9089
+"log-uniform 1/n on [1,1e+06]",13.4061,T_11111,1.7148
+"log-uniform 1/n on [1,1e+06]",13.4061,oracle pattern T_1000,0.4006
+"log-uniform 1/n on [1,1e+06]",13.4061,tuned Exp-Golomb(k=9),1.9978
+"log-uniform 1/n on [1,1e+06]",13.4061,tuned Golomb(M=60200),3.9299
+"log-uniform 1/n on [1,1e+06]",13.4061,tuned Rice(k=16),4.4956
+"uniform [1, 2^16]",16.0,Elias delta,5.9962
+"uniform [1, 2^16]",16.0,Elias gamma,13.0005
+"uniform [1, 2^16]",16.0,Elias omega,5.9957
+"uniform [1, 2^16]",16.0,Exp-Golomb(0),13.0005
+"uniform [1, 2^16]",16.0,Exp-Golomb(2),11.002
+"uniform [1, 2^16]",16.0,Exp-Golomb(4),9.0068
+"uniform [1, 2^16]",16.0,Fibonacci C1,6.1481
+"uniform [1, 2^16]",16.0,LEB128 varint,5.9844
+"uniform [1, 2^16]",16.0,Levenshtein,6.9952
+"uniform [1, 2^16]",16.0,T_00111,3.5398
+"uniform [1, 2^16]",16.0,T_0101,3.3905
+"uniform [1, 2^16]",16.0,T_011,5.1519
+"uniform [1, 2^16]",16.0,T_0111,3.2978
+"uniform [1, 2^16]",16.0,T_101,4.035
+"uniform [1, 2^16]",16.0,T_1011,3.3621
+"uniform [1, 2^16]",16.0,T_111,3.5702
+"uniform [1, 2^16]",16.0,T_1111,3.6447
+"uniform [1, 2^16]",16.0,T_11111,4.3072
+"uniform [1, 2^16]",16.0,oracle pattern T_1000,3.2978
+"uniform [1, 2^16]",16.0,tuned Exp-Golomb(k=14),1.0
+"uniform [1, 2^16]",16.0,tuned Golomb(M=16384),0.5
+"uniform [1, 2^16]",16.0,tuned Rice(k=14),0.5
+"uniform [1, 2^32]",32.0,Elias delta,8.0
+"uniform [1, 2^32]",32.0,Elias gamma,29.0
+"uniform [1, 2^32]",32.0,Elias omega,9.9999
+"uniform [1, 2^32]",32.0,Exp-Golomb(0),29.0
+"uniform [1, 2^32]",32.0,Exp-Golomb(2),27.0
+"uniform [1, 2^32]",32.0,Exp-Golomb(4),25.0
+"uniform [1, 2^32]",32.0,Fibonacci C1,13.1889
+"uniform [1, 2^32]",32.0,LEB128 varint,7.4961
+"uniform [1, 2^32]",32.0,Levenshtein,10.9999
+"uniform [1, 2^32]",32.0,T_00111,4.4391
+"uniform [1, 2^32]",32.0,T_0101,4.8425
+"uniform [1, 2^32]",32.0,T_011,12.1889
+"uniform [1, 2^32]",32.0,T_0111,5.4912
+"uniform [1, 2^32]",32.0,T_101,7.6991
+"uniform [1, 2^32]",32.0,T_1011,5.1055
+"uniform [1, 2^32]",32.0,T_111,5.7337
+"uniform [1, 2^32]",32.0,T_1111,4.5521
+"uniform [1, 2^32]",32.0,T_11111,4.7138
+"uniform [1, 2^32]",32.0,oracle pattern T_10000,4.4391
+"uniform [1, 2^32]",32.0,tuned Exp-Golomb(k=30),1.0
+"uniform [1, 2^32]",32.0,tuned Golomb(M=1073741824),0.5
+"uniform [1, 2^32]",32.0,tuned Rice(k=30),0.5
+"uniform [1, 2^8]",8.0,Elias delta,3.9844
+"uniform [1, 2^8]",8.0,Elias gamma,5.0781
+"uniform [1, 2^8]",8.0,Elias omega,4.8398
+"uniform [1, 2^8]",8.0,Exp-Golomb(0),5.0781
+"uniform [1, 2^8]",8.0,Exp-Golomb(2),3.25
+"uniform [1, 2^8]",8.0,Exp-Golomb(4),1.75
+"uniform [1, 2^8]",8.0,Fibonacci C1,2.6719
+"uniform [1, 2^8]",8.0,LEB128 varint,4.0
+"uniform [1, 2^8]",8.0,Levenshtein,5.7773
+"uniform [1, 2^8]",8.0,T_00111,3.1289
+"uniform [1, 2^8]",8.0,T_0101,2.6562
+"uniform [1, 2^8]",8.0,T_011,1.9297
+"uniform [1, 2^8]",8.0,T_0111,2.3203
+"uniform [1, 2^8]",8.0,T_101,2.2305
+"uniform [1, 2^8]",8.0,T_1011,2.5195
+"uniform [1, 2^8]",8.0,T_111,2.5039
+"uniform [1, 2^8]",8.0,T_1111,3.1953
+"uniform [1, 2^8]",8.0,T_11111,4.0703
+"uniform [1, 2^8]",8.0,oracle pattern T_100,1.9297
+"uniform [1, 2^8]",8.0,tuned Exp-Golomb(k=6),1.0
+"uniform [1, 2^8]",8.0,tuned Golomb(M=64),0.5
+"uniform [1, 2^8]",8.0,tuned Rice(k=6),0.5

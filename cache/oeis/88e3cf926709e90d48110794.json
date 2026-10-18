@@ -1,0 +1,94 @@
+{
+  "fetched": "2026-10-18T08:19:39Z",
+  "query": "0,0,1,0,2,1,0,2,1,0,2,1,3,2,1,3,2,4,3,0,4,3,0,4,3,0,4,1,2,3,1,2,4,1,2,4,1,2,4,1",
+  "response": [
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "Comments from _Allan C. Wechsler_, Mar 22 2025 (Start)",
+        "Grundy's game starts with a single heap of n tokens. A legal move consists of dividing a heap into two unequal parts. Since heaps of size 1 or 2 cannot be so divided, once the position has no heaps larger than 2, there are no legal moves, and according to the usual convention in such games, the first player who cannot move loses.",
+        "Note that Grundy's game is not an \"octal game\", because that formalism is not rich enough to capture the \"unequal\" splitting rule. (End)"
+      ],
+      "created": "1991-04-30T03:00:00-04:00",
+      "data": "0,0,0,1,0,2,1,0,2,1,0,2,1,3,2,1,3,2,4,3,0,4,3,0,4,3,0,4,1,2,3,1,2,4,1,2,4,1,2,4,1,5,4,1,5,4,1,5,4,1,0,2,1,0,2,1,5,2,1,3,2,1,3,2,4,3,2,4,3,2,4,3,2,4,3,2,4,3,2,4,5,2,4,5,2,4,3,7,4,3,7,4,3,7,4,3,5,2,3,5,2,3,5,2,3",
+      "ext": [
+        "More terms from Pab Ter (pabrlos(AT)yahoo.com), May 11 2004"
+      ],
+      "formula": [
+        "\"Mike Guy has computed ten million values, but a discernible pattern remains elusive\" [Guy, 1989]. - _N. J. A. Sloane_, Jan 03 2016"
+      ],
+      "id": "M0044 N0014",
+      "keyword": "nonn,easy,look,nice",
+      "link": [
+        "David Cleaver, <a href=\"/A002188/b002188.txt\">Table of n, a(n) for n = 0..20000</a> (first 10000 terms from Eric M. Schmidt)",
+        "David Cleaver, <a href=\"/A002188/a002188.txt\">Table of n, a(n) for n = 0..200000</a>",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/grundy.html\">Sprague-Grundy Values of Grundy's Game</a>",
+        "Achim Flammenkamp, <a href=\"/A002188/a002188_1.pdf\">Sprague-Grundy Values of Grundy's Game</a> [local cached copy, pdf only, with permission]",
+        "Daniel Gray, <a href=\"https://www.proquest.com/openview/78916b201411e5985003817e50e81e3a\">Analysis of the 2-Person Combinatorial Games Split-S-Nim and Chomp on 2 Rows</a>, Ph. D. Dissertation, Florida Atlantic Univ. (2025) ProQuest 32166166.",
+        "P. M. Grundy, <a href=\"/A002188/a002188.pdf\">Mathematics and games</a>, Eureka (The Archimedeans' Journal), No. 2, 1939, pp. 6-8. [Annotated scanned copy. My former colleague and coauthor Florence Jessie MacWilliams (nee Collinson), who was a student at Cambridge University in 1939, gave me this journal. - _N. J. A. Sloane_, Nov 17 2018]",
+        "Richard K. Guy and Cedric A. B. Smith, <a href=\"https://doi.org/10.1017/S0305004100031509\">The G-values of various games</a>, Proc. Cambridge Philos. Soc. 52 (1956), 514-526. See Table 4.",
+        "Gabriel Nivasch, <a href=\"https://www.gabrielnivasch.org/fun/combinatorial-games/sprague-grundy\"> The Sprague-Grundy theory of impartial games</a>",
+        "Gabriel Nivasch, <a href=\"https://web.archive.org/web/20070504194337/yucs.org/~gnivasch/cgames/spraguegrundy/index.html\">The Sprague-Grundy theory of impartial games</a> [archived version]",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/GrundysGame.html\">Grundy's Game</a>"
+      ],
+      "mathematica": [
+        "mex[list_] :=  mex[list] = Min[Complement[Range[0, Length[list]], list]];",
+        "move[grundygame, list_] := move[grundygame, list] = Union@Flatten[Union[Table[ Sort@Join[Drop[list, {i}], {list[[i]] - j, j}], {i, Length[list]}, {j, Floor[(list[[i]] - 1)/2]}], Table[Sort@Join[Drop[list, {i}], {list[[i]] - j, j}], {i, Length[list]}, {j, Ceiling[(list[[i]] + 1)/2], list[[i]] - 1}]], 1];",
+        "SpragueGrundy[game_, list_] :=  SpragueGrundy[game, list] =",
+        "   mex[SpragueGrundy[game, #] & /@ move[game, list]];",
+        "Table[SpragueGrundy[grundygame, {i}], {i, 0, 42}] (* _Birkas Gyorgy_, Apr 19 2011 *)"
+      ],
+      "name": "Sprague-Grundy value for Grundy's game when starting with n tokens.",
+      "number": 2188,
+      "offset": "0,6",
+      "program": [
+        "(C++)",
+        "#include <algorithm>",
+        "#include <array>",
+        "#include <iostream>",
+        "int main() {",
+        "    constexpr int bound = 10000;",
+        "    std::array<int, bound+1> gnumbers;",
+        "    std::array<bool, bound/2+1> excluded;",
+        "    for (int i = 0; i <= bound; ++i) {",
+        "        auto e_begin = excluded.begin();",
+        "        auto e_end = e_begin + i/2;",
+        "        std::fill(e_begin, e_end, false);",
+        "        for (int j = 1; j < (i+1)/2; ++j) {",
+        "            int const k = i - j;",
+        "            excluded[gnumbers[j] ^ gnumbers[k]] = true;",
+        "        }",
+        "        gnumbers[i] = std::find(e_begin, e_end, false) - e_begin;",
+        "    }",
+        "    for (int i = 0; i <= bound; ++i)",
+        "        std::cout << i << ' ' << gnumbers[i] << '\\n';",
+        "} // _Eric M. Schmidt_, Jan 04 2017",
+        "(Python)",
+        "def SpragueGrundy(bound):",
+        "  gnumbers = [0 for i in range(bound+2)]",
+        "  for i in range(bound+1):",
+        "    excluded = [0 for z in range(i//2+1)]",
+        "    for j in range(1, (i+1)//2):",
+        "      k = i - j",
+        "      excluded[gnumbers[j] ^ gnumbers[k]] = 1",
+        "    gnumbers[i] = excluded.index(0)",
+        "  return gnumbers[:-1]",
+        "print(SpragueGrundy(100)) # _David Cleaver_, Mar 22 2025"
+      ],
+      "reference": [
+        "C. Berge, Graphs and Hypergraphs, North-Holland, 1973; p. 324.",
+        "R. K. Guy, Fair Game: How to play impartial combinatorial games, COMAP's Mathematical Exploration Series, 1989; see p. 96.",
+        "N. J. A. Sloane, A Handbook of Integer Sequences, Academic Press, 1973 (includes this sequence).",
+        "N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence)."
+      ],
+      "references": 20,
+      "revision": 87,
+      "time": "2025-08-19T09:42:40-04:00",
+      "xref": [
+        "See A036685 for indices of zero terms.",
+        "For RECORDS, see A180120, A180121."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=0%2C0%2C1%2C0%2C2%2C1%2C0%2C2%2C1%2C0%2C2%2C1%2C3%2C2%2C1%2C3%2C2%2C4%2C3%2C0%2C4%2C3%2C0%2C4%2C3%2C0%2C4%2C1%2C2%2C3%2C1%2C2%2C4%2C1%2C2%2C4%2C1%2C2%2C4%2C1&fmt=json"
+}

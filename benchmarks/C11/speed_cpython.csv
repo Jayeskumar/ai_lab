@@ -1,0 +1,15 @@
+code,total_bits_1e5_values,roundtrip_ok,encode_us_per_value,decode_us_per_value
+Elias delta,1588876,True,0.52,0.678
+Elias gamma,1998144,True,0.44,0.664
+Elias omega,1704283,True,0.557,0.64
+Exp-Golomb(0),1998144,True,0.446,1.318
+Exp-Golomb(2),1840400,True,0.318,0.764
+Exp-Golomb(4),1714064,True,0.317,0.662
+Fibonacci C1,1557077,True,2.087,2.107
+LEB128 varint,1557480,True,1.204,1.039
+Levenshtein,1785481,True,0.98,1.268
+Rice(6),119351339,True,2.512,56.918
+T_0111,1420480,True,2.998,3.525
+T_101,1441303,True,2.984,2.893
+T_11,1557077,True,3.174,3.073
+T_111,1430668,True,3.164,3.123

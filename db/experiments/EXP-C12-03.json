@@ -1,0 +1,59 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "n <= 2e5",
+    "densities measured at N/16, N/8, N/4, N/2, N"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C12-03",
+    "file": "experiments/C12/E03_sparse_subtraction.py",
+    "sha256": "275d35bf678b21cc3934fe8939bdc3a49c67c00fe8754cb051943aef282fb111",
+    "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+  },
+  "cycle": "C12",
+  "falsification": "A game whose P-density provably tends to 0 (e.g. by a difference-set theorem) refutes H-C12-2.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:18:40Z"
+    }
+  ],
+  "hypothesis": "H-C12-2 (bold): for every such game the P-positions have positive density.",
+  "id": "EXP-C12-03",
+  "methodology": "Exact Grundy values (bitset method); P-position density and maximal Grundy value by scale; implementation check that no two P-positions differ by an element of the move set.",
+  "question": "Do subtraction games whose move sets are sparse (squares, triangular numbers, Fibonacci numbers, primes) keep a positive proportion of losing positions?",
+  "results_file": "results/EXP-C12-03.json",
+  "results_sha256": "cf179710040f928e62121cc2c84a716ca0fff482bae805a05b28f6089679dbac",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C12-03",
+        "file": "experiments/C12/E03_sparse_subtraction.py",
+        "sha256": "275d35bf678b21cc3934fe8939bdc3a49c67c00fe8754cb051943aef282fb111",
+        "systems_sha256": "61ebf9653d24d40332c2f2c05b8b07e24234a670249a81f4e2689d5956caf177"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:18:40Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C12-03.json",
+      "results_sha256": "cf179710040f928e62121cc2c84a716ca0fff482bae805a05b28f6089679dbac",
+      "runtime_s": 103.606,
+      "started": "2026-10-18T08:16:56Z",
+      "summary": [
+        "squares: P-density {'12500': 0.053756, '25000': 0.042758, '50000': 0.034479, '100000': 0.02781, '200000': 0.02217}, max g {'12500': 36, '25000': 45, '50000': 58, '100000': 74, '200000': 95}, clash None",
+        "triangular: P-density {'12500': 0.034397, '25000': 0.026039, '50000': 0.01998, '100000': 0.01524, '200000': 0.01163}, max g {'12500': 50, '25000': 65, '50000': 84, '100000': 110, '200000': 144}, clash None",
+        "Fibonacci: P-density {'12500': 0.168547, '25000': 0.170833, '50000': 0.173877, '100000': 0.172148, '200000': 0.180444}, max g {'12500': 13, '25000': 13, '50000': 14, '100000': 14, '200000': 14}, clash None",
+        "primes: P-density {'12500': 0.134709, '25000': 0.140234, '50000': 0.145497, '100000': 0.150658, '200000': 0.154854}, max g {'12500': 11, '25000': 11, '50000': 11, '100000': 11, '200000': 11}, clash None"
+      ]
+    }
+  ],
+  "summary": [
+    "squares: P-density {'12500': 0.053756, '25000': 0.042758, '50000': 0.034479, '100000': 0.02781, '200000': 0.02217}, max g {'12500': 36, '25000': 45, '50000': 58, '100000': 74, '200000': 95}, clash None",
+    "triangular: P-density {'12500': 0.034397, '25000': 0.026039, '50000': 0.01998, '100000': 0.01524, '200000': 0.01163}, max g {'12500': 50, '25000': 65, '50000': 84, '100000': 110, '200000': 144}, clash None",
+    "Fibonacci: P-density {'12500': 0.168547, '25000': 0.170833, '50000': 0.173877, '100000': 0.172148, '200000': 0.180444}, max g {'12500': 13, '25000': 13, '50000': 14, '100000': 14, '200000': 14}, clash None",
+    "primes: P-density {'12500': 0.134709, '25000': 0.140234, '50000': 0.145497, '100000': 0.150658, '200000': 0.154854}, max g {'12500': 11, '25000': 11, '50000': 11, '100000': 11, '200000': 11}, clash None"
+  ],
+  "title": "Sparse subtraction sets: Grundy growth and the density of P-positions"
+}

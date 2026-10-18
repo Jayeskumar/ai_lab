@@ -99,6 +99,43 @@
         "not_terminating_0_11"
       ]
     },
+    "proofs/lean/Infinity/C04_Derivations.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T08:20:06Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C04.random_descent' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.steps_length_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.inv_step' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.normal_iff_inv_zero' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.derivation_length_eq_inv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.p_positions' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.unbordered_diamond' depends on axioms: [propext, Quot.sound]\n'Infinity.C04.unbordered_random_descent' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C04.length_changing_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 10.91,
+      "sha256": "bbfc11835eb8707fdebf2477f842d1d7b5733b0d3169b90b146c1fc51e9358d2",
+      "sorry": false,
+      "theorems": [
+        "Steps.append",
+        "Steps.zero_eq",
+        "exists_normal_of_bounded",
+        "random_descent",
+        "potential_steps",
+        "steps_length_unique",
+        "inv_middle",
+        "inv_step",
+        "swapStep_cons",
+        "exists_step_of_inv_ne_zero",
+        "normal_iff_inv_zero",
+        "derivation_length_eq_inv",
+        "p_positions",
+        "overlap_case",
+        "unbordered_diamond",
+        "unbordered_localRD",
+        "unbordered_random_descent",
+        "ruleStep_length",
+        "length_changing_unique"
+      ]
+    },
     "proofs/lean/Infinity/C06_Laver.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -160,5 +197,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T08:13:57Z"
+  "updated": "2026-10-18T08:20:06Z"
 }

@@ -1,0 +1,283 @@
+{
+  "fetched": "2026-10-18T08:19:08Z",
+  "query": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167",
+  "response": [
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "1 together with the primes; also called the noncomposite numbers.",
+        "Also largest sequence of nonnegative integers with the property that the product of 2 or more elements with different indices is never a square. - Ulrich Schimke (ulrschimke(AT)aol.com), Dec 12 2001 [Comment corrected by _Farideh Firoozbakht_, Aug 03 2014]",
+        "Numbers k whose largest divisor <= sqrt(k) equals 1. (See also A161344, A161345, A161424.) - _Omar E. Pol_, Jul 05 2009",
+        "Numbers k such that d(k) <= 2. - _Juri-Stepan Gerasimov_, Oct 17 2009",
+        "Also first column of array in A163280. Also first row of array in A163990. - _Omar E. Pol_, Oct 24 2009",
+        "Possible values of A136548(m) in increasing order, where A136548(m) = the largest numbers h such that A000203(h) <= k (k = 1,2,3,...), where A000203(h) = sum of divisors of h. - _Jaroslav Krizek_, Mar 01 2010",
+        "Where record values of A022404 occur: A086332(n)=A022404(a(n)). - _Reinhard Zumkeller_, Jun 21 2010",
+        "Positive integers that have no divisors other than 1 and itself (the old definition of prime numbers). - _Omar E. Pol_, Aug 10 2012",
+        "Conjecture: the sequence contains exactly those k such that sigma(k) > k*BigOmega(k). - _Irina Gerasimova_, Jun 08 2013",
+        "Note on the Gerasimova conjecture: all terms in the sequence obviously satisfy the inequality, because sigma(p) = 1+p and BigOmega(p) = 1 for primes p, so 1+p > p*1. For composites, the (opposite) inequality is heuristically correct at least up to k <= 4400000. The general proof requires to show that BigOmega(k) is an upper limit of the abundancy sigma(k)/k for composite k. This proof is easy for semiprimes k=p1*p2 in general, where sigma(k)=1+p1+p2+p1*p2 and BigOmega(k)=2 and p1, p2 <= 2. - _R. J. Mathar_, Jun 12 2013",
+        "Numbers k such that phi(k) + sigma(k) = 2k. - _Farideh Firoozbakht_, Aug 03 2014",
+        "isA008578(n) <=> k is prime to n for all k in {1,2,...,n-1}. - _Peter Luschny_, Jun 05 2017",
+        "In 1751 Leonhard Euler wrote: \"Having so established this sign S to indicate the sum of the divisors of the number in front of which it is placed, it is clear that, if p indicates a prime number, the value of Sp will be 1 + p, except for the case where p = 1, because then we have S1 = 1, and not S1 = 1 + 1. From this we see that we must exclude unity from the sequence of prime numbers, so that unity, being the start of whole numbers, it is neither prime nor composite.\" - _Omar E. Pol_, Oct 12 2021",
+        "a(1) = 1; for n >= 2, a(n) is the least unused number that is coprime to all previous terms. - _Jianing Song_, May 28 2022",
+        "A number p is preprime if p = a*b ==> a = 1 or b = 1. This sequence lists the preprimes in the commutative monoid IN \\ {0}. - _Peter Luschny_, Aug 26 2022"
+      ],
+      "created": "1996-03-15T03:00:00-05:00",
+      "data": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271",
+      "formula": [
+        "a(n) = A000040(n-1).",
+        "m is in the sequence iff sigma(m) + phi(m) = A065387(m) = 2m. - _Farideh Firoozbakht_, Jan 27 2005",
+        "a(n) = A158611(n+1) for n >= 1. - _Jaroslav Krizek_, Jun 19 2009",
+        "In the following formulas (based on emails from _Jaroslav Krizek_ and _R. J. Mathar_), the star denotes a Dirichlet convolution between two sequences, and \"This\" is A008578.",
+        "This = A030014 * A008683. (Dirichlet convolution using offset 1 with A030014)",
+        "This = A030013 * A000012. (Dirichlet convolution using offset 1 with A030013)",
+        "This = A034773 * A007427. (Dirichlet convolution)",
+        "This = A034760 * A023900. (Dirichlet convolution)",
+        "This = A034762 * A046692. (Dirichlet convolution)",
+        "This * A000012 = A030014. (Dirichlet convolution using offset 1 with A030014)",
+        "This * A008683 = A030013. (Dirichlet convolution using offset 1 with A030013)",
+        "This * A000005 = A034773. (Dirichlet convolution)",
+        "This * A000010 = A034760. (Dirichlet convolution)",
+        "This * A000203 = A034762. (Dirichlet convolution)",
+        "A002033(a(n))=1. - _Juri-Stepan Gerasimov_, Sep 27 2009",
+        "a(n) = A181363((2*n-1)*2^k), k >= 0. - _Reinhard Zumkeller_, Oct 16 2010",
+        "a(n) = A001747(n)/2. - _Omar E. Pol_, Jan 30 2012",
+        "A060448(a(n)) = 1. - _Reinhard Zumkeller_, Apr 05 2012",
+        "A086971(a(n)) = 0. - _Reinhard Zumkeller_, Dec 14 2012",
+        "Sum_{n>=1} x^a(n) = (Sum_{n>=1} (A002815(n)*x^n))*(1-x)^2. - _L. Edson Jeffery_, Nov 25 2013"
+      ],
+      "keyword": "nonn,easy,nice",
+      "link": [
+        "Charles R Greathouse IV, <a href=\"/A008578/b008578.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "M. Abramowitz and I. A. Stegun, eds., <a href=\"http://www.convertit.com/Go/ConvertIt/Reference/AMS55.ASP\">Handbook of Mathematical Functions</a>, National Bureau of Standards, Applied Math. Series 55, Tenth Printing, 1972",
+        "Chris K. Caldwell, Angela Reddick, Yeng Xiong, and Wilfrid Keller, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL15/Caldwell2/cald6.html\">The History of the Primality of One: A Selection of Sources</a>, (a dynamic survey), Journal of Integer Sequences, Vol. 15 (2012), #12.9.8.",
+        "C. K. Caldwell and Y. Xiong, <a href=\"https://arxiv.org/abs/1209.2007\">What is the smallest prime?</a>, arXiv preprint arXiv:1209.2007 [math.HO], 2012, and <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL15/Caldwell1/cald5.html\">J. Int. Seq. 15 (2012) #12.9.6</a>",
+        "Leonhard Euler, <a href=\"http://eulerarchive.maa.org/backup/E175.html\">Découverte d’une loi tout extraordinaire des nombres, par rapport à la somme de leurs diviseurs</a>, in Bibliothèque impartiale, 3, 1751, pp. 10-31. Reprinted in Opera Postuma, 1, 1862, p.76-84. Number 175 in the Eneström index.",
+        "G. P. Michon, <a href=\"http://www.numericana.com/answer/numbers.htm#one\">Is 1 a prime number?</a>",
+        "Omar E. Pol, <a href=\"http://www.polprimos.com/imagenespub/poldiv07.jpg\">Illustration of initial terms</a>",
+        "Omar E. Pol, <a href=\"http://www.polprimos.com/imagenespub/poldiv06.jpg\">Illustration of initial terms of A008578, A161344, A161345, A161424</a>",
+        "PrimeFan, <a href=\"http://primefan.tripod.com/Prime1ProCon.html\">Arguments for and against the primality of 1</a>",
+        "A. Reddick and Y. Xiong, <a href=\"http://math.furman.edu/~mwoodard/fuejum/content/2012/paper1_2012.pdf\">The search for one as a prime number: from ancient Greece to modern times</a>, Electronic Journal of Undergraduate Mathematics, Volume 16, 1 - 13, 2012. - From _N. J. A. Sloane_, Feb 03 2013",
+        "J. Todd, <a href=\"https://www.jstor.org/stable/2001950\">Review of Lehmer's tables, Mathematical Tables and Other Aids to Computation, Vol. 11, No. 60, (1957)</a> (on JSTOR.org).",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Complete_sequence\">\"Complete\" sequence</a>. [Wikipedia calls a sequence \"complete\" (sic) if every positive integer is a sum of distinct terms. This name is extremely misleading and should be avoided. - _N. J. A. Sloane_, May 20 2023]",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Dirichlet_convolution\">Dirichlet convolution</a>"
+      ],
+      "maple": [
+        "A008578 := n->if n=1 then 1 else ithprime(n-1); fi :"
+      ],
+      "mathematica": [
+        "Join[ {1}, Table[ Prime[n], {n, 1, 60} ] ]",
+        "(* Alternative: *)",
+        "NestList[ NextPrime, 1, 57] (* _Robert G. Wilson v_, Jul 21 2015 *)",
+        "(* Alternative: *)",
+        "oldPrimeQ[n_] := AllTrue[Range[n-1], CoprimeQ[#, n]&];",
+        "Select[Range[271], oldPrimeQ] (* _Jean-François Alcover_, Jun 07 2017, after _Peter Luschny_ *)"
+      ],
+      "name": "Prime numbers at the beginning of the 20th century (today 1 is no longer regarded as a prime).",
+      "number": 8578,
+      "offset": "1,2",
+      "program": [
+        "(PARI) is(n)=isprime(n)||n==1",
+        "(Magma) [1] cat [n: n in PrimesUpTo(271)];  // _Bruno Berselli_, Mar 05 2011",
+        "(Haskell)",
+        "a008578 n = a008578_list !! (n-1)",
+        "a008578_list = 1 : a000040_list",
+        "-- _Reinhard Zumkeller_, Nov 09 2011",
+        "(SageMath)",
+        "isA008578 = lambda n: all(gcd(k, n) == 1 for k in (1..n-1))",
+        "print([n for n in (1..271) if isA008578(n)]) # _Peter Luschny_, Jun 07 2017",
+        "(GAP)",
+        "A008578:=Concatenation([1],Filtered([1..10^5],IsPrime)); # _Muniru A Asiru_, Sep 07 2017"
+      ],
+      "reference": [
+        "M. Abramowitz and I. A. Stegun, eds., Handbook of Mathematical Functions, National Bureau of Standards Applied Math. Series 55, 1964 (and various reprintings), p. 870.",
+        "Albert H. Beiler, Recreations in the theory of numbers, New York, Dover, (2nd ed.) 1966. See Table 84 at pp. 214-217.",
+        "G. Chrystal, Algebra: An Elementary Textbook. Chelsea Publishing Company, 7th edition, (1964), chap. III.7, p. 38.",
+        "G. H. Hardy and E. M. Wright, An Introduction to the Theory of Numbers. 3rd ed., Oxford Univ. Press, 1954, p. 11.",
+        "H. D. Huskey, Derrick Henry Lehmer [1905-1991]. IEEE Ann. Hist. Comput. 17 (1995), no. 2, 64-68. Math. Rev. 96b:01035",
+        "D. H. Lehmer, The sieve problem for all-purpose computers. Math. Tables and Other Aids to Computation, Math. Tables and Other Aids to Computation, 7, (1953). 6-14. Math. Rev. 14:691e",
+        "D. N. Lehmer, \"List of Prime Numbers from 1 to 10,006,721\", Carnegie Institute, Washington, D.C. 1909.",
+        "R. F. Lukes, C. D. Patterson and H. C. Williams, Numerical sieving devices: their history and some applications. Nieuw Arch. Wisk. (4) 13 (1995), no. 1, 113-139. Math. Rev. 96m:11082",
+        "H. C. Williams and J. O. Shallit, Factoring integers before computers. Mathematics of Computation 1943-1993: a half-century of computational mathematics (Vancouver, BC, 1993), 481-531, Proc. Sympos. Appl. Math., 48, AMS, Providence, RI, 1994. Math. Rev. 95m:11143"
+      ],
+      "references": 625,
+      "revision": 245,
+      "time": "2026-10-03T11:43:51-04:00",
+      "xref": [
+        "The main entry for this sequence is A000040.",
+        "The complement of A002808.",
+        "Cf. A000732 (boustrophedon transform).",
+        "Cf. A000010, A000203.",
+        "Cf. A023626 (self-convolution)."
+      ]
+    },
+    {
+      "author": "_Robert G. Wilson v_",
+      "comment": [
+        "Includes 341 which is first pseudoprime to base 2 and distinguishes sequence from A008578.",
+        "First composite even term is a(14868) = 161038 = A006935(2). - _Max Alekseyev_, Feb 11 2015",
+        "If k is a term, then so is 2^k - 1. - _Max Alekseyev_, Sep 22 2016",
+        "Terms of the form 2^k - 2 correspond to k in A296104. - _Max Alekseyev_, Dec 04 2017",
+        "If 2^k - 1 is a term, then so is k. - _Thomas Ordowski_, Apr 27 2018"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,341,347,349,353,359,367",
+      "formula": [
+        "Equals {1} U A000040 U A001567 U A006935 = A001567 U A006935 U A008578. - _Ray Chandler_, Dec 07 2003; corrected by _Max Alekseyev_, Feb 11 2015"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Alois P. Heinz, <a href=\"/A015919/b015919.txt\">Table of n, a(n) for n = 1..20000</a>"
+      ],
+      "mathematica": [
+        "Prepend[ Select[ Range@370, PowerMod[2, #, #] == 2 &], {1, 2}] // Flatten (* _Robert G. Wilson v_, May 16 2018 *)"
+      ],
+      "name": "Positive integers k such that 2^k == 2 (mod k).",
+      "number": 15919,
+      "offset": "1,2",
+      "program": [
+        "(PARI) is(n)=Mod(2,n)^n==2 \\\\ _Charles R Greathouse IV_, Mar 11 2014",
+        "(Python)",
+        "def ok(n): return pow(2, n, n) == 2%n",
+        "print([k for k in range(1, 400) if ok(k)]) # _Michael S. Branicky_, Jun 03 2022"
+      ],
+      "references": 32,
+      "revision": 52,
+      "time": "2022-06-03T11:06:38-04:00",
+      "xref": [
+        "Contains A002997 as a subsequence.",
+        "The odd terms form A176997.",
+        "Cf. A000040, A001567, A008578."
+      ]
+    },
+    {
+      "author": "_Jaroslav Krizek_, Mar 22 2009",
+      "comment": [
+        "Essentially a duplicate of A008578. - _N. J. A. Sloane_, Mar 27 2009",
+        "Or, nonnegative noncomposite numbers. - _Juri-Stepan Gerasimov_, Nov 22 2009, Dec 12 2009",
+        "Numbers with all divisors in arithmetic progression. - _Charles R Greathouse IV_, Oct 19 2015"
+      ],
+      "created": "2010-06-01T03:00:00-04:00",
+      "data": "0,1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263",
+      "ext": [
+        "Edited by _R. J. Mathar_, Aug 21 2009",
+        "Further edited by _R. J. Mathar_, _Klaus Brockhaus_ and _N. J. A. Sloane_, Sep 13 2009"
+      ],
+      "formula": [
+        "a(n) = A008578(n-1), n > 1."
+      ],
+      "keyword": "nonn,easy",
+      "mathematica": [
+        "Join[{0, 1}, Table[Prime[n], {n, 400}]] (* _Vladimir Joseph Stephan Orlovsky_, Feb 04 2012 *)"
+      ],
+      "name": "0, 1 and the primes.",
+      "number": 158611,
+      "offset": "1,3",
+      "program": [
+        "(PARI) a(n)=if(n<3,n-1,prime(n-2)) \\\\ _Charles R Greathouse IV_, Aug 26 2011",
+        "(Magma) [0,1] cat [NthPrime(n): n in [1..100]]; // _Vincenzo Librandi_, Dec 08 2015",
+        "(GAP)",
+        "A158611:=Concatenation([0,1],Filtered([1..10^5],IsPrime)); # _Muniru A Asiru_, Sep 05 2017"
+      ],
+      "references": 29,
+      "revision": 38,
+      "time": "2022-09-08T08:45:43-04:00",
+      "xref": [
+        "A158611 U A002808 = A141468 U A000040 = A001477. - _Juri-Stepan Gerasimov_, Sep 27 2009",
+        "Cf. A008578."
+      ]
+    },
+    {
+      "author": "_Antti Karttunen_, Feb 14 2019",
+      "comment": [
+        "Numbers n such that A002322(n) divides n-1.",
+        "Numbers that satisfy Korselt's criterion (see Mathworld and Wikipedia-links).",
+        "Union of {1}, primes and Carmichael numbers, A002997.",
+        "Differs from A008578 for the first time at term a(104) = 561, which (being a composite) is the first Carmichael number present."
+      ],
+      "created": "2019-02-14T20:31:40-05:00",
+      "data": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347,349,353,359",
+      "keyword": "nonn,easy",
+      "link": [
+        "David A. Corneth, <a href=\"/A324050/b324050.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/KorseltsCriterion.html\">Korselt's Criterion</a>",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Carmichael_number#Korselt&#39;s_criterion\">Carmichael numbers, Korselt's criterion</a>"
+      ],
+      "mathematica": [
+        "okQ[n_] := SquareFreeQ[n] && AllTrue[FactorInteger[n][[All, 1]], Divisible[n-1, #-1]&];",
+        "{1} ~Join~ Select[Range[2, 1000], okQ] (* _Jean-François Alcover_, Oct 22 2019 *)"
+      ],
+      "name": "Numbers satisfying Korselt's criterion: squarefree numbers n such that for every prime divisor p of n, p-1 divides n-1.",
+      "number": 324050,
+      "offset": "1,2",
+      "program": [
+        "(PARI) isA324050(n) = if(1==n,1, my(f=factor(n)); for(i=1, #f[, 1], if(f[i, 2]>1||(n-1)%(f[i, 1]-1), return(0))); (1)); \\\\ After program Korselt in A002997",
+        "for(n=1,561,if(isA324050(n), print1(n,\", \")));",
+        "(PARI)",
+        "A002322(n) = lcm(znstar(n)[2]); \\\\ From A002322",
+        "isA324050(n) = (0==((n-1)%A002322(n)));"
+      ],
+      "references": 9,
+      "revision": 35,
+      "time": "2025-02-16T08:33:57-05:00",
+      "xref": [
+        "Union of A008578 and A002997. Intersection of A005117 and A087441. Subsequence of A015919.",
+        "Cf. A002322."
+      ]
+    },
+    {
+      "author": "_Reinhard Zumkeller_, Sep 21 2001",
+      "comment": [
+        "a(n+1) = A000040(n) for 1 < n < 66, but A000040(65) = 313 <> 319 = 11*29 = a(66).",
+        "In the plot, the lowest line corresponds to the cases when a(n)=prime(n-1). - _T. D. Noe_, Dec 12 2004",
+        "a(n) = A080688(n,A001055(n)). - _Reinhard Zumkeller_, Oct 01 2012"
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,319,317",
+      "formula": [
+        "A064553(a(n)) = n and A064553(a(k)) <> k for k > a(n)."
+      ],
+      "keyword": "nonn,look",
+      "link": [
+        "T. D. Noe, <a href=\"/A064555/b064555.txt\">Table of n, a(n) for n = 1..8000</a>"
+      ],
+      "mathematica": [
+        "(* b = A064553 *) nmax = 67; b[1] = 1; b[p_?PrimeQ] := b[p] = PrimePi[p] + 1; b[n_] := b[n] = b[p = FactorInteger[n][[1, 1]]]*b[n/p]; bb = Table[{k, b[k]}, {k, 1, 4*Prime[nmax]}]; A064555 = Max[#[[All, 1]]]& /@ Split[ Sort[bb, #1[[2]] < #2[[2]] &], #1[[2]] == #2[[2]]&]; a[n_] := A064555[[n]]; Table[a[n], {n, 1, nmax}] (* _Jean-François Alcover_, Sep 04 2012 *)"
+      ],
+      "name": "a(n) = max { k | A064553(k) = n }.",
+      "number": 64555,
+      "offset": "1,2",
+      "program": [
+        "(Haskell)",
+        "a064555 = last . a080688_row  -- _Reinhard Zumkeller_, Oct 01 2012"
+      ],
+      "references": 7,
+      "revision": 28,
+      "time": "2014-05-01T01:49:17-04:00",
+      "xref": [
+        "Cf. A064554, A001055, A064553, A000040."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_, Mar 12 2022",
+      "comment": [
+        "If conjecture (2) in A352187 is true, this is a duplicate of A008578 (1 together with primes). - _R. J. Mathar_, Mar 20 2022"
+      ],
+      "created": "2022-03-12T19:11:09-05:00",
+      "data": "1,2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101,103,107,109,113,127,131,137,139,149,151,157,163,167,173,179,181,191,193,197,199,211,223,227,229,233,239,241,251,257,263,269,271,277,281,283,293,307,311,313,317,331,337,347",
+      "keyword": "nonn",
+      "link": [
+        "N. J. A. Sloane, <a href=\"/A352190/b352190.txt\">Table of n, a(n) for n = 1..662</a>"
+      ],
+      "name": "Indices of records in A352188.",
+      "number": 352190,
+      "offset": "1,2",
+      "references": 4,
+      "revision": 13,
+      "time": "2022-03-20T13:20:57-04:00",
+      "xref": [
+        "Cf. A008578, A352187-A352189."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C2%2C3%2C5%2C7%2C11%2C13%2C17%2C19%2C23%2C29%2C31%2C37%2C41%2C43%2C47%2C53%2C59%2C61%2C67%2C71%2C73%2C79%2C83%2C89%2C97%2C101%2C103%2C107%2C109%2C113%2C127%2C131%2C137%2C139%2C149%2C151%2C157%2C163%2C167&fmt=json"
+}

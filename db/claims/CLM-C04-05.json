@@ -1,0 +1,27 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-05",
+  "lean": [
+    "proofs/lean/Infinity/C04_Derivations.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Local characterisation of random descent - V. van Oostrom, \"Random descent\", RTA 2007, LNCS 4533, 314-328 (Isabelle formalisation in arXiv:1802.08437); one-step diamond lemma for non-overlapping redexes is classical (Newman 1942). The Lean development here is an independent formalisation.",
+  "proof": "proofs/paper/C04.md#theorem-4-clm-c04-05--unbordered-left-hand-sides-give-random-descent",
+  "proof_check": "Lean 4 + Mathlib (random_descent, unbordered_diamond, unbordered_random_descent; standard axioms only)",
+  "statement": "(a) Abstractly: if every local peak b <- a -> c is joinable by two derivations of equal length, then whenever\na reaches a normal form b in n steps, every derivation from a has at most n steps and every derivation from a\nto a normal form has exactly n steps and ends in b. (b) For any rule l -> r over any alphabet with l\nunbordered, two distinct one-step reducts of a word have a common one-step reduct; hence (a) applies.",
+  "system": "SYS-A",
+  "title": "One-rule systems with an unbordered left-hand side have random descent (Lean-verified)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

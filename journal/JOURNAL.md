@@ -404,3 +404,141 @@ Zeckendorf block totals are OEIS A215005; classical constants are folklore; skew
 
 *Evidence:* EXP-C10-04
 
+
+## C02
+
+### [2026-10-18T08:20:07Z] Research Director — proof (`C02-14`)
+
+Proved the critical-rule conjecture (CLM-C02-04) - the sweep window map is A x - phi(x) b with A having eigenvalues 1/mu for the roots of sum b_j mu^j = m; for gcd-1 support all non-unit eigenvalues lie inside the unit disk, so after O(log n) levels the window is a large multiple of T plus a bounded error and dominates T. Completes the termination classification of carry rules (CLM-C02-11).
+
+*Evidence:* CLM-C02-04, CLM-C02-11, proofs/paper/C02.md
+
+### [2026-10-18T08:20:07Z] Formal Verifier — result (`C02-15`)
+
+EXP-C02-07 tested the sharper prediction (non-termination from EVERY large start) on 98 critical rules - no spectral exception and every start beyond <= 124 certified.
+
+*Evidence:* EXP-C02-07
+
+
+## C04
+
+### [2026-10-18T08:20:07Z] Mathematical Inventor — hypothesis (`C04-01`)
+
+Opened C04 with the question of how long derivations of a single rule can be, when their order is irrelevant, and which games rules define. Proposed the bold H-C04-0 after noticing that every non-terminating rule with |l|, |r| <= 3 contains l in r.
+
+*Evidence:* EXP-C04-01, CLM-C04-01
+
+### [2026-10-18T08:20:07Z] Formal Verifier — result (`C04-02`)
+
+All 196 rules decided by checkable certificates; two length-increasing rules (aa -> aba, bb -> bab) needed a new certificate type - a factor whose occurrence count drops by exactly one in every context.
+
+*Evidence:* EXP-C04-01
+
+### [2026-10-18T08:20:07Z] Mathematical Skeptic — rejection (`C04-03`)
+
+H-C04-0 refuted by the extended census - ab -> bbaa loops via aab -> abbaa -> bb.aab.aa although ab is not a factor of bbaa; 18 such rules with |r| <= 5.
+
+*Evidence:* EXP-C04-02, CLM-C04-02
+
+### [2026-10-18T08:20:07Z] Formal Verifier — result (`C04-04`)
+
+Added linear interpretations with larger coefficients and LP-found integer factor weights (re-verified exactly); 860 of 868 rules decided. aab -> ababa and aab -> babaa (two symmetry classes) stay open.
+
+*Evidence:* EXP-C04-02, CLM-C04-03
+
+### [2026-10-18T08:20:07Z] Mathematical Explorer — surprise (`C04-05`)
+
+The complexity of aab -> ba admitted no linear recurrence. Pattern guesses (zeros at k^2 + 3, or Fibonacci - 1) both predicted the next stall wrongly; deriving the binary-counter-with-sink model gave stalls at 2^k + k + 1, confirmed by simulation to n = 21.
+
+*Evidence:* EXP-C04-03, EXP-C04-04, CLM-C04-09
+
+### [2026-10-18T08:20:07Z] Historian and Novelty Analyst — surprise (`C04-06`)
+
+The OEIS returned A247983 (least k such that the tail of sum 1/(h 2^h) for log 2 is below 2^-n) for our complexity sequence. Proved the identity A(n) = n - max{j : 2^j + j <= n+1} = D(n+2) with Jensen's inequality and checked it to n = 1500.
+
+*Evidence:* EXP-C04-09, EXP-C04-10, CLM-C04-10
+
+### [2026-10-18T08:20:07Z] Mathematical Inventor — hypothesis (`C04-07`)
+
+Proposed the bold H-C04-1 - random descent iff unbordered left-hand side.
+
+*Evidence:* CLM-C04-07
+
+### [2026-10-18T08:20:07Z] Mathematical Skeptic — rejection (`C04-08`)
+
+H-C04-1 refuted by aa -> a and 17 other bordered rules with random descent. The critical-peak criterion (H-C04-2) matched observed random descent in all 162 cases.
+
+*Evidence:* EXP-C04-05, CLM-C04-07
+
+### [2026-10-18T08:20:07Z] Mathematical Explorer — pattern (`C04-09`)
+
+No terminating rule was confluent without random descent. Found the reason - every one-rule system has a potential changing by a fixed nonzero amount per step (length, or a power-sum moment of one letter's positions), so derivation lengths are fixed by their endpoints.
+
+*Evidence:* EXP-C04-06, CLM-C04-06
+
+### [2026-10-18T08:20:07Z] Formal Verifier — revision (`C04-10`)
+
+Terminology corrected - the first random-descent test only compared minimal and maximal lengths (length uniformity). Random descent also requires a unique normal form; 126 length-preserving rules with |l| = 4, 5 are length-uniform but not confluent. E05/E06 were re-run with the correct definitions; conclusions for |l| <= 3 were unaffected.
+
+*Evidence:* EXP-C04-05, EXP-C04-06
+
+### [2026-10-18T08:20:07Z] Formal Verifier — proof (`C04-11`)
+
+Lean 4 + Mathlib - random_descent (van Oostrom's local criterion), steps_length_unique, unbordered_diamond and unbordered_random_descent for arbitrary one-rule systems, length_changing_unique, and the ab -> ba theorems (inv_step, derivation_length_eq_inv, p_positions). 19 theorems, standard axioms only.
+
+*Evidence:* proofs/lean/Infinity/C04_Derivations.lean, CLM-C04-05, CLM-C04-04
+
+### [2026-10-18T08:20:07Z] Mathematical Explorer — result (`C04-12`)
+
+Rewriting games - parity for every RD rule; for unary left sides the game is a sum of run games. aa -> b is Dawson's Kayles (period 34 from 53), aa -> ab is Officers, aaa -> b is Treblecross 0.007, aaa -> ab is 0.06.
+
+*Evidence:* EXP-C04-07, EXP-C04-08, CLM-C04-13, CLM-C04-15
+
+### [2026-10-18T08:20:07Z] Mathematical Skeptic — rejection (`C04-13`)
+
+H-C04-6 (Grundy values <= 3, true on all words of length <= 10) refuted - a^14 has value 4 under aa -> b. Small-window evidence was misleading.
+
+*Evidence:* EXP-C04-08, CLM-C04-14
+
+### [2026-10-18T08:20:07Z] Historian and Novelty Analyst — novelty (`C04-14`)
+
+Random descent and its local criterion are van Oostrom's (RTA 2007); n^2/4 for length-preserving one-rule systems is Metivier's conjecture proved by Bertrand (1994); octal games as pins in a row are classical; Officers, 0.007 and 0.06 have open periodicity. Potentially novel - the aab -> ba complexity formula and its identity with A247983; the 0.06 Grundy sequence is absent from the OEIS.
+
+*Evidence:* CLM-C04-05, CLM-C04-09, CLM-C04-10, CLM-C04-16
+
+### [2026-10-18T08:20:07Z] Formal Verifier — infrastructure (`C04-15`)
+
+Lessons - a pkill pattern again matched the issuing shell (it contained the rerun command); kill and rerun must be separate commands. A quadratic big-integer loop in a closed-form check was bounded by an early break.
+
+*Evidence:* EXP-C04-04
+
+
+## C01
+
+### [2026-10-18T08:39:48Z] Mathematical Skeptic — review (`C01-18`)
+
+Independent review of C01 (reviews/skeptic_C01_C02.md) - no claim refuted; written proofs of CLM-C01-03/04/06 upheld; all 1632 completion certificates of CLM-C01-07 re-verified with separate code (incl. soundness and an exact Goulden-Jackson identity); the common-border conjecture survives 295,358 further relation orbits and 1,491 targeted relations with 1-4 common borders; the Historian's c = 1 deduction upheld step by step; the one-common-border deduction has a single gap (an injectivity lemma), numerically confirmed.
+
+*Evidence:* CLM-C01-07, CLM-C01-08, CLM-C01-09, CLM-C01-10, reviews/skeptic_C01_C02.md
+
+### [2026-10-18T08:39:48Z] Formal Verifier — decision (`C01-19`)
+
+Integrated the review - CLM-C01-09 (no common border) upgraded to PROVEN as a corollary of Gray-Steinberg (proofs/paper/C01.md Theorem 8), which settles all 527 relations the completion method left open; EXP-C01-07 now stores every certificate and checks soundness directly (1632/1632 rules derivable from u = v); the Lean lemma label corrected (CLM-C01-06) and its coverage restated as list identities only.
+
+*Evidence:* CLM-C01-09, EXP-C01-07, proofs/paper/C01.md, proofs/lean/Infinity/C01_Quantity.lean
+
+
+## C02
+
+### [2026-10-18T08:39:48Z] Mathematical Skeptic — review (`C02-16`)
+
+Independent review of all C02 claims (reviews/skeptic_C01_C02.md) - nothing refuted; CLM-C02-07 restricted (converse false for 2[k] -> 4[k+1], existence false for 2[k] -> 3[k+1] when sum b > m); a gap in the radix-order proof (CLM-C02-08) closed; a second, Perron-Frobenius proof of the critical-rule theorem supplied (Appendix A) and simulated on 668,793 aperiodic critical rules.
+
+*Evidence:* CLM-C02-07, CLM-C02-08, CLM-C02-04, CLM-C02-11, reviews/skeptic_C01_C02.md
+
+### [2026-10-18T08:39:48Z] Formal Verifier — decision (`C02-17`)
+
+Checked the Skeptic's Appendix A line by line (monotone minorant F(x) >= Ax - b, primitivity from cycle lengths with gcd 1, domination of T after N steps) - correct; added as Theorem 10 of proofs/paper/C02.md. Regenerated EXP-C02-03 with the committed script (rows identical, only the stale summary text changed; provenance issue C4 of the review).
+
+*Evidence:* proofs/paper/C02.md, EXP-C02-03, CLM-C02-05
+

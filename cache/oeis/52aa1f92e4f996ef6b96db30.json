@@ -1,0 +1,48 @@
+{
+  "fetched": "2026-10-18T08:19:13Z",
+  "query": "1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,0",
+  "response": [
+    {
+      "author": "_Achim Flammenkamp_",
+      "comment": [
+        "This game is also called Fibonacci nim, but there is also a different game with the same name. Its winning positions (the indexes of zeros in this sequence) are A001581 and its (much sparser) odd winning positions are A120904. - _David Eppstein_, Jun 14 2018",
+        "Concerning the January 1997 dissertation of Achim Flammenkamp, his home page (currently http://wwwhomes.uni-bielefeld.de/cgi-bin/cgiwrap/achim/index.cgi) has the link shown below, and a comment that a book was published in July 1997 by Hans-Jacobs-Verlag, Lage, Germany with the title Lange Perioden in Subtraktions-Spielen (ISBN 3-932136-10-1). This is an enlarged study (more than 200 pages) of his dissertation. - _N. J. A. Sloane_, Jul 25 2019"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2,3,4,5,0,1,2,3,0,1,2",
+      "keyword": "nonn",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A014588/b014588.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "Achim Flammenkamp, <a href=\"http://wwwhomes.uni-bielefeld.de/~achim/diss.ps.gz\">Lange Perioden in Subtraktions-Spielen</a>, Dissertation, Dept. Math., University of Bielefeld, Germany.",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem\">Sprague-Grundy theorem</a>"
+      ],
+      "name": "Nim function for Take-a-Fibonacci-Game (a subtraction game).",
+      "number": 14588,
+      "offset": "0,3",
+      "program": [
+        "(SageMath)",
+        "def A014588(max) :",
+        "    res = []",
+        "    for i in range(max+1) :",
+        "        moves = list({res[i-f] for f in fibonacci_xrange(1,i+1)})",
+        "        moves.sort()",
+        "        k = len(moves)",
+        "        mex = next((j for j in range(k) if moves[j] != j), k)",
+        "        res.append(mex)",
+        "    return res",
+        "# _Eric M. Schmidt_, Jul 20 2013, corrected _Eric M. Schmidt_, Apr 24 2019"
+      ],
+      "reference": [
+        "R. K. Guy, Unsolved Problems in Number Theory, E26.",
+        "David L. Silverman, Your Move, McGraw Hill, 1971, page 211. Reprinted by Dover Books, 1991 (mentions this game)."
+      ],
+      "references": 4,
+      "revision": 34,
+      "time": "2025-09-22T16:00:23-04:00",
+      "xref": [
+        "Cf. A001581, A014586-A014589, A019307, A120904."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C2%2C3%2C0%2C1%2C2%2C3%2C4%2C5%2C0%2C1%2C2%2C3%2C0%2C1%2C2%2C3%2C4%2C5%2C0%2C1%2C2%2C3%2C0%2C1%2C2%2C3%2C4%2C5%2C0%2C1%2C2%2C3%2C4%2C5%2C0%2C1%2C2%2C3%2C0&fmt=json"
+}

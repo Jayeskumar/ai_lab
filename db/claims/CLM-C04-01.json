@@ -1,0 +1,24 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-01",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz \"Open. Closed. Open.\", RTA 2005) and this observation is likely folklore.",
+  "proof": "proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3",
+  "proof_check": "computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently",
+  "statement": "Among the 196 rules l -> r over {a,b} with 1 <= |l| <= 3, 0 <= |r| <= 3, l != r, exactly the 34 rules in\nwhich l is a factor of r are non-terminating; the other 162 terminate.",
+  "system": "SYS-A",
+  "title": "Termination census of one-rule systems with |l|, |r| <= 3: non-terminating iff l is a factor of r",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

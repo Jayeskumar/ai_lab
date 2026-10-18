@@ -1,0 +1,26 @@
+{
+ "lab_one_common": {
+  "relations": 12,
+  "degrees_tested": 160,
+  "degrees_with_columns": 160,
+  "non_injective": []
+ },
+ "two_common_k8_k9": {
+  "relations": 10,
+  "degrees_tested": 103,
+  "degrees_with_columns": 103,
+  "non_injective": []
+ },
+ "random_binary": {
+  "relations": 150,
+  "degrees_tested": 1611,
+  "degrees_with_columns": 1611,
+  "non_injective": []
+ },
+ "random_ternary": {
+  "relations": 100,
+  "degrees_tested": 717,
+  "degrees_with_columns": 717,
+  "non_injective": []
+ }
+}

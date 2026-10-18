@@ -83,8 +83,9 @@ The first row is $F_{n+3} - 1$ (partial sums of Fibonacci numbers), the second
 the partial sums of tribonacci numbers. The explanation is the self-overlap
 structure of the words involved.
 
-**Theorem 2.5** (border containment) *[PROVEN — written proof; key lemma in
-Lean (`common_border_joinable`); REDISCOVERY: Kurth 1987]*. Let $u \neq v$ have length $k$ and suppose
+**Theorem 2.5** (border containment) *[PROVEN — written, Skeptic-reviewed;
+the list identities of the critical-pair join are checked in Lean
+(`common_border_joinable`); REDISCOVERY: Kurth 1987]*. Let $u \neq v$ have length $k$ and suppose
 every border of $u$ is a border of $v$. Then the rewriting system
 $\{u \to v\}$ terminates and is confluent; the classes of length-$n$ words
 correspond to the words avoiding $u$; and
@@ -123,7 +124,9 @@ critical pairs join, $u$ and $v$ have equal normal forms); its irreducible
 words are counted by an automaton with $s$ states, so the count sequence obeys
 a recurrence of order $\le s$; the conjectured series obeys one of order $k$;
 equality of the first $s + k + 5$ terms therefore implies equality forever
-(EXP-C01-07). The remaining 527 relations have infinite completions, e.g.
+(EXP-C01-07). Every certificate is stored with the experiment, every completed
+rule is re-derived from $u = v$ by search, and the Skeptic re-verified all 1632
+certificates with independently written code. The remaining 527 relations have infinite completions, e.g.
 $aba \leftrightarrow bab$ completes to $bab \to aba$ together with
 $b a^j b a \to a b a a b^{j-1}$ for all $j \ge 2$.
 
@@ -137,17 +140,30 @@ mapped by a different route — homological algebra of one-relator monoids:
   confluent exactly when every border of $u$ is a border of $v$ (we confirmed
   this on 28,850 pairs, EXP-C01-08).
 * When $u$ and $v$ share **no** border, Conjecture 2.6 follows from a 2026
-  theorem of Gray and Steinberg (such monoids have Hochschild cohomological
-  dimension $\le 2$) together with Anick's theory of strongly free relations:
-  the series is $1/(1 - qx + x^k)$. Every one of the 527 relations that our
-  completion method could not settle lies in this case.
+  theorem of Gray and Steinberg together with Anick's theory of strongly free
+  relations:
+
+  **Theorem 2.8** *[PROVEN — corollary of published theorems, every step
+  checked by the Skeptic; REDISCOVERY]*. If $u \ne v$ of length $k$ have no
+  common border, the class-count series is $1/(1 - qx + x^k)$.
+
+  *Proof idea.* No common border means the monoid is "incompressible", so it
+  has Hochschild cohomological dimension at most 2 (Gray–Steinberg 2026,
+  Thm 8.1); the trivial module of $K\langle\Sigma\rangle/(u - v)$ then has
+  the resolution $0 \to A(-k) \to A(-1)^q \to A \to K \to 0$, whose Euler
+  characteristic is the formula. ∎ Every one of the 527 relations that our
+  completion method could not settle lies in this case, so all 2159 relations
+  of EXP-C01-06 are now proved.
 * With exactly **one** common border, growth identities read off from
-  Gray–Steinberg (2022) imply the conjectured formula (a derivation still
-  under independent review).
+  Gray–Steinberg (2022) imply the conjectured formula *provided* a certain
+  multiplication map on a left ideal is injective. The Skeptic found that
+  this lemma was asserted but not proved; it holds in all 2591 cases tested,
+  so the case is "proved modulo one lemma".
 
 What remains open is the case of two or more common borders without
-containment; the formula holds in every such case we tested (e.g. three
-relations of length 8, up to $n = 13$). The episode is recorded as a lesson:
+containment. The formula holds in every case tested: the Skeptic's search
+covered 295,358 relation orbits and 1,491 targeted relations with one to four
+common borders, up to $n = 27$, without a single failure. The episode is recorded as a lesson:
 two quick web searches were not enough to establish novelty.
 
 ## Experiments
@@ -182,7 +198,8 @@ symbol instead of 1. These are observations, not benchmarked algorithms.
 
 ## Open questions
 
-1. Prove the remaining case of Conjecture 2.6 (two or more common borders),
-   perhaps by induction over Adjan–Oganesyan compression.
+1. Prove the injectivity lemma that completes the one-common-border case,
+   then the case of two or more common borders, perhaps by induction over
+   Adjan–Oganesyan compression.
 2. Is there a common-border formula for two or more relations?
 3. Formalise Theorem 2.5 completely in Lean.

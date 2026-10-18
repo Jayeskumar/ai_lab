@@ -1,0 +1,120 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C11-08",
+    "file": "experiments/C11/E08_gain_oscillation.py",
+    "sha256": "133bc11ba9a0aa91213d3fd04bde6355b8823a8044a15fb8c9cdeee4d83d6043",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "env": {
+    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:30:03Z",
+  "id": "EXP-C11-08",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "levels L up to 500 (exact integers)",
+      "k = 2..6"
+    ],
+    "cycle": "C11",
+    "falsification": "Values at large L not approaching the two constants.",
+    "hypothesis": "H-C11-6: let lambda = k-bonacci constant, O = T_(1^k), U = T_u (u unbordered, |u| = k+1). At the ends of O's length levels, the running average gain tends to (2-lambda)/(lambda-1)^2 (its liminf); at the ends of the saved initial segments of the levels it tends to lambda(2-lambda)/(lambda-1) (its limsup). For k = 2 both equal 1.",
+    "id": "EXP-C11-08",
+    "methodology": "Exact running sums of the length difference evaluated at N = cum_O(L) and at N = cum_U(L-1) for large L; compare with both constants.",
+    "question": "EXP-C11-07 showed the average gain over [1, N] does not converge for k >= 3. Are its extreme values the ones predicted by the level structure?",
+    "title": "Running average gain of unbordered terminators: liminf (2-l)/(l-1)^2, limsup l(2-l)/(l-1)"
+  },
+  "results": {
+    "rows": {
+      "011": {
+        "at_level_ends_L=100,200,400": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "at_saved_segment_ends_L=100,200,400": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "pred_liminf": 1.0,
+        "pred_limsup": 1.0
+      },
+      "0111": {
+        "at_level_ends_L=100,200,400": [
+          0.228155,
+          0.228155,
+          0.228155
+        ],
+        "at_saved_segment_ends_L=100,200,400": [
+          0.352201,
+          0.352201,
+          0.352201
+        ],
+        "pred_liminf": 0.228155,
+        "pred_limsup": 0.352201
+      },
+      "01111": {
+        "at_level_ends_L=100,200,400": [
+          0.084194,
+          0.084194,
+          0.084194
+        ],
+        "at_saved_segment_ends_L=100,200,400": [
+          0.150533,
+          0.150533,
+          0.150533
+        ],
+        "pred_liminf": 0.084194,
+        "pred_limsup": 0.150533
+      },
+      "011111": {
+        "at_level_ends_L=100,200,400": [
+          0.036495,
+          0.036495,
+          0.036495
+        ],
+        "at_saved_segment_ends_L=100,200,400": [
+          0.069304,
+          0.069304,
+          0.069304
+        ],
+        "pred_liminf": 0.036495,
+        "pred_limsup": 0.069304
+      },
+      "0111111": {
+        "at_level_ends_L=100,200,400": [
+          0.01697,
+          0.01697,
+          0.01697
+        ],
+        "at_saved_segment_ends_L=100,200,400": [
+          0.033108,
+          0.033108,
+          0.033108
+        ],
+        "pred_liminf": 0.01697,
+        "pred_limsup": 0.033108
+      }
+    },
+    "summary": [
+      "011: liminf pred 1.0 vs [1.0, 1.0, 1.0]; limsup pred 1.0 vs [1.0, 1.0, 1.0]",
+      "0111: liminf pred 0.228155 vs [0.228155, 0.228155, 0.228155]; limsup pred 0.352201 vs [0.352201, 0.352201, 0.352201]",
+      "01111: liminf pred 0.084194 vs [0.084194, 0.084194, 0.084194]; limsup pred 0.150533 vs [0.150533, 0.150533, 0.150533]",
+      "011111: liminf pred 0.036495 vs [0.036495, 0.036495, 0.036495]; limsup pred 0.069304 vs [0.069304, 0.069304, 0.069304]",
+      "0111111: liminf pred 0.01697 vs [0.01697, 0.01697, 0.01697]; limsup pred 0.033108 vs [0.033108, 0.033108, 0.033108]"
+    ]
+  },
+  "results_sha256": "627c7f71c24cf0bc80c33f76e8bdae38de1b74c8cf25998e471c22ee6f12fc8a",
+  "runtime_s": 0.169,
+  "started": "2026-10-18T08:30:03Z"
+}

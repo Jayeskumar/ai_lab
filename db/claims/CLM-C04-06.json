@@ -1,0 +1,29 @@
+{
+  "cycle": "C04",
+  "evidence": [
+    "EXP-C04-05",
+    "EXP-C04-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C04",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:20:07Z"
+    }
+  ],
+  "id": "CLM-C04-06",
+  "lean": [
+    "proofs/lean/Infinity/C04_Derivations.lean"
+  ],
+  "notes": "Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.",
+  "proof": "proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential",
+  "proof_check": "written proof (proofs/paper/C04.md Theorem 2); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps; awaiting independent skeptic review",
+  "statement": "For every rule l -> r (l != r) over a finite alphabet there are Phi : words -> Z and delta != 0 with\nPhi(v) = Phi(u) + delta for every step u -> v (Phi = length if |l| != |r|; otherwise\nPhi(w) = sum of i^K over positions i carrying a suitable letter c, K the least exponent at which the power\nsums of the c-positions of l and r differ). Consequently all derivations between two given words have the same\nnumber of steps, and a terminating one-rule system is confluent iff it has random descent.",
+  "system": "SYS-A",
+  "title": "Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -27,7 +27,7 @@ META = {
                     "the DRAT_TRIM environment variable or the scratchpad build path",
                     "the CNF includes two sound additions: 'rows are permutations' for laws x = y*(...) (Lean: "
                     "left_mul_bijective_of_law) and the relabelling symmetry break 0*0 in {0,1}",
-                    "Glucose 4 (pysat) with proof logging; per-instance time limited by the run budget"],
+                    "Glucose 4 (pysat) with proof logging, conflict budget 3e6 per instance (exceeded = no certificate)"],
     "methodology": "Rebuild the exact CNF of EXP-C05-03 for each (law, n) reported UNSAT beyond the notes, solve "
                    "with Glucose4(with_proof=True), write DIMACS + DRUP files, run drat-trim, record its verdict and "
                    "the SHA-256 of both files.",
@@ -52,7 +52,7 @@ def run():
         t = LAWS[num][0]
         law = (parse(t), "x")
         for n in row["decided_beyond_notes"]:
-            if row["status_n_2_12"][str(n)] != "UNSAT":
+            if row["status_n_2_10"][str(n)] != "UNSAT":
                 continue
             sat = MagmaSAT(n, [law])
             if t.startswith("y("):
@@ -60,11 +60,12 @@ def run():
             sat.clauses.append([sat.v[0, 0, 0], sat.v[0, 0, 1]])
             nv = sat.pool.top
             with Glucose4(bootstrap_with=sat.clauses, with_proof=True) as g:
-                ok = g.solve()
-                proof = g.get_proof() if not ok else None
-            rec = {"law": num, "n": n, "glucose": "SAT" if ok else "UNSAT", "clauses": len(sat.clauses),
-                   "variables": nv}
-            if not ok and checker:
+                g.conf_budget(3_000_000)
+                ok = g.solve_limited()
+                proof = g.get_proof() if ok is False else None
+            status = {True: "SAT", False: "UNSAT", None: "BUDGET EXCEEDED (no certificate)"}[ok]
+            rec = {"law": num, "n": n, "glucose": status, "clauses": len(sat.clauses), "variables": nv}
+            if ok is False and checker:
                 with tempfile.TemporaryDirectory() as d:
                     cnf = os.path.join(d, "f.cnf")
                     prf = os.path.join(d, "f.drup")
@@ -79,7 +80,7 @@ def run():
                     rec.update({"drat_trim": verdict,
                                 "cnf_sha256": hashlib.sha256(open(cnf, "rb").read()).hexdigest(),
                                 "proof_lines": len(proof)})
-            elif not ok:
+            elif ok is False:
                 rec["drat_trim"] = "checker unavailable"
             out.append(rec)
     verified = [r for r in out if r.get("drat_trim") == "VERIFIED"]

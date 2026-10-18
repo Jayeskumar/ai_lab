@@ -1,0 +1,76 @@
+{
+  "agent": "Application Researcher",
+  "assumptions": [
+    "exact expectations from length breakpoints and cdfs (no sampling)",
+    "Zipf truncated at 1e6; geometric tails below 1e-18 ignored",
+    "oracle pattern = best pattern of length <= 8 (up to complement) chosen per source, i.e. a tuned code like Golomb-Rice"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C11-03",
+    "file": "experiments/C11/E03_synthetic_benchmarks.py",
+    "sha256": "c897dd98cb382c6f9f970369b1152d33b5aab640b169afa9d91e7ecfb1cf71c0",
+    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+  },
+  "cycle": "C11",
+  "falsification": "No fixed pattern code (other than 11) is ever the best universal code.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:25:41Z"
+    }
+  ],
+  "hypothesis": "H-C11-4: some fixed pattern code (not 11) beats every classical universal baseline (gamma, delta, omega, Levenshtein, Fibonacci, LEB128, fixed Exp-Golomb) on at least one realistic source; tuned Golomb-Rice wins on geometric sources.",
+  "id": "EXP-C11-03",
+  "methodology": "Expected codeword length E and redundancy E - H for 12 sources and all codes; winners among (a) fixed universal codes and (b) all codes including tuned ones.",
+  "question": "Where do pattern-terminated codes beat classical universal codes, and how do they compare with a Golomb-Rice code tuned to the source?",
+  "results_file": "results/EXP-C11-03.json",
+  "results_sha256": "a67c4269318e034f4ddc12544e8c720361a187700cb2fc984ddffd2326fa8108",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-03",
+        "file": "experiments/C11/E03_synthetic_benchmarks.py",
+        "sha256": "c897dd98cb382c6f9f970369b1152d33b5aab640b169afa9d91e7ecfb1cf71c0",
+        "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:25:40Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C11-03.json",
+      "results_sha256": "a67c4269318e034f4ddc12544e8c720361a187700cb2fc984ddffd2326fa8108",
+      "runtime_s": 7.548,
+      "started": "2026-10-18T08:25:32Z",
+      "summary": [
+        "Zipf(s=1.1, N=1e6): H=10.8974; best classical ['Fibonacci C1', 0.769]; best fixed ['T_101', 0.1935]; best overall ['T_101', 0.1935]",
+        "Zipf(s=1.5, N=1e6): H=4.6179; best classical ['Fibonacci C1', 0.0999]; best fixed ['Fibonacci C1', 0.0999]; best overall ['Fibonacci C1', 0.0999]",
+        "Zipf(s=2.0, N=1e6): H=2.3626; best classical ['Elias gamma', 0.0837]; best fixed ['Elias gamma', 0.0837]; best overall ['Elias gamma', 0.0837]",
+        "Zipf(s=3.0, N=1e6): H=0.9789; best classical ['Levenshtein', 0.3907]; best fixed ['Levenshtein', 0.3907]; best overall ['tuned Golomb(M=1)', 0.3896]",
+        "geometric(p=0.5): H=2.0; best classical ['Levenshtein', 0.1915]; best fixed ['Levenshtein', 0.1915]; best overall ['tuned Golomb(M=1)', 0.0]",
+        "geometric(p=0.1): H=4.69; best classical ['Exp-Golomb(2)', 0.2954]; best fixed ['Exp-Golomb(2)', 0.2954]; best overall ['tuned Golomb(M=7)', 0.0352]",
+        "geometric(p=0.01): H=8.0793; best classical ['Exp-Golomb(4)', 0.7001]; best fixed ['Exp-Golomb(4)', 0.7001]; best overall ['tuned Golomb(M=68)', 0.0258]",
+        "geometric(p=0.001): H=11.4078; best classical ['Fibonacci C1', 2.9342]; best fixed ['T_0111', 1.735]; best overall ['tuned Golomb(M=693)', 0.0281]",
+        "uniform [1, 2^8]: H=8.0; best classical ['Exp-Golomb(4)', 1.75]; best fixed ['Exp-Golomb(4)', 1.75]; best overall ['tuned Golomb(M=64)', 0.5]",
+        "uniform [1, 2^16]: H=16.0; best classical ['LEB128 varint', 5.9844]; best fixed ['T_0111', 3.2978]; best overall ['tuned Golomb(M=16384)', 0.5]",
+        "uniform [1, 2^32]: H=32.0; best classical ['LEB128 varint', 7.4961]; best fixed ['T_00111', 4.4391]; best overall ['tuned Golomb(M=1073741824)', 0.5]",
+        "log-uniform 1/n on [1,1e+06]: H=13.4061; best classical ['Fibonacci C1', 1.6368]; best fixed ['T_0111', 0.4006]; best overall ['T_0111', 0.4006]"
+      ]
+    }
+  ],
+  "summary": [
+    "Zipf(s=1.1, N=1e6): H=10.8974; best classical ['Fibonacci C1', 0.769]; best fixed ['T_101', 0.1935]; best overall ['T_101', 0.1935]",
+    "Zipf(s=1.5, N=1e6): H=4.6179; best classical ['Fibonacci C1', 0.0999]; best fixed ['Fibonacci C1', 0.0999]; best overall ['Fibonacci C1', 0.0999]",
+    "Zipf(s=2.0, N=1e6): H=2.3626; best classical ['Elias gamma', 0.0837]; best fixed ['Elias gamma', 0.0837]; best overall ['Elias gamma', 0.0837]",
+    "Zipf(s=3.0, N=1e6): H=0.9789; best classical ['Levenshtein', 0.3907]; best fixed ['Levenshtein', 0.3907]; best overall ['tuned Golomb(M=1)', 0.3896]",
+    "geometric(p=0.5): H=2.0; best classical ['Levenshtein', 0.1915]; best fixed ['Levenshtein', 0.1915]; best overall ['tuned Golomb(M=1)', 0.0]",
+    "geometric(p=0.1): H=4.69; best classical ['Exp-Golomb(2)', 0.2954]; best fixed ['Exp-Golomb(2)', 0.2954]; best overall ['tuned Golomb(M=7)', 0.0352]",
+    "geometric(p=0.01): H=8.0793; best classical ['Exp-Golomb(4)', 0.7001]; best fixed ['Exp-Golomb(4)', 0.7001]; best overall ['tuned Golomb(M=68)', 0.0258]",
+    "geometric(p=0.001): H=11.4078; best classical ['Fibonacci C1', 2.9342]; best fixed ['T_0111', 1.735]; best overall ['tuned Golomb(M=693)', 0.0281]",
+    "uniform [1, 2^8]: H=8.0; best classical ['Exp-Golomb(4)', 1.75]; best fixed ['Exp-Golomb(4)', 1.75]; best overall ['tuned Golomb(M=64)', 0.5]",
+    "uniform [1, 2^16]: H=16.0; best classical ['LEB128 varint', 5.9844]; best fixed ['T_0111', 3.2978]; best overall ['tuned Golomb(M=16384)', 0.5]",
+    "uniform [1, 2^32]: H=32.0; best classical ['LEB128 varint', 7.4961]; best fixed ['T_00111', 4.4391]; best overall ['tuned Golomb(M=1073741824)', 0.5]",
+    "log-uniform 1/n on [1,1e+06]: H=13.4061; best classical ['Fibonacci C1', 1.6368]; best fixed ['T_0111', 0.4006]; best overall ['T_0111', 0.4006]"
+  ],
+  "title": "Benchmark: expected length minus entropy on Zipf, geometric, uniform and log-uniform sources"
+}

@@ -39,7 +39,7 @@ def run():
         t = LAWS[num][0]
         law = (parse(t), "x")
         for n in row["decided_beyond_notes"]:
-            if row["status_n_2_12"][str(n)] != "SAT":
+            if row["status_n_2_10"][str(n)] != "SAT":
                 continue
             sat = MagmaSAT(n, [law])
             if t.startswith("y("):
