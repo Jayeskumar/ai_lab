@@ -1,0 +1,22 @@
+{
+  "counterexample": "Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation).",
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    }
+  ],
+  "id": "CLM-C17-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "Light's test with a greedy generating set uses at most a fraction 10/n of the exhaustive check's probes on every input family.",
+  "system": "SYS-B",
+  "title": "H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

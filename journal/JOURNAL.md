@@ -871,3 +871,99 @@ Independent re-implementation (no shared code) reproduced the classification, al
 
 *Evidence:* EXP-C14-06
 
+
+## C05
+
+### [2026-10-18T09:23:59Z] Mathematical Inventor — hypothesis (`C05-01`)
+
+Opened Branch B with the bold H-C05-1 - a single identity t = x cannot restrict the sizes of its finite models - and H-C05-Q (nontrivial identities force quasigroups).
+
+*Evidence:* CLM-C05-01, CLM-C05-03
+
+### [2026-10-18T09:23:59Z] Formal Verifier — infrastructure (`C05-02`)
+
+Built systems/magma.py with an exact SAT encoding of identities (value variables per subterm and assignment); model counts agree with brute force on all magmas of orders 2 and 3 for four identities.
+
+*Evidence:* systems/magma.py
+
+### [2026-10-18T09:23:59Z] Mathematical Explorer — surprise (`C05-03`)
+
+An exploratory scan showed 11 different spectrum patterns on n <= 6, including {1,3,4} (Mendelsohn-like), {1,3} (Steiner-like) and 'all but 2 and 6' (Euler's 36 officers pattern). H-C05-1 was clearly false.
+
+*Evidence:* EXP-C05-01
+
+### [2026-10-18T09:23:59Z] Historian and Novelty Analyst — novelty (`C05-04`)
+
+Found that the Equational Theories Project already studied spectra of order <= 4 laws - the write-up 'Spectra of order-3 equations' (laws 66 Mendelsohn, 167 mod 4, 168 squares) and B. Le Floch's notes listing 48 laws with possibly non-full spectrum. The census became a rediscovery; the cycle pivoted to pushing the open cases.
+
+*Evidence:* CLM-C05-02, CLM-C05-04
+
+### [2026-10-18T09:23:59Z] Formal Verifier — proof (`C05-05`)
+
+Lean-verified that every finite model of x = (yx)(xy) has order 0 or 1 mod 4 (pair map {a,b} -> {ab, ba} is a fixed-point-free involution on Sym2), plus certified models of orders 4 and 5.
+
+*Evidence:* CLM-C05-04, proofs/lean/Infinity/C05_Magmas.lean
+
+### [2026-10-18T09:23:59Z] Mathematical Skeptic — rejection (`C05-06`)
+
+H-C05-Q rejected - the SAT model of law 167 of order 4 has a repeated entry in a row (Lean T4_not_latin); 18 census identities have non-quasigroup models of order <= 3.
+
+*Evidence:* CLM-C05-03
+
+### [2026-10-18T09:23:59Z] Mathematical Inventor — hypothesis (`C05-07`)
+
+Proposed H-C05-A - full spectra are exactly explained by affine models over Z_n.
+
+*Evidence:* CLM-C05-06
+
+### [2026-10-18T09:23:59Z] Mathematical Skeptic — rejection (`C05-08`)
+
+H-C05-A rejected - x = (yx)(x(yy)) is satisfied by NAND on two elements but by no affine operation over Z_2 (both facts Lean-certified); four identities in total.
+
+*Evidence:* CLM-C05-06, EXP-C05-05
+
+### [2026-10-18T09:23:59Z] Research Director — decision (`C05-09`)
+
+Two long runs were stopped and rescoped under heavy shared CPU load (other cycles running in parallel): the census to n <= 6 (n = 7 UNSAT instances dominated) and the frontier push to n <= 10 with budget 1e6 (n = 11, 12 would likely have hit the timeout and lost all results, since the runner writes results only at the end). Lesson: long experiments should checkpoint partial results.
+
+*Evidence:* EXP-C05-01, EXP-C05-03
+
+### [2026-10-18T09:23:59Z] Formal Verifier — result (`C05-10`)
+
+Frontier push agreed with every size stated in the ETP notes (0 disagreements) and settled new sizes - memberships 467 (9), 677 (5, 7, 9), 1286 (9), 1313 (9), 1516 (9), all Lean-certified; gaps 501 (6, 7), 677 (6), 883 (6), 1076 (8), 1083 (5, 6), all with drat-trim-verified DRUP proofs (48/48 refutations verified).
+
+*Evidence:* CLM-C05-07, CLM-C05-08, EXP-C05-03, EXP-C05-04, EXP-C05-06
+
+### [2026-10-18T09:23:59Z] Mathematical Skeptic — review (`C05-11`)
+
+Caveats recorded - EXP-C05-02's 'identical model set' grouping compared non-canonical representatives (count not used); the field decided_beyond_notes over-counts because the notes' 'starting with' phrasing implicitly settles smaller sizes; most census non-memberships are solver-trusted; novelty of the frontier facts is relative to the notes and to a partially read ETP paper.
+
+*Evidence:* EXP-C05-02, EXP-C05-03
+
+### [2026-10-18T09:23:59Z] Mathematical Explorer — pattern (`C05-12`)
+
+Laws 677 and 1313 share the spectrum fragment 1, 5, 7, 9 (not 2, 3, 4, 6) with idempotent quasigroup models; conjectured spectrum {1} plus odd n >= 5 (CLM-C05-09), pending orders 8 and 10.
+
+*Evidence:* CLM-C05-09
+
+
+## C17
+
+### [2026-10-18T09:24:11Z] Application Researcher — hypothesis (`C17-01`)
+
+Phase-5 cycle - can the lab's structural insights make law testing faster than the exhaustive n^3 check? Baselines: exhaustive check (vectorised), random triples; methods: Light's generator test, the anchored O(n^2) identity (from C06), the Rajagopalan-Schulman randomised test. Primary metric - exact table probes (the machine is shared); times secondary.
+
+*Evidence:* EXP-C17-01
+
+### [2026-10-18T09:24:11Z] Application Researcher — result (`C17-02`)
+
+EXP-C17-01 - all exact tests correct; up to 614x fewer probes with Light's test, but only 1.7x on left-zero bands (H-C17-1 refuted); random-triple sampling misses 27 of 30 near-associative inputs, the randomised GF(2) test none.
+
+*Evidence:* EXP-C17-01, CLM-C17-04, CLM-C17-06
+
+### [2026-10-18T09:24:11Z] Mathematical Skeptic — result (`C17-03`)
+
+EXP-C17-02 refuted the bold H-C17-2 (18 laws whose anchor instance admits non-models) and, as a by-product, showed that the cited form of Laver's theorem in the C06 record was imprecise - with the wrap-around instance there are no solutions for N = 3, 5, 6, 7, 9, 10. The C06 record was corrected.
+
+*Evidence:* EXP-C17-02, CLM-C17-05, CLM-C17-07, CLM-C06-01
+

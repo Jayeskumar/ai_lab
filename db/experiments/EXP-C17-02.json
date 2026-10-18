@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Skeptic",
+  "analysis": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.",
   "assumptions": [
     "N = 2..5 for the census; left-distributivity additionally for N = 2..10",
     "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)"
@@ -10,6 +11,9 @@
     "sha256": "c3db0b896ed0402e078cdb9af1415eb696b9ef56a792b762bac12724716548ca",
     "systems_sha256": "1a60f382c0a1d5cf5b3cd6b2e4af9fb8f338536d564535d6ff2346fa4bf41574"
   },
+  "counterexamples": [
+    "x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)"
+  ],
   "cycle": "C17",
   "falsification": "Any law with an anchored model of its z = 0 instance that violates the law.",
   "history": [
@@ -33,12 +37,59 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T09:21:15Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "analysis",
+      "new": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C17-02",
+        "CLM-C17-05",
+        "CLM-C17-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
     }
   ],
   "hypothesis": "H-C17-2 (bold): for every law of the C06 family (x(yz) = t or (xy)z = t, t with 3-4 leaves over x, y, z), every anchored magma satisfying the z = 0 instance satisfies the law (N <= 5).",
   "id": "EXP-C17-02",
   "methodology": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.",
   "question": "For anchored magmas (x*0 = x+1 mod N), the instance of a three-variable law with z = 0 can be checked with O(N^2) probes. For which laws of the C06 family does it imply the full law?",
+  "related": [
+    "CLM-C17-02",
+    "CLM-C17-05",
+    "CLM-C17-07"
+  ],
   "results_file": "results/EXP-C17-02.json",
   "results_sha256": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
   "runs": [
@@ -88,5 +139,6 @@
     "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
     "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
   ],
-  "title": "The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?"
+  "title": "The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?",
+  "verification": "REFUTED"
 }

@@ -1,0 +1,23 @@
+{
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    }
+  ],
+  "id": "CLM-C17-05",
+  "limitations": "Complete SAT enumeration for N <= 10 only.",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.",
+  "statement": "For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.",
+  "system": "SYS-B",
+  "title": "The anchor instance of left-distributivity singles out the Laver tables (N <= 10)",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

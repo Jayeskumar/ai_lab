@@ -23,7 +23,7 @@ from .util import append_jsonl, canonical_json, now_iso, read_jsonl
 CLAIM_FIELDS = (
     "type", "title", "statement", "verification", "novelty", "novelty_basis", "proof", "lean",
     "evidence", "references", "counterexample", "improvement", "applications", "related",
-    "skeptic", "system", "notes", "limitations", "proof_check",
+    "skeptic", "system", "notes", "limitations", "proof_check", "improvement_detail",
 )
 EXPERIMENT_FIELDS = (
     "analysis", "proof_attempts", "counterexamples", "verification", "novelty", "applications",

@@ -1,0 +1,22 @@
+{
+  "counterexample": "18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.",
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    }
+  ],
+  "id": "CLM-C17-07",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every law of the C06 family, every anchored magma satisfying the instance z = 0 of the law satisfies the law (N <= 5).",
+  "system": "SYS-B",
+  "title": "H-C17-2: for anchored magmas the z = 0 instance of a law decides the law (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

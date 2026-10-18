@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T09:24:23Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -948,6 +948,167 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   Equivalent to the open periodicity problems for Officers (0.6), Treblecross (0.007, OEIS A395248) and 0.06 (Guy's conjecture that finite octal games are ultimately periodic). Our computation (n <= 3000) finds no period <= 300; the 0.06 Grundy sequence is not in the OEIS.
 
 
+### CLM-C05-01: H-C05-1: a single identity t = x cannot restrict the orders of its finite models (refuted)
+
+- **cycle:** C05
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Every identity t = x has spectrum {1} or the set of all positive integers.
+- **evidence:** EXP-C05-01
+- **counterexample:**
+
+  ETP law 167, x = (y*x)*(x*y): Lean-certified models of orders 4 and 5 (T4_law167, T5_law167) and no model of order 2, 3, 6 or 7 (law167_card_mod_four: every finite model has order 0 or 1 mod 4). The census EXP-C05-01 finds 61 of 115 nontrivial two-variable identities with spectra on n <= 6 that are neither {1} nor everything.
+
+
+### CLM-C05-02: Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n <= 6, restricted ones to n <= 8)
+
+- **cycle:** C05
+- **type:** observation
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  Of the 115 identities t = x (x occurring in t, neither leftmost nor rightmost), 52 have models of every order
+  1..6, 2 have none of orders 2..6, and 61 have restricted spectra; the 63 non-full ones fall into 15 patterns
+  on n = 1..8 listed in research/cycles/C05_magma_spectra/README.md (e.g. 10111011 for 16 identities including
+  the Dupont law, 10110010 = Mendelsohn pattern for law 66 and three equivalents, 1010001? for law 907).
+
+- **evidence:** EXP-C05-01; EXP-C05-02
+- **novelty_basis:**
+
+  The Equational Theories Project classified all 741 classes of laws of order <= 4 and B. Le Floch's notes 'Spectrum of equational laws' (Lean Zulip upload spectrum.pdf) discuss every law with possibly non-full spectrum; our census agrees with every spectrum fragment stated there for the laws concerned.
+
+- **limitations:** Non-memberships in the census are SAT-solver results (CaDiCaL) without proof certificates, except those re-certified in EXP-C05-06; one instance (law 167, n = 6) is UNKNOWN within budget.
+
+### CLM-C05-03: H-C05-Q: nontrivial identities t = x force their finite models to be quasigroups (refuted)
+
+- **cycle:** C05
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** If x occurs in t but is neither its leftmost nor its rightmost leaf, every finite model of t = x is a quasigroup.
+- **evidence:** EXP-C05-01; EXP-C05-02
+- **counterexample:** The 4-element model T4 of law 167, x = (y*x)*(x*y), has row 1 = (0, 2, 2, 2) (Lean: T4_law167, T4_not_latin). In the census, 18 of the 115 identities already have non-quasigroup models of order <= 3.
+
+### CLM-C05-04: Law 167, x = (y*x)*(x*y): every finite model has order 0 or 1 mod 4
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (Infinity.C05.law167_card_mod_four; standard axioms only); models of orders 4 and 5 certified by decide
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If a finite magma satisfies x = (y*x)*(x*y) for all x, y, its order n satisfies n = 0 or 1 (mod 4).
+  (With the constructions of the ETP write-up "Spectra of order-3 equations" the spectrum is exactly
+  {n : n = 0, 1 mod 4}.)
+
+- **proof:** proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-xyxxy-orders-are--0-1-mod-4
+- **lean:** proofs/lean/Infinity/C05_Magmas.lean
+- **evidence:** EXP-C05-01
+- **novelty_basis:**
+
+  Proposition 3 of the ETP write-up 'Spectra of order-3 equations' (Lean Zulip upload; attributed in Le Floch's notes to Ben Gunby-Mann) gives the same orbit argument and the full spectrum. Our addition is a Lean formalisation of the necessity half via a fixed-point-free involution on Sym2.
+
+
+### CLM-C05-05: Identities x = y*s(x, y) make every left translation of a finite model bijective
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If a finite magma satisfies x = y * s(x, y) for some binary term operation s, every left translation a -> y*a
+  is a bijection (every row of the Cayley table is a permutation). More generally, in a finite model of t = x
+  with x occurring once in t, every translation on the path from the root of t to x is a bijection.
+
+- **proof:** proofs/paper/C05.md#lemma-1-clm-c05-05--translations-along-the-path-to-a-unique-occurrence-of-x
+- **lean:** proofs/lean/Infinity/C05_Magmas.lean
+- **evidence:** EXP-C05-03
+- **novelty_basis:** Standard finite-set argument (a surjective self-map of a finite set is bijective), used throughout the ETP notes.
+
+### CLM-C05-06: H-C05-A: full spectrum iff affine models over every Z_n (refuted)
+
+- **cycle:** C05
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** A nontrivial identity t = x has models of all orders 1..6 iff it has an affine model x*y = a x + b y + c over Z_n for every n <= 6.
+- **evidence:** EXP-C05-05; EXP-C05-01
+- **counterexample:**
+
+  x = (y*x)*(x*(y*y)) has models of every order 1..6 (EXP-C05-01); of order 2 it is satisfied by NAND (Lean: nand2_law), yet no affine operation over Z_2 satisfies it (Lean: no_affine_model_mod2); its affine models exist only for n in {1, 5}. Three further identities behave alike (EXP-C05-05).
+
+
+### CLM-C05-07: New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 kernel decide on explicit tables (E467_order9_law, E677_order5_law, E677_order7_law, E677_order9_law, E1286_order9_law, E1313_order9_law, E1516_order9_law); only propext
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Each of the following order-4 laws has a model of the stated order (explicit Cayley tables):
+  467 x = y(x(x(yy))) - order 9; 677 x = y(x((yx)y)) - orders 5, 7, 9; 1286 x = y(((xy)x)y) - order 9;
+  1313 x = y(((yx)x)y) - order 9; 1516 x = (yy)(x(xy)) - order 9.
+
+- **proof:** proofs/lean/Infinity/C05_Magmas.lean (section Frontier)
+- **lean:** proofs/lean/Infinity/C05_Magmas.lean
+- **evidence:** EXP-C05-03; EXP-C05-04
+- **novelty_basis:**
+
+  Not stated in B. Le Floch's ETP notes (which list 467, 1313, 1516 as 'starting with' sizes up to 8 or 7, 1286 as 'starting with 1, 7', and give no sizes for 677); the ETP paper (arXiv:2512.07087, v2) separates full from non-full spectra and defers detailed spectra to a forthcoming publication. Our reading of that paper was partial (the spectrum section was truncated in retrieval), and ETP model searches may already contain these models; novelty is therefore only relative to the sources read (2026-10-18).
+
+
+### CLM-C05-08: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  No magma of the stated order satisfies: 501 x = y(y(x(xy))) - orders 2, 3, 6, 7; 677 x = y(x((yx)y)) - orders
+  2, 3, 4, 6; 883 x = y((xy)(yy)) - orders 3, 6; 1076 x = y((x(xy))y) - order 8; 1083 x = y((x(yx))y) -
+  orders 2, 5, 6; 1719 x = (yy)((xx)y) - order 2.
+
+- **proof:** proofs/paper/C05.md#lemma-4--soundness-of-the-extra-sat-constraints-exp-c05-03--04--06
+- **evidence:** EXP-C05-03; EXP-C05-06
+- **novelty_basis:**
+
+  Not stated in Le Floch's notes (which say 'containing' for 501, 883, 1083, 'unknown' for 677, 'not 6 nor 7' for 1076). Sizes 2 and 3 are surely known to the ETP (it determined size-2 and size-3 model existence for all order-4 laws), and small sizes may be in its finite-magma searches; only the gaps at n >= 5 (501: 6,7; 677: 6; 883: 6; 1076: 8; 1083: 5,6) are plausible additions.
+
+
+### CLM-C05-09: Laws 677 and 1313 have spectrum {1} together with all odd n >= 5
+
+- **cycle:** C05
+- **type:** conjecture
+- **system:** SYS-B
+- **verification:** CONJECTURE
+- **novelty:** NOT ASSESSED
+- **statement:** The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.
+- **evidence:** EXP-C05-03; EXP-C05-02
+- **limitations:**
+
+  Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.
+
+
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
 - **cycle:** C06
@@ -965,8 +1126,9 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C06-01; EXP-C06-02
 - **novelty_basis:**
 
-  Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q*1) = (p*q)*(p*1), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.
+  Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.
 
+- **status history:**
 
 ### CLM-C06-02: Anchored associativity forces x*y = x + y + 1, for every N
 
@@ -2371,6 +2533,111 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).
 
 
+### CLM-C17-01: Light's test: generators suffice for associativity
+
+- **cycle:** C17
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01; awaiting independent skeptic review
+- **novelty:** REDISCOVERY
+- **statement:** If S generates the finite magma M, then M is associative iff (x*s)*y = x*(s*y) for all x, y in M and s in S; the test costs 2n + 2n^2 probes per generator.
+- **proof:** proofs/paper/C17.md#theorem-1-clm-c17-01--lights-associativity-test
+- **evidence:** EXP-C17-01
+- **novelty_basis:** F. W. Light's associativity test, presented in A. H. Clifford, G. B. Preston, The Algebraic Theory of Semigroups, Vol. 1 (AMS, 1961), section 1.2.
+
+### CLM-C17-02: Associativity of an anchored magma is decided by one O(n^2) identity
+
+- **cycle:** C17
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C17.md Corollary 2) from C06 Theorem 1 (Lean anchored_assoc_unique); 0 wrong verdicts on 30 anchored instances (EXP-C17-01)
+- **novelty:** NOT ASSESSED
+- **statement:** If x*0 = x + 1 (mod n), then * is associative iff x*(y + 1) = (x*y) + 1 for all x, y (2n^2 probes); equivalently Light's test with the single generator 0.
+- **proof:** proofs/paper/C17.md#corollary-2-clm-c17-02--anchored-magmas-one-generator-and-an-on-criterion
+- **evidence:** EXP-C17-01; EXP-C17-02
+- **novelty_basis:** Immediate from Light's test and the lab's C06 Theorem 1; small.
+
+### CLM-C17-03: The Rajagopalan-Schulman randomised associativity test is one-sided
+
+- **cycle:** C17
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  one-sidedness proved (proofs/paper/C17.md Theorem 3, bilinear extension); the 1/8 detection bound is the cited theorem of Rajagopalan-Schulman, not re-proved; empirically 0 errors in 90 instances with 40 rounds
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  The GF(2) subset-sum test (compare (u*v)*w and u*(v*w) in the magma algebra for random subsets u, v, w) never rejects an associative table, and rejects a non-associative one with probability at least 1/8 per round; each round costs O(n^2) probes.
+
+- **proof:** proofs/paper/C17.md#theorem-3-clm-c17-03--the-rajagopalanschulman-test-is-one-sided
+- **evidence:** EXP-C17-01
+- **novelty_basis:** S. Rajagopalan, L. J. Schulman, Verification of identities, SIAM J. Comput. 29 (2000) 1155-1168.
+
+### CLM-C17-04: Benchmark - generator and anchor tests versus the exhaustive check
+
+- **cycle:** C17
+- **type:** algorithmic
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **improvement:** MIXED
+- **statement:**
+
+  On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.
+
+- **evidence:** EXP-C17-01
+- **novelty_basis:** The algorithms are classical (Light; Rajagopalan-Schulman); the benchmark is ours. Timings were measured on a shared, loaded machine and are indicative only; probe counts are exact.
+- **limitations:** Families chosen to include worst cases for each method; no comparison with optimised C implementations.
+- **status history:**
+
+### CLM-C17-05: The anchor instance of left-distributivity singles out the Laver tables (N <= 10)
+
+- **cycle:** C17
+- **type:** observation
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.
+
+- **evidence:** EXP-C17-02
+- **novelty_basis:** Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.
+- **limitations:** Complete SAT enumeration for N <= 10 only.
+
+### CLM-C17-06: H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (refuted)
+
+- **cycle:** C17
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Light's test with a greedy generating set uses at most a fraction 10/n of the exhaustive check's probes on every input family.
+- **evidence:** EXP-C17-01
+- **counterexample:**
+
+  Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation).
+
+
+### CLM-C17-07: H-C17-2: for anchored magmas the z = 0 instance of a law decides the law (refuted)
+
+- **cycle:** C17
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every law of the C06 family, every anchored magma satisfying the instance z = 0 of the law satisfies the law (N <= 5).
+- **evidence:** EXP-C17-02
+- **counterexample:**
+
+  18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.
+
+
 ## Experiments
 
 ### EXP-C01-01: Commutation congruence: classes, complete invariant and normal forms
@@ -2738,7 +3005,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   Extended survey (625 rules, parameters <= 5) with a strategy-based loop finder - 525 terminating by theorem, 71 loops, 29 unknown; H-C03-2 has 35 contradictions; no both-growing rule admits a matrix interpretation in the searched tiers.
 
 - **related:** CLM-C03-06; CLM-C03-08; CLM-C03-09
-- **runs:** 1; last 2026-10-18T07:37:31Z (15.543 s), results sha256 `9c3a165b60fd3638…`, code `experiments/C03/E02_extended_survey.py`
+- **runs:** 2; last 2026-10-18T09:18:42Z (17.226 s), results sha256 `9c3a165b60fd3638…`, code `experiments/C03/E02_extended_survey.py`
 
 ### EXP-C03-03: Divisibility: loops lift along 0 -> 0^p, non-multiples look terminating
 
@@ -2768,7 +3035,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   Loops are found exactly when p divides s on 66 test rules; all 36 non-multiples terminate from every tested start; 147 lifted loops verify; H-C03-4 has no contradiction on the 625 rules and predicts termination for all 24 remaining unknowns. The first run reported a spurious non-finite word because of a too-tight length cap (96 letters); the reachable set from 001001001111 under 0011 -> 11100000 is finite (232 words, longest 104 letters).
 
 - **related:** CLM-C03-05; CLM-C03-09; CLM-C03-10
-- **runs:** 2; last 2026-10-18T07:58:25Z (21.204 s), results sha256 `1a84189b39cd83c4…`, code `experiments/C03/E03_divisibility.py`
+- **runs:** 3; last 2026-10-18T09:18:59Z (15.513 s), results sha256 `1a84189b39cd83c4…`, code `experiments/C03/E03_divisibility.py`
 
 ### EXP-C03-04: Base-family loops (1, q, r, k), q < r < 2q: closing the gap and measuring loop sizes
 
@@ -2877,7 +3144,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C04-09
-- **runs:** 2; last 2026-10-18T07:52:35Z (27.493 s), results sha256 `be51ed9422ae3039…`, code `experiments/C04/E04_aab_ba_formula.py`
+- **runs:** 3; last 2026-10-18T09:19:15Z (15.951 s), results sha256 `be51ed9422ae3039…`, code `experiments/C04/E04_aab_ba_formula.py`
 
 ### EXP-C04-05: Random descent of one-rule systems: unbordered left-hand sides versus critical peaks
 
@@ -2927,7 +3194,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C04-06
-- **runs:** 2; last 2026-10-18T08:00:20Z (8.127 s), results sha256 `31cca82d9f4c7cee…`, code `experiments/C04/E06_step_potential.py`
+- **runs:** 3; last 2026-10-18T09:19:28Z (4.653 s), results sha256 `31cca82d9f4c7cee…`, code `experiments/C04/E06_step_potential.py`
 
 ### EXP-C04-07: Rewriting games: parity for random-descent rules, run decomposition for unary left-hand sides
 
@@ -3006,7 +3273,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **analysis:** A247983(n) = n - max{j : 2^j + j <= n + 1} = D(n + 2) for all n <= 1500 in high-precision arithmetic; the identity is proved in proofs/paper/C04.md Theorem 8.
 - **verification:** PROVEN
 - **related:** CLM-C04-10
-- **runs:** 2; last 2026-10-18T08:07:44Z (8.439 s), results sha256 `930951e6e50817a9…`, code `experiments/C04/E10_log2_connection.py`
+- **runs:** 3; last 2026-10-18T09:19:22Z (6.309 s), results sha256 `930951e6e50817a9…`, code `experiments/C04/E10_log2_connection.py`
 
 ### EXP-C05-01: Spectrum census of two-variable identities t = x (2-4 operations), sizes 1-6
 
@@ -3028,6 +3295,13 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   - 115 nontrivial identities; spectrum patterns over n=1..6: {'100000': 2, '100010': 14, '100110': 6, '10011?': 1, '101000': 2, '101011': 4, '101100': 6, '101110': 16, '101111': 4, '110110': 8, '111111': 52}
   - identities with a restricted spectrum (neither {1} nor all): 61
   - mirror pairs with different spectra (must be 0): 0
+- **analysis:**
+
+  All 115 nontrivial two-variable identities t = x with 2-4 operations were decided for n = 1..6 except law 167 at n = 6 (UNKNOWN within budget; excluded by the Lean theorem). 61 have restricted spectra, 52 are full on 1..6, 2 admit only n = 1 there; mirror pairs always agree; 18 identities have non-quasigroup models of order <= 3.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **related:** CLM-C05-01; CLM-C05-02; CLM-C05-03
 - **runs:** 1; last 2026-10-18T08:07:36Z (154.555 s), results sha256 `607a0e46158d394b…`, code `experiments/C05/E01_two_variable_census.py`
 
 ### EXP-C05-02: Restricted-spectrum identities: extended spectra (n = 7, 8) and forced structure
@@ -3052,6 +3326,12 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   - 63 identities studied; spectrum patterns over n = 1..8: {'1000001?': 2, '10001000': 2, '10001011': 8, '1000101?': 4, '10011001': 2, '10011011': 2, '100110??': 2, '10011??1': 1, '1010001?': 2, '10101111': 4, '10110010': 4, '10110011': 2, '10111011': 16, '10111111': 4, '11011011': 8}
   - all small models quasigroups for 52/63
   - 58 groups of identities with identical model sets for n <= 5
+- **analysis:**
+
+  The 63 non-full identities fall into 15 spectrum patterns on n = 1..8, reproducing every spectrum fragment stated in the ETP notes for the laws concerned; 52/63 have only quasigroup models for n <= 5; the Dupont family (16 identities incl. laws 63, 115) has a single, medial model class at each of n = 3, 4, 5. The 'identical model set' grouping in this run compared non-canonical representatives and is not used (defect recorded).
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C05-02
 - **runs:** 1; last 2026-10-18T08:52:38Z (670.295 s), results sha256 `b19f342fcd32f106…`, code `experiments/C05/E02_restricted_structure.py`
 
 ### EXP-C05-03: Frontier push: spectra of open order-4 laws for n = 2..10 (SAT with sound Latin-row constraints)
@@ -3068,6 +3348,11 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **methodology:** SAT model search for each law and n = 2..10; every SAT answer is re-verified by evaluating the law on the returned table; results are compared with the sizes stated in the notes.
 - **falsification:** A disagreement with a size stated in the notes would indicate a bug (ours or theirs).
 - **summary:** 467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]; 670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]; 677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]; 907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]; 1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]; 1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]; 1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]; 1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]; 1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []; disagreements with the notes: 0
+- **analysis:**
+
+  15 laws with unknown spectrum in the ETP notes decided for n <= 10 except a few sizes (UNKNOWN at budget 1e6); zero disagreements with the notes. The field decided_beyond_notes lists sizes not literally enumerated in the notes; the README table separates the facts genuinely absent from the notes.
+
+- **related:** CLM-C05-07; CLM-C05-08; CLM-C05-09
 - **runs:** 1; last 2026-10-18T09:06:51Z (2795.777 s), results sha256 `81c21f0a1a59b00c…`, code `experiments/C05/E03_frontier_push.py`
 
 ### EXP-C05-04: Lean decide-certificates for models establishing new spectrum memberships
@@ -3084,6 +3369,9 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **falsification:** A table that fails the Python re-check or the Lean kernel check.
 - **summary:**
   - 9 models re-solved, re-verified and emitted as Lean decide-certificates: [(467, 9), (677, 5), (677, 7), (677, 9), (883, 10), (1286, 9), (1313, 9), (1516, 9), (1719, 10)]
+- **analysis:** Nine models (laws 467, 677 x3, 883, 1286, 1313, 1516, 1719) were re-solved, re-verified and emitted as Lean decide-certificates; all nine check in Lean's kernel.
+- **verification:** PROVEN
+- **related:** CLM-C05-07
 - **runs:** 1; last 2026-10-18T09:11:28Z (242.53 s), results sha256 `3f0e38909e989d68…`, code `experiments/C05/E04_lean_certificates.py`
 
 ### EXP-C05-05: Bold hypothesis H-C05-A: full spectrum iff affine models over every Z_n
@@ -3096,7 +3384,37 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **methodology:** For every identity, list the orders n <= 6 having an affine model over Z_n; compare with the SAT spectrum.
 - **falsification:** A full-spectrum identity without an affine model for some n (refutes 'only if'), or an affine model of an order outside the SAT spectrum (would indicate a bug).
 - **summary:** 52 identities with spectrum 1..6 full; 4 of them lack an affine model for some order <= 6 (each refutes H-C05-A); restricted identities whose SAT spectrum contains orders without affine models: 39; consistency bugs: 0
+- **analysis:**
+
+  H-C05-A refuted - four identities (two mirror pairs) have models of every order 1..6 but affine models over Z_n only for n in {1,5} or {1,2,5}; 39 restricted identities also have spectrum members without affine models; no affine model was ever found outside the SAT spectrum.
+
+- **counterexamples:** x = (y*x)*(x*(y*y)): NAND on {0,1} is a model, no affine operation over Z_2 is
+- **verification:** REFUTED
+- **related:** CLM-C05-06
 - **runs:** 1; last 2026-10-18T08:08:00Z (8.901 s), results sha256 `21216128a8bf6abe…`, code `experiments/C05/E05_affine_hypothesis.py`
+
+### EXP-C05-06: Certified UNSAT: DRUP proofs checked by drat-trim for new spectrum gaps
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Can the non-memberships found by SAT beyond the ETP notes be certified by an independent proof checker instead of trusting the solver?
+- **hypothesis:** Each such UNSAT instance yields a DRUP refutation that drat-trim verifies.
+- **assumptions:**
+  - drat-trim (github.com/marijnheule/drat-trim, master; built locally with gcc -O2), located via the DRAT_TRIM environment variable or the scratchpad build path
+  - the CNF includes two sound additions: 'rows are permutations' for laws x = y*(...) (Lean: left_mul_bijective_of_law) and the relabelling symmetry break 0*0 in {0,1}
+  - Glucose 4 (pysat) with proof logging, conflict budget 3e6 per instance (exceeded = no certificate)
+- **methodology:**
+
+  Rebuild the exact CNF of EXP-C05-03 for each (law, n) reported UNSAT beyond the notes, solve with Glucose4(with_proof=True), write DIMACS + DRUP files, run drat-trim, record its verdict and the SHA-256 of both files.
+
+- **falsification:** drat-trim rejecting a proof (or Glucose finding a model) would contradict EXP-C05-03.
+- **summary:**
+  - 48 new UNSAT instances re-solved with proof logging; drat-trim VERIFIED 48: [(467, 2), (467, 3), (467, 4), (467, 6), (501, 2), (501, 3), (501, 6), (501, 7), (670, 2), (670, 3), (677, 2), (677, 3), (677, 4), (677, 6), (704, 2), (704, 3), (704, 4), (704, 6), (883, 3), (883, 6), (1076, 2), (1076, 3), (1076, 4), (1076, 8), (1083, 2), (1083, 5), (1083, 6), (1110, 2), (1110, 3), (1110, 6), (1279, 2), (…
+  - not verified / other: []
+- **analysis:** All 48 UNSAT instances flagged by EXP-C05-03 were re-solved with Glucose 4 proof logging and every DRUP refutation was VERIFIED by drat-trim.
+- **verification:** PROVEN
+- **related:** CLM-C05-08
+- **runs:** 1; last 2026-10-18T09:15:21Z (218.249 s), results sha256 `ebeff4aa1d7fb9d4…`, code `experiments/C05/E06_certified_unsat.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 
@@ -3178,7 +3496,7 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** (xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8); (xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8); x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)
 - **verification:** REFUTED
 - **related:** CLM-C06-04
-- **runs:** 1; last 2026-10-18T08:25:42Z (46.81 s), results sha256 `abc56c929f0aa54a…`, code `experiments/C06/E03_law_family_spectra.py`
+- **runs:** 2; last 2026-10-18T09:20:06Z (37.067 s), results sha256 `6dabd8b777b2264e…`, code `experiments/C06/E03_law_family_spectra.py`
 
 ### EXP-C06-04: Affine anchored models and the arithmetic of anchored spectra
 
@@ -3948,6 +4266,28 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
   - OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a…
 - **runs:** 2; last 2026-10-18T08:59:02Z (25.828 s), results sha256 `ba2746d029908a44…`, code `experiments/C13/E01_affine_atlas.py`
 
+### EXP-C13-02: Affine rigidity of laws with infinite non-trivial affine spectra
+
+- **cycle:** C13
+- **agent:** Mathematical Skeptic
+- **question:**
+
+  For laws whose affine spectrum is infinite but not all N (golden, x^2+x+1, -1 square, 2 square, odd, plastic, tribonacci, ...), does every anchored model of size N <= 8 come from an affine table x*y = x + a*y + 1? If so, the true spectrum agrees with the arithmetic set for N <= 8.
+
+- **hypothesis:** H-C13-2 (bold): for every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.
+- **assumptions:** the 3 shortest laws of every such affine class (3var<=4 and 2var<=5 families of EXP-C13-01); N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded; a first run (4 laws per class, N <= 9, budget 2,000,000) was stopped after 17 CPU-minutes
+- **methodology:**
+
+  For each selected law and N, add one blocking clause per affine table x + a*y + 1 to the anchored SAT encoding; SAT means a non-affine model exists (the table is recorded for N <= 5), UNSAT means every model is affine.
+
+- **falsification:** A non-affine anchored model of any selected law.
+- **summary:**
+  - 199 laws from infinite non-trivial affine classes tested for N = 2..8
+  - rigid (no non-affine model, no UNKNOWN): 1
+  - non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]
+  - UNKNOWN instances: 12
+- **runs:** 1; last 2026-10-18T09:22:43Z (339.574 s), results sha256 `b7e03113813b1b93…`, code `experiments/C13/E02_rigidity_infinite.py`
+
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
 
 - **cycle:** C14
@@ -4139,4 +4479,77 @@ _Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; 
 
 - **related:** CLM-C14-04; CLM-C14-05; CLM-C14-06
 - **runs:** 1; last 2026-10-18T09:01:23Z (291.198 s), results sha256 `ebfb04d1f745529f…`, code `experiments/C14/E07_spectra_benchmark.py`
+
+### EXP-C15-01: Two-element magma automata: elementary rules 17m, light cones, surjectivity and cyclic dynamics
+
+- **cycle:** C15
+- **agent:** Mathematical Explorer
+- **question:** Which elementary CA rules are the automata c'_i = c_i * c_{i+1} of the 16 two-element magmas, and how do their light cones, streaming widths, surjectivity and cyclic dynamics look?
+- **hypothesis:**
+
+  H-C15-0 (calibration): the 16 automata are exactly the elementary rules that ignore the left neighbour, i.e. the multiples of 17; XOR (rule 102) has 2^popcount(t) essential cells (Gould's sequence A001316) and bounded streaming width.
+
+- **assumptions:** light cones to t = 18 (tables of 2^19 entries); cyclic rows of length L = 1..16; surjectivity and injectivity on bi-infinite rows by the pair-graph (Garden of Eden) criterion
+- **methodology:**
+
+  Compute the Wolfram number of each table, the essential variables and the forward/backward ordered-BDD widths of F_t, nilpotency (F_t constant), pair-graph surjectivity/injectivity and the functional graph of the global map on all cyclic rows of each length.
+
+- **falsification:** A rule number that is not a multiple of 17, or an XOR light cone that is not 2^popcount(t).
+- **summary:** rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True); XOR (rule 102) essential cells = 2^popcount(t): True; surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]; streaming width > 4 at t = 18: []
+- **runs:** 1; last 2026-10-18T09:23:04Z (9.743 s), results sha256 `a47c3d15ea6d2c6b…`, code `experiments/C15/E01_order2.py`
+
+### EXP-C17-01: Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples
+
+- **cycle:** C17
+- **agent:** Application Researcher
+- **question:** How much cheaper than the exhaustive n^3 check are generator-based, anchored and randomised associativity tests, on which inputs, and with which error rates?
+- **hypothesis:**
+
+  H-C17-1 (bold): Light's test with a greedy generating set beats the exhaustive test by a factor >= n/10 in table probes on every input family. H-C17-3: the Rajagopalan-Schulman test with 40 rounds never errs on the benchmark (one-sided error <= (7/8)^40 per non-associative input).
+
+- **assumptions:**
+  - n in {32, 64, 128, 256, 512}; 3 instances per randomised family
+  - probes = table look-ups (machine-independent cost); wall times are medians of 3 runs on a shared, loaded machine and are indicative only
+  - families: cyclic group Z_n, anchored x+y+1, left-zero band x*y = x (needs all n generators), the first two with one corrupted entry, random magmas
+- **methodology:**
+
+  Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.
+
+- **falsification:** H-C17-1: a family where Light's test costs more than 10/n of the exhaustive probes. H-C17-3: a wrong verdict of the randomised test.
+- **summary:**
+  - wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27
+  - exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53
+  - H-C17-1 fails for: ['cyclic+1err', 'left_zero']
+- **analysis:**
+
+  All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.
+
+- **counterexamples:** left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C17-04; CLM-C17-06
+- **runs:** 1; last 2026-10-18T09:22:07Z (31.632 s), results sha256 `37d6185d5af8141e…`, code `experiments/C17/E01_assoc_benchmark.py`
+
+### EXP-C17-02: The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?
+
+- **cycle:** C17
+- **agent:** Mathematical Skeptic
+- **question:** For anchored magmas (x*0 = x+1 mod N), the instance of a three-variable law with z = 0 can be checked with O(N^2) probes. For which laws of the C06 family does it imply the full law?
+- **hypothesis:** H-C17-2 (bold): for every law of the C06 family (x(yz) = t or (xy)z = t, t with 3-4 leaves over x, y, z), every anchored magma satisfying the z = 0 instance satisfies the law (N <= 5).
+- **assumptions:**
+  - N = 2..5 for the census; left-distributivity additionally for N = 2..10
+  - models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)
+- **methodology:** For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.
+- **falsification:** Any law with an anchored model of its z = 0 instance that violates the law.
+- **summary:**
+  - 382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31
+  - associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}
+  - LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)
+- **analysis:**
+
+  For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.
+
+- **counterexamples:** x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)
+- **verification:** REFUTED
+- **related:** CLM-C17-02; CLM-C17-05; CLM-C17-07
+- **runs:** 2; last 2026-10-18T09:21:14Z (75.658 s), results sha256 `f4c5466ad1841f84…`, code `experiments/C17/E02_anchor_instance.py`
 

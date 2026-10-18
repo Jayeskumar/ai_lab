@@ -1,0 +1,34 @@
+{
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "improvement_detail",
+      "new": "large gains when a small generating set exists (up to 614x fewer probes; on associative inputs at n = 512 Light incl. generating set is 235-340x faster and the anchored test 565x faster than the exhaustive check, indicative timings); essentially none on left-zero bands (1.7x); randomised tests trade certainty for O(n^2) cost",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:23Z"
+    }
+  ],
+  "id": "CLM-C17-04",
+  "improvement": "MIXED",
+  "improvement_detail": "large gains when a small generating set exists (up to 614x fewer probes; on associative inputs at n = 512 Light incl. generating set is 235-340x faster and the anchored test 565x faster than the exhaustive check, indicative timings); essentially none on left-zero bands (1.7x); randomised tests trade certainty for O(n^2) cost",
+  "limitations": "Families chosen to include worst cases for each method; no comparison with optimised C implementations.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The algorithms are classical (Light; Rajagopalan-Schulman); the benchmark is ours. Timings were measured on a shared, loaded machine and are indicative only; probe counts are exact.",
+  "statement": "On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.",
+  "system": "SYS-B",
+  "title": "Benchmark - generator and anchor tests versus the exhaustive check",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}
