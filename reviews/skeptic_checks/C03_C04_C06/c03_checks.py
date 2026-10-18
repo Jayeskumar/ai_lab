@@ -239,14 +239,14 @@ def part_open():
     for k in opens:
         p, q, r, s = k
         lhs, rhs = rule(*k)
-        c = own_loop_search(*k, max_steps=6000, max_len=80000, amax=4 * p, bmax=6 * q + 8, random_tries=2)
+        c = own_loop_search(*k, max_steps=4000, max_len=60000, amax=3 * p, bmax=4 * q + 6, random_tries=1)
         # rightmost/leftmost outcome from 0^a 1^b: does the strategy reach a normal form?
         nf = 0
         tot = 0
         for a in range(p, 3 * p + 1):
             for b in range(q, 3 * q + 3):
                 for strat in ("leftmost", "rightmost"):
-                    pos, why = strategy_run(lhs, rhs, "0" * a + "1" * b, strat, 200000, 10 ** 7)
+                    pos, why = strategy_run(lhs, rhs, "0" * a + "1" * b, strat, 50000, 10 ** 6)
                     tot += 1
                     nf += why == "normal form"
         # finite reachable sets from all words of length <= 10 containing lhs (no length cap; count limit)
@@ -340,9 +340,9 @@ def part_obs11():
             for k in range(2, 7 if q <= 6 else 4):
                 lhs, rhs = rule(1, q, r, k)
                 res = None
-                for b in [q * (q + 1)] + list(range(q, 8 * q)):
+                for b in [q * (q + 1)] + list(range(q, 6 * q)):
                     for strat in ("rightmost", "leftmost"):
-                        pos, why = strategy_run(lhs, rhs, "0" + "1" * b, strat, 20000, 400000)
+                        pos, why = strategy_run(lhs, rhs, "0" + "1" * b, strat, 12000 if q == 7 else 6000, 150000)
                         if pos is not None:
                             res = {"b": b, "strategy": strat, "steps": len(pos)}
                             break

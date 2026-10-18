@@ -1,0 +1,57 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "complete SAT enumeration of anchored models (limit 100) for N = 1..9",
+    "spectra up to 200 from the root condition; OEIS lookups for the distinct polynomials"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C13-03",
+    "file": "experiments/C13/E03_w_family.py",
+    "sha256": "8fc32967625979e6ca724f4c11ce279fb9b25c95884feb3d1f65fe3fb1bf8926",
+    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+  },
+  "cycle": "C13",
+  "falsification": "A model count differing from the root count, or a non-affine model.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:25:49Z"
+    }
+  ],
+  "hypothesis": "H-C13-4 (derived): for all 23 terms W with <= 5 leaves and all N <= 9 the number of anchored models equals the number of roots of a*c_W(a) - 1 modulo N, and every model is affine.",
+  "id": "EXP-C13-03",
+  "methodology": "For each W: build the law, compute c_W and the root counts; enumerate all anchored models with MagmaSAT and test each for affinity and for the root condition; compare counts.",
+  "question": "Are the anchored models of (xy)z = x(y W(z)) exactly the affine tables x + a*y + 1 with a*c_W(a) = 1 (mod N), c_W(a) = sum over leaves of a^(right depth), as Theorem 3 of proofs/paper/C13.md asserts? Which arithmetic sets do these laws realise?",
+  "results_file": "results/EXP-C13-03.json",
+  "results_sha256": "706180c29321176d7d2cc11e22b92c0dbf51e78035f0fa663f77a53f9061610f",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-03",
+        "file": "experiments/C13/E03_w_family.py",
+        "sha256": "8fc32967625979e6ca724f4c11ce279fb9b25c95884feb3d1f65fe3fb1bf8926",
+        "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:25:48Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C13-03.json",
+      "results_sha256": "706180c29321176d7d2cc11e22b92c0dbf51e78035f0fa663f77a53f9061610f",
+      "runtime_s": 88.84,
+      "started": "2026-10-18T09:24:20Z",
+      "summary": [
+        "23 terms W; N = 1..9; mismatches with Theorem 3: 0",
+        "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
+        "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
+      ]
+    }
+  ],
+  "summary": [
+    "23 terms W; N = 1..9; mismatches with Theorem 3: 0",
+    "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
+    "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
+  ],
+  "title": "Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves"
+}

@@ -1,0 +1,16 @@
+{
+ "19": {
+  "models": 2,
+  "complete": true,
+  "all_affine": true,
+  "a": [
+   4,
+   14
+  ],
+  "golden_roots": [
+   4,
+   14
+  ],
+  "sec": 616.2
+ }
+}

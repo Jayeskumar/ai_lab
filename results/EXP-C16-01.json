@@ -1,0 +1,360 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C16-01",
+    "file": "experiments/C16/E01_small_magmas.py",
+    "sha256": "71869f056d13385a84201f4d78a2d85a95aa09901b635f2550c7d2b7609575c6",
+    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+  },
+  "env": {
+    "git_head": "1ae1c2b7a7a87cd7f889dedfa2d8f07fce5cf546",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:27:31Z",
+  "id": "EXP-C16-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "all 16 tables of order 2 and all 19683 of order 3; for order 4 only the (4!)^4 = 331776 tables whose rows are permutations (the only candidates for a full cycle by H-C16-2)",
+      "isomorphism classes by brute-force canonical codes (n <= 3; full-period tables for n = 4)",
+      "the mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the transposed table; checked on the order-3 census"
+    ],
+    "cycle": "C16",
+    "falsification": "H-C16-1: a table with a period n^2, or a non-quasigroup attaining the maximum. H-C16-2: a permutation pair map with a non-bijective left translation or vice versa, or a count different from (n!)^n. H-C16-3: a full-period count different from (n!)^n / n^2.",
+    "hypothesis": "H-C16-1 (bold, Inventor): as for Pisano periods, where (0, 0) is fixed, the maximal period on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups. H-C16-2 (Formal Verifier): the pair map is a permutation iff every left translation a -> b*a is a bijection, so exactly (n!)^n tables give permutations. H-C16-3 (Formal Verifier, after the n = 2 data): the tables with a single cycle through all n^2 states correspond to de Bruijn cycles of order 2, (n!)^n / n^2 of them (1, 24, 20736 for n = 2, 3, 4).",
+    "id": "EXP-C16-01",
+    "methodology": "Batch functional-graph analysis (orbit doubling, periods, transients) of the pair maps; count permutation pair maps and full-period tables; test the quasigroup property of the full-period tables; distributions of the maximal period; OEIS check of the counts.",
+    "question": "How long can the sequence x_{k+1} = x_k * x_{k-1} cycle in an n-element magma, when is the pair map a permutation, and which magmas attain the longest periods?",
+    "title": "Cycle structure of the Fibonacci pair map (a, b) -> (b, b*a) for all small magmas"
+  },
+  "results": {
+    "H_C16_1_refuted": true,
+    "census": {
+      "2": {
+        "criterion_violations": 0,
+        "full_period_examples": [
+          [
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              0
+            ]
+          ]
+        ],
+        "full_period_quasigroups": 0,
+        "full_period_tables": 1,
+        "iso_classes": 10,
+        "iso_classes_by_max_period": {
+          "1": 4,
+          "2": 3,
+          "3": 2,
+          "4": 1
+        },
+        "iso_classes_full_period": 1,
+        "label": "all magmas of order 2",
+        "max_period_among_quasigroups": 3,
+        "max_period_distribution": {
+          "1": 7,
+          "2": 4,
+          "3": 4,
+          "4": 1
+        },
+        "max_period_overall": 4,
+        "max_transient": 3,
+        "n": 2,
+        "permutation_pair_maps": 4,
+        "quasigroups": 2,
+        "seconds": 0.01,
+        "tables": 16
+      },
+      "3": {
+        "criterion_violations": 0,
+        "full_period_examples": [
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ]
+        ],
+        "full_period_quasigroups": 0,
+        "full_period_tables": 24,
+        "iso_classes": 3330,
+        "iso_classes_by_max_period": {
+          "1": 772,
+          "2": 778,
+          "3": 894,
+          "4": 489,
+          "5": 243,
+          "6": 95,
+          "7": 36,
+          "8": 19,
+          "9": 4
+        },
+        "iso_classes_full_period": 4,
+        "label": "all magmas of order 3",
+        "max_period_among_quasigroups": 8,
+        "max_period_distribution": {
+          "1": 4563,
+          "2": 4581,
+          "3": 5316,
+          "4": 2877,
+          "5": 1458,
+          "6": 540,
+          "7": 216,
+          "8": 108,
+          "9": 24
+        },
+        "max_period_overall": 9,
+        "max_transient": 8,
+        "n": 3,
+        "permutation_pair_maps": 216,
+        "quasigroups": 12,
+        "seconds": 0.08,
+        "tables": 19683
+      },
+      "4": {
+        "criterion_violations": 0,
+        "full_period_examples": [
+          [
+            [
+              1,
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              0,
+              3
+            ],
+            [
+              1,
+              2,
+              3,
+              0
+            ],
+            [
+              1,
+              2,
+              3,
+              0
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              0,
+              3
+            ],
+            [
+              1,
+              2,
+              3,
+              0
+            ],
+            [
+              1,
+              3,
+              0,
+              2
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2,
+              3
+            ],
+            [
+              1,
+              2,
+              0,
+              3
+            ],
+            [
+              1,
+              2,
+              3,
+              0
+            ],
+            [
+              2,
+              0,
+              3,
+              1
+            ]
+          ]
+        ],
+        "full_period_quasigroups": 0,
+        "full_period_tables": 20736,
+        "iso_classes_full_period": 864,
+        "label": "row-permutation magmas of order 4",
+        "max_period_among_quasigroups": 15,
+        "max_period_distribution": {
+          "2": 1,
+          "3": 244,
+          "4": 3207,
+          "5": 12672,
+          "6": 22648,
+          "7": 32304,
+          "8": 40380,
+          "9": 35712,
+          "10": 32832,
+          "11": 29952,
+          "12": 28512,
+          "13": 24192,
+          "14": 20736,
+          "15": 27648,
+          "16": 20736
+        },
+        "max_period_overall": 16,
+        "max_transient": 0,
+        "n": 4,
+        "permutation_pair_maps": 331776,
+        "quasigroups": 576,
+        "seconds": 3.26,
+        "tables": 331776
+      }
+    },
+    "checks": {
+      "2": {
+        "full_period_count_ok": true,
+        "permutation_count_ok": true
+      },
+      "3": {
+        "full_period_count_ok": true,
+        "permutation_count_ok": true
+      },
+      "4": {
+        "full_period_count_ok": true,
+        "permutation_count_ok": true
+      }
+    },
+    "full_period_non_quasigroups": {
+      "2": 1,
+      "3": 24,
+      "4": 20736
+    },
+    "mirror_equals_transpose_forward": true,
+    "oeis_full_period_quasigroups": {
+      "hits": [
+        {
+          "anumber": "A008683",
+          "name": "Möbius (or Moebius) function mu(n). mu(1) = 1; mu(n) = (-1)^k if n is the product of k different primes; otherwise mu(n) = 0."
+        },
+        {
+          "anumber": "A010054",
+          "name": "a(n) = 1 if n is a triangular number, otherwise 0."
+        },
+        {
+          "anumber": "A010815",
+          "name": "From Euler's Pentagonal Theorem: coefficient of q^n in Product_{m>=1} (1 - q^m)."
+        }
+      ],
+      "status": "MATCH",
+      "terms": [
+        0,
+        0,
+        0
+      ]
+    },
+    "oeis_order3_max_period_distribution": {
+      "hits": [],
+      "status": "NO MATCH"
+    },
+    "predicted": {
+      "2": {
+        "full": 1,
+        "permutations": 4
+      },
+      "3": {
+        "full": 24,
+        "permutations": 216
+      },
+      "4": {
+        "full": 20736,
+        "permutations": 331776
+      }
+    },
+    "summary": [
+      "max period over all tables: n=2: 4, n=3: 9, n=4: 16",
+      "permutation pair maps (predicted (n!)^n): n=2: 4 (4), criterion violations 0, n=3: 216 (216), criterion violations 0, n=4: 331776 (331776), criterion violations 0",
+      "full-period tables (predicted (n!)^n/n^2): n=2: 1 (1), of which quasigroups 0, n=3: 24 (24), of which quasigroups 0, n=4: 20736 (20736), of which quasigroups 0",
+      "max period among quasigroups: n=2: 3, n=3: 8, n=4: 15",
+      "order 3: 3330 isomorphism classes, max-period distribution {1: 4563, 2: 4581, 3: 5316, 4: 2877, 5: 1458, 6: 540, 7: 216, 8: 108, 9: 24}",
+      "mirror dynamics = forward dynamics of the transpose (order 3): True"
+    ],
+    "timings": {
+      "order_4": 3.72,
+      "orders_2_3": 0.1
+    }
+  },
+  "results_sha256": "0550e32b9f950756b68842e6de36f42d31787ea2a035853b59136abb6bb96001",
+  "runtime_s": 7.899,
+  "started": "2026-10-18T09:27:23Z"
+}

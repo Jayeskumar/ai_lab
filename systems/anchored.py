@@ -333,3 +333,113 @@ def is_affine_table(T):
         return True, 0
     a = int((T[0, 1] - 1) % n)
     return bool(np.array_equal(T, affine_table(n, a))), a
+
+
+# ------------------------------------------------------------------ offset congruence closure (finite-spectrum prover)
+
+
+class OffsetClosure:
+    """Sound derivation of divisibility constraints N | g valid in EVERY anchored model of a law.
+
+    Elements are represented as (symbol, offset): symbol 0 is the element 0, so (0, k) is the element k mod N;
+    other symbols name unknown elements (table entries T(a, b) met during evaluation).  A union-find with integer
+    offsets records derived equalities  s = root + off.  Facts used: instances of the law at the given values, the
+    anchor T(a, 0) = a + 1 (applied only when the right argument is literally the element 0), and functionality of
+    T (equal arguments give equal entries).  A derived equality root + k1 = root + k2 yields N | (k1 - k2).
+    """
+
+    def __init__(self):
+        self.parent = {0: (0, 0)}  # symbol -> (parent, offset): s = parent + offset
+        self.table = {}            # (norm a, norm b) -> value
+        self.g = 0
+        self.next = 1
+        self.changed = False
+
+    def find(self, s):
+        p, off = self.parent[s]
+        if p == s:
+            return s, 0
+        r, o2 = self.find(p)
+        self.parent[s] = (r, off + o2)
+        return r, off + o2
+
+    def norm(self, v):
+        r, off = self.find(v[0])
+        return (r, v[1] + off)
+
+    def new(self):
+        s = self.next
+        self.next += 1
+        self.parent[s] = (s, 0)
+        return (s, 0)
+
+    def union(self, v, w):
+        a, b = self.norm(v), self.norm(w)
+        if a[0] == b[0]:
+            d = abs(a[1] - b[1])
+            if d:
+                ng = gcd(self.g, d)
+                if ng != self.g:
+                    self.g = ng
+                    self.changed = True
+            return
+        # a.root + a.k = b.root + b.k  ->  a.root = b.root + (b.k - a.k); keep symbol 0 as a root
+        if a[0] == 0:
+            a, b = b, a
+        self.parent[a[0]] = (b[0], b[1] - a[1])
+        self.changed = True
+
+    def entry(self, a, b):
+        a, b = self.norm(a), self.norm(b)
+        if b == (0, 0):
+            return (a[0], a[1] + 1)
+        key = (a, b)
+        if key not in self.table:
+            self.table[key] = self.new()
+            self.changed = True
+        return self.norm(self.table[key])
+
+    def eval(self, t, asg):
+        if is_var(t):
+            return self.norm(asg[t])
+        return self.entry(self.eval(t[0], asg), self.eval(t[1], asg))
+
+    def rehash(self):
+        """Re-normalise keys; merge entries whose keys became equal; apply the anchor to keys (a, 0)."""
+        new = {}
+        for (a, b), v in list(self.table.items()):
+            a2, b2 = self.norm(a), self.norm(b)
+            if b2 == (0, 0):
+                self.union(v, (a2[0], a2[1] + 1))
+                continue
+            key = (a2, b2)
+            if key in new:
+                self.union(new[key], v)
+            else:
+                new[key] = v
+        self.table = new
+
+
+def offset_closure_bound(laws, values=(0, 1, 2, 3, 4, -1, -2), rounds=6, max_symbols=4000, symbol_values=0):
+    """Integer g >= 0 such that N | g for every anchored model of size N of `laws` (0: nothing derived).
+
+    Instances of the laws are taken at the constant elements `values` and, if symbol_values > 0, also at the first
+    `symbol_values` table entries created so far (as unknown elements)."""
+    oc = OffsetClosure()
+    vars_ = sorted({v for law in laws for side in law for v in variables(side)})
+    for _ in range(rounds):
+        oc.changed = False
+        consts = [(0, c) for c in values] + [(s, 0) for s in range(1, min(oc.next, 1 + symbol_values))]
+        for law in laws:
+            for combo in itertools.product(consts, repeat=len(vars_)):
+                asg = dict(zip(vars_, combo))
+                l, r = oc.eval(law[0], asg), oc.eval(law[1], asg)
+                oc.union(l, r)
+                if oc.g == 1:
+                    return 1
+            if oc.next > max_symbols:
+                break
+        oc.rehash()
+        if not oc.changed or oc.next > max_symbols:
+            break
+    return oc.g

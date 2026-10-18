@@ -1,0 +1,56 @@
+{
+  "agent": "Mathematical Skeptic",
+  "assumptions": [
+    "N = 2..12; one SAT call per law and N with every affine table blocked (conflict budget 4,000,000); affine models counted separately from the affine system"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C13-04",
+    "file": "experiments/C13/E04_finite_spectra.py",
+    "sha256": "031dd70a2814fbfca1d5908cea48faffce9a44647860903975b29e621c4eedde",
+    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+  },
+  "cycle": "C13",
+  "falsification": "A model at N outside {1,3} resp. {1,2}, or a non-affine model other than the known one.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:27:41Z"
+    }
+  ],
+  "hypothesis": "CLM-C06-10 (from C06): spectra exactly {1,3} and {1,2}; all models affine except the known non-affine N = 2 model of x(yz) = y((yx)z).",
+  "id": "EXP-C13-04",
+  "methodology": "Spectrum(N) = (affine roots exist) or (SAT finds a non-affine model).",
+  "question": "Do the seven {1,3}-laws and ten {1,2}-laws of CLM-C06-10 have anchored models (affine or not) for any N in 2..12 outside their conjectured spectra?",
+  "results_file": "results/EXP-C13-04.json",
+  "results_sha256": "e2dc4a04980df47f66bd431777a7929fbc448abd078217f69e1ae65abe48c5cf",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-04",
+        "file": "experiments/C13/E04_finite_spectra.py",
+        "sha256": "031dd70a2814fbfca1d5908cea48faffce9a44647860903975b29e621c4eedde",
+        "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:27:41Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C13-04.json",
+      "results_sha256": "e2dc4a04980df47f66bd431777a7929fbc448abd078217f69e1ae65abe48c5cf",
+      "runtime_s": 66.864,
+      "started": "2026-10-18T09:26:34Z",
+      "summary": [
+        "17 laws; spectrum (N <= 12) equals the conjectured set for 17",
+        "non-affine models: x(yz)=y((yx)z) at [2]",
+        "UNKNOWN instances: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "17 laws; spectrum (N <= 12) equals the conjectured set for 17",
+    "non-affine models: x(yz)=y((yx)z) at [2]",
+    "UNKNOWN instances: 0"
+  ],
+  "title": "Non-affine models of the 17 finite-spectrum laws of CLM-C06-10, N <= 12"
+}

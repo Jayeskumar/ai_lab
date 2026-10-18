@@ -94,9 +94,10 @@ def cmd_oeis(args):
 def cmd_report(args):
     from . import report
     s = report.write()
-    import json
-    print(json.dumps({k: v for k, v in s.items() if k != "potentially_novel"}, indent=1))
-    print("potentially novel:", len(s["potentially_novel"]))
+    md = report.write_markdown()
+    print(f"[report] wrote reports/batch_statistics.json and {md}")
+    print(f"cycles {s['cycles']}, experiments {s['experiments']}, claims {s['claims']}: {s['verification']}")
+    print(f"novelty: {s['novelty']}; Lean: {s['lean_files_verified']} files, {s['lean_theorems']} theorems")
     return 0
 
 

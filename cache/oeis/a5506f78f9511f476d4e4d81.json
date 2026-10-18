@@ -1,0 +1,50 @@
+{
+  "fetched": "2026-10-18T09:27:48Z",
+  "query": "id:A087781",
+  "response": [
+    {
+      "author": "Yuval Dekel (dekelyuval(AT)hotmail.com), Oct 06 2003",
+      "comment": [
+        "Sequence A089270 gives the positions of the nonzero terms. The term a(n) gives the number of primitive solutions (x,y) of the equation x^2 + xy - y^2 = n."
+      ],
+      "created": "2004-02-19T03:00:00-05:00",
+      "data": "1,0,0,0,1,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,2,0,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0,0,2,0,0,0,0",
+      "ext": [
+        "More terms from _David Wasserman_, Jun 17 2005"
+      ],
+      "formula": [
+        "From _Do Thanh Nhan_, Apr 18 2026: (Start)",
+        "a(n) = a(p_1^k_1 * p_2^k_2 * ... * p_t^k_t) = a(p_1^k_1) * a(p_2^k_2) * ... * a(p_t^k_t), where p_i are distinct primes for 1 <= i <= t and a(p^k) = 2 if p == 1, 4 (mod 5); 0 if p == 2, 3 (mod 5) or p=5 and k>1; and 1 otherwise.",
+        "a(n) = A034444(n) if n is not divisible by 5 and a(n) is nonzero; a(n) = A034444(n)/2 if n is divisible by 5 and a(n) is nonzero. Short proof of this: By the formula below, if for integer n not divisible by 5 and nonzero a(n), all prime powers p^k of n must satisfy a(p^k) = 2 and as such a(n) = 2^A001221(n) = A034444(n). Furthermore, if for integer n divisible by 5 and a(n) =/= 0, this means that all prime powers except for 5 must satisfy a(p^k) = 2 and a(5) = 1. Thus, a(n) = 2^(A001221(n) - 1) = A034444(n)/2. (End)"
+      ],
+      "keyword": "mult,nonn,easy",
+      "link": [
+        "T. D. Noe, <a href=\"/A087781/b087781.txt\">Table of n, a(n) for n=1..10000</a>"
+      ],
+      "name": "Number of non-congruent solutions to x^2 - x - 1 == 0 mod n.",
+      "number": 87781,
+      "offset": "1,11",
+      "program": [
+        "(Python)",
+        "from sympy import factorint",
+        "def a(n):",
+        "    fact = factorint(n)",
+        "    prod = 1",
+        "    for p, k in fact.items():",
+        "        if p == 5 and k != 1: return 0",
+        "        if p % 5 in [1, 4] and p != 5: prod *= 2",
+        "        elif p == 5: continue",
+        "        else: return 0",
+        "    return prod # _Do Thanh Nhan_, Apr 18 2026"
+      ],
+      "references": 1,
+      "revision": 21,
+      "time": "2026-04-20T00:49:13-04:00",
+      "xref": [
+        "Cf. A000086, A034444.",
+        "Cf. A086937."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=id%3AA087781&fmt=json"
+}

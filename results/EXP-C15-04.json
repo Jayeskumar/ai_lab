@@ -1,0 +1,287 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C15-04",
+    "file": "experiments/C15/E04_cycle_detection.py",
+    "sha256": "f32b1c249474fd2374ae0022572730200f9a7c4108aeaa5961ed890753b1926a",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "env": {
+    "git_head": "1ae1c2b7a7a87cd7f889dedfa2d8f07fce5cf546",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:32:28Z",
+  "id": "EXP-C15-04",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "one seeded random row per class and length",
+      "cap 5000 simulated steps (rows that do not repeat within the cap are reported as 'not found')",
+      "width classes from EXP-C15-02"
+    ],
+    "cycle": "C15",
+    "falsification": "Fewer than half of the classes repeat within the cap at L = 32, or a bounded/linear-width class that does not repeat within the cap.",
+    "hypothesis": "H-C15-5 (bold): for most classes (at least half), a random cyclic row of length 32 repeats within 5000 steps, so cycle detection fast-forwards most magma automata; long cycles occur only for classes with geometric streaming width.",
+    "id": "EXP-C15-04",
+    "methodology": "cycle_fast_forward with a dictionary of visited rows; record mu, lambda or 'not found'; group by the width class of EXP-C15-02.",
+    "question": "For each of the 1734 order-3 magma automata, after how many steps (transient mu plus period lambda) does a random cyclic row of length L = 16, 32, 64 repeat? Cycle detection answers any query t in mu + lambda simulated steps.",
+    "seed": 1515,
+    "title": "Cycle detection as a universal fast-forward: transient plus period of random cyclic rows"
+  },
+  "results": {
+    "per_L": {
+      "16": {
+        "bounded_or_linear_not_found": [],
+        "by_width_class": {
+          "bounded": {
+            "classes": 808,
+            "found": 808,
+            "max_mu_plus_lam": 240
+          },
+          "geometric": {
+            "classes": 300,
+            "found": 263,
+            "max_mu_plus_lam": 4481
+          },
+          "linear": {
+            "classes": 104,
+            "found": 104,
+            "max_mu_plus_lam": 61
+          },
+          "other": {
+            "classes": 522,
+            "found": 518,
+            "max_mu_plus_lam": 3567
+          }
+        },
+        "found": 1693,
+        "max_lambda": 4068,
+        "max_mu": 3286,
+        "median_lambda": 2.0,
+        "median_mu": 4.0,
+        "n_bounded_or_linear_not_found": 0,
+        "of": 1734
+      },
+      "32": {
+        "bounded_or_linear_not_found": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        ],
+        "by_width_class": {
+          "bounded": {
+            "classes": 808,
+            "found": 804,
+            "max_mu_plus_lam": 104
+          },
+          "geometric": {
+            "classes": 300,
+            "found": 172,
+            "max_mu_plus_lam": 4764
+          },
+          "linear": {
+            "classes": 104,
+            "found": 104,
+            "max_mu_plus_lam": 147
+          },
+          "other": {
+            "classes": 522,
+            "found": 510,
+            "max_mu_plus_lam": 1524
+          }
+        },
+        "found": 1590,
+        "max_lambda": 4584,
+        "max_mu": 3398,
+        "median_lambda": 2.0,
+        "median_mu": 5.0,
+        "n_bounded_or_linear_not_found": 4,
+        "of": 1734
+      },
+      "64": {
+        "bounded_or_linear_not_found": [
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              2,
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              2,
+              0,
+              1
+            ],
+            [
+              1,
+              2,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              2
+            ]
+          ],
+          [
+            [
+              1,
+              0,
+              2
+            ],
+            [
+              0,
+              2,
+              1
+            ],
+            [
+              2,
+              1,
+              0
+            ]
+          ]
+        ],
+        "by_width_class": {
+          "bounded": {
+            "classes": 808,
+            "found": 804,
+            "max_mu_plus_lam": 200
+          },
+          "geometric": {
+            "classes": 300,
+            "found": 147,
+            "max_mu_plus_lam": 4891
+          },
+          "linear": {
+            "classes": 104,
+            "found": 104,
+            "max_mu_plus_lam": 241
+          },
+          "other": {
+            "classes": 522,
+            "found": 506,
+            "max_mu_plus_lam": 3969
+          }
+        },
+        "found": 1561,
+        "max_lambda": 4480,
+        "max_mu": 3817,
+        "median_lambda": 2.0,
+        "median_mu": 6.0,
+        "n_bounded_or_linear_not_found": 4,
+        "of": 1734
+      }
+    },
+    "summary": [
+      "L=16: 1693/1734 repeat within 5000 steps; median mu 4.0, median lambda 2.0; bounded/linear-width classes not repeating: 0",
+      "L=32: 1590/1734 repeat within 5000 steps; median mu 5.0, median lambda 2.0; bounded/linear-width classes not repeating: 4",
+      "L=64: 1561/1734 repeat within 5000 steps; median mu 6.0, median lambda 2.0; bounded/linear-width classes not repeating: 4"
+    ],
+    "timings": {
+      "total_s": 28.0
+    }
+  },
+  "results_sha256": "e2a0d442418ecca98be790f3b18e52a9f8e7b61c5cb6585a3b0a816e7aa8c226",
+  "runtime_s": 28.086,
+  "started": "2026-10-18T09:32:00Z"
+}

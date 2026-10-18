@@ -1,0 +1,17 @@
+golden 1 {'models': 1, 'all_affine': True, 'a': [0], 'sec': 0.0}
+golden 2 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.0}
+golden 3 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.0}
+golden 4 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.0}
+golden 5 {'models': 1, 'all_affine': True, 'a': [2], 'sec': 0.0}
+golden 6 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.0}
+golden 7 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.0}
+golden 8 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.1}
+golden 9 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.2}
+golden 10 {'models': 0, 'all_affine': True, 'a': [], 'sec': 0.6}
+golden 11 {'models': 2, 'all_affine': True, 'a': [3, 7], 'sec': 1.8}
+golden 12 {'models': 0, 'all_affine': True, 'a': [], 'sec': 2.5}
+golden 13 {'models': 0, 'all_affine': True, 'a': [], 'sec': 5.6}
+golden 14 {'models': 0, 'all_affine': True, 'a': [], 'sec': 10.5}
+golden 15 {'models': 0, 'all_affine': True, 'a': [], 'sec': 25.4}
+golden 16 {'models': 0, 'all_affine': True, 'a': [], 'sec': 57.4}
+golden 17 {'models': 0, 'all_affine': True, 'a': [], 'sec': 125.5}

@@ -18,7 +18,7 @@ finite model?*
 | H-C05-Q | *(bold)* Every nontrivial identity t = x forces its finite models to be quasigroups. | Inventor | **refuted** (a 4-element non-Latin model of law 167; 18 identities with non-quasigroup models of order ≤ 3) |
 | H-C05-A | *(bold)* Full spectrum ⇔ affine models x∗y = ax + by + c over every ℤ_n (tested on n ≤ 6). | Inventor | **refuted** (x = (yx)(x(yy)): NAND is an order-2 model, no affine model over ℤ₂) |
 | H-C05-2 | Restricted spectra are classical design spectra (Mendelsohn, Steiner, Euler's 36 officers…). | Explorer | partly supported |
-| H-C05-3 | The open spectra of the ETP notes can be extended by SAT to n ≤ 12. | Verifier | see EXP-C05-03 |
+| H-C05-3 | The open spectra of the ETP notes can be extended by SAT (planned n ≤ 12, run to n ≤ 10). | Verifier | **supported**: 0 disagreements with the notes; new memberships and gaps in the Frontier table |
 
 ## Step 2 — Definitions
 
@@ -32,22 +32,21 @@ right-to-left) have equal spectra.
 ## Step 3 — Falsification design
 
 * Exhaustive census of **all 115 nontrivial two-variable identities t = x
-  with 2–4 operations**, SAT model existence for n = 1..7 (each UNSAT/SAT
-  answer recorded; budgets bounded, UNKNOWN reported as such).
+  with 2–4 operations**, SAT model existence for n = 1..6, and n = 7, 8 for
+  the non-full ones (budgets bounded, UNKNOWN reported as such).
 * Model enumeration up to isomorphism to test quasigroup forcing (H-C05-Q).
 * Affine-model search over ℤ_n for every identity (H-C05-A).
 * SAT with a *sound* implied constraint (rows of the Cayley table are
-  permutations for laws x = y∗(…), Lemma 1) to push open ETP spectra to n ≤ 12,
+  permutations for laws x = y∗(…), Lemma 1) to push open ETP spectra to n ≤ 10,
   cross-checking every size already stated in the literature.
 * Every satisfiable answer is re-verified in Python, and every new membership
   is re-certified by Lean's kernel (`decide`).
 
 ## Steps 4–5 — Implementation and execution
 
-Reproduce with `python -m lab run --cycle C05` (EXP-C05-02/04/05/06 read the
-results of earlier C05 experiments; EXP-C05-06 needs a `drat-trim` binary,
-built from github.com/marijnheule/drat-trim with `gcc -O2`, path in
-`DRAT_TRIM`). Lean: `proofs/lean/Infinity/C05_Magmas.lean`.
+Reproduce with `python -m lab run --cycle C05`; requirements and the
+drat-trim build are in **Reproducibility** below. Lean:
+`proofs/lean/Infinity/C05_Magmas.lean`.
 
 | Experiment | What it did | Outcome |
 |---|---|---|
@@ -103,26 +102,33 @@ built from github.com/marijnheule/drat-trim with `gcc -O2`, path in
 
 EXP-C05-03 decided, for 15 laws listed with unknown spectrum in Le Floch's
 notes, every n ≤ 10 except the UNKNOWN entries below (budget 1e6 conflicts),
-with **0 disagreements** with any size stated in the notes. Reading the
-notes' phrase "starting with a, b, …" as settling every size up to the last
-one listed, the facts **not stated in the notes** are:
+with **0 disagreements** with any size stated in the notes. The facts **not
+stated in the notes** — reading "starting with a, b, …" as settling every
+size up to the last one listed, and taking into account the notes' lists of
+laws without models of order 2 (or of order 3) and their Gaussian-integer
+models of law 467 (all odd k² + l², k and l of different parities) — are:
 
 | ETP law | New memberships (Lean-certified table, EXP-C05-04) | New non-memberships (DRUP proof checked by drat-trim, EXP-C05-06) | Still undecided (n ≤ 10) |
 |---|---|---|---|
-| 467 x = y(x(x(yy))) | 9 | — | 10 |
-| 501 x = y(y(x(xy))) | — | 2, 3, 6, 7 | 10 |
-| 677 x = y(x((yx)y)) | **5, 7, 9** (notes give no sizes) | **2, 3, 4, 6** | 8, 10 |
-| 883 x = y((xy)(yy)) | — | 3, 6 | 9 |
-| 1076 x = y((x(xy))y) | — | 8 | 9, 10 |
-| 1083 x = y((x(yx))y) | — | 2, 5, 6 | 10 |
+| 501 x = y(y(x(xy))) | — | 3, **6, 7** | 10 |
+| 677 x = y(x((yx)y)) | **5, 7, 9** (notes give no sizes) | 3, 4, **6** | 8, 10 |
+| 883 x = y((xy)(yy)) | — | **6** | 9 |
+| 1076 x = y((x(xy))y) | — | **8** | 9, 10 |
+| 1083 x = y((x(yx))y) | — | **5, 6** | 10 |
 | 1286 x = y(((xy)x)y) | **9** | — | 8, 10 |
-| 1313 x = y(((yx)x)y) | 9 | — | 8, 10 |
-| 1516 x = (yy)(x(xy)) | 9 | — | 10 |
-| 1719 x = (yy)((xx)y) | — | 2 (supports the notes' guess N∖{2}) | — |
+| 1313 x = y(((yx)x)y) | **9** | — | 8, 10 |
+| 1516 x = (yy)(x(xy)) | **9** | — | 10 |
 
-Laws 670, 704, 907, 1110, 1279: everything we decided was already in the
-notes (our UNKNOWNs: 670 at 8–10, 704 at 9–10, 907 at 8–10, 1110 at 10,
-1279 at 9–10). Full per-size status: `results/EXP-C05-03.json`.
+Bold: orders n ≥ 5. Gaps at orders 3 and 4 are new only relative to the
+notes; ETP finite-magma searches probably settle them. Everything else we
+decided was already in the notes: all of laws 467 (its certified order-9
+model is covered by the notes' construction on ℤ[i]/(3), see
+`proofs/paper/C05.md`, Remark 5), 670, 704, 907, 1110, 1279 and 1719, the
+order-2 gaps of 501, 677, 1083 and the order-3 gap of 883. Further UNKNOWNs:
+467 at 10, 670 at 8–10, 704 at 9–10, 907 at 8–10, 1110 at 10, 1279 at 9–10.
+Full per-size status: `results/EXP-C05-03.json`. (Correction recorded in
+journal C05-13: a first version of this table also counted 467 at order 9,
+the order-2 gaps and 883's order-3 gap as new.)
 
 ## Step 7 — Proofs, certificates and counterexamples
 
@@ -147,6 +153,34 @@ notes (our UNKNOWNs: 670 at 8–10, 704 at 9–10, 907 at 8–10, 1110 at 10,
   `left_mul_bijective_of_law`). Other UNSAT entries of EXP-C05-01/02
   (e.g. in the pattern table) are solver-trusted only.
 
+## Step 8 — Comparison with existing mathematics (Historian)
+
+* **Spectra of order ≤ 4 laws were studied by the Equational Theories
+  Project (ETP).** The write-up "Spectra of order-3 equations" (Lean Zulip upload;
+  Le Floch's notes cite "Ben Gunby-Mann's notes" for law 167 — we take this
+  to be that write-up) proves: law 66,
+  x = y(x(yy)), has spectrum {n ≡ 0,1 mod 3}∖{6} (Mendelsohn triple systems);
+  law 167, x = (yx)(xy), has spectrum {n ≡ 0,1 mod 4}; law 168 (central
+  groupoids, Knuth) has spectrum {k²}. B. Le Floch's notes "Spectra of
+  equational laws" (ETP, July 10, 2025; Lean Zulip, `spectrum.pdf`) treat all
+  741 classes of order ≤ 4 and list 48 laws with possibly non-full spectrum —
+  31 without models of order 2, 14 with models of order 2 but none of
+  order 3 — many with "unknown spectrum starting with …". The ETP paper (arXiv:2512.07087, Sec. 9)
+  separates full from non-full spectra and defers detailed spectra to a
+  forthcoming publication.
+* Hence the **census itself is a REDISCOVERY**: the patterns we found
+  independently (before reading the notes) agree with the ETP knowledge.
+  What this cycle adds: (i) a machine-checked (Lean) proof of the necessity
+  half of the law-167 theorem; (ii) memberships and gaps for open laws at
+  orders the notes do not state (Frontier table), certified by Lean
+  (memberships) and drat-trim (gaps); (iii) the refutations of H-C05-Q and
+  H-C05-A in this family.
+* Classical spectra used for comparison: Mendelsohn triple systems
+  (v ≡ 0,1 mod 3, v ≠ 6; N. S. Mendelsohn 1971); Steiner triple systems
+  (v ≡ 1,3 mod 6; Kirkman 1847); pairs of orthogonal Latin squares (all n
+  except 2, 6; Bose–Shrikhande–Parker 1959–60); Stein quasigroups
+  (Bennett–Mendelsohn, Bull. Austral. Math. Soc.).
+
 ## Step 9 — Applications (Application Researcher)
 
 * *Designs from one equation.* A single identity is a compact generator of
@@ -163,7 +197,38 @@ notes (our UNKNOWNs: 670 at 8–10, 704 at 9–10, 907 at 8–10, 1110 at 10,
 ## Step 10 — Documentation
 
 `record.yaml` (claims, experiment interpretations, journal). Textbook:
-Volume 2/3 chapter "One identity, many worlds: spectra of invented laws".
+Chapter 6, `textbook/src/06_magma_laws.md` (Volume 2).
+
+## Reproducibility
+
+* **Python:** `systems/magma.py` needs `numpy` and `python-sat` (versions used:
+  numpy 2.5.3, python-sat 1.9.dev16; model search uses CaDiCaL 1.5.3, proof
+  logging Glucose 4). Budgets are conflict counts, so runs are deterministic
+  for a fixed solver version; UNKNOWN entries may change with another version.
+* **Order:** EXP-C05-02 and -05 read `results/EXP-C05-01.json`; EXP-C05-04 and
+  -06 read `results/EXP-C05-03.json`. Recorded runtimes on the shared,
+  heavily loaded container: 155 s, 670 s, 2796 s, 243 s, 9 s, 218 s for
+  EXP-C05-01 … -06.
+* **drat-trim** (only EXP-C05-06 needs it):
+
+  ```bash
+  mkdir -p ~/tools/drat && cd ~/tools/drat
+  curl -sSfL https://raw.githubusercontent.com/marijnheule/drat-trim/master/drat-trim.c -o drat-trim.c
+  gcc -O2 -o drat-trim drat-trim.c
+  export DRAT_TRIM="$HOME/tools/drat/drat-trim"
+  ```
+
+  The source was taken from the `master` branch on 2026-10-18; the commit
+  hash was not recorded. The file used has 1501 lines, header "Last edit:
+  April 21, 2024", SHA-256
+  `d834b649f437e091597f5347f259b9f681087f89ca0844d0cee250a1a1a0c2ee`, and was
+  compiled with gcc 13.3.0. EXP-C05-06 looks for the checker in `$DRAT_TRIM`,
+  then `drat-trim` on `PATH`, then this session's scratchpad path (absent
+  elsewhere); without a checker it records "checker unavailable" and
+  certifies nothing.
+* **pypdf** was installed (`pip install pypdf`) only to extract the text of
+  the two ETP PDFs while reading the literature; no experiment or module
+  imports it.
 
 ## Next directions
 
@@ -174,29 +239,3 @@ Volume 2/3 chapter "One identity, many worlds: spectra of invented laws".
 3. Order-5 laws and three-variable identities (the ETP notes treat order ≤ 4).
 4. Formalise in Lean the general orbit-counting principle behind law 167
    for other laws with a "pair map" of finite order.
-
-## Step 8 — Comparison with existing mathematics (Historian)
-
-* **Spectra of order ≤ 4 laws were studied by the Equational Theories
-  Project (ETP).** The write-up "Spectra of order-3 equations" (Lean Zulip,
-  attributed in Le Floch's notes to Ben Gunby-Mann) proves: law 66,
-  x = y(x(yy)), has spectrum {n ≡ 0,1 mod 3}∖{6} (Mendelsohn triple systems);
-  law 167, x = (yx)(xy), has spectrum {n ≡ 0,1 mod 4}; law 168 (central
-  groupoids, Knuth) has spectrum {k²}. B. Le Floch's notes "Spectrum of
-  equational laws" (Lean Zulip, `spectrum.pdf`) treat all 741 classes of order
-  ≤ 4 and list 48 laws with possibly non-full spectrum, many with "unknown
-  spectrum starting with …". The ETP paper (arXiv:2512.07087, Sec. 9)
-  separates full from non-full spectra and defers detailed spectra to a
-  forthcoming publication.
-* Hence the **census itself is a REDISCOVERY**: the patterns we found
-  independently (before reading the notes) agree with the ETP knowledge.
-  What this cycle adds: (i) a machine-checked (Lean) proof of the necessity
-  half of the law-167 theorem; (ii) SAT-decided spectrum memberships for open
-  laws at sizes the notes do not state, with Lean certificates for the
-  memberships (EXP-C05-03/04); (iii) the refutations of H-C05-Q and H-C05-A in
-  this family.
-* Classical spectra used for comparison: Mendelsohn triple systems
-  (v ≡ 0,1 mod 3, v ≠ 6; N. S. Mendelsohn 1971); Steiner triple systems
-  (v ≡ 1,3 mod 6; Kirkman 1847); pairs of orthogonal Latin squares (all n
-  except 2, 6; Bose–Shrikhande–Parker 1959–60); Stein quasigroups
-  (Bennett–Mendelsohn, Bull. Austral. Math. Soc.).

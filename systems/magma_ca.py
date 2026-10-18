@@ -431,3 +431,60 @@ def cycle_fast_forward(T, row, t: int, cap: int = 200_000):
     if t <= cap:
         return row, t, None, None
     return None, cap, None, None
+
+
+# ------------------------------------------------------------------ the fuse magma
+FUSE = np.array([[0, 0, 0], [0, 0, 1], [1, 2, 2]], dtype=np.int8)
+"""0*y = 0 (burnt); 2*y = 2 unless y = 0, 2*0 = 1 (a fuse starts burning when its right neighbour has burnt);
+1*y = 1 if y = 2, else 0 (a burning cell dies unless its right neighbour is intact)."""
+
+INF = 10 ** 18
+
+
+def fuse_burn_times(row) -> np.ndarray:
+    """tau_i = first time cell i of a cyclic row is 0 under the fuse automaton (INF if never), from the recursion
+    tau_i = 0 (x_i = 0), tau_{i+1} + 2 (x_i = 2), tau_{i+1} (x_i = 1, x_{i+1} = 2), 1 (x_i = 1, x_{i+1} != 2)."""
+    x = np.asarray(row)
+    L = len(x)
+    tau = np.full(L, INF, dtype=np.int64)
+    seeds = []
+    for i in range(L):
+        if x[i] == 0:
+            tau[i] = 0
+            seeds.append(i)
+        elif x[i] == 1 and x[(i + 1) % L] != 2:
+            tau[i] = 1
+            seeds.append(i)
+    if not seeds:
+        return tau
+    # propagate leftwards around the cycle from every seed; each cell is fixed by its nearest seed on the right
+    start = seeds[0]
+    i = (start - 1) % L
+    for _ in range(L - 1):
+        if tau[i] == INF or (x[i] != 0 and not (x[i] == 1 and x[(i + 1) % L] != 2)):
+            nxt = tau[(i + 1) % L]
+            if x[i] == 2:
+                tau[i] = nxt + 2 if nxt < INF else INF
+            elif x[i] == 1:            # here x[i+1] == 2
+                tau[i] = nxt
+        i = (i - 1) % L
+    return tau
+
+
+def fuse_fast_forward(row, t: int) -> np.ndarray:
+    """Row of the fuse automaton after t steps, in O(L) time for every t (Theorem 4 of proofs/paper/C15.md)."""
+    x = np.asarray(row)
+    L = len(x)
+    tau = fuse_burn_times(x)
+    nb = np.roll(tau, -1)            # tau_{i+1}
+    nb2 = np.roll(tau, -2)           # tau_{i+2}
+    xr = np.roll(x, -1)              # x_{i+1}
+    out = np.zeros(L, dtype=np.int8)
+    if t == 0:
+        return x.astype(np.int8).copy()
+    two = x == 2
+    out[two & (t <= nb)] = 2
+    out[two & (t == nb + 1)] = 1
+    one = (x == 1) & (xr == 2) & (t <= nb2 + 1)
+    out[one] = 1
+    return out

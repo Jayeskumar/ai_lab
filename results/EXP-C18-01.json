@@ -1,0 +1,126 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C18-01",
+    "file": "experiments/C18/E01_structure.py",
+    "sha256": "1844049a776ac64ad418d76934277727c1751246652163b15e9500e04659907c",
+    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+  },
+  "env": {
+    "git_head": "1ae1c2b7a7a87cd7f889dedfa2d8f07fce5cf546",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:31:39Z",
+  "id": "EXP-C18-01",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "random inputs: 2000 strings of 24 bytes (seeded)",
+      "the random Latin square is built row by row with randomly relabelled maximum matchings and is not uniformly distributed"
+    ],
+    "cycle": "C18",
+    "falsification": "Any failed check (a non-Latin table, a failed round trip, a changed output position < i, a changed output bit below position r for a T-function quasigroup, a key-dependent XOR difference, a changed 1-pass ARP hash under prefix permutation).",
+    "hypothesis": "Theorems 1-5 of proofs/paper/C18.md: e-transformations are bijections with the d-transformation as inverse; a single-position input difference at i changes exactly the output positions >= i; for T-function quasigroups output bits below the flipped bit position never change; for XOR every output difference is independent of the key; the 1-pass x + c(y) hash is blind to permutations of the message prefix.",
+    "id": "EXP-C18-01",
+    "methodology": "Direct checks on all 256 x 256 tables; e/d round trips; single-byte differences at random positions; bit flips at every bit position r for the T-function quasigroups; output differences for XOR across keys; 1-pass ARP hashes of keys and of permutations of their prefixes.",
+    "question": "Are the constructed tables quasigroups, which of them are T-functions or GF(2)-affine, and do the predictions of Theorems 1-5 (bijectivity, forward-only difference propagation, the T-function obstruction, linearity, anagram blindness) hold on random inputs?",
+    "seed": 1801,
+    "title": "Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems"
+  },
+  "results": {
+    "arp_1pass_prefix_permutation": {
+      "QG-LS p2+rev unchanged among changed": 0,
+      "hash_unchanged": 2000,
+      "keys": 2000,
+      "keys_actually_changed": 2000
+    },
+    "nimbers": {
+      "inverse_ok": true,
+      "nim_mul_equals_C07_mex_table_on_64": true,
+      "nim_product_is_quasigroup_on_256": false,
+      "nonzero_part_is_group_rows_are_permutations": true,
+      "row0_of_nim_product_is_zero": true
+    },
+    "properties": {
+      "AFF": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": true
+      },
+      "ALP": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": true
+      },
+      "ARP": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": false
+      },
+      "ISO": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": false
+      },
+      "LS": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": false
+      },
+      "NIMINV": {
+        "gf2_affine": false,
+        "quasigroup": true,
+        "t_function": false
+      },
+      "XOR": {
+        "gf2_affine": true,
+        "quasigroup": true,
+        "t_function": true
+      }
+    },
+    "roundtrip_d_of_e": {
+      "AFF": true,
+      "ALP": true,
+      "ARP": true,
+      "ISO": true,
+      "LS": true,
+      "NIMINV": true,
+      "XOR": true
+    },
+    "single_difference_violations": {
+      "AFF": 0,
+      "ALP": 0,
+      "ARP": 0,
+      "ISO": 0,
+      "LS": 0,
+      "NIMINV": 0,
+      "XOR": 0
+    },
+    "summary": [
+      "quasigroups: LS (T-fn False, GF2-affine False), ISO (T-fn False, GF2-affine False), NIMINV (T-fn False, GF2-affine False), AFF (T-fn True, GF2-affine False), XOR (T-fn True, GF2-affine True), ARP (T-fn False, GF2-affine False), ALP (T-fn True, GF2-affine False)",
+      "nim-product on [0,256): quasigroup False, nonzero part a group True; nim_mul = C07 table on [0,64): True",
+      "d(e(X)) = X for all: True; single-difference violations: 0",
+      "T-function obstruction violations (AFF, XOR, ALP): {'AFF': 0, 'XOR': 0, 'ALP': 0}; XOR: 1 distinct output difference(s) over 2000 keys",
+      "ARP 1-pass: 2000/2000 hashes unchanged under prefix permutation (2000 keys changed); QG-LS p2+rev unchanged: 0"
+    ],
+    "t_function_low_bit_changes": {
+      "AFF": 0,
+      "ALP": 0,
+      "XOR": 0
+    },
+    "timings": {
+      "build_quasigroups_s": 1.06
+    },
+    "xor_distinct_output_differences_for_one_input_difference": 1
+  },
+  "results_sha256": "393d97c570b911b4e0a4a2aeea76f427b8cab604a5419cfcbe8cfb2f3ceb503b",
+  "runtime_s": 1.366,
+  "started": "2026-10-18T09:31:37Z"
+}

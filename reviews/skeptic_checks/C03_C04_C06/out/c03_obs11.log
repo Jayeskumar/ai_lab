@@ -1,0 +1,95 @@
+4 2 {'steps': 16, 'outcome': 'loop', 'final_len': 53}
+4 6 {'steps': 260, 'outcome': 'loop', 'final_len': 1581}
+5 2 {'steps': 32, 'outcome': 'loop', 'final_len': 95}
+5 6 {'steps': 1556, 'outcome': 'loop', 'final_len': 9367}
+6 2 {'steps': 64, 'outcome': 'loop', 'final_len': 171}
+6 6 {'steps': 9332, 'outcome': 'loop', 'final_len': 56035}
+2 3 2 {'b': 6, 'strategy': 'rightmost', 'steps': 4}
+2 3 3 {'b': 6, 'strategy': 'rightmost', 'steps': 5}
+2 3 4 {'b': 6, 'strategy': 'rightmost', 'steps': 6}
+2 3 5 {'b': 6, 'strategy': 'rightmost', 'steps': 7}
+2 3 6 {'b': 6, 'strategy': 'rightmost', 'steps': 8}
+3 4 2 {'b': 12, 'strategy': 'rightmost', 'steps': 8}
+3 4 3 {'b': 12, 'strategy': 'rightmost', 'steps': 14}
+3 4 4 {'b': 12, 'strategy': 'rightmost', 'steps': 22}
+3 4 5 {'b': 12, 'strategy': 'rightmost', 'steps': 32}
+3 4 6 {'b': 12, 'strategy': 'rightmost', 'steps': 44}
+3 5 2 {'b': 12, 'strategy': 'rightmost', 'steps': 10}
+3 5 3 {'b': 9, 'strategy': 'rightmost', 'steps': 5}
+3 5 4 {'b': 9, 'strategy': 'rightmost', 'steps': 6}
+3 5 5 {'b': 9, 'strategy': 'rightmost', 'steps': 7}
+3 5 6 {'b': 9, 'strategy': 'rightmost', 'steps': 8}
+4 5 2 {'b': 20, 'strategy': 'rightmost', 'steps': 16}
+4 5 3 {'b': 20, 'strategy': 'rightmost', 'steps': 41}
+4 5 4 {'b': 20, 'strategy': 'rightmost', 'steps': 86}
+4 5 5 {'b': 20, 'strategy': 'rightmost', 'steps': 157}
+4 5 6 {'b': 20, 'strategy': 'rightmost', 'steps': 260}
+4 6 2 {'b': 20, 'strategy': 'rightmost', 'steps': 15}
+4 6 3 {'b': 12, 'strategy': 'rightmost', 'steps': 5}
+4 6 4 {'b': 12, 'strategy': 'rightmost', 'steps': 6}
+4 6 5 {'b': 12, 'strategy': 'rightmost', 'steps': 7}
+4 6 6 {'b': 12, 'strategy': 'rightmost', 'steps': 8}
+4 7 2 {'b': 20, 'strategy': 'rightmost', 'steps': 11}
+4 7 3 {'b': 12, 'strategy': 'rightmost', 'steps': 5}
+4 7 4 {'b': 12, 'strategy': 'rightmost', 'steps': 6}
+4 7 5 {'b': 12, 'strategy': 'rightmost', 'steps': 7}
+4 7 6 {'b': 12, 'strategy': 'rightmost', 'steps': 8}
+5 6 2 {'b': 30, 'strategy': 'rightmost', 'steps': 32}
+5 6 3 {'b': 30, 'strategy': 'rightmost', 'steps': 122}
+5 6 4 {'b': 30, 'strategy': 'rightmost', 'steps': 342}
+5 6 5 {'b': 30, 'strategy': 'rightmost', 'steps': 782}
+5 6 6 {'b': 30, 'strategy': 'rightmost', 'steps': 1556}
+5 7 2 {'b': 30, 'strategy': 'rightmost', 'steps': 35}
+5 7 3 {'b': 20, 'strategy': 'rightmost', 'steps': 14}
+5 7 4 {'b': 20, 'strategy': 'rightmost', 'steps': 22}
+5 7 5 {'b': 20, 'strategy': 'rightmost', 'steps': 32}
+5 7 6 {'b': 20, 'strategy': 'rightmost', 'steps': 44}
+5 8 2 {'b': 30, 'strategy': 'rightmost', 'steps': 16}
+5 8 3 {'b': 15, 'strategy': 'rightmost', 'steps': 5}
+5 8 4 {'b': 15, 'strategy': 'rightmost', 'steps': 6}
+5 8 5 {'b': 15, 'strategy': 'rightmost', 'steps': 7}
+5 8 6 {'b': 15, 'strategy': 'rightmost', 'steps': 8}
+5 9 2 {'b': 30, 'strategy': 'rightmost', 'steps': 16}
+5 9 3 {'b': 15, 'strategy': 'rightmost', 'steps': 5}
+5 9 4 {'b': 15, 'strategy': 'rightmost', 'steps': 6}
+5 9 5 {'b': 15, 'strategy': 'rightmost', 'steps': 7}
+5 9 6 {'b': 15, 'strategy': 'rightmost', 'steps': 8}
+6 7 2 {'b': 42, 'strategy': 'rightmost', 'steps': 64}
+6 7 3 {'b': 42, 'strategy': 'rightmost', 'steps': 365}
+6 7 4 {'b': 42, 'strategy': 'rightmost', 'steps': 1366}
+6 7 5 {'b': 42, 'strategy': 'rightmost', 'steps': 3907}
+6 7 6 None
+6 8 2 {'b': 42, 'strategy': 'rightmost', 'steps': 44}
+6 8 3 {'b': 24, 'strategy': 'rightmost', 'steps': 14}
+6 8 4 {'b': 24, 'strategy': 'rightmost', 'steps': 22}
+6 8 5 {'b': 24, 'strategy': 'rightmost', 'steps': 32}
+6 8 6 {'b': 24, 'strategy': 'rightmost', 'steps': 44}
+6 9 2 {'b': 42, 'strategy': 'rightmost', 'steps': 21}
+6 9 3 {'b': 18, 'strategy': 'rightmost', 'steps': 5}
+6 9 4 {'b': 18, 'strategy': 'rightmost', 'steps': 6}
+6 9 5 {'b': 18, 'strategy': 'rightmost', 'steps': 7}
+6 9 6 {'b': 18, 'strategy': 'rightmost', 'steps': 8}
+6 10 2 {'b': 42, 'strategy': 'rightmost', 'steps': 21}
+6 10 3 {'b': 18, 'strategy': 'rightmost', 'steps': 5}
+6 10 4 {'b': 18, 'strategy': 'rightmost', 'steps': 6}
+6 10 5 {'b': 18, 'strategy': 'rightmost', 'steps': 7}
+6 10 6 {'b': 18, 'strategy': 'rightmost', 'steps': 8}
+6 11 2 {'b': 42, 'strategy': 'rightmost', 'steps': 17}
+6 11 3 {'b': 18, 'strategy': 'rightmost', 'steps': 5}
+6 11 4 {'b': 18, 'strategy': 'rightmost', 'steps': 6}
+6 11 5 {'b': 18, 'strategy': 'rightmost', 'steps': 7}
+6 11 6 {'b': 18, 'strategy': 'rightmost', 'steps': 8}
+7 8 2 {'b': 56, 'strategy': 'rightmost', 'steps': 128}
+7 8 3 {'b': 56, 'strategy': 'rightmost', 'steps': 1094}
+7 9 2 {'b': 56, 'strategy': 'rightmost', 'steps': 100}
+7 9 3 {'b': 35, 'strategy': 'rightmost', 'steps': 41}
+7 10 2 {'b': 56, 'strategy': 'rightmost', 'steps': 45}
+7 10 3 {'b': 28, 'strategy': 'rightmost', 'steps': 14}
+7 11 2 {'b': 56, 'strategy': 'rightmost', 'steps': 26}
+7 11 3 {'b': 21, 'strategy': 'rightmost', 'steps': 5}
+7 12 2 {'b': 56, 'strategy': 'rightmost', 'steps': 22}
+7 12 3 {'b': 21, 'strategy': 'rightmost', 'steps': 5}
+7 13 2 {'b': 56, 'strategy': 'rightmost', 'steps': 22}
+7 13 3 {'b': 21, 'strategy': 'rightmost', 'steps': 5}
+== obs11 (20.1 s)
+{"q=4,k=2": {"steps": 16, "outcome": "loop", "final_len": 53}, "q=4,k=6": {"steps": 260, "outcome": "loop", "final_len": 1581}, "q=5,k=2": {"steps": 32, "outcome": "loop", "final_len": 95}, "q=5,k=6": {"steps": 1556, "outcome": "loop", "final_len": 9367}, "q=6,k=2": {"steps": 64, "outcome": "loop", "final_len": 171}, "q=6,k=6": {"steps": 9332, "outcome": "loop", "final_len": 56035}, "matches_claim": true, "base_family_missing": ["(1,6,7,6)"], "_seconds": 20.1}

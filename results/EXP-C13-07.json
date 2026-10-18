@@ -1,0 +1,7672 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C13-07",
+    "file": "experiments/C13/E07_one_variable_laws.py",
+    "sha256": "bcf2caf38606ef27dd668f8d2dade818adc3e3c08257b9ed9ef2629821b3018f",
+    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+  },
+  "env": {
+    "git_head": "1ae1c2b7a7a87cd7f889dedfa2d8f07fce5cf546",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:26:15Z",
+  "id": "EXP-C13-07",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "253 laws (23 terms with <= 5 leaves; unordered pairs)",
+      "N = 1..12, complete SAT (conflict budget 2,000,000; UNKNOWN recorded)",
+      "cofiniteness is only suggested, not proved, by N <= 12"
+    ],
+    "cycle": "C13",
+    "falsification": "A law whose spectrum up to 12 is neither {1} nor of the form 'all N >= n0 plus a set of small N' (e.g. a law with models exactly at the even sizes).",
+    "hypothesis": "H-C13-5 (bold): every one-variable law has anchored spectrum {1} or a cofinite set (all N beyond some bound), because such a law only constrains the orbit of each element under its own diagonal maps.",
+    "id": "EXP-C13-07",
+    "methodology": "MagmaSAT with the anchor for every law and N; divisor-closure violations (N, d); spectra patterns; affine roots for comparison.",
+    "question": "For every law t1(x) = t2(x) with t1 != t2 one-variable terms of at most 5 leaves, which N <= 12 admit an anchored model? Which spectra violate divisor-closure, and is every spectrum either {1} or cofinite?",
+    "title": "Spectra of one-variable laws and the failure of divisor-closure"
+  },
+  "results": {
+    "missing_patterns": [
+      {
+        "count": 213,
+        "examples": [
+          "x = x(xx)",
+          "x = (xx)(xx)",
+          "x = (x(xx))x"
+        ],
+        "missing_le12": []
+      },
+      {
+        "count": 20,
+        "examples": [
+          "x = x(x(xx))",
+          "x = x((xx)x)",
+          "xx = (xx)((xx)x)"
+        ],
+        "missing_le12": [
+          2
+        ]
+      },
+      {
+        "count": 9,
+        "examples": [
+          "x = xx",
+          "xx = (xx)x",
+          "x(xx) = (x(xx))x"
+        ],
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "count": 4,
+        "examples": [
+          "x = (xx)x",
+          "xx = ((xx)x)x",
+          "x(xx) = ((x(xx))x)x"
+        ],
+        "missing_le12": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "count": 3,
+        "examples": [
+          "x = x(((xx)x)x)",
+          "(xx)x = x(((xx)x)x)",
+          "((xx)x)x = x(((xx)x)x)"
+        ],
+        "missing_le12": [
+          3
+        ]
+      },
+      {
+        "count": 2,
+        "examples": [
+          "x = ((xx)x)x",
+          "xx = (((xx)x)x)x"
+        ],
+        "missing_le12": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "count": 1,
+        "examples": [
+          "x = (((xx)x)x)x"
+        ],
+        "missing_le12": [
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "count": 1,
+        "examples": [
+          "(x(xx))x = x(x(x(xx)))"
+        ],
+        "missing_le12": [
+          2,
+          3
+        ]
+      }
+    ],
+    "models_for_all_7_to_12": [
+      "x = x(xx)",
+      "x = x(x(xx))",
+      "x = x((xx)x)",
+      "x = (xx)(xx)",
+      "x = (x(xx))x",
+      "x = x(x(x(xx)))",
+      "x = x(x((xx)x))",
+      "x = x((xx)(xx))",
+      "x = x((x(xx))x)",
+      "x = x(((xx)x)x)",
+      "x = (xx)(x(xx))",
+      "x = (xx)((xx)x)",
+      "x = (x(xx))(xx)",
+      "x = ((xx)x)(xx)",
+      "x = (x(x(xx)))x",
+      "x = (x((xx)x))x",
+      "x = ((xx)(xx))x",
+      "x = ((x(xx))x)x",
+      "xx = x(xx)",
+      "xx = x(x(xx))",
+      "xx = x((xx)x)",
+      "xx = (xx)(xx)",
+      "xx = (x(xx))x",
+      "xx = x(x(x(xx)))",
+      "xx = x(x((xx)x))",
+      "xx = x((xx)(xx))",
+      "xx = x((x(xx))x)",
+      "xx = x(((xx)x)x)",
+      "xx = (xx)(x(xx))",
+      "xx = (xx)((xx)x)",
+      "xx = (x(xx))(xx)",
+      "xx = ((xx)x)(xx)",
+      "xx = (x(x(xx)))x",
+      "xx = (x((xx)x))x",
+      "xx = ((xx)(xx))x",
+      "xx = ((x(xx))x)x",
+      "x(xx) = (xx)x",
+      "x(xx) = x(x(xx))",
+      "x(xx) = x((xx)x)",
+      "x(xx) = (xx)(xx)",
+      "x(xx) = ((xx)x)x",
+      "x(xx) = x(x(x(xx)))",
+      "x(xx) = x(x((xx)x))",
+      "x(xx) = x((xx)(xx))",
+      "x(xx) = x((x(xx))x)",
+      "x(xx) = x(((xx)x)x)",
+      "x(xx) = (xx)(x(xx))",
+      "x(xx) = (xx)((xx)x)",
+      "x(xx) = (x(xx))(xx)",
+      "x(xx) = ((xx)x)(xx)",
+      "x(xx) = (x(x(xx)))x",
+      "x(xx) = (x((xx)x))x",
+      "x(xx) = ((xx)(xx))x",
+      "x(xx) = (((xx)x)x)x",
+      "(xx)x = x(x(xx))",
+      "(xx)x = x((xx)x)",
+      "(xx)x = (xx)(xx)",
+      "(xx)x = (x(xx))x",
+      "(xx)x = x(x(x(xx)))",
+      "(xx)x = x(x((xx)x))",
+      "(xx)x = x((xx)(xx))",
+      "(xx)x = x((x(xx))x)",
+      "(xx)x = x(((xx)x)x)",
+      "(xx)x = (xx)(x(xx))",
+      "(xx)x = (xx)((xx)x)",
+      "(xx)x = (x(xx))(xx)",
+      "(xx)x = ((xx)x)(xx)",
+      "(xx)x = (x(x(xx)))x",
+      "(xx)x = (x((xx)x))x",
+      "(xx)x = ((xx)(xx))x",
+      "(xx)x = ((x(xx))x)x",
+      "x(x(xx)) = x((xx)x)",
+      "x(x(xx)) = (xx)(xx)",
+      "x(x(xx)) = (x(xx))x",
+      "x(x(xx)) = ((xx)x)x",
+      "x(x(xx)) = x(x(x(xx)))",
+      "x(x(xx)) = x(x((xx)x))",
+      "x(x(xx)) = x((xx)(xx))",
+      "x(x(xx)) = x((x(xx))x)",
+      "x(x(xx)) = x(((xx)x)x)",
+      "x(x(xx)) = (xx)(x(xx))",
+      "x(x(xx)) = (xx)((xx)x)",
+      "x(x(xx)) = (x(xx))(xx)",
+      "x(x(xx)) = ((xx)x)(xx)",
+      "x(x(xx)) = (x((xx)x))x",
+      "x(x(xx)) = ((xx)(xx))x",
+      "x(x(xx)) = ((x(xx))x)x",
+      "x(x(xx)) = (((xx)x)x)x",
+      "x((xx)x) = (xx)(xx)",
+      "x((xx)x) = (x(xx))x",
+      "x((xx)x) = ((xx)x)x",
+      "x((xx)x) = x(x(x(xx)))",
+      "x((xx)x) = x(x((xx)x))",
+      "x((xx)x) = x((xx)(xx))",
+      "x((xx)x) = x((x(xx))x)",
+      "x((xx)x) = x(((xx)x)x)",
+      "x((xx)x) = (xx)(x(xx))",
+      "x((xx)x) = (xx)((xx)x)",
+      "x((xx)x) = (x(xx))(xx)",
+      "x((xx)x) = ((xx)x)(xx)",
+      "x((xx)x) = (x(x(xx)))x",
+      "x((xx)x) = ((xx)(xx))x",
+      "x((xx)x) = ((x(xx))x)x",
+      "x((xx)x) = (((xx)x)x)x",
+      "(xx)(xx) = (x(xx))x",
+      "(xx)(xx) = ((xx)x)x",
+      "(xx)(xx) = x(x(x(xx)))",
+      "(xx)(xx) = x(x((xx)x))",
+      "(xx)(xx) = x((xx)(xx))",
+      "(xx)(xx) = x((x(xx))x)",
+      "(xx)(xx) = x(((xx)x)x)",
+      "(xx)(xx) = (xx)(x(xx))",
+      "(xx)(xx) = (xx)((xx)x)",
+      "(xx)(xx) = (x(xx))(xx)",
+      "(xx)(xx) = ((xx)x)(xx)",
+      "(xx)(xx) = (x(x(xx)))x",
+      "(xx)(xx) = (x((xx)x))x",
+      "(xx)(xx) = ((x(xx))x)x",
+      "(xx)(xx) = (((xx)x)x)x",
+      "(x(xx))x = ((xx)x)x",
+      "(x(xx))x = x(x(x(xx)))",
+      "(x(xx))x = x(x((xx)x))",
+      "(x(xx))x = x((xx)(xx))",
+      "(x(xx))x = x((x(xx))x)",
+      "(x(xx))x = x(((xx)x)x)",
+      "(x(xx))x = (xx)(x(xx))",
+      "(x(xx))x = (xx)((xx)x)",
+      "(x(xx))x = (x(xx))(xx)",
+      "(x(xx))x = ((xx)x)(xx)",
+      "(x(xx))x = (x(x(xx)))x",
+      "(x(xx))x = (x((xx)x))x",
+      "(x(xx))x = ((xx)(xx))x",
+      "(x(xx))x = (((xx)x)x)x",
+      "((xx)x)x = x(x(x(xx)))",
+      "((xx)x)x = x(x((xx)x))",
+      "((xx)x)x = x((xx)(xx))",
+      "((xx)x)x = x((x(xx))x)",
+      "((xx)x)x = x(((xx)x)x)",
+      "((xx)x)x = (xx)(x(xx))",
+      "((xx)x)x = (xx)((xx)x)",
+      "((xx)x)x = (x(xx))(xx)",
+      "((xx)x)x = ((xx)x)(xx)",
+      "((xx)x)x = (x(x(xx)))x",
+      "((xx)x)x = (x((xx)x))x",
+      "((xx)x)x = ((xx)(xx))x",
+      "((xx)x)x = ((x(xx))x)x",
+      "x(x(x(xx))) = x(x((xx)x))",
+      "x(x(x(xx))) = x((xx)(xx))",
+      "x(x(x(xx))) = x((x(xx))x)",
+      "x(x(x(xx))) = x(((xx)x)x)",
+      "x(x(x(xx))) = (xx)(x(xx))",
+      "x(x(x(xx))) = (xx)((xx)x)",
+      "x(x(x(xx))) = (x(xx))(xx)",
+      "x(x(x(xx))) = ((xx)x)(xx)",
+      "x(x(x(xx))) = (x(x(xx)))x",
+      "x(x(x(xx))) = (x((xx)x))x",
+      "x(x(x(xx))) = ((xx)(xx))x",
+      "x(x(x(xx))) = ((x(xx))x)x",
+      "x(x(x(xx))) = (((xx)x)x)x",
+      "x(x((xx)x)) = x((xx)(xx))",
+      "x(x((xx)x)) = x((x(xx))x)",
+      "x(x((xx)x)) = x(((xx)x)x)",
+      "x(x((xx)x)) = (xx)(x(xx))",
+      "x(x((xx)x)) = (xx)((xx)x)",
+      "x(x((xx)x)) = (x(xx))(xx)",
+      "x(x((xx)x)) = ((xx)x)(xx)",
+      "x(x((xx)x)) = (x(x(xx)))x",
+      "x(x((xx)x)) = (x((xx)x))x",
+      "x(x((xx)x)) = ((xx)(xx))x",
+      "x(x((xx)x)) = ((x(xx))x)x",
+      "x(x((xx)x)) = (((xx)x)x)x",
+      "x((xx)(xx)) = x((x(xx))x)",
+      "x((xx)(xx)) = x(((xx)x)x)",
+      "x((xx)(xx)) = (xx)(x(xx))",
+      "x((xx)(xx)) = (xx)((xx)x)",
+      "x((xx)(xx)) = (x(xx))(xx)",
+      "x((xx)(xx)) = ((xx)x)(xx)",
+      "x((xx)(xx)) = (x(x(xx)))x",
+      "x((xx)(xx)) = (x((xx)x))x",
+      "x((xx)(xx)) = ((xx)(xx))x",
+      "x((xx)(xx)) = ((x(xx))x)x",
+      "x((xx)(xx)) = (((xx)x)x)x",
+      "x((x(xx))x) = x(((xx)x)x)",
+      "x((x(xx))x) = (xx)(x(xx))",
+      "x((x(xx))x) = (xx)((xx)x)",
+      "x((x(xx))x) = (x(xx))(xx)",
+      "x((x(xx))x) = ((xx)x)(xx)",
+      "x((x(xx))x) = (x(x(xx)))x",
+      "x((x(xx))x) = (x((xx)x))x",
+      "x((x(xx))x) = ((xx)(xx))x",
+      "x((x(xx))x) = ((x(xx))x)x",
+      "x((x(xx))x) = (((xx)x)x)x",
+      "x(((xx)x)x) = (xx)(x(xx))",
+      "x(((xx)x)x) = (xx)((xx)x)",
+      "x(((xx)x)x) = (x(xx))(xx)",
+      "x(((xx)x)x) = ((xx)x)(xx)",
+      "x(((xx)x)x) = (x(x(xx)))x",
+      "x(((xx)x)x) = (x((xx)x))x",
+      "x(((xx)x)x) = ((xx)(xx))x",
+      "x(((xx)x)x) = ((x(xx))x)x",
+      "x(((xx)x)x) = (((xx)x)x)x",
+      "(xx)(x(xx)) = (xx)((xx)x)",
+      "(xx)(x(xx)) = (x(xx))(xx)",
+      "(xx)(x(xx)) = ((xx)x)(xx)",
+      "(xx)(x(xx)) = (x(x(xx)))x",
+      "(xx)(x(xx)) = (x((xx)x))x",
+      "(xx)(x(xx)) = ((xx)(xx))x",
+      "(xx)(x(xx)) = ((x(xx))x)x",
+      "(xx)(x(xx)) = (((xx)x)x)x",
+      "(xx)((xx)x) = (x(xx))(xx)",
+      "(xx)((xx)x) = ((xx)x)(xx)",
+      "(xx)((xx)x) = (x(x(xx)))x",
+      "(xx)((xx)x) = (x((xx)x))x",
+      "(xx)((xx)x) = ((xx)(xx))x",
+      "(xx)((xx)x) = ((x(xx))x)x",
+      "(xx)((xx)x) = (((xx)x)x)x",
+      "(x(xx))(xx) = ((xx)x)(xx)",
+      "(x(xx))(xx) = (x(x(xx)))x",
+      "(x(xx))(xx) = (x((xx)x))x",
+      "(x(xx))(xx) = ((xx)(xx))x",
+      "(x(xx))(xx) = ((x(xx))x)x",
+      "(x(xx))(xx) = (((xx)x)x)x",
+      "((xx)x)(xx) = (x(x(xx)))x",
+      "((xx)x)(xx) = (x((xx)x))x",
+      "((xx)x)(xx) = ((xx)(xx))x",
+      "((xx)x)(xx) = ((x(xx))x)x",
+      "((xx)x)(xx) = (((xx)x)x)x",
+      "(x(x(xx)))x = (x((xx)x))x",
+      "(x(x(xx)))x = ((xx)(xx))x",
+      "(x(x(xx)))x = ((x(xx))x)x",
+      "(x(x(xx)))x = (((xx)x)x)x",
+      "(x((xx)x))x = ((xx)(xx))x",
+      "(x((xx)x))x = ((x(xx))x)x",
+      "(x((xx)x))x = (((xx)x)x)x",
+      "((xx)(xx))x = ((x(xx))x)x",
+      "((xx)(xx))x = (((xx)x)x)x",
+      "((x(xx))x)x = (((xx)x)x)x"
+    ],
+    "n_laws": 253,
+    "other": [
+      "x = (xx)x",
+      "x = ((xx)x)x",
+      "x = (((xx)x)x)x",
+      "xx = ((xx)x)x",
+      "xx = (((xx)x)x)x",
+      "x(xx) = ((x(xx))x)x",
+      "(xx)x = (((xx)x)x)x"
+    ],
+    "rows": [
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x = xx",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "x = x(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "x = (xx)x",
+        "missing_le12": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          2
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a",
+          "a^2 + a + 1"
+        ],
+        "law": "x = x(x(xx))",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a^2 + a",
+          "2a + 1"
+        ],
+        "law": "x = x((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a",
+          "a + 2"
+        ],
+        "law": "x = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a",
+          "a + 2"
+        ],
+        "law": "x = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a",
+          "3"
+        ],
+        "law": "x = ((xx)x)x",
+        "missing_le12": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          3
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^4 + a^3 + a^2 + a",
+          "a^3 + a^2 + a + 1"
+        ],
+        "law": "x = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^3 + a^2 + a",
+          "2a^2 + a + 1"
+        ],
+        "law": "x = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + 2a^2 + a",
+          "a^2 + 2a + 1"
+        ],
+        "law": "x = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + 2a^2 + a",
+          "a^2 + 2a + 1"
+        ],
+        "law": "x = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a^2 + a",
+          "3a + 1"
+        ],
+        "law": "x = x(((xx)x)x)",
+        "missing_le12": [
+          3
+        ],
+        "spectrum_le12": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + 2a",
+          "a^2 + a + 2"
+        ],
+        "law": "x = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + 2a",
+          "2a + 2"
+        ],
+        "law": "x = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + 2a",
+          "2a + 2"
+        ],
+        "law": "x = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 3a",
+          "a + 3"
+        ],
+        "law": "x = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + 2a",
+          "a^2 + a + 2"
+        ],
+        "law": "x = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + 2a",
+          "2a + 2"
+        ],
+        "law": "x = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 3a",
+          "a + 3"
+        ],
+        "law": "x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 3a",
+          "a + 3"
+        ],
+        "law": "x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "4a",
+          "4"
+        ],
+        "law": "x = (((xx)x)x)x",
+        "missing_le12": [
+          3,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          2,
+          4
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "xx = x(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "xx = (xx)x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2",
+          "a^2 + a"
+        ],
+        "law": "xx = x(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2",
+          "2a"
+        ],
+        "law": "xx = x((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "xx = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "xx = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "xx = ((xx)x)x",
+        "missing_le12": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          2
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^4 + a^3 + a^2",
+          "a^3 + a^2 + a"
+        ],
+        "law": "xx = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^3 + a^2",
+          "2a^2 + a"
+        ],
+        "law": "xx = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + 2a^2",
+          "a^2 + 2a"
+        ],
+        "law": "xx = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + 2a^2",
+          "a^2 + 2a"
+        ],
+        "law": "xx = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a^2",
+          "3a"
+        ],
+        "law": "xx = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a",
+          "a^2 + a + 1"
+        ],
+        "law": "xx = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + a",
+          "2a + 1"
+        ],
+        "law": "xx = (xx)((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a^2 + a",
+          "2a + 1"
+        ],
+        "law": "xx = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a",
+          "a + 2"
+        ],
+        "law": "xx = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a",
+          "a^2 + a + 1"
+        ],
+        "law": "xx = (x(x(xx)))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a^2 + a",
+          "2a + 1"
+        ],
+        "law": "xx = (x((xx)x))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a",
+          "a + 2"
+        ],
+        "law": "xx = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a",
+          "a + 2"
+        ],
+        "law": "xx = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a",
+          "3"
+        ],
+        "law": "xx = (((xx)x)x)x",
+        "missing_le12": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          3
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x(xx) = (xx)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "x(xx) = x(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "x(xx) = x((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x(xx) = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x(xx) = (x(xx))x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "x(xx) = ((xx)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^4 + a^3",
+          "a^3 + a^2"
+        ],
+        "law": "x(xx) = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^3",
+          "2a^2"
+        ],
+        "law": "x(xx) = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2",
+          "a^2 + a"
+        ],
+        "law": "x(xx) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2",
+          "a^2 + a"
+        ],
+        "law": "x(xx) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2",
+          "2a"
+        ],
+        "law": "x(xx) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a",
+          "a^2 + 1"
+        ],
+        "law": "x(xx) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "x(xx) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "x(xx) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "x(xx) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a",
+          "a^2 + 1"
+        ],
+        "law": "x(xx) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "x(xx) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "x(xx) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "x(xx) = ((x(xx))x)x",
+        "missing_le12": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          2
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 3",
+          "a^2 - 3a"
+        ],
+        "law": "x(xx) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "(xx)x = x(x(xx))",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "(xx)x = x((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(xx)x = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(xx)x = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(xx)x = ((xx)x)x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a - 1",
+          "a^4 + a^3 + a^2 - a"
+        ],
+        "law": "(xx)x = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + a - 1",
+          "2a^3 + a^2 - a"
+        ],
+        "law": "(xx)x = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 1",
+          "a^3 + 2a^2 - a"
+        ],
+        "law": "(xx)x = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 1",
+          "a^3 + 2a^2 - a"
+        ],
+        "law": "(xx)x = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a - 1",
+          "3a^2 - a"
+        ],
+        "law": "(xx)x = x(((xx)x)x)",
+        "missing_le12": [
+          3
+        ],
+        "spectrum_le12": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2",
+          "a^2 + a"
+        ],
+        "law": "(xx)x = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2",
+          "2a"
+        ],
+        "law": "(xx)x = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2",
+          "2a"
+        ],
+        "law": "(xx)x = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "(xx)x = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2",
+          "a^2 + a"
+        ],
+        "law": "(xx)x = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2",
+          "2a"
+        ],
+        "law": "(xx)x = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "(xx)x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a",
+          "a + 1"
+        ],
+        "law": "(xx)x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a",
+          "2"
+        ],
+        "law": "(xx)x = (((xx)x)x)x",
+        "missing_le12": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1,
+          2
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "x(x(xx)) = x((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x(x(xx)) = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x(x(xx)) = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x(x(xx)) = ((xx)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^4",
+          "a^3"
+        ],
+        "law": "x(x(xx)) = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "x(x(xx)) = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "x(x(xx)) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "x(x(xx)) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 2a",
+          "a^3 - 2a^2"
+        ],
+        "law": "x(x(xx)) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x(x(xx)) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a - 1",
+          "a^3 - a^2 - a"
+        ],
+        "law": "x(x(xx)) = (xx)((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 - a - 1",
+          "a^3 - a^2 - a"
+        ],
+        "law": "x(x(xx)) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 2",
+          "a^3 - 2a"
+        ],
+        "law": "x(x(xx)) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x(x(xx)) = (x(x(xx)))x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a - 1",
+          "a^3 - a^2 - a"
+        ],
+        "law": "x(x(xx)) = (x((xx)x))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 - 2",
+          "a^3 - 2a"
+        ],
+        "law": "x(x(xx)) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 2",
+          "a^3 - 2a"
+        ],
+        "law": "x(x(xx)) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 3",
+          "a^3 + a^2 - 3a"
+        ],
+        "law": "x(x(xx)) = (((xx)x)x)x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((xx)x) = (xx)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((xx)x) = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "x((xx)x) = ((xx)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - a",
+          "a^4 + a^3 - a^2"
+        ],
+        "law": "x((xx)x) = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - a",
+          "2a^3 - a^2"
+        ],
+        "law": "x((xx)x) = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "x((xx)x) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "x((xx)x) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "x((xx)x) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - a^2 + a",
+          "a^2 - a + 1"
+        ],
+        "law": "x((xx)x) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x((xx)x) = (xx)((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x((xx)x) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "x((xx)x) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - a^2 + a",
+          "a^2 - a + 1"
+        ],
+        "law": "x((xx)x) = (x(x(xx)))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "x((xx)x) = (x((xx)x))x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "x((xx)x) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "x((xx)x) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 3",
+          "2a^2 - 3a"
+        ],
+        "law": "x((xx)x) = (((xx)x)x)x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [],
+        "law": "(xx)(xx) = (x(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(xx)(xx) = ((xx)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 1",
+          "a^4 + a^3 - a"
+        ],
+        "law": "(xx)(xx) = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - 1",
+          "2a^3 - a"
+        ],
+        "law": "(xx)(xx) = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "(xx)(xx) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "(xx)(xx) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "(xx)(xx) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "(xx)(xx) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(xx)(xx) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(xx)(xx) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(xx)(xx) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "(xx)(xx) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(xx)(xx) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(xx)(xx) = ((xx)(xx))x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(xx)(xx) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "(xx)(xx) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x(xx))x = ((xx)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 1",
+          "a^4 + a^3 - a"
+        ],
+        "law": "(x(xx))x = x(x(x(xx)))",
+        "missing_le12": [
+          2,
+          3
+        ],
+        "spectrum_le12": [
+          1,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a^2 - 1",
+          "2a^3 - a"
+        ],
+        "law": "(x(xx))x = x(x((xx)x))",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "(x(xx))x = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "(x(xx))x = x((x(xx))x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "(x(xx))x = x(((xx)x)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "(x(xx))x = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(x(xx))x = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(x(xx))x = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(x(xx))x = ((xx)x)(xx)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^3",
+          "a^2"
+        ],
+        "law": "(x(xx))x = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "(x(xx))x = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(x(xx))x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "(x(xx))x = ((x(xx))x)x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 2",
+          "a^2 - 2a"
+        ],
+        "law": "(x(xx))x = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a - 2",
+          "a^4 + a^3 + a^2 - 2a"
+        ],
+        "law": "((xx)x)x = x(x(x(xx)))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + a - 2",
+          "2a^3 + a^2 - 2a"
+        ],
+        "law": "((xx)x)x = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 2",
+          "a^3 + 2a^2 - 2a"
+        ],
+        "law": "((xx)x)x = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 2",
+          "a^3 + 2a^2 - 2a"
+        ],
+        "law": "((xx)x)x = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a - 2",
+          "3a^2 - 2a"
+        ],
+        "law": "((xx)x)x = x(((xx)x)x)",
+        "missing_le12": [
+          3
+        ],
+        "spectrum_le12": [
+          1,
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "((xx)x)x = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "((xx)x)x = (xx)((xx)x)",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "((xx)x)x = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "((xx)x)x = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 1",
+          "a^3 + a^2 - a"
+        ],
+        "law": "((xx)x)x = (x(x(xx)))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "2a - 1",
+          "2a^2 - a"
+        ],
+        "law": "((xx)x)x = (x((xx)x))x",
+        "missing_le12": [
+          2
+        ],
+        "spectrum_le12": [
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "((xx)x)x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2",
+          "a"
+        ],
+        "law": "((xx)x)x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a",
+          "1"
+        ],
+        "law": "((xx)x)x = (((xx)x)x)x",
+        "missing_le12": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "spectrum_le12": [
+          1
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - a^2",
+          "a^4 - a^3"
+        ],
+        "law": "x(x(x(xx))) = x(x((xx)x))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - a",
+          "a^4 - a^2"
+        ],
+        "law": "x(x(x(xx))) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - a",
+          "a^4 - a^2"
+        ],
+        "law": "x(x(x(xx))) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 2a",
+          "a^4 + a^3 - 2a^2"
+        ],
+        "law": "x(x(x(xx))) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - 1",
+          "a^4 - a"
+        ],
+        "law": "x(x(x(xx))) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - a - 1",
+          "a^4 + a^3 - a^2 - a"
+        ],
+        "law": "x(x(x(xx))) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - a - 1",
+          "a^4 + a^3 - a^2 - a"
+        ],
+        "law": "x(x(x(xx))) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 2",
+          "a^4 + a^3 - 2a"
+        ],
+        "law": "x(x(x(xx))) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - 1",
+          "a^4 - a"
+        ],
+        "law": "x(x(x(xx))) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - a - 1",
+          "a^4 + a^3 - a^2 - a"
+        ],
+        "law": "x(x(x(xx))) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 2",
+          "a^4 + a^3 - 2a"
+        ],
+        "law": "x(x(x(xx))) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 - 2",
+          "a^4 + a^3 - 2a"
+        ],
+        "law": "x(x(x(xx))) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 + a^2 + a - 3",
+          "a^4 + a^3 + a^2 - 3a"
+        ],
+        "law": "x(x(x(xx))) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "x(x((xx)x)) = x((xx)(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "x(x((xx)x)) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - 2a",
+          "2a^3 - 2a^2"
+        ],
+        "law": "x(x((xx)x)) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x(x((xx)x)) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - a - 1",
+          "2a^3 - a^2 - a"
+        ],
+        "law": "x(x((xx)x)) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - a - 1",
+          "2a^3 - a^2 - a"
+        ],
+        "law": "x(x((xx)x)) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - 2",
+          "2a^3 - 2a"
+        ],
+        "law": "x(x((xx)x)) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x(x((xx)x)) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - a - 1",
+          "2a^3 - a^2 - a"
+        ],
+        "law": "x(x((xx)x)) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - 2",
+          "2a^3 - 2a"
+        ],
+        "law": "x(x((xx)x)) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 - 2",
+          "2a^3 - 2a"
+        ],
+        "law": "x(x((xx)x)) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a^2 + a - 3",
+          "2a^3 + a^2 - 3a"
+        ],
+        "law": "x(x((xx)x)) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "x((xx)(xx)) = x((x(xx))x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "x((xx)(xx)) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((xx)(xx)) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((xx)(xx)) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((xx)(xx)) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((xx)(xx)) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((xx)(xx)) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((xx)(xx)) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((xx)(xx)) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((xx)(xx)) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 3",
+          "a^3 + 2a^2 - 3a"
+        ],
+        "law": "x((xx)(xx)) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "x((x(xx))x) = x(((xx)x)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((x(xx))x) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((x(xx))x) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((x(xx))x) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((x(xx))x) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x((x(xx))x) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "x((x(xx))x) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((x(xx))x) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "x((x(xx))x) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + 2a - 3",
+          "a^3 + 2a^2 - 3a"
+        ],
+        "law": "x((x(xx))x) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - 2a^2 + a",
+          "a^2 - 2a + 1"
+        ],
+        "law": "x(((xx)x)x) = (xx)(x(xx))",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x(((xx)x)x) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x(((xx)x)x) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "x(((xx)x)x) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^3 - 2a^2 + a",
+          "a^2 - 2a + 1"
+        ],
+        "law": "x(((xx)x)x) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "x(((xx)x)x) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "x(((xx)x)x) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "x(((xx)x)x) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "3a - 3",
+          "3a^2 - 3a"
+        ],
+        "law": "x(((xx)x)x) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(xx)(x(xx)) = (xx)((xx)x)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(xx)(x(xx)) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "(xx)(x(xx)) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "(xx)(x(xx)) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(xx)(x(xx)) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "(xx)(x(xx)) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "(xx)(x(xx)) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "(xx)(x(xx)) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "(xx)((xx)x) = (x(xx))(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(xx)((xx)x) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(xx)((xx)x) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "(xx)((xx)x) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(xx)((xx)x) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(xx)((xx)x) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "(xx)((xx)x) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x(xx))(xx) = ((xx)x)(xx)",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(x(xx))(xx) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "(x(xx))(xx) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x(xx))(xx) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x(xx))(xx) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "(x(xx))(xx) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "((xx)x)(xx) = (x(x(xx)))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "((xx)x)(xx) = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "((xx)x)(xx) = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "((xx)x)(xx) = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "((xx)x)(xx) = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - a",
+          "a^3 - a^2"
+        ],
+        "law": "(x(x(xx)))x = (x((xx)x))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "(x(x(xx)))x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 - 1",
+          "a^3 - a"
+        ],
+        "law": "(x(x(xx)))x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a^2 + a - 2",
+          "a^3 + a^2 - 2a"
+        ],
+        "law": "(x(x(xx)))x = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x((xx)x))x = ((xx)(xx))x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "(x((xx)x))x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "2a - 2",
+          "2a^2 - 2a"
+        ],
+        "law": "(x((xx)x))x = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [],
+        "law": "((xx)(xx))x = ((x(xx))x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "((xx)(xx))x = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      },
+      {
+        "affine_system": [
+          "a - 1",
+          "a^2 - a"
+        ],
+        "law": "((x(xx))x)x = (((xx)x)x)x",
+        "missing_le12": [],
+        "spectrum_le12": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "unknown": [],
+        "violations": []
+      }
+    ],
+    "runtime_s": 5.8,
+    "summary": [
+      "253 one-variable laws; spectrum {1}: 9; models for every N in 7..12: 237; other: 7 ['x = (xx)x', 'x = ((xx)x)x', 'x = (((xx)x)x)x', 'xx = ((xx)x)x']",
+      "divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]",
+      "missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]",
+      "UNKNOWN: 0"
+    ],
+    "trivial_only": [
+      "x = xx",
+      "xx = (xx)x",
+      "x(xx) = (x(xx))x",
+      "(xx)x = ((xx)x)x",
+      "x(x(xx)) = (x(x(xx)))x",
+      "x((xx)x) = (x((xx)x))x",
+      "(xx)(xx) = ((xx)(xx))x",
+      "(x(xx))x = ((x(xx))x)x",
+      "((xx)x)x = (((xx)x)x)x"
+    ],
+    "unknown": [],
+    "violations": [
+      {
+        "law": "x = x(x(xx))",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x = x((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x = x(((xx)x)x)",
+        "missing": [
+          3
+        ],
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "law": "xx = (xx)((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "xx = (x(x(xx)))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "xx = (x((xx)x))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(xx)x = x(x(xx))",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(xx)x = x((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(xx)x = x(((xx)x)x)",
+        "missing": [
+          3
+        ],
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "law": "x(x(xx)) = (xx)((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x(x(xx)) = (x((xx)x))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x(x(xx)) = (((xx)x)x)x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x((xx)x) = (xx)((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x((xx)x) = (x(x(xx)))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "x((xx)x) = (((xx)x)x)x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(x(xx))x = x(x(x(xx)))",
+        "missing": [
+          2,
+          3
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "law": "(x(xx))x = x(x((xx)x))",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(x(xx))x = x((x(xx))x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(x(xx))x = x(((xx)x)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "(x(xx))x = ((xx)x)(xx)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "((xx)x)x = x(((xx)x)x)",
+        "missing": [
+          3
+        ],
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            12,
+            3
+          ]
+        ]
+      },
+      {
+        "law": "((xx)x)x = (xx)((xx)x)",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "((xx)x)x = (x(x(xx)))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      },
+      {
+        "law": "((xx)x)x = (x((xx)x))x",
+        "missing": [
+          2
+        ],
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            10,
+            2
+          ],
+          [
+            12,
+            2
+          ]
+        ]
+      }
+    ]
+  },
+  "results_sha256": "fc82fdab5cb9183e1fc1dd290e0a4f0b9fb69b3303e882096b55052689db2668",
+  "runtime_s": 5.756,
+  "started": "2026-10-18T09:26:09Z"
+}

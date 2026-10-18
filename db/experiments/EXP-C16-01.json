@@ -1,0 +1,64 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "all 16 tables of order 2 and all 19683 of order 3; for order 4 only the (4!)^4 = 331776 tables whose rows are permutations (the only candidates for a full cycle by H-C16-2)",
+    "isomorphism classes by brute-force canonical codes (n <= 3; full-period tables for n = 4)",
+    "the mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the transposed table; checked on the order-3 census"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C16-01",
+    "file": "experiments/C16/E01_small_magmas.py",
+    "sha256": "71869f056d13385a84201f4d78a2d85a95aa09901b635f2550c7d2b7609575c6",
+    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+  },
+  "cycle": "C16",
+  "falsification": "H-C16-1: a table with a period n^2, or a non-quasigroup attaining the maximum. H-C16-2: a permutation pair map with a non-bijective left translation or vice versa, or a count different from (n!)^n. H-C16-3: a full-period count different from (n!)^n / n^2.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:27:31Z"
+    }
+  ],
+  "hypothesis": "H-C16-1 (bold, Inventor): as for Pisano periods, where (0, 0) is fixed, the maximal period on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups. H-C16-2 (Formal Verifier): the pair map is a permutation iff every left translation a -> b*a is a bijection, so exactly (n!)^n tables give permutations. H-C16-3 (Formal Verifier, after the n = 2 data): the tables with a single cycle through all n^2 states correspond to de Bruijn cycles of order 2, (n!)^n / n^2 of them (1, 24, 20736 for n = 2, 3, 4).",
+  "id": "EXP-C16-01",
+  "methodology": "Batch functional-graph analysis (orbit doubling, periods, transients) of the pair maps; count permutation pair maps and full-period tables; test the quasigroup property of the full-period tables; distributions of the maximal period; OEIS check of the counts.",
+  "question": "How long can the sequence x_{k+1} = x_k * x_{k-1} cycle in an n-element magma, when is the pair map a permutation, and which magmas attain the longest periods?",
+  "results_file": "results/EXP-C16-01.json",
+  "results_sha256": "0550e32b9f950756b68842e6de36f42d31787ea2a035853b59136abb6bb96001",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C16-01",
+        "file": "experiments/C16/E01_small_magmas.py",
+        "sha256": "71869f056d13385a84201f4d78a2d85a95aa09901b635f2550c7d2b7609575c6",
+        "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:27:31Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C16-01.json",
+      "results_sha256": "0550e32b9f950756b68842e6de36f42d31787ea2a035853b59136abb6bb96001",
+      "runtime_s": 7.899,
+      "started": "2026-10-18T09:27:23Z",
+      "summary": [
+        "max period over all tables: n=2: 4, n=3: 9, n=4: 16",
+        "permutation pair maps (predicted (n!)^n): n=2: 4 (4), criterion violations 0, n=3: 216 (216), criterion violations 0, n=4: 331776 (331776), criterion violations 0",
+        "full-period tables (predicted (n!)^n/n^2): n=2: 1 (1), of which quasigroups 0, n=3: 24 (24), of which quasigroups 0, n=4: 20736 (20736), of which quasigroups 0",
+        "max period among quasigroups: n=2: 3, n=3: 8, n=4: 15",
+        "order 3: 3330 isomorphism classes, max-period distribution {1: 4563, 2: 4581, 3: 5316, 4: 2877, 5: 1458, 6: 540, 7: 216, 8: 108, 9: 24}",
+        "mirror dynamics = forward dynamics of the transpose (order 3): True"
+      ]
+    }
+  ],
+  "summary": [
+    "max period over all tables: n=2: 4, n=3: 9, n=4: 16",
+    "permutation pair maps (predicted (n!)^n): n=2: 4 (4), criterion violations 0, n=3: 216 (216), criterion violations 0, n=4: 331776 (331776), criterion violations 0",
+    "full-period tables (predicted (n!)^n/n^2): n=2: 1 (1), of which quasigroups 0, n=3: 24 (24), of which quasigroups 0, n=4: 20736 (20736), of which quasigroups 0",
+    "max period among quasigroups: n=2: 3, n=3: 8, n=4: 15",
+    "order 3: 3330 isomorphism classes, max-period distribution {1: 4563, 2: 4581, 3: 5316, 4: 2877, 5: 1458, 6: 540, 7: 216, 8: 108, 9: 24}",
+    "mirror dynamics = forward dynamics of the transpose (order 3): True"
+  ],
+  "title": "Cycle structure of the Fibonacci pair map (a, b) -> (b, b*a) for all small magmas"
+}

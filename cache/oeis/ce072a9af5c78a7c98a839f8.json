@@ -1,0 +1,303 @@
+{
+  "fetched": "2026-10-18T09:29:41Z",
+  "query": "Zeckendorf increment",
+  "response": [
+    {
+      "author": "_Clark Kimberling_, Aug 05 2008",
+      "comment": [
+        "Every number in a row of the Wythoff array has the same number of Zeckendorf summands as the first number in the row; hence A035513(n) is the number of Zeckendorf summands of A003622(n)=n-1+Floor(n*tau), where tau=(1+sqrt(5))/2.",
+        "Let M(1) = 1, M(2) = 2 and for n >= 3, M(n) = M(n-1).f(M(n-2)) where f() increments by one and the dot stands for concatenation, then this sequence is 0.M(1).M(2).M(3).M(4)... , see the example. - _Joerg Arndt_, May 14 2011"
+      ],
+      "created": "2009-01-09T03:00:00-05:00",
+      "data": "1,2,2,2,3,2,3,3,2,3,3,3,4,2,3,3,3,4,3,4,4,2,3,3,3,4,3,4,4,3,4,4,4,5,2,3,3,3,4,3,4,4,3,4,4,4,5,3,4,4,4,5,4,5,5,2,3,3,3,4,3,4,4,3,4,4,4,5,3,4,4,4,5,4,5,5,3,4,4,4,5,4,5,5,4,5,5,5,6,2,3,3,3,4,3,4,4,3,4,4,4,5,3,4,4",
+      "example": [
+        "Row 5 of the Wythoff array is (12, 20, 32, ...) and corresponding Zeckendorf representations all have 3 terms:",
+        "12 = 1 + 3 + 8,",
+        "20 = 2 + 5 + 13,",
+        "32 = 3 + 8 + 21, etc.",
+        "From _Joerg Arndt_, May 14 2011: (Start)",
+        "The sequence as an irregular triangle:",
+        "1,        = M(1)",
+        "1,        = M(2)",
+        "1, 2,     = M(3) = M(2).f(M(1))",
+        "1, 2, 2,  = M(4) = M(3).f(M(2))",
+        "1, 2, 2, 2, 3,",
+        "1, 2, 2, 2, 3, 2, 3, 3,",
+        "1, 2, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 4,",
+        "1, 2, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 4, 2, 3, 3, 3, 4, 3, 4, 4,",
+        "1, 2, 2, 2, 3, 2, 3, 3, 2, 3, 3, 3, 4, 2, 3, 3, 3, 4, 3, 4, 4, 2, 3, 3, 3, ...",
+        "(End)"
+      ],
+      "formula": [
+        "a(n) = A007895(n-1) + 1. - _Paolo Xausa_, Jun 17 2024"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Paolo Xausa, <a href=\"/A143299/b143299.txt\">Table of n, a(n) for n = 1..10946</a>"
+      ],
+      "mathematica": [
+        "Flatten[Nest[{Flatten[#], #[[1]] + 1} &, {1, 2}, 9]] (* _Paolo Xausa_, Jun 17 2024 *)"
+      ],
+      "name": "Number of terms in the Zeckendorf representation of every number in row n of the Wythoff array.",
+      "number": 143299,
+      "offset": "1,2",
+      "references": 4,
+      "revision": 17,
+      "time": "2024-06-17T15:46:17-04:00",
+      "xref": [
+        "Cf. A003622, A007895, A035513, A134561."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "Number of partitions into distinct Fibonacci parts (1 counted as single Fibonacci number).",
+        "Inverse Euler transform of sequence has generating function Sum_{n>1} (x^F(n) - x^(2*F(n))) where F() are the Fibonacci numbers.",
+        "a(n) = 1 if and only if n+1 is a Fibonacci number. The length of such a quasi-period (from Fib(i)-1 to Fib(i+1)-1, inclusive) is a Fibonacci number + 1. The maximum value of a(n) within each subsequent quasi-period increases by a Fibonacci number. For example, from n = 143 to n = 232, the maximum is 13. From 232 to 376, the maximum is 16, an increase of 3. From 376 to 609, 21, an increase of 5. From 609 to 986, 26, increasing by 5 again. Each two subsequent maxima seem to increase by the same increment, the next Fibonacci number. - _Kerry Mitchell_, Nov 14 2009",
+        "The maxima of the quasi-periods are in A096748. - _Max Barrentine_, Sep 13 2015",
+        "Stockmeyer proves that a(n) <= sqrt(n+1) with equality iff n = Fibonacci(m)^2 - 1 for some m >= 2 (cf. A080097). - _Michel Marcus_, Mar 02 2016"
+      ],
+      "created": "1991-04-30T03:00:00-04:00",
+      "data": "1,1,1,2,1,2,2,1,3,2,2,3,1,3,3,2,4,2,3,3,1,4,3,3,5,2,4,4,2,5,3,3,4,1,4,4,3,6,3,5,5,2,6,4,4,6,2,5,5,3,6,3,4,4,1,5,4,4,7,3,6,6,3,8,5,5,7,2,6,6,4,8,4,6,6,2,7,5,5,8,3,6,6,3,7,4,4,5,1,5,5,4,8,4,7,7,3,9,6,6,9,3,8,8,5",
+      "ext": [
+        "More terms from _James Sellers_, May 29 2000"
+      ],
+      "formula": [
+        "a(A000045(n)) = A065033(n).",
+        "a(n) = (1/n)*Sum_{k=1..n} b(k)*a(n-k), b(k) = Sum_{f} (-1)^(k/f+1)*f, where the last sum is taken over all Fibonacci numbers f dividing k. - _Vladeta Jovovic_, Aug 28 2002",
+        "a(n) = 1, if n <= 2; a(n) = a(Fibonacci(i-2)+k)+a(k) if n>2 and 0<=k<Fibonacci(i-3); a(n)= 2*a(k) if n>2 and Fibonacci(i-3)<=k<Fibonacci(i-2); a(n) = a(Fibonacci(i+1)-2-k) otherwise where Fibonacci(i) is the largest Fibonacci number (A000045) <= n and k=n-Fibonacci(i). [Bicknell-Johnson] - _Ron Knott_, Dec 06 2004",
+        "a(n) = f(n,1,1) with f(x,y,z) = if x<y then 0^x else f(x-y,y+z,y)+f(x,y+z,y). - _Reinhard Zumkeller_, Nov 11 2009",
+        "G.f.: Product_{n>=1} 1 + q^F(n+1) = 1 + Sum_{n>=1} ( q^F(n+1) * Product_{k=1..n-1} 1 + q^F(k+1) ). - _Joerg Arndt_, Oct 20 2012",
+        "a(A000071(n)) = 1. - _Reinhard Zumkeller_, Dec 28 2012"
+      ],
+      "id": "M0101 N0037",
+      "keyword": "nonn,nice,look",
+      "link": [
+        "T. D. Noe, <a href=\"/A000119/b000119.txt\">Table of n, a(n) for n = 0..6765</a>",
+        "Katie Anders, Madeline L. Dawsey, and Joseph Vandehey, <a href=\"https://arxiv.org/abs/2604.15446\">Non-standard Zeckendorf decompositions; or, Tribonacci within Fibonacci</a>, arXiv:2604.15446 [math.NT], 2026.",
+        "Federico Ardila, <a href=\"https://www.fq.math.ca/Papers1/42-3/quartardila03_2004.pdf\">The coefficients of a Fibonacci power series</a>, Fib. Quart. 42 (3) (2004), 202-204.",
+        "Erik Bates, Blan Morrison, Mason Rogers, Arianna Serafini, and Anav Sood, <a href=\"https://arxiv.org/abs/2503.11055\">A new combinatorial interpretation of partial sums of m-step Fibonacci numbers</a>, arXiv:2503.11055 [math.CO], 2025. See p. 2.",
+        "Jean Berstel, <a href=\"http://www-igm.univ-mlv.fr/~berstel/\">Home Page</a>",
+        "Jean Berstel, <a href=\"http://www-igm.univ-mlv.fr/~berstel/Articles/2001ExerciceAldo.pdf\">An Exercise on Fibonacci Representations</a>, RAIRO/Informatique Theorique, Vol. 35, No 6, 2001, pp. 491-498, in the issue dedicated to Aldo De Luca on the occasion of his 60th anniversary.",
+        "Pierre Bonardo and Anna E. Frid, <a href=\"https://arxiv.org/abs/1806.09534\">Number of valid decompositions of Fibonacci prefixes</a>, arXiv:1806.09534 [math.CO], 2018.",
+        "Alfred Brousseau, <a href=\"https://www.fq.math.ca/fibonacci-tables.html\">Fibonacci and Related Number Theoretic Tables</a>, Fibonacci Association, San Jose, CA, 1972. See p. 54.",
+        "Leonard Carlitz, <a href=\"https://fq.math.ca/Scanned/6-4/carlitz.pdf\">Fibonacci Representations</a>, Fibonacci Quarterly, volume 6, number 4, October 1968, pages 193-220, a(n) = R(N).",
+        "Sam Chow and Tom Slattery, <a href=\"https://arxiv.org/abs/2009.08222\">On Fibonacci partitions</a>, arXiv:2009.08222 [math.NT], 2020.",
+        "Sam Chow and Tom Slattery, <a href=\"https://doi.org/10.1016/j.jnt.2021.02.010\">On Fibonacci partitions</a>, Journal of Number Theory, Volume 225, August 2021, Pages 310-326.",
+        "Sam Chow and Owen Jones, <a href=\"https://arxiv.org/abs/2308.15415\">On the variance of the Fibonacci partition function</a>, arXiv:2308.15415 [math.NT], 2023.",
+        "Michel Dekking and Ad van Loon, <a href=\"https://arxiv.org/abs/2304.11387\">Counting base phi representations</a>, arXiv:2304.11387 [math.NT], 2023.",
+        "Tom Kempton, <a href=\"https://arxiv.org/abs/2311.06006\">The Dynamics of the Fibonacci Partition Function</a>, arXiv:2311.06006 [math.NT], 2023.",
+        "David A. Klarner, Representations of N as a sum of distinct elements from special sequences, <a href=\"https://www.fq.math.ca/Scanned/4-4/klarner-a.pdf\">part 1</a>, <a href=\"https://www.fq.math.ca/Scanned/4-4/klarner-b.pdf\">part 2</a>, Fib. Quart., 4 (1966), 289-306 and 322.",
+        "Ron Knott, <a href=\"http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/fibrep.html#sumoffib\">Sumthing about Fibonacci Numbers</a>",
+        "Neville Robbins, <a href=\"https://www.fq.math.ca/Scanned/34-4/robbins.pdf\">Fibonacci partitions</a>, Fib. Quart. 34 (4) (1996), 306-313.",
+        "Jeffrey Shallit, <a href=\"https://cs.uwaterloo.ca/~shallit/Papers/ntfl.ps\">Number theory and formal languages</a>, in D. A. Hejhal, J. Friedman, M. C. Gutzwiller and A. M. Odlyzko, eds., Emerging Applications of Number Theory, IMA Volumes in Mathematics and Its Applications, V. 109, Springer-Verlag, 1999, pp. 547-570. (Eq. 9.2.)",
+        "Jeffrey Shallit, <a href=\"https://arxiv.org/abs/2007.14930\">Robbins and Ardila meet Berstel</a>, Arxiv preprint arXiv:2007.14930 [math.CO], 2020.",
+        "Paul K. Stockmeyer, <a href=\"https://www.fq.math.ca/Papers1/46_47-2/Stockmeyer.pdf\">A Smooth Tight Upper Bound for the Fibonacci Representation Function R(N)</a>, Fibonacci Quarterly, Volume 46/47, Number 2, May 2009.",
+        "Scott V. Tezlaf, <a href=\"https://arxiv.org/abs/1806.00331\">On ordinal dynamics and the multiplicity of transfinite cardinality</a>, arXiv:1806.00331 [math.NT], 2018. See p. 42."
+      ],
+      "maple": [
+        "with(combinat): p := product((1+x^fibonacci(i)), i=2..25): s := series(p,x,1000): for k from 0 to 250 do printf(`%d,`,coeff(s,x,k)) od: # _James Sellers_, May 29 2000"
+      ],
+      "mathematica": [
+        "CoefficientList[ Normal@Series[ Product[ 1+z^Fibonacci[ k ], {k, 2, 13} ], {z, 0, 233} ], z ]",
+        "(* Alternative: *)",
+        "nmax = 104; s = Union@Table[Fibonacci[n], {n, nmax}];",
+        "(* Alternative: *)",
+        "Table[Length@Select[IntegerPartitions[n, All, s], DeleteDuplicates[#] == # &], {n, 0, nmax}] (* _Robert Price_, Aug 17 2020 *)"
+      ],
+      "name": "Number of representations of n as a sum of distinct Fibonacci numbers.",
+      "number": 119,
+      "offset": "0,4",
+      "program": [
+        "(PARI) a(n)=local(A,m,f); if(n<0,0,A=1+x*O(x^n); m=2; while((f=fibonacci(m))<=n,A*=1+x^f; m++); polcoeff(A,n))",
+        "(PARI) f(x,y,z)=if(x<y, 0^x, f(x-y,y+z,y)+f(x,y+z,y))",
+        "a(n)=f(n,1,1) \\\\ _Charles R Greathouse IV_, Dec 14 2015",
+        "(Haskell)",
+        "a000119 = p $ drop 2 a000045_list where",
+        "   p _      0 = 1",
+        "   p (f:fs) m = if m < f then 0 else p fs (m - f) + p fs m",
+        "-- _Reinhard Zumkeller_, Dec 28 2012, Oct 21 2011"
+      ],
+      "reference": [
+        "M. Bicknell-Johnson, pp. 53-60 in \"Applications of Fibonacci Numbers\", volume 8, ed: F. T. Howard, Kluwer (1999); see Theorem 3.",
+        "N. J. A. Sloane, A Handbook of Integer Sequences, Academic Press, 1973 (includes this sequence).",
+        "N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence)."
+      ],
+      "references": 79,
+      "revision": 150,
+      "time": "2026-04-27T11:40:07-04:00",
+      "xref": [
+        "Cf. A007000, A003107, A000121, A080097, A096748. Least inverse is A013583."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_, Jun 14 2017",
+      "comment": [
+        "From _Peter Munn_, Apr 28 2025: (Start)",
+        "Each row in the Wythoff array, A035513, and this extended array satisfies the Fibonacci recurrence; that is each term after the first 2 is the sum of the preceding 2 terms.",
+        "We use F_i to denote the i-th Fibonacci term, A000045(i). In particular, we refer below to F_0 = 0, F_1 = 1 and F_2 = 1 several times. Note that to fully understand the description of the relationship between neighboring columns it is important to distinguish F_1 and F_2, although they have the same integer value. Similarly, the identity of an array term should be understood here as including its position in the array, not only its integer value.",
+        "The terms of this extended Wythoff array map 1:1 onto the nonempty finite subsets of Fibonacci terms (from F_0 onwards) that do not include both F_i and F_{i+1} for any i. With this map each term is the sum of its subset image. See the table in the examples.",
+        "Full description of the mapping with its relationship to A035513:",
+        "The (unextended) Wythoff array A035513 includes every positive integer exactly once. So, using the Zeckendorf representation (see link below), the array terms map 1:1 to nonempty finite subsets of the Fibonacci terms from F_2 onwards -- more precisely, onto those that do not include both F_i and F_{i+1} for any i. (Again, each array term is the sum of the Fibonacci numbers from the relevant subset.)",
+        "As shown in the Kimberling 1995 link, when we proceed from one term to the next in a row, the indices of the Fibonacci terms in the corresponding subset are incremented. When we proceed leftwards, the indices are decremented, with the subsets for the leftmost column being those that include F_2.",
+        "And when we add 2 columns on the left of the Wythoff array, the mapping continues to decrement the indices, so the corresponding extra subsets have F_0 (new leftmost column) or F_1 as their first Fibonacci term.",
+        "Thus the terms of this extended Wythoff array map 1:1 onto the nonempty finite subsets of Fibonacci terms (from F_0 onwards) that do not include both F_i and F_{i+1} for any i. The leftmost column is the nonnegative integers: if we were to remove F_0 (value 0) from the subset for an integer in this column, the subset would form the Zeckendorf representation of the integer, as subsets do in the unextended array.",
+        "(End)"
+      ],
+      "created": "2017-06-14T15:19:53-04:00",
+      "data": "0,1,1,1,3,2,2,4,4,3,3,7,6,6,4,5,11,10,9,8,5,8,18,16,15,12,9,6,13,29,26,24,20,14,11,7,21,47,42,39,32,23,17,12,8,34,76,68,63,52,37,28,19,14,9,55,123,110,102,84,60,45,31,22,16,10,89,199,178,165,136,97,73,50,36,25,17,11",
+      "example": [
+        "The extended Wythoff array is the Wythoff array with two extra columns, giving the row number n and A000201(n), separated from the main array by a vertical bar:",
+        "   0   1 |  1   2   3    5    8   13   21   34    55    89   144 ...",
+        "   1   3 |  4   7  11   18   29   47   76  123   199   322   521 ...",
+        "   2   4 |  6  10  16   26   42   68  110  178   288   466   754 ...",
+        "   3   6 |  9  15  24   39   63  102  165  267   432   699  1131 ...",
+        "   4   8 | 12  20  32   52   84  136  220  356   576   932  1508 ...",
+        "   5   9 | 14  23  37   60   97  157  254  411   665  1076  1741 ...",
+        "   6  11 | 17  28  45   73  118  191  309  500   809  1309  2118 ...",
+        "   7  12 | 19  31  50   81  131  212  343  555   898  1453  2351 ...",
+        "   8  14 | 22  36  58   94  152  246  398  644  1042  1686  2728 ...",
+        "   9  16 | 25  41  66  107  173  280  453  733  1186  1919  3105 ...",
+        "  10  17 | 27  44  71  115  186  301  487  788  1275  2063  3338 ...",
+        "  11  19 | 30  49  79 ...",
+        "  12  21 | 33  54  87 ...",
+        "  13  22 | 35  57  92 ...",
+        "  14  24 | 38  62 ...",
+        "  15  25 | 40  65 ...",
+        "  16  27 | 43  70 ...",
+        "  17  29 | 46  75 ...",
+        "  18  30 | 48  78 ...",
+        "  19  32 | 51  83 ...",
+        "  20  33 | 53  86 ...",
+        "  21  35 | 56  91 ...",
+        "  22  37 | 59  96 ...",
+        "  23  38 | 61  99 ...",
+        "  24  40 | 64 ...",
+        "  25  42 | 67 ...",
+        "  26  43 | 69 ...",
+        "  27  45 | 72 ...",
+        "  28  46 | 74 ...",
+        "  29  48 | 77 ...",
+        "  30  50 | 80 ...",
+        "  31  51 | 82 ...",
+        "  32  53 | 85 ...",
+        "  33  55 | 88 ...",
+        "  34  56 | 90 ...",
+        "  35  58 | 93 ...",
+        "  36  59 | 95 ...",
+        "  37  61 | 98 ...",
+        "  38  63 | ...",
+        "  ...",
+        "From _Peter Munn_, Sep 12 2022: (Start)",
+        "In the table below, the array terms are shown in the small box at the bottom right of the cells. At the top of each cell is shown a pattern of Fibonacci terms, with \"*\" indicating a Fibonacci term that appears below it. Those Fibonacci terms sum to the array term. The pattern never includes \"**\", which would indicate 2 consecutive Fibonacci terms. Note that a Fibonacci term shown as \"1\" in the 2nd column is F_1, so it may accompany \"2\", which is F_3. In other columns a Fibonacci term shown as \"1\" is F_2 and may not accompany \"2\".",
+        "+----------+-----------+------------+------------+------------+",
+        "|      *   |      *    |       *    |       *    |       *    |",
+        "|      0 __|      1 ___|       1 ___|       2 ___|       3 ___|",
+        "|       |0 |       | 1 |        | 1 |        | 2 |        | 3 |",
+        "|----------+-----------+------------+------------+------------|",
+        "|    * *   |    * *    |     * *    |     * *    |     * *    |",
+        "|      0 __|      1 ___|       1 ___|       2 ___|       3 ___|",
+        "|    1  |1 |    2  | 3 |     3  | 4 |     5  | 7 |     8  |11 |",
+        "|----------+-----------+------------+------------+------------|",
+        "|   *  *   |   *  *    |    *  *    |    *  *    |    *  *    |",
+        "|   2  0 __|   3  1 ___|    5  1 ___|    8  2 ___|   13  3 ___|",
+        "|       |2 |       | 4 |        | 6 |        |10 |        |16 |",
+        "|----------+-----------+------------+------------+------------|",
+        "|  *   *   |  *   *    |   *   *    |   *   *    |   *   *    |",
+        "|      0 __|      1 ___|       1 ___|       2 ___|       3 ___|",
+        "|  3    |3 |  5    | 6 |   8    | 9 |  13    |15 |  21    |24 |",
+        "|----------+-----------+------------+------------+------------|",
+        "|  * * *   |  * * *    |   * * *    |   * * *    |   * * *    |",
+        "|      0   |      1    |       1    |       2    |       3    |",
+        "|    1   __|    2   ___|     3   ___|     5   ___|     8   ___|",
+        "|  3    |4 |  5    | 8 |   8    |12 |  13    |20 |  21    |32 |",
+        "|----------+-----------+------------+------------+------------|",
+        "| *    *   | *    *    |  *    *    |  *    *    |  *    *    |",
+        "|      0 __|      1 ___|       1 ___|       2 ___|       3 ___|",
+        "| 5     |5 | 8     | 9 | 13     |14 | 21     |23 | 34     |37 |",
+        "|----------+-----------+------------+------------+------------|",
+        "| *  * *   | *  * *    |  *  * *    |  *  * *    |  *  * *    |",
+        "|      0 __|      1 ___|       1 ___|       2 ___|       3 ___|",
+        "| 5  1  |6 | 8  2  |11 | 13  3  |17 | 21  5  |28 | 34  8  |45 |",
+        "|----------+-----------+------------+------------+------------|",
+        "| * *  *   | * *  *    |  * *  *    |  * *  *    |  * *  *    |",
+        "|   2  0 __|   3  1 ___|    5  1 ___|    8  2 ___|   13  3 ___|",
+        "| 5     |7 | 8     |12 | 13     |19 | 21     |31 | 34     |50 |",
+        "+----------+-----------+------------+------------+------------+",
+        "If we replace the Fibonacci terms 0, 1, 1, 2, 3, 5, ... in the main part of the cells with the powers of 2 (1, 2, 4, ...) the sums in the small boxes become the terms of A356875. From this may be seen a relationship to A054582.",
+        "- - - - -",
+        "Each row of the extended Wythoff array satisfies the Fibonacci recurrence, and may be further extended to the left using this recurrence backwards:",
+        "... -1   1   0   1 |  1   2    3    5 ...",
+        "... -1   2   1   3 |  4   7   11   18 ...",
+        "...  0   2   2   4 |  6  10   16   26 ...",
+        "...  0   3   3   6 |  9  15   24   39 ...",
+        "...  0   4   4   8 | 12  20   32   52 ...",
+        "...  1   4   5   9 | 14  23   37   60 ...",
+        "...  1   5   6  11 | 17  28   45   73 ...",
+        "...  2   5   7  12 | 19  31   50   81 ...",
+        "...  2   6   8  14 | 22  36   58   94 ...",
+        "    ...",
+        "...  5  10  15  25 | 40  65  105  170 ...",
+        "    ...",
+        "Note that multiples (*2, *3 and *4) of the top (Fibonacci sequence) row appear a little below, but shifted 2 columns to the left. Larger multiples appear further down and shifted further to the left, starting with row 15, where the terms are 5 times those in the top row and shifted 4 columns leftwards.",
+        "(End)"
+      ],
+      "formula": [
+        "From _Peter Munn_, Apr 29 2025: (Start)",
+        "A(n,k) = A356874(floor(m/2)), where m = A356875(n-1, k-1) = A054582(k-1, (A022341(n-1)-1)/2).",
+        "A(n,k) = A357316(A003622(n), k-1).",
+        "(End)"
+      ],
+      "keyword": "nonn,tabl",
+      "link": [
+        "Peter G. Anderson, <a href=\"https://www.fq.math.ca/Papers1/52-5/Anderson.pdf\">More Properties of the Zeckendorf Array</a>, Fib. Quart. 52-5 (2014), 15-21.",
+        "John Conway and Alex Ryba, <a href=\"https://doi.org/10.1007/s00283-015-9582-5\">The extra Fibonacci series and the Empire State Building</a>, Math. Intelligencer 38 (2016), no. 1, 41-48. See <a href=\"https://www.researchgate.net/publication/291951643_The_Extra_Fibonacci_Series_and_the_Empire_State_Building\">preview</a>, at ResearchGate.",
+        "Encyclopedia of Mathematics, <a href=\"https://encyclopediaofmath.org/wiki/Zeckendorf_representation\">Zeckendorf representation</a>",
+        "Clark Kimberling, <a href=\"http://www.fq.math.ca/Scanned/33-1/kimberling.pdf\">The Zeckendorf array equals the Wythoff array</a>, Fibonacci Quarterly, Vol. 33, No. 1 (1995), pp. 3-8."
+      ],
+      "name": "The extended Wythoff array (the Wythoff array with two extra columns) read by antidiagonals downwards.",
+      "number": 287870,
+      "offset": "1,5",
+      "references": 8,
+      "revision": 46,
+      "time": "2025-05-03T09:42:14-04:00",
+      "xref": [
+        "Subtables: A035513 (the Wythoff array), A287869.",
+        "Related as a subtable of A357316 as A054582 is to A130128 (as a square).",
+        "Cf. A000045, A000201.",
+        "See A014417 for sequences related to Zeckendorf representation.",
+        "See the formula section for the relationships with A003622, A022341, A054582, A356874, A356875."
+      ]
+    },
+    {
+      "author": "_Hugo Pfoertner_, Jun 08 2026",
+      "created": "2026-06-08T08:48:30-04:00",
+      "data": "1,2,4,4,5,8,8,8,9,10,16,16,13,16,16,16,17,18,20,20,21,32,32,32,25,26,32,32,29,32,32,32,33,34,36,36,37,40,40,40,41,42,64,64,45,64,64,64,49,50,52,52,53,64,64,64,57,58,64,64,61,64,64,64,65,66,68,68,69,72",
+      "keyword": "nonn,easy",
+      "link": [
+        "Paolo Xausa, <a href=\"/A396674/b396674.txt\">Table of n, a(n) for n = 0..10000</a>"
+      ],
+      "mathematica": [
+        "A396674[n_] := BitOr[n, BitAnd[#, BitNot[#+1]]] + 1 & [BitOr[n, BitShiftRight[n]]];",
+        "Array[A396674, 100, 0] (* _Paolo Xausa_, Jun 08 2026, after PARI *)"
+      ],
+      "name": "a(n) is the Fibonacci-code successor of n.",
+      "number": 396674,
+      "offset": "0,2",
+      "program": [
+        "(PARI) a396674(x) = my(y=bitor(x, x>>1), z=bitand(y, bitneg(y+1))); bitor(x,z)+1"
+      ],
+      "reference": [
+        "Donald E. Knuth, The Art of Computer Programming, Volume 1, Fundamental Algorithms. Third Edition, Addison-Wesley, 1997. Chapter 1.2.8, exercise 34, page 86, introduces the Fibonacci number system first described by E. Zeckendorf, see answer page 495.",
+        "Donald E. Knuth, The Art of Computer Programming, Volume 4A, Combinatorial Algorithms Part 1. Pearson Education, 2011. Chapter 7.1.3, exercise 158, page 196, asks for a method to increment Fibonacci codewords with answer on page 607."
+      ],
+      "references": 2,
+      "revision": 9,
+      "time": "2026-06-08T16:28:53-04:00",
+      "xref": [
+        "Cf. A215026."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=Zeckendorf+increment&fmt=json"
+}
