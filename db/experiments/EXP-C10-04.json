@@ -1,0 +1,80 @@
+{
+  "agent": "Historian and Novelty Analyst",
+  "analysis": "T_m is OEIS A215005; the per-step Zeckendorf cost sequence is not catalogued.",
+  "assumptions": [
+    "OEIS cache"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C10-04",
+    "file": "experiments/C10/E04_novelty.py",
+    "sha256": "dfbb0387f2873c5923f5f51901a50dc8bd4e0842a51cb4615220ccb510fcbf02",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "cycle": "C10",
+  "falsification": "n/a (literature check)",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:51:29Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "analysis",
+      "new": "T_m is OEIS A215005; the per-step Zeckendorf cost sequence is not catalogued.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C10-02"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "The per-increment change sequence (a 'Zeckendorf ruler function') and the block totals T_m are likely known.",
+  "id": "EXP-C10-04",
+  "methodology": "Query the per-step change counts c(n) = changes(Z(n-1), Z(n)) for n >= 1, the block totals T_m and D_m = 2G_m - T_m.",
+  "question": "Are the Zeckendorf counting-cost sequences already catalogued?",
+  "related": [
+    "CLM-C10-02"
+  ],
+  "results_file": "results/EXP-C10-04.json",
+  "results_sha256": "2d945a77304f631a69e19bf18dd9d64ab011f9a9bde54f593c23f6334c147368",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C10-04",
+        "file": "experiments/C10/E04_novelty.py",
+        "sha256": "dfbb0387f2873c5923f5f51901a50dc8bd4e0842a51cb4615220ccb510fcbf02",
+        "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:51:28Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C10-04.json",
+      "results_sha256": "2d945a77304f631a69e19bf18dd9d64ab011f9a9bde54f593c23f6334c147368",
+      "runtime_s": 5.777,
+      "started": "2026-10-18T07:51:22Z",
+      "summary": [
+        "per_step_changes: NO MATCH []",
+        "T_m: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']",
+        "T_m_closed_form_check: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']"
+      ]
+    }
+  ],
+  "summary": [
+    "per_step_changes: NO MATCH []",
+    "T_m: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']",
+    "T_m_closed_form_check: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']"
+  ],
+  "title": "OEIS look-ups for Zeckendorf counting-cost sequences"
+}

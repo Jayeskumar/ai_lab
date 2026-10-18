@@ -1,0 +1,80 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "The block recurrence matches brute force; D_m = ceil(m/2) + 2 exactly.",
+  "assumptions": [
+    "exact big-integer arithmetic for m <= 90; brute force for m <= 24"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C10-02",
+    "file": "experiments/C10/E02_zeckendorf_exact.py",
+    "sha256": "80711d33530f7ad996ffe33b7454d55839c069fb3fa0b4c918c64397457e693a",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "cycle": "C10",
+  "falsification": "Recurrence and brute force disagree, or T_m/G_m does not approach 2.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:50:10Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The block recurrence matches brute force; D_m = ceil(m/2) + 2 exactly.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C10-02"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "T_(m+1) = T_m + T_(m-1) + ceil(m/2) + 1 (the step G_m - 1 -> G_m clears an alternating string), hence T_m / G_m -> 2; refutes H-C10-0.",
+  "id": "EXP-C10-02",
+  "methodology": "Compute T_m by brute force (m <= 24) and by the recurrence (m <= 90); compare; examine D_m = 2 G_m - T_m.",
+  "question": "What is the exact total number of digit changes T_m when counting from 0 to G_m - 1 in the Zeckendorf system (G = 1, 2, 3, 5, 8, ...)?",
+  "related": [
+    "CLM-C10-02"
+  ],
+  "results_file": "results/EXP-C10-02.json",
+  "results_sha256": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C10-02",
+        "file": "experiments/C10/E02_zeckendorf_exact.py",
+        "sha256": "80711d33530f7ad996ffe33b7454d55839c069fb3fa0b4c918c64397457e693a",
+        "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:50:10Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C10-02.json",
+      "results_sha256": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
+      "runtime_s": 1.166,
+      "started": "2026-10-18T07:50:09Z",
+      "summary": [
+        "recurrence agrees with brute force for m <= 24: True",
+        "T_m/G_m at m = 10, 20, 40, 60, 89: [1.951388888889, 1.999322454971, 1.999999917884, 1.999999999992, 2.0]",
+        "D_m = 2G_m - T_m: [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10]"
+      ]
+    }
+  ],
+  "summary": [
+    "recurrence agrees with brute force for m <= 24: True",
+    "T_m/G_m at m = 10, 20, 40, 60, 89: [1.951388888889, 1.999322454971, 1.999999917884, 1.999999999992, 2.0]",
+    "D_m = 2G_m - T_m: [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10]"
+  ],
+  "title": "Zeckendorf counting costs exactly 2 digit changes per increment on average"
+}

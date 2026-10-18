@@ -1,0 +1,22 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-11",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Related to Geser, Hofbauer, Waldmann, \"Loops of superexponential lengths in one-rule string rewriting\" (RTA 2002).",
+  "statement": "For 0 1^q -> 1^(q+1) 0^k the rightmost strategy from 0 1^(q(q+1)) reaches a self-embedding after 16, 32, 64 steps\n(k = 2) and 260, 1556, 9332 steps (k = 6) for q = 4, 5, 6.",
+  "system": "SYS-A",
+  "title": "Loop lengths in the base family grow like k^q",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

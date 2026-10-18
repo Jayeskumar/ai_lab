@@ -10,11 +10,20 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Published - Baird-Smith, Epstein, Flint, Miller, The Zeckendorf Game (PROMS 297, 2020; arXiv:1809.04881) Figs 3-4 list the longest games for n <= 49 (identical to our n <= 40); Cusenza et al., Fibonacci Quart. 60 (2022) prove the greedy strategy optimal and give a closed form only for n = F_k - 1; Cheigh et al. (PROMS 2025) state the general closed form is open. The sequence is not yet in the OEIS (possible documentation contribution).",
+      "old": "The longest Zeckendorf game is studied by Cusenza et al. and the Williams SMALL group; the value sequence was not found in the OEIS (2026-10-18). No closed form known to us.",
+      "reason": "Historian novelty audit 2026-10-18 - correct the basis (values already published)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C02-10",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "The longest Zeckendorf game is studied by Cusenza et al. and the Williams SMALL group; the value sequence was not found in the OEIS (2026-10-18). No closed form known to us.",
+  "novelty_basis": "Published - Baird-Smith, Epstein, Flint, Miller, The Zeckendorf Game (PROMS 297, 2020; arXiv:1809.04881) Figs 3-4 list the longest games for n <= 49 (identical to our n <= 40); Cusenza et al., Fibonacci Quart. 60 (2022) prove the greedy strategy optimal and give a closed form only for n = F_k - 1; Cheigh et al. (PROMS 2025) state the general closed form is open. The sequence is not yet in the OEIS (possible documentation contribution).",
   "proof": "results/EXP-C02-02.json (max_len_seq)",
   "proof_check": "computer-assisted exhaustive search of the full derivation graph (EXP-C02-02)",
   "statement": "The maximum number of exchanges from n tokens at level 0 is, for n = 1..40: 0,1,2,3,5,6,8,10,11,13,15,17,\n20,21,23,25,26,29,31,34,37,38,40,42,44,47,48,50,53,54,57,60,63,67,68,70,72,73,76,78 (exhaustive search).",

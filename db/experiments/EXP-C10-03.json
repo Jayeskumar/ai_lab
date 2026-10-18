@@ -1,0 +1,107 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Average firings match 1/(m - B) for all 31 rules; single-offset rules cost exactly firings + 1; multi-offset rules carry an extra rule-dependent cost.",
+  "assumptions": [
+    "n < 200000 per rule",
+    "incremental counter validated against full stabilisation"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C10-03",
+    "file": "experiments/C10/E03_exchange_systems.py",
+    "sha256": "5c46840b2ee8dcd5aa53f208fba34a879d1d3ce52ed9ad2b6027cc894afe5650",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "cycle": "C10",
+  "falsification": "Average firings deviating from 1/(m-B) beyond O(log N/N); a J = 1 rule violating H-C10-2.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:50:24Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Average firings match 1/(m - B) for all 31 rules; single-offset rules cost exactly firings + 1; multi-offset rules carry an extra rule-dependent cost.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C10-04",
+        "CLM-C10-05",
+        "CLM-C10-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C10-1: the average number of firings per increment tends to 1/(m - sum b) for every terminating carry rule. H-C10-2 (for J = 1 rules m[k] -> q[k+1]): average digit changes = 1 + 1/(m - q).",
+  "id": "EXP-C10-03",
+  "methodology": "Run the incremental counter; record average firings, average and worst digit changes; compare with 1/(m - B) and, for J = 1, with 1 + 1/(m - q).",
+  "question": "How expensive is counting in the bases that emerge from exchange rules?",
+  "related": [
+    "CLM-C10-04",
+    "CLM-C10-05",
+    "CLM-C10-06"
+  ],
+  "results_file": "results/EXP-C10-03.json",
+  "results_sha256": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C10-03",
+        "file": "experiments/C10/E03_exchange_systems.py",
+        "sha256": "5c46840b2ee8dcd5aa53f208fba34a879d1d3ce52ed9ad2b6027cc894afe5650",
+        "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:50:24Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C10-03.json",
+      "results_sha256": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
+      "runtime_s": 14.116,
+      "started": "2026-10-18T07:50:10Z",
+      "summary": [
+        "31 rules: max |avg firings - 1/(m-B)| = 0.0005699999999999594",
+        "J=1 rules: max |avg changes - (1 + 1/(m-q))| = 0.00026999999999999247",
+        "m=2 b=[1]: firings 0.99997 changes 1.99997 worst 18",
+        "m=2 b=[0, 1]: firings 0.99997 changes 1.99997 worst 18",
+        "m=2 b=[0, 0, 1]: firings 0.99997 changes 1.99997 worst 18",
+        "m=3 b=[1]: firings 0.49998 changes 1.49998 worst 12",
+        "m=3 b=[2]: firings 0.99987 changes 1.99987 worst 28",
+        "m=3 b=[0, 1]: firings 0.49998 changes 1.49998 worst 12",
+        "m=3 b=[0, 2]: firings 0.99987 changes 1.99987 worst 28",
+        "m=3 b=[1, 1]: firings 0.999805 changes 2.499805 worst 41",
+        "m=3 b=[0, 0, 1]: firings 0.49998 changes 1.49998 worst 12",
+        "m=3 b=[0, 0, 2]: firings 0.99987 changes 1.99987 worst 28",
+        "m=3 b=[0, 1, 1]: firings 0.99968 changes 2.642975 worst 58",
+        "m=3 b=[1, 0, 1]: firings 0.9997 changes 2.71367 worst 51"
+      ]
+    }
+  ],
+  "summary": [
+    "31 rules: max |avg firings - 1/(m-B)| = 0.0005699999999999594",
+    "J=1 rules: max |avg changes - (1 + 1/(m-q))| = 0.00026999999999999247",
+    "m=2 b=[1]: firings 0.99997 changes 1.99997 worst 18",
+    "m=2 b=[0, 1]: firings 0.99997 changes 1.99997 worst 18",
+    "m=2 b=[0, 0, 1]: firings 0.99997 changes 1.99997 worst 18",
+    "m=3 b=[1]: firings 0.49998 changes 1.49998 worst 12",
+    "m=3 b=[2]: firings 0.99987 changes 1.99987 worst 28",
+    "m=3 b=[0, 1]: firings 0.49998 changes 1.49998 worst 12",
+    "m=3 b=[0, 2]: firings 0.99987 changes 1.99987 worst 28",
+    "m=3 b=[1, 1]: firings 0.999805 changes 2.499805 worst 41",
+    "m=3 b=[0, 0, 1]: firings 0.49998 changes 1.49998 worst 12",
+    "m=3 b=[0, 0, 2]: firings 0.99987 changes 1.99987 worst 28",
+    "m=3 b=[0, 1, 1]: firings 0.99968 changes 2.642975 worst 58",
+    "m=3 b=[1, 0, 1]: firings 0.9997 changes 2.71367 worst 51"
+  ],
+  "title": "Firings and digit changes per increment for the 31 terminating carry rules"
+}

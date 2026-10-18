@@ -1,0 +1,25 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-06",
+    "EXP-C01-07",
+    "EXP-C01-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C01-10",
+  "limitations": "Derivation not yet checked by the Skeptic; verified for the 12 lab relations (all n, by finite completion) and further relations by the Historian.",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Historian derivation (reviews/historian_C01_C02.md, section 2 (C)): identities (P) H = G_y + x^(k-|y|) G_z and (E) H(1 - qx) + x^k G_z = 1 read off Gray-Steinberg 2022 Thm 6.6 and Props 8.3, 8.5 (G_w = growth series of the left ideal M[w]); for y = z they give the formula. No published statement of the growth formula found.",
+  "statement": "If u != v of length k share exactly one common border z (neither border set containing the other), the class\ncounts have generating function c/(x^k + (1 - q x) c) with c = 1 + x^(k - |z|).",
+  "system": "SYS-A",
+  "title": "Common-border formula with exactly one common border (derivation sketch from Gray-Steinberg 2022)",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

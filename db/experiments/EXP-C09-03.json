@@ -1,0 +1,82 @@
+{
+  "agent": "Mathematical Inventor",
+  "analysis": "The norm map is multiplicative; |N(n)| <= 1.382 n; norm +-1 exactly at Fibonacci numbers.",
+  "assumptions": [
+    "n <= 10^5 for statistics; multiplicativity checked on all a, b <= 400"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C09-03",
+    "file": "experiments/C09/E03_norm_map.py",
+    "sha256": "6b1af1d12b260d464dddacd3f63218f74ce72235cbfc45fac4b644bac7a215bf",
+    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+  },
+  "cycle": "C09",
+  "falsification": "A failure of multiplicativity, or a reducible n with prime |N(n)|.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:38:28Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The norm map is multiplicative; |N(n)| <= 1.382 n; norm +-1 exactly at Fibonacci numbers.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C09-01",
+        "CLM-C09-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C09-3: N(a o b) = N(a) N(b) for all a, b (proved from the embedding); |N(n)| <= sqrt(5) n; and every n whose |N(n)| is 1 or a rational prime is circle-irreducible except n = 1's multiples by units.",
+  "id": "EXP-C09-03",
+  "methodology": "Compute N(n) = s^2 + n s - n^2 with s = n*; verify multiplicativity; bound |N(n)|/n; compare irreducibility with the primality of |N(n)|.",
+  "question": "Can ordinary multiplication detect circle factorisations through the norm of nu(n) in Z[phi]?",
+  "related": [
+    "CLM-C09-01",
+    "CLM-C09-07"
+  ],
+  "results_file": "results/EXP-C09-03.json",
+  "results_sha256": "06fdb3356c7705b31fec007aefb6c0ced4bbb4f10cfc0a456bd5d5306d0c046f",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C09-03",
+        "file": "experiments/C09/E03_norm_map.py",
+        "sha256": "6b1af1d12b260d464dddacd3f63218f74ce72235cbfc45fac4b644bac7a215bf",
+        "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:38:28Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C09-03.json",
+      "results_sha256": "06fdb3356c7705b31fec007aefb6c0ced4bbb4f10cfc0a456bd5d5306d0c046f",
+      "runtime_s": 0.494,
+      "started": "2026-10-18T07:38:27Z",
+      "summary": [
+        "multiplicativity N(a o b) = N(a)N(b) on a, b <= 400: 0 failures",
+        "max |N(n)|/n for n <= 1e5: 1.382 (sqrt 5 = 2.2361); elements of norm +-1: [1, 2, 3, 5, 8, 13, 21, 34]",
+        "reducible n with prime |N(n)|: [11, 18, 29, 37, 45]; irreducibles with prime |N(n)|: 14076/54908"
+      ]
+    }
+  ],
+  "summary": [
+    "multiplicativity N(a o b) = N(a)N(b) on a, b <= 400: 0 failures",
+    "max |N(n)|/n for n <= 1e5: 1.382 (sqrt 5 = 2.2361); elements of norm +-1: [1, 2, 3, 5, 8, 13, 21, 34]",
+    "reducible n with prime |N(n)|: [11, 18, 29, 37, 45]; irreducibles with prime |N(n)|: 14076/54908"
+  ],
+  "title": "Norm map N(n) = n*^2 + n n* - n^2 and circle irreducibility"
+}

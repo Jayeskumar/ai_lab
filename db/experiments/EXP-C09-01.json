@@ -1,0 +1,84 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Irreducible density decreases slowly (0.600 to 0.539 over 10^2..10^6); far more irreducibles than primes. Reducibles are not in the OEIS; the shifted-window OEIS hit for irreducibles (A026273) agrees for 24 terms and diverges at 40 = 4 o 4.",
+  "assumptions": [
+    "Knuth's product (s = 2); exact formula a o b = ab + a b* + a* b validated in EXP-C08/C09 setup"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C09-01",
+    "file": "experiments/C09/E01_irreducibles.py",
+    "sha256": "f6d7346273414422a7e7ecb96d4631945bbdacacf067cc4c8597062c189c4dd5",
+    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+  },
+  "cycle": "C09",
+  "falsification": "Irreducible density not decreasing towards 0 across scales 10^2..10^6.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:38:25Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Irreducible density decreases slowly (0.600 to 0.539 over 10^2..10^6); far more irreducibles than primes. Reducibles are not in the OEIS; the shifted-window OEIS hit for irreducibles (A026273) agrees for 24 terms and diverges at 40 = 4 o 4.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C09-04",
+        "CLM-C09-05",
+        "CLM-C09-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C09-1 (inventor): since a o b ~ sqrt(5) a b grows like ordinary multiplication, circle irreducibles should thin out like primes (density -> 0).",
+  "id": "EXP-C09-01",
+  "methodology": "Enumerate all a <= b with a o b <= N (N = 10^6); record counts of irreducibles in dyadic ranges, the density trend, the first irreducibles and multiply-represented products; OEIS checks.",
+  "question": "Which positive integers are not circle products a o b, and how dense are they?",
+  "related": [
+    "CLM-C09-04",
+    "CLM-C09-05",
+    "CLM-C09-08"
+  ],
+  "results_file": "results/EXP-C09-01.json",
+  "results_sha256": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C09-01",
+        "file": "experiments/C09/E01_irreducibles.py",
+        "sha256": "f6d7346273414422a7e7ecb96d4631945bbdacacf067cc4c8597062c189c4dd5",
+        "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:38:25Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C09-01.json",
+      "results_sha256": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
+      "runtime_s": 10.789,
+      "started": "2026-10-18T07:38:14Z",
+      "summary": [
+        "up to 1000000: 539392 irreducible, 460608 reducible; density of irreducibles at 10^2..10^6: {'100': 0.6, '1000': 0.577, '10000': 0.5617, '100000': 0.54908, '1000000': 0.539392}",
+        "first irreducibles [1, 2, 4, 6, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 23, 25, 27, 28, 30, 31]",
+        "OEIS irreducibles: MATCH (shifted window) ['A026273', 'A080746']; reducibles: NO MATCH []"
+      ]
+    }
+  ],
+  "summary": [
+    "up to 1000000: 539392 irreducible, 460608 reducible; density of irreducibles at 10^2..10^6: {'100': 0.6, '1000': 0.577, '10000': 0.5617, '100000': 0.54908, '1000000': 0.539392}",
+    "first irreducibles [1, 2, 4, 6, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 23, 25, 27, 28, 30, 31]",
+    "OEIS irreducibles: MATCH (shifted window) ['A026273', 'A080746']; reducibles: NO MATCH []"
+  ],
+  "title": "Irreducibles ('circle primes') of (N>=1, o) up to 10^6"
+}

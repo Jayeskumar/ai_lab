@@ -1,0 +1,79 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "random descent of aab -> ba (unbordered left-hand side, CLM-C04-05)",
+    "exhaustive derivation graphs up to n = 17 (EXP-C04-03)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C04-04",
+    "file": "experiments/C04/E04_aab_ba_formula.py",
+    "sha256": "49a06927f2d302851f94bd6d7ad76b73632a899d9a8d21e42283278a8d18a517",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "cycle": "C04",
+  "falsification": "Any n <= 21 where the maximum over words differs from the formula, or any word whose derivation length differs from the configuration formula.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:40:53Z"
+    }
+  ],
+  "hypothesis": "H-C04-L: writing w = a^x0 b a^x1 ... b a^xm, each step is the carry 2[k] -> [k+1] (k < m) with level m a sink; hence D(n) = max over m of (n - m) - ceil((n - m)/2^m), i.e. n - D(n) = min_m (m + ceil((n-m)/2^m)) = log2(n) + O(1). Predicted first terms where D stalls: n = 4, 7, 12, 21, 38, ...",
+  "id": "EXP-C04-04",
+  "methodology": "(1) Exhaustive derivation graphs for n <= 14 (independent of the reduction). (2) For n <= 21, one leftmost derivation per word (valid by random descent) over all 2^n words. (3) Per-word check of the configuration formula D(w) = T - s2(V mod 2^m) - floor(V/2^m).",
+  "question": "Why does the derivational complexity of aab -> ba admit no linear recurrence?",
+  "results_file": "results/EXP-C04-04.json",
+  "results_sha256": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-04",
+        "file": "experiments/C04/E04_aab_ba_formula.py",
+        "sha256": "b88cc543ae8de74e94de36368201e34c21c78641a21ade223ed383e963aaafa6",
+        "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:40:52Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C04-04.json",
+      "results_sha256": "4e5fa25df609a04fdd8981fb1471440dc4538fdebb207246780c5c4f6b68a520",
+      "runtime_s": 20.405,
+      "started": "2026-10-18T07:40:31Z",
+      "summary": [
+        "max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]",
+        "formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0",
+        "n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-04",
+        "file": "experiments/C04/E04_aab_ba_formula.py",
+        "sha256": "49a06927f2d302851f94bd6d7ad76b73632a899d9a8d21e42283278a8d18a517",
+        "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:52:35Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C04-04.json",
+      "results_sha256": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
+      "runtime_s": 27.493,
+      "started": "2026-10-18T07:52:08Z",
+      "summary": [
+        "max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]",
+        "formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0",
+        "n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]",
+        "closed form D(n) = n - 1 - min{k : 2^k + k >= n} (n <= 20000): True; stalls exactly at n = 2^k + k + 1: True"
+      ]
+    }
+  ],
+  "summary": [
+    "max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]",
+    "formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0",
+    "n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]",
+    "closed form D(n) = n - 1 - min{k : 2^k + k >= n} (n <= 20000): True; stalls exactly at n = 2^k + k + 1: True"
+  ],
+  "title": "The rule aab -> ba is a truncated binary exchange system: D(n) = max_m (n-m) - ceil((n-m)/2^m)"
+}

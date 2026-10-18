@@ -1,0 +1,91 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n)",
+    "period search p <= 2000 with at least 3 repetitions of the periodic tail"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C12-01",
+    "file": "experiments/C12/E01_grundy_census.py",
+    "sha256": "2733670bf990a6c5ff7bf8c09829d3e35abf47a557536aa878890b67c1a1df69",
+    "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+  },
+  "cycle": "C12",
+  "falsification": "A game with none of the three behaviours refutes H-C12-0 within the range.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:11:01Z"
+    }
+  ],
+  "hypothesis": "H-C12-0 (exploratory): every game shows one of three behaviours within the computed range - eventually periodic, arithmetic-periodic, or a closed form in a number-theoretic function.",
+  "id": "EXP-C12-01",
+  "methodology": "Exact Grundy computation (bitset method for sparse subtraction sets); record max value, growth, P-position density, eventual (arithmetic) periodicity.",
+  "question": "What structure do Sprague-Grundy values have when the moves of a one-heap game are defined by relations (divisibility, coprimality, membership in a sparse set, bitwise inclusion, splitting) instead of fixed magnitudes?",
+  "results_file": "results/EXP-C12-01.json",
+  "results_sha256": "4ff08061267384a5b7198639315bf9c3011c475a956cc28bf32bc811e7f4cced",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C12-01",
+        "file": "experiments/C12/E01_grundy_census.py",
+        "sha256": "2733670bf990a6c5ff7bf8c09829d3e35abf47a557536aa878890b67c1a1df69",
+        "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:11:00Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C12-01.json",
+      "results_sha256": "4ff08061267384a5b7198639315bf9c3011c475a956cc28bf32bc811e7f4cced",
+      "runtime_s": 45.541,
+      "started": "2026-10-18T08:10:15Z",
+      "summary": [
+        "19 games; eventually periodic: 8; arithmetic-periodic: 0; neither (within range): 11",
+        "G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005",
+        "G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05",
+        "G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085",
+        "G04 move to a proper divisor: max 16 (N=100000), period None, arith None, P-density 2e-05",
+        "G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004",
+        "G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173",
+        "G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781",
+        "G09 subtract a Fibonacci number: max 14 (N=100000), period (99970, 10), arith None, P-density 0.172148",
+        "G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337",
+        "G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005",
+        "G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006",
+        "G11 subtract a prime: max 11 (N=100000), period None, arith None, P-density 0.150658",
+        "G12 subtract a triangular number: max 110 (N=100000), period None, arith None, P-density 0.01524",
+        "G13 move to a proper binary submask: max 16 (N=100000), period None, arith None, P-density 1e-05",
+        "G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
+        "G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
+        "G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398",
+        "G19 move to a remainder: max 11 (N=5000), period (3071, 1), arith None, P-density 0.0004",
+        "G20 move to a quotient: max 14 (N=20000), period (16384, 1), arith None, P-density 0.0001"
+      ]
+    }
+  ],
+  "summary": [
+    "19 games; eventually periodic: 8; arithmetic-periodic: 0; neither (within range): 11",
+    "G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005",
+    "G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05",
+    "G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085",
+    "G04 move to a proper divisor: max 16 (N=100000), period None, arith None, P-density 2e-05",
+    "G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004",
+    "G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173",
+    "G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781",
+    "G09 subtract a Fibonacci number: max 14 (N=100000), period (99970, 10), arith None, P-density 0.172148",
+    "G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337",
+    "G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005",
+    "G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006",
+    "G11 subtract a prime: max 11 (N=100000), period None, arith None, P-density 0.150658",
+    "G12 subtract a triangular number: max 110 (N=100000), period None, arith None, P-density 0.01524",
+    "G13 move to a proper binary submask: max 16 (N=100000), period None, arith None, P-density 1e-05",
+    "G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
+    "G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001",
+    "G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398",
+    "G19 move to a remainder: max 11 (N=5000), period (3071, 1), arith None, P-density 0.0004",
+    "G20 move to a quotient: max 14 (N=20000), period (16384, 1), arith None, P-density 0.0001"
+  ],
+  "title": "Grundy census of 19 relational one-heap games"
+}

@@ -1,0 +1,186 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C01-08",
+    "file": "experiments/C01/E08_historian_replication.py",
+    "sha256": "980064fde3308c78e973b30d9d2813807636a4242714724fc62f1aafdbba2ba9",
+    "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:10:44Z",
+  "id": "EXP-C01-08",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "(a) binary k <= 7, ternary k <= 4, all ordered pairs",
+      "(c) n <= 13"
+    ],
+    "cycle": "C01",
+    "falsification": "Any mismatch in (a), any open relation with c != 1, a different count in (b), or a failure of the formula in (c).",
+    "hypothesis": "(a) {u -> v} (|u| = |v|) is confluent iff Borders(u) is contained in Borders(v) (Kurth 1987); (b) all 527 relations left open by EXP-C01-07 have no common border; among the hard relations of EXP-C01-06 exactly 12 have a common border (one each); (c) the common-border formula holds for hard relations with two common borders (k = 8).",
+    "id": "EXP-C01-08",
+    "methodology": "(a) local confluence = all critical pairs of the single terminating rule join; (b) recompute common borders for the relations of EXP-C01-06/07; (c) exact class counts by union-find.",
+    "question": "Do the Historian's scratch computations (run outside the repository) reproduce inside the lab?",
+    "title": "Replication of the novelty audit's computations: confluence criterion, open cases, two common borders"
+  },
+  "results": {
+    "a_mismatches": [],
+    "a_n_mismatches": 0,
+    "a_pairs_checked": 28850,
+    "b_hard_relations_by_number_of_common_borders": {
+      "0": 1314,
+      "1": 12
+    },
+    "b_hard_relations_with_common_border": [
+      [
+        "aaaaa",
+        "ababa"
+      ],
+      [
+        "aabaa",
+        "ababa"
+      ],
+      [
+        "babab",
+        "bbabb"
+      ],
+      [
+        "babab",
+        "bbbbb"
+      ],
+      [
+        "aaaaaa",
+        "abaaba"
+      ],
+      [
+        "aaabaa",
+        "abaaba"
+      ],
+      [
+        "aabaaa",
+        "abaaba"
+      ],
+      [
+        "aabbaa",
+        "abaaba"
+      ],
+      [
+        "babbab",
+        "bbaabb"
+      ],
+      [
+        "babbab",
+        "bbabbb"
+      ],
+      [
+        "babbab",
+        "bbbabb"
+      ],
+      [
+        "babbab",
+        "bbbbbb"
+      ]
+    ],
+    "b_open_relations_by_number_of_common_borders": {
+      "0": 527
+    },
+    "c_two_common_borders": [
+      {
+        "agree_n_le_13": true,
+        "common_borders": [
+          "a",
+          "aa"
+        ],
+        "counts": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          255,
+          508,
+          1012,
+          2016,
+          4016,
+          8000
+        ],
+        "relation": [
+          "aaaaaaaa",
+          "aabaabaa"
+        ]
+      },
+      {
+        "agree_n_le_13": true,
+        "common_borders": [
+          "a",
+          "aa"
+        ],
+        "counts": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          255,
+          508,
+          1012,
+          2016,
+          4016,
+          8000
+        ],
+        "relation": [
+          "aaaabaaa",
+          "aabaabaa"
+        ]
+      },
+      {
+        "agree_n_le_13": true,
+        "common_borders": [
+          "a",
+          "aa"
+        ],
+        "counts": [
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          255,
+          508,
+          1012,
+          2016,
+          4016,
+          8000
+        ],
+        "relation": [
+          "aaabaaaa",
+          "aabaabaa"
+        ]
+      }
+    ],
+    "summary": [
+      "(a) 28850 ordered pairs: confluence iff border containment, mismatches 0",
+      "(b) open relations by #common borders: {0: 527}; hard relations by #common borders: {0: 1314, 1: 12}",
+      "(c) two-common-border relations (k = 8, n <= 13): agree = [True, True, True]"
+    ]
+  },
+  "results_sha256": "637010735fc351eca624278c3b4e573b43028056536d62b872023440215cb34c",
+  "runtime_s": 0.138,
+  "started": "2026-10-18T08:10:44Z"
+}

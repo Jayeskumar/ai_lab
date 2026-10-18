@@ -1,0 +1,105 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Factorisation is far from unique; first non-uniqueness at 8 = 1o1o1 = 2o2; elasticity up to 2.5 below 2e5.",
+  "assumptions": [
+    "all n <= 200000",
+    "factorisation sets truncated at 64 per n (never reached for the reported minima)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C09-02",
+    "file": "experiments/C09/E02_factorizations.py",
+    "sha256": "dab0b1f12b580af049c1fc887b1ed94db01ceecd026da28bc40385c8c584ec84",
+    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+  },
+  "counterexamples": [
+    "8 = 1 o 1 o 1 = 2 o 2"
+  ],
+  "cycle": "C09",
+  "falsification": "Any n with two distinct multisets of irreducibles.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:38:27Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Factorisation is far from unique; first non-uniqueness at 8 = 1o1o1 = 2o2; elasticity up to 2.5 below 2e5.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "8 = 1 o 1 o 1 = 2 o 2"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C09-02",
+        "CLM-C09-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C09-2 (bold): factorisation into circle irreducibles is unique (the semigroup embeds into the UFD Z[phi]).",
+  "id": "EXP-C09-02",
+  "methodology": "Dynamic programming over all representations n = a o b with irreducible-multiset concatenation; report the smallest n with two factorisations, with two different lengths, and the maximum elasticity (max length / min length).",
+  "question": "Is factorisation into circle irreducibles unique? Do all factorisations of n have the same length?",
+  "related": [
+    "CLM-C09-02",
+    "CLM-C09-08"
+  ],
+  "results_file": "results/EXP-C09-02.json",
+  "results_sha256": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C09-02",
+        "file": "experiments/C09/E02_factorizations.py",
+        "sha256": "dab0b1f12b580af049c1fc887b1ed94db01ceecd026da28bc40385c8c584ec84",
+        "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:38:27Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C09-02.json",
+      "results_sha256": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
+      "runtime_s": 1.992,
+      "started": "2026-10-18T07:38:25Z",
+      "summary": [
+        "n <= 200000: 75332 with >= 2 factorisations; first: 8 = [[1, 1, 1], [2, 2]]",
+        "first with factorisations of different lengths: 8; count 29577; max elasticity 2.5 at n = 196405"
+      ]
+    }
+  ],
+  "summary": [
+    "n <= 200000: 75332 with >= 2 factorisations; first: 8 = [[1, 1, 1], [2, 2]]",
+    "first with factorisations of different lengths: 8; count 29577; max elasticity 2.5 at n = 196405"
+  ],
+  "title": "Factorisations in Knuth's circle semigroup: uniqueness and lengths",
+  "verification": "REFUTED"
+}

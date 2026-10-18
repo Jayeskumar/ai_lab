@@ -1,0 +1,25 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-02",
+    "EXP-C10-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-02",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The sequence T_m is OEIS A215005 (same recurrence); the counting-cost interpretation is elementary.",
+  "proof": "proofs/paper/C10.md#theorem-2-clm-c10-02--zeckendorf-counting",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 2); recurrence equals brute force for m <= 24",
+  "statement": "The total number of digit changes when counting from 0 to G_m - 1 in the Zeckendorf system (G = 1,2,3,5,...)\nis T_m = 2 G_m - ceil(m/2) - 2, satisfying T_(m+1) = T_m + T_(m-1) + ceil(m/2) + 1; the average cost of\nZeckendorf counting tends to 2.",
+  "system": "SYS-C",
+  "title": "Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

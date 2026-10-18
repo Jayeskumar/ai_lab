@@ -1,0 +1,120 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Loops are found exactly when p divides s on 66 test rules; all 36 non-multiples terminate from every tested start; 147 lifted loops verify; H-C03-4 has no contradiction on the 625 rules and predicts termination for all 24 remaining unknowns. The first run reported a spurious non-finite word because of a too-tight length cap (96 letters); the reachable set from 001001001111 under 0011 -> 11100000 is finite (232 words, longest 104 letters).",
+  "assumptions": [
+    "loop certificates re-checked step by step",
+    "'terminating from u' is certified by a finite reachable set (finitely branching rewriting: finite reachable set + no cycle = no infinite derivation from u)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C03-03",
+    "file": "experiments/C03/E03_divisibility.py",
+    "sha256": "327bbc449688ebbd2c66a1c26398cf97b4ae324a66b26654c567e0513a4f5190",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C03",
+  "falsification": "A base rule (1, q, r, k) without a loop although infinite growth is observed; a non-multiple rule with a loop or an infinite reachable set; a multiple without a loop.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:57:13Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "methodology",
+      "new": "Part A: loops for the base family (1, q, r, k), q <= 5, q < r < 2q, k <= 6. Part B: lift every base loop to (p, q, r, kp), p <= 4, and verify. Part C: for p in {2,3}, q in {2,3,4}, q < r < 2q, 2p <= s <= 3p+2: loop search, reachable sets from every 0^a 1^b (a <= 3p, b <= 3q+2) and from every word of length <= 12 containing the left-hand side (reachable words up to 720 letters). Part D: re-examine the 29 unknown rules of EXP-C03-02 using mirrors and lifts. (Reachable-set probes are run for the non-divisible rules only; for divisible rules the loop certificate is the evidence.)",
+      "old": "Part A: loops for the base family (1, q, r, k), q <= 5, q < r < 2q, k <= 6. Part B: lift every base loop to (p, q, r, kp), p <= 4, and verify. Part C: for p in {2,3}, q in {2,3,4}, q < r < 2q, 2p <= s <= 3p+2: loop search, reachable sets from every 0^a 1^b (a <= 3p, b <= 3q+2) and from every word of length <= 12 containing the left-hand side. Part D: re-examine the 29 unknown rules of EXP-C03-02 using mirrors and lifts. (Reachable-set probes are run for the non-divisible rules only; for divisible rules the loop certificate is the evidence.)",
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T07:58:25Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Loops are found exactly when p divides s on 66 test rules; all 36 non-multiples terminate from every tested start; 147 lifted loops verify; H-C03-4 has no contradiction on the 625 rules and predicts termination for all 24 remaining unknowns. The first run reported a spurious non-finite word because of a too-tight length cap (96 letters); the reachable set from 001001001111 under 0011 -> 11100000 is finite (232 words, longest 104 letters).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C03-05",
+        "CLM-C03-09",
+        "CLM-C03-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C03-4: 0^p 1^q -> 1^r 0^s is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p, q < r < 2q and p | s, or (c) r >= 2q, p < s < 2p and q | r; otherwise it terminates. Mechanism for (b): every rule (1, q, r, k) with q < r < 2q, k >= 2 loops, and the morphism 0 -> 0^p maps it onto (p, q, r, kp).",
+  "id": "EXP-C03-03",
+  "methodology": "Part A: loops for the base family (1, q, r, k), q <= 5, q < r < 2q, k <= 6. Part B: lift every base loop to (p, q, r, kp), p <= 4, and verify. Part C: for p in {2,3}, q in {2,3,4}, q < r < 2q, 2p <= s <= 3p+2: loop search, reachable sets from every 0^a 1^b (a <= 3p, b <= 3q+2) and from every word of length <= 12 containing the left-hand side (reachable words up to 720 letters). Part D: re-examine the 29 unknown rules of EXP-C03-02 using mirrors and lifts. (Reachable-set probes are run for the non-divisible rules only; for divisible rules the loop certificate is the evidence.)",
+  "question": "Why do (2,2,3,4) and (2,2,3,6) loop while (2,2,3,5) and (2,2,3,7) apparently terminate?",
+  "related": [
+    "CLM-C03-05",
+    "CLM-C03-09",
+    "CLM-C03-10"
+  ],
+  "results_file": "results/EXP-C03-03.json",
+  "results_sha256": "1a84189b39cd83c4d8bbe30c63745db97cec23e7f66f21c191529348b54a39f8",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C03-03",
+        "file": "experiments/C03/E03_divisibility.py",
+        "sha256": "bafa220b2e1dce9518fc35ae0a504934ad2149be600150dad7a6f0733fba9f8d",
+        "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:57:13Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C03-03.json",
+      "results_sha256": "5a7bacd9ebae4aaa49ffa9ad8de5010ba13ea1afd4595b7d748b78f0ab3c40ba",
+      "runtime_s": 28.933,
+      "started": "2026-10-18T07:56:44Z",
+      "summary": [
+        "base family (1,q,r,k), q<=5, q<r<2q, k<=6: 49 loops found, missing: [[1, 5, 6, 6]]",
+        "lifted loops verified (p=2..4, both orientations): 147, failures: 0",
+        "part C: 66 rules; divisibility predicts loop-finding exactly: True (mismatches []); all non-multiples terminate from every tested start: False",
+        "EXP-C03-02 unknowns resolved as looping: 5; remaining 24: [[2, 2, 3, 3], [2, 2, 3, 5], [2, 2, 5, 3], [2, 3, 4, 3], [2, 3, 4, 5], [2, 3, 5, 3], [2, 3, 5, 5], [2, 4, 5, 3], [2, 4, 5, 5], [3, 2, 3, 4], [3, 2, 3, 5], [3, 2, 5, 4], [3, 2, 5, 5], [3, 3, 4, 4], [3, 3, 4, 5], [3, 3, 5, 4], [3, 3, 5, 5], [3, 4, 5, 4], [3, 4, 5, 5], [4, 2, 3, 5], [4, 2, 5, 5], [4, 3, 4, 5], [4, 3, 5, 5], [4, 4, 5, 5]]",
+        "H-C03-4 contradictions on the 625 rules: 0; prediction for remaining unknowns: ['TERMINATING']"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C03-03",
+        "file": "experiments/C03/E03_divisibility.py",
+        "sha256": "327bbc449688ebbd2c66a1c26398cf97b4ae324a66b26654c567e0513a4f5190",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:58:25Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C03-03.json",
+      "results_sha256": "1a84189b39cd83c4d8bbe30c63745db97cec23e7f66f21c191529348b54a39f8",
+      "runtime_s": 21.204,
+      "started": "2026-10-18T07:58:04Z",
+      "summary": [
+        "base family (1,q,r,k), q<=5, q<r<2q, k<=6: 49 loops found, missing: [[1, 5, 6, 6]]",
+        "lifted loops verified (p=2..4, both orientations): 147, failures: 0",
+        "part C: 66 rules; divisibility predicts loop-finding exactly: True (mismatches []); all non-multiples terminate from every tested start: True",
+        "EXP-C03-02 unknowns resolved as looping: 5; remaining 24: [[2, 2, 3, 3], [2, 2, 3, 5], [2, 2, 5, 3], [2, 3, 4, 3], [2, 3, 4, 5], [2, 3, 5, 3], [2, 3, 5, 5], [2, 4, 5, 3], [2, 4, 5, 5], [3, 2, 3, 4], [3, 2, 3, 5], [3, 2, 5, 4], [3, 2, 5, 5], [3, 3, 4, 4], [3, 3, 4, 5], [3, 3, 5, 4], [3, 3, 5, 5], [3, 4, 5, 4], [3, 4, 5, 5], [4, 2, 3, 5], [4, 2, 5, 5], [4, 3, 4, 5], [4, 3, 5, 5], [4, 4, 5, 5]]",
+        "H-C03-4 contradictions on the 625 rules: 0; prediction for remaining unknowns: ['TERMINATING']"
+      ]
+    }
+  ],
+  "summary": [
+    "base family (1,q,r,k), q<=5, q<r<2q, k<=6: 49 loops found, missing: [[1, 5, 6, 6]]",
+    "lifted loops verified (p=2..4, both orientations): 147, failures: 0",
+    "part C: 66 rules; divisibility predicts loop-finding exactly: True (mismatches []); all non-multiples terminate from every tested start: True",
+    "EXP-C03-02 unknowns resolved as looping: 5; remaining 24: [[2, 2, 3, 3], [2, 2, 3, 5], [2, 2, 5, 3], [2, 3, 4, 3], [2, 3, 4, 5], [2, 3, 5, 3], [2, 3, 5, 5], [2, 4, 5, 3], [2, 4, 5, 5], [3, 2, 3, 4], [3, 2, 3, 5], [3, 2, 5, 4], [3, 2, 5, 5], [3, 3, 4, 4], [3, 3, 4, 5], [3, 3, 5, 4], [3, 3, 5, 5], [3, 4, 5, 4], [3, 4, 5, 5], [4, 2, 3, 5], [4, 2, 5, 5], [4, 3, 4, 5], [4, 3, 5, 5], [4, 4, 5, 5]]",
+    "H-C03-4 contradictions on the 625 rules: 0; prediction for remaining unknowns: ['TERMINATING']"
+  ],
+  "title": "Divisibility: loops lift along 0 -> 0^p, non-multiples look terminating"
+}

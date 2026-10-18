@@ -1,0 +1,75 @@
+{
+  "agent": "Historian and Novelty Analyst",
+  "assumptions": [
+    "run decomposition (EXP-C04-07)",
+    "Guy-Smith periodicity theorem for finite octal games"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C04-08",
+    "file": "experiments/C04/E08_octal_games.py",
+    "sha256": "0034fbafcd5f37ae649989dec9ea9fba6b31cdeb937c296211bd0854cff18c92",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C04",
+  "falsification": "Any n <= 20 where the word game, the run game and the octal recursion disagree; a Grundy value >= 4 refutes H-C04-6.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:04:28Z"
+    }
+  ],
+  "hypothesis": "H-C04-7: on the word a^n, the game of aa -> b (also bb, bbb, bab) is Dawson's Kayles 0.07; aa -> ab (also ba, abb, bba) is Officers 0.6; aaa -> b (bb, bbb, bab) is 0.007; aaa -> ab (ba, abb, bba) is 0.06; aaa -> aba is 0.4. H-C04-6 (bold, from EXP-C04-07): Grundy values of rewriting games in the family never exceed 3.",
+  "id": "EXP-C04-08",
+  "methodology": "(1) Grundy value of the single word a^n from its exact derivation graph (no decomposition), n <= 20, compared with the octal recursion and with the generic run-game recursion. (2) Octal Grundy values to n = 3000; smallest period p <= 300 with preperiod n0 holding over the whole range, and the Guy-Smith window n0 <= n < 2 n0 + p + t checked explicitly.",
+  "question": "Which classical take-and-break games are the rewriting games of rules a^k -> u?",
+  "results_file": "results/EXP-C04-08.json",
+  "results_sha256": "cc88379390a354670e44ced0b59f682485ad901eb04cd11b6059e26005ab55c1",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-08",
+        "file": "experiments/C04/E08_octal_games.py",
+        "sha256": "0034fbafcd5f37ae649989dec9ea9fba6b31cdeb937c296211bd0854cff18c92",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:04:27Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C04-08.json",
+      "results_sha256": "cc88379390a354670e44ced0b59f682485ad901eb04cd11b6059e26005ab55c1",
+      "runtime_s": 113.072,
+      "started": "2026-10-18T08:02:34Z",
+      "summary": [
+        "word game = run game for n <= 20 and run game = octal recursion for n <= 3000: True",
+        "aa->b (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+        "aa->bb (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+        "aa->bab (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+        "aa->ab (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+        "aa->abb (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+        "aa->ba (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+        "aaa->b (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15",
+        "aaa->bab (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15",
+        "aaa->ab (octal 0.06): period None (none <= 300 up to n=3000), max G 117, first G>=4 at n=15",
+        "aaa->aba (octal 0.4): period 34 from n0=54, max G 9, first G>=4 at n=15",
+        "aaa->aab (not octal (left heap >= 2)): period 4 from n0=2, max G 3, first G>=4 at n=None"
+      ]
+    }
+  ],
+  "summary": [
+    "word game = run game for n <= 20 and run game = octal recursion for n <= 3000: True",
+    "aa->b (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+    "aa->bb (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+    "aa->bab (Dawson's Kayles): period 34 from n0=53, max G 9, first G>=4 at n=14",
+    "aa->ab (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+    "aa->abb (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+    "aa->ba (Officers): period None (none <= 300 up to n=3000), max G 91, first G>=4 at n=11",
+    "aaa->b (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15",
+    "aaa->bab (octal 0.007): period None (none <= 300 up to n=3000), max G 120, first G>=4 at n=15",
+    "aaa->ab (octal 0.06): period None (none <= 300 up to n=3000), max G 117, first G>=4 at n=15",
+    "aaa->aba (octal 0.4): period 34 from n0=54, max G 9, first G>=4 at n=15",
+    "aaa->aab (not octal (left heap >= 2)): period 4 from n0=2, max G 3, first G>=4 at n=None"
+  ],
+  "title": "Unary rewriting games = octal games: Dawson's Kayles (aa -> b), Officers (aa -> ab) and others"
+}

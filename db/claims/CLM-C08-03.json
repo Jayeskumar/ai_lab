@@ -1,0 +1,23 @@
+{
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-02",
+    "EXP-C08-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C08-03",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Published theorem (Grabner, Petho, Tichy, Woeginger, \"Associativity of recurrence multiplication\", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).",
+  "statement": "For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the\ncircle product is associative once the shift parameter is large enough.",
+  "system": "SYS-C",
+  "title": "Pisot base sequences give associative circle products for all sufficiently large shifts",
+  "type": "theorem",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

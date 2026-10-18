@@ -1,0 +1,22 @@
+{
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C08-02",
+  "limitations": "10 non-Pisot sequences, shifts 0..8 only.",
+  "novelty": "NOT ASSESSED",
+  "statement": "If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta\nother than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.",
+  "system": "SYS-C",
+  "title": "Circle products over non-Pisot base sequences are never associative",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

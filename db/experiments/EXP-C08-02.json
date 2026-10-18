@@ -1,0 +1,86 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "All 10 non-Pisot sequences fail at every shift 0..8; geometric ones never fail; Pisot ones become associative above thresholds growing with |beta|.",
+  "assumptions": [
+    "minimal recurrence from Berlekamp-Massey on 24 terms (verified on 40)",
+    "shifts s = 0..8",
+    "exhaustive triples in [1,16]^3 plus 1500 random triples in [1,3000]^3 per (G, s)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C08-02",
+    "file": "experiments/C08/E02_pisot_classification.py",
+    "sha256": "ee07bff226b226583e0e28e9af282d3bd7c3ee9b1edc2f55c9b5990df28c3e98",
+    "systems_sha256": "a5d0d746f0f2c39f603bceb423e96a658e24882b32d83704e7ffe09414bb2a13"
+  },
+  "cycle": "C08",
+  "falsification": "A non-Pisot sequence with an associative shift, or a Pisot sequence failing at all large shifts tested.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:28:58Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 10 non-Pisot sequences fail at every shift 0..8; geometric ones never fail; Pisot ones become associative above thresholds growing with |beta|.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C08-02",
+        "CLM-C08-03",
+        "CLM-C08-05"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C08-2: if the minimal recurrence of G has a characteristic root beta != alpha (dominant) with |beta| >= 1, then o_s is non-associative for every shift s. H-C08-3: if it is Pisot (all other roots inside the unit circle), o_s is associative for all sufficiently large s.",
+  "id": "EXP-C08-02",
+  "methodology": "Classify each base sequence (geometric / Pisot / non-Pisot) by the roots of its minimal polynomial; test associativity per shift; report the set of associative shifts.",
+  "question": "What distinguishes base sequences whose circle products become associative?",
+  "related": [
+    "CLM-C08-02",
+    "CLM-C08-03",
+    "CLM-C08-05"
+  ],
+  "results_file": "results/EXP-C08-02.json",
+  "results_sha256": "ef9c7e962a91d915d9d34f52d08ddcd1adbb05f598ad20abb47692c010900289",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-02",
+        "file": "experiments/C08/E02_pisot_classification.py",
+        "sha256": "ee07bff226b226583e0e28e9af282d3bd7c3ee9b1edc2f55c9b5990df28c3e98",
+        "systems_sha256": "a5d0d746f0f2c39f603bceb423e96a658e24882b32d83704e7ffe09414bb2a13"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:28:58Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C08-02.json",
+      "results_sha256": "ef9c7e962a91d915d9d34f52d08ddcd1adbb05f598ad20abb47692c010900289",
+      "runtime_s": 16.662,
+      "started": "2026-10-18T07:28:41Z",
+      "summary": [
+        "46 base sequences: geometric: 5, Pisot: 31, non-Pisot: 10",
+        "H-C08-2 violations (non-Pisot with an associative shift): 0",
+        "H-C08-3 violations (Pisot, no associative shift among s = 6..8): 3"
+      ]
+    }
+  ],
+  "summary": [
+    "46 base sequences: geometric: 5, Pisot: 31, non-Pisot: 10",
+    "H-C08-2 violations (non-Pisot with an associative shift): 0",
+    "H-C08-3 violations (Pisot, no associative shift among s = 6..8): 3"
+  ],
+  "title": "Circle-product associativity versus the Pisot property of the minimal recurrence"
+}

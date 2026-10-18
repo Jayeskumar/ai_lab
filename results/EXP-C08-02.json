@@ -1,0 +1,2632 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-02",
+    "file": "experiments/C08/E02_pisot_classification.py",
+    "sha256": "ee07bff226b226583e0e28e9af282d3bd7c3ee9b1edc2f55c9b5990df28c3e98",
+    "systems_sha256": "a5d0d746f0f2c39f603bceb423e96a658e24882b32d83704e7ffe09414bb2a13"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:28:58Z",
+  "id": "EXP-C08-02",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "minimal recurrence from Berlekamp-Massey on 24 terms (verified on 40)",
+      "shifts s = 0..8",
+      "exhaustive triples in [1,16]^3 plus 1500 random triples in [1,3000]^3 per (G, s)"
+    ],
+    "cycle": "C08",
+    "falsification": "A non-Pisot sequence with an associative shift, or a Pisot sequence failing at all large shifts tested.",
+    "hypothesis": "H-C08-2: if the minimal recurrence of G has a characteristic root beta != alpha (dominant) with |beta| >= 1, then o_s is non-associative for every shift s. H-C08-3: if it is Pisot (all other roots inside the unit circle), o_s is associative for all sufficiently large s.",
+    "id": "EXP-C08-02",
+    "methodology": "Classify each base sequence (geometric / Pisot / non-Pisot) by the roots of its minimal polynomial; test associativity per shift; report the set of associative shifts.",
+    "question": "What distinguishes base sequences whose circle products become associative?",
+    "seed": 8,
+    "title": "Circle-product associativity versus the Pisot property of the minimal recurrence"
+  },
+  "results": {
+    "h2_violations": [],
+    "h3_violations": [
+      [
+        "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        []
+      ],
+      [
+        "G(k+1)=G(k)+G(k-2); 1,2,3",
+        []
+      ],
+      [
+        "G(k+1)=G(k)+G(k-3); 1,2,3,4",
+        []
+      ]
+    ],
+    "rows": [
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.618034,
+        "first_failures": {
+          "0": [
+            2,
+            4,
+            4
+          ],
+          "1": [
+            1,
+            4,
+            4
+          ]
+        },
+        "head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.618034
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.618034,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "3": [
+            1,
+            2,
+            6
+          ]
+        },
+        "head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.618034
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.618034,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            8
+          ],
+          "3": [
+            1,
+            2,
+            3
+          ],
+          "5": [
+            1,
+            8,
+            8
+          ]
+        },
+        "head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.618034
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.618034,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            10
+          ],
+          "3": [
+            1,
+            1,
+            10
+          ],
+          "5": [
+            1,
+            3,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.618034
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.0,
+        "first_failures": {},
+        "head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "kind": "geometric",
+        "minimal_recurrence": [
+          "2"
+        ],
+        "other_root_moduli": [],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "associative_shifts": [],
+        "dominant_root": 2.0,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            1,
+            1,
+            2
+          ],
+          "4": [
+            1,
+            2,
+            2
+          ],
+          "5": [
+            1,
+            1,
+            2
+          ],
+          "6": [
+            1,
+            2,
+            2
+          ],
+          "7": [
+            1,
+            1,
+            2
+          ],
+          "8": [
+            1,
+            2,
+            2
+          ]
+        },
+        "head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "2"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "associative_shifts": [],
+        "dominant_root": 2.0,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            1,
+            3
+          ],
+          "3": [
+            1,
+            1,
+            2
+          ],
+          "4": [
+            1,
+            1,
+            3
+          ],
+          "5": [
+            1,
+            1,
+            2
+          ],
+          "6": [
+            1,
+            1,
+            3
+          ],
+          "7": [
+            1,
+            1,
+            2
+          ],
+          "8": [
+            1,
+            1,
+            3
+          ]
+        },
+        "head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "2"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "associative_shifts": [],
+        "dominant_root": 2.0,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            2,
+            4
+          ],
+          "3": [
+            1,
+            1,
+            2
+          ],
+          "4": [
+            1,
+            2,
+            4
+          ],
+          "5": [
+            1,
+            1,
+            2
+          ],
+          "6": [
+            1,
+            2,
+            4
+          ],
+          "7": [
+            1,
+            1,
+            2
+          ],
+          "8": [
+            1,
+            2,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "2"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "associative_shifts": [],
+        "dominant_root": 2.302776,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            3
+          ],
+          "1": [
+            1,
+            3,
+            3
+          ],
+          "2": [
+            1,
+            3,
+            3
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ],
+          "4": [
+            1,
+            3,
+            3
+          ],
+          "5": [
+            1,
+            3,
+            3
+          ],
+          "6": [
+            1,
+            3,
+            3
+          ],
+          "7": [
+            1,
+            3,
+            3
+          ],
+          "8": [
+            1,
+            3,
+            3
+          ]
+        },
+        "head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "associative_shifts": [],
+        "dominant_root": 2.302776,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            1,
+            14
+          ],
+          "3": [
+            1,
+            1,
+            14
+          ],
+          "4": [
+            1,
+            1,
+            14
+          ],
+          "5": [
+            1,
+            1,
+            14
+          ],
+          "6": [
+            1,
+            1,
+            14
+          ],
+          "7": [
+            1,
+            1,
+            14
+          ],
+          "8": [
+            1,
+            1,
+            14
+          ]
+        },
+        "head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "associative_shifts": [],
+        "dominant_root": 2.302776,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            1,
+            3
+          ],
+          "3": [
+            1,
+            1,
+            3
+          ],
+          "4": [
+            1,
+            1,
+            3
+          ],
+          "5": [
+            1,
+            1,
+            3
+          ],
+          "6": [
+            1,
+            1,
+            3
+          ],
+          "7": [
+            1,
+            1,
+            3
+          ],
+          "8": [
+            1,
+            1,
+            3
+          ]
+        },
+        "head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "associative_shifts": [],
+        "dominant_root": 2.302776,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            2
+          ],
+          "2": [
+            1,
+            1,
+            3
+          ],
+          "3": [
+            1,
+            1,
+            3
+          ],
+          "4": [
+            1,
+            1,
+            3
+          ],
+          "5": [
+            1,
+            1,
+            3
+          ],
+          "6": [
+            1,
+            1,
+            3
+          ],
+          "7": [
+            1,
+            1,
+            3
+          ],
+          "8": [
+            1,
+            1,
+            3
+          ]
+        },
+        "head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "1",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.414214,
+        "first_failures": {
+          "0": [
+            2,
+            4,
+            11
+          ]
+        },
+        "head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.414214
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.414214,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ]
+        },
+        "head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.414214
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.414214,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ]
+        },
+        "head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.414214
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "associative_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.414214,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ],
+          "3": [
+            1,
+            4,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.414214
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.732051,
+        "first_failures": {
+          "0": [
+            2,
+            4,
+            4
+          ],
+          "1": [
+            1,
+            4,
+            13
+          ],
+          "2": [
+            1,
+            7,
+            13
+          ],
+          "3": [
+            1966,
+            1948,
+            445
+          ],
+          "4": [
+            212,
+            1992,
+            1500
+          ]
+        },
+        "head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.732051
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.732051,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1,
+            10,
+            10
+          ],
+          "3": [
+            1,
+            10,
+            10
+          ],
+          "4": [
+            989,
+            1354,
+            1810
+          ],
+          "5": [
+            2250,
+            138,
+            481
+          ]
+        },
+        "head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.732051
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.732051,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ],
+          "2": [
+            1,
+            2,
+            3
+          ],
+          "3": [
+            1,
+            2,
+            3
+          ],
+          "4": [
+            1,
+            3,
+            13
+          ],
+          "5": [
+            1,
+            3,
+            13
+          ]
+        },
+        "head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.732051
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "associative_shifts": [
+          6,
+          8
+        ],
+        "dominant_root": 2.732051,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ],
+          "2": [
+            1,
+            3,
+            4
+          ],
+          "3": [
+            1,
+            2,
+            3
+          ],
+          "4": [
+            2584,
+            498,
+            708
+          ],
+          "5": [
+            1,
+            3,
+            4
+          ],
+          "7": [
+            1627,
+            1403,
+            494
+          ]
+        },
+        "head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.732051
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "associative_shifts": [],
+        "dominant_root": 3.0,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            6
+          ],
+          "1": [
+            1,
+            1,
+            6
+          ],
+          "2": [
+            1,
+            2,
+            6
+          ],
+          "3": [
+            1,
+            1,
+            6
+          ],
+          "4": [
+            1,
+            2,
+            6
+          ],
+          "5": [
+            1,
+            1,
+            6
+          ],
+          "6": [
+            1,
+            2,
+            6
+          ],
+          "7": [
+            1,
+            1,
+            6
+          ],
+          "8": [
+            1,
+            2,
+            6
+          ]
+        },
+        "head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "2",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.0,
+        "first_failures": {},
+        "head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "kind": "geometric",
+        "minimal_recurrence": [
+          "3"
+        ],
+        "other_root_moduli": [],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "associative_shifts": [],
+        "dominant_root": 3.0,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ],
+          "2": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            1,
+            1,
+            3
+          ],
+          "4": [
+            1,
+            2,
+            2
+          ],
+          "5": [
+            1,
+            1,
+            3
+          ],
+          "6": [
+            1,
+            2,
+            2
+          ],
+          "7": [
+            1,
+            1,
+            3
+          ],
+          "8": [
+            1,
+            2,
+            2
+          ]
+        },
+        "head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "2",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "associative_shifts": [],
+        "dominant_root": 3.0,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            3
+          ],
+          "2": [
+            1,
+            1,
+            4
+          ],
+          "3": [
+            1,
+            1,
+            3
+          ],
+          "4": [
+            1,
+            1,
+            4
+          ],
+          "5": [
+            1,
+            1,
+            3
+          ],
+          "6": [
+            1,
+            1,
+            4
+          ],
+          "7": [
+            1,
+            1,
+            3
+          ],
+          "8": [
+            1,
+            1,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "kind": "non-Pisot",
+        "minimal_recurrence": [
+          "2",
+          "3"
+        ],
+        "other_root_moduli": [
+          1.0
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.302776,
+        "first_failures": {
+          "0": [
+            2,
+            6,
+            15
+          ]
+        },
+        "head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.302776,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ]
+        },
+        "head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.302776,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ]
+        },
+        "head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.302776,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.302776
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.561553,
+        "first_failures": {
+          "0": [
+            2,
+            4,
+            4
+          ],
+          "1": [
+            1,
+            6,
+            6
+          ],
+          "2": [
+            1,
+            6,
+            6
+          ]
+        },
+        "head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.561553
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.561553,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1989,
+            2499,
+            2812
+          ],
+          "3": [
+            681,
+            1292,
+            491
+          ]
+        },
+        "head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.561553
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.561553,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            3
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ]
+        },
+        "head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.561553
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.561553,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            4
+          ],
+          "2": [
+            1,
+            3,
+            15
+          ],
+          "3": [
+            1,
+            2,
+            4
+          ]
+        },
+        "head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "2"
+        ],
+        "other_root_moduli": [
+          0.561553
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "associative_shifts": [
+          8
+        ],
+        "dominant_root": 3.791288,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            8
+          ],
+          "1": [
+            1,
+            1,
+            8
+          ],
+          "2": [
+            1,
+            4,
+            8
+          ],
+          "3": [
+            1,
+            6,
+            8
+          ],
+          "4": [
+            1,
+            6,
+            8
+          ],
+          "5": [
+            631,
+            1797,
+            2863
+          ],
+          "6": [
+            1556,
+            686,
+            1179
+          ],
+          "7": [
+            2215,
+            2519,
+            1688
+          ]
+        },
+        "head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "3"
+        ],
+        "other_root_moduli": [
+          0.791288
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "associative_shifts": [
+          8
+        ],
+        "dominant_root": 3.791288,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            1640,
+            2665,
+            1515
+          ],
+          "4": [
+            1409,
+            2385,
+            674
+          ],
+          "5": [
+            30,
+            1566,
+            2998
+          ],
+          "6": [
+            1501,
+            2324,
+            1187
+          ],
+          "7": [
+            176,
+            554,
+            2840
+          ]
+        },
+        "head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "3"
+        ],
+        "other_root_moduli": [
+          0.791288
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "associative_shifts": [
+          8
+        ],
+        "dominant_root": 3.791288,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            4
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1,
+            3,
+            3
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ],
+          "4": [
+            2253,
+            2322,
+            1510
+          ],
+          "5": [
+            378,
+            2856,
+            762
+          ],
+          "6": [
+            1693,
+            737,
+            681
+          ],
+          "7": [
+            1297,
+            1515,
+            1006
+          ]
+        },
+        "head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "3"
+        ],
+        "other_root_moduli": [
+          0.791288
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "associative_shifts": [],
+        "dominant_root": 3.791288,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            5
+          ],
+          "1": [
+            1,
+            1,
+            4
+          ],
+          "2": [
+            1,
+            2,
+            4
+          ],
+          "3": [
+            1,
+            2,
+            4
+          ],
+          "4": [
+            1,
+            3,
+            4
+          ],
+          "5": [
+            1,
+            3,
+            4
+          ],
+          "6": [
+            1020,
+            2698,
+            2854
+          ],
+          "7": [
+            851,
+            329,
+            2879
+          ],
+          "8": [
+            2299,
+            846,
+            380
+          ]
+        },
+        "head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "3",
+          "3"
+        ],
+        "other_root_moduli": [
+          0.791288
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.839287,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            10
+          ],
+          "1": [
+            1,
+            3,
+            10
+          ],
+          "2": [
+            1,
+            8,
+            8
+          ]
+        },
+        "head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.737353,
+          0.737353
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "associative_shifts": [],
+        "dominant_root": 1.465571,
+        "first_failures": {
+          "0": [
+            2,
+            5,
+            5
+          ],
+          "1": [
+            1,
+            5,
+            8
+          ],
+          "2": [
+            1,
+            5,
+            5
+          ],
+          "3": [
+            1,
+            5,
+            5
+          ],
+          "4": [
+            1,
+            5,
+            5
+          ],
+          "5": [
+            1,
+            5,
+            5
+          ],
+          "6": [
+            1,
+            5,
+            5
+          ],
+          "7": [
+            798,
+            2189,
+            2999
+          ],
+          "8": [
+            2522,
+            694,
+            2741
+          ]
+        },
+        "head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "0",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.826031,
+          0.826031
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.546818,
+        "first_failures": {
+          "0": [
+            2,
+            2,
+            3
+          ],
+          "1": [
+            1,
+            2,
+            2
+          ],
+          "2": [
+            1,
+            2,
+            2
+          ],
+          "3": [
+            42,
+            1484,
+            2828
+          ]
+        },
+        "head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.626615,
+          0.626615
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "associative_shifts": [
+          8
+        ],
+        "dominant_root": 1.927562,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            3
+          ],
+          "1": [
+            1,
+            3,
+            6
+          ],
+          "2": [
+            1,
+            3,
+            3
+          ],
+          "3": [
+            1,
+            9,
+            11
+          ],
+          "4": [
+            1433,
+            928,
+            2898
+          ],
+          "5": [
+            618,
+            342,
+            2298
+          ],
+          "6": [
+            981,
+            735,
+            535
+          ],
+          "7": [
+            1993,
+            1678,
+            2603
+          ]
+        },
+        "head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.774804,
+          0.818276,
+          0.818276
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "powers of 2",
+        "associative_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.0,
+        "first_failures": {},
+        "head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "kind": "geometric",
+        "minimal_recurrence": [
+          "2"
+        ],
+        "other_root_moduli": [],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "powers of 3",
+        "associative_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 3.0,
+        "first_failures": {},
+        "head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "kind": "geometric",
+        "minimal_recurrence": [
+          "3"
+        ],
+        "other_root_moduli": [],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "Pell 1,2,5 (2,1)",
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.414214,
+        "first_failures": {
+          "0": [
+            2,
+            4,
+            11
+          ]
+        },
+        "head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.414214
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-3); 1,2,3,4",
+        "associative_shifts": [],
+        "dominant_root": 1.380278,
+        "first_failures": {
+          "0": [
+            2,
+            6,
+            6
+          ],
+          "1": [
+            1,
+            6,
+            8
+          ],
+          "2": [
+            1,
+            6,
+            6
+          ],
+          "3": [
+            1,
+            6,
+            6
+          ],
+          "4": [
+            1,
+            6,
+            6
+          ],
+          "5": [
+            1,
+            6,
+            6
+          ],
+          "6": [
+            1,
+            6,
+            6
+          ],
+          "7": [
+            1,
+            6,
+            6
+          ],
+          "8": [
+            1,
+            6,
+            6
+          ]
+        },
+        "head": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          10,
+          14
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "1",
+          "0",
+          "0",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.819173,
+          0.940436,
+          0.940436
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=2G(k)-G(k-1)+G(k-2) (non-Pisot?); 1,2,4",
+        "associative_shifts": [
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 1.754878,
+        "first_failures": {
+          "0": [
+            2,
+            3,
+            3
+          ],
+          "1": [
+            1,
+            3,
+            6
+          ],
+          "2": [
+            1,
+            3,
+            3
+          ],
+          "3": [
+            1,
+            3,
+            3
+          ],
+          "4": [
+            1,
+            10,
+            13
+          ],
+          "5": [
+            459,
+            2556,
+            2787
+          ]
+        },
+        "head": [
+          1,
+          2,
+          4,
+          7,
+          12,
+          21,
+          37,
+          65
+        ],
+        "kind": "Pisot",
+        "minimal_recurrence": [
+          "2",
+          "-1",
+          "1"
+        ],
+        "other_root_moduli": [
+          0.754878,
+          0.754878
+        ],
+        "verified_on_40_terms": true
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+2G(k-2); 1,2,4",
+        "associative_shifts": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "dominant_root": 2.0,
+        "first_failures": {},
+        "head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "kind": "geometric",
+        "minimal_recurrence": [
+          "2"
+        ],
+        "other_root_moduli": [],
+        "verified_on_40_terms": true
+      }
+    ],
+    "summary": [
+      "46 base sequences: geometric: 5, Pisot: 31, non-Pisot: 10",
+      "H-C08-2 violations (non-Pisot with an associative shift): 0",
+      "H-C08-3 violations (Pisot, no associative shift among s = 6..8): 3"
+    ]
+  },
+  "results_sha256": "ef9c7e962a91d915d9d34f52d08ddcd1adbb05f598ad20abb47692c010900289",
+  "runtime_s": 16.662,
+  "started": "2026-10-18T07:28:41Z"
+}

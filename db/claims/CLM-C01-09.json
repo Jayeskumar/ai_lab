@@ -1,0 +1,25 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-06",
+    "EXP-C01-07",
+    "EXP-C01-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C01-09",
+  "limitations": "The deduction from the cited theorems is pending an independent Skeptic check; until then the status stays COMPUTATIONALLY SUPPORTED (1314 hard relations up to n = 12 / 7).",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Derived by the Historian from Gray-Steinberg 2026 Thm 8.1 (no common border => Hochschild cohomological dimension <= 2 => gl.dim K<A>/(u-v) <= 2 => u - v strongly free, Anick 1982 => Hilbert series 1/(1-qx+x^k)); for different first or last letters also Albenque-Nadeau 2009 Cor. 3 + Adjan's cancellativity. All 527 relations left open by EXP-C01-07 are in this case.",
+  "statement": "If u != v have length k over a q-letter alphabet and no word is a border of both, the class counts of length-n\nwords modulo u = v have generating function 1/(1 - q x + x^k).",
+  "system": "SYS-A",
+  "title": "Common-border formula when u and v share no border (c = 1) - consequence of published results",
+  "type": "theorem",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

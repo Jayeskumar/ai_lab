@@ -18,19 +18,31 @@
     ],
     "CLM-C01-05": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C01-06": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C01-07": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C01-08": [
       "COMPUTATIONALLY SUPPORTED",
       "POTENTIALLY NOVEL"
+    ],
+    "CLM-C01-09": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C01-10": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C01-11": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
     ],
     "CLM-C02-01": [
       "PROVEN",
@@ -42,27 +54,27 @@
     ],
     "CLM-C02-03": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C02-04": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C02-05": [
       "PROVEN",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C02-06": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C02-07": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C02-08": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C02-09": [
       "PROVEN",
@@ -71,11 +83,143 @@
     "CLM-C02-10": [
       "PROVEN",
       "REDISCOVERY"
+    ],
+    "CLM-C03-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-02": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-03": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-04": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-05": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-06": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-07": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C03-08": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C03-09": [
+      "INCONCLUSIVE",
+      "NOT ASSESSED"
+    ],
+    "CLM-C03-10": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C03-11": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C08-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C08-02": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C08-03": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C08-04": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C08-05": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C08-06": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C09-02": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-03": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C09-04": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-05": [
+      "CONJECTURE",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-06": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-07": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C09-08": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C10-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C10-02": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C10-03": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C10-04": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C10-05": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C10-06": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C10-07": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
     ]
   },
   "cycles_complete": [
     "C01",
-    "C02"
+    "C02",
+    "C03",
+    "C08",
+    "C09",
+    "C10"
   ],
   "cycles_in_progress": [],
   "experiments": {
@@ -86,17 +230,52 @@
     "EXP-C01-05": "305a422a5ddd2df14c0658b2c1551d22e520b431db40c1db311b329d2d2dfba3",
     "EXP-C01-06": "3a8d0162c2dde5c6b91ed7d343a33dee35059a1b8f86e022b702b7b845e6e542",
     "EXP-C01-07": "455810f0a4d54dadf0d53b5b32cdd4549c8cf368356adaa049100f245e6ad89c",
+    "EXP-C01-08": "637010735fc351eca624278c3b4e573b43028056536d62b872023440215cb34c",
     "EXP-C02-01": "6ef3209881c18e2fdc13bdfe7ac375c224fcef46e22a444a62b4e7bffcd0b836",
     "EXP-C02-02": "5e6cb7eb646e2ba15595c1fb4a9a24ad89823d52cc52892cf63e6574e2210a5a",
     "EXP-C02-03": "90286589173dec13827a7337597a8346a6aa2e1212ab8e72ce55b8b9f2688e23",
     "EXP-C02-04": "1d2c1c367ef9a9bffa1bb051863e9c5f16c82715e78567345226aa5942050dac",
     "EXP-C02-05": "c19304f59ee54e6381d4ddec173daf9391c7b58db2fd3ee23c87036da66dce90",
-    "EXP-C02-06": "8daf1207b9ded668d8aab37ef7b7220a8b9a208fabee50caed818100a564355a"
+    "EXP-C02-06": "8daf1207b9ded668d8aab37ef7b7220a8b9a208fabee50caed818100a564355a",
+    "EXP-C03-01": "6d2d95a20fd4742dddeb1bad092f61532574283e2088d28962e7f843ba91e8fa",
+    "EXP-C03-02": "9c3a165b60fd3638a17f0ed237f54a3635091d9737b27dd8f968b3880a370a9d",
+    "EXP-C03-03": "1a84189b39cd83c4d8bbe30c63745db97cec23e7f66f21c191529348b54a39f8",
+    "EXP-C03-04": "7a3b03cd06d36ecd38d9b8d02f8bc1e730bcd85ced2a62653e6a2ed0055be248",
+    "EXP-C04-01": "1bc8184c4a5f40dc8500abf4f68da91c3b4ce65f60e4e0bacdcfc5051ccaa0d6",
+    "EXP-C04-02": "94726db18a386c7eb4192736e8f4edb71f8e817d3fe51e58a8a918a3fe4ac00b",
+    "EXP-C04-03": "5039ce5f4ad2cc7e0a05283e79c79b19356343fc67e35cef38726b1d22afba6d",
+    "EXP-C04-04": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
+    "EXP-C04-05": "aaaaa7a552736929877f09e8655e715df36ebc6eec42153f810bb3694965b360",
+    "EXP-C04-06": "31cca82d9f4c7cee77efa6490bbc6d294417356e0cab596bb48b83f6a7b50a62",
+    "EXP-C04-07": "c3e4b5f1b21dcfdc1753dcbad7eabea2819d1e3b25f143dcdd955468c845025f",
+    "EXP-C04-08": "cc88379390a354670e44ced0b59f682485ad901eb04cd11b6059e26005ab55c1",
+    "EXP-C04-09": "b27de23695054b60a6bc918347a1a9b9c2e14704f5815ba86035261d06a75053",
+    "EXP-C04-10": "930951e6e50817a9b54ba3a2b941fef7ac050737bc19f1890b1c119135c0b4ae",
+    "EXP-C05-01": "607a0e46158d394b1935f596caf45f8fcc7fb29ba4f6cc60a6ffd6c6c2a71d9d",
+    "EXP-C05-05": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
+    "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
+    "EXP-C08-01": "625f0e8a640f0889c6f25074762c27671cc3a084acd41647efc92d3cee15ff53",
+    "EXP-C08-02": "ef9c7e962a91d915d9d34f52d08ddcd1adbb05f598ad20abb47692c010900289",
+    "EXP-C08-03": "d941931eb126e5fc09da9382a88e5756a1efa494e0333461abd3ffd0c36cbba1",
+    "EXP-C08-04": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
+    "EXP-C08-05": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
+    "EXP-C09-01": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
+    "EXP-C09-02": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
+    "EXP-C09-03": "06fdb3356c7705b31fec007aefb6c0ced4bbb4f10cfc0a456bd5d5306d0c046f",
+    "EXP-C09-04": "19fc2980806d81bad0a82b4717fca593d9599067c2217c0af2802523bbda4802",
+    "EXP-C10-01": "1cd226cc89f9dcb76273fbdda307fc1ae8644c2c414d81cfa8addfbe5a704678",
+    "EXP-C10-02": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
+    "EXP-C10-03": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
+    "EXP-C10-04": "2d945a77304f631a69e19bf18dd9d64ab011f9a9bde54f593c23f6334c147368",
+    "EXP-C12-01": "4ff08061267384a5b7198639315bf9c3011c475a956cc28bf32bc811e7f4cced"
   },
   "lean": {
     "proofs/lean/Infinity/C00_Smoke.lean": true,
     "proofs/lean/Infinity/C01_Quantity.lean": true,
-    "proofs/lean/Infinity/C02_Exchange.lean": true
+    "proofs/lean/Infinity/C02_Exchange.lean": true,
+    "proofs/lean/Infinity/C03_Termination.lean": true,
+    "proofs/lean/Infinity/C06_Laver.lean": true,
+    "proofs/lean/Infinity/C08_Knuth.lean": true
   },
   "next_priorities": [
     "C01: prove the common-border conjecture (Hilbert series / Anick chains, or parametric completions)",
@@ -105,7 +284,19 @@
     "C01: common-border formula for pairs of relations?",
     "C02: prove the sum-b = m glider conjecture (spreading lemma)",
     "C02: longest Zeckendorf game - closed form or asymptotics",
-    "C02: which carry rules have regular representation languages?"
+    "C02: which carry rules have regular representation languages?",
+    "C03: retrieve the Zantema-Geser theorem statement and compare with H-C03-4",
+    "C03: implement RFC match-bounds to prove termination of the 24 open rules (start with 0011 -> 111000 and 0011 -> 11100000)",
+    "C03: prove that every base rule 0 1^q -> 1^r 0^k (q < r < 2q, k >= 2) loops from 0 1^(q(q+1)); explain k^q loop lengths",
+    "C03: Lean formalisation of the conservation theorem (s = p)",
+    "C08: complete the Lean proof of the shifted Knuth theorem",
+    "C08: prove non-Pisot never-associativity (CLM-C08-02)",
+    "C08: compute greedy windows to prove the sign-of-beta conjecture (CLM-C08-04)",
+    "C09: arithmetic of the circle semigroup - irreducibles and factorisation",
+    "C09: prove the density-1/phi^2 conjecture",
+    "C09: characterise circle irreducibles via prime factorisation in Z[phi] plus a unit-window condition",
+    "C09: arithmetic of other associative circle products (Pell, tribonacci)",
+    "C10: exact multi-offset counting constants via the invariant measure of the digit process"
   ],
-  "updated": "2026-10-18T07:22:46Z"
+  "updated": "2026-10-18T08:13:57Z"
 }

@@ -1,0 +1,23 @@
+{
+  "counterexample": "By CLM-C09-03 the irreducibles contain a set of natural density 1/phi^2 = 0.3819...; observed density is 0.539 at 1e6.",
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-01",
+    "EXP-C09-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-04",
+  "novelty": "NOT ASSESSED",
+  "statement": "The proportion of circle-irreducible numbers up to x tends to 0 as x tends to infinity.",
+  "system": "SYS-C",
+  "title": "H-C09-1: circle irreducibles have density 0 like primes (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

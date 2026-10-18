@@ -1,0 +1,74 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "binary rules with |l|, |r| <= 5 and ternary rules with |l|, |r| <= 3 for the potential",
+    "length-preserving binary rules with bordered lhs, |l| = 4, 5, words <= 10 for confluence/RD"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C04-06",
+    "file": "experiments/C04/E06_step_potential.py",
+    "sha256": "f4b33669b600be92635ef17f34a0a175d7a4c775eadb03ae269b0bbb4a94885e",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C04",
+  "falsification": "A rule with no admissible (c, K), a step violating the constant change, or a confluent length-preserving rule without random descent.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:58:50Z"
+    }
+  ],
+  "hypothesis": "H-C04-3: for every rule l -> r (l != r) there are a letter c, an exponent K and delta != 0 such that Phi(w) = sum over positions i with w_i = c of i^K (or Phi = |w| if |l| != |r|) satisfies Phi(v) = Phi(u) + delta for every step u -> v. Hence all derivations between two words have equal length, and a terminating one-rule system is confluent iff it has random descent.",
+  "id": "EXP-C04-06",
+  "methodology": "Construct (c, K, delta) as in the proof (first letter whose position power sums differ, least K); check Phi(v) - Phi(u) = delta on every one-step pair from every word up to length 7. Separately compare confluence and random descent on exhaustive derivation graphs.",
+  "question": "Why did no terminating one-rule system turn out confluent without random descent?",
+  "results_file": "results/EXP-C04-06.json",
+  "results_sha256": "31cca82d9f4c7cee77efa6490bbc6d294417356e0cab596bb48b83f6a7b50a62",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-06",
+        "file": "experiments/C04/E06_step_potential.py",
+        "sha256": "d283b237c5cfcce33906ccdfedd95c06c9fda2dda5a00008bc0c76667535c446",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:58:49Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C04-06.json",
+      "results_sha256": "781cf51dba95a5cc047210ac56880f3d92ddfa5b936fc1b15242bff704879edc",
+      "runtime_s": 5.885,
+      "started": "2026-10-18T07:58:43Z",
+      "summary": [
+        "constant-step potential verified for 5365 rules on 470927 one-step pairs: 0 violations (largest exponent K needed: 2)",
+        "length-preserving bordered rules |l| = 4, 5: 770 tested, 94 confluent, 220 with random descent, confluent-but-not-RD: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-06",
+        "file": "experiments/C04/E06_step_potential.py",
+        "sha256": "f4b33669b600be92635ef17f34a0a175d7a4c775eadb03ae269b0bbb4a94885e",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:00:20Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C04-06.json",
+      "results_sha256": "31cca82d9f4c7cee77efa6490bbc6d294417356e0cab596bb48b83f6a7b50a62",
+      "runtime_s": 8.127,
+      "started": "2026-10-18T08:00:12Z",
+      "summary": [
+        "constant-step potential verified for 5365 rules on 470927 one-step pairs: 0 violations (largest exponent K needed: 2)",
+        "length-preserving bordered rules |l| = 4, 5: 770 tested, 94 confluent (all of them length-uniform: True), 220 length-uniform, of which 126 are not confluent"
+      ]
+    }
+  ],
+  "summary": [
+    "constant-step potential verified for 5365 rules on 470927 one-step pairs: 0 violations (largest exponent K needed: 2)",
+    "length-preserving bordered rules |l| = 4, 5: 770 tested, 94 confluent (all of them length-uniform: True), 220 length-uniform, of which 126 are not confluent"
+  ],
+  "title": "Constant-step potentials for one-rule systems; confluence versus random descent"
+}

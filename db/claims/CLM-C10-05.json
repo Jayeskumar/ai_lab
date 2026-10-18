@@ -1,0 +1,23 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-05",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules",
+  "statement": "If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).",
+  "system": "SYS-C",
+  "title": "Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q))",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

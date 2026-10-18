@@ -1,0 +1,25 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-02",
+    "EXP-C03-03",
+    "EXP-C03-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-10",
+  "limitations": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.",
+  "statement": "0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,\nq < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.",
+  "system": "SYS-A",
+  "title": "Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4)",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

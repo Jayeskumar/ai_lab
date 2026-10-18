@@ -1,0 +1,22 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-06",
+  "limitations": "Averages over 2e5 increments only; no formula.",
+  "novelty": "NOT ASSESSED",
+  "statement": "For carry rules with two or more nonzero b_j, the average digit-change cost per increment converges to a\nconstant exceeding 1 + 1/(m - B) (measured excess: 0.500 for 3->(1,1), 0.333 for 4->(1,1), 0.643 for\n3->(0,1,1), 0.714 for 3->(1,0,1), 0.831 for 4->(1,1,1)), equal to an expectation under the invariant measure of\nthe digit process.",
+  "system": "SYS-C",
+  "title": "Multi-offset exchange rules have rule-specific average counting costs",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

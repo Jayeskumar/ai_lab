@@ -1,0 +1,25 @@
+{
+ "T3": {
+  "relation_sets": 4000,
+  "failures": []
+ },
+ "T4": {
+  "paper_example_noncommuting": true,
+  "random_noncommuting_of_200": 191
+ },
+ "T5": {
+  "rearranging_relations": 33,
+  "with_smaller_class": 33,
+  "already_at_n_eq_k": 33,
+  "class_of_baa_mod_aab=aba": [
+   [
+    "baa"
+   ]
+  ]
+ },
+ "T6": {
+  "containment_pairs": 168936,
+  "non_joinable": [],
+  "n_bad": 0
+ }
+}

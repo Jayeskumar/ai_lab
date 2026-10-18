@@ -1,0 +1,82 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.",
+  "assumptions": [
+    "quadratic recurrences G_(k+1) = p G_k + q G_(k-1) with p in 1..5, q in -3..3 (q != 0), Pisot with real conjugate, several initial values G_1",
+    "shifts 0..10",
+    "tests: exhaustive [1,12]^3 plus 800 random triples in [1,1e5]^3"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C08-04",
+    "file": "experiments/C08/E04_sign_of_conjugate.py",
+    "sha256": "39f582157767a6bf757e43b0cad788e23262b0ed0ec244830516f617402b2f5a",
+    "systems_sha256": "d43702c774c3d369c38b6ead7f7a12dc0f4b4aaf9fac9259654cf8e41714017a"
+  },
+  "cycle": "C08",
+  "falsification": "A positive-beta sequence with a non-upward-closed associative-shift set.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:32:24Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C08-04"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "H-C08-4: for quadratic Pisot base sequences, if the conjugate root beta is positive the set of associative shifts is upward-closed; non-monotone sets occur only when beta < 0 (the factor beta^s flips the sign of the conjugate of the product and the conjugate window is asymmetric).",
+  "id": "EXP-C08-04",
+  "methodology": "Classify each sequence by the sign of beta; compute the associative-shift set; check upward-closure.",
+  "question": "Why is the set of associative shifts sometimes not upward-closed (e.g. s = 2 and s >= 4 but not 3)?",
+  "related": [
+    "CLM-C08-04"
+  ],
+  "results_file": "results/EXP-C08-04.json",
+  "results_sha256": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-04",
+        "file": "experiments/C08/E04_sign_of_conjugate.py",
+        "sha256": "39f582157767a6bf757e43b0cad788e23262b0ed0ec244830516f617402b2f5a",
+        "systems_sha256": "d43702c774c3d369c38b6ead7f7a12dc0f4b4aaf9fac9259654cf8e41714017a"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:32:24Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C08-04.json",
+      "results_sha256": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
+      "runtime_s": 45.746,
+      "started": "2026-10-18T07:31:38Z",
+      "summary": [
+        "90 quadratic Pisot sequences: 30 with beta > 0, 60 with beta < 0",
+        "beta > 0: non-upward-closed shift sets = 0; with no associative shift <= 10: 0",
+        "beta < 0: non-upward-closed shift sets = 10; with no associative shift <= 10: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "90 quadratic Pisot sequences: 30 with beta > 0, 60 with beta < 0",
+    "beta > 0: non-upward-closed shift sets = 0; with no associative shift <= 10: 0",
+    "beta < 0: non-upward-closed shift sets = 10; with no associative shift <= 10: 0"
+  ],
+  "title": "Sign of the conjugate root versus monotonicity of the associative-shift set"
+}

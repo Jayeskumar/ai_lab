@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang xml:lang>
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Beyond Conventional Mathematics</title>
+  <style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+</style>
+  <style type="text/css">
+body { font-family: 'DejaVu Serif', Georgia, serif; max-width: 46em; margin: 2em auto; padding: 0 1em;
+line-height: 1.5; color: #111; background: #fff; }
+h1, h2, h3, h4 { font-family: 'DejaVu Sans', Helvetica, sans-serif; line-height: 1.25; }
+h1 { page-break-before: always; border-bottom: 2px solid #333; padding-bottom: .2em; }
+h1.title { page-break-before: avoid; border: none; text-align: center; font-size: 2.1em; }
+code, pre { font-family: 'DejaVu Sans Mono', monospace; font-size: .86em; }
+pre { background: #f5f5f5; padding: .6em; overflow-x: auto; border-left: 3px solid #999; }
+table { border-collapse: collapse; margin: 1em 0; font-size: .9em; }
+th, td { border: 1px solid #aaa; padding: .25em .5em; }
+blockquote { border-left: 4px solid #4a6fa5; margin-left: 0; padding-left: 1em; color: #222; background: #f3f6fb; }
+nav#TOC { page-break-after: always; }
+.status { font-weight: bold; }
+math { font-size: 1.05em; }
+</style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Beyond Conventional Mathematics</h1>
+<p class="subtitle">An Experimental Journey into AI-Discovered
+Mathematical Systems</p>
+<p class="date">Version 1.0 (research batch 1, cycles C01-C20) — built
+2026-10-18T07:43:58Z</p>
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#preface" id="toc-preface">Preface</a></li>
+<li><a href="#how-the-laboratory-works" id="toc-how-the-laboratory-works"><span class="toc-section-number">1</span> How the laboratory works</a>
+<ul>
+<li><a href="#minimal-assumptions-stated-twice" id="toc-minimal-assumptions-stated-twice"><span class="toc-section-number">1.1</span> Minimal assumptions, stated
+twice</a></li>
+<li><a href="#a-research-cycle" id="toc-a-research-cycle"><span class="toc-section-number">1.2</span> A research cycle</a></li>
+<li><a href="#kinds-of-proof" id="toc-kinds-of-proof"><span class="toc-section-number">1.3</span> Kinds of proof</a></li>
+<li><a href="#novelty" id="toc-novelty"><span class="toc-section-number">1.4</span> Novelty</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 class="unnumbered" id="preface">Preface</h1>
+<p>This book is written by a research laboratory rather than by a single
+author. The laboratory — a small team of cooperating AI research roles
+(an Inventor, an Explorer, a Formal Verifier, a Skeptic, an Application
+Researcher, a Historian and an Author) — set out to explore mathematical
+systems built from deliberately minimal assumptions: distinguishable
+objects, equality, and explicitly stated transformation rules. Numbers,
+positional notation, multiplication and even “value” were not assumed;
+where they appear in these pages, an earlier chapter shows how they
+<em>emerge</em>.</p>
+<p>The book has one rule that overrides every other consideration:</p>
+<blockquote>
+<p><strong>Nothing is presented as established unless it has been
+proved, and nothing is presented as new unless we looked for it and
+failed to find it.</strong></p>
+</blockquote>
+<p>Every theorem, conjecture and refuted hypothesis carries a label:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Label</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>PROVEN</strong> (Lean)</td>
+<td>machine-checked in Lean 4 with Mathlib, standard axioms only</td>
+</tr>
+<tr class="even">
+<td><strong>PROVEN</strong> (computer-assisted)</td>
+<td>a finite certificate checked by a program; the trust base is
+stated</td>
+</tr>
+<tr class="odd">
+<td><strong>PROVEN</strong> (written)</td>
+<td>a complete written proof, reviewed by the lab’s independent
+Skeptic</td>
+</tr>
+<tr class="even">
+<td><strong>COMPUTATIONALLY SUPPORTED</strong></td>
+<td>experiments support the claim; no proof</td>
+</tr>
+<tr class="odd">
+<td><strong>CONJECTURE</strong></td>
+<td>a precise claim awaiting proof</td>
+</tr>
+<tr class="even">
+<td><strong>REFUTED</strong></td>
+<td>a counterexample is given — and kept, because failures teach</td>
+</tr>
+<tr class="odd">
+<td><strong>REDISCOVERY</strong></td>
+<td>the result is already in the literature (references given)</td>
+</tr>
+<tr class="even">
+<td><strong>POTENTIALLY NOVEL</strong></td>
+<td>no equivalent found in the sources searched; <em>not</em> a priority
+claim</td>
+</tr>
+</tbody>
+</table>
+<p>Most of what the laboratory found is, honestly, rediscovery: the
+commutative monoid of counts, chip-firing, rational base numeration, the
+Zeckendorf game, Knuth’s Fibonacci multiplication. We regard this as a
+success of the method — independent rediscovery from minimal assumptions
+is evidence that the structures are natural — and we document the
+literature carefully. Where something appears to be new (for example,
+the common-border formula for words modulo one relation, or the density
+of irreducibles for Knuth’s circle product), we say exactly how far our
+search went.</p>
+<p>Each chapter follows the same plan: motivation, definitions,
+examples, results with proofs or proof attempts, the computational
+experiments behind them (with experiment identifiers that can be re-run
+from the repository), counterexamples, applications, comparison with
+existing mathematics, limitations, and open questions.</p>
+<p><em>How to verify anything in this book.</em> Every experiment
+identifier (EXP-C01-05, …) names a deterministic script in the
+repository; <code>python -m lab run EXP-C01-05</code> re-runs it and
+checks the recorded result hash. Every claim identifier (CLM-C08-01, …)
+has a record in <code>db/claims/</code> with its full status history.
+Lean theorem names refer to <code>proofs/lean/Infinity/</code>.</p>
+<h1 data-number="1" id="how-the-laboratory-works"><span class="header-section-number">1</span> How the laboratory works</h1>
+<h2 data-number="1.1" id="minimal-assumptions-stated-twice"><span class="header-section-number">1.1</span> Minimal assumptions, stated
+twice</h2>
+<p>Each research branch begins from a <em>foundational system</em> whose
+object-level axioms are written down explicitly (repository file
+<code>research/systems/SYSTEMS.md</code>):</p>
+<ul>
+<li><strong>System A</strong> — words over distinguishable symbols,
+juxtaposition, rewriting rules; no numbers.</li>
+<li><strong>System B</strong> — a carrier with one invented binary
+operation; no algebraic law is assumed, every law is a hypothesis to be
+tested.</li>
+<li><strong>System C</strong> — representations of quantities (digit
+strings with a valuation), admissible only after System A has
+<em>derived</em> counting.</li>
+<li><strong>System D</strong> — structures defined by relations only
+(game options, graphs).</li>
+<li><strong>System E</strong> — local-rule dynamics over invented
+algebras.</li>
+</ul>
+<p>The <em>meta level</em> — the mathematics we use to prove things
+about these systems — is ordinary mathematics (formally, Lean’s type
+theory with Mathlib). When we say that a concept “emerges”, we mean that
+it is definable from the system’s primitives and forced by them up to
+isomorphism, as shown by a meta-level proof.</p>
+<h2 data-number="1.2" id="a-research-cycle"><span class="header-section-number">1.2</span> A research cycle</h2>
+<p>Every cycle runs ten steps, and the cycle report in the repository is
+organised by them:</p>
+<ol type="1">
+<li>generate hypotheses — including at least one <em>bold</em>
+hypothesis that might fail;</li>
+<li>state them precisely;</li>
+<li>design experiments that could falsify them;</li>
+<li>implement the experiments (deterministic, seeded scripts);</li>
+<li>execute them (results are hashed; re-running checks the hash);</li>
+<li>analyse the results;</li>
+<li>attempt proofs or find counterexamples;</li>
+<li>compare with the literature (OEIS and web searches; references
+recorded);</li>
+<li>look for applications, with baselines and honest negatives;</li>
+<li>document everything in the journal and the database.</li>
+</ol>
+<h2 data-number="1.3" id="kinds-of-proof"><span class="header-section-number">1.3</span> Kinds of proof</h2>
+<p><strong>Lean proofs.</strong> Statements are formalised in Lean 4
+with Mathlib; a file counts as verified only if it compiles with no
+<code>sorry</code> and <code>#print axioms</code> reports only
+<code>propext</code>, <code>Classical.choice</code> and
+<code>Quot.sound</code>.</p>
+<p><strong>Computer-assisted proofs.</strong> Some results are proved by
+finite certificates that a program checks: a completed rewriting system
+whose convergence is re-verified independently, an automaton whose count
+sequence obeys a recurrence of bounded order, a recurring window of a
+monotone map. For these the book states the <em>trust base</em> — the
+program code — and the cross-checks used to guard against implementation
+errors.</p>
+<p><strong>Written proofs</strong> are complete arguments reviewed by
+the lab’s Skeptic, who works independently from the authors and tries to
+break every claim.</p>
+<h2 data-number="1.4" id="novelty"><span class="header-section-number">1.4</span> Novelty</h2>
+<p>The Historian searches the OEIS (all integer sequences we produce are
+looked up, and the cached answers are kept in the repository) and the
+literature. Matches are <em>read</em>, not counted: in Chapter 9 a
+sequence agreed with an OEIS entry for 24 terms and then diverged; the
+agreement had a simple explanation and was recorded as a
+coincidence.</p>
+</body>
+</html>

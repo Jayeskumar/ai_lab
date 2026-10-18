@@ -1,0 +1,24 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-01",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Standard amortised analysis of counters; frequency argument is folklore.",
+  "proof": "proofs/paper/C10.md#theorem-1-clm-c10-01--classical-constants",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 1); confirmed to 6 digits for n < 1e6",
+  "statement": "The average number of digit changes per increment is b/(b-1) in base b, 2 in negabinary, 3/2 in balanced\nternary, e - 1 in the factorial base and exactly 1 in the binary-reflected Gray code.",
+  "system": "SYS-C",
+  "title": "Average cost of counting in classical representations (b/(b-1), e-1, 1)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

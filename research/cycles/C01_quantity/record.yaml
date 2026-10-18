@@ -33,6 +33,9 @@ experiments:
     analysis: 1632 relations proved for all n by independently re-verified finite completions; 527 hard relations have infinite completions within the search bounds.
     related: [CLM-C01-07, CLM-C01-08]
     future: [Parametric (regular) completions for the 527 open relations]
+  - id: EXP-C01-08
+    analysis: In-lab replication of the novelty audit - confluence iff border containment (0 mismatches in 28,850 pairs); all 527 open relations have no common border; exactly 12 hard relations have a (single) common border; the formula holds for three k = 8 relations with two common borders (n <= 13).
+    related: [CLM-C01-08, CLM-C01-09, CLM-C01-10, CLM-C01-11]
 
 claims:
   - id: CLM-C01-01
@@ -100,7 +103,9 @@ claims:
     verification: REFUTED
     counterexample: "u = aab, v = aba: the word baa is fixed by every rewrite, so its class {baa} is smaller than its counting class {aab, aba, baa}. All 33 relations of length 3-4 fail (EXP-C01-04)."
     evidence: [EXP-C01-04]
-    novelty: NOT ASSESSED
+    novelty: REDISCOVERY
+    novelty_basis: The negative answer is implied by the Golod-Shafarevich/Anick lower bound H >= 1/(1 - qx + x^k) for one-relator algebras (Anick 1982; Piontkovski 1999) - a single relation cannot make the classes as coarse as counting classes. Historian audit, reviews/historian_C01_C02.md.
+    change_reason: Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)
   - id: CLM-C01-06
     type: theorem
     system: SYS-A
@@ -116,8 +121,9 @@ claims:
     proof: proofs/paper/C01.md#theorem-5-clm-c01-06--the-border-containment-theorem
     lean: [proofs/lean/Infinity/C01_Quantity.lean]
     evidence: [EXP-C01-04, EXP-C01-05, EXP-C01-07]
-    novelty: NOT ASSESSED
-    novelty_basis: Combination of Newman's lemma, the critical-pair lemma and Guibas-Odlyzko (1981); analogue of a one-element Groebner basis (Bergman 1978). Probably folklore; pending Historian audit.
+    novelty: REDISCOVERY
+    novelty_basis: "Length-preserving special case of the one-rule confluence criterion of W. Kurth, Some combinatorial properties of complete semi-Thue systems, Sem. Lothar. Combin. B18m (1987) https://www.mat.univie.ac.at/~slc/opapers/s18kurth.html (generalising Book 1983 and F. Otto, C. Wrathall, Math. Systems Theory 18 (1985) 135-143, https://doi.org/10.1007/BF01699465; see also C. Wrathall, LNCS 572 (1992) 237-246), combined with L. J. Guibas, A. M. Odlyzko, JCTA 30 (1981) 183-208. Kurth's criterion is an iff; the converse is CLM-C01-11. The Lean overlap lemma is a verification asset, not new mathematics."
+    change_reason: Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 2)
     applications: Exact information content of words modulo an invisible local rewrite (e.g. log2(phi) bits/symbol modulo aab = aba).
   - id: CLM-C01-07
     type: theorem
@@ -130,7 +136,9 @@ claims:
     proof_check: computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked
     proof: proofs/paper/C01.md#theorem-6-clm-c01-07--computer-assisted-proofs-for-1632-specific-relations
     evidence: [EXP-C01-07]
-    novelty: NOT ASSESSED
+    novelty: REDISCOVERY
+    novelty_basis: "Of the 1632 relations, 833 are instances of the containment theorem (Kurth 1987 + Guibas-Odlyzko) and 787 have no common border (published c = 1 case, see CLM-C01-09); only 12 (one common border each) fall in the unpublished case (CLM-C01-10). The method (finite completion, automaton of normal words, rational series) is Ufnarovski's framework (Encycl. Math. Sci. 57, 1995)."
+    change_reason: Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)
   - id: CLM-C01-08
     type: conjecture
     system: SYS-A
@@ -142,8 +150,43 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C01-05, EXP-C01-06, EXP-C01-07]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: Two web searches (2026-10-18) found no general formula; related literature - Nyberg-Brodda survey of one-relation monoids (arXiv:2105.02853), "Relations on words" (arXiv:1602.03364), Kudryavtseva 2010. Needs a deeper search (Hilbert series of one-relator algebras - Anick, Piontkovski, Iyudu).
-    limitations: Proved only in the border-containment case and for 1632 individual relations; 527 small relations remain open (infinite completions).
+    novelty_basis: "Novel only in the case 'common border without containment'. The case with no common border (c = 1) follows from R. D. Gray, B. Steinberg, Forum Math. Sigma 14 (2026) e58, Thm 8.1 (https://doi.org/10.1017/fms.2026.10209) with Anick's strong freeness, and for different first/last letters from M. Albenque, P. Nadeau, FPSAC 2009 Cor. 3 + Adjan (CLM-C01-09); the containment case is Kurth 1987 (CLM-C01-06). The homological counterpart of the common-border dichotomy is Gray-Steinberg, Selecta Math. 28 (2022) art. 59, Thm B (https://doi.org/10.1007/s00029-022-00773-3). Searched without finding the growth formula: Anick, Piontkovski, Iyudu-Shkarin, Ufnarovski, Cain-Gray-Malheiro, Nyberg-Brodda survey, Rigo, OEIS (Historian audit)."
+    limitations: "Case c = 1 settled by the literature (pending the Skeptic's check of the deduction), one common border derived from Gray-Steinberg 2022 identities (CLM-C01-10, pending check); two or more common borders open (checked for three k = 8 relations up to n = 13, EXP-C01-08)."
+    change_reason: Historian novelty audit 2026-10-18 - claim split into CLM-C01-09/10/11
+
+  - id: CLM-C01-09
+    type: theorem
+    system: SYS-A
+    title: Common-border formula when u and v share no border (c = 1) - consequence of published results
+    statement: |
+      If u != v have length k over a q-letter alphabet and no word is a border of both, the class counts of length-n
+      words modulo u = v have generating function 1/(1 - q x + x^k).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C01-06, EXP-C01-07, EXP-C01-08]
+    novelty: REDISCOVERY
+    novelty_basis: "Derived by the Historian from Gray-Steinberg 2026 Thm 8.1 (no common border => Hochschild cohomological dimension <= 2 => gl.dim K<A>/(u-v) <= 2 => u - v strongly free, Anick 1982 => Hilbert series 1/(1-qx+x^k)); for different first or last letters also Albenque-Nadeau 2009 Cor. 3 + Adjan's cancellativity. All 527 relations left open by EXP-C01-07 are in this case."
+    limitations: The deduction from the cited theorems is pending an independent Skeptic check; until then the status stays COMPUTATIONALLY SUPPORTED (1314 hard relations up to n = 12 / 7).
+  - id: CLM-C01-10
+    type: conjecture
+    system: SYS-A
+    title: Common-border formula with exactly one common border (derivation sketch from Gray-Steinberg 2022)
+    statement: |
+      If u != v of length k share exactly one common border z (neither border set containing the other), the class
+      counts have generating function c/(x^k + (1 - q x) c) with c = 1 + x^(k - |z|).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C01-06, EXP-C01-07, EXP-C01-08]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Historian derivation (reviews/historian_C01_C02.md, section 2 (C)): identities (P) H = G_y + x^(k-|y|) G_z and (E) H(1 - qx) + x^k G_z = 1 read off Gray-Steinberg 2022 Thm 6.6 and Props 8.3, 8.5 (G_w = growth series of the left ideal M[w]); for y = z they give the formula. No published statement of the growth formula found."
+    limitations: Derivation not yet checked by the Skeptic; verified for the 12 lab relations (all n, by finite completion) and further relations by the Historian.
+  - id: CLM-C01-11
+    type: theorem
+    system: SYS-A
+    title: "Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contained in Borders(v)"
+    statement: For words u != v of equal length, the one-rule system {u -> v} is confluent if and only if every border of u is a border of v.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C01-08]
+    novelty: REDISCOVERY
+    novelty_basis: Kurth (1987) proves the iff for one-rule systems with the chain condition (length-preserving case); not re-proved by the lab. EXP-C01-08 finds no mismatch among 28,850 ordered pairs (binary k <= 7, ternary k <= 4); the Historian's scratch run found none among 152,928.
 
 journal:
   - key: C01-01
@@ -216,6 +259,21 @@ journal:
     kind: review
     text: Caution recorded - the computer-assisted proofs (CLM-C01-07) trust the Python implementation; the guard is an independent convergence re-check plus brute-force agreement for n <= 8. Written proofs of CLM-C01-03/04/06 still need an independent review.
     refs: [CLM-C01-07]
+  - key: C01-15
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: Independent novelty audit (reviews/historian_C01_C02.md) - CLM-C01-06 is the length-preserving case of Kurth's 1987 one-rule confluence criterion (an iff); the no-common-border case of the common-border formula follows from Gray-Steinberg 2026 Thm 8.1 plus Anick; all 527 relations we could not prove are in that case. Only 'common border without containment' remains unpublished, and identities derived from Gray-Steinberg 2022 settle the one-common-border case modulo a check.
+    refs: [CLM-C01-06, CLM-C01-08, CLM-C01-09, CLM-C01-10]
+  - key: C01-16
+    agent: Research Director
+    kind: revision
+    text: Novelty labels revised - CLM-C01-05/06/07 to REDISCOVERY; CLM-C01-08 narrowed to the common-border-without-containment case and split into CLM-C01-09 (c = 1, rediscovery), CLM-C01-10 (one common border, potentially novel) and CLM-C01-11 (converse, Kurth). The Historian's deductions were sent to the independent Skeptic for checking; statuses stay COMPUTATIONALLY SUPPORTED until then.
+    refs: [CLM-C01-08, CLM-C01-09, CLM-C01-10, CLM-C01-11]
+  - key: C01-17
+    agent: Mathematical Skeptic
+    kind: review
+    text: The audit's computations were run outside the repository; EXP-C01-08 reproduces them inside the lab (0 mismatches for the confluence criterion; 527/527 open relations with c = 1; 12 one-common-border relations; k = 8 two-common-border relations agree up to n = 13).
+    refs: [EXP-C01-08]
 
 next_directions:
   - "C01: prove the common-border conjecture (Hilbert series / Anick chains, or parametric completions)"

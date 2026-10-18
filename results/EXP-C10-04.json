@@ -1,0 +1,135 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C10-04",
+    "file": "experiments/C10/E04_novelty.py",
+    "sha256": "dfbb0387f2873c5923f5f51901a50dc8bd4e0842a51cb4615220ccb510fcbf02",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:51:28Z",
+  "id": "EXP-C10-04",
+  "meta": {
+    "agent": "Historian and Novelty Analyst",
+    "assumptions": [
+      "OEIS cache"
+    ],
+    "cycle": "C10",
+    "falsification": "n/a (literature check)",
+    "hypothesis": "The per-increment change sequence (a 'Zeckendorf ruler function') and the block totals T_m are likely known.",
+    "id": "EXP-C10-04",
+    "methodology": "Query the per-step change counts c(n) = changes(Z(n-1), Z(n)) for n >= 1, the block totals T_m and D_m = 2G_m - T_m.",
+    "question": "Are the Zeckendorf counting-cost sequences already catalogued?",
+    "title": "OEIS look-ups for Zeckendorf counting-cost sequences"
+  },
+  "results": {
+    "checks": {
+      "T_m": {
+        "hits": [
+          {
+            "anumber": "A215005",
+            "name": "a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 and a(0)=0, a(1)=1."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          3,
+          6,
+          12,
+          21,
+          37,
+          62,
+          104,
+          171,
+          281,
+          458,
+          746,
+          1211,
+          1965,
+          3184,
+          5158,
+          8351,
+          13519,
+          21880,
+          35410,
+          57301,
+          92723,
+          150036,
+          242772
+        ]
+      },
+      "T_m_closed_form_check": {
+        "hits": [
+          {
+            "anumber": "A215005",
+            "name": "a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 and a(0)=0, a(1)=1."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          0,
+          1,
+          3,
+          6,
+          12,
+          21,
+          37,
+          62,
+          104,
+          171,
+          281,
+          458
+        ]
+      },
+      "per_step_changes": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          2,
+          3,
+          1,
+          2,
+          2,
+          1,
+          4,
+          1,
+          2,
+          2,
+          1,
+          3,
+          1,
+          2,
+          4,
+          1,
+          2,
+          2
+        ]
+      }
+    },
+    "summary": [
+      "per_step_changes: NO MATCH []",
+      "T_m: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']",
+      "T_m_closed_form_check: MATCH ['A215005 a(n) = a(n-2) + a(n-1) + floor(n/2) + 1 for n > 1 ']"
+    ]
+  },
+  "results_sha256": "2d945a77304f631a69e19bf18dd9d64ab011f9a9bde54f593c23f6334c147368",
+  "runtime_s": 5.777,
+  "started": "2026-10-18T07:51:22Z"
+}

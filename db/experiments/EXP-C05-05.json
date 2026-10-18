@@ -1,0 +1,55 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "identities and spectra from EXP-C05-01 (n <= 6)",
+    "exhaustive search over (a, b, c) in Z_n^3"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-05",
+    "file": "experiments/C05/E05_affine_hypothesis.py",
+    "sha256": "233501a35ea2b0d99379bebda7765c89bcbafef148432fd17bdae1e93867a52e",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C05",
+  "falsification": "A full-spectrum identity without an affine model for some n (refutes 'only if'), or an affine model of an order outside the SAT spectrum (would indicate a bug).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:08:02Z"
+    }
+  ],
+  "hypothesis": "H-C05-A (bold): a nontrivial identity t = x has models of all orders 1..6 iff for every n <= 6 it has an affine model over Z_n; restricted spectra are exactly the affine obstructions.",
+  "id": "EXP-C05-05",
+  "methodology": "For every identity, list the orders n <= 6 having an affine model over Z_n; compare with the SAT spectrum.",
+  "question": "Is having models of every order the same as having affine models x*y = a x + b y + c (mod n) for every n?",
+  "results_file": "results/EXP-C05-05.json",
+  "results_sha256": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-05",
+        "file": "experiments/C05/E05_affine_hypothesis.py",
+        "sha256": "233501a35ea2b0d99379bebda7765c89bcbafef148432fd17bdae1e93867a52e",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:08:00Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-05.json",
+      "results_sha256": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
+      "runtime_s": 8.901,
+      "started": "2026-10-18T08:07:51Z",
+      "summary": [
+        "52 identities with spectrum 1..6 full; 4 of them lack an affine model for some order <= 6 (each refutes H-C05-A)",
+        "restricted identities whose SAT spectrum contains orders without affine models: 39; consistency bugs: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "52 identities with spectrum 1..6 full; 4 of them lack an affine model for some order <= 6 (each refutes H-C05-A)",
+    "restricted identities whose SAT spectrum contains orders without affine models: 39; consistency bugs: 0"
+  ],
+  "title": "Bold hypothesis H-C05-A: full spectrum iff affine models over every Z_n"
+}

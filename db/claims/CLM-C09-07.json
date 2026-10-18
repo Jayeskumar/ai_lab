@@ -1,0 +1,23 @@
+{
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-07",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C09.md#theorem-1-clm-c09-01--structure",
+  "proof_check": "written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5",
+  "statement": "N(a o b) = N(a) N(b) for all a, b >= 1; |N(n)| < (sqrt5/phi) n + 1; N(n) = +-1 iff n is a Fibonacci number.",
+  "system": "SYS-C",
+  "title": "The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

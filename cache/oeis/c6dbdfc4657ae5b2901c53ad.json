@@ -1,0 +1,32 @@
+{
+  "fetched": "2026-10-18T07:55:31Z",
+  "query": "1,1,2,4,4,8,8,8,8,16,16,16,16",
+  "response": [
+    {
+      "author": "_Christian Schroeder_, Oct 08 2004",
+      "comment": [
+        "All sequence elements are powers of 2. The first n for which a(n)=32 is at least A(9,A(8,A(8,255))), where A denotes the Ackermann function (R. Dougherty). If a rank-into-rank exists, then the sequence is diverging (R. Laver)."
+      ],
+      "created": "2005-02-20T03:00:00-05:00",
+      "data": "1,1,2,4,4,8,8,8,8,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16,16",
+      "example": [
+        "a(4)=4 because the entries in the first row of the Laver table of size 4^2=16 are 2,12,14,16,2,12,14,16,2,12,14,16,2,12,14,16 (and thus repeat with a periodicity of 4)."
+      ],
+      "ext": [
+        "More terms from _Adam P. Goucher_, Dec 18 2013"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Richard Laver, <a href=\"https://arxiv.org/abs/math/9204204\">On the Algebra of Elementary Embeddings of a Rank into Itself</a>, arXiv:math/9204204 [math.LO], 1992; Advances in Mathematics 110, p. 334, 1995",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Laver_table\">Laver table</a>"
+      ],
+      "name": "Periodicity of entries in the first row of a Laver Table of size 2^n.",
+      "number": 98820,
+      "offset": "0,3",
+      "references": 0,
+      "revision": 16,
+      "time": "2025-06-16T08:41:06-04:00"
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C1%2C2%2C4%2C4%2C8%2C8%2C8%2C8%2C16%2C16%2C16%2C16&fmt=json"
+}

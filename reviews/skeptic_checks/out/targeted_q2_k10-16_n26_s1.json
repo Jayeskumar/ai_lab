@@ -1,0 +1,17 @@
+{
+ "q": 2,
+ "k_range": [
+  10,
+  16
+ ],
+ "nmax": 26,
+ "relations": 600,
+ "by_number_of_common_borders": {
+  "2": 80,
+  "1": 508,
+  "3": 8,
+  "4": 4
+ },
+ "failures": [],
+ "seconds": 60.2
+}

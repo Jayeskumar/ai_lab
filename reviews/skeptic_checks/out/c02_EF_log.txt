@@ -1,0 +1,2 @@
+E (CLM-C02-07): 259 rules with B<m, m<=7: primitive+irreducible 241 (collisions: 0 rules), non-primitive 16 (without collision: 0), primitive reducible 2 (with collisions: 2); B>m non-primitive (2;4),(2;0,4),(3;6) collisions: [0, 0, 25] [58.2 s]
+F (CLM-C02-08): 448 rules with B<m (m<=8, J<=4), n<=1500, LIFO stabilisation: radix inversions 0; incremental vs sweep rep(1500) mismatches 0 [2.3 s]

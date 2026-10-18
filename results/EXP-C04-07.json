@@ -1,0 +1,3645 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C04-07",
+    "file": "experiments/C04/E07_rewriting_games.py",
+    "sha256": "41c11d68c29e87786dcbf32e9f362cf96e710841b11e681520a8041e50a47389",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:01:26Z",
+  "id": "EXP-C04-07",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "the 162 terminating rules",
+      "all words of length <= 10 (<= 8 for the doubling rules)"
+    ],
+    "cycle": "C04",
+    "falsification": "A random-descent word with g != D mod 2; a word whose Grundy value differs from the XOR of run values; a Grundy value >= 4.",
+    "hypothesis": "H-C04-4: for random-descent rules g(w) = D(w) mod 2 (D the unique derivation length), so P-positions are exactly the words with even D (for ab -> ba: an even number of inversions). H-C04-5: for a rule a^k -> u the game is the disjoint sum of a take-and-break game on the maximal a-runs, g(w) = XOR over runs of G(run length). H-C04-6 (bold): every rewriting game in the family has Grundy values <= 3 on words of length <= 10.",
+    "id": "EXP-C04-07",
+    "methodology": "Grundy values by mex over the exact derivation graph. For unary left-hand sides the run game G is computed independently from its definition (heap n, rewrite position i, resulting heaps i + e_0, e_1, ..., n - k - i + e_t from the a-blocks e_j of u).",
+    "question": "What do the Sprague-Grundy values of rewriting games look like?",
+    "title": "Rewriting games: parity for random-descent rules, run decomposition for unary left-hand sides"
+  },
+  "results": {
+    "decomposition_failures": [],
+    "highest_grundy_rules": [
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "b"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "ab"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "ba"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "bb"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "abb"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "bab"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "bba"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "aa",
+          "bbb"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "bb",
+          "a"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "bb",
+          "aa"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "bb",
+          "ab"
+        ]
+      },
+      {
+        "max_grundy": 3,
+        "rd": false,
+        "rule": [
+          "bb",
+          "ba"
+        ]
+      }
+    ],
+    "max_grundy_histogram": {
+      "1": 102,
+      "3": 60
+    },
+    "max_grundy_overall": 3,
+    "n_unary_rules_decomposed": 58,
+    "parity_failures": [],
+    "rows": [
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "a",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "b"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "bb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "bbb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "b",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "a"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "aa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1024,
+          "1": 1023
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5002,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "aaa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "a"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "b"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "ab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "ba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "aba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "abb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bbb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1036,
+          "1": 1011
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5061,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 8,
+        "grundy_distribution": {
+          "0": 264,
+          "1": 247
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5166,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "baa"
+        ]
+      },
+      {
+        "N": 8,
+        "grundy_distribution": {
+          "0": 264,
+          "1": 247
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5166,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1036,
+          "1": 1011
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5061,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 8,
+        "grundy_distribution": {
+          "0": 264,
+          "1": 247
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5166,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aab"
+        ]
+      },
+      {
+        "N": 8,
+        "grundy_distribution": {
+          "0": 264,
+          "1": 247
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5166,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1034,
+          "1": 1013
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5051,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "a"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "b"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "ab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "ba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aaa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 864,
+          "1": 886,
+          "2": 162,
+          "3": 135
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.4221,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 789,
+          "1": 690,
+          "2": 361,
+          "3": 207
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.3854,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "baa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1086,
+          "1": 961
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5305,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "bab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "a"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "b"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1428,
+          "1": 619
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6976,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "aa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "ab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "ba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1192,
+          "1": 488,
+          "2": 236,
+          "3": 131
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5823,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "aab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1218,
+          "1": 697,
+          "2": 102,
+          "3": 30
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.595,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "aba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "abb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1192,
+          "1": 488,
+          "2": 236,
+          "3": 131
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5823,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "baa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bbb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1087,
+          "1": 960
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.531,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1167,
+          "1": 880
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5701,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1115,
+          "1": 932
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5447,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1150,
+          "1": 897
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5618,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "baa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1157,
+          "1": 890
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5652,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1057,
+          "1": 852,
+          "2": 118,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5164,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1145,
+          "1": 853,
+          "2": 37,
+          "3": 12
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5594,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 161,
+          "3": 7
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 161,
+          "3": 7
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1042,
+          "1": 966,
+          "2": 37,
+          "3": 2
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.509,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1224,
+          "1": 779,
+          "2": 31,
+          "3": 13
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5979,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "aab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1030,
+          "1": 791,
+          "2": 182,
+          "3": 44
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5032,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1224,
+          "1": 779,
+          "2": 31,
+          "3": 13
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5979,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "baa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1401,
+          "1": 519,
+          "2": 109,
+          "3": 18
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.6844,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1030,
+          "1": 791,
+          "2": 182,
+          "3": 44
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5032,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1042,
+          "1": 966,
+          "2": 37,
+          "3": 2
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.509,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1087,
+          "1": 960
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.531,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1167,
+          "1": 880
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5701,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1115,
+          "1": 932
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5447,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1157,
+          "1": 890
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5652,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "baa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1150,
+          "1": 897
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5618,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1087,
+          "1": 960
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.531,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1167,
+          "1": 880
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5701,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1115,
+          "1": 932
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5447,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1150,
+          "1": 897
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5618,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1157,
+          "1": 890
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5652,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1057,
+          "1": 852,
+          "2": 118,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5164,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1145,
+          "1": 853,
+          "2": 37,
+          "3": 12
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5594,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1042,
+          "1": 966,
+          "2": 37,
+          "3": 2
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.509,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 161,
+          "3": 7
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 161,
+          "3": 7
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1042,
+          "1": 966,
+          "2": 37,
+          "3": 2
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.509,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1030,
+          "1": 791,
+          "2": 182,
+          "3": 44
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5032,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1401,
+          "1": 519,
+          "2": 109,
+          "3": 18
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.6844,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1224,
+          "1": 779,
+          "2": 31,
+          "3": 13
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5979,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1030,
+          "1": 791,
+          "2": 182,
+          "3": 44
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5032,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "baa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1224,
+          "1": 779,
+          "2": 31,
+          "3": 13
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5979,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "bba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1182,
+          "1": 865
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5774,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1087,
+          "1": 960
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.531,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          ""
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "a"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1167,
+          "1": 880
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5701,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "b"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1115,
+          "1": 932
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5447,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "ab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "ba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1157,
+          "1": 890
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5652,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1079,
+          "1": 968
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5271,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aba"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "abb"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1169,
+          "1": 878
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5711,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "baa"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1150,
+          "1": 897
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.5618,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bab"
+        ]
+      },
+      {
+        "N": 10,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1255,
+          "1": 792
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6131,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          ""
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "a"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1323,
+          "1": 724
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6463,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "b"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "ab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "ba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1428,
+          "1": 619
+        },
+        "max_grundy": 1,
+        "p_fraction": 0.6976,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "bb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aaa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1189,
+          "1": 786,
+          "2": 66,
+          "3": 6
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5809,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1192,
+          "1": 488,
+          "2": 236,
+          "3": 131
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5823,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "abb"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1191,
+          "1": 688,
+          "2": 148,
+          "3": 20
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5818,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "baa"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1218,
+          "1": 697,
+          "2": 102,
+          "3": 30
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.595,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "bab"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "N": 10,
+        "decomposition_mismatches": 0,
+        "grundy_distribution": {
+          "0": 1192,
+          "1": 488,
+          "2": 236,
+          "3": 131
+        },
+        "max_grundy": 3,
+        "p_fraction": 0.5823,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "bba"
+        ],
+        "run_game_grundy_head": [
+          0,
+          0,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1,
+          2,
+          3,
+          0,
+          1
+        ]
+      }
+    ],
+    "summary": [
+      "162 rewriting games; random-descent rules violating g = D mod 2: 0",
+      "unary-lhs rules checked against the run decomposition: 58, failures: 0",
+      "histogram of max Grundy value per rule: {1: 102, 3: 60}",
+      "highest: [(['aa', 'b'], 3), (['aa', 'ab'], 3), (['aa', 'ba'], 3), (['aa', 'bb'], 3), (['aa', 'abb'], 3)]"
+    ]
+  },
+  "results_sha256": "c3e4b5f1b21dcfdc1753dcbad7eabea2819d1e3b25f143dcdd955468c845025f",
+  "runtime_s": 33.458,
+  "started": "2026-10-18T08:00:52Z"
+}

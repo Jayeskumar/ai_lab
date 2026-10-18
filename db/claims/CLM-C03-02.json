@@ -1,0 +1,27 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-02",
+  "lean": [
+    "proofs/lean/Infinity/C03_Termination.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Covered by the complete characterization of Zantema and Geser (RTA 1995 / AAECC 2000); our proof was found independently.",
+  "proof": "proofs/paper/C03.md#theorem-2-clm-c03-02--conservation",
+  "proof_check": "written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right); swap case (s, r) = (p, q) Lean-verified (terminating_swap); 62 of the 64 conserving rules with parameters <= 4 also have matrix-interpretation certificates; awaiting independent skeptic review",
+  "statement": "The rule 0^p 1^q -> 1^r 0^s terminates whenever s = p or r = q. For (s, r) = (p, q) the number of (0,1)\ninversions drops by pq at each step.",
+  "system": "SYS-A",
+  "title": "Conserving rules terminate (s = p or r = q)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,13 @@
+{
+ "case": "bin_k8_n23",
+ "q": 2,
+ "k": 8,
+ "nmax": 23,
+ "hard_only": false,
+ "relations_tested": 8312,
+ "hard": 3192,
+ "with_common_border": 1108,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 103.6
+}

@@ -1,0 +1,28 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01",
+    "EXP-C03-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-03",
+  "lean": [
+    "proofs/lean/Infinity/C03_Termination.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Self-embedding (looping) is the standard non-termination criterion; the status of these rules is in Zantema-Geser (2000).",
+  "proof": "proofs/paper/C03.md#theorem-3-clm-c03-03--loops-and-the-doubling-region",
+  "proof_check": "Lean 4 + Mathlib (not_terminating_of_loop, not_terminating_double); standard axioms only",
+  "statement": "If u ->+ x u y then the rule is non-terminating. If r >= 2q and s >= 2p (p, q >= 1) then\n0^p 1^(2q) -> 1^r 0^s 1^q -> 1^r 0^(s-2p) (0^p 1^(2q)) 1^(r-2q) 0^s, so 0^p 1^q -> 1^r 0^s is non-terminating.",
+  "system": "SYS-A",
+  "title": "Self-embedding derivations prove non-termination; the doubling region r >= 2q, s >= 2p always loops",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

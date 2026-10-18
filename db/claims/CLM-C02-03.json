@@ -9,10 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Folklore monovariants (token count; conserved value): chip-firing with a sink (Bjorner-Lovasz, J. Algebraic Combin. 1 (1992) 305-328); half-line analogue of the halting criterion of Bond-Levine, Abelian networks II, Selecta Math. 22 (2016) 319-340; Tanton's Exploding Dots machines 'fire off to infinity'. Not found verbatim, but a two-line consequence of standard arguments.",
+      "old": null,
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C02-03",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Folklore monovariants (token count; conserved value): chip-firing with a sink (Bjorner-Lovasz, J. Algebraic Combin. 1 (1992) 305-328); half-line analogue of the halting criterion of Bond-Levine, Abelian networks II, Selecta Math. 22 (2016) 319-340; Tanton's Exploding Dots machines 'fire off to infinity'. Not found verbatim, but a two-line consequence of standard arguments.",
   "proof": "proofs/paper/C02.md#theorem-3-clm-c02-03--termination-dichotomy-away-from-b--m",
   "proof_check": "written proof (proofs/paper/C02.md Theorem 3); awaiting independent skeptic review",
   "statement": "If sum_j b_j < m every derivation from every configuration terminates. If sum_j b_j > m, the emergent base\nsatisfies r < 1 and no derivation from n tokens at level 0 terminates when n > (m - 1)/(1 - r).",

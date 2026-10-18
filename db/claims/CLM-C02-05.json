@@ -9,10 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty",
+      "new": "POTENTIALLY NOVEL",
+      "old": "NOT ASSESSED",
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Minor - the 31 terminating and 130 sum-b > m rules follow from CLM-C02-03; only the 28 certificates for sum b = m are new data (instances of CLM-C02-04).",
+      "old": null,
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C02-05",
-  "novelty": "NOT ASSESSED",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Minor - the 31 terminating and 130 sum-b > m rules follow from CLM-C02-03; only the 28 certificates for sum b = m are new data (instances of CLM-C02-04).",
   "proof": "proofs/paper/C02.md#theorem-5-clm-c02-05--certificates-for-the-surveyed-rules-computer-assisted",
   "proof_check": "computer-assisted (Python) - explicit periodic-glider or monotone-pumping certificates for 158 rules; Theorem 3(a) for the 31 others",
   "statement": "Among the 189 carry rules with m in {2,3,4}, J <= 3, b_j <= 3, exactly the 31 with sum b < m terminate from\nevery unary start; each of the other 158 has a unary start n <= 200 with an infinite derivation.",

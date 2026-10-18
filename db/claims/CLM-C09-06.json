@@ -1,0 +1,23 @@
+{
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-06",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations",
+  "proof_check": "written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review",
+  "statement": "If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.",
+  "system": "SYS-C",
+  "title": "Factorisation lengths are bounded by the conjugate coordinate",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

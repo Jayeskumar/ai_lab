@@ -1,0 +1,26 @@
+{
+ "relations": 2159,
+ "with_certificate": 1632,
+ "open": 527,
+ "convergence_ok": 1632,
+ "formula_match": 1632,
+ "soundness_ok": 1632,
+ "max_rule_len_hist": {
+  "2": 35,
+  "3": 325,
+  "4": 105,
+  "5": 419,
+  "6": 109,
+  "7": 252,
+  "8": 38,
+  "9": 102,
+  "10": 57,
+  "11": 190
+ },
+ "max_states": 16,
+ "cluster_identity_ok": 1632,
+ "cluster_identity_bad": 0,
+ "cluster_skipped": 0,
+ "problems": 0,
+ "seconds": 16.5
+}

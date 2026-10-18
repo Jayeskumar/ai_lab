@@ -1,0 +1,23 @@
+{
+  "counterexample": "Fibonacci with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric bases are associative for every s; many Pisot sequences are associative at larger shifts (EXP-C08-02).",
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-01",
+    "EXP-C08-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C08-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "Among digit-convolution products a o_s b = sum d_i d_j G_(i+j+s), only Fibonacci with s = 2 is associative.",
+  "system": "SYS-C",
+  "title": "H-C08-1: Knuth's associative circle product is an isolated case (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

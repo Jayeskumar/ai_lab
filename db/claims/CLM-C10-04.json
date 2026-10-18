@@ -1,0 +1,23 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-04",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules",
+  "statement": "For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).",
+  "system": "SYS-C",
+  "title": "Exchange systems fire 1/(m - sum b) times per increment on average",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -67,8 +67,98 @@
         "exists_large_coeff",
         "digits_unique"
       ]
+    },
+    "proofs/lean/Infinity/C03_Termination.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T08:13:38Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C03.terminating_of_count_lt' depends on axioms: [propext, Quot.sound]\n'Infinity.C03.terminating_swap' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C03.not_terminating_of_loop' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C03.loop_map' depends on axioms: [propext]\n'Infinity.C03.not_terminating_double' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C03.not_terminating_0_11' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 9.78,
+      "sha256": "f13dd545cf43b98f6d6adb0175f9106929add3360ecb0220dd6fa096906700df",
+      "sorry": false,
+      "theorems": [
+        "terminating_of_count_lt",
+        "step_context",
+        "transGen_context",
+        "not_terminating_of_loop",
+        "step_map",
+        "loop_map",
+        "inv_append",
+        "inv_replicate_false",
+        "inv_replicate_true",
+        "inv_three",
+        "terminating_swap",
+        "not_terminating_double",
+        "not_terminating_0_11"
+      ]
+    },
+    "proofs/lean/Infinity/C06_Laver.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T08:13:57Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C06.laver3_anchored' depends on axioms: [propext]\n'Infinity.C06.laver3_left_distributive' depends on axioms: [propext]\n'Infinity.C06.no_anchored_ld_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C06.anchored_assoc_unique' depends on axioms: [propext, Quot.sound]\n",
+      "seconds": 19.0,
+      "sha256": "6f20c9c23652b92090120332c53ec8cc1eb887d262c12f0775c7362614911dd3",
+      "sorry": false,
+      "theorems": [
+        "laver3_anchored",
+        "laver3_left_distributive",
+        "no_anchored_ld_three",
+        "anchored_assoc_unique"
+      ]
+    },
+    "proofs/lean/Infinity/C08_Knuth.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T07:42:41Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C08.window' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C08.key' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C08.circ_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C08.circ_comm' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 10.72,
+      "sha256": "7236d0aa914f9a27e1a7fb01fbbf5c697107fce29d7c18f57d4c455035e4147f",
+      "sorry": false,
+      "theorems": [
+        "phi_pow",
+        "psi_pow",
+        "chain_ge_two",
+        "zeck_ge_two",
+        "sum_pow_decomp",
+        "E_eq",
+        "negPsi_pos",
+        "negPsi_lt_one",
+        "negPsi_add_sq",
+        "window_aux",
+        "window",
+        "sum_map_mul_const",
+        "prod_sum",
+        "inner_decomp",
+        "double_decomp",
+        "key",
+        "E_inj",
+        "circ_assoc",
+        "circ_comm"
+      ]
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T07:22:46Z"
+  "updated": "2026-10-18T08:13:57Z"
 }

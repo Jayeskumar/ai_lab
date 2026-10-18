@@ -1,0 +1,13 @@
+{
+ "case": "bin_k4_n24",
+ "q": 2,
+ "k": 4,
+ "nmax": 24,
+ "hard_only": false,
+ "relations_tested": 38,
+ "hard": 12,
+ "with_common_border": 4,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 3.8
+}

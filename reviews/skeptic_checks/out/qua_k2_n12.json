@@ -1,0 +1,13 @@
+{
+ "case": "qua_k2_n12",
+ "q": 4,
+ "k": 2,
+ "nmax": 12,
+ "hard_only": false,
+ "relations_tested": 7,
+ "hard": 1,
+ "with_common_border": 0,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 0.7
+}

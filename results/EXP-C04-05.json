@@ -1,0 +1,3451 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C04-05",
+    "file": "experiments/C04/E05_random_descent.py",
+    "sha256": "d3984d3ab76ec0fc97868e18f7b57f89b7f284c205bcfadae286bd5d01004759",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:00:11Z",
+  "id": "EXP-C04-05",
+  "meta": {
+    "agent": "Mathematical Inventor",
+    "assumptions": [
+      "the 162 terminating rules of EXP-C04-01",
+      "all words of length <= 11 (<= 8 for the four doubling rules)"
+    ],
+    "cycle": "C04",
+    "falsification": "H-C04-1: a bordered rule with random descent or an unbordered one without. H-C04-2: disagreement between observed random descent and the critical-peak test.",
+    "hypothesis": "H-C04-1 (bold): a terminating one-rule system has random descent iff its left-hand side is unbordered. H-C04-2: a terminating one-rule system has random descent iff each of its critical peaks (r s <- p b s -> p r for l = p b = b s) is joinable by two derivations of EQUAL length.",
+    "id": "EXP-C04-05",
+    "methodology": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; random descent = all maximal derivations from each word have the same length AND the same normal form (van Oostrom); critical peaks joined by breadth-first search over exact step counts.",
+    "question": "When do all maximal derivations from every word have the same length (random descent)?",
+    "title": "Random descent of one-rule systems: unbordered left-hand sides versus critical peaks"
+  },
+  "results": {
+    "h1_counterexamples": [
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          ""
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "a"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "aba"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          ""
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "b"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "bab"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          ""
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "a"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "aa"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "a"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aa"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aaa"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "b"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bb"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bbb"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          ""
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "b"
+        ]
+      },
+      {
+        "bordered": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "bb"
+        ]
+      }
+    ],
+    "h2_disagreements": [],
+    "length_uniform_but_not_confluent": [],
+    "rows": [
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "a",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "a",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "b",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "b",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "a",
+            "peak": "aaa",
+            "right": "a"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "aa",
+            "peak": "aaa",
+            "right": "aa"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "ba",
+            "peak": "aaa",
+            "right": "ab"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "aba",
+            "peak": "aaa",
+            "right": "aab"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baa",
+            "peak": "aaa",
+            "right": "aba"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bba",
+            "peak": "aaa",
+            "right": "abb"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 1,
+            "left": "abaa",
+            "peak": "aaa",
+            "right": "aaba"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aa",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "abba",
+            "peak": "aaa",
+            "right": "aabb"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baba",
+            "peak": "aaa",
+            "right": "abab"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbaa",
+            "peak": "aaa",
+            "right": "abba"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbba",
+            "peak": "aaa",
+            "right": "abbb"
+          }
+        ],
+        "first_non_confluent": "aaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aa",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 8,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "baa"
+        ]
+      },
+      {
+        "N": 8,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 8,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "aab"
+        ]
+      },
+      {
+        "N": 8,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "ba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "b",
+            "peak": "bbb",
+            "right": "b"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "ab",
+            "peak": "bbb",
+            "right": "ba"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "bb",
+            "peak": "bbb",
+            "right": "bb"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aab",
+            "peak": "bbb",
+            "right": "baa"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abb",
+            "peak": "bbb",
+            "right": "bab"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "bab",
+            "peak": "bbb",
+            "right": "bba"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aaab",
+            "peak": "bbb",
+            "right": "baaa"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aabb",
+            "peak": "bbb",
+            "right": "baab"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abab",
+            "peak": "bbb",
+            "right": "baba"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "baab",
+            "peak": "bbb",
+            "right": "bbaa"
+          }
+        ],
+        "first_non_confluent": "bbb",
+        "first_non_uniform_word": "bbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bb",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 1,
+            "left": "babb",
+            "peak": "bbb",
+            "right": "bbab"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bb",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "aa",
+            "peak": "aaaaa",
+            "right": "aa"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": 0,
+            "left": "a",
+            "peak": "aaaa",
+            "right": "a"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "aaa",
+            "peak": "aaaaa",
+            "right": "aaa"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": 0,
+            "left": "aa",
+            "peak": "aaaa",
+            "right": "aa"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baa",
+            "peak": "aaaaa",
+            "right": "aab"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "ba",
+            "peak": "aaaa",
+            "right": "ab"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "aaaa",
+            "peak": "aaaaa",
+            "right": "aaaa"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": 0,
+            "left": "aaa",
+            "peak": "aaaa",
+            "right": "aaa"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aaa",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "abaa",
+            "peak": "aaaaa",
+            "right": "aaab"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "aba",
+            "peak": "aaaa",
+            "right": "aab"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baaa",
+            "peak": "aaaaa",
+            "right": "aaba"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "baa",
+            "peak": "aaaa",
+            "right": "aba"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbaa",
+            "peak": "aaaaa",
+            "right": "aabb"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "bba",
+            "peak": "aaaa",
+            "right": "abb"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "aabaa",
+            "peak": "aaaaa",
+            "right": "aaaab"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "aaba",
+            "peak": "aaaa",
+            "right": "aaab"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 1,
+            "left": "abaaa",
+            "peak": "aaaaa",
+            "right": "aaaba"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "abaa",
+            "peak": "aaaa",
+            "right": "aaba"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "abbaa",
+            "peak": "aaaaa",
+            "right": "aaabb"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "abba",
+            "peak": "aaaa",
+            "right": "aabb"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baaaa",
+            "peak": "aaaaa",
+            "right": "aabaa"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "baaa",
+            "peak": "aaaa",
+            "right": "abaa"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "babaa",
+            "peak": "aaaaa",
+            "right": "aabab"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "baba",
+            "peak": "aaaa",
+            "right": "abab"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbaaa",
+            "peak": "aaaaa",
+            "right": "aabba"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "bbaa",
+            "peak": "aaaa",
+            "right": "abba"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbbaa",
+            "peak": "aaaaa",
+            "right": "aabbb"
+          },
+          {
+            "border": "aa",
+            "equal_length_join_k": null,
+            "left": "bbba",
+            "peak": "aaaa",
+            "right": "abbb"
+          }
+        ],
+        "first_non_confluent": "aaaa",
+        "first_non_uniform_word": "aaaaaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aaa",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "ba",
+            "peak": "ababa",
+            "right": "ab"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "aababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 0,
+            "left": "aba",
+            "peak": "ababa",
+            "right": "aba"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bba",
+            "peak": "ababa",
+            "right": "abb"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "abababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 1,
+            "left": "aaba",
+            "peak": "ababa",
+            "right": "abaa"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "abba",
+            "peak": "ababa",
+            "right": "abab"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baba",
+            "peak": "ababa",
+            "right": "abba"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbba",
+            "peak": "ababa",
+            "right": "abbb"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "abababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": 1,
+            "left": "aaaba",
+            "peak": "ababa",
+            "right": "abaaa"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "aba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "aabba",
+            "peak": "ababa",
+            "right": "abaab"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "abbba",
+            "peak": "ababa",
+            "right": "ababb"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "baaba",
+            "peak": "ababa",
+            "right": "abbaa"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "babba",
+            "peak": "ababa",
+            "right": "abbab"
+          }
+        ],
+        "first_non_confluent": "aabaa",
+        "first_non_uniform_word": "aaabaa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbaba",
+            "peak": "ababa",
+            "right": "abbba"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "ababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "a",
+            "equal_length_join_k": null,
+            "left": "bbbba",
+            "peak": "ababa",
+            "right": "abbbb"
+          }
+        ],
+        "first_non_confluent": "ababa",
+        "first_non_uniform_word": "abababa",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "aba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "abb",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "baa",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "ab",
+            "peak": "babab",
+            "right": "ba"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "bababb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aab",
+            "peak": "babab",
+            "right": "baa"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "bababab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "bab",
+            "peak": "babab",
+            "right": "bab"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aaab",
+            "peak": "babab",
+            "right": "baaa"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "bababab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abab",
+            "peak": "babab",
+            "right": "baab"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "baab",
+            "peak": "babab",
+            "right": "baba"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 1,
+            "left": "bbab",
+            "peak": "babab",
+            "right": "babb"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aaaab",
+            "peak": "babab",
+            "right": "baaaa"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "bababab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aabab",
+            "peak": "babab",
+            "right": "baaab"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abaab",
+            "peak": "babab",
+            "right": "baaba"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "bababb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abbab",
+            "peak": "babab",
+            "right": "baabb"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "baaab",
+            "peak": "babab",
+            "right": "babaa"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "bbaab",
+            "peak": "babab",
+            "right": "babba"
+          }
+        ],
+        "first_non_confluent": "babab",
+        "first_non_uniform_word": "babab",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bab",
+          "bba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 1,
+            "left": "bbbab",
+            "peak": "babab",
+            "right": "babbb"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bab",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": false,
+        "confluent": true,
+        "critical_peaks": [],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bba",
+          "bbb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "bb",
+            "peak": "bbbbb",
+            "right": "bb"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": 0,
+            "left": "b",
+            "peak": "bbbb",
+            "right": "b"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          ""
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abb",
+            "peak": "bbbbb",
+            "right": "bba"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "ab",
+            "peak": "bbbb",
+            "right": "ba"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "a"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "bbb",
+            "peak": "bbbbb",
+            "right": "bbb"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": 0,
+            "left": "bb",
+            "peak": "bbbb",
+            "right": "bb"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "b"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aabb",
+            "peak": "bbbbb",
+            "right": "bbaa"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "aab",
+            "peak": "bbbb",
+            "right": "baa"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abbb",
+            "peak": "bbbbb",
+            "right": "bbab"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "abb",
+            "peak": "bbbb",
+            "right": "bab"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "ab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "babb",
+            "peak": "bbbbb",
+            "right": "bbba"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "bab",
+            "peak": "bbbb",
+            "right": "bba"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "ba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": true,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 0,
+            "left": "bbbb",
+            "peak": "bbbbb",
+            "right": "bbbb"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": 0,
+            "left": "bbb",
+            "peak": "bbbb",
+            "right": "bbb"
+          }
+        ],
+        "first_non_confluent": null,
+        "first_non_uniform_word": null,
+        "length_uniform": true,
+        "local_rd": true,
+        "random_descent": true,
+        "rule": [
+          "bbb",
+          "bb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aaabb",
+            "peak": "bbbbb",
+            "right": "bbaaa"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "aaab",
+            "peak": "bbbb",
+            "right": "baaa"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aaa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "aabbb",
+            "peak": "bbbbb",
+            "right": "bbaab"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "aabb",
+            "peak": "bbbb",
+            "right": "baab"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "ababb",
+            "peak": "bbbbb",
+            "right": "bbaba"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "abab",
+            "peak": "bbbb",
+            "right": "baba"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "aba"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "abbbb",
+            "peak": "bbbbb",
+            "right": "bbabb"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "abbb",
+            "peak": "bbbb",
+            "right": "babb"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "abb"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "baabb",
+            "peak": "bbbbb",
+            "right": "bbbaa"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "baab",
+            "peak": "bbbb",
+            "right": "bbaa"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "baa"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": 1,
+            "left": "babbb",
+            "peak": "bbbbb",
+            "right": "bbbab"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "babb",
+            "peak": "bbbb",
+            "right": "bbab"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "bab"
+        ]
+      },
+      {
+        "N": 11,
+        "bordered": true,
+        "confluent": false,
+        "critical_peaks": [
+          {
+            "border": "b",
+            "equal_length_join_k": null,
+            "left": "bbabb",
+            "peak": "bbbbb",
+            "right": "bbbba"
+          },
+          {
+            "border": "bb",
+            "equal_length_join_k": null,
+            "left": "bbab",
+            "peak": "bbbb",
+            "right": "bbba"
+          }
+        ],
+        "first_non_confluent": "bbbb",
+        "first_non_uniform_word": "bbbb",
+        "length_uniform": false,
+        "local_rd": false,
+        "random_descent": false,
+        "rule": [
+          "bbb",
+          "bba"
+        ]
+      }
+    ],
+    "summary": [
+      "162 terminating rules; (bordered, RD, confluent) counts: {'False/True/True': 84, 'True/False/False': 60, 'True/True/True': 18}",
+      "H-C04-1 counterexamples: 18 (e.g. [['aa', ''], ['aa', 'a'], ['aa', 'aba'], ['bb', '']]); unbordered rules without RD: 0",
+      "H-C04-2 disagreements (RD vs equal-length joinable critical peaks): 0; length-uniform but not confluent: 0"
+    ],
+    "table_bordered_rd_confluent": {
+      "bordered=False,RD=True,confluent=True": 84,
+      "bordered=True,RD=False,confluent=False": 60,
+      "bordered=True,RD=True,confluent=True": 18
+    }
+  },
+  "results_sha256": "aaaaa7a552736929877f09e8655e715df36ebc6eec42153f810bb3694965b360",
+  "runtime_s": 51.462,
+  "started": "2026-10-18T07:59:19Z"
+}

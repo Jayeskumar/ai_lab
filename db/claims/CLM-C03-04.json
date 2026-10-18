@@ -1,0 +1,27 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-04",
+  "lean": [
+    "proofs/lean/Infinity/C03_Termination.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Status covered by Zantema-Geser (2000).",
+  "proof": "proofs/paper/C03.md#theorem-4-clm-c03-04--a-loop-with-r--2q",
+  "proof_check": "Lean 4 + Mathlib (not_terminating_0_11; each step checked by decide); standard axioms only",
+  "statement": "The rule 0 1 1 -> 1 1 1 0 0 (p = 1, q = 2, r = 3, s = 2) admits the loop\n001111 -> 01110011 -> 0111011100 -> 011111100100 -> 11100111100100 = 111 . 001111 . 00100.",
+  "system": "SYS-A",
+  "title": "011 -> 11100 is non-terminating although r < 2q",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

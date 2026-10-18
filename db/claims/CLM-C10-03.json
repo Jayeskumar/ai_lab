@@ -1,0 +1,23 @@
+{
+  "counterexample": "Both averages tend to exactly 2 (Theorem 2 and the binary case of Theorem 1); at n < 1e6 the Zeckendorf average is 1.999992 vs binary 1.999988.",
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-01",
+    "EXP-C10-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-03",
+  "novelty": "NOT ASSESSED",
+  "statement": "The average number of digit changes per increment in the Zeckendorf system is smaller than in binary.",
+  "system": "SYS-C",
+  "title": "H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

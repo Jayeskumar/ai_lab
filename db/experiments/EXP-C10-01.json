@@ -1,0 +1,96 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "All classical constants confirmed to 5-6 digits; Zeckendorf averages 2 like binary; skew binary has worst case 2.",
+  "assumptions": [
+    "n < 10^6 (exchange-based systems excluded here, see EXP-C10-03)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C10-01",
+    "file": "experiments/C10/E01_classical_systems.py",
+    "sha256": "ab7adfd98d66d51d8d7836eaf16cf7e04d512c3be1a356edaa5099106b5ae87b",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "cycle": "C10",
+  "falsification": "Averages differing from the predicted constants by more than O(log N / N).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:50:09Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All classical constants confirmed to 5-6 digits; Zeckendorf averages 2 like binary; skew binary has worst case 2.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C10-01",
+        "CLM-C10-03",
+        "CLM-C10-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "Base b: b/(b-1); Gray code: 1; factorial base: e - 1; negabinary and balanced ternary match their unsigned counterparts; skew binary has bounded worst case. (Inventor's bold guess H-C10-0: Zeckendorf, being 'sparser', costs less than binary.)",
+  "id": "EXP-C10-01",
+  "methodology": "Count positions whose digit differs between n and n+1 for all n < N.",
+  "question": "How many digits change, on average and at worst, when counting n -> n+1 in different representations?",
+  "related": [
+    "CLM-C10-01",
+    "CLM-C10-03",
+    "CLM-C10-07"
+  ],
+  "results_file": "results/EXP-C10-01.json",
+  "results_sha256": "1cd226cc89f9dcb76273fbdda307fc1ae8644c2c414d81cfa8addfbe5a704678",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C10-01",
+        "file": "experiments/C10/E01_classical_systems.py",
+        "sha256": "ab7adfd98d66d51d8d7836eaf16cf7e04d512c3be1a356edaa5099106b5ae87b",
+        "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:50:08Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C10-01.json",
+      "results_sha256": "1cd226cc89f9dcb76273fbdda307fc1ae8644c2c414d81cfa8addfbe5a704678",
+      "runtime_s": 55.835,
+      "started": "2026-10-18T07:49:12Z",
+      "summary": [
+        "binary: avg 1.999988 (pred 2), worst 20",
+        "ternary: avg 1.4999935 (pred 1.5), worst 13",
+        "decimal: avg 1.1111051 (pred 1.1111111111111112), worst 6",
+        "gray: avg 1.0 (pred 1), worst 1",
+        "factorial: avg 1.7182767 (pred 1.718281828459045), worst 9",
+        "zeckendorf: avg 1.999992 (pred None), worst 15",
+        "negabinary: avg 1.999997 (pred 2), worst 21",
+        "balanced_ternary: avg 1.5000005 (pred 1.5), worst 14",
+        "skew_binary: avg 1.4999955 (pred None), worst 2"
+      ]
+    }
+  ],
+  "summary": [
+    "binary: avg 1.999988 (pred 2), worst 20",
+    "ternary: avg 1.4999935 (pred 1.5), worst 13",
+    "decimal: avg 1.1111051 (pred 1.1111111111111112), worst 6",
+    "gray: avg 1.0 (pred 1), worst 1",
+    "factorial: avg 1.7182767 (pred 1.718281828459045), worst 9",
+    "zeckendorf: avg 1.999992 (pred None), worst 15",
+    "negabinary: avg 1.999997 (pred 2), worst 21",
+    "balanced_ternary: avg 1.5000005 (pred 1.5), worst 14",
+    "skew_binary: avg 1.4999955 (pred None), worst 2"
+  ],
+  "title": "Average and worst-case digit changes per increment in classical representations"
+}

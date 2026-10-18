@@ -1,0 +1,126 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-05",
+    "file": "experiments/C08/E05_literature_validation.py",
+    "sha256": "8ec1eda3ef5b111a0965f6fd16dc3d93dad5c6d4bbe283c7c1782d77a2f09158",
+    "systems_sha256": "e05b16b3883f7427a4950e304350d3ff08a50980b4974bfa33126aff91540ed6"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:35:02Z",
+  "id": "EXP-C08-05",
+  "meta": {
+    "agent": "Historian and Novelty Analyst",
+    "assumptions": [
+      "OEIS search API (cached)"
+    ],
+    "cycle": "C08",
+    "falsification": "No match, or a match to an unrelated sequence.",
+    "hypothesis": "The antidiagonal reading of the table n o k (n, k >= 1) matches an OEIS entry for Knuth's circle product.",
+    "id": "EXP-C08-05",
+    "methodology": "Read the table by antidiagonals (n + k constant, n increasing) and search the OEIS; also search the first row (1 o k).",
+    "question": "Does our circle product with G = 1,2,3,5,... and s = 2 coincide with Knuth's Fibonacci product as catalogued in the OEIS?",
+    "title": "Implementation check: Knuth's product table versus the OEIS"
+  },
+  "results": {
+    "antidiagonals": [
+      3,
+      5,
+      5,
+      8,
+      8,
+      8,
+      11,
+      13,
+      13,
+      11,
+      13,
+      18,
+      21,
+      18,
+      13,
+      16,
+      21,
+      29,
+      29,
+      21,
+      16,
+      18,
+      26,
+      34,
+      40,
+      34,
+      26,
+      18,
+      21,
+      29,
+      42,
+      47,
+      47,
+      42,
+      29,
+      21
+    ],
+    "oeis_antidiagonals": {
+      "hits": [
+        {
+          "anumber": "A101330",
+          "name": "Array read by antidiagonals: T(n, k) = Knuth's Fibonacci (or circle) product of n and k (\"n o k\"), n >= 1, k >= 1."
+        }
+      ],
+      "status": "MATCH"
+    },
+    "oeis_row_1": {
+      "hits": [
+        {
+          "anumber": "A026274",
+          "name": "Greatest k such that s(k) = n, where s = A026272."
+        }
+      ],
+      "status": "MATCH"
+    },
+    "row_1": [
+      3,
+      5,
+      8,
+      11,
+      13,
+      16,
+      18,
+      21,
+      24,
+      26,
+      29,
+      32,
+      34,
+      37,
+      39,
+      42,
+      45,
+      47,
+      50,
+      52,
+      55,
+      58,
+      60,
+      63
+    ],
+    "summary": [
+      "table by antidiagonals [3, 5, 5, 8, 8, 8, 11, 13, 13, 11, 13, 18]...: MATCH [\"A101330 Array read by antidiagonals: T(n, k) = Knuth's Fibonacci (or\"]",
+      "first row 1 o k [3, 5, 8, 11, 13, 16, 18, 21, 24, 26]...: MATCH ['A026274 Greatest k such that s(k) = n, where s = A026272.']"
+    ]
+  },
+  "results_sha256": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
+  "runtime_s": 2.247,
+  "started": "2026-10-18T07:34:59Z"
+}

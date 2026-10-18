@@ -1,0 +1,23 @@
+{
+  "counterexample": "0011 -> 111000 (both counts grow) is terminating - a published theorem (A. Geser, 'A Solution to Zantema's Problem', Passau MIP-9314, 1993; Zantema-Geser 2000; automated RFC match-bound proofs). Our own evidence agrees (all 3747 words of length <= 12 containing 0011 have finite derivation trees) but we have no independent proof; the refutation rests on the cited proof.",
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01",
+    "EXP-C03-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-07",
+  "novelty": "NOT ASSESSED",
+  "statement": "The rule 0^p 1^q -> 1^r 0^s terminates iff s <= p or r <= q.",
+  "system": "SYS-A",
+  "title": "H-C03-1: terminates iff some letter count never grows (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

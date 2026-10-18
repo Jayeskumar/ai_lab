@@ -1,0 +1,410 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C09-01",
+    "file": "experiments/C09/E01_irreducibles.py",
+    "sha256": "f6d7346273414422a7e7ecb96d4631945bbdacacf067cc4c8597062c189c4dd5",
+    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:38:25Z",
+  "id": "EXP-C09-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "Knuth's product (s = 2); exact formula a o b = ab + a b* + a* b validated in EXP-C08/C09 setup"
+    ],
+    "cycle": "C09",
+    "falsification": "Irreducible density not decreasing towards 0 across scales 10^2..10^6.",
+    "hypothesis": "H-C09-1 (inventor): since a o b ~ sqrt(5) a b grows like ordinary multiplication, circle irreducibles should thin out like primes (density -> 0).",
+    "id": "EXP-C09-01",
+    "methodology": "Enumerate all a <= b with a o b <= N (N = 10^6); record counts of irreducibles in dyadic ranges, the density trend, the first irreducibles and multiply-represented products; OEIS checks.",
+    "question": "Which positive integers are not circle products a o b, and how dense are they?",
+    "title": "Irreducibles ('circle primes') of (N>=1, o) up to 10^6"
+  },
+  "results": {
+    "N": 1000000,
+    "density_of_irreducibles": {
+      "100": 0.6,
+      "1000": 0.577,
+      "10000": 0.5617,
+      "100000": 0.54908,
+      "1000000": 0.539392
+    },
+    "first_irreducibles": [
+      1,
+      2,
+      4,
+      6,
+      7,
+      9,
+      10,
+      12,
+      14,
+      15,
+      17,
+      19,
+      20,
+      22,
+      23,
+      25,
+      27,
+      28,
+      30,
+      31,
+      33,
+      35,
+      36,
+      38,
+      41,
+      43,
+      44,
+      46,
+      48,
+      49,
+      51,
+      53,
+      54,
+      56,
+      57,
+      59,
+      61,
+      62,
+      64,
+      67,
+      69,
+      70,
+      72,
+      74,
+      75,
+      77,
+      78,
+      80,
+      82,
+      83,
+      85,
+      86,
+      88,
+      90,
+      91,
+      93,
+      95,
+      96,
+      98,
+      99
+    ],
+    "first_multiply_represented": [
+      [
+        8,
+        [
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      ],
+      [
+        13,
+        [
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      ],
+      [
+        18,
+        [
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            4
+          ]
+        ]
+      ],
+      [
+        21,
+        [
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      [
+        26,
+        [
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            6
+          ]
+        ]
+      ],
+      [
+        29,
+        [
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            4
+          ]
+        ]
+      ],
+      [
+        34,
+        [
+          [
+            1,
+            13
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            3,
+            5
+          ]
+        ]
+      ],
+      [
+        39,
+        [
+          [
+            1,
+            15
+          ],
+          [
+            2,
+            9
+          ]
+        ]
+      ],
+      [
+        42,
+        [
+          [
+            1,
+            16
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            6
+          ]
+        ]
+      ],
+      [
+        47,
+        [
+          [
+            1,
+            18
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            5
+          ]
+        ]
+      ],
+      [
+        52,
+        [
+          [
+            1,
+            20
+          ],
+          [
+            2,
+            12
+          ]
+        ]
+      ],
+      [
+        55,
+        [
+          [
+            1,
+            21
+          ],
+          [
+            2,
+            13
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            5,
+            5
+          ]
+        ]
+      ],
+      [
+        58,
+        [
+          [
+            1,
+            22
+          ],
+          [
+            4,
+            6
+          ]
+        ]
+      ],
+      [
+        60,
+        [
+          [
+            1,
+            23
+          ],
+          [
+            2,
+            14
+          ]
+        ]
+      ],
+      [
+        63,
+        [
+          [
+            1,
+            24
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            3,
+            9
+          ]
+        ]
+      ]
+    ],
+    "first_reducibles": [
+      3,
+      5,
+      8,
+      11,
+      13,
+      16,
+      18,
+      21,
+      24,
+      26,
+      29,
+      32,
+      34,
+      37,
+      39,
+      40,
+      42,
+      45,
+      47,
+      50,
+      52,
+      55,
+      58,
+      60,
+      63,
+      65,
+      66,
+      68,
+      71,
+      73,
+      76,
+      79,
+      81,
+      84,
+      87,
+      89,
+      92,
+      94,
+      97,
+      100
+    ],
+    "max_representations": 106,
+    "n_irreducible": 539392,
+    "n_reducible": 460608,
+    "oeis_irreducibles": {
+      "hits": [
+        {
+          "anumber": "A026273",
+          "name": "a(n) = least k such that s(k) = n, where s = A026272."
+        },
+        {
+          "anumber": "A080746",
+          "name": "Inverse Aronson transform of lower Wythoff sequence A000201."
+        }
+      ],
+      "status": "MATCH (shifted window)"
+    },
+    "oeis_reducibles": {
+      "hits": [],
+      "status": "NO MATCH"
+    },
+    "summary": [
+      "up to 1000000: 539392 irreducible, 460608 reducible; density of irreducibles at 10^2..10^6: {'100': 0.6, '1000': 0.577, '10000': 0.5617, '100000': 0.54908, '1000000': 0.539392}",
+      "first irreducibles [1, 2, 4, 6, 7, 9, 10, 12, 14, 15, 17, 19, 20, 22, 23, 25, 27, 28, 30, 31]",
+      "OEIS irreducibles: MATCH (shifted window) ['A026273', 'A080746']; reducibles: NO MATCH []"
+    ]
+  },
+  "results_sha256": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
+  "runtime_s": 10.789,
+  "started": "2026-10-18T07:38:14Z"
+}

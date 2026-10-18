@@ -1,0 +1,76 @@
+{
+  "fetched": "2026-10-18T07:38:21Z",
+  "query": "4,6,7,9,10,12,14,15,17,19,20,22,23,25,27,28,30,31,33,35",
+  "response": [
+    {
+      "author": "_Clark Kimberling_",
+      "comment": [
+        "This is the lower s-Wythoff sequence, where s(n)=n+1.",
+        "See A184117 for the definition of lower and upper s-Wythoff sequences.  The first few terms of a and its complement, b=A026274, are obtained generated as follows:",
+        "s=(2,3,4,5,6,...);",
+        "a=(1,2,4,6,7,...)=A026273;",
+        "b=(3,5,8,11,13,...)=A026274.",
+        "Briefly:  b=s+a, and a=mex=\"least missing\".",
+        "From _Michel Dekking_, Mar 12 2018: (Start)",
+        "One has r*(n-2*r+3) = n*r-2r^2+3*r = (n+1)*r-2.",
+        "So  a(n) = (n+1)*r-2, and we see that this sequence is simply the Beatty sequence of the golden ratio, shifted spatially and temporally. In other words: if w = A000201 = 1,3,4,6,8,9,11,12,14,...  is the lower Wythoff sequence, then a(n) = w(n+2) - 2.",
+        "(N.B. As so often, there is the 'offset 0 vs 1 argument', w = A000201 has offset 1; it would have been better to give (a(n)) offset 1, too).",
+        "This observation also gives an answer to Lenormand's question, and a simple proof of Mathar's conjecture in A059426.",
+        "(End)"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "1,2,4,6,7,9,10,12,14,15,17,19,20,22,23,25,27,28,30,31,33,35,36,38,40,41,43,44,46,48,49,51,53,54,56,57,59,61,62,64,65,67,69,70,72,74,75,77,78,80,82,83,85,86,88,90,91,93,95,96,98,99",
+      "ext": [
+        "Extended by _Clark Kimberling_, Jan 14 2011"
+      ],
+      "formula": [
+        "a(n) = floor[r*(n-2*r+3)], where r=golden ratio.",
+        "b(n) = floor[(r^2)*(n+2*r-3)] = floor(n*A104457-A134972+1)."
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Jon Asier Bárcena-Petisco, Luis Martínez, María Merino, Juan Manuel Montoya, and Antonio Vera-López, <a href=\"https://arxiv.org/abs/2503.19696\">Fibonacci-like partitions and their associated piecewise-defined permutations</a>, arXiv:2503.19696 [math.CO], 2025. See p. 3."
+      ],
+      "mathematica": [
+        "r=(1+Sqrt[5])/2;",
+        "a[n_]:=Floor[r*(n-2r+3)];",
+        "b[n_]:=Floor[r*r*(n+2r-3)];",
+        "Table[a[n],{n,200}]   (* A026273 *)",
+        "Table[b[n],{n,200}]   (* A026274 *)"
+      ],
+      "name": "a(n) = least k such that s(k) = n, where s = A026272.",
+      "number": 26273,
+      "offset": "1,2",
+      "references": 6,
+      "revision": 25,
+      "time": "2025-03-28T10:47:52-04:00",
+      "xref": [
+        "Cf. A184117, A026274."
+      ]
+    },
+    {
+      "author": "_Matthew Vandermast_, Mar 08 2003",
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,4,6,7,9,10,12,14,15,17,19,20,22,23,25,27,28,30,31,33,35,36,38,40,41,43,44,46,48,49,51,53,54,56,57,59,61,62,64,65,67,69,70,72,74,75,77,78,80,82,83,85,86,88,90,91,93,95,96,98,99",
+      "formula": [
+        "Consists of numbers [phi[phi*k]] (k >= 1) and [phi[phi^2*k]]-1 (k >= 2), where phi = (1+sqrt(5))/2. - _N. J. A. Sloane_, Mar 10 2003"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Benoit Cloitre, N. J. A. Sloane and M. J. Vandermast, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL6/Cloitre/cloitre2.html\">Numerical analogues of Aronson's sequence</a>, J. Integer Seqs., Vol. 6 (2003), #03.2.2.",
+        "Benoit Cloitre, N. J. A. Sloane and M. J. Vandermast, <a href=\"https://arxiv.org/abs/math/0305308\">Numerical analogues of Aronson's sequence</a>, arXiv:math/0305308 [math.NT], 2003."
+      ],
+      "name": "Inverse Aronson transform of lower Wythoff sequence A000201.",
+      "number": 80746,
+      "offset": "1,2",
+      "references": 1,
+      "revision": 12,
+      "time": "2025-09-23T23:41:15-04:00",
+      "xref": [
+        "Union of A003622 and A035336, omitting 2. Cf. A000201, A080760.",
+        "Same as A026273 except for initial terms."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=4%2C6%2C7%2C9%2C10%2C12%2C14%2C15%2C17%2C19%2C20%2C22%2C23%2C25%2C27%2C28%2C30%2C31%2C33%2C35&fmt=json"
+}

@@ -1,0 +1,13 @@
+{
+ "case": "ter_k4_n16",
+ "q": 3,
+ "k": 4,
+ "nmax": 16,
+ "hard_only": false,
+ "relations_tested": 304,
+ "hard": 45,
+ "with_common_border": 13,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 31.8
+}

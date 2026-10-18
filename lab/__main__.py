@@ -91,6 +91,15 @@ def cmd_oeis(args):
     return 0
 
 
+def cmd_report(args):
+    from . import report
+    s = report.write()
+    import json
+    print(json.dumps({k: v for k, v in s.items() if k != "potentially_novel"}, indent=1))
+    print("potentially novel:", len(s["potentially_novel"]))
+    return 0
+
+
 def cmd_book(args):
     from . import book
     return book.build(pdf=not args.no_pdf)
@@ -127,6 +136,8 @@ def main(argv=None):
     o = sub.add_parser("oeis", help="look up a comma-separated integer sequence")
     o.add_argument("terms")
     o.set_defaults(func=cmd_oeis)
+    rp = sub.add_parser("report", help="write reports/batch_statistics.json from the database")
+    rp.set_defaults(func=cmd_report)
     b = sub.add_parser("book", help="build the textbook (HTML + PDF)")
     b.add_argument("--no-pdf", action="store_true")
     b.set_defaults(func=cmd_book)

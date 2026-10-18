@@ -1,0 +1,8 @@
+{
+ "random_cases": 1500,
+ "reached_a_sink": 562,
+ "no_sink_within_cap": 938,
+ "violations": [],
+ "firing_vector_cases": 400,
+ "firing_vector_violations": []
+}

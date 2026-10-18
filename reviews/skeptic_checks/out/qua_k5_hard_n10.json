@@ -1,0 +1,13 @@
+{
+ "case": "qua_k5_hard_n10",
+ "q": 4,
+ "k": 5,
+ "nmax": 10,
+ "hard_only": true,
+ "relations_tested": 899,
+ "hard": 899,
+ "with_common_border": 4,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 2.2
+}

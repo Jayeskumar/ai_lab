@@ -1,0 +1,2909 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-01",
+    "file": "experiments/C05/E01_two_variable_census.py",
+    "sha256": "e1db35b4fc3df885495b4cd4ac044e3afcaa8591b2bd60b0110ed6aeea6cb884",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:07:36Z",
+  "id": "EXP-C05-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "System B: magmas without any assumed law",
+      "identities up to renaming of variables",
+      "'nontrivial' = x occurs in t but is neither its leftmost nor its rightmost leaf (otherwise a projection is a model of every size, or x is absent and only n = 1 works)",
+      "SAT (CaDiCaL via pysat), conflict budget 1e6 per instance"
+    ],
+    "cycle": "C05",
+    "falsification": "Any identity whose spectrum within 1..6 is neither {1} nor everything refutes H-C05-1.",
+    "hypothesis": "H-C05-1 (bold): every identity t = x has spectrum {1} or all positive integers - single identities cannot carve out arithmetic restrictions on the size of a model.",
+    "id": "EXP-C05-01",
+    "methodology": "For each nontrivial identity: SAT model existence for n = 1..6; exhaustive model enumeration with isomorphism rejection for n <= 3; record whether all enumerated models are quasigroups. Mirror images (t read right-to-left) are paired; their spectra must agree. (Larger n are enumerated, and n = 7..10 decided, only for restricted identities in EXP-C05-02.)",
+    "question": "Which sizes of finite magmas can satisfy a single invented identity t(x, y) = x?",
+    "title": "Spectrum census of two-variable identities t = x (2-4 operations), sizes 1-6"
+  },
+  "results": {
+    "mirror_mismatches": [],
+    "n_identities": 115,
+    "patterns": {
+      "100000": 2,
+      "100010": 14,
+      "100110": 6,
+      "10011?": 1,
+      "101000": 2,
+      "101011": 4,
+      "101100": 6,
+      "101110": 16,
+      "101111": 4,
+      "110110": 8,
+      "111111": 52
+    },
+    "restricted_patterns": {
+      "100010": [
+        "y(x(x(yy))) = x",
+        "y(x((yx)y)) = x",
+        "y(y((xx)y)) = x",
+        "y((x(xy))y) = x",
+        "y(((xx)y)y) = x",
+        "y(((yx)x)y) = x",
+        "(yy)(x(xy)) = x",
+        "((yx)x)(yy) = x",
+        "(y(x(xy)))y = x",
+        "(y(y(xx)))y = x",
+        "(y((yx)x))y = x",
+        "((y(xx))y)y = x",
+        "((y(xy))x)y = x",
+        "(((yy)x)x)y = x"
+      ],
+      "100110": [
+        "y(y(x(xy))) = x",
+        "y(x((xy)y)) = x",
+        "y((y(xx))y) = x",
+        "(y((xx)y))y = x",
+        "((y(yx))x)y = x",
+        "(((yx)x)y)y = x"
+      ],
+      "10011?": [
+        "(yx)(xy) = x"
+      ],
+      "101000": [
+        "y((yx)(xy)) = x",
+        "((yx)(xy))y = x"
+      ],
+      "101011": [
+        "y(x(y(xy))) = x",
+        "(yx)(y(xy)) = x",
+        "((yx)y)(xy) = x",
+        "(((yx)y)x)y = x"
+      ],
+      "101100": [
+        "y(x(yy)) = x",
+        "(yx)(yy) = x",
+        "(yy)(xy) = x",
+        "((yy)x)y = x",
+        "y((x(yx))y) = x",
+        "(y((xy)x))y = x"
+      ],
+      "101110": [
+        "y(x(xy)) = x",
+        "y(y(xy)) = x",
+        "y((xx)y) = x",
+        "y((xy)y) = x",
+        "y((yx)y) = x",
+        "(y(xx))y = x",
+        "(y(xy))y = x",
+        "(y(yx))y = x",
+        "((yx)x)y = x",
+        "((yx)y)y = x",
+        "y((xx)(yy)) = x",
+        "y((xy)(xy)) = x",
+        "(yx)((yx)y) = x",
+        "(y(xy))(xy) = x",
+        "((yx)(yx))y = x",
+        "((yy)(xx))y = x"
+      ],
+      "101111": [
+        "(yx)((xy)y) = x",
+        "(yy)((xx)y) = x",
+        "(y(xx))(yy) = x",
+        "(y(yx))(xy) = x"
+      ],
+      "110110": [
+        "y(x((xx)y)) = x",
+        "y((xy)(yy)) = x",
+        "y(((yy)x)y) = x",
+        "(yy)(y(xy)) = x",
+        "((yx)y)(yy) = x",
+        "(y(x(yy)))y = x",
+        "((yy)(yx))y = x",
+        "((y(xx))x)y = x"
+      ]
+    },
+    "rows": [
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(xy) = x",
+        "mirror": "(yx)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 2,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)y = x",
+        "mirror": "y(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 2,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(xy)) = x",
+        "mirror": "((yx)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(yy)) = x",
+        "mirror": "((yy)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            4,
+            2,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y(xy)) = x",
+        "mirror": "((yx)y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xx)y) = x",
+        "mirror": "(y(xx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xy)y) = x",
+        "mirror": "(y(yx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((yx)y) = x",
+        "mirror": "(y(xy))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)(xy) = x",
+        "mirror": "(yx)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "10011?"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)(yy) = x",
+        "mirror": "(yy)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            4,
+            2,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yy)(xy) = x",
+        "mirror": "(yx)(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            4,
+            2,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(xx))y = x",
+        "mirror": "y((xx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(xy))y = x",
+        "mirror": "y((yx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(yx))y = x",
+        "mirror": "y((xy)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)x)y = x",
+        "mirror": "y(x(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)y)y = x",
+        "mirror": "y(y(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yy)x)y = x",
+        "mirror": "y(x(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            4,
+            2,
+            true
+          ]
+        },
+        "ops": 3,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(x(xy))) = x",
+        "mirror": "(((yx)x)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(x(yy))) = x",
+        "mirror": "(((yy)x)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(y(xy))) = x",
+        "mirror": "(((yx)y)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101011"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x(y(yy))) = x",
+        "mirror": "(((yy)y)x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y(x(xy))) = x",
+        "mirror": "(((yx)x)y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "y(y(x(yy))) = x",
+        "mirror": "(((yy)x)y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y(y(xy))) = x",
+        "mirror": "(((yx)y)y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x((xx)y)) = x",
+        "mirror": "((y(xx))x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x((xy)y)) = x",
+        "mirror": "((y(yx))x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x((yx)y)) = x",
+        "mirror": "((y(xy))x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(x((yy)y)) = x",
+        "mirror": "((y(yy))x)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y((xx)y)) = x",
+        "mirror": "((y(xx))y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y((xy)y)) = x",
+        "mirror": "((y(yx))y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(y((yx)y)) = x",
+        "mirror": "((y(xy))y)y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xx)(xy)) = x",
+        "mirror": "((yx)(xx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xx)(yy)) = x",
+        "mirror": "((yy)(xx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xy)(xy)) = x",
+        "mirror": "((yx)(yx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((xy)(yy)) = x",
+        "mirror": "((yy)(yx))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((yx)(xy)) = x",
+        "mirror": "((yx)(xy))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101000"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "y((yx)(yy)) = x",
+        "mirror": "((yy)(xy))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((yy)(xy)) = x",
+        "mirror": "((yx)(yy))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((x(xx))y) = x",
+        "mirror": "(y((xx)x))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            3,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((x(xy))y) = x",
+        "mirror": "(y((yx)x))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((x(yx))y) = x",
+        "mirror": "(y((xy)x))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((x(yy))y) = x",
+        "mirror": "(y((yy)x))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((y(xx))y) = x",
+        "mirror": "(y((xx)y))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((y(xy))y) = x",
+        "mirror": "(y((yx)y))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            9,
+            4,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y((y(yx))y) = x",
+        "mirror": "(y((xy)y))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((xx)x)y) = x",
+        "mirror": "(y(x(xx)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((xx)y)y) = x",
+        "mirror": "(y(y(xx)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((xy)x)y) = x",
+        "mirror": "(y(x(yx)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100000"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((xy)y)y) = x",
+        "mirror": "(y(y(yx)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((yx)x)y) = x",
+        "mirror": "(y(x(xy)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((yx)y)y) = x",
+        "mirror": "(y(y(xy)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "y(((yy)x)y) = x",
+        "mirror": "(y(x(yy)))y = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yx)(x(xy)) = x",
+        "mirror": "((yx)x)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            4,
+            2,
+            true
+          ],
+          "3": [
+            68,
+            15,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yx)(x(yy)) = x",
+        "mirror": "((yy)x)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            21,
+            4,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yx)(y(xy)) = x",
+        "mirror": "((yx)y)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            2,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101011"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)(y(yy)) = x",
+        "mirror": "((yy)y)(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yy)(x(xy)) = x",
+        "mirror": "((yx)x)(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yy)(x(yy)) = x",
+        "mirror": "((yy)x)(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            69,
+            16,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yy)(y(xy)) = x",
+        "mirror": "((yx)y)(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yx)((xx)y) = x",
+        "mirror": "(y(xx))(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yx)((xy)y) = x",
+        "mirror": "(y(yx))(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            9,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)((yx)y) = x",
+        "mirror": "(y(xy))(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yx)((yy)y) = x",
+        "mirror": "(y(yy))(xy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yy)((xx)y) = x",
+        "mirror": "(y(xx))(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(yy)((xy)y) = x",
+        "mirror": "(y(yx))(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(yy)((yx)y) = x",
+        "mirror": "(y(xy))(yy) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(y(xx))(xy) = x",
+        "mirror": "(yx)((xx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(xx))(yy) = x",
+        "mirror": "(yy)((xx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(xy))(xy) = x",
+        "mirror": "(yx)((yx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(xy))(yy) = x",
+        "mirror": "(yy)((yx)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(y(yx))(xy) = x",
+        "mirror": "(yx)((xy)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            9,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(y(yx))(yy) = x",
+        "mirror": "(yy)((xy)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(yy))(xy) = x",
+        "mirror": "(yx)((yy)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "((yx)x)(xy) = x",
+        "mirror": "(yx)(x(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            4,
+            2,
+            true
+          ],
+          "3": [
+            68,
+            15,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)x)(yy) = x",
+        "mirror": "(yy)(x(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "((yx)y)(xy) = x",
+        "mirror": "(yx)(y(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            2,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101011"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)y)(yy) = x",
+        "mirror": "(yy)(y(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "((yy)x)(xy) = x",
+        "mirror": "(yx)(x(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            21,
+            4,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "((yy)x)(yy) = x",
+        "mirror": "(yy)(x(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            69,
+            16,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yy)y)(xy) = x",
+        "mirror": "(yx)(y(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(x(xx)))y = x",
+        "mirror": "y(((xx)x)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(x(xy)))y = x",
+        "mirror": "y(((yx)x)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(x(yx)))y = x",
+        "mirror": "y(((xy)x)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100000"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(x(yy)))y = x",
+        "mirror": "y(((yy)x)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(y(xx)))y = x",
+        "mirror": "y(((xx)y)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(y(xy)))y = x",
+        "mirror": "y(((yx)y)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y(y(yx)))y = x",
+        "mirror": "y(((xy)y)y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((xx)x))y = x",
+        "mirror": "y((x(xx))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            3,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((xx)y))y = x",
+        "mirror": "y((y(xx))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((xy)x))y = x",
+        "mirror": "y((x(yx))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101100"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((xy)y))y = x",
+        "mirror": "y((y(yx))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((yx)x))y = x",
+        "mirror": "y((x(xy))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((yx)y))y = x",
+        "mirror": "y((y(xy))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            9,
+            4,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(y((yy)x))y = x",
+        "mirror": "y((x(yy))y) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)(xx))y = x",
+        "mirror": "y((xx)(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)(xy))y = x",
+        "mirror": "y((yx)(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101000"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)(yx))y = x",
+        "mirror": "y((xy)(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yx)(yy))y = x",
+        "mirror": "y((yy)(xy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yy)(xx))y = x",
+        "mirror": "y((xx)(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101110"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "((yy)(xy))y = x",
+        "mirror": "y((yx)(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((yy)(yx))y = x",
+        "mirror": "y((xy)(yy)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(xx))x)y = x",
+        "mirror": "y(x((xx)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "110110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(xx))y)y = x",
+        "mirror": "y(y((xx)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(xy))x)y = x",
+        "mirror": "y(x((yx)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(xy))y)y = x",
+        "mirror": "y(y((yx)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(yx))x)y = x",
+        "mirror": "y(x((xy)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(yx))y)y = x",
+        "mirror": "y(y((xy)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "((y(yy))x)y = x",
+        "mirror": "y(x((yy)y)) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yx)x)x)y = x",
+        "mirror": "y(x(x(xy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yx)x)y)y = x",
+        "mirror": "y(y(x(xy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100110"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yx)y)x)y = x",
+        "mirror": "y(x(y(xy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            1,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "101011"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yx)y)y)y = x",
+        "mirror": "y(y(y(xy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yy)x)x)y = x",
+        "mirror": "y(x(x(yy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            0,
+            0,
+            true
+          ],
+          "3": [
+            0,
+            0,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "100010"
+      },
+      {
+        "all_small_models_quasigroups": false,
+        "identity": "(((yy)x)y)y = x",
+        "mirror": "y(y(x(yy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            6,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      },
+      {
+        "all_small_models_quasigroups": true,
+        "identity": "(((yy)y)x)y = x",
+        "mirror": "y(x(y(yy))) = x",
+        "models_total_iso_complete_n1_3": {
+          "1": [
+            1,
+            1,
+            true
+          ],
+          "2": [
+            2,
+            1,
+            true
+          ],
+          "3": [
+            3,
+            2,
+            true
+          ]
+        },
+        "ops": 4,
+        "spectrum_1_6": "111111"
+      }
+    ],
+    "summary": [
+      "115 nontrivial identities; spectrum patterns over n=1..6: {'100000': 2, '100010': 14, '100110': 6, '10011?': 1, '101000': 2, '101011': 4, '101100': 6, '101110': 16, '101111': 4, '110110': 8, '111111': 52}",
+      "identities with a restricted spectrum (neither {1} nor all): 61",
+      "mirror pairs with different spectra (must be 0): 0"
+    ],
+    "timings": {
+      "seconds": 154.6
+    }
+  },
+  "results_sha256": "607a0e46158d394b1935f596caf45f8fcc7fb29ba4f6cc60a6ffd6c6c2a71d9d",
+  "runtime_s": 154.555,
+  "started": "2026-10-18T08:05:02Z"
+}

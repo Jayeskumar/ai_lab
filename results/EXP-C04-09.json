@@ -1,0 +1,472 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C04-09",
+    "file": "experiments/C04/E09_novelty_checks.py",
+    "sha256": "83398f11b5672f5158448e64473ce13ded4803470aafd3906b7e6e6950c1d298",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:05:46Z",
+  "id": "EXP-C04-09",
+  "meta": {
+    "agent": "Historian and Novelty Analyst",
+    "assumptions": [
+      "OEIS search API, cached in cache/oeis",
+      "a match must be read: equal terms need not mean the same definition"
+    ],
+    "cycle": "C04",
+    "falsification": "A catalogued sequence for something labelled potentially novel.",
+    "hypothesis": "Quadratic/exponential complexity sequences and the octal-game Grundy sequences are known; the derivational complexity of aab -> ba may not be.",
+    "id": "EXP-C04-09",
+    "methodology": "Query the first terms (skipping leading zeros where they make the query trivial); record hits.",
+    "question": "Which derivation-length and game sequences of cycle C04 are already catalogued?",
+    "title": "Novelty checks of C04 sequences against the OEIS"
+  },
+  "results": {
+    "checks": {
+      "D_max aab->aba (floor(n(n-1)/6))": {
+        "hits": [
+          {
+            "anumber": "A001840",
+            "name": "Expansion of g.f. x/((1 - x)^2*(1 - x^3))."
+          },
+          {
+            "anumber": "A130518",
+            "name": "a(n) = Sum_{k=0..n} floor(k/3). (Partial sums of A002264.)"
+          },
+          {
+            "anumber": "A058937",
+            "name": "Maximal exponent of x in all terms of Somos polynomial of order n."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          3,
+          5,
+          7,
+          9,
+          12,
+          15,
+          18,
+          22,
+          26,
+          30,
+          35,
+          40,
+          45
+        ]
+      },
+      "D_max aab->ba (n - 1 - kappa(n))": {
+        "hits": [
+          {
+            "anumber": "A247983",
+            "name": "Least number k such that log(2) - sum{1/(h*2^h), h=1..k} < 1/2^n."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          1,
+          2,
+          3,
+          3,
+          4,
+          5,
+          6,
+          7,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          15
+        ]
+      },
+      "D_max aab->baa (floor(n^2/8))": {
+        "hits": [
+          {
+            "anumber": "A130519",
+            "name": "a(n) = Sum_{k=0..n} floor(k/4). (Partial sums of A002265.)"
+          },
+          {
+            "anumber": "A001972",
+            "name": "Expansion of 1/((1-x)^2*(1-x^4)) = 1/( (1+x)*(1+x^2)*(1-x)^3 )."
+          },
+          {
+            "anumber": "A005705",
+            "name": "Number of partitions of 4*n into powers of 4."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          8,
+          10,
+          12,
+          15,
+          18,
+          21,
+          24,
+          28,
+          32,
+          36
+        ]
+      },
+      "D_max ab->ba (floor(n^2/4))": {
+        "hits": [
+          {
+            "anumber": "A002620",
+            "name": "Quarter-squares: a(n) = floor(n/2)*ceiling(n/2). Equivalently, a(n) = floor(n^2/4)."
+          },
+          {
+            "anumber": "A087811",
+            "name": "Numbers k such that ceiling(sqrt(k)) divides k."
+          },
+          {
+            "anumber": "A086378",
+            "name": "Sum of successive remainders in computing Euclidean algorithm for (1,1/sqrt(n)) is rational."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          4,
+          6,
+          9,
+          12,
+          16,
+          20,
+          25,
+          30,
+          36
+        ]
+      },
+      "D_max ab->bba (2^(n-1)-1)": {
+        "hits": [
+          {
+            "anumber": "A000225",
+            "name": "a(n) = 2^n - 1. (Sometimes called Mersenne numbers, although that name is usually reserved for A001348.)"
+          },
+          {
+            "anumber": "A126646",
+            "name": "a(n) = 2^(n+1) - 1."
+          },
+          {
+            "anumber": "A168604",
+            "name": "a(n) = 2^(n-2) - 1."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          3,
+          7,
+          15,
+          31,
+          63,
+          127,
+          255,
+          511,
+          1023,
+          2047,
+          4095,
+          8191,
+          16383,
+          32767,
+          65535,
+          131071,
+          262143,
+          524287
+        ]
+      },
+      "Grundy aa->ab on a^n (Officers 0.6)": {
+        "hits": [
+          {
+            "anumber": "A046695",
+            "name": "Sprague-Grundy values for the game Couples-are-Forever (and for octal games .6, .601, .61, .611, .62, .621, .63, .631)."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          0,
+          0,
+          1,
+          2,
+          0,
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          4,
+          0,
+          3,
+          4,
+          2,
+          1,
+          3,
+          2,
+          1,
+          0,
+          2,
+          1,
+          4,
+          5,
+          1,
+          4,
+          5,
+          1,
+          2
+        ]
+      },
+      "Grundy aa->b on a^n (Dawson's Kayles 0.07)": {
+        "hits": [
+          {
+            "anumber": "A002187",
+            "name": "Sprague-Grundy values for Dawson's Chess (octal game .137)."
+          }
+        ],
+        "status": "MATCH (shifted window)",
+        "terms": [
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0,
+          5,
+          2,
+          2,
+          3,
+          3,
+          0,
+          1,
+          1,
+          3,
+          0,
+          2,
+          1,
+          1,
+          0
+        ]
+      },
+      "Grundy aaa->ab on a^n (octal 0.06)": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          1,
+          1,
+          2,
+          2,
+          3,
+          3,
+          4,
+          4,
+          0,
+          5,
+          3,
+          3,
+          4,
+          2,
+          2,
+          1,
+          1,
+          3,
+          0,
+          2,
+          2
+        ]
+      },
+      "Grundy aaa->aba on a^n (octal 0.4)": {
+        "hits": [
+          {
+            "anumber": "A002187",
+            "name": "Sprague-Grundy values for Dawson's Chess (octal game .137)."
+          }
+        ],
+        "status": "MATCH (shifted window)",
+        "terms": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          2,
+          0,
+          3,
+          1,
+          1,
+          0,
+          3,
+          3,
+          2,
+          2,
+          4,
+          0,
+          5,
+          2,
+          2,
+          3,
+          3,
+          0,
+          1,
+          1,
+          3,
+          0,
+          2,
+          1,
+          1
+        ]
+      },
+      "Grundy aaa->b on a^n (octal 0.007)": {
+        "hits": [
+          {
+            "anumber": "A395248",
+            "name": "Sprague-Grundy values for the octal game .007."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          2,
+          2,
+          0,
+          3,
+          3,
+          1,
+          1,
+          1,
+          0,
+          4,
+          3,
+          3,
+          3,
+          2,
+          2,
+          2,
+          4,
+          4,
+          0,
+          5,
+          5,
+          2,
+          2,
+          2
+        ]
+      },
+      "n - D(n) for aab->ba (1 + kappa(n))": {
+        "hits": [
+          {
+            "anumber": "A372475",
+            "name": "Length of binary expansion (or number of bits) of the n-th squarefree number."
+          },
+          {
+            "anumber": "A255121",
+            "name": "After zero, each n occurs A255071(n) times."
+          }
+        ],
+        "status": "MATCH (shifted window)",
+        "terms": [
+          1,
+          2,
+          2,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6
+        ]
+      }
+    },
+    "errors": [],
+    "no_match": [
+      "Grundy aaa->ab on a^n (octal 0.06)"
+    ],
+    "summary": [
+      "11 sequences checked; no OEIS match: ['Grundy aaa->ab on a^n (octal 0.06)']; errors: []",
+      "D_max aab->ba (n - 1 - kappa(n)): MATCH ['A247983 Least number k such that log(2) - sum{1/(h*2^h), h=1..k} < 1']",
+      "n - D(n) for aab->ba (1 + kappa(n)): MATCH (shifted window) ['A372475 Length of binary expansion (or number of bits) of the n-th s']",
+      "D_max aab->aba (floor(n(n-1)/6)): MATCH ['A001840 Expansion of g.f. x/((1 - x)^2*(1 - x^3)).']",
+      "D_max aab->baa (floor(n^2/8)): MATCH ['A130519 a(n) = Sum_{k=0..n} floor(k/4). (Partial sums of A002265.)']",
+      "D_max ab->ba (floor(n^2/4)): MATCH ['A002620 Quarter-squares: a(n) = floor(n/2)*ceiling(n/2). Equivalentl']",
+      "D_max ab->bba (2^(n-1)-1): MATCH ['A000225 a(n) = 2^n - 1. (Sometimes called Mersenne numbers, although']",
+      "Grundy aa->b on a^n (Dawson's Kayles 0.07): MATCH (shifted window) [\"A002187 Sprague-Grundy values for Dawson's Chess (octal game .137).\"]",
+      "Grundy aa->ab on a^n (Officers 0.6): MATCH ['A046695 Sprague-Grundy values for the game Couples-are-Forever (and ']",
+      "Grundy aaa->b on a^n (octal 0.007): MATCH ['A395248 Sprague-Grundy values for the octal game .007.']",
+      "Grundy aaa->ab on a^n (octal 0.06): NO MATCH []",
+      "Grundy aaa->aba on a^n (octal 0.4): MATCH (shifted window) [\"A002187 Sprague-Grundy values for Dawson's Chess (octal game .137).\"]"
+    ]
+  },
+  "results_sha256": "b27de23695054b60a6bc918347a1a9b9c2e14704f5815ba86035261d06a75053",
+  "runtime_s": 24.44,
+  "started": "2026-10-18T08:05:21Z"
+}

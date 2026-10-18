@@ -1,0 +1,78 @@
+{
+  "agent": "Historian and Novelty Analyst",
+  "analysis": "The implementation reproduces OEIS A101330 (Knuth's circle product table).",
+  "assumptions": [
+    "OEIS search API (cached)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C08-05",
+    "file": "experiments/C08/E05_literature_validation.py",
+    "sha256": "8ec1eda3ef5b111a0965f6fd16dc3d93dad5c6d4bbe283c7c1782d77a2f09158",
+    "systems_sha256": "e05b16b3883f7427a4950e304350d3ff08a50980b4974bfa33126aff91540ed6"
+  },
+  "cycle": "C08",
+  "falsification": "No match, or a match to an unrelated sequence.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:35:02Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The implementation reproduces OEIS A101330 (Knuth's circle product table).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C08-01"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "The antidiagonal reading of the table n o k (n, k >= 1) matches an OEIS entry for Knuth's circle product.",
+  "id": "EXP-C08-05",
+  "methodology": "Read the table by antidiagonals (n + k constant, n increasing) and search the OEIS; also search the first row (1 o k).",
+  "question": "Does our circle product with G = 1,2,3,5,... and s = 2 coincide with Knuth's Fibonacci product as catalogued in the OEIS?",
+  "related": [
+    "CLM-C08-01"
+  ],
+  "results_file": "results/EXP-C08-05.json",
+  "results_sha256": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-05",
+        "file": "experiments/C08/E05_literature_validation.py",
+        "sha256": "8ec1eda3ef5b111a0965f6fd16dc3d93dad5c6d4bbe283c7c1782d77a2f09158",
+        "systems_sha256": "e05b16b3883f7427a4950e304350d3ff08a50980b4974bfa33126aff91540ed6"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:35:02Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C08-05.json",
+      "results_sha256": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
+      "runtime_s": 2.247,
+      "started": "2026-10-18T07:34:59Z",
+      "summary": [
+        "table by antidiagonals [3, 5, 5, 8, 8, 8, 11, 13, 13, 11, 13, 18]...: MATCH [\"A101330 Array read by antidiagonals: T(n, k) = Knuth's Fibonacci (or\"]",
+        "first row 1 o k [3, 5, 8, 11, 13, 16, 18, 21, 24, 26]...: MATCH ['A026274 Greatest k such that s(k) = n, where s = A026272.']"
+      ]
+    }
+  ],
+  "summary": [
+    "table by antidiagonals [3, 5, 5, 8, 8, 8, 11, 13, 13, 11, 13, 18]...: MATCH [\"A101330 Array read by antidiagonals: T(n, k) = Knuth's Fibonacci (or\"]",
+    "first row 1 o k [3, 5, 8, 11, 13, 16, 18, 21, 24, 26]...: MATCH ['A026274 Greatest k such that s(k) = n, where s = A026272.']"
+  ],
+  "title": "Implementation check: Knuth's product table versus the OEIS"
+}

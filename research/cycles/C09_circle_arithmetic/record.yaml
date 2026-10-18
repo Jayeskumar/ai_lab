@@ -1,0 +1,153 @@
+cycle: C09
+title: Arithmetic of Knuth's circle semigroup
+branch: C-B
+status: complete
+systems: [SYS-C, SYS-B]
+
+experiments:
+  - id: EXP-C09-01
+    analysis: Irreducible density decreases slowly (0.600 to 0.539 over 10^2..10^6); far more irreducibles than primes. Reducibles are not in the OEIS; the shifted-window OEIS hit for irreducibles (A026273) agrees for 24 terms and diverges at 40 = 4 o 4.
+    related: [CLM-C09-04, CLM-C09-05, CLM-C09-08]
+  - id: EXP-C09-02
+    analysis: Factorisation is far from unique; first non-uniqueness at 8 = 1o1o1 = 2o2; elasticity up to 2.5 below 2e5.
+    counterexamples: ["8 = 1 o 1 o 1 = 2 o 2"]
+    verification: REFUTED
+    related: [CLM-C09-02, CLM-C09-08]
+  - id: EXP-C09-03
+    analysis: The norm map is multiplicative; |N(n)| <= 1.382 n; norm +-1 exactly at Fibonacci numbers.
+    related: [CLM-C09-01, CLM-C09-07]
+  - id: EXP-C09-04
+    analysis: No reducible number outside the product zone up to 1e6; forced-irreducible density matches 1/phi^2 to 6 digits; length bound never violated.
+    related: [CLM-C09-03, CLM-C09-06, CLM-C09-05]
+
+claims:
+  - id: CLM-C09-01
+    type: theorem
+    system: SYS-C
+    title: Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images
+    statement: |
+      (N>=1, o) with Knuth's product is a commutative cancellative semigroup without identity. The map
+      nu(n) = n phi + n*, n* = floor((n+1)/phi), is an injective homomorphism into (Z[phi], x); a o b = ab + ab* + a*b.
+      nu(n) is a unit iff n is a Fibonacci number F_k (k >= 2), and F_j o F_k = F_(j+k).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01; formulas checked on 89,401 pairs; awaiting independent skeptic review
+    proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
+    evidence: [EXP-C09-03]
+    novelty: REDISCOVERY
+    novelty_basis: The embedding is Arnoux's (1989) proof idea for Knuth's theorem; units of Z[phi] are classical.
+  - id: CLM-C09-02
+    type: hypothesis
+    system: SYS-C
+    title: "H-C09-2: factorisation into circle irreducibles is unique (refuted)"
+    statement: Every n >= 1 has a unique multiset of circle-irreducible factors.
+    verification: REFUTED
+    counterexample: "8 = 1 o 1 o 1 = 2 o 2 with 1, 2 irreducible (every product is >= 3); the factorisations even differ in length."
+    evidence: [EXP-C09-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C09-03
+    type: theorem
+    system: SYS-C
+    title: "Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible"
+    statement: |
+      If n is a circle product then nu'(n) = n psi + n* lies in (psi^3, psi^2), i.e. frac((n+1)/phi) lies in
+      (1/phi - psi^2, 1/phi - psi^3) = (0.2360..., 0.8541...). Hence every n with frac((n+1)/phi) outside this
+      interval is circle-irreducible, and these n have natural density exactly 1/phi^2 = 0.381966...
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution); 0 counterexamples up to 1e6, density 0.381966 observed; awaiting independent skeptic review
+    proof: proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ²
+    evidence: [EXP-C09-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Irreducibles/reducibles of Knuth's product are not in the OEIS (2026-10-18); no study of circle-product factorisation found in the C08 literature search. Elementary consequence of Arnoux's embedding; may exist in the literature on factorisation in submonoids of rings of integers.
+  - id: CLM-C09-04
+    type: hypothesis
+    system: SYS-C
+    title: "H-C09-1: circle irreducibles have density 0 like primes (refuted)"
+    statement: The proportion of circle-irreducible numbers up to x tends to 0 as x tends to infinity.
+    verification: REFUTED
+    counterexample: "By CLM-C09-03 the irreducibles contain a set of natural density 1/phi^2 = 0.3819...; observed density is 0.539 at 1e6."
+    evidence: [EXP-C09-01, EXP-C09-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C09-05
+    type: conjecture
+    system: SYS-C
+    title: The density of circle irreducibles is exactly 1/phi^2
+    statement: Almost every n whose conjugate lies in the product zone is a circle product, so the circle irreducibles have natural density 1/phi^2.
+    verification: CONJECTURE
+    evidence: [EXP-C09-04, EXP-C09-01]
+    novelty: NOT ASSESSED
+    limitations: The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.
+  - id: CLM-C09-06
+    type: theorem
+    system: SYS-C
+    title: Factorisation lengths are bounded by the conjugate coordinate
+    statement: If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review
+    proof: proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations
+    evidence: [EXP-C09-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C09-07
+    type: theorem
+    system: SYS-C
+    title: The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product
+    statement: N(a o b) = N(a) N(b) for all a, b >= 1; |N(n)| < (sqrt5/phi) n + 1; N(n) = +-1 iff n is a Fibonacci number.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
+    proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
+    evidence: [EXP-C09-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C09-08
+    type: observation
+    system: SYS-C
+    title: Factorisation statistics of the circle semigroup up to 2e5
+    statement: |
+      Up to 10^6 there are 539,392 circle irreducibles. Up to 2*10^5, 75,332 numbers have at least two
+      factorisations (first: 8), 29,577 have factorisations of different lengths, and the maximal elasticity is 2.5
+      (n = 196,405).
+    verification: PROVEN
+    proof_check: computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)
+    proof: results/EXP-C09-01.json and results/EXP-C09-02.json
+    evidence: [EXP-C09-01, EXP-C09-02]
+    novelty: NOT ASSESSED
+
+journal:
+  - key: C09-01
+    agent: Research Director
+    kind: decision
+    text: Cross-branch cycle - the associative operation found in C08 is studied as a new arithmetic. Fast exact formula a o b = ab + ab* + a*b derived from the Z[phi] embedding and validated against the digit definition on 89,401 pairs.
+    refs: [EXP-C09-01]
+  - key: C09-02
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Proposed H-C09-1 (circle primes thin out like primes) and the bold H-C09-2 (unique factorisation, since Z[phi] is a UFD).
+    refs: [CLM-C09-04, CLM-C09-02]
+  - key: C09-03
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C09-2 fails at n = 8 = 1o1o1 = 2o2. The Fibonacci numbers are images of units, F_j o F_k = F_(j+k), so their factorisations are those of the numerical semigroup <2,3>.
+    refs: [EXP-C09-02, CLM-C09-02]
+  - key: C09-04
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: The OEIS returned a shifted-window match (A026273) for the irreducibles; checked term by term - it agrees for 24 terms and diverges at 40 = 4o4. Explained by the Beatty structure of 1 o b; recorded as a coincidence, not a rediscovery.
+    refs: [EXP-C09-01]
+  - key: C09-05
+    agent: Formal Verifier
+    kind: proof
+    text: Proved the window obstruction - products have conjugate in (psi^3, psi^2), a sub-window of length 1/phi - so 1/phi^2 of all integers are forced irreducible (refuting H-C09-1), and the length bound |nu'(n)| < |psi|^r. EXP-C09-04 found no counterexample up to 1e6 and density 0.381966.
+    refs: [CLM-C09-03, CLM-C09-06, EXP-C09-04]
+  - key: C09-06
+    agent: Mathematical Skeptic
+    kind: review
+    text: Integrity fix - EXP-C09-04 META originally claimed an exact-arithmetic re-check that was not implemented. Replaced by the actual justification (only n = 1, 2 hit the zone boundaries exactly; otherwise badly-approximable margins >= 0.4/n). Results hash unchanged.
+    refs: [EXP-C09-04]
+  - key: C09-07
+    agent: Mathematical Explorer
+    kind: direction
+    text: Conjecture 5 - the irreducible density is exactly 1/phi^2; supported only by a slowly decreasing trend inside the product zone.
+    refs: [CLM-C09-05]
+
+next_directions:
+  - "C09: prove the density-1/phi^2 conjecture"
+  - "C09: characterise circle irreducibles via prime factorisation in Z[phi] plus a unit-window condition"
+  - "C09: arithmetic of other associative circle products (Pell, tribonacci)"

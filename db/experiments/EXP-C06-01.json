@@ -1,0 +1,56 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "N <= 4096; exhaustive LD check for N <= 256, 2e5 random triples for N = 512..4096"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C06-01",
+    "file": "experiments/C06/E01_laver_tables.py",
+    "sha256": "26daa14e8207c6689531fad914e091a8b0c41acdd20b48899a9d29dc1e2ee4d7",
+    "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+  },
+  "cycle": "C06",
+  "falsification": "An LD table from the recursion for N not a power of 2, a power of 2 failing LD, or a period sequence differing from A098820.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:55:32Z"
+    }
+  ],
+  "hypothesis": "Laver's recursion yields a left-distributive table exactly when N is a power of 2 (the Laver tables A_n); the period of row 0 (Laver's row 1) follows OEIS A098820.",
+  "id": "EXP-C06-01",
+  "methodology": "Run Laver's recursion for every N <= 64 and for N = 2^n up to 4096; test left-distributivity; compute periods of row 0 and of all rows; OEIS check of the period sequence.",
+  "question": "What does a single composition law (left self-distributivity x(yz) = (xy)(xz)) produce when the operation is anchored to a successor (x * 0 = x + 1 mod N)?",
+  "results_file": "results/EXP-C06-01.json",
+  "results_sha256": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C06-01",
+        "file": "experiments/C06/E01_laver_tables.py",
+        "sha256": "26daa14e8207c6689531fad914e091a8b0c41acdd20b48899a9d29dc1e2ee4d7",
+        "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:55:31Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C06-01.json",
+      "results_sha256": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
+      "runtime_s": 23.624,
+      "started": "2026-10-18T07:55:07Z",
+      "summary": [
+        "Laver's recursion gives an LD table exactly for N in [1, 2, 4, 8, 16, 32, 64] (N <= 64)",
+        "A_n LD-verified for n <= 12 (exhaustive up to N = 256): True",
+        "row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']"
+      ]
+    }
+  ],
+  "summary": [
+    "Laver's recursion gives an LD table exactly for N in [1, 2, 4, 8, 16, 32, 64] (N <= 64)",
+    "A_n LD-verified for n <= 12 (exhaustive up to N = 256): True",
+    "row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']"
+  ],
+  "title": "Laver tables: construction, left-distributivity and periods"
+}

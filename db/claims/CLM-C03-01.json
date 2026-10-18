@@ -1,0 +1,27 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-01",
+  "lean": [
+    "proofs/lean/Infinity/C03_Termination.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Folklore measure argument; the termination status of the whole family is in Zantema-Geser (AAECC 2000).",
+  "proof": "proofs/paper/C03.md#theorem-1-clm-c03-01--counting",
+  "proof_check": "Lean 4 + Mathlib (terminating_of_count_lt); standard axioms only",
+  "statement": "For any alphabet and rule l -> r, if some letter occurs fewer times in r than in l, every derivation is\nfinite. In particular 0^p 1^q -> 1^r 0^s terminates whenever s < p or r < q.",
+  "system": "SYS-A",
+  "title": "A one-rule system that decreases the count of some letter terminates",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,443 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C10-03",
+    "file": "experiments/C10/E03_exchange_systems.py",
+    "sha256": "5c46840b2ee8dcd5aa53f208fba34a879d1d3ce52ed9ad2b6027cc894afe5650",
+    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:50:24Z",
+  "id": "EXP-C10-03",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "n < 200000 per rule",
+      "incremental counter validated against full stabilisation"
+    ],
+    "cycle": "C10",
+    "falsification": "Average firings deviating from 1/(m-B) beyond O(log N/N); a J = 1 rule violating H-C10-2.",
+    "hypothesis": "H-C10-1: the average number of firings per increment tends to 1/(m - sum b) for every terminating carry rule. H-C10-2 (for J = 1 rules m[k] -> q[k+1]): average digit changes = 1 + 1/(m - q).",
+    "id": "EXP-C10-03",
+    "methodology": "Run the incremental counter; record average firings, average and worst digit changes; compare with 1/(m - B) and, for J = 1, with 1 + 1/(m - q).",
+    "question": "How expensive is counting in the bases that emerge from exchange rules?",
+    "title": "Firings and digit changes per increment for the 31 terminating carry rules"
+  },
+  "results": {
+    "N": 200000,
+    "max_J1_change_deviation": 0.00026999999999999247,
+    "max_firing_deviation": 0.0005699999999999594,
+    "rows": [
+      {
+        "J1_prediction": 2.0,
+        "avg_changes": 1.99997,
+        "avg_firings": 0.99997,
+        "b": [
+          1
+        ],
+        "m": 2,
+        "pred_firings": 1.0,
+        "worst_changes": 18
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99997,
+        "avg_firings": 0.99997,
+        "b": [
+          0,
+          1
+        ],
+        "m": 2,
+        "pred_firings": 1.0,
+        "worst_changes": 18
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99997,
+        "avg_firings": 0.99997,
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "m": 2,
+        "pred_firings": 1.0,
+        "worst_changes": 18
+      },
+      {
+        "J1_prediction": 1.5,
+        "avg_changes": 1.49998,
+        "avg_firings": 0.49998,
+        "b": [
+          1
+        ],
+        "m": 3,
+        "pred_firings": 0.5,
+        "worst_changes": 12
+      },
+      {
+        "J1_prediction": 2.0,
+        "avg_changes": 1.99987,
+        "avg_firings": 0.99987,
+        "b": [
+          2
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 28
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.49998,
+        "avg_firings": 0.49998,
+        "b": [
+          0,
+          1
+        ],
+        "m": 3,
+        "pred_firings": 0.5,
+        "worst_changes": 12
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99987,
+        "avg_firings": 0.99987,
+        "b": [
+          0,
+          2
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 28
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.499805,
+        "avg_firings": 0.999805,
+        "b": [
+          1,
+          1
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 41
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.49998,
+        "avg_firings": 0.49998,
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "m": 3,
+        "pred_firings": 0.5,
+        "worst_changes": 12
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99987,
+        "avg_firings": 0.99987,
+        "b": [
+          0,
+          0,
+          2
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 28
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.642975,
+        "avg_firings": 0.99968,
+        "b": [
+          0,
+          1,
+          1
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 58
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.71367,
+        "avg_firings": 0.9997,
+        "b": [
+          1,
+          0,
+          1
+        ],
+        "m": 3,
+        "pred_firings": 1.0,
+        "worst_changes": 51
+      },
+      {
+        "J1_prediction": 1.333333,
+        "avg_changes": 1.33332,
+        "avg_firings": 0.33332,
+        "b": [
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.333333,
+        "worst_changes": 9
+      },
+      {
+        "J1_prediction": 1.5,
+        "avg_changes": 1.49997,
+        "avg_firings": 0.49997,
+        "b": [
+          2
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 17
+      },
+      {
+        "J1_prediction": 2.0,
+        "avg_changes": 1.99973,
+        "avg_firings": 0.99973,
+        "b": [
+          3
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 37
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.33332,
+        "avg_firings": 0.33332,
+        "b": [
+          0,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.333333,
+        "worst_changes": 9
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.49997,
+        "avg_firings": 0.49997,
+        "b": [
+          0,
+          2
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 17
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99973,
+        "avg_firings": 0.99973,
+        "b": [
+          0,
+          3
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 37
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.833215,
+        "avg_firings": 0.49991,
+        "b": [
+          1,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 25
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.49968,
+        "avg_firings": 0.999525,
+        "b": [
+          1,
+          2
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 58
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.29585,
+        "avg_firings": 0.999685,
+        "b": [
+          2,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 49
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.33332,
+        "avg_firings": 0.33332,
+        "b": [
+          0,
+          0,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.333333,
+        "worst_changes": 9
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.49997,
+        "avg_firings": 0.49997,
+        "b": [
+          0,
+          0,
+          2
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 17
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.99973,
+        "avg_firings": 0.99973,
+        "b": [
+          0,
+          0,
+          3
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 37
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.874205,
+        "avg_firings": 0.49987,
+        "b": [
+          0,
+          1,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 34
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.67483,
+        "avg_firings": 0.99943,
+        "b": [
+          0,
+          1,
+          2
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 79
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.486415,
+        "avg_firings": 0.99948,
+        "b": [
+          0,
+          2,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 77
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 1.928405,
+        "avg_firings": 0.49987,
+        "b": [
+          1,
+          0,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 0.5,
+        "worst_changes": 29
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.699685,
+        "avg_firings": 0.999475,
+        "b": [
+          1,
+          0,
+          2
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 74
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.830935,
+        "avg_firings": 0.999555,
+        "b": [
+          1,
+          1,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 71
+      },
+      {
+        "J1_prediction": null,
+        "avg_changes": 2.475025,
+        "avg_firings": 0.99962,
+        "b": [
+          2,
+          0,
+          1
+        ],
+        "m": 4,
+        "pred_firings": 1.0,
+        "worst_changes": 60
+      }
+    ],
+    "summary": [
+      "31 rules: max |avg firings - 1/(m-B)| = 0.0005699999999999594",
+      "J=1 rules: max |avg changes - (1 + 1/(m-q))| = 0.00026999999999999247",
+      "m=2 b=[1]: firings 0.99997 changes 1.99997 worst 18",
+      "m=2 b=[0, 1]: firings 0.99997 changes 1.99997 worst 18",
+      "m=2 b=[0, 0, 1]: firings 0.99997 changes 1.99997 worst 18",
+      "m=3 b=[1]: firings 0.49998 changes 1.49998 worst 12",
+      "m=3 b=[2]: firings 0.99987 changes 1.99987 worst 28",
+      "m=3 b=[0, 1]: firings 0.49998 changes 1.49998 worst 12",
+      "m=3 b=[0, 2]: firings 0.99987 changes 1.99987 worst 28",
+      "m=3 b=[1, 1]: firings 0.999805 changes 2.499805 worst 41",
+      "m=3 b=[0, 0, 1]: firings 0.49998 changes 1.49998 worst 12",
+      "m=3 b=[0, 0, 2]: firings 0.99987 changes 1.99987 worst 28",
+      "m=3 b=[0, 1, 1]: firings 0.99968 changes 2.642975 worst 58",
+      "m=3 b=[1, 0, 1]: firings 0.9997 changes 2.71367 worst 51"
+    ]
+  },
+  "results_sha256": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
+  "runtime_s": 14.116,
+  "started": "2026-10-18T07:50:10Z"
+}

@@ -1,0 +1,82 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "Every base rule 0 1^q -> 1^r 0^k with q <= 6, q < r < 2q, k <= 6 has a verified loop (75 rules); 225 lifts verify. Loop lengths grow roughly like k^q (largest 9332 steps).",
+  "assumptions": [
+    "rightmost/leftmost strategies from 0^a 1^b (a <= 3, b <= 40 q), at most 40000 steps and words of at most 300000 letters; forward closures first for small cases"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C03-04",
+    "file": "experiments/C03/E04_base_family_loops.py",
+    "sha256": "f84ce959651f451e67a4aa1feb2946a2a5175e8d30e637a0b46f01a18eea4f02",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C03",
+  "falsification": "A base rule with no loop although its derivations keep growing would leave the non-terminating half of H-C03-4 unsupported for that rule.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:09:20Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Every base rule 0 1^q -> 1^r 0^k with q <= 6, q < r < 2q, k <= 6 has a verified loop (75 rules); 225 lifts verify. Loop lengths grow roughly like k^q (largest 9332 steps).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C03-10",
+        "CLM-C03-11"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "All base rules with q <= 6, k <= 6 have loop certificates; loop sizes grow rapidly with q.",
+  "id": "EXP-C03-04",
+  "methodology": "For each base rule: forward closures (<= 60 letters), else long strategy runs; verify each certificate and its lifts along 0 -> 0^p (p = 2..4).",
+  "question": "Does every base rule 0 1^q -> 1^r 0^k with q < r < 2q, k >= 2 loop (as required by the non-terminating half of H-C03-4), and how large are the loops?",
+  "related": [
+    "CLM-C03-10",
+    "CLM-C03-11"
+  ],
+  "results_file": "results/EXP-C03-04.json",
+  "results_sha256": "7a3b03cd06d36ecd38d9b8d02f8bc1e730bcd85ced2a62653e6a2ed0055be248",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C03-04",
+        "file": "experiments/C03/E04_base_family_loops.py",
+        "sha256": "f84ce959651f451e67a4aa1feb2946a2a5175e8d30e637a0b46f01a18eea4f02",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:09:19Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C03-04.json",
+      "results_sha256": "7a3b03cd06d36ecd38d9b8d02f8bc1e730bcd85ced2a62653e6a2ed0055be248",
+      "runtime_s": 21.207,
+      "started": "2026-10-18T08:08:58Z",
+      "summary": [
+        "base rules (1,q,r,k), q = 2..6, q < r < 2q, k = 2..6: 75 loop certificates, missing []",
+        "lifts to (p,q,r,kp), p = 2..4, verified: 225",
+        "largest loop: [1, 6, 7, 6] with 9332 steps, final word 56035 letters"
+      ]
+    }
+  ],
+  "summary": [
+    "base rules (1,q,r,k), q = 2..6, q < r < 2q, k = 2..6: 75 loop certificates, missing []",
+    "lifts to (p,q,r,kp), p = 2..4, verified: 225",
+    "largest loop: [1, 6, 7, 6] with 9332 steps, final word 56035 letters"
+  ],
+  "title": "Base-family loops (1, q, r, k), q < r < 2q: closing the gap and measuring loop sizes"
+}

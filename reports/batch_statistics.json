@@ -1,0 +1,37 @@
+{
+  "algorithmic_claims": {},
+  "claims": 18,
+  "claims_by_system": {
+    "SYS-A": 10,
+    "SYS-C": 8
+  },
+  "cycles": 5,
+  "cycles_complete": 5,
+  "experiment_runs": 37,
+  "experiments": 32,
+  "generated": "2026-10-18T07:53:51Z",
+  "lean_files_verified": 3,
+  "lean_theorems": 36,
+  "novelty": {
+    "NOT ASSESSED": 9,
+    "POTENTIALLY NOVEL": 1,
+    "REDISCOVERY": 8
+  },
+  "potentially_novel": [
+    [
+      "CLM-C01-08",
+      "Common-border conjecture: one-relation class counts depend only on common borders",
+      "COMPUTATIONALLY SUPPORTED"
+    ]
+  ],
+  "proven_by_check": {
+    "Lean-verified": 3,
+    "computer-assisted": 3,
+    "written proof": 8
+  },
+  "verification": {
+    "COMPUTATIONALLY SUPPORTED": 2,
+    "PROVEN": 14,
+    "REFUTED": 2
+  }
+}

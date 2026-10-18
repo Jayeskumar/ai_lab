@@ -1,0 +1,132 @@
+{
+ "rules_B_lt_m": 259,
+ "primitive_irreducible": 241,
+ "non_primitive": 16,
+ "primitive_reducible": [
+  [
+   6,
+   [
+    1,
+    1
+   ],
+   "y**2 + y - 6",
+   25
+  ],
+  [
+   6,
+   [
+    1,
+    2
+   ],
+   "2*y**2 + y - 6",
+   25
+  ]
+ ],
+ "theorem_violations": [],
+ "converse_violations_B_lt_m": [],
+ "outside_B_lt_m": [
+  {
+   "m": 2,
+   "b": [
+    4
+   ],
+   "g": 1,
+   "P_tilde": "4*y - 2",
+   "content": 2,
+   "primitive": false,
+   "irreducible": true,
+   "levels_on_gN": 17,
+   "exact_collisions": 0,
+   "float_candidates": 0,
+   "example": null
+  },
+  {
+   "m": 2,
+   "b": [
+    0,
+    4
+   ],
+   "g": 2,
+   "P_tilde": "4*y - 2",
+   "content": 2,
+   "primitive": false,
+   "irreducible": true,
+   "levels_on_gN": 17,
+   "exact_collisions": 0,
+   "float_candidates": 0,
+   "example": null
+  },
+  {
+   "m": 3,
+   "b": [
+    6
+   ],
+   "g": 1,
+   "P_tilde": "6*y - 3",
+   "content": 3,
+   "primitive": false,
+   "irreducible": true,
+   "levels_on_gN": 11,
+   "exact_collisions": 25,
+   "float_candidates": 173052,
+   "example": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1
+    ]
+   ]
+  },
+  {
+   "m": 2,
+   "b": [
+    3
+   ],
+   "g": 1,
+   "P_tilde": "3*y - 2",
+   "content": 1,
+   "primitive": true,
+   "irreducible": true,
+   "levels_on_gN": 17,
+   "exact_collisions": 0,
+   "float_candidates": 0,
+   "example": null
+  },
+  {
+   "m": 2,
+   "b": [
+    1,
+    2
+   ],
+   "g": 1,
+   "P_tilde": "2*y**2 + y - 2",
+   "content": 1,
+   "primitive": true,
+   "irreducible": true,
+   "levels_on_gN": 17,
+   "exact_collisions": 0,
+   "float_candidates": 0,
+   "example": null
+  }
+ ]
+}

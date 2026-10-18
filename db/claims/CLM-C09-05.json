@@ -1,0 +1,23 @@
+{
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-04",
+    "EXP-C09-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-05",
+  "limitations": "The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Almost every n whose conjugate lies in the product zone is a circle product, so the circle irreducibles have natural density 1/phi^2.",
+  "system": "SYS-C",
+  "title": "The density of circle irreducibles is exactly 1/phi^2",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

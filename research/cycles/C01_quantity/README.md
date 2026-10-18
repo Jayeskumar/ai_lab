@@ -99,17 +99,20 @@ automata; validated against brute force on 300 random pattern sets),
   Theory*, 1995). **REDISCOVERY.**
 * Theorem 4: End of the free monoid on one generator is (N, ·); standard.
   **REDISCOVERY.**
-* Theorem 5 combines Newman's lemma (1942), the critical-pair lemma
-  (Knuth–Bendix 1970) and Guibas–Odlyzko (1981); it is the monoid analogue of a
-  one-element Gröbner basis (Bergman's diamond lemma, 1978). Very likely
-  folklore; novelty **not assessed** pending the Historian audit.
-* Conjecture 7: two quick searches found no general formula. Related:
-  the survey of one-relation monoids by Nyberg-Brodda
-  (arXiv:2105.02853), "Relations on words" (arXiv:1602.03364, which poses
-  growth functions of congruences as a natural question), and Kudryavtseva
-  (2010; n + 1 classes for a length-2 case). Provisionally **POTENTIALLY
-  NOVEL**; flagged for a deeper search (Hilbert series of one-relator algebras:
-  Anick, Piontkovski, Iyudu).
+* Theorem 5 is the length-preserving case of **Kurth's (1987) one-rule
+  confluence criterion** (after Book 1983, Otto–Wrathall 1985; Wrathall 1992),
+  plus Guibas–Odlyzko (1981): **REDISCOVERY**. Kurth's criterion is an "iff"
+  (CLM-C01-11, replicated in EXP-C01-08).
+* Conjecture 7 after the independent Historian audit
+  (`reviews/historian_C01_C02.md`): the **no-common-border case follows from
+  Gray–Steinberg (Forum Math. Sigma 2026, Thm 8.1) plus Anick's strong
+  freeness** (and from Albenque–Nadeau 2009 Cor. 3 + Adjan when first or last
+  letters differ) — all 527 relations our completion method could not settle
+  are in this case (CLM-C01-09, rediscovery). The one-common-border case
+  follows from growth identities the Historian derived from Gray–Steinberg
+  (Selecta 2022) (CLM-C01-10, potentially novel, derivation under review).
+  Only "two or more common borders without containment" remains open.
+  Lesson recorded: our two quick searches had missed this literature.
 
 ## Step 9 — Applications (Application Researcher)
 
@@ -131,8 +134,9 @@ Journal entries, claims and experiment interpretations are in `record.yaml`
 
 ## Next directions
 
-1. Prove Conjecture 7 (Hilbert-series/Anick-chain approach, or parametric
-   completions for the regular infinite cases).
+1. Prove the remaining case of Conjecture 7 (two or more common borders),
+   e.g. by induction over Adjan–Oganesyan compression using the identities
+   (P), (E) of the audit.
 2. Formalise Theorem 5 completely in Lean (termination by lexicographic
    monotonicity + local confluence + a Newman's lemma for the step relation).
 3. Formalise Theorem 3 (min/gcd) in Lean (requires Bézout over N).

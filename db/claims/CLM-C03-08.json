@@ -1,0 +1,23 @@
+{
+  "counterexample": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02).",
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01",
+    "EXP-C03-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-08",
+  "novelty": "NOT ASSESSED",
+  "statement": "The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.",
+  "system": "SYS-A",
+  "title": "H-C03-2: terminates iff r < 2q or s < 2p (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,2319 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C04-01",
+    "file": "experiments/C04/E01_termination_census.py",
+    "sha256": "081b87f41829fb70587bd0559bb4afdd8d479a3220192bc84e19f681a0c891a1",
+    "systems_sha256": "d43702c774c3d369c38b6ead7f7a12dc0f4b4aaf9fac9259654cf8e41714017a"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:32:35Z",
+  "id": "EXP-C04-01",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "System A over {a,b}",
+      "1 <= |l| <= 3, 0 <= |r| <= 3, l != r"
+    ],
+    "cycle": "C04",
+    "falsification": "A rule left UNKNOWN, or a certificate that fails the independent check.",
+    "hypothesis": "Every one of the 196 rules is decided by a simple certificate: length decrease, lexicographic monotonicity (length-preserving), a strictly decreasing linear interpretation over N, a decreasing factor count, or a self-embedding derivation w ->+ x w y.",
+    "id": "EXP-C04-01",
+    "methodology": "Apply the certificate searches in order; re-check every self-embedding certificate step by step with an independent checker.",
+    "question": "Which one-rule systems over {a,b} with sides of length <= 3 terminate, and can every verdict be backed by a checkable certificate?",
+    "title": "Termination census of the 196 one-rule string rewriting systems with |l|, |r| <= 3"
+  },
+  "results": {
+    "bad_certificates": [],
+    "by_proof": {
+      "factor count decreases": 2,
+      "length decreases": 70,
+      "length-preserving, lexicographically monotone": 70,
+      "linear interpretation": 20,
+      "self-embedding": 34
+    },
+    "by_status": {
+      "NON-TERMINATING": 34,
+      "TERMINATING": 162
+    },
+    "growing_terminating_rules": [
+      [
+        "a",
+        "bb"
+      ],
+      [
+        "a",
+        "bbb"
+      ],
+      [
+        "b",
+        "aa"
+      ],
+      [
+        "b",
+        "aaa"
+      ],
+      [
+        "aa",
+        "aba"
+      ],
+      [
+        "aa",
+        "abb"
+      ],
+      [
+        "aa",
+        "bab"
+      ],
+      [
+        "aa",
+        "bba"
+      ],
+      [
+        "aa",
+        "bbb"
+      ],
+      [
+        "ab",
+        "aaa"
+      ],
+      [
+        "ab",
+        "baa"
+      ],
+      [
+        "ab",
+        "bba"
+      ],
+      [
+        "ab",
+        "bbb"
+      ],
+      [
+        "ba",
+        "aaa"
+      ],
+      [
+        "ba",
+        "aab"
+      ],
+      [
+        "ba",
+        "abb"
+      ],
+      [
+        "ba",
+        "bbb"
+      ],
+      [
+        "bb",
+        "aaa"
+      ],
+      [
+        "bb",
+        "aab"
+      ],
+      [
+        "bb",
+        "aba"
+      ],
+      [
+        "bb",
+        "baa"
+      ],
+      [
+        "bb",
+        "bab"
+      ]
+    ],
+    "rows": [
+      {
+        "proof": "length decreases",
+        "rule": [
+          "a",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "a",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "aa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "aa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "ab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "ab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "ba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "ba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "a",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "aaa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "aaa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "aab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "aab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "aba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "aba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "abb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "abb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "baa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "baa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "bab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "bab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "a",
+          "bba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "a",
+          "bba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "a",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "b",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "b",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "b",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "ab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "ab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "ba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "ba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "bb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "bb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "b",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "aab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "aab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "aba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "aba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "abb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "abb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "baa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "baa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "bab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "bab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "bba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "bba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "b",
+          "bbb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "b",
+          "bbb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aa",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aa",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aa",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aa",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aa",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aa",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "aa",
+          "aaa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "aa",
+          "aaa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "aa",
+          "aab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "aa",
+          "aab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "factor": "aa",
+          "max_drop": 1,
+          "min_drop": 1
+        },
+        "proof": "factor count decreases",
+        "rule": [
+          "aa",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "aa",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "aa",
+          "baa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "aa",
+          "baa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "aa",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "aa",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "aa",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ab",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ab",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ab",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ab",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ab",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ab",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ab",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "ab",
+          "aab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ab",
+          "aab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "ab",
+          "aba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ab",
+          "aba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "ab",
+          "abb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ab",
+          "abb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "left-to-right",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              3,
+              0
+            ]
+          },
+          "lhs": [
+            3,
+            3
+          ],
+          "rhs": [
+            3,
+            2
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ab",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "ab",
+          "bab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ab",
+          "bab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              3,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            3,
+            3
+          ],
+          "rhs": [
+            3,
+            2
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ab",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ab",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ba",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ba",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "ba",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ba",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ba",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "ba",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ba",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              3,
+              0
+            ]
+          },
+          "lhs": [
+            3,
+            3
+          ],
+          "rhs": [
+            3,
+            2
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ba",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "ba",
+          "aba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ba",
+          "aba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "left-to-right",
+          "interpretation": {
+            "a": [
+              3,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            3,
+            3
+          ],
+          "rhs": [
+            3,
+            2
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ba",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "ba",
+          "baa"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ba",
+          "baa"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "ba",
+          "bab"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ba",
+          "bab"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "ba",
+          "bba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "ba",
+          "bba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              1
+            ],
+            "b": [
+              1,
+              0
+            ]
+          },
+          "lhs": [
+            1,
+            1
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "ba",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bb",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bb",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bb",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bb",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bb",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bb",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            0
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "bb",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "bb",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "bb",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "bb",
+          "abb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "bb",
+          "abb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "direction": "right-to-left",
+          "interpretation": {
+            "a": [
+              1,
+              0
+            ],
+            "b": [
+              1,
+              1
+            ]
+          },
+          "lhs": [
+            1,
+            2
+          ],
+          "rhs": [
+            1,
+            1
+          ]
+        },
+        "proof": "linear interpretation",
+        "rule": [
+          "bb",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "factor": "bb",
+          "max_drop": 1,
+          "min_drop": 1
+        },
+        "proof": "factor count decreases",
+        "rule": [
+          "bb",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": [
+          "bb",
+          "bba"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "bb",
+          "bba"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": [
+          "bb",
+          "bbb"
+        ],
+        "certificate_len": 1,
+        "proof": "self-embedding",
+        "rule": [
+          "bb",
+          "bbb"
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aaa",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aaa",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aab",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aab",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "aba",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "aba",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "abb",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "abb",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "baa",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "baa",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bab",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bab",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bba",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bba",
+          "bbb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          ""
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "a"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "b"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "aa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "ab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "ba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length decreases",
+        "rule": [
+          "bbb",
+          "bb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "aaa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "aab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "aba"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "abb"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "baa"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "bab"
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "proof": "length-preserving, lexicographically monotone",
+        "rule": [
+          "bbb",
+          "bba"
+        ],
+        "status": "TERMINATING"
+      }
+    ],
+    "summary": [
+      "196 rules: {'TERMINATING': 162, 'NON-TERMINATING': 34}; certificates by kind: {'length decreases': 70, 'length-preserving, lexicographically monotone': 70, 'self-embedding': 34, 'linear interpretation': 20, 'factor count decreases': 2}",
+      "unknown: 0; certificates failing the independent check: 0",
+      "22 length-increasing rules terminate (linear interpretation or factor count)"
+    ],
+    "unknown": []
+  },
+  "results_sha256": "1bc8184c4a5f40dc8500abf4f68da91c3b4ce65f60e4e0bacdcfc5051ccaa0d6",
+  "runtime_s": 0.003,
+  "started": "2026-10-18T07:32:35Z"
+}

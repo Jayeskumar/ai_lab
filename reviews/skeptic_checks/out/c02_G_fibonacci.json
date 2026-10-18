@@ -1,0 +1,9 @@
+{
+ "configurations_value_le": 34,
+ "n_configurations": 6617,
+ "states_explored": 6617,
+ "cycles": 0,
+ "wrong_sinks": [],
+ "n_wrong": 0,
+ "shortest_mismatch_n_le_60": []
+}

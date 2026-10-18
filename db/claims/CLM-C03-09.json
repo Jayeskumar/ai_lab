@@ -1,0 +1,23 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-02",
+    "EXP-C03-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-09",
+  "notes": "Predicts loops for e.g. 0011 -> 11100000, which terminates from every start 0^a 1^b (a <= 6, b <= 8) and every word of length <= 12 (finite reachable sets), and has no loop within the search bounds. Superseded by H-C03-4; not refuted by proof because termination of 0011 -> 11100000 is unproven.",
+  "novelty": "NOT ASSESSED",
+  "statement": "The rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p).",
+  "system": "SYS-A",
+  "title": "H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)",
+  "type": "hypothesis",
+  "verification": "INCONCLUSIVE"
+}

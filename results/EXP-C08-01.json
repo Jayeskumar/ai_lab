@@ -1,0 +1,5429 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-01",
+    "file": "experiments/C08/E01_associativity_atlas.py",
+    "sha256": "39cdf5665854afa7488b6f57973579c4b650966c813fdbe794bf2c8cc515879e",
+    "systems_sha256": "a5d0d746f0f2c39f603bceb423e96a658e24882b32d83704e7ffe09414bb2a13"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:27:14Z",
+  "id": "EXP-C08-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "greedy expansions",
+      "two-term recurrences G_(k+1) = p G_k + q G_(k-1), p,q in 1..3, several initial values G_1; three-term recurrences; geometric sequences as control",
+      "shifts s = 0..5",
+      "all triples a, b, c in [1, 22]"
+    ],
+    "cycle": "C08",
+    "falsification": "Associative cases other than Knuth's (G = Fibonacci, s = 2) refute H-C08-1.",
+    "hypothesis": "H-C08-1 (inventor's guess): Knuth's Fibonacci product is an isolated miracle - for other recurrences or shifts associativity fails.",
+    "id": "EXP-C08-01",
+    "methodology": "Exhaustive check of (a o b) o c = a o (b o c) on the cube [1,22]^3 for every (G, s); record the first failure (lexicographic) and the failure rate.",
+    "question": "For which base sequences G and index shifts s is the digit-convolution ('circle') product associative?",
+    "title": "Associativity atlas of circle products a o b = sum d_i(a) d_j(b) G_(i+j+s)"
+  },
+  "results": {
+    "N": 22,
+    "associative_cases": [
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        2
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        2
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        4
+      ],
+      [
+        "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        4
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        0
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        1
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        2
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        1
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        2
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        2
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        2
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        2
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        0
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        1
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        2
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        1
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        2
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        2
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        2
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        2
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        2
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        5
+      ],
+      [
+        "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        3
+      ],
+      [
+        "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        4
+      ],
+      [
+        "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        5
+      ],
+      [
+        "tribonacci 1,2,4",
+        3
+      ],
+      [
+        "tribonacci 1,2,4",
+        4
+      ],
+      [
+        "tribonacci 1,2,4",
+        5
+      ],
+      [
+        "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        3
+      ],
+      [
+        "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        4
+      ],
+      [
+        "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        5
+      ],
+      [
+        "powers of 2",
+        0
+      ],
+      [
+        "powers of 2",
+        1
+      ],
+      [
+        "powers of 2",
+        2
+      ],
+      [
+        "powers of 2",
+        3
+      ],
+      [
+        "powers of 2",
+        4
+      ],
+      [
+        "powers of 2",
+        5
+      ],
+      [
+        "powers of 3",
+        0
+      ],
+      [
+        "powers of 3",
+        1
+      ],
+      [
+        "powers of 3",
+        2
+      ],
+      [
+        "powers of 3",
+        3
+      ],
+      [
+        "powers of 3",
+        4
+      ],
+      [
+        "powers of 3",
+        5
+      ]
+    ],
+    "rows": [
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.09185,
+        "first_failure": [
+          2,
+          4,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04113,
+        "first_failure": [
+          1,
+          4,
+          4
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21,
+          34
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.31762,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.32908,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07626,
+        "first_failure": [
+          1,
+          2,
+          6
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29,
+          47
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.46751,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.55672,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07626,
+        "first_failure": [
+          1,
+          3,
+          8
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33039,
+        "first_failure": [
+          1,
+          2,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37,
+          60
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.02292,
+        "first_failure": [
+          1,
+          8,
+          8
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.51709,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.60725,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.17074,
+        "first_failure": [
+          1,
+          3,
+          10
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.4598,
+        "first_failure": [
+          1,
+          1,
+          10
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45,
+          73
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.15477,
+        "first_failure": [
+          1,
+          3,
+          4
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33471,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.40684,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.36157,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.40872,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.36157,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          5,
+          11,
+          21,
+          43,
+          85,
+          171
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.40872,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47446,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.5941,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.58509,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.60068,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.58509,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          6,
+          14,
+          26,
+          54,
+          106,
+          214
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.60068,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.50319,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.64219,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.55691,
+        "first_failure": [
+          1,
+          2,
+          4
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65139,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.55729,
+        "first_failure": [
+          1,
+          2,
+          4
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          7,
+          17,
+          31,
+          65,
+          127,
+          257
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65139,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.58866,
+        "first_failure": [
+          2,
+          3,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63655,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63918,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63674,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63655,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          11,
+          26,
+          59,
+          137,
+          314
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63693,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.62885,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.72633,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.67412,
+        "first_failure": [
+          1,
+          1,
+          14
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.66566,
+        "first_failure": [
+          1,
+          1,
+          14
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.66848,
+        "first_failure": [
+          1,
+          1,
+          14
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          6,
+          15,
+          33,
+          78,
+          177,
+          411
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.66585,
+        "first_failure": [
+          1,
+          1,
+          14
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.63129,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.76578,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.76521,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.77611,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.77554,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          7,
+          19,
+          40,
+          97,
+          217,
+          508
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.77686,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.6589,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.85199,
+        "first_failure": [
+          1,
+          1,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.85443,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.86326,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.86514,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=1G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          8,
+          23,
+          47,
+          116,
+          257,
+          605
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.86382,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.03907,
+        "first_failure": [
+          2,
+          4,
+          11
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169,
+          408
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.26916,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.19478,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239,
+          577
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.42374,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.42111,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309,
+          746
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47784,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.51991,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04827,
+        "first_failure": [
+          1,
+          4,
+          4
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379,
+          915
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.17055,
+        "first_failure": [
+          2,
+          4,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.12453,
+        "first_failure": [
+          1,
+          4,
+          13
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04151,
+        "first_failure": [
+          1,
+          7,
+          13
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328,
+          896
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.25601,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.21844,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.06198,
+        "first_failure": [
+          1,
+          2,
+          18
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.05522,
+        "first_failure": [
+          1,
+          2,
+          18
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448,
+          1224
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.42261,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.4136,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.18633,
+        "first_failure": [
+          1,
+          2,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.16153,
+        "first_failure": [
+          1,
+          2,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.02648,
+        "first_failure": [
+          1,
+          3,
+          13
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568,
+          1552
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.02648,
+        "first_failure": [
+          1,
+          3,
+          13
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.48084,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.50902,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.19797,
+        "first_failure": [
+          1,
+          3,
+          4
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.32494,
+        "first_failure": [
+          1,
+          2,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688,
+          1880
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.14838,
+        "first_failure": [
+          1,
+          3,
+          4
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.35162,
+        "first_failure": [
+          2,
+          2,
+          6
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33208,
+        "first_failure": [
+          1,
+          1,
+          6
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33959,
+        "first_failure": [
+          1,
+          2,
+          6
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33227,
+        "first_failure": [
+          1,
+          1,
+          6
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33959,
+        "first_failure": [
+          1,
+          2,
+          6
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          20,
+          61,
+          182,
+          547,
+          1640
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.33227,
+        "first_failure": [
+          1,
+          1,
+          6
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.42168,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47483,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47164,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47502,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47164,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          11,
+          34,
+          101,
+          304,
+          911,
+          2734
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.47502,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.52066,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65402,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65402,
+        "first_failure": [
+          1,
+          1,
+          4
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65609,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65402,
+        "first_failure": [
+          1,
+          1,
+          4
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          13,
+          41,
+          121,
+          365,
+          1093,
+          3281
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.65609,
+        "first_failure": [
+          1,
+          1,
+          3
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04245,
+        "first_failure": [
+          2,
+          6,
+          15
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829,
+          2738
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.29376,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07607,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189,
+          3927
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.38355,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.28362,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549,
+          5116
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.44816,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.44985,
+        "first_failure": [
+          1,
+          1,
+          4
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+1G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909,
+          6305
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.16642,
+        "first_failure": [
+          2,
+          4,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04977,
+        "first_failure": [
+          1,
+          4,
+          17
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.00394,
+        "first_failure": [
+          1,
+          6,
+          6
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268,
+          4516
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.17487,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.0663,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763,
+          6279
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.40533,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.29527,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.06593,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.0447,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258,
+          8042
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.44215,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.43858,
+        "first_failure": [
+          1,
+          1,
+          4
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07025,
+        "first_failure": [
+          1,
+          3,
+          15
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.19497,
+        "first_failure": [
+          1,
+          2,
+          4
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+2G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753,
+          9805
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.321,
+        "first_failure": [
+          2,
+          2,
+          8
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.19609,
+        "first_failure": [
+          1,
+          1,
+          8
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07701,
+        "first_failure": [
+          1,
+          4,
+          8
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.01916,
+        "first_failure": [
+          1,
+          6,
+          8
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.01165,
+        "first_failure": [
+          1,
+          6,
+          8
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=2",
+        "G_head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809,
+          6858
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.34955,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.29414,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.0663,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=3",
+        "G_head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457,
+          9315
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.34936,
+        "first_failure": [
+          2,
+          2,
+          4
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.23497,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.06593,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.0447,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.00394,
+        "first_failure": [
+          1,
+          18,
+          18
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=4",
+        "G_head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105,
+          11772
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.00394,
+        "first_failure": [
+          1,
+          18,
+          18
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.48573,
+        "first_failure": [
+          2,
+          3,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.42055,
+        "first_failure": [
+          1,
+          1,
+          4
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.22239,
+        "first_failure": [
+          1,
+          2,
+          4
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.18013,
+        "first_failure": [
+          1,
+          2,
+          4
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.07645,
+        "first_failure": [
+          1,
+          3,
+          4
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=3G(k)+3G(k-1); G0=1,G1=5",
+        "G_head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753,
+          14229
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.06255,
+        "first_failure": [
+          1,
+          3,
+          4
+        ],
+        "s": 5
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.18313,
+        "first_failure": [
+          2,
+          3,
+          10
+        ],
+        "s": 0
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.13768,
+        "first_failure": [
+          1,
+          3,
+          10
+        ],
+        "s": 1
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.04846,
+        "first_failure": [
+          1,
+          8,
+          8
+        ],
+        "s": 2
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "tribonacci 1,2,4",
+        "G_head": [
+          1,
+          2,
+          4,
+          7,
+          13,
+          24,
+          44,
+          81
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.25207,
+        "first_failure": [
+          2,
+          5,
+          5
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.23986,
+        "first_failure": [
+          1,
+          5,
+          8
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.21225,
+        "first_failure": [
+          1,
+          5,
+          5
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.17393,
+        "first_failure": [
+          1,
+          5,
+          5
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.13054,
+        "first_failure": [
+          1,
+          5,
+          5
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-2); 1,2,3",
+        "G_head": [
+          1,
+          2,
+          3,
+          4,
+          6,
+          9,
+          13,
+          19
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.08734,
+        "first_failure": [
+          1,
+          5,
+          5
+        ],
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.46788,
+        "first_failure": [
+          2,
+          2,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.3627,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.18914,
+        "first_failure": [
+          1,
+          2,
+          2
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8",
+        "G_head": [
+          1,
+          3,
+          8,
+          20,
+          51,
+          130,
+          331,
+          843
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.23441,
+        "first_failure": [
+          2,
+          3,
+          3
+        ],
+        "s": 0
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.20004,
+        "first_failure": [
+          1,
+          3,
+          6
+        ],
+        "s": 1
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.13711,
+        "first_failure": [
+          1,
+          3,
+          3
+        ],
+        "s": 2
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.071,
+        "first_failure": [
+          1,
+          5,
+          20
+        ],
+        "s": 3
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.00394,
+        "first_failure": [
+          1,
+          18,
+          18
+        ],
+        "s": 4
+      },
+      {
+        "G": "G(k+1)=G(k)+G(k-1)+G(k-2)+G(k-3); 1,2,4,8",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          15,
+          29,
+          56,
+          108
+        ],
+        "associative_on_cube": false,
+        "fail_rate": 0.00394,
+        "first_failure": [
+          1,
+          18,
+          18
+        ],
+        "s": 5
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 0
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "powers of 2",
+        "G_head": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 0
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 1
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 2
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 3
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 4
+      },
+      {
+        "G": "powers of 3",
+        "G_head": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187
+        ],
+        "associative_on_cube": true,
+        "fail_rate": 0.0,
+        "first_failure": null,
+        "s": 5
+      }
+    ],
+    "summary": [
+      "252 (G, s) pairs tested on [1,22]^3; associative: 93",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=2 | s=2",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=3 | s=2",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=4 | s=4",
+      "  G(k+1)=1G(k)+1G(k-1); G0=1,G1=5 | s=4",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=0",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=1",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=2",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=1G(k)+2G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=2 | s=1",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=2 | s=2",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=3 | s=2",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=3 | s=3",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=4 | s=2",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=4 | s=3",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=4 | s=4",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=4 | s=5",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=5 | s=2",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=5 | s=4",
+      "  G(k+1)=2G(k)+1G(k-1); G0=1,G1=5 | s=5",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=2G(k)+2G(k-1); G0=1,G1=5 | s=4",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=0",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=1",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=2",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=3",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=2G(k)+3G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=2 | s=1",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=2 | s=2",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=3 | s=2",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=3 | s=3",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=4 | s=2",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=4 | s=3",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=4 | s=4",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=4 | s=5",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=5 | s=2",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=5 | s=3",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=5 | s=4",
+      "  G(k+1)=3G(k)+1G(k-1); G0=1,G1=5 | s=5",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=2 | s=3",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=2 | s=4",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=3 | s=2",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=3 | s=3",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=3 | s=5",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=4 | s=4",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=4 | s=5",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=5 | s=4",
+      "  G(k+1)=3G(k)+2G(k-1); G0=1,G1=5 | s=5",
+      "  G(k+1)=3G(k)+3G(k-1); G0=1,G1=2 | s=5",
+      "  G(k+1)=3G(k)+3G(k-1); G0=1,G1=3 | s=3",
+      "  G(k+1)=3G(k)+3G(k-1); G0=1,G1=3 | s=4",
+      "  G(k+1)=3G(k)+3G(k-1); G0=1,G1=3 | s=5",
+      "  tribonacci 1,2,4 | s=3",
+      "  tribonacci 1,2,4 | s=4",
+      "  tribonacci 1,2,4 | s=5",
+      "  G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8 | s=3",
+      "  G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8 | s=4",
+      "  G(k+1)=2G(k)+G(k-1)+G(k-2); 1,3,8 | s=5",
+      "  powers of 2 | s=0",
+      "  powers of 2 | s=1",
+      "  powers of 2 | s=2",
+      "  powers of 2 | s=3",
+      "  powers of 2 | s=4",
+      "  powers of 2 | s=5",
+      "  powers of 3 | s=0",
+      "  powers of 3 | s=1",
+      "  powers of 3 | s=2",
+      "  powers of 3 | s=3",
+      "  powers of 3 | s=4",
+      "  powers of 3 | s=5"
+    ]
+  },
+  "results_sha256": "625f0e8a640f0889c6f25074762c27671cc3a084acd41647efc92d3cee15ff53",
+  "runtime_s": 13.981,
+  "started": "2026-10-18T07:27:00Z"
+}

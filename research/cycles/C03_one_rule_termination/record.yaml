@@ -1,0 +1,224 @@
+cycle: C03
+title: "Termination of one-rule string rewriting 0^p 1^q -> 1^r 0^s"
+branch: A
+status: complete
+systems: [SYS-A]
+
+experiments:
+  - id: EXP-C03-01
+    analysis: Of 256 rules with parameters <= 4, 220 are certified terminating (218 by matrix interpretations, 2 by the conservation theorem), 28 carry verified loops, 8 remain unknown. H-C03-2 is contradicted by 12 loops; H-C03-1 and H-C03-3 are not contradicted by any certified status.
+    counterexamples: ["0 1 1 -> 1 1 1 0 0 loops: 001111 ->4 111 001111 00100 (contradicts H-C03-2)"]
+    related: [CLM-C03-01, CLM-C03-02, CLM-C03-06, CLM-C03-08]
+  - id: EXP-C03-02
+    analysis: Extended survey (625 rules, parameters <= 5) with a strategy-based loop finder - 525 terminating by theorem, 71 loops, 29 unknown; H-C03-2 has 35 contradictions; no both-growing rule admits a matrix interpretation in the searched tiers.
+    related: [CLM-C03-06, CLM-C03-08, CLM-C03-09]
+  - id: EXP-C03-03
+    analysis: Loops are found exactly when p divides s on 66 test rules; all 36 non-multiples terminate from every tested start; 147 lifted loops verify; H-C03-4 has no contradiction on the 625 rules and predicts termination for all 24 remaining unknowns. The first run reported a spurious non-finite word because of a too-tight length cap (96 letters); the reachable set from 001001001111 under 0011 -> 11100000 is finite (232 words, longest 104 letters).
+    related: [CLM-C03-05, CLM-C03-09, CLM-C03-10]
+  - id: EXP-C03-04
+    analysis: Every base rule 0 1^q -> 1^r 0^k with q <= 6, q < r < 2q, k <= 6 has a verified loop (75 rules); 225 lifts verify. Loop lengths grow roughly like k^q (largest 9332 steps).
+    related: [CLM-C03-10, CLM-C03-11]
+
+claims:
+  - id: CLM-C03-01
+    type: theorem
+    system: SYS-A
+    title: A one-rule system that decreases the count of some letter terminates
+    statement: |
+      For any alphabet and rule l -> r, if some letter occurs fewer times in r than in l, every derivation is
+      finite. In particular 0^p 1^q -> 1^r 0^s terminates whenever s < p or r < q.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (terminating_of_count_lt); standard axioms only
+    proof: proofs/paper/C03.md#theorem-1-clm-c03-01--counting
+    lean: [proofs/lean/Infinity/C03_Termination.lean]
+    evidence: [EXP-C03-01]
+    novelty: REDISCOVERY
+    novelty_basis: Folklore measure argument; the termination status of the whole family is in Zantema-Geser (AAECC 2000).
+  - id: CLM-C03-02
+    type: theorem
+    system: SYS-A
+    title: Conserving rules terminate (s = p or r = q)
+    statement: |
+      The rule 0^p 1^q -> 1^r 0^s terminates whenever s = p or r = q. For (s, r) = (p, q) the number of (0,1)
+      inversions drops by pq at each step.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C03.md Theorem 2, induction over zeros from the right); swap case (s, r) = (p, q) Lean-verified (terminating_swap); 62 of the 64 conserving rules with parameters <= 4 also have matrix-interpretation certificates; awaiting independent skeptic review
+    proof: proofs/paper/C03.md#theorem-2-clm-c03-02--conservation
+    lean: [proofs/lean/Infinity/C03_Termination.lean]
+    evidence: [EXP-C03-01]
+    novelty: REDISCOVERY
+    novelty_basis: Covered by the complete characterization of Zantema and Geser (RTA 1995 / AAECC 2000); our proof was found independently.
+  - id: CLM-C03-03
+    type: theorem
+    system: SYS-A
+    title: Self-embedding derivations prove non-termination; the doubling region r >= 2q, s >= 2p always loops
+    statement: |
+      If u ->+ x u y then the rule is non-terminating. If r >= 2q and s >= 2p (p, q >= 1) then
+      0^p 1^(2q) -> 1^r 0^s 1^q -> 1^r 0^(s-2p) (0^p 1^(2q)) 1^(r-2q) 0^s, so 0^p 1^q -> 1^r 0^s is non-terminating.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (not_terminating_of_loop, not_terminating_double); standard axioms only
+    proof: proofs/paper/C03.md#theorem-3-clm-c03-03--loops-and-the-doubling-region
+    lean: [proofs/lean/Infinity/C03_Termination.lean]
+    evidence: [EXP-C03-01, EXP-C03-02]
+    novelty: REDISCOVERY
+    novelty_basis: Self-embedding (looping) is the standard non-termination criterion; the status of these rules is in Zantema-Geser (2000).
+  - id: CLM-C03-04
+    type: theorem
+    system: SYS-A
+    title: "011 -> 11100 is non-terminating although r < 2q"
+    statement: |
+      The rule 0 1 1 -> 1 1 1 0 0 (p = 1, q = 2, r = 3, s = 2) admits the loop
+      001111 -> 01110011 -> 0111011100 -> 011111100100 -> 11100111100100 = 111 . 001111 . 00100.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (not_terminating_0_11; each step checked by decide); standard axioms only
+    proof: proofs/paper/C03.md#theorem-4-clm-c03-04--a-loop-with-r--2q
+    lean: [proofs/lean/Infinity/C03_Termination.lean]
+    evidence: [EXP-C03-01]
+    novelty: REDISCOVERY
+    novelty_basis: Status covered by Zantema-Geser (2000).
+  - id: CLM-C03-05
+    type: theorem
+    system: SYS-A
+    title: Lifting lemma - loops transfer along letter morphisms (explains divisibility)
+    statement: |
+      If a substitution sigma maps l -> r to l' -> r' (sigma(l) = l', sigma(r) = r'), it maps every step and every
+      loop of the first system to a step and a loop of the second. With sigma(0) = 0^p: a loop of
+      0 1^q -> 1^r 0^k gives a loop of 0^p 1^q -> 1^r 0^(kp). Reverse-complement maps (p,q,r,s) to (q,p,s,r).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (step_map, loop_map); 147 + 225 lifted certificates re-checked (EXP-C03-03/04); mirror symmetry by written argument
+    proof: proofs/paper/C03.md#theorem-5-clm-c03-05--substitution-lifting-lemma
+    lean: [proofs/lean/Infinity/C03_Termination.lean]
+    evidence: [EXP-C03-03, EXP-C03-04]
+    novelty: REDISCOVERY
+    novelty_basis: Closure of rewriting under morphisms is standard; its use to propagate loop certificates across the parameter family is a routine application.
+  - id: CLM-C03-06
+    type: theorem
+    system: SYS-A
+    title: Classification of 601 of the 625 rules with p, q, r, s <= 5 (computer-assisted)
+    statement: |
+      Among the 625 rules 0^p 1^q -> 1^r 0^s with p, q, r, s <= 5, the 525 with s <= p or r <= q terminate and 76
+      (listed in results/EXP-C03-02.json and EXP-C03-03.json) are non-terminating; the remaining 24 are open here.
+    verification: PROVEN
+    proof_check: computer-assisted (Python) - theorems CLM-C03-01/02 for the terminating rules; explicit loop certificates (forward closures, strategies, mirror images) re-checked step by step for the non-terminating ones
+    proof: proofs/paper/C03.md#theorem-6-clm-c03-06--computer-assisted-classification-p-q-r-s--5
+    evidence: [EXP-C03-01, EXP-C03-02, EXP-C03-03]
+    novelty: REDISCOVERY
+    novelty_basis: The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.
+  - id: CLM-C03-07
+    type: hypothesis
+    system: SYS-A
+    title: "H-C03-1: terminates iff some letter count never grows (refuted)"
+    statement: The rule 0^p 1^q -> 1^r 0^s terminates iff s <= p or r <= q.
+    verification: REFUTED
+    counterexample: "0011 -> 111000 (both counts grow) is terminating - a published theorem (A. Geser, 'A Solution to Zantema's Problem', Passau MIP-9314, 1993; Zantema-Geser 2000; automated RFC match-bound proofs). Our own evidence agrees (all 3747 words of length <= 12 containing 0011 have finite derivation trees) but we have no independent proof; the refutation rests on the cited proof."
+    evidence: [EXP-C03-01, EXP-C03-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C03-08
+    type: hypothesis
+    system: SYS-A
+    title: "H-C03-2: terminates iff r < 2q or s < 2p (refuted)"
+    statement: The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.
+    verification: REFUTED
+    counterexample: "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02)."
+    evidence: [EXP-C03-01, EXP-C03-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C03-09
+    type: hypothesis
+    system: SYS-A
+    title: "H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)"
+    statement: The rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p).
+    verification: INCONCLUSIVE
+    evidence: [EXP-C03-02, EXP-C03-03]
+    novelty: NOT ASSESSED
+    notes: Predicts loops for e.g. 0011 -> 11100000, which terminates from every start 0^a 1^b (a <= 6, b <= 8) and every word of length <= 12 (finite reachable sets), and has no loop within the search bounds. Superseded by H-C03-4; not refuted by proof because termination of 0011 -> 11100000 is unproven.
+  - id: CLM-C03-10
+    type: conjecture
+    system: SYS-A
+    title: "Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4)"
+    statement: |
+      0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,
+      q < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C03-02, EXP-C03-03, EXP-C03-04]
+    novelty: REDISCOVERY
+    novelty_basis: Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.
+    limitations: Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.
+  - id: CLM-C03-11
+    type: observation
+    system: SYS-A
+    title: Loop lengths in the base family grow like k^q
+    statement: |
+      For 0 1^q -> 1^(q+1) 0^k the rightmost strategy from 0 1^(q(q+1)) reaches a self-embedding after 16, 32, 64 steps
+      (k = 2) and 260, 1556, 9332 steps (k = 6) for q = 4, 5, 6.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C03-04]
+    novelty: NOT ASSESSED
+    novelty_basis: Related to Geser, Hofbauer, Waldmann, "Loops of superexponential lengths in one-rule string rewriting" (RTA 2002).
+
+journal:
+  - key: C03-01
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: Located the reference result (Zantema-Geser, complete characterization of termination of 0^p 1^q -> 1^r 0^s, RTA 1995 / AAECC 2000) but could not retrieve its statement - Springer, zbMATH (license-blocked text) and the Utrecht repository all refused access. Recorded verifiable facts instead - decidability for l in 0*1* (Geser-Waldmann-Wenzel WST 2016) and termination of Zantema's problem 0011 -> 111000 (Geser 1993).
+    refs: [CLM-C03-10]
+  - key: C03-02
+    agent: Research Director
+    kind: hypothesis
+    text: Proposed H-C03-2 (terminates iff r < 2q or s < 2p), reasoning that produced blocks shorter than two consumed blocks cannot sustain growth; the Inventor's naive H-C03-1 (letter counts) was recorded alongside.
+    refs: [CLM-C03-07, CLM-C03-08]
+  - key: C03-03
+    agent: Mathematical Explorer
+    kind: surprise
+    text: Hand analysis found that 01 -> 1100 loops (011 ->+ 11 011 00), contradicting the Inventor's belief that rules with p = 1 always terminate. The first machine run then found 011 -> 11100 looping from 001111 in four steps - H-C03-2 is false.
+    refs: [EXP-C03-01, CLM-C03-04]
+  - key: C03-04
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: H-C03-2 rejected - 12 counterexamples with parameters <= 4 and 35 with parameters <= 5; the simplest (011 -> 11100) is now Lean-verified.
+    refs: [EXP-C03-01, EXP-C03-02, CLM-C03-08]
+  - key: C03-05
+    agent: Mathematical Explorer
+    kind: hypothesis
+    text: All 28 first-survey loops lie in the region (r >= 2q or s >= 2p) with both counts growing; proposed H-C03-3.
+    refs: [EXP-C03-01, CLM-C03-09]
+  - key: C03-06
+    agent: Formal Verifier
+    kind: infrastructure
+    text: Breadth-first forward closures (<= 40-90 letters) missed loops for 0 111 -> 1111 000; a deterministic rightmost-redex strategy from 0^2 1^9 found one after 14 steps (53 letters). Added the strategy finder; long loops need depth, not breadth.
+    refs: [EXP-C03-02]
+  - key: C03-07
+    agent: Mathematical Explorer
+    kind: surprise
+    text: For p = 2 every s = 4 rule loops while every s = 5 rule stays unknown; exhaustive reachable sets confirm - 0011 -> 111 0^4 and 111 0^6 explode, 111 0^5 and 111 0^7 terminate from every tested start. H-C03-3 predicts the opposite for s = 5.
+    refs: [EXP-C03-02, EXP-C03-03, CLM-C03-09]
+  - key: C03-08
+    agent: Mathematical Inventor
+    kind: pattern
+    text: The lifting lemma explains the even/odd pattern - the morphism 0 -> 0^p maps loops of 0 1^q -> 1^r 0^k onto loops of 0^p 1^q -> 1^r 0^(kp). Proposed H-C03-4 (divisibility characterization).
+    refs: [CLM-C03-05, CLM-C03-10]
+  - key: C03-09
+    agent: Mathematical Skeptic
+    kind: contradiction
+    text: EXP-C03-03 first reported a non-finite word (001001001111 under 0011 -> 11100000) contradicting H-C03-4. Investigation showed a false alarm - the evidence routine capped words at 96 letters, but the reachable set is finite (232 words, longest 104). The cap is now a parameter; the corrected run supports H-C03-4 with 0 contradictions.
+    refs: [EXP-C03-03]
+  - key: C03-10
+    agent: Formal Verifier
+    kind: result
+    text: All 75 base rules 0 1^q -> 1^r 0^k (q <= 6) loop; the last gap (q = 5, r = 6, k = 6) needed 1556 steps and 9367 letters. Loop lengths grow roughly like k^q.
+    refs: [EXP-C03-04, CLM-C03-11]
+  - key: C03-11
+    agent: Formal Verifier
+    kind: failure
+    text: No matrix interpretation (d = 2 entries <= 4; upper-triangular d = 3 entries <= 5, d = 4 entries <= 2; full d = 3 entries <= 1) proves termination of any both-growing rule, including Zantema's problem and 0011 -> 11100000. Termination of the 24 open rules remains unproven here.
+    refs: [EXP-C03-02, CLM-C03-10]
+  - key: C03-12
+    agent: Formal Verifier
+    kind: proof
+    text: Lean file C03_Termination.lean compiles with standard axioms only - counting termination, inversion termination for the swap rule, loops imply non-termination, lifting lemma, the doubling-region loop and the explicit loop of 011 -> 11100.
+    refs: [proofs/lean/Infinity/C03_Termination.lean]
+
+next_directions:
+  - "C03: retrieve the Zantema-Geser theorem statement and compare with H-C03-4"
+  - "C03: implement RFC match-bounds to prove termination of the 24 open rules (start with 0011 -> 111000 and 0011 -> 11100000)"
+  - "C03: prove that every base rule 0 1^q -> 1^r 0^k (q < r < 2q, k >= 2) loops from 0 1^(q(q+1)); explain k^q loop lengths"
+  - "C03: Lean formalisation of the conservation theorem (s = p)"

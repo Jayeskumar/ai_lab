@@ -1,0 +1,99 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "the 162 rules proved terminating in EXP-C04-01",
+    "exhaustive derivation graphs from all words of length <= 12 (<= 8 for four exponential rules, extended to 20 by a verified formula)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C04-03",
+    "file": "experiments/C04/E03_derivational_complexity.py",
+    "sha256": "ff813c962f0d0091c1c1277a8643e860094ca49f78ad48c238d0e130fee1f84a",
+    "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+  },
+  "cycle": "C04",
+  "falsification": "A rule whose D_max admits no over-determined recurrence, or a growth class other than linear/quadratic/exponential.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:36:24Z"
+    }
+  ],
+  "hypothesis": "H-C04-G: every terminating rule in the family has derivational complexity D(n) = max over words of length n of the longest derivation that is linear, quadratic or exponential, and D(n) is given by a linear recurrence (rational generating function).",
+  "id": "EXP-C04-03",
+  "methodology": "Exact min/max derivation lengths per word from the acyclic derivation graph; D_max(n), D_min(n); minimal linear recurrence (Berlekamp-Massey, over-determined) and the moduli/multiplicities of its characteristic roots give the growth class. Rules are grouped by the symmetries reversal and letter exchange.",
+  "question": "How long can derivations of a terminating one-rule system be, as a function of the length of the start word, and which growth classes occur?",
+  "results_file": "results/EXP-C04-03.json",
+  "results_sha256": "5039ce5f4ad2cc7e0a05283e79c79b19356343fc67e35cef38726b1d22afba6d",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-03",
+        "file": "experiments/C04/E03_derivational_complexity.py",
+        "sha256": "8f23ddaab6ce2131a1e435f613b113bca42377a99d160f9595c70ec4d7829935",
+        "systems_sha256": "e05b16b3883f7427a4950e304350d3ff08a50980b4974bfa33126aff91540ed6"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:36:24Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C04-03.json",
+      "results_sha256": "556cd4dde411a2fc6a665ee9ed3142b9cbc9e29ccc8cf406e94eda15b02579d5",
+      "runtime_s": 52.716,
+      "started": "2026-10-18T07:35:31Z",
+      "summary": [
+        "162 terminating rules in 55 symmetry classes; growth classes (rules): {'linear': 140, 'quadratic': 2, 'exponential': 4, 'no recurrence found': 16}",
+        "doubling-rule formula verified against exhaustive graphs on 2044 words",
+        "ab->ba D_max: [0, 0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30, 36]; ab->bba D_max: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095]"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-03",
+        "file": "experiments/C04/E03_derivational_complexity.py",
+        "sha256": "323eca6c2a9f0f35cfac920a70967719747057248e4d949c926c58504a7ffd6e",
+        "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:38:23Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C04-03.json",
+      "results_sha256": "2743de338633ecb794c4fe15846a56fa81839b8412434de766c5bfe2f11f4af4",
+      "runtime_s": 86.016,
+      "started": "2026-10-18T07:36:57Z",
+      "summary": [
+        "162 terminating rules in 55 symmetry classes; growth classes (rules): {'linear': 140, 'quadratic': 14, 'exponential': 4, 'no recurrence found': 4}",
+        "doubling-rule formula verified against exhaustive graphs on 2044 words",
+        "ab->ba D_max: [0, 0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30, 36]; ab->bba D_max: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095]"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-03",
+        "file": "experiments/C04/E03_derivational_complexity.py",
+        "sha256": "ff813c962f0d0091c1c1277a8643e860094ca49f78ad48c238d0e130fee1f84a",
+        "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:55:27Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C04-03.json",
+      "results_sha256": "5039ce5f4ad2cc7e0a05283e79c79b19356343fc67e35cef38726b1d22afba6d",
+      "runtime_s": 163.601,
+      "started": "2026-10-18T07:52:43Z",
+      "summary": [
+        "162 terminating rules in 55 symmetry classes; growth classes (rules): {'linear': 140, 'quadratic': 14, 'exponential': 4, 'no recurrence found': 4}",
+        "doubling-rule formula verified against exhaustive graphs on 2044 words",
+        "symmetry classes without a floor((a n^2+b n+c)/d) or 2^(n-1)-1 closed form: ['aab->ba']",
+        "ab->ba D_max: [0, 0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30, 36]; ab->bba D_max: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095]"
+      ]
+    }
+  ],
+  "summary": [
+    "162 terminating rules in 55 symmetry classes; growth classes (rules): {'linear': 140, 'quadratic': 14, 'exponential': 4, 'no recurrence found': 4}",
+    "doubling-rule formula verified against exhaustive graphs on 2044 words",
+    "symmetry classes without a floor((a n^2+b n+c)/d) or 2^(n-1)-1 closed form: ['aab->ba']",
+    "ab->ba D_max: [0, 0, 1, 2, 4, 6, 9, 12, 16, 20, 25, 30, 36]; ab->bba D_max: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095]"
+  ],
+  "title": "Derivational complexity of terminating one-rule systems (|l|, |r| <= 3)"
+}

@@ -1,0 +1,6 @@
+title: "Beyond Conventional Mathematics"
+subtitle: "An Experimental Journey into AI-Discovered Mathematical Systems"
+version: "1.0 (research batch 1, cycles C01-C20)"
+chapters:
+  - 00_preface.md
+  - 01_method.md

@@ -1,0 +1,22 @@
+{
+  "cycle": "C10",
+  "evidence": [
+    "EXP-C10-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C10",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C10-07",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Myers (1983), Okasaki (skew binary random-access lists).",
+  "statement": "In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).",
+  "system": "SYS-C",
+  "title": "Skew binary counting has worst-case cost 2 and average 3/2",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -1,0 +1,13 @@
+{
+ "case": "qua_k3_n10",
+ "q": 4,
+ "k": 3,
+ "nmax": 10,
+ "hard_only": false,
+ "relations_tested": 63,
+ "hard": 7,
+ "with_common_border": 2,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 0.1
+}

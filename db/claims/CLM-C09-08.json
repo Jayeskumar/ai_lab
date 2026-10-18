@@ -1,0 +1,24 @@
+{
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-01",
+    "EXP-C09-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-08",
+  "novelty": "NOT ASSESSED",
+  "proof": "results/EXP-C09-01.json and results/EXP-C09-02.json",
+  "proof_check": "computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)",
+  "statement": "Up to 10^6 there are 539,392 circle irreducibles. Up to 2*10^5, 75,332 numbers have at least two\nfactorisations (first: 8), 29,577 have factorisations of different lengths, and the maximal elasticity is 2.5\n(n = 196,405).",
+  "system": "SYS-C",
+  "title": "Factorisation statistics of the circle semigroup up to 2e5",
+  "type": "observation",
+  "verification": "PROVEN"
+}

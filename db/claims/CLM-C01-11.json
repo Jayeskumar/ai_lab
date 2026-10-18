@@ -1,0 +1,22 @@
+{
+  "cycle": "C01",
+  "evidence": [
+    "EXP-C01-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C01",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C01-11",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Kurth (1987) proves the iff for one-rule systems with the chain condition (length-preserving case); not re-proved by the lab. EXP-C01-08 finds no mismatch among 28,850 ordered pairs (binary k <= 7, ternary k <= 4); the Historian's scratch run found none among 152,928.",
+  "statement": "For words u != v of equal length, the one-rule system {u -> v} is confluent if and only if every border of u is a border of v.",
+  "system": "SYS-A",
+  "title": "Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contained in Borders(v)",
+  "type": "theorem",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -1,0 +1,243 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C06-01",
+    "file": "experiments/C06/E01_laver_tables.py",
+    "sha256": "26daa14e8207c6689531fad914e091a8b0c41acdd20b48899a9d29dc1e2ee4d7",
+    "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:55:31Z",
+  "id": "EXP-C06-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "N <= 4096; exhaustive LD check for N <= 256, 2e5 random triples for N = 512..4096"
+    ],
+    "cycle": "C06",
+    "falsification": "An LD table from the recursion for N not a power of 2, a power of 2 failing LD, or a period sequence differing from A098820.",
+    "hypothesis": "Laver's recursion yields a left-distributive table exactly when N is a power of 2 (the Laver tables A_n); the period of row 0 (Laver's row 1) follows OEIS A098820.",
+    "id": "EXP-C06-01",
+    "methodology": "Run Laver's recursion for every N <= 64 and for N = 2^n up to 4096; test left-distributivity; compute periods of row 0 and of all rows; OEIS check of the period sequence.",
+    "question": "What does a single composition law (left self-distributivity x(yz) = (xy)(xz)) produce when the operation is anchored to a successor (x * 0 = x + 1 mod N)?",
+    "seed": 6,
+    "title": "Laver tables: construction, left-distributivity and periods"
+  },
+  "results": {
+    "LD_tables_from_recursion": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "laver_checks": {
+      "0": {
+        "LD": true,
+        "N": 1,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "1": {
+        "LD": true,
+        "N": 2,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "2": {
+        "LD": true,
+        "N": 4,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "3": {
+        "LD": true,
+        "N": 8,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "4": {
+        "LD": true,
+        "N": 16,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "5": {
+        "LD": true,
+        "N": 32,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "6": {
+        "LD": true,
+        "N": 64,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "7": {
+        "LD": true,
+        "N": 128,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "8": {
+        "LD": true,
+        "N": 256,
+        "anchor": true,
+        "method": "exhaustive"
+      },
+      "9": {
+        "LD": true,
+        "N": 512,
+        "anchor": true,
+        "method": "random 2e5"
+      },
+      "10": {
+        "LD": true,
+        "N": 1024,
+        "anchor": true,
+        "method": "random 2e5"
+      },
+      "11": {
+        "LD": true,
+        "N": 2048,
+        "anchor": true,
+        "method": "random 2e5"
+      },
+      "12": {
+        "LD": true,
+        "N": 4096,
+        "anchor": true,
+        "method": "random 2e5"
+      }
+    },
+    "oeis_periods": {
+      "hits": [
+        {
+          "anumber": "A098820",
+          "name": "Periodicity of entries in the first row of a Laver Table of size 2^n."
+        }
+      ],
+      "status": "MATCH"
+    },
+    "recursion_outcome_N_1_64": {
+      "1": "LD",
+      "2": "LD",
+      "3": "not LD",
+      "4": "LD",
+      "5": "not LD",
+      "6": "not LD",
+      "7": "not LD",
+      "8": "LD",
+      "9": "not LD",
+      "10": "not LD",
+      "11": "not LD",
+      "12": "not LD",
+      "13": "not LD",
+      "14": "not LD",
+      "15": "not LD",
+      "16": "LD",
+      "17": "not LD",
+      "18": "not LD",
+      "19": "not LD",
+      "20": "not LD",
+      "21": "not LD",
+      "22": "not LD",
+      "23": "not LD",
+      "24": "not LD",
+      "25": "not LD",
+      "26": "not LD",
+      "27": "not LD",
+      "28": "not LD",
+      "29": "not LD",
+      "30": "not LD",
+      "31": "not LD",
+      "32": "LD",
+      "33": "not LD",
+      "34": "not LD",
+      "35": "not LD",
+      "36": "not LD",
+      "37": "not LD",
+      "38": "not LD",
+      "39": "not LD",
+      "40": "not LD",
+      "41": "not LD",
+      "42": "not LD",
+      "43": "not LD",
+      "44": "not LD",
+      "45": "not LD",
+      "46": "not LD",
+      "47": "not LD",
+      "48": "not LD",
+      "49": "not LD",
+      "50": "not LD",
+      "51": "not LD",
+      "52": "not LD",
+      "53": "not LD",
+      "54": "not LD",
+      "55": "not LD",
+      "56": "not LD",
+      "57": "not LD",
+      "58": "not LD",
+      "59": "not LD",
+      "60": "not LD",
+      "61": "not LD",
+      "62": "not LD",
+      "63": "not LD",
+      "64": "LD"
+    },
+    "row0_periods_n0_12": [
+      1,
+      1,
+      2,
+      4,
+      4,
+      8,
+      8,
+      8,
+      8,
+      16,
+      16,
+      16,
+      16
+    ],
+    "row_periods_A4": [
+      4,
+      4,
+      4,
+      8,
+      4,
+      4,
+      2,
+      8,
+      4,
+      4,
+      2,
+      4,
+      2,
+      2,
+      1,
+      16
+    ],
+    "summary": [
+      "Laver's recursion gives an LD table exactly for N in [1, 2, 4, 8, 16, 32, 64] (N <= 64)",
+      "A_n LD-verified for n <= 12 (exhaustive up to N = 256): True",
+      "row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']"
+    ]
+  },
+  "results_sha256": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
+  "runtime_s": 23.624,
+  "started": "2026-10-18T07:55:07Z"
+}

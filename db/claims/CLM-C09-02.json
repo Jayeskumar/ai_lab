@@ -1,0 +1,22 @@
+{
+  "counterexample": "8 = 1 o 1 o 1 = 2 o 2 with 1, 2 irreducible (every product is >= 3); the factorisations even differ in length.",
+  "cycle": "C09",
+  "evidence": [
+    "EXP-C09-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C09",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C09-02",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every n >= 1 has a unique multiset of circle-irreducible factors.",
+  "system": "SYS-C",
+  "title": "H-C09-2: factorisation into circle irreducibles is unique (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

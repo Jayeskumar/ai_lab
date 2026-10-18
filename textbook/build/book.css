@@ -1,0 +1,14 @@
+
+body { font-family: 'DejaVu Serif', Georgia, serif; max-width: 46em; margin: 2em auto; padding: 0 1em;
+       line-height: 1.5; color: #111; background: #fff; }
+h1, h2, h3, h4 { font-family: 'DejaVu Sans', Helvetica, sans-serif; line-height: 1.25; }
+h1 { page-break-before: always; border-bottom: 2px solid #333; padding-bottom: .2em; }
+h1.title { page-break-before: avoid; border: none; text-align: center; font-size: 2.1em; }
+code, pre { font-family: 'DejaVu Sans Mono', monospace; font-size: .86em; }
+pre { background: #f5f5f5; padding: .6em; overflow-x: auto; border-left: 3px solid #999; }
+table { border-collapse: collapse; margin: 1em 0; font-size: .9em; }
+th, td { border: 1px solid #aaa; padding: .25em .5em; }
+blockquote { border-left: 4px solid #4a6fa5; margin-left: 0; padding-left: 1em; color: #222; background: #f3f6fb; }
+nav#TOC { page-break-after: always; }
+.status { font-weight: bold; }
+math { font-size: 1.05em; }

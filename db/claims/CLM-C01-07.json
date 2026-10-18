@@ -9,10 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T06:44:01Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Of the 1632 relations, 833 are instances of the containment theorem (Kurth 1987 + Guibas-Odlyzko) and 787 have no common border (published c = 1 case, see CLM-C01-09); only 12 (one common border each) fall in the unpublished case (CLM-C01-10). The method (finite completion, automaton of normal words, rational series) is Ufnarovski's framework (Encycl. Math. Sci. 57, 1995).",
+      "old": null,
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C01-07",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Of the 1632 relations, 833 are instances of the containment theorem (Kurth 1987 + Guibas-Odlyzko) and 787 have no common border (published c = 1 case, see CLM-C01-09); only 12 (one common border each) fall in the unpublished case (CLM-C01-10). The method (finite completion, automaton of normal words, rational series) is Ufnarovski's framework (Encycl. Math. Sci. 57, 1995).",
   "proof": "proofs/paper/C01.md#theorem-6-clm-c01-07--computer-assisted-proofs-for-1632-specific-relations",
   "proof_check": "computer-assisted (Python) - independently re-verified convergent completion, Aho-Corasick automaton, recurrence-order bound s+k; brute-force cross-check n <= 8; not Lean-checked",
   "statement": "For each of the 1632 relations marked PROVEN in results/EXP-C01-07.json (binary k <= 6, ternary k <= 4),\nthe class-count generating function equals c(x)/(x^k + (1 - q x) c(x)), c the common-border polynomial.",

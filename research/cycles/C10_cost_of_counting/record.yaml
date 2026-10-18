@@ -1,0 +1,134 @@
+cycle: C10
+title: The cost of counting across representations
+branch: C
+status: complete
+systems: [SYS-C]
+
+experiments:
+  - id: EXP-C10-01
+    analysis: All classical constants confirmed to 5-6 digits; Zeckendorf averages 2 like binary; skew binary has worst case 2.
+    related: [CLM-C10-01, CLM-C10-03, CLM-C10-07]
+  - id: EXP-C10-02
+    analysis: The block recurrence matches brute force; D_m = ceil(m/2) + 2 exactly.
+    related: [CLM-C10-02]
+  - id: EXP-C10-03
+    analysis: Average firings match 1/(m - B) for all 31 rules; single-offset rules cost exactly firings + 1; multi-offset rules carry an extra rule-dependent cost.
+    related: [CLM-C10-04, CLM-C10-05, CLM-C10-06]
+  - id: EXP-C10-04
+    analysis: T_m is OEIS A215005; the per-step Zeckendorf cost sequence is not catalogued.
+    related: [CLM-C10-02]
+
+claims:
+  - id: CLM-C10-01
+    type: theorem
+    system: SYS-C
+    title: Average cost of counting in classical representations (b/(b-1), e-1, 1)
+    statement: |
+      The average number of digit changes per increment is b/(b-1) in base b, 2 in negabinary, 3/2 in balanced
+      ternary, e - 1 in the factorial base and exactly 1 in the binary-reflected Gray code.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C10.md Theorem 1); confirmed to 6 digits for n < 1e6
+    proof: proofs/paper/C10.md#theorem-1-clm-c10-01--classical-constants
+    evidence: [EXP-C10-01]
+    novelty: REDISCOVERY
+    novelty_basis: Standard amortised analysis of counters; frequency argument is folklore.
+  - id: CLM-C10-02
+    type: theorem
+    system: SYS-C
+    title: "Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2"
+    statement: |
+      The total number of digit changes when counting from 0 to G_m - 1 in the Zeckendorf system (G = 1,2,3,5,...)
+      is T_m = 2 G_m - ceil(m/2) - 2, satisfying T_(m+1) = T_m + T_(m-1) + ceil(m/2) + 1; the average cost of
+      Zeckendorf counting tends to 2.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C10.md Theorem 2); recurrence equals brute force for m <= 24
+    proof: proofs/paper/C10.md#theorem-2-clm-c10-02--zeckendorf-counting
+    evidence: [EXP-C10-02, EXP-C10-04]
+    novelty: REDISCOVERY
+    novelty_basis: The sequence T_m is OEIS A215005 (same recurrence); the counting-cost interpretation is elementary.
+  - id: CLM-C10-03
+    type: hypothesis
+    system: SYS-C
+    title: "H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted)"
+    statement: The average number of digit changes per increment in the Zeckendorf system is smaller than in binary.
+    verification: REFUTED
+    counterexample: "Both averages tend to exactly 2 (Theorem 2 and the binary case of Theorem 1); at n < 1e6 the Zeckendorf average is 1.999992 vs binary 1.999988."
+    evidence: [EXP-C10-01, EXP-C10-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C10-04
+    type: theorem
+    system: SYS-C
+    title: Exchange systems fire 1/(m - sum b) times per increment on average
+    statement: For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules
+    proof: proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems
+    evidence: [EXP-C10-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C10-05
+    type: theorem
+    system: SYS-C
+    title: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q))
+    statement: If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules
+    proof: proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules
+    evidence: [EXP-C10-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C10-06
+    type: conjecture
+    system: SYS-C
+    title: Multi-offset exchange rules have rule-specific average counting costs
+    statement: |
+      For carry rules with two or more nonzero b_j, the average digit-change cost per increment converges to a
+      constant exceeding 1 + 1/(m - B) (measured excess: 0.500 for 3->(1,1), 0.333 for 4->(1,1), 0.643 for
+      3->(0,1,1), 0.714 for 3->(1,0,1), 0.831 for 4->(1,1,1)), equal to an expectation under the invariant measure of
+      the digit process.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C10-03]
+    novelty: NOT ASSESSED
+    limitations: Averages over 2e5 increments only; no formula.
+  - id: CLM-C10-07
+    type: observation
+    system: SYS-C
+    title: Skew binary counting has worst-case cost 2 and average 3/2
+    statement: In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C10-01]
+    novelty: REDISCOVERY
+    novelty_basis: Myers (1983), Okasaki (skew binary random-access lists).
+
+journal:
+  - key: C10-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Bold guess H-C10-0 - the sparse Zeckendorf system should count more cheaply than binary.
+    refs: [CLM-C10-03]
+  - key: C10-02
+    agent: Mathematical Explorer
+    kind: surprise
+    text: Zeckendorf averages 1.999992 per increment - indistinguishable from binary. Derived the block recurrence T_(m+1) = T_m + T_(m-1) + ceil(m/2) + 1 and the closed form 2G_m - ceil(m/2) - 2; H-C10-0 refuted.
+    refs: [EXP-C10-01, EXP-C10-02, CLM-C10-02]
+  - key: C10-03
+    agent: Formal Verifier
+    kind: proof
+    text: Proved that exchange systems fire 1/(m - B) times per increment (abelian property + token count) and that single-offset rules cost exactly firings + 1 (each level fires at most once per increment).
+    refs: [CLM-C10-04, CLM-C10-05]
+  - key: C10-04
+    agent: Mathematical Explorer
+    kind: pattern
+    text: Multi-offset rules break firings + 1 - a level can receive several tokens per increment; excess costs between 0.30 and 0.83 recorded, some near simple fractions (1/2, 1/3, 5/7?) but no formula found.
+    refs: [EXP-C10-03, CLM-C10-06]
+  - key: C10-05
+    agent: Application Researcher
+    kind: result
+    text: Negative result - no invented exchange representation beats Gray code (cost 1) or skew binary (worst case 2) as a counter; recorded honestly.
+    refs: [EXP-C10-01, EXP-C10-03]
+  - key: C10-06
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: Zeckendorf block totals are OEIS A215005; classical constants are folklore; skew binary is Myers/Okasaki.
+    refs: [EXP-C10-04]
+
+next_directions:
+  - "C10: exact multi-offset counting constants via the invariant measure of the digit process"

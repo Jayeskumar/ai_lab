@@ -1,0 +1,2262 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-04",
+    "file": "experiments/C08/E04_sign_of_conjugate.py",
+    "sha256": "39f582157767a6bf757e43b0cad788e23262b0ed0ec244830516f617402b2f5a",
+    "systems_sha256": "d43702c774c3d369c38b6ead7f7a12dc0f4b4aaf9fac9259654cf8e41714017a"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:32:24Z",
+  "id": "EXP-C08-04",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "quadratic recurrences G_(k+1) = p G_k + q G_(k-1) with p in 1..5, q in -3..3 (q != 0), Pisot with real conjugate, several initial values G_1",
+      "shifts 0..10",
+      "tests: exhaustive [1,12]^3 plus 800 random triples in [1,1e5]^3"
+    ],
+    "cycle": "C08",
+    "falsification": "A positive-beta sequence with a non-upward-closed associative-shift set.",
+    "hypothesis": "H-C08-4: for quadratic Pisot base sequences, if the conjugate root beta is positive the set of associative shifts is upward-closed; non-monotone sets occur only when beta < 0 (the factor beta^s flips the sign of the conjugate of the product and the conjugate window is asymmetric).",
+    "id": "EXP-C08-04",
+    "methodology": "Classify each sequence by the sign of beta; compute the associative-shift set; check upward-closure.",
+    "question": "Why is the set of associative shifts sometimes not upward-closed (e.g. s = 2 and s >= 4 but not 3)?",
+    "seed": 44,
+    "title": "Sign of the conjugate root versus monotonicity of the associative-shift set"
+  },
+  "results": {
+    "rows": [
+      {
+        "G": "G(k+1)=1G(k)+(1)G(k-1); 1,2",
+        "alpha": 1.618034,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.618034,
+        "head": [
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          21
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=1G(k)+(1)G(k-1); 1,3",
+        "alpha": 1.618034,
+        "associative_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.618034,
+        "head": [
+          1,
+          3,
+          4,
+          7,
+          11,
+          18,
+          29
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+(1)G(k-1); 1,4",
+        "alpha": 1.618034,
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.618034,
+        "head": [
+          1,
+          4,
+          5,
+          9,
+          14,
+          23,
+          37
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+(1)G(k-1); 1,5",
+        "alpha": 1.618034,
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.618034,
+        "head": [
+          1,
+          5,
+          6,
+          11,
+          17,
+          28,
+          45
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=1G(k)+(1)G(k-1); 1,6",
+        "alpha": 1.618034,
+        "associative_shifts": [
+          4,
+          6,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.618034,
+        "head": [
+          1,
+          6,
+          7,
+          13,
+          20,
+          33,
+          53
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=2G(k)+(1)G(k-1); 1,2",
+        "alpha": 2.414214,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.414214,
+        "head": [
+          1,
+          2,
+          5,
+          12,
+          29,
+          70,
+          169
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(1)G(k-1); 1,3",
+        "alpha": 2.414214,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.414214,
+        "head": [
+          1,
+          3,
+          7,
+          17,
+          41,
+          99,
+          239
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(1)G(k-1); 1,4",
+        "alpha": 2.414214,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.414214,
+        "head": [
+          1,
+          4,
+          9,
+          22,
+          53,
+          128,
+          309
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(1)G(k-1); 1,5",
+        "alpha": 2.414214,
+        "associative_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.414214,
+        "head": [
+          1,
+          5,
+          11,
+          27,
+          65,
+          157,
+          379
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=2G(k)+(1)G(k-1); 1,6",
+        "alpha": 2.414214,
+        "associative_shifts": [
+          2,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.414214,
+        "head": [
+          1,
+          6,
+          13,
+          32,
+          77,
+          186,
+          449
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=2G(k)+(2)G(k-1); 1,2",
+        "alpha": 2.732051,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.732051,
+        "head": [
+          1,
+          2,
+          6,
+          16,
+          44,
+          120,
+          328
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(2)G(k-1); 1,3",
+        "alpha": 2.732051,
+        "associative_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.732051,
+        "head": [
+          1,
+          3,
+          8,
+          22,
+          60,
+          164,
+          448
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(2)G(k-1); 1,4",
+        "alpha": 2.732051,
+        "associative_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.732051,
+        "head": [
+          1,
+          4,
+          10,
+          28,
+          76,
+          208,
+          568
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=2G(k)+(2)G(k-1); 1,5",
+        "alpha": 2.732051,
+        "associative_shifts": [
+          6,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.732051,
+        "head": [
+          1,
+          5,
+          12,
+          34,
+          92,
+          252,
+          688
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=2G(k)+(2)G(k-1); 1,6",
+        "alpha": 2.732051,
+        "associative_shifts": [
+          8,
+          9,
+          10
+        ],
+        "beta": -0.732051,
+        "head": [
+          1,
+          6,
+          14,
+          40,
+          108,
+          296,
+          808
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(-1)G(k-1); 1,2",
+        "alpha": 2.618034,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.381966,
+        "head": [
+          1,
+          2,
+          5,
+          13,
+          34,
+          89,
+          233
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(-1)G(k-1); 1,3",
+        "alpha": 2.618034,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.381966,
+        "head": [
+          1,
+          3,
+          8,
+          21,
+          55,
+          144,
+          377
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(-1)G(k-1); 1,4",
+        "alpha": 2.618034,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.381966,
+        "head": [
+          1,
+          4,
+          11,
+          29,
+          76,
+          199,
+          521
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(-1)G(k-1); 1,5",
+        "alpha": 2.618034,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.381966,
+        "head": [
+          1,
+          5,
+          14,
+          37,
+          97,
+          254,
+          665
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(-1)G(k-1); 1,6",
+        "alpha": 2.618034,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.381966,
+        "head": [
+          1,
+          6,
+          17,
+          45,
+          118,
+          309,
+          809
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(1)G(k-1); 1,2",
+        "alpha": 3.302776,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.302776,
+        "head": [
+          1,
+          2,
+          7,
+          23,
+          76,
+          251,
+          829
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(1)G(k-1); 1,3",
+        "alpha": 3.302776,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.302776,
+        "head": [
+          1,
+          3,
+          10,
+          33,
+          109,
+          360,
+          1189
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(1)G(k-1); 1,4",
+        "alpha": 3.302776,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.302776,
+        "head": [
+          1,
+          4,
+          13,
+          43,
+          142,
+          469,
+          1549
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(1)G(k-1); 1,5",
+        "alpha": 3.302776,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.302776,
+        "head": [
+          1,
+          5,
+          16,
+          53,
+          175,
+          578,
+          1909
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(1)G(k-1); 1,6",
+        "alpha": 3.302776,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.302776,
+        "head": [
+          1,
+          6,
+          19,
+          63,
+          208,
+          687,
+          2269
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(2)G(k-1); 1,2",
+        "alpha": 3.561553,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.561553,
+        "head": [
+          1,
+          2,
+          8,
+          28,
+          100,
+          356,
+          1268
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(2)G(k-1); 1,3",
+        "alpha": 3.561553,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.561553,
+        "head": [
+          1,
+          3,
+          11,
+          39,
+          139,
+          495,
+          1763
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(2)G(k-1); 1,4",
+        "alpha": 3.561553,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.561553,
+        "head": [
+          1,
+          4,
+          14,
+          50,
+          178,
+          634,
+          2258
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(2)G(k-1); 1,5",
+        "alpha": 3.561553,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.561553,
+        "head": [
+          1,
+          5,
+          17,
+          61,
+          217,
+          773,
+          2753
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(2)G(k-1); 1,6",
+        "alpha": 3.561553,
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.561553,
+        "head": [
+          1,
+          6,
+          20,
+          72,
+          256,
+          912,
+          3248
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=3G(k)+(3)G(k-1); 1,2",
+        "alpha": 3.791288,
+        "associative_shifts": [
+          7,
+          9,
+          10
+        ],
+        "beta": -0.791288,
+        "head": [
+          1,
+          2,
+          9,
+          33,
+          126,
+          477,
+          1809
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=3G(k)+(3)G(k-1); 1,3",
+        "alpha": 3.791288,
+        "associative_shifts": [
+          9,
+          10
+        ],
+        "beta": -0.791288,
+        "head": [
+          1,
+          3,
+          12,
+          45,
+          171,
+          648,
+          2457
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(3)G(k-1); 1,4",
+        "alpha": 3.791288,
+        "associative_shifts": [
+          8,
+          9,
+          10
+        ],
+        "beta": -0.791288,
+        "head": [
+          1,
+          4,
+          15,
+          57,
+          216,
+          819,
+          3105
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(3)G(k-1); 1,5",
+        "alpha": 3.791288,
+        "associative_shifts": [
+          10
+        ],
+        "beta": -0.791288,
+        "head": [
+          1,
+          5,
+          18,
+          69,
+          261,
+          990,
+          3753
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=3G(k)+(3)G(k-1); 1,6",
+        "alpha": 3.791288,
+        "associative_shifts": [
+          10
+        ],
+        "beta": -0.791288,
+        "head": [
+          1,
+          6,
+          21,
+          81,
+          306,
+          1161,
+          4401
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-2)G(k-1); 1,2",
+        "alpha": 3.414214,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.585786,
+        "head": [
+          1,
+          2,
+          6,
+          20,
+          68,
+          232,
+          792
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-2)G(k-1); 1,3",
+        "alpha": 3.414214,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.585786,
+        "head": [
+          1,
+          3,
+          10,
+          34,
+          116,
+          396,
+          1352
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-2)G(k-1); 1,4",
+        "alpha": 3.414214,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.585786,
+        "head": [
+          1,
+          4,
+          14,
+          48,
+          164,
+          560,
+          1912
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-2)G(k-1); 1,5",
+        "alpha": 3.414214,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.585786,
+        "head": [
+          1,
+          5,
+          18,
+          62,
+          212,
+          724,
+          2472
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-2)G(k-1); 1,6",
+        "alpha": 3.414214,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.585786,
+        "head": [
+          1,
+          6,
+          22,
+          76,
+          260,
+          888,
+          3032
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-1)G(k-1); 1,2",
+        "alpha": 3.732051,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.267949,
+        "head": [
+          1,
+          2,
+          7,
+          26,
+          97,
+          362,
+          1351
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-1)G(k-1); 1,3",
+        "alpha": 3.732051,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.267949,
+        "head": [
+          1,
+          3,
+          11,
+          41,
+          153,
+          571,
+          2131
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-1)G(k-1); 1,4",
+        "alpha": 3.732051,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.267949,
+        "head": [
+          1,
+          4,
+          15,
+          56,
+          209,
+          780,
+          2911
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-1)G(k-1); 1,5",
+        "alpha": 3.732051,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.267949,
+        "head": [
+          1,
+          5,
+          19,
+          71,
+          265,
+          989,
+          3691
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(-1)G(k-1); 1,6",
+        "alpha": 3.732051,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.267949,
+        "head": [
+          1,
+          6,
+          23,
+          86,
+          321,
+          1198,
+          4471
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(1)G(k-1); 1,2",
+        "alpha": 4.236068,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.236068,
+        "head": [
+          1,
+          2,
+          9,
+          38,
+          161,
+          682,
+          2889
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(1)G(k-1); 1,3",
+        "alpha": 4.236068,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.236068,
+        "head": [
+          1,
+          3,
+          13,
+          55,
+          233,
+          987,
+          4181
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(1)G(k-1); 1,4",
+        "alpha": 4.236068,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.236068,
+        "head": [
+          1,
+          4,
+          17,
+          72,
+          305,
+          1292,
+          5473
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(1)G(k-1); 1,5",
+        "alpha": 4.236068,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.236068,
+        "head": [
+          1,
+          5,
+          21,
+          89,
+          377,
+          1597,
+          6765
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(1)G(k-1); 1,6",
+        "alpha": 4.236068,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.236068,
+        "head": [
+          1,
+          6,
+          25,
+          106,
+          449,
+          1902,
+          8057
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(2)G(k-1); 1,2",
+        "alpha": 4.44949,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.44949,
+        "head": [
+          1,
+          2,
+          10,
+          44,
+          196,
+          872,
+          3880
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(2)G(k-1); 1,3",
+        "alpha": 4.44949,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.44949,
+        "head": [
+          1,
+          3,
+          14,
+          62,
+          276,
+          1228,
+          5464
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(2)G(k-1); 1,4",
+        "alpha": 4.44949,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.44949,
+        "head": [
+          1,
+          4,
+          18,
+          80,
+          356,
+          1584,
+          7048
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(2)G(k-1); 1,5",
+        "alpha": 4.44949,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.44949,
+        "head": [
+          1,
+          5,
+          22,
+          98,
+          436,
+          1940,
+          8632
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(2)G(k-1); 1,6",
+        "alpha": 4.44949,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.44949,
+        "head": [
+          1,
+          6,
+          26,
+          116,
+          516,
+          2296,
+          10216
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(3)G(k-1); 1,2",
+        "alpha": 4.645751,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.645751,
+        "head": [
+          1,
+          2,
+          11,
+          50,
+          233,
+          1082,
+          5027
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(3)G(k-1); 1,3",
+        "alpha": 4.645751,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.645751,
+        "head": [
+          1,
+          3,
+          15,
+          69,
+          321,
+          1491,
+          6927
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(3)G(k-1); 1,4",
+        "alpha": 4.645751,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.645751,
+        "head": [
+          1,
+          4,
+          19,
+          88,
+          409,
+          1900,
+          8827
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=4G(k)+(3)G(k-1); 1,5",
+        "alpha": 4.645751,
+        "associative_shifts": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.645751,
+        "head": [
+          1,
+          5,
+          23,
+          107,
+          497,
+          2309,
+          10727
+        ],
+        "upward_closed": false
+      },
+      {
+        "G": "G(k+1)=4G(k)+(3)G(k-1); 1,6",
+        "alpha": 4.645751,
+        "associative_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.645751,
+        "head": [
+          1,
+          6,
+          27,
+          126,
+          585,
+          2718,
+          12627
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-3)G(k-1); 1,2",
+        "alpha": 4.302776,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.697224,
+        "head": [
+          1,
+          2,
+          7,
+          29,
+          124,
+          533,
+          2293
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-3)G(k-1); 1,3",
+        "alpha": 4.302776,
+        "associative_shifts": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.697224,
+        "head": [
+          1,
+          3,
+          12,
+          51,
+          219,
+          942,
+          4053
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-3)G(k-1); 1,4",
+        "alpha": 4.302776,
+        "associative_shifts": [
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.697224,
+        "head": [
+          1,
+          4,
+          17,
+          73,
+          314,
+          1351,
+          5813
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-3)G(k-1); 1,5",
+        "alpha": 4.302776,
+        "associative_shifts": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.697224,
+        "head": [
+          1,
+          5,
+          22,
+          95,
+          409,
+          1760,
+          7573
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-3)G(k-1); 1,6",
+        "alpha": 4.302776,
+        "associative_shifts": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.697224,
+        "head": [
+          1,
+          6,
+          27,
+          117,
+          504,
+          2169,
+          9333
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-2)G(k-1); 1,2",
+        "alpha": 4.561553,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.438447,
+        "head": [
+          1,
+          2,
+          8,
+          36,
+          164,
+          748,
+          3412
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-2)G(k-1); 1,3",
+        "alpha": 4.561553,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.438447,
+        "head": [
+          1,
+          3,
+          13,
+          59,
+          269,
+          1227,
+          5597
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-2)G(k-1); 1,4",
+        "alpha": 4.561553,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.438447,
+        "head": [
+          1,
+          4,
+          18,
+          82,
+          374,
+          1706,
+          7782
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-2)G(k-1); 1,5",
+        "alpha": 4.561553,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.438447,
+        "head": [
+          1,
+          5,
+          23,
+          105,
+          479,
+          2185,
+          9967
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-2)G(k-1); 1,6",
+        "alpha": 4.561553,
+        "associative_shifts": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.438447,
+        "head": [
+          1,
+          6,
+          28,
+          128,
+          584,
+          2664,
+          12152
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-1)G(k-1); 1,2",
+        "alpha": 4.791288,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.208712,
+        "head": [
+          1,
+          2,
+          9,
+          43,
+          206,
+          987,
+          4729
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-1)G(k-1); 1,3",
+        "alpha": 4.791288,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.208712,
+        "head": [
+          1,
+          3,
+          14,
+          67,
+          321,
+          1538,
+          7369
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-1)G(k-1); 1,4",
+        "alpha": 4.791288,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.208712,
+        "head": [
+          1,
+          4,
+          19,
+          91,
+          436,
+          2089,
+          10009
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-1)G(k-1); 1,5",
+        "alpha": 4.791288,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.208712,
+        "head": [
+          1,
+          5,
+          24,
+          115,
+          551,
+          2640,
+          12649
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(-1)G(k-1); 1,6",
+        "alpha": 4.791288,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": 0.208712,
+        "head": [
+          1,
+          6,
+          29,
+          139,
+          666,
+          3191,
+          15289
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(1)G(k-1); 1,2",
+        "alpha": 5.192582,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.192582,
+        "head": [
+          1,
+          2,
+          11,
+          57,
+          296,
+          1537,
+          7981
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(1)G(k-1); 1,3",
+        "alpha": 5.192582,
+        "associative_shifts": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.192582,
+        "head": [
+          1,
+          3,
+          16,
+          83,
+          431,
+          2238,
+          11621
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(1)G(k-1); 1,4",
+        "alpha": 5.192582,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.192582,
+        "head": [
+          1,
+          4,
+          21,
+          109,
+          566,
+          2939,
+          15261
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(1)G(k-1); 1,5",
+        "alpha": 5.192582,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.192582,
+        "head": [
+          1,
+          5,
+          26,
+          135,
+          701,
+          3640,
+          18901
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(1)G(k-1); 1,6",
+        "alpha": 5.192582,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.192582,
+        "head": [
+          1,
+          6,
+          31,
+          161,
+          836,
+          4341,
+          22541
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(2)G(k-1); 1,2",
+        "alpha": 5.372281,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.372281,
+        "head": [
+          1,
+          2,
+          12,
+          64,
+          344,
+          1848,
+          9928
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(2)G(k-1); 1,3",
+        "alpha": 5.372281,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.372281,
+        "head": [
+          1,
+          3,
+          17,
+          91,
+          489,
+          2627,
+          14113
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(2)G(k-1); 1,4",
+        "alpha": 5.372281,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.372281,
+        "head": [
+          1,
+          4,
+          22,
+          118,
+          634,
+          3406,
+          18298
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(2)G(k-1); 1,5",
+        "alpha": 5.372281,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.372281,
+        "head": [
+          1,
+          5,
+          27,
+          145,
+          779,
+          4185,
+          22483
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(2)G(k-1); 1,6",
+        "alpha": 5.372281,
+        "associative_shifts": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.372281,
+        "head": [
+          1,
+          6,
+          32,
+          172,
+          924,
+          4964,
+          26668
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(3)G(k-1); 1,2",
+        "alpha": 5.541381,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.541381,
+        "head": [
+          1,
+          2,
+          13,
+          71,
+          394,
+          2183,
+          12097
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(3)G(k-1); 1,3",
+        "alpha": 5.541381,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.541381,
+        "head": [
+          1,
+          3,
+          18,
+          99,
+          549,
+          3042,
+          16857
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(3)G(k-1); 1,4",
+        "alpha": 5.541381,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.541381,
+        "head": [
+          1,
+          4,
+          23,
+          127,
+          704,
+          3901,
+          21617
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(3)G(k-1); 1,5",
+        "alpha": 5.541381,
+        "associative_shifts": [
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.541381,
+        "head": [
+          1,
+          5,
+          28,
+          155,
+          859,
+          4760,
+          26377
+        ],
+        "upward_closed": true
+      },
+      {
+        "G": "G(k+1)=5G(k)+(3)G(k-1); 1,6",
+        "alpha": 5.541381,
+        "associative_shifts": [
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "beta": -0.541381,
+        "head": [
+          1,
+          6,
+          33,
+          183,
+          1014,
+          5619,
+          31137
+        ],
+        "upward_closed": true
+      }
+    ],
+    "summary": [
+      "90 quadratic Pisot sequences: 30 with beta > 0, 60 with beta < 0",
+      "beta > 0: non-upward-closed shift sets = 0; with no associative shift <= 10: 0",
+      "beta < 0: non-upward-closed shift sets = 10; with no associative shift <= 10: 0"
+    ],
+    "violations": []
+  },
+  "results_sha256": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
+  "runtime_s": 45.746,
+  "started": "2026-10-18T07:31:38Z"
+}

@@ -1,0 +1,28 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-03",
+    "EXP-C03-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-05",
+  "lean": [
+    "proofs/lean/Infinity/C03_Termination.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Closure of rewriting under morphisms is standard; its use to propagate loop certificates across the parameter family is a routine application.",
+  "proof": "proofs/paper/C03.md#theorem-5-clm-c03-05--substitution-lifting-lemma",
+  "proof_check": "Lean 4 + Mathlib (step_map, loop_map); 147 + 225 lifted certificates re-checked (EXP-C03-03/04); mirror symmetry by written argument",
+  "statement": "If a substitution sigma maps l -> r to l' -> r' (sigma(l) = l', sigma(r) = r'), it maps every step and every\nloop of the first system to a step and a loop of the second. With sigma(0) = 0^p: a loop of\n0 1^q -> 1^r 0^k gives a loop of 0^p 1^q -> 1^r 0^(kp). Reverse-complement maps (p,q,r,s) to (q,p,s,r).",
+  "system": "SYS-A",
+  "title": "Lifting lemma - loops transfer along letter morphisms (explains divisibility)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

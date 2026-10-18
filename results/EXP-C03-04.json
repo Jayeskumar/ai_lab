@@ -1,0 +1,961 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C03-04",
+    "file": "experiments/C03/E04_base_family_loops.py",
+    "sha256": "f84ce959651f451e67a4aa1feb2946a2a5175e8d30e637a0b46f01a18eea4f02",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:09:19Z",
+  "id": "EXP-C03-04",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "rightmost/leftmost strategies from 0^a 1^b (a <= 3, b <= 40 q), at most 40000 steps and words of at most 300000 letters; forward closures first for small cases"
+    ],
+    "cycle": "C03",
+    "falsification": "A base rule with no loop although its derivations keep growing would leave the non-terminating half of H-C03-4 unsupported for that rule.",
+    "hypothesis": "All base rules with q <= 6, k <= 6 have loop certificates; loop sizes grow rapidly with q.",
+    "id": "EXP-C03-04",
+    "methodology": "For each base rule: forward closures (<= 60 letters), else long strategy runs; verify each certificate and its lifts along 0 -> 0^p (p = 2..4).",
+    "question": "Does every base rule 0 1^q -> 1^r 0^k with q < r < 2q, k >= 2 loop (as required by the non-terminating half of H-C03-4), and how large are the loops?",
+    "title": "Base-family loops (1, q, r, k), q < r < 2q: closing the gap and measuring loop sizes"
+  },
+  "results": {
+    "largest_loop": {
+      "final_length": 56035,
+      "method": "rightmost",
+      "rule": [
+        1,
+        6,
+        7,
+        6
+      ],
+      "start": "0111111111111111111111111111111111111111111",
+      "steps": 9332
+    },
+    "lifts_verified": 225,
+    "loops": [
+      {
+        "final_length": 14,
+        "method": "forward closures",
+        "rule": [
+          1,
+          2,
+          3,
+          2
+        ],
+        "start": "001111",
+        "steps": 4
+      },
+      {
+        "final_length": 21,
+        "method": "forward closures",
+        "rule": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "start": "001111",
+        "steps": 5
+      },
+      {
+        "final_length": 30,
+        "method": "forward closures",
+        "rule": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "start": "001111",
+        "steps": 6
+      },
+      {
+        "final_length": 41,
+        "method": "forward closures",
+        "rule": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "start": "001111",
+        "steps": 7
+      },
+      {
+        "final_length": 54,
+        "method": "forward closures",
+        "rule": [
+          1,
+          2,
+          3,
+          6
+        ],
+        "start": "001111",
+        "steps": 8
+      },
+      {
+        "final_length": 27,
+        "method": "forward closures",
+        "rule": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "start": "00111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 55,
+        "method": "rightmost",
+        "rule": [
+          1,
+          3,
+          4,
+          3
+        ],
+        "start": "0111111111111",
+        "steps": 14
+      },
+      {
+        "final_length": 101,
+        "method": "rightmost",
+        "rule": [
+          1,
+          3,
+          4,
+          4
+        ],
+        "start": "0111111111111",
+        "steps": 22
+      },
+      {
+        "final_length": 173,
+        "method": "rightmost",
+        "rule": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "start": "0111111111111",
+        "steps": 32
+      },
+      {
+        "final_length": 277,
+        "method": "rightmost",
+        "rule": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "start": "0111111111111",
+        "steps": 44
+      },
+      {
+        "final_length": 20,
+        "method": "forward closures",
+        "rule": [
+          1,
+          3,
+          5,
+          2
+        ],
+        "start": "00111111",
+        "steps": 4
+      },
+      {
+        "final_length": 28,
+        "method": "forward closures",
+        "rule": [
+          1,
+          3,
+          5,
+          3
+        ],
+        "start": "00111111",
+        "steps": 5
+      },
+      {
+        "final_length": 38,
+        "method": "forward closures",
+        "rule": [
+          1,
+          3,
+          5,
+          4
+        ],
+        "start": "00111111",
+        "steps": 6
+      },
+      {
+        "final_length": 50,
+        "method": "forward closures",
+        "rule": [
+          1,
+          3,
+          5,
+          5
+        ],
+        "start": "00111111",
+        "steps": 7
+      },
+      {
+        "final_length": 66,
+        "method": "rightmost",
+        "rule": [
+          1,
+          3,
+          5,
+          6
+        ],
+        "start": "0111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 53,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          5,
+          2
+        ],
+        "start": "011111111111111111111",
+        "steps": 16
+      },
+      {
+        "final_length": 144,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          5,
+          3
+        ],
+        "start": "011111111111111111111",
+        "steps": 41
+      },
+      {
+        "final_length": 365,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          5,
+          4
+        ],
+        "start": "011111111111111111111",
+        "steps": 86
+      },
+      {
+        "final_length": 806,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          5,
+          5
+        ],
+        "start": "011111111111111111111",
+        "steps": 157
+      },
+      {
+        "final_length": 1581,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          5,
+          6
+        ],
+        "start": "011111111111111111111",
+        "steps": 260
+      },
+      {
+        "final_length": 22,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          6,
+          2
+        ],
+        "start": "0011111111",
+        "steps": 4
+      },
+      {
+        "final_length": 30,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          6,
+          3
+        ],
+        "start": "0011111111",
+        "steps": 5
+      },
+      {
+        "final_length": 40,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          6,
+          4
+        ],
+        "start": "0011111111",
+        "steps": 6
+      },
+      {
+        "final_length": 52,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          6,
+          5
+        ],
+        "start": "0011111111",
+        "steps": 7
+      },
+      {
+        "final_length": 69,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          6,
+          6
+        ],
+        "start": "0111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 26,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          7,
+          2
+        ],
+        "start": "0011111111",
+        "steps": 4
+      },
+      {
+        "final_length": 35,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          7,
+          3
+        ],
+        "start": "0011111111",
+        "steps": 5
+      },
+      {
+        "final_length": 46,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          7,
+          4
+        ],
+        "start": "0011111111",
+        "steps": 6
+      },
+      {
+        "final_length": 59,
+        "method": "forward closures",
+        "rule": [
+          1,
+          4,
+          7,
+          5
+        ],
+        "start": "0011111111",
+        "steps": 7
+      },
+      {
+        "final_length": 77,
+        "method": "rightmost",
+        "rule": [
+          1,
+          4,
+          7,
+          6
+        ],
+        "start": "0111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 95,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          6,
+          2
+        ],
+        "start": "0111111111111111111111111111111",
+        "steps": 32
+      },
+      {
+        "final_length": 397,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          6,
+          3
+        ],
+        "start": "0111111111111111111111111111111",
+        "steps": 122
+      },
+      {
+        "final_length": 1399,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          6,
+          4
+        ],
+        "start": "0111111111111111111111111111111",
+        "steps": 342
+      },
+      {
+        "final_length": 3941,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          6,
+          5
+        ],
+        "start": "0111111111111111111111111111111",
+        "steps": 782
+      },
+      {
+        "final_length": 9367,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          6,
+          6
+        ],
+        "start": "0111111111111111111111111111111",
+        "steps": 1556
+      },
+      {
+        "final_length": 45,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          7,
+          2
+        ],
+        "start": "011111111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 77,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          7,
+          3
+        ],
+        "start": "011111111111111111111",
+        "steps": 14
+      },
+      {
+        "final_length": 131,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          7,
+          4
+        ],
+        "start": "011111111111111111111",
+        "steps": 22
+      },
+      {
+        "final_length": 213,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          7,
+          5
+        ],
+        "start": "011111111111111111111",
+        "steps": 32
+      },
+      {
+        "final_length": 329,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          7,
+          6
+        ],
+        "start": "011111111111111111111",
+        "steps": 44
+      },
+      {
+        "final_length": 28,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          8,
+          2
+        ],
+        "start": "001111111111",
+        "steps": 4
+      },
+      {
+        "final_length": 37,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          8,
+          3
+        ],
+        "start": "001111111111",
+        "steps": 5
+      },
+      {
+        "final_length": 48,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          8,
+          4
+        ],
+        "start": "001111111111",
+        "steps": 6
+      },
+      {
+        "final_length": 60,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          8,
+          5
+        ],
+        "start": "00111011111",
+        "steps": 7
+      },
+      {
+        "final_length": 80,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          8,
+          6
+        ],
+        "start": "0111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 32,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          9,
+          2
+        ],
+        "start": "001111111111",
+        "steps": 4
+      },
+      {
+        "final_length": 42,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          9,
+          3
+        ],
+        "start": "001111111111",
+        "steps": 5
+      },
+      {
+        "final_length": 54,
+        "method": "forward closures",
+        "rule": [
+          1,
+          5,
+          9,
+          4
+        ],
+        "start": "001111111111",
+        "steps": 6
+      },
+      {
+        "final_length": 72,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          9,
+          5
+        ],
+        "start": "0111111111111111",
+        "steps": 7
+      },
+      {
+        "final_length": 88,
+        "method": "rightmost",
+        "rule": [
+          1,
+          5,
+          9,
+          6
+        ],
+        "start": "0111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 171,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          7,
+          2
+        ],
+        "start": "0111111111111111111111111111111111111111111",
+        "steps": 64
+      },
+      {
+        "final_length": 1138,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          7,
+          3
+        ],
+        "start": "0111111111111111111111111111111111111111111",
+        "steps": 365
+      },
+      {
+        "final_length": 5507,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          7,
+          4
+        ],
+        "start": "0111111111111111111111111111111111111111111",
+        "steps": 1366
+      },
+      {
+        "final_length": 19578,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          7,
+          5
+        ],
+        "start": "0111111111111111111111111111111111111111111",
+        "steps": 3907
+      },
+      {
+        "final_length": 56035,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          7,
+          6
+        ],
+        "start": "0111111111111111111111111111111111111111111",
+        "steps": 9332
+      },
+      {
+        "final_length": 49,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          8,
+          2
+        ],
+        "start": "0111111111111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 81,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          8,
+          3
+        ],
+        "start": "0111111111111111111111111",
+        "steps": 14
+      },
+      {
+        "final_length": 135,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          8,
+          4
+        ],
+        "start": "0111111111111111111111111",
+        "steps": 22
+      },
+      {
+        "final_length": 217,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          8,
+          5
+        ],
+        "start": "0111111111111111111111111",
+        "steps": 32
+      },
+      {
+        "final_length": 333,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          8,
+          6
+        ],
+        "start": "0111111111111111111111111",
+        "steps": 44
+      },
+      {
+        "final_length": 30,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          9,
+          2
+        ],
+        "start": "00111111111111",
+        "steps": 4
+      },
+      {
+        "final_length": 39,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          9,
+          3
+        ],
+        "start": "00111111111111",
+        "steps": 5
+      },
+      {
+        "final_length": 50,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          9,
+          4
+        ],
+        "start": "00111111111111",
+        "steps": 6
+      },
+      {
+        "final_length": 68,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          9,
+          5
+        ],
+        "start": "0111111111111111111",
+        "steps": 7
+      },
+      {
+        "final_length": 83,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          9,
+          6
+        ],
+        "start": "0111111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 34,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          10,
+          2
+        ],
+        "start": "00111111111111",
+        "steps": 4
+      },
+      {
+        "final_length": 44,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          10,
+          3
+        ],
+        "start": "00111111111111",
+        "steps": 5
+      },
+      {
+        "final_length": 56,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          10,
+          4
+        ],
+        "start": "00111111111111",
+        "steps": 6
+      },
+      {
+        "final_length": 75,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          10,
+          5
+        ],
+        "start": "0111111111111111111",
+        "steps": 7
+      },
+      {
+        "final_length": 91,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          10,
+          6
+        ],
+        "start": "0111111111111111111",
+        "steps": 8
+      },
+      {
+        "final_length": 38,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          11,
+          2
+        ],
+        "start": "00111111111111",
+        "steps": 4
+      },
+      {
+        "final_length": 49,
+        "method": "forward closures",
+        "rule": [
+          1,
+          6,
+          11,
+          3
+        ],
+        "start": "00111111111111",
+        "steps": 5
+      },
+      {
+        "final_length": 67,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          11,
+          4
+        ],
+        "start": "0111111111111111111",
+        "steps": 6
+      },
+      {
+        "final_length": 82,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          11,
+          5
+        ],
+        "start": "0111111111111111111",
+        "steps": 7
+      },
+      {
+        "final_length": 99,
+        "method": "rightmost",
+        "rule": [
+          1,
+          6,
+          11,
+          6
+        ],
+        "start": "0111111111111111111",
+        "steps": 8
+      }
+    ],
+    "missing": [],
+    "summary": [
+      "base rules (1,q,r,k), q = 2..6, q < r < 2q, k = 2..6: 75 loop certificates, missing []",
+      "lifts to (p,q,r,kp), p = 2..4, verified: 225",
+      "largest loop: [1, 6, 7, 6] with 9332 steps, final word 56035 letters"
+    ]
+  },
+  "results_sha256": "7a3b03cd06d36ecd38d9b8d02f8bc1e730bcd85ced2a62653e6a2ed0055be248",
+  "runtime_s": 21.207,
+  "started": "2026-10-18T08:08:58Z"
+}

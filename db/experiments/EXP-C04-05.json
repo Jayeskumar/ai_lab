@@ -1,0 +1,86 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "the 162 terminating rules of EXP-C04-01",
+    "all words of length <= 11 (<= 8 for the four doubling rules)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C04-05",
+    "file": "experiments/C04/E05_random_descent.py",
+    "sha256": "d3984d3ab76ec0fc97868e18f7b57f89b7f284c205bcfadae286bd5d01004759",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "cycle": "C04",
+  "falsification": "H-C04-1: a bordered rule with random descent or an unbordered one without. H-C04-2: disagreement between observed random descent and the critical-peak test.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T07:57:20Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "methodology",
+      "new": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; random descent = all maximal derivations from each word have the same length AND the same normal form (van Oostrom); critical peaks joined by breadth-first search over exact step counts.",
+      "old": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; critical peaks joined by breadth-first search over exact step counts.",
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T08:00:12Z"
+    }
+  ],
+  "hypothesis": "H-C04-1 (bold): a terminating one-rule system has random descent iff its left-hand side is unbordered. H-C04-2: a terminating one-rule system has random descent iff each of its critical peaks (r s <- p b s -> p r for l = p b = b s) is joinable by two derivations of EQUAL length.",
+  "id": "EXP-C04-05",
+  "methodology": "Exact min/max derivation lengths and the set of reachable normal forms per word from the derivation graph; random descent = all maximal derivations from each word have the same length AND the same normal form (van Oostrom); critical peaks joined by breadth-first search over exact step counts.",
+  "question": "When do all maximal derivations from every word have the same length (random descent)?",
+  "results_file": "results/EXP-C04-05.json",
+  "results_sha256": "aaaaa7a552736929877f09e8655e715df36ebc6eec42153f810bb3694965b360",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-05",
+        "file": "experiments/C04/E05_random_descent.py",
+        "sha256": "ab667ddbbe00e96ffe589898111630fcb083076a789a28c3da614c5c9604dcdc",
+        "systems_sha256": "01205391234def854bb0335ea6cb828faa646ab7f2b232929767a1e18ba115fb"
+      },
+      "error": false,
+      "finished": "2026-10-18T07:57:19Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C04-05.json",
+      "results_sha256": "325eb71701851f5a67c414c279dd09d3293ccf15a73feb1080a12398b6056ded",
+      "runtime_s": 52.571,
+      "started": "2026-10-18T07:56:26Z",
+      "summary": [
+        "162 terminating rules; (bordered, RD, confluent) counts: {'False/True/True': 84, 'True/False/False': 60, 'True/True/True': 18}",
+        "H-C04-1 counterexamples: 18 (e.g. [['aa', ''], ['aa', 'a'], ['aa', 'aba'], ['bb', '']]); unbordered rules without RD: 0",
+        "H-C04-2 disagreements (RD vs equal-length joinable critical peaks): 0; RD but not confluent: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-05",
+        "file": "experiments/C04/E05_random_descent.py",
+        "sha256": "d3984d3ab76ec0fc97868e18f7b57f89b7f284c205bcfadae286bd5d01004759",
+        "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:00:11Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C04-05.json",
+      "results_sha256": "aaaaa7a552736929877f09e8655e715df36ebc6eec42153f810bb3694965b360",
+      "runtime_s": 51.462,
+      "started": "2026-10-18T07:59:19Z",
+      "summary": [
+        "162 terminating rules; (bordered, RD, confluent) counts: {'False/True/True': 84, 'True/False/False': 60, 'True/True/True': 18}",
+        "H-C04-1 counterexamples: 18 (e.g. [['aa', ''], ['aa', 'a'], ['aa', 'aba'], ['bb', '']]); unbordered rules without RD: 0",
+        "H-C04-2 disagreements (RD vs equal-length joinable critical peaks): 0; length-uniform but not confluent: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "162 terminating rules; (bordered, RD, confluent) counts: {'False/True/True': 84, 'True/False/False': 60, 'True/True/True': 18}",
+    "H-C04-1 counterexamples: 18 (e.g. [['aa', ''], ['aa', 'a'], ['aa', 'aba'], ['bb', '']]); unbordered rules without RD: 0",
+    "H-C04-2 disagreements (RD vs equal-length joinable critical peaks): 0; length-uniform but not confluent: 0"
+  ],
+  "title": "Random descent of one-rule systems: unbordered left-hand sides versus critical peaks"
+}

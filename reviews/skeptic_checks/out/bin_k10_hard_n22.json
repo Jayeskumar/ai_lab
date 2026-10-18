@@ -1,0 +1,13 @@
+{
+ "case": "bin_k10_hard_n22",
+ "q": 2,
+ "k": 10,
+ "nmax": 22,
+ "hard_only": true,
+ "relations_tested": 52540,
+ "hard": 52540,
+ "with_common_border": 1346,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 119.6
+}

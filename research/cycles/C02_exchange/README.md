@@ -75,21 +75,32 @@ non-termination certificates for 158 rules. Counterexample: 4[k] → 2[k+1].
 
 ## Step 8 — Comparison with existing mathematics (Historian)
 
+Revised after the independent Historian audit (`reviews/historian_C01_C02.md`).
+
 * Abelian property: chip-firing / abelian sandpiles (Dhar 1990; Björner,
-  Lovász, Shor 1991; abelian networks, Bond–Levine). **REDISCOVERY.**
-* Rule p → q: rational base numeration of Akiyama, Frougny and Sakarovitch
-  (2008); OEIS A024629. **REDISCOVERY.**
+  Lovász, Shor 1991; abelian networks, Bond–Levine 2016). **REDISCOVERY.**
+* Integer bases: carrying; the exchange count (n − s_b(n))/(b − 1) is
+  Legendre's identity. **REDISCOVERY.**
+* Rule p → q: the chip-firing "base p/q" of Propp, Tanton and OEIS A024629;
+  Akiyama, Frougny and Sakarovitch (2008) normalise differently (their
+  expansion of N is our chip representation of qN: AFS 3 ↦ 210, A024629
+  6 ↦ 210). **REDISCOVERY.**
+* Termination dichotomy (Theorem 3): folklore monovariants (Björner–Lovász
+  1992; Bond–Levine 2016 halting criterion; Tanton's Exploding Dots).
+  **REDISCOVERY.**
+* Uniqueness (Theorem 7) and radix order (Theorem 6): in substance
+  Akiyama–Frougny–Sakarovitch (2008) Lemma 5 and Prop. 11, transplanted to
+  general carry polynomials (framework: Scheicher et al. 2014).
+  **REDISCOVERY**; the Lean proof is a verification asset.
 * Fibonacci exchanges = the **Zeckendorf game** (Baird-Smith, Epstein, Flint,
   Miller, arXiv:1809.04881): termination and the shortest game N − Z(N) are
-  theirs; the longest game is studied by Cusenza et al. (closed form for
-  general N reported open). **REDISCOVERY**; our longest-game values for
-  N ≤ 40 are not in the OEIS.
-* Uniqueness theorem: the Gauss-lemma argument is classical in the theory of
-  canonical number systems / generalized radix representations (Kovács,
-  Pethő; Akiyama et al.); likely known for this family. **Not assessed**,
-  flagged for the Historian audit.
-* Termination dichotomy, uniform glider for B = m: not found in a quick look;
-  **not assessed**.
+  theirs, and their Fig. 4 already lists the longest games for N ≤ 49
+  (identical to our N ≤ 40); Cusenza et al. (2022) prove the greedy strategy
+  optimal; a general closed form is open. **REDISCOVERY**; the sequence is not
+  yet in the OEIS.
+* Uniform glider for B = m (Conjecture 4) and its 28 certificates: Propp
+  (2017) proposed the rule family without results; nothing equivalent found.
+  **POTENTIALLY NOVEL** (low–medium confidence).
 
 ## Step 9 — Applications
 

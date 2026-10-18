@@ -1,0 +1,13 @@
+{
+ "case": "bin_k7_n25",
+ "q": 2,
+ "k": 7,
+ "nmax": 25,
+ "hard_only": false,
+ "relations_tested": 2108,
+ "hard": 765,
+ "with_common_border": 285,
+ "failures": [],
+ "n_failures": 0,
+ "seconds": 327.6
+}

@@ -1,0 +1,26 @@
+{
+  "cycle": "C03",
+  "evidence": [
+    "EXP-C03-01",
+    "EXP-C03-02",
+    "EXP-C03-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C03",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C03-06",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.",
+  "proof": "proofs/paper/C03.md#theorem-6-clm-c03-06--computer-assisted-classification-p-q-r-s--5",
+  "proof_check": "computer-assisted (Python) - theorems CLM-C03-01/02 for the terminating rules; explicit loop certificates (forward closures, strategies, mirror images) re-checked step by step for the non-terminating ones",
+  "statement": "Among the 625 rules 0^p 1^q -> 1^r 0^s with p, q, r, s <= 5, the 525 with s <= p or r <= q terminate and 76\n(listed in results/EXP-C03-02.json and EXP-C03-03.json) are non-terminating; the remaining 24 are open here.",
+  "system": "SYS-A",
+  "title": "Classification of 601 of the 625 rules with p, q, r, s <= 5 (computer-assisted)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

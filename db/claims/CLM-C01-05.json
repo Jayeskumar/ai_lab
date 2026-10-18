@@ -10,10 +10,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T06:44:01Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "The negative answer is implied by the Golod-Shafarevich/Anick lower bound H >= 1/(1 - qx + x^k) for one-relator algebras (Anick 1982; Piontkovski 1999) - a single relation cannot make the classes as coarse as counting classes. Historian audit, reviews/historian_C01_C02.md.",
+      "old": null,
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C01-05",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The negative answer is implied by the Golod-Shafarevich/Anick lower bound H >= 1/(1 - qx + x^k) for one-relator algebras (Anick 1982; Piontkovski 1999) - a single relation cannot make the classes as coarse as counting classes. Historian audit, reviews/historian_C01_C02.md.",
   "statement": "For every relation u <-> v over {a,b} with u != v and equal symbol counts, the generated congruence\ncoincides with counting (Parikh) equivalence on all words of length >= |u|.",
   "system": "SYS-A",
   "title": "H-C01-4: a single rearranging relation generates counting equivalence on long words (refuted)",

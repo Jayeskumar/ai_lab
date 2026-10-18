@@ -1,0 +1,143 @@
+cycle: C08
+title: Circle multiplications on recurrence numeration systems
+branch: C
+status: complete
+systems: [SYS-C, SYS-B]
+
+experiments:
+  - id: EXP-C08-01
+    analysis: Associativity of digit-convolution products is common at larger shifts and absent for some families at every shift; motivated the Pisot hypothesis.
+    related: [CLM-C08-05, CLM-C08-06]
+  - id: EXP-C08-02
+    analysis: All 10 non-Pisot sequences fail at every shift 0..8; geometric ones never fail; Pisot ones become associative above thresholds growing with |beta|.
+    related: [CLM-C08-02, CLM-C08-03, CLM-C08-05]
+  - id: EXP-C08-03
+    analysis: Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine.
+    related: [CLM-C08-03, CLM-C08-04, CLM-C08-05]
+  - id: EXP-C08-04
+    analysis: Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.
+    related: [CLM-C08-04]
+  - id: EXP-C08-05
+    analysis: The implementation reproduces OEIS A101330 (Knuth's circle product table).
+    related: [CLM-C08-01]
+
+claims:
+  - id: CLM-C08-01
+    type: theorem
+    system: SYS-C
+    title: Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative (t >= 0)
+    statement: |
+      For every t >= 0 the operation a o_t b = sum_{k in Z(a)} sum_{l in Z(b)} F_(k+l+t) on the natural numbers
+      (Z(n) the Zeckendorf index set, indices >= 2) is associative and commutative; in the lab's G-indexing these
+      are the shifts s = t + 2 >= 2. For s = 0 and s = 1 associativity fails ((2 o 4) o 4 != 2 o (4 o 4) for s = 0,
+      (1 o 4) o 4 != 1 o (4 o 4) for s = 1).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (Infinity.C08.circ_assoc, circ_comm, key, window; standard axioms only) for all t >= 0; counterexamples for s = 0, 1 by computation; no failure in 20,000 random triples up to 1e9 (t = 0)
+    proof: proofs/paper/C08.md#theorem-1-clm-c08-01--every-shifted-knuth-product-is-associative
+    lean: [proofs/lean/Infinity/C08_Knuth.lean]
+    evidence: [EXP-C08-01, EXP-C08-03, EXP-C08-05]
+    novelty: REDISCOVERY
+    novelty_basis: t = 0 is Knuth (Appl. Math. Lett. 1, 1988) with Arnoux's Z[phi] proof (Appl. Math. Lett. 2, 1989); the shift extension follows from the same window and is covered by the "sufficiently large parameter" theorem of Grabner-Petho-Tichy-Woeginger (1994).
+  - id: CLM-C08-02
+    type: conjecture
+    system: SYS-C
+    title: Circle products over non-Pisot base sequences are never associative
+    statement: |
+      If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta
+      other than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C08-02]
+    novelty: NOT ASSESSED
+    limitations: 10 non-Pisot sequences, shifts 0..8 only.
+  - id: CLM-C08-03
+    type: theorem
+    system: SYS-C
+    title: Pisot base sequences give associative circle products for all sufficiently large shifts
+    statement: |
+      For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the
+      circle product is associative once the shift parameter is large enough.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C08-02, EXP-C08-03]
+    novelty: REDISCOVERY
+    novelty_basis: Published theorem (Grabner, Petho, Tichy, Woeginger, "Associativity of recurrence multiplication", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).
+  - id: CLM-C08-04
+    type: conjecture
+    system: SYS-C
+    title: Non-monotone associative-shift sets require a negative conjugate root
+    statement: |
+      For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is
+      associative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)
+      occur only when beta < 0.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C08-04, EXP-C08-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: One web search (2026-10-18) and the abstracts of Knuth 1988, Arnoux 1989, Grabner et al. 1994, Math. Slovaca 50 (2000) did not mention non-monotone shift thresholds; low-confidence novelty pending the Historian audit.
+    limitations: 90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).
+  - id: CLM-C08-05
+    type: observation
+    system: SYS-C
+    title: Measured associativity thresholds for 45 base sequences
+    statement: |
+      Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,
+      G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;
+      G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C08-02, EXP-C08-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C08-06
+    type: hypothesis
+    system: SYS-C
+    title: "H-C08-1: Knuth's associative circle product is an isolated case (refuted)"
+    statement: Among digit-convolution products a o_s b = sum d_i d_j G_(i+j+s), only Fibonacci with s = 2 is associative.
+    verification: REFUTED
+    counterexample: "Fibonacci with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric bases are associative for every s; many Pisot sequences are associative at larger shifts (EXP-C08-02)."
+    evidence: [EXP-C08-01, EXP-C08-02]
+    novelty: NOT ASSESSED
+
+journal:
+  - key: C08-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Proposed digit-position convolution ("circle") products on greedy numeration systems as an invented operation; devil's-advocate hypothesis H-C08-1 that Knuth's associative case is isolated.
+    refs: [EXP-C08-01]
+  - key: C08-02
+    agent: Mathematical Explorer
+    kind: surprise
+    text: First run already shows associativity for Fibonacci at s = 3, 4, 5 and for many other sequences at larger shifts, with failure rates that do not depend smoothly on s.
+    refs: [EXP-C08-01, CLM-C08-06]
+  - key: C08-03
+    agent: Mathematical Explorer
+    kind: pattern
+    text: Every persistent failure belongs to a sequence whose minimal recurrence has a second root on or outside the unit circle (e.g. roots 2 and -1). Degenerate initial conditions (powers of 2 from x^2 - x - 2) remove the bad root and restore associativity.
+    refs: [EXP-C08-02, CLM-C08-02]
+  - key: C08-04
+    agent: Mathematical Skeptic
+    kind: review
+    text: Small-cube associativity is weak evidence; re-tested every candidate on random triples up to 1e6 and Knuth's product up to 1e9. The non-monotone shift sets survive.
+    refs: [EXP-C08-03]
+  - key: C08-05
+    agent: Mathematical Explorer
+    kind: hypothesis
+    text: Proposed H-C08-4 - the sign of beta^s flips the product's conjugate and the greedy window is asymmetric, so non-monotonicity should need beta < 0. Confirmed on 90 quadratic Pisot sequences (30/30 positive-beta sets upward-closed).
+    refs: [EXP-C08-04, CLM-C08-04]
+  - key: C08-06
+    agent: Formal Verifier
+    kind: proof
+    text: Wrote a complete proof that all shifted Knuth products (s >= 2) are associative using the explicit window (-psi^2, -psi) of conjugates of Zeckendorf sums; launched a Lean formalisation.
+    refs: [CLM-C08-01, proofs/paper/C08.md]
+  - key: C08-07
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: Eventual associativity for dominant-root recurrences is the theorem of Grabner, Petho, Tichy and Woeginger (1994); Knuth (1988) and Arnoux (1989) for Fibonacci. Our implementation reproduces OEIS A101330. Non-Pisot never-associativity and the sign-of-beta mechanism were not found in a first search.
+    refs: [EXP-C08-05, CLM-C08-03, CLM-C08-04]
+  - key: C08-08
+    agent: Formal Verifier
+    kind: proof
+    text: Lean 4 + Mathlib formalisation of Theorem 1 completed by a dedicated Formal Verifier worker (proofs/lean/Infinity/C08_Knuth.lean, 256 lines) - circ_assoc and circ_comm for every shift t, via the twisted homomorphism E(circ t a b) = phi^t E(a) E(b) and a symmetric conjugate window |sum psi^k| < -psi. Standard axioms only. Knuth's theorem and its shifted versions are now machine-checked.
+    refs: [CLM-C08-01, proofs/lean/Infinity/C08_Knuth.lean]
+
+next_directions:
+  - "C08: complete the Lean proof of the shifted Knuth theorem"
+  - "C08: prove non-Pisot never-associativity (CLM-C08-02)"
+  - "C08: compute greedy windows to prove the sign-of-beta conjecture (CLM-C08-04)"
+  - "C09: arithmetic of the circle semigroup - irreducibles and factorisation"

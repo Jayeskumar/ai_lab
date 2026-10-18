@@ -1,0 +1,462 @@
+{
+  "fetched": "2026-10-18T07:45:52Z",
+  "query": "\"rational base\" 3/2",
+  "response": [
+    {
+      "author": "_Michel Marcus_, Apr 24 2025",
+      "comment": [
+        "Differs from A024629 by that here a factor 1/b is pulled out of the sum (with base a/b)."
+      ],
+      "created": "2025-04-24T06:48:18-04:00",
+      "data": "0,2,21,210,212,2101,2120,2122,21011,21200,21202,21221,210110,210112,212001,212020,212022,212211,2101100,2101102,2101121,2120010,2120012,2120201,2120220,2120222,2122111,21011000,21011002,21011021,21011210,21011212,21200101,21200120",
+      "ext": [
+        "More terms from _Amiram Eldar_, Apr 24 2025"
+      ],
+      "keyword": "nonn,base",
+      "link": [
+        "Shalom Eliahou and Jean-Louis Verger-Gaugry, <a href=\"https://arxiv.org/abs/2504.13716\">The number system in rational base 3/2 and the 3x+1 problem</a>, arXiv:2504.13716 [math.NT], 2024. See Table 1 p. 3.",
+        "Johannes F. Morgenbesser, Wolfgang Steiner, and Jörg Thuswaldner, <a href=\"https://arxiv.org/abs/1203.4919\">Patterns in rational base number systems</a>, arXiv:1203.4919 [math.NT], 2012. See p. 2."
+      ],
+      "mathematica": [
+        "a[n_] := a[n] = If[n == 0, 0, Module[{q, r}, {q, r} = QuotientRemainder[2*n, 3]; 10*a[q] + r]]; Array[a, 30, 0] (* _Amiram Eldar_, Apr 24 2025 *)"
+      ],
+      "name": "Representation of n in rational base 3/2.",
+      "number": 383346,
+      "offset": "0,2",
+      "references": 1,
+      "revision": 16,
+      "time": "2025-04-24T06:48:18-04:00",
+      "xref": [
+        "Cf. A024629."
+      ]
+    },
+    {
+      "author": "_Simon Plouffe_",
+      "comment": [
+        "a(n) takes the value k for the first time at n = 2^(k+1)-1. Cf. A000225. - _Robert G. Wilson v_, Apr 02 2009",
+        "a(n) = A213629(n,3) for n > 2. - _Reinhard Zumkeller_, Jun 17 2012"
+      ],
+      "created": "1998-06-14T03:00:00-04:00",
+      "data": "0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,3,0,0,0,1,0,0,1,2,1,1,1,2,2,2,3,4,0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,3,1,1,1,2,1,1,2,3,2,2,2,3,3,3,4,5,0,0,0,1,0,0,1,2,0,0,0,1,1,1,2,3,0,0,0,1,0,0,1,2,1,1,1,2,2,2,3,4,1,1,1,2,1,1,2,3,1",
+      "example": [
+        "The binary expansion of 15 is 1111, which contains three occurrences of 11, so a(15)=3."
+      ],
+      "formula": [
+        "a(4n) = a(4n+1) = a(n), a(4n+2) = a(2n+1), a(4n+3) = a(2n+1) + 1. - _Ralf Stephan_, Aug 21 2003",
+        "G.f.: (1/(1-x)) * Sum_{k>=0} t^3/((1+t)*(1+t^2)), where t = x^(2^k). - _Ralf Stephan_, Sep 10 2003",
+        "a(n) = A000120(n) - A069010(n). - _Ralf Stephan_, Sep 10 2003",
+        "Sum_{n>=1} A014081(n)/(n*(n+1)) = A100046 (Allouche and Shallit, 1990). - _Amiram Eldar_, Jun 01 2021"
+      ],
+      "keyword": "nonn,base,easy",
+      "link": [
+        "Reinhard Zumkeller, <a href=\"/A014081/b014081.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "J.-P. Allouche, <a href=\"http://math.colgate.edu/~integers/graham2/graham2.Abstract.html\">On an Inequality in a 1970 Paper of R. L. Graham</a>, INTEGERS 21A (2021), #A2.",
+        "Jean-Paul Allouche and Jeffrey Shallit, <a href=\"https://doi.org/10.1007/BFb0097122\">Sums of digits and the Hurwitz zeta function</a>, in: K. Nagasaka and E. Fouvry (eds.), Analytic Number Theory, Lecture Notes in Mathematics, Vol. 1434, Springer, Berlin, Heidelberg, 1990, pp. 19-30.",
+        "John Brillhart and L. Carlitz, <a href=\"https://doi.org/10.1090/S0002-9939-1970-0260955-6\">Note on the Shapiro Polynomials</a>, Proceedings of the American Mathematical Society, volume 25, number 1, May 1970, pages 114-118 (see A001782 for a scanned copy), with a(n) = exponent in theorem 4.",
+        "Helmut Prodinger, <a href=\"https://doi.org/10.1137/0603004\">Generalizing the sum of digits function</a>, SIAM J. Algebraic Discrete Methods, Vol. 3, No. 1 (1982), pp. 35-42. MR0644955 (83f:10009). [See B_2(11,n) on p. 35. - _N. J. A. Sloane_, Apr 06 2014]",
+        "Michel Rigo and Manon Stipulanti, <a href=\"https://arxiv.org/abs/2103.16966\">Revisiting regular sequences in light of rational base numeration systems</a>, arXiv:2103.16966 [cs.FL], 2021. Mentions this sequence.",
+        "Bartosz Sobolewski and Lukas Spiegelhofer, <a href=\"https://arxiv.org/abs/2309.00142\">Block occurrences in the binary expansion</a>, arXiv:2309.00142 [math.NT], 2023.",
+        "Ralf Stephan, <a href=\"/somedcgf.html\">Some divide-and-conquer sequences with (relatively) simple ordinary generating functions</a>, 2004.",
+        "Ralf Stephan, <a href=\"/A079944/a079944.ps\">Table of generating functions</a>.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/DigitBlock.html\">Digit Block</a>.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/Rudin-ShapiroSequence.html\">Rudin-Shapiro Sequence</a>.",
+        "<a href=\"/index/Bi#binary\">Index entries for sequences related to binary expansion of n</a>"
+      ],
+      "maple": [
+        "# To count occurrences of 11..1 (k times) in binary expansion of v:",
+        "cn := proc(v, k) local n, s, nn, i, j, som, kk;",
+        "som := 0;",
+        "kk := convert(cat(seq(1, j = 1 .. k)),string);",
+        "n := convert(v, binary);",
+        "s := convert(n, string);",
+        "nn := length(s);",
+        "for i to nn - k + 1 do",
+        "if substring(s, i .. i + k - 1) = kk then som := som + 1 fi od;",
+        "som; end; # This program no longer worked. Corrected by _N. J. A. Sloane_, Apr 06 2014.",
+        "[seq(cn(n,2),n=0..300)];",
+        "# Alternative:",
+        "A014081 := proc(n) option remember;",
+        "  if n mod 4 <= 1 then procname(floor(n/4))",
+        "elif n mod 4 = 2 then procname(n/2)",
+        "else 1 + procname((n-1)/2)",
+        "fi",
+        "end proc:",
+        "A014081(0):= 0:",
+        "map(A014081, [$0..1000]); # _Robert Israel_, Sep 04 2015"
+      ],
+      "mathematica": [
+        "f[n_] := Count[ Partition[ IntegerDigits[n, 2], 2, 1], {1, 1}]; Table[ f@n, {n, 0, 104}] (* _Robert G. Wilson v_, Apr 02 2009 *)",
+        "Table[SequenceCount[IntegerDigits[n,2],{1,1},Overlaps->True],{n,0,120}] (* _Harvey P. Dale_, Jun 06 2022 *)"
+      ],
+      "name": "a(n) is the number of occurrences of '11' in the binary expansion of n.",
+      "number": 14081,
+      "offset": "0,8",
+      "program": [
+        "(Haskell)",
+        "import Data.Bits ((.&.))",
+        "a014081 n = a000120 (n .&. div n 2)  -- _Reinhard Zumkeller_, Jan 23 2012",
+        "(PARI) A014081(n)=sum(i=0,#binary(n)-2,bitand(n>>i,3)==3)  \\\\ _M. F. Hasler_, Jun 06 2012",
+        "(PARI) a(n) = hammingweight(bitand(n, n>>1)) ;",
+        "vector(105, i, a(i-1))  \\\\ _Gheorghe Coserea_, Aug 30 2015",
+        "(Python)",
+        "def a(n): return sum([((n>>i)&3==3) for i in range(len(bin(n)[2:]) - 1)]) # _Indranil Ghosh_, Jun 03 2017",
+        "(Python)",
+        "from re import split",
+        "def A014081(n): return sum(len(d)-1 for d in split('0+', bin(n)[2:]) if d != '') # _Chai Wah Wu_, Feb 04 2022"
+      ],
+      "references": 43,
+      "revision": 127,
+      "time": "2026-05-30T16:39:57-04:00",
+      "xref": [
+        "Cf. A014082, A033264, A037800, A056973, A000225, A213629, A000120, A069010, A100046.",
+        "First differences give A245194.",
+        "A245195 gives 2^a(n)."
+      ]
+    },
+    {
+      "author": "_Henry Bottomley_, May 02 2001",
+      "comment": [
+        "It appears that this sequence is the (L)-sieve transform of {3,6,9,12,...,3n,...} = A008585. (See A152009 for the definition of the (L)-sieve transform.) - _John W. Layman_, Jan 06 2009",
+        "From _Jianing Song_, Nov 01 2025: (Start)",
+        "In general, let {f_n}_{n>=0} be the sequence defined by f_{n+1} = alpha*f_n + e_n, where alpha > 1, a <= e_n <= b, then f_n = (f_0 + e_0/alpha + ... + e_{n-1}/alpha^n)*alpha^n = c*alpha^n - (e_n/alpha + e_{n+1}/alpha^2 + ...), where c = f_0 + Sum_{n>=0} e_n/alpha^{n+1}. We conclude that c*alpha^n - b/(alpha - 1) <= f_n <= c*alpha^n - a/(alpha - 1).",
+        "Here alpha = 3/2, a = 0, b = 1/2, and c = K(3) = A083286, so we conclude that K(3)*(3/2)^n - 1 < a(n+1) = f_n < K(3)*(3/2)^n, since we have neither e_n = 0 for all sufficiently large n nor e_n = 1/2 for all sufficiently large n. (End)",
+        "Since ceiling(3x/2) equals 3x/2 for x even and (3x+1)/2 for x odd, a(n+1) = M(a(n)), where M is the map introduced by Mahler (1968) in his study of Z-numbers, i.e., reals xi > 0 with frac(xi*(3/2)^k) < 1/2 for all k >= 0. Mahler showed that if xi is a Z-number, then floor(xi*(3/2)^k) = M^k(floor(xi)) for all k >= 0. The constant K(3) = A083286, for which a(n) = floor(K(3)*(3/2)^(n-1)), is not a Z-number, since frac(K(3)*(3/2)^2) = 0.6501... > 1/2. - _Miquel Cerda_, Oct 09 2026"
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,2,3,5,8,12,18,27,41,62,93,140,210,315,473,710,1065,1598,2397,3596,5394,8091,12137,18206,27309,40964,61446,92169,138254,207381,311072,466608,699912,1049868,1574802,2362203,3543305,5314958,7972437,11958656,17937984,26906976",
+      "example": [
+        "a(6) = ceiling(8*3/2) = 12."
+      ],
+      "formula": [
+        "a(n) = A061418(n) - 1 = floor(K*(3/2)^n) where K = 1.08151366859...",
+        "The constant K is (2/3)*K(3) (see A083286). - _Ralf Stephan_, May 29 2003",
+        "a(1) = 1, a(n) = A070885(n)/3. - _Benoit Cloitre_, Aug 18 2002",
+        "a(n) = ceiling((a(n-1) + a(n-2))*9/10) - _Franklin T. Adams-Watters_, May 01 2006"
+      ],
+      "keyword": "nonn,changed",
+      "link": [
+        "Harry J. Smith, <a href=\"/A061419/b061419.txt\">Table of n, a(n) for n = 1..500</a>",
+        "Zakir Deniz, <a href=\"https://doi.org/10.1007/s00200-014-0245-0\">Topology of acyclic complexes of tournaments and coloring</a>, Appl. Algeb. Engin. Comm. 26(1-2) (March 2015), 213-226.",
+        "Artūras Dubickas, <a href=\"https://doi.org/10.1017/S0017089508004655\">On integer sequences generated by linear maps</a>, Glasg. Math. J. 51(2) (2009), 243-252.",
+        "Don Knuth, <a href=\"http://cs.stanford.edu/~knuth/papers/ambidextrous.pdf\">Ambidextrous Numbers</a>, Preprint, September 2022.",
+        "Kurt Mahler, <a href=\"https://carmamaths.org/resources/mahler/docs/167.pdf\">An unsolved problem on the powers of 3/2</a>, J. Austral. Math. Soc. 8 (1968), 313-321.",
+        "Andrew M. Odlyzko and Herbert S. Wilf, <a href=\"https://doi.org/10.1017/S0017089500008272\">Functional iteration and the Josephus problem</a>, Glasgow Math. J. 33(2) (1991), 235-240.",
+        "Arya Saranathan, <a href=\"https://arxiv.org/abs/2601.12520\">Quasigeodesic languages are not context-free in some non-hyperbolic groups</a>, arXiv:2601.12520 [math.GR], 2026. See p. 11.",
+        "Ralf Stephan, <a href=\"https://doi.org/10.13140/RG.2.2.10727.82081\">Ceiling orbits of rational bases are not P-recursive</a>, ResearchGate (2026). See pp. 1, 3 (Theorem B).",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/PowerCeilings.html\">Power Ceilings</a>.",
+        "<a href=\"/index/J#Josephus\">Index entries for sequences related to the Josephus Problem</a>"
+      ],
+      "maple": [
+        "a:=proc(n) option remember: if n=1 then 1 else ceil(procname(n-1)*3/2) fi; end; seq(a(n),n=1..40); # _Muniru A Asiru_, Jun 07 2018"
+      ],
+      "mathematica": [
+        "a=1;a=Table[a=Ceiling[a*3/2],{n,0,4!}] (* _Vladimir Joseph Stephan Orlovsky_, Apr 13 2010 *)",
+        "NestList[Ceiling[3#/2]&,1,39] (* _Stefano Spezia_, Dec 08 2024 *)"
+      ],
+      "name": "a(n) = ceiling(a(n-1)*3/2) with a(1) = 1.",
+      "number": 61419,
+      "offset": "1,2",
+      "program": [
+        "(Magma) [ n eq 1 select 1 else Ceiling(Self(n-1)*3/2): n in [1..40] ]; // _Klaus Brockhaus_, Nov 14 2008",
+        "(PARI) lista(n) = { my(a=2/3); vector(n, n, a=ceil(a*3/2)) } \\\\ _Harry J. Smith_, Jul 22 2009",
+        "(Python)",
+        "from itertools import islice",
+        "def A061419_gen(): # generator of terms",
+        "    a = 2",
+        "    while True:",
+        "        yield a-1",
+        "        a += a>>1",
+        "A061419_list = list(islice(A061419_gen(),70)) # _Chai Wah Wu_, Sep 20 2022"
+      ],
+      "reference": [
+        "Steven R. Finch, Mathematical Constants, Encyclopedia of Mathematics and its Applications, vol. 94, Cambridge University Press, 2003, Section 2.30.1, p. 196."
+      ],
+      "references": 36,
+      "revision": 93,
+      "time": "2026-10-14T18:37:48-04:00",
+      "xref": [
+        "Cf. A002379, A003312, A034082, A061418, A061420, A070885, A081226, A083286.",
+        "First differences are in A073941."
+      ]
+    },
+    {
+      "author": "_Ralf Stephan_, Apr 23 2003",
+      "comment": [
+        "The constant K(3) is related to the Josephus problem with q=3 and the computation of A054995.",
+        "The number also occurs in Washburn's solution cited in References. Regarding Washburn's limit more generally (with x in place of 3/2) results in a disconnected function as plotted by the Mathematica program below. - _Clark Kimberling_, Oct 24 2012",
+        "From _Jianing Song_, Nov 01 2025: (Start)",
+        "In general, let {f_n}_{n>=0} be the sequence defined by f_{n+1} = alpha*f_n + e_n, where alpha > 1, a <= e_n <= b, then f_n = (f_0 + e_0/alpha + ... + e_{n-1}/alpha^n)*alpha^n = c*alpha^n - (e_n/alpha + e_{n+1}/alpha^2 + ...), where c = f_0 + Sum_{n>=0} e_n/alpha^{n+1}. We conclude that -(b/(alpha - 1))/alpha^n <= f_n/alpha^n - c <= -(a/(alpha - 1))/alpha^n.",
+        "Take f_0 = 1, f_{n+1} = ceiling((3/2)*f_n) (f_n = A061419(n+1)), then we have alpha = 3/2, a = 0, b = 1/2, and c = K(3), so we have -(2/3)^n < f_n/(3/2)^n - K(3) < 0, since we have neither e_n = 0 for all sufficiently large n nor e_n = 1/2 for all sufficiently large n.",
+        "Alternatively, we can take f_0 = 2, f_{n+1} = floor((3/2)*f_n) (f_n = A061418(n+1)), then we have alpha = 3/2, a = -1/2, b = 0, and c = K(3), so we have 0 < f_n/(3/2)^n - K(3) < (2/3)^n. (End)",
+        "Wang and Washburn (see References) ask if K(3) is irrational or even transcendental. The number's irrationality is tightly coupled to the question of uniform distribution of { K(3)*(3/2)^n }, with {x} the fractional part of x. _Ralf Stephan_, Mar 15 2026"
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,6,2,2,2,7,0,5,0,2,8,8,4,7,6,7,3,1,5,9,5,6,9,5,0,9,8,2,8,9,9,3,2,4,1,1,3,0,6,6,1,0,5,5,6,2,3,1,3,0,3,7,4,3,2,1,8,5,4,4,3,3,8,7,3,7,8,4,3,3,9,9,9,7,2,7,4,8,4,4,7,6,3,8,3,6,1,6,5,3,9,8,3,3,2,3,3,4,1,1,0,0",
+      "example": [
+        "1.62227050288476731595695..."
+      ],
+      "keyword": "nonn,cons",
+      "link": [
+        "A.H.M. Smeets, <a href=\"/A083286/b083286.txt\">Table of n, a(n) for n = 1..20000</a>",
+        "A. M. Odlyzko and H. S. Wilf, <a href=\"https://doi.org/10.1017/S0017089500008272\">Functional iteration and the Josephus problem</a>, Glasgow Math. J. 33 (1991), 235-240.",
+        "A. H. M. Smeets, <a href=\"/A083286/a083286_2.txt\">100000 decimal digits</a>.",
+        "Ralf Stephan, <a href=\"https://doi.org/10.13140/RG.2.2.10727.82081\">Ceiling orbits of rational bases are not P-recursive</a>, ResearchGate (2026). See p. 10 (Def. 6.5).",
+        "E. T. H. Wang and Phillip C. Washburn, <a href=\"https://www.jstor.org/stable/2322068\">Problem E2604</a>, Amer. Math. Monthly 84 (1977), 821-822.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/PowerCeilings.html\">Power Ceilings</a>.",
+        "<a href=\"/index/J#Josephus\">Index entries for sequences related to the Josephus Problem</a>."
+      ],
+      "mathematica": [
+        "s[x_, 0] := 0; s[x_, n_] := Floor[x*s[x, n - 1]] + 1",
+        "c[x_, n_] := ((1/x)^n) s[x, n]",
+        "t = N[c[3/2, 800], 120]",
+        "RealDigits[t, 10]  (* A083286 *)",
+        "(* Display of the surroundings of 3/2 *)",
+        "Plot[N[c[x, 20]], {x, 1, 3}]",
+        "(* _Clark Kimberling_, Oct 24 2012 *)"
+      ],
+      "name": "Decimal expansion of K(3), a constant related to the Josephus problem.",
+      "number": 83286,
+      "offset": "1,2",
+      "program": [
+        "(PARI) p=1; N=10^4; for(n=1, N, p=ceil(3/2*p)); c=(p/(3/2)^N)+0.0",
+        "(Python)",
+        "d, a, n, nmax = 3, 0, 0, 150000",
+        "while n < nmax:",
+        "    n, a = n+1, (a*d)//(d-1)+1",
+        "nom, den, pos = a*(d-1)**n, d**n, 0",
+        "while pos < 20000:",
+        "    dig, nom, pos = nom//den, (nom%den)*10, pos+1",
+        "    print(pos,dig) # _A.H.M. Smeets_, Jul 05 2019"
+      ],
+      "reference": [
+        "Steven R. Finch, Mathematical Constants, Encyclopedia of Mathematics and its Applications, vol. 94, Cambridge University Press, 2003, Sections 2.13 and 2.30.1, pp. 131, 196."
+      ],
+      "references": 13,
+      "revision": 79,
+      "time": "2026-08-13T18:19:19-04:00",
+      "xref": [
+        "Cf. A054995, A061418, A061419, A083287."
+      ]
+    },
+    {
+      "author": "_Antti Karttunen_, Dec 20 2008",
+      "comment": [
+        "A002487(1+a(n)) = A020651(n) and A002487(a(n)) = A020650(n). So, it generates the enumeration system of positive rationals based on Stern's sequence A002487. - _Yosu Yurramendi_, Feb 26 2020"
+      ],
+      "created": "2009-01-09T03:00:00-05:00",
+      "data": "0,1,3,2,7,4,5,6,15,8,9,14,11,12,13,10,31,16,17,30,19,28,29,18,23,24,25,22,27,20,21,26,63,32,33,62,35,60,61,34,39,56,57,38,59,36,37,58,47,48,49,46,51,44,45,50,55,40,41,54,43,52,53,42,127,64,65,126,67,124",
+      "formula": [
+        "From _Yosu Yurramendi_, Feb 26 2020: (Start)",
+        "a(1) = 1, for all n > 0 a(2*n) = 2*a(n) + 1, a(2*n+1) = 2*a(A065190(n)).",
+        "a(1) = 1, a(2) = 3, a(3) = 2, for all n > 1 a(2*n) = 2*a(n) + 1, and if n even a(2*n+1) = 2*a(n+1), else a(2*n+1) = 2*a(n-1).",
+        "a(n) = A054429(A231551(n)) = A231551(A065190(n)) = A284459(A054429(n)) =",
+        "       A332769(A284459(n)) = A258996(A154437(n)). (End)"
+      ],
+      "keyword": "nonn,base",
+      "link": [
+        "A. Karttunen, <a href=\"/A153154/b153154.txt\">Table of n, a(n) for n = 0..2047</a>",
+        "<a href=\"/index/Per#IntegerPermutation\">Index entries for sequences that are permutations of the natural numbers</a>"
+      ],
+      "name": "Permutation of natural numbers: A059893-conjugate of A006068.",
+      "number": 153154,
+      "offset": "0,3",
+      "program": [
+        "(R)",
+        "maxn <- 63 # by choice",
+        "a <- c(1,3,2)",
+        "#",
+        "for(n in 2:maxn){",
+        "  a[2*n] <- 2*a[n] + 1",
+        "  if(n%%2==0) a[2*n+1] <- 2*a[n+1]",
+        "  else        a[2*n+1] <- 2*a[n-1]",
+        "}",
+        "(a <- c(0,a))",
+        "# _Yosu Yurramendi_, Feb 26 2020",
+        "(R)",
+        "# Given n, compute a(n) by taking into account the binary representation of n",
+        "maxblock <- 8 # by choice",
+        "a <- c(1, 3, 2)",
+        "for(n in 4:2^maxblock){",
+        "  ones <- which(as.integer(intToBits(n)) == 1)",
+        "  nbit <- as.integer(intToBits(n))[1:tail(ones, n = 1)]",
+        "  anbit <- nbit",
+        "  for(i in 2:(length(anbit) - 1))",
+        "    anbit[i] <- bitwXor(anbit[i], anbit[i - 1])  # ?bitwXor",
+        "  anbit[0:(length(anbit) - 1)] <- 1 - anbit[0:(length(anbit) - 1)]",
+        "  a <- c(a, sum(anbit*2^(0:(length(anbit) - 1))))",
+        "}",
+        "(a <- c(0, a))",
+        "# _Yosu Yurramendi_, Oct 04 2021"
+      ],
+      "references": 5,
+      "revision": 16,
+      "time": "2021-10-08T23:57:31-04:00",
+      "xref": [
+        "Inverse: A153153. a(n) = A059893(A006068(A059893(n)))."
+      ]
+    },
+    {
+      "author": "_Yosu Yurramendi_, Feb 23 2020",
+      "comment": [
+        "Sequence is self-inverse: a(a(n)) = n.",
+        "A002487(1+a(n)) = A162911(n) and A002487(a(n)) = A162912(n). So, a(n) generates the enumeration system of positive rationals based on Stern's sequence A002487 called 'drib'.",
+        "Given n, one can compute a(n) by taking into account the binary representation of n, and by flipping every second bit starting from the lowest until reaching the highest 1, which is not flipped."
+      ],
+      "created": "2020-04-09T22:22:44-04:00",
+      "data": "1,3,2,5,4,7,6,13,12,15,14,9,8,11,10,21,20,23,22,17,16,19,18,29,28,31,30,25,24,27,26,53,52,55,54,49,48,51,50,61,60,63,62,57,56,59,58,37,36,39,38,33,32,35,34,45,44",
+      "example": [
+        "n = 23 =  10111_2",
+        "            x x",
+        "          10010_2 = 18 = a(n).",
+        "n = 33 = 100001_2",
+        "          x x x",
+        "         110100_2 = 52 = a(n)."
+      ],
+      "formula": [
+        "a(A054429(n)) = A054429(a(n)) = A258996(n),",
+        "a(A258996(n)) = A258996(a(n)) = A054429(n).",
+        "a(n) = A284447(A065190(n)) = A065190(A284447(n)),",
+        "a(A065190(n)) = A065190(a(n)) = A284447(n),",
+        "a(A284447(n)) = A284447(a(n)) = A065190(n).",
+        "a(A231551(n)) = A154437(n), a(A154437(n)) = A231551(n).",
+        "a(A153154(n)) = A284459(n), a(A284459(n)) = A153154(n).",
+        "a(1) = 1, a(2) = 3, a(3) = 2; for n > 3, a(2*n) = 2*a(A054429(n)) + 1, a(2*n+1) = 2*a(A054429(n)).",
+        "a(1) = 1; for m >= 0 and 0 <= k < 2^m, a(2^(m+1)+2*k) = 2*a(2^(m+1)-1-k) + 1, a(2^(m+1)+2*k+1) = 2*a(2^(m+1)-1-k)."
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Yosu Yurramendi, <a href=\"/A332769/b332769.txt\">Table of n, a(n) for n = 1..8191</a>"
+      ],
+      "name": "Permutation of the positive integers: a(n) = A258996(A054429(n)) = A054429(A258996(n)).",
+      "number": 332769,
+      "offset": "1,2",
+      "program": [
+        "(R)",
+        "maxrow <- 6 # by choice",
+        "a <- 1",
+        "for(m in 0:maxrow) for(k in 0:(2^m-1)){",
+        "a[2^(m+1)+2*k  ] <- 2*a[2^(m+1)-1-k] + 1",
+        "a[2^(m+1)+2*k+1] <- 2*a[2^(m+1)-1-k]",
+        "}",
+        "a",
+        "(R) # Given n, compute a(n) by taking into account the binary representation of n",
+        "maxblock <- 7 # by choice",
+        "a <- c(1, 3, 2)",
+        "for(n in 4:2^maxblock){",
+        "  ones <- which(as.integer(intToBits(n)) == 1)",
+        "  nbit <- as.integer(intToBits(n))[1:tail(ones, n = 1)]",
+        "  anbit <- nbit",
+        "  anbit[seq(1, length(anbit) - 1, 2)] <- 1 - anbit[seq(1, length(anbit) - 1, 2)]",
+        "  a <- c(a, sum(anbit*2^(0:(length(anbit) - 1))))",
+        "}",
+        "a",
+        "# _Yosu Yurramendi_, Mar 30 2021",
+        "(PARI) a(n) = bitxor(n, 2<<bitor(logint(n,2)-1,1)\\3); \\\\ _Kevin Ryde_, Mar 30 2021"
+      ],
+      "references": 4,
+      "revision": 30,
+      "time": "2021-04-24T18:51:54-04:00",
+      "xref": [
+        "Similar R-programs: A258996, A284447."
+      ]
+    },
+    {
+      "author": "_Jonathan Vos Post_, Mar 22 2012",
+      "comment": [
+        "This real number in base 3/2 is given on p. 3 of Morgenbesser. It is analogous to the base 10/1 Champernowne's constant.",
+        "Write 1, 2, 3, 4, 5, 6, ... in base 3/2 to obtain 2, 21, 210, 212, 2101, 2120, 2122, ... and concatenate their digits. [Typo corrected by _Eric M. Schmidt_, Feb 26 2015]",
+        "The base 3/2 representation of n in the sense of Morgenbesser is given by A024629(2*n). - _Eric M. Schmidt_, Feb 26 2015"
+      ],
+      "created": "2012-03-28T07:30:11-04:00",
+      "data": "2,2,1,2,1,0,2,1,2,2,1,0,1,2,1,2,0,2,1,2,2,2,1,0,1,1,2,1,2,0,0,2,1,2,0,2,2,1,2,2,1,2,1,0,1,1,0,2,1,0,1,1,2,2,1,2,0,0,1,2,1,2,0,2,0,2,1,2,0,2,2,2,1,2,2,1,1,2,1,0,1,1,0,0,2,1,0",
+      "example": [
+        "0.22121021221012120212221011 (base 3)."
+      ],
+      "ext": [
+        "More terms from _Eric M. Schmidt_, Feb 26 2015"
+      ],
+      "keyword": "nonn,base,cons",
+      "link": [
+        "D. G. Champernowne, <a href=\"https://doi.org/10.1112/jlms/s1-8.4.254\">The Construction of Decimals Normal in the Scale of Ten</a>, J. London Math. Soc., 8 (1933), 254-260.",
+        "Johannes F. Morgenbesser, Wolfgang Steiner (LIAFA), Jörg Thuswaldner, <a href=\"https://arxiv.org/abs/1203.4919\">Patterns in rational base number systems\"</a>, arXiv:1203.4919v1 [math.NT], Mar 22 2012."
+      ],
+      "name": "Concatenation of 1, 2, 3, ... represented in base 3/2 in the spirit of Champernowne's constant.",
+      "number": 210580,
+      "offset": "0,1",
+      "references": 0,
+      "revision": 37,
+      "time": "2025-11-05T15:22:22-05:00",
+      "xref": [
+        "Cf. A024629, A033307."
+      ]
+    },
+    {
+      "author": "_Stefano Spezia_, Oct 19 2025",
+      "created": "2025-10-20T04:07:00-04:00",
+      "data": "0,3,6,32,35,61,64,320,323,326,352,355,611,614,640,643,646,3202,3205,3231,3234,3260,3263,3266,3522,3525,3551,3554,6110,6113,6116,6142,6145,6401,6404,6430,6433,6436,6462,6465,32021,32024,32050,32053,32056,32312,32315,32341,32344,32600,32603",
+      "example": [
+        "a(0) = 0 since 0 = (1/3) * 0 * (7/3)^0;",
+        "a(1) = 3 since 1 = (1/3) * 3 * (7/3)^0;",
+        "a(2) = 6 since 2 = (1/3) * 6 * (7/3)^0;",
+        "a(3) = 32 since 3 = (1/3) * (3 * (7/3)^1 + 2 * (7/3)^0);",
+        "a(4) = 35 since 4 = (1/3) * (3 * (7/3)^1 + 5 * (7/3)^0);",
+        "a(5) = 61 since 5 = (1/3) * (6 * (7/3)^1 + 1 * (7/3)^0);",
+        "a(6) = 64 since 6 = (1/3) * (6 * (7/3)^1 + 4 * (7/3)^0);",
+        "a(7) = 320 since 7 = (1/3) * (3 * (7/3)^2 + 2 * (7/3)^1 + 0 * (7/3)^0);",
+        "..."
+      ],
+      "keyword": "nonn,base",
+      "link": [
+        "Mélodie Andrieu, Shalom Eliahou, and Léo Vivion, <a href=\"https://arxiv.org/abs/2510.11723\">A Normality Conjecture on Rational Base Number Systems</a>, arXiv:2510.11723 [math.NT], 2025. See p. 2."
+      ],
+      "mathematica": [
+        "a[n_] := a[n] = If[n == 0, 0, Module[{q, r}, {q, r} = QuotientRemainder[3*n, 7]; 10*a[q] + r]]; Array[a, 51, 0] (* after _Amiram Eldar_ in A383346 *)"
+      ],
+      "name": "Number n in the rational base 7/3.",
+      "number": 389934,
+      "offset": "0,2",
+      "references": 0,
+      "revision": 9,
+      "time": "2025-10-20T04:07:00-04:00",
+      "xref": [
+        "Cf. A157532, A383346."
+      ]
+    },
+    {
+      "author": "_Ben Branman_, Jan 22 2012",
+      "comment": [
+        "A simple unpredictable binary sequence.",
+        "If you change a(1) to \"2\", then the concatenation of the first n terms yields the first length-n term of A024629 with positive even index. - _Glen Whitney_, Sep 17 2017",
+        "After the first term, this is also the parity of A061419. - _Matthew House_, Apr 21 2024"
+      ],
+      "created": "2012-01-22T20:23:57-05:00",
+      "data": "1,1,0,1,1,0,0,0,1,1,0,1,0,0,1,1,0,1,0,1,0,0,1,1,0,1,0,0,1,0,1,0,0,0,0,0,1,1,0,1,0,0,0,0,0,0,0,1,0,1,1,1,1,1,0,0,1,1,0,1,0,1,1,0,1,0,1,0,0,1,0,0,1,1,1,1,0,1,1,0,1,1,1,1,1,1",
+      "keyword": "nonn,easy",
+      "link": [
+        "Ben Branman, <a href=\"/A205083/b205083.txt\">Table of n, a(n) for n = 1..20000</a>",
+        "Ralf Stephan, <a href=\"https://doi.org/10.13140/RG.2.2.10727.82081\">Ceiling orbits of rational bases are not P-recursive</a>, ResearchGate (2026).",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/WolframSequences.html\">Wolfram Sequences</a>."
+      ],
+      "mathematica": [
+        "a[1] = 1; a[n_] := a[n] = If[EvenQ[a[n - 1]], 3 a[n - 1]/2, (3/2) (a[n - 1] + 1)]; Mod[Table[a[n], {n, 1, 100}], 2]"
+      ],
+      "name": "Parity of A070885.",
+      "number": 205083,
+      "offset": "1",
+      "program": [
+        "(PARI) A205083={my(maxx=50);q=ctr=1;print1(q%2,\",\");",
+        "while(ctr<maxx,q=3*ceil(q/2);ctr+=1;print1(q%2,\",\") );} \\\\ _Bill McEachen_, Mar 12 2015"
+      ],
+      "reference": [
+        "Wolfram, S. A New Kind of Science. Champaign, IL: Wolfram Media, 2002, p. 122."
+      ],
+      "references": 5,
+      "revision": 49,
+      "time": "2026-08-13T18:19:47-04:00",
+      "xref": [
+        "Cf. A070885, A024629."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=%22rational+base%22+3%2F2&fmt=json"
+}

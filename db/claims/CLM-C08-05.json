@@ -1,0 +1,22 @@
+{
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-02",
+    "EXP-C08-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "id": "CLM-C08-05",
+  "novelty": "NOT ASSESSED",
+  "statement": "Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,\nG(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;\nG(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).",
+  "system": "SYS-C",
+  "title": "Measured associativity thresholds for 45 base sequences",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

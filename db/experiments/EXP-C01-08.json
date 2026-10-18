@@ -1,0 +1,87 @@
+{
+  "agent": "Mathematical Skeptic",
+  "analysis": "In-lab replication of the novelty audit - confluence iff border containment (0 mismatches in 28,850 pairs); all 527 open relations have no common border; exactly 12 hard relations have a (single) common border; the formula holds for three k = 8 relations with two common borders (n <= 13).",
+  "assumptions": [
+    "(a) binary k <= 7, ternary k <= 4, all ordered pairs",
+    "(c) n <= 13"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C01-08",
+    "file": "experiments/C01/E08_historian_replication.py",
+    "sha256": "980064fde3308c78e973b30d9d2813807636a4242714724fc62f1aafdbba2ba9",
+    "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+  },
+  "cycle": "C01",
+  "falsification": "Any mismatch in (a), any open relation with c != 1, a different count in (b), or a failure of the formula in (c).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:10:45Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "analysis",
+      "new": "In-lab replication of the novelty audit - confluence iff border containment (0 mismatches in 28,850 pairs); all 527 open relations have no common border; exactly 12 hard relations have a (single) common border; the formula holds for three k = 8 relations with two common borders (n <= 13).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C01",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C01-08",
+        "CLM-C01-09",
+        "CLM-C01-10",
+        "CLM-C01-11"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:13:57Z"
+    }
+  ],
+  "hypothesis": "(a) {u -> v} (|u| = |v|) is confluent iff Borders(u) is contained in Borders(v) (Kurth 1987); (b) all 527 relations left open by EXP-C01-07 have no common border; among the hard relations of EXP-C01-06 exactly 12 have a common border (one each); (c) the common-border formula holds for hard relations with two common borders (k = 8).",
+  "id": "EXP-C01-08",
+  "methodology": "(a) local confluence = all critical pairs of the single terminating rule join; (b) recompute common borders for the relations of EXP-C01-06/07; (c) exact class counts by union-find.",
+  "question": "Do the Historian's scratch computations (run outside the repository) reproduce inside the lab?",
+  "related": [
+    "CLM-C01-08",
+    "CLM-C01-09",
+    "CLM-C01-10",
+    "CLM-C01-11"
+  ],
+  "results_file": "results/EXP-C01-08.json",
+  "results_sha256": "637010735fc351eca624278c3b4e573b43028056536d62b872023440215cb34c",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C01-08",
+        "file": "experiments/C01/E08_historian_replication.py",
+        "sha256": "980064fde3308c78e973b30d9d2813807636a4242714724fc62f1aafdbba2ba9",
+        "systems_sha256": "0d57ca8c35477a240dbaafa22f01417df9c19655c58efecb3cba3c50cdeeb425"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:10:44Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C01-08.json",
+      "results_sha256": "637010735fc351eca624278c3b4e573b43028056536d62b872023440215cb34c",
+      "runtime_s": 0.138,
+      "started": "2026-10-18T08:10:44Z",
+      "summary": [
+        "(a) 28850 ordered pairs: confluence iff border containment, mismatches 0",
+        "(b) open relations by #common borders: {0: 527}; hard relations by #common borders: {0: 1314, 1: 12}",
+        "(c) two-common-border relations (k = 8, n <= 13): agree = [True, True, True]"
+      ]
+    }
+  ],
+  "summary": [
+    "(a) 28850 ordered pairs: confluence iff border containment, mismatches 0",
+    "(b) open relations by #common borders: {0: 527}; hard relations by #common borders: {0: 1314, 1: 12}",
+    "(c) two-common-border relations (k = 8, n <= 13): agree = [True, True, True]"
+  ],
+  "title": "Replication of the novelty audit's computations: confluence criterion, open cases, two common borders"
+}

@@ -10,10 +10,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T07:22:46Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C02",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Classical redundancy of digit sets larger than the base (A. Avizienis, IRE Trans. Electron. Comput. EC-10 (1961) 389-400); Akiyama-Frougny-Sakarovitch assume gcd(p, q) = 1 precisely to exclude it.",
+      "old": null,
+      "reason": "Historian novelty audit 2026-10-18 (reviews/historian_C01_C02.md, section 3)",
+      "ts": "2026-10-18T08:13:57Z"
     }
   ],
   "id": "CLM-C02-06",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Classical redundancy of digit sets larger than the base (A. Avizienis, IRE Trans. Electron. Comput. EC-10 (1961) 389-400); Akiyama-Frougny-Sakarovitch assume gcd(p, q) = 1 precisely to exclude it.",
   "statement": "For every carry rule with sum b < m, each integer has exactly one stable configuration of that value.",
   "system": "SYS-C",
   "title": "H-C02-4: every terminating carry rule gives unique stable representations (refuted)",
