@@ -1,0 +1,14 @@
+{
+ "FNV-1a sequential": {
+  "z1024": -9.77,
+  "z1021": -7.99,
+  "bucket_collision_ratio_2^16": 0.9953
+ },
+ "MX64 sequential": {
+  "z1024": -0.5,
+  "z1021": 0.57,
+  "bucket_collision_ratio_2^16": 1.0037
+ },
+ "ideal_z1024_sd_over_200": 1.084,
+ "runtime_s": 0.2
+}

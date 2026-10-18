@@ -1,0 +1,20 @@
+{
+ "nim_mex_field_checks": {
+  "commutative": true,
+  "distributive_over_xor_sample": true,
+  "nonzero_closed_and_invertible": true
+ },
+ "latin": {
+  "NIMINV": true,
+  "AFF": true,
+  "XOR": true,
+  "ARP": true,
+  "ISO": true
+ },
+ "tfunction_AFF_violations": 0,
+ "xor_distinct_output_differences": 1,
+ "arp_1pass_unchanged_under_prefix_permutation": 2000,
+ "arp_keys_actually_changed": 2000,
+ "arp_p2rev_common_additive_shift_fraction": 1.0,
+ "runtime_s": 0.3
+}

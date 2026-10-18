@@ -1,0 +1,108 @@
+{
+  "agent": "Application Researcher",
+  "analysis": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.",
+  "assumptions": [
+    "n in {32, 64, 128, 256, 512}; 3 instances per randomised family",
+    "probes = table look-ups (machine-independent cost); wall times are medians of 3 runs on a shared, loaded machine and are indicative only",
+    "families: cyclic group Z_n, anchored x+y+1, left-zero band x*y = x (needs all n generators), the first two with one corrupted entry, random magmas"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C17-01",
+    "file": "experiments/C17/E01_assoc_benchmark.py",
+    "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
+    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+  },
+  "counterexamples": [
+    "left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)"
+  ],
+  "cycle": "C17",
+  "falsification": "H-C17-1: a family where Light's test costs more than 10/n of the exhaustive probes. H-C17-3: a wrong verdict of the randomised test.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:22:07Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C17-04",
+        "CLM-C17-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:24:11Z"
+    }
+  ],
+  "hypothesis": "H-C17-1 (bold): Light's test with a greedy generating set beats the exhaustive test by a factor >= n/10 in table probes on every input family. H-C17-3: the Rajagopalan-Schulman test with 40 rounds never errs on the benchmark (one-sided error <= (7/8)^40 per non-associative input).",
+  "id": "EXP-C17-01",
+  "methodology": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.",
+  "question": "How much cheaper than the exhaustive n^3 check are generator-based, anchored and randomised associativity tests, on which inputs, and with which error rates?",
+  "related": [
+    "CLM-C17-04",
+    "CLM-C17-06"
+  ],
+  "results_file": "results/EXP-C17-01.json",
+  "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-01",
+        "file": "experiments/C17/E01_assoc_benchmark.py",
+        "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
+        "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:22:07Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C17-01.json",
+      "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
+      "runtime_s": 31.632,
+      "started": "2026-10-18T09:21:35Z",
+      "summary": [
+        "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
+        "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
+        "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
+      ]
+    }
+  ],
+  "summary": [
+    "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
+    "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
+    "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
+  ],
+  "title": "Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

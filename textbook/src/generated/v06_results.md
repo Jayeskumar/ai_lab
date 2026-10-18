@@ -47,21 +47,21 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C03-04** (Lean), rediscovery: 011 -\> 11100 is non-terminating although r \< 2q.
 * **CLM-C03-05** (Lean), rediscovery: Lifting lemma - loops transfer along letter morphisms (explains divisibility).
 * **CLM-C03-06** (computer-assisted), rediscovery: Classification of 601 of the 625 rules with p, q, r, s \<= 5 (computer-assisted).
+* **CLM-C03-10** (written), rediscovery: Divisibility characterization of termination for 0\^p 1\^q -\> 1\^r 0\^s (H-C03-4).
 
 **Computationally supported.**
 
-* **CLM-C03-10**, rediscovery: Divisibility characterization of termination for 0\^p 1\^q -\> 1\^r 0\^s (H-C03-4).
-* **CLM-C03-11**, not assessed: Loop lengths in the base family grow like k\^q.
+* **CLM-C03-11**, rediscovery: Loop lengths in the base family grow like k\^q.
 
 ## C04 — Derivation lengths, random descent and rewriting games
 
 **Theorems.**
 
-* **CLM-C04-01** (computer-assisted), not assessed: Termination census of one-rule systems with \|l\|, \|r\| \<= 3: non-terminating iff l is a factor of r.
+* **CLM-C04-01** (computer-assisted), rediscovery: Termination census of one-rule systems with \|l\|, \|r\| \<= 3: non-terminating iff l is a factor of r.
 * **CLM-C04-03** (written), rediscovery: The rules aab -\> ababa and aab -\> babaa (and their six symmetric images) terminate.
 * **CLM-C04-04** (Lean), rediscovery: ab -\> ba: every derivation has inv(w) steps, D(n) = floor(n\^2/4), P-positions = even inversion count.
 * **CLM-C04-05** (Lean), rediscovery: One-rule systems with an unbordered left-hand side have random descent (Lean-verified).
-* **CLM-C04-06** (written), not assessed: Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent.
+* **CLM-C04-06** (written), rediscovery: Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent.
 * **CLM-C04-08** (written), rediscovery: Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2).
 * **CLM-C04-09** (written), potentially novel: The rule aab -\> ba has derivational complexity D(n) = n - 1 - min{k : 2\^k + k \>= n} (non-rational).
 * **CLM-C04-10** (written), potentially novel: Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -\> ba.
@@ -70,7 +70,7 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 **Computationally supported.**
 
-* **CLM-C04-12**, not assessed: Complexity classes and closed forms of the 162 terminating rules with \|l\|, \|r\| \<= 3.
+* **CLM-C04-12**, rediscovery: Complexity classes and closed forms of the 162 terminating rules with \|l\|, \|r\| \<= 3.
 
 **Conjectures.**
 
@@ -98,18 +98,18 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 **Theorems.**
 
 * **CLM-C06-02** (Lean), rediscovery: Anchored associativity forces x\*y = x + y + 1, for every N.
-* **CLM-C06-03** (Lean), not assessed: Anchored right-distributivity forces x\*y = x + 1, for every N.
-* **CLM-C06-05** (written), not assessed: Anchored right-permutable magmas are x\*y = x + c(y); there are N\^(N-1) of them.
+* **CLM-C06-03** (Lean), rediscovery: Anchored right-distributivity forces x\*y = x + 1, for every N.
+* **CLM-C06-05** (written), rediscovery: Anchored right-permutable magmas are x\*y = x + c(y); there are N\^(N-1) of them.
 * **CLM-C06-06** (Lean), potentially novel: An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique.
 * **CLM-C06-07** (written), potentially novel: A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a\^2 + a = 1 mod N.
-* **CLM-C06-08** (Lean), potentially novel: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156).
-* **CLM-C06-12** (written), not assessed: Anchored spectra are closed under coprime products.
+* **CLM-C06-08** (Lean), rediscovery: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156).
+* **CLM-C06-12** (written), rediscovery: Anchored spectra are closed under coprime products.
 
 **Computationally supported.**
 
 * **CLM-C06-01**, rediscovery: Left-distributivity with a successor anchor: the Laver tables (rediscovery).
-* **CLM-C06-10**, not assessed: Laws with finite anchored spectra {1, 2} and {1, 3}.
-* **CLM-C06-11**, not assessed: Mirror twins of the golden and odd laws.
+* **CLM-C06-10**, potentially novel: Laws with finite anchored spectra {1, 2} and {1, 3}.
+* **CLM-C06-11**, potentially novel: Mirror twins of the golden and odd laws.
 
 ## C07 — Arithmetic from the minimal excludant: a census of mex-defined operations
 
@@ -131,10 +131,10 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 **Computationally supported.**
 
-* **CLM-C08-02**, not assessed: Circle products over non-Pisot base sequences are never associative.
-* **CLM-C08-03**, rediscovery: Pisot base sequences give associative circle products for all sufficiently large shifts.
+* **CLM-C08-02**, potentially novel: Circle products over non-Pisot base sequences are never associative.
+* **CLM-C08-03**, rediscovery: Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts.
 * **CLM-C08-04**, potentially novel: Non-monotone associative-shift sets require a negative conjugate root.
-* **CLM-C08-05**, not assessed: Measured associativity thresholds for 45 base sequences.
+* **CLM-C08-07**, rediscovery: Corrected associativity thresholds - certified lower bounds and searched ranges.
 
 ## C09 — Arithmetic of Knuth's circle semigroup
 
@@ -142,13 +142,13 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 * **CLM-C09-01** (written), rediscovery: Knuth's circle semigroup embeds in Z\[phi\]; Fibonacci numbers are its units-images.
 * **CLM-C09-03** (written), potentially novel: Window obstruction: a fixed proportion 1/phi\^2 of all integers are circle-irreducible.
-* **CLM-C09-06** (written), not assessed: Factorisation lengths are bounded by the conjugate coordinate.
-* **CLM-C09-07** (written), not assessed: The norm N(n) = n\*\^2 + n n\* - n\^2 is multiplicative for the circle product.
-* **CLM-C09-08** (computer-assisted), not assessed: Factorisation statistics of the circle semigroup up to 2e5.
+* **CLM-C09-06** (written), potentially novel: Factorisation lengths are bounded by the conjugate coordinate.
+* **CLM-C09-07** (written), rediscovery: The norm N(n) = n\*\^2 + n n\* - n\^2 is multiplicative for the circle product.
+* **CLM-C09-08** (computer-assisted), potentially novel: Factorisation statistics of the circle semigroup up to 2e5.
 
 **Conjectures.**
 
-* **CLM-C09-05**, not assessed: The density of circle irreducibles is exactly 1/phi\^2.
+* **CLM-C09-05**, potentially novel: The density of circle irreducibles is exactly 1/phi\^2.
 
 ## C10 — The cost of counting across representations
 
@@ -156,12 +156,12 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 * **CLM-C10-01** (written), rediscovery: Average cost of counting in classical representations (b/(b-1), e-1, 1).
 * **CLM-C10-02** (written), rediscovery: Zeckendorf counting: T\_m = 2 G\_m - ceil(m/2) - 2, average cost 2.
-* **CLM-C10-04** (written), not assessed: Exchange systems fire 1/(m - sum b) times per increment on average.
-* **CLM-C10-05** (written), not assessed: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q)).
+* **CLM-C10-04** (written), rediscovery: Exchange systems fire 1/(m - sum b) times per increment on average.
+* **CLM-C10-05** (written), rediscovery: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q)).
 
 **Computationally supported.**
 
-* **CLM-C10-06**, not assessed: Multi-offset exchange rules have rule-specific average counting costs.
+* **CLM-C10-06**, potentially novel: Multi-offset exchange rules have rule-specific average counting costs.
 * **CLM-C10-07**, rediscovery: Skew binary counting has worst-case cost 2 and average 3/2.
 
 ## C11 — Pattern-terminated universal integer codes
@@ -200,6 +200,23 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 * **CLM-C12-13**, not assessed: Subtract-a-Fibonacci-number has bounded Grundy values.
 
+## C13 — Anchored spectra II: which sets of integers are spectra?
+
+**Theorems.**
+
+* **CLM-C13-01** (written), rediscovery: Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed, finite ones are divisor sets.
+* **CLM-C13-02** (Lean), potentially novel: Right-normed laws (xy)z = x V(y,z) have only translation models.
+* **CLM-C13-03** (Lean), potentially novel: The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a\*c\_W(a) = 1.
+* **CLM-C13-04** (Lean), potentially novel: Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x.
+* **CLM-C13-05** (Lean), not assessed: The law x = x(x(xx)) has anchored models of every size except 2.
+* **CLM-C13-06** (computer-assisted), not assessed: Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of the 17 laws of CLM-C06-10.
+* **CLM-C13-11** (written), potentially novel: Single laws whose affine spectra are classical arithmetic sets.
+
+**Computationally supported.**
+
+* **CLM-C13-10**, not assessed: Spectra of one-variable laws are finite or cofinite.
+* **CLM-C13-12**, not assessed: Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found.
+
 ## C14 — Graphs as quantities: the 256 local graph products
 
 **Theorems.**
@@ -220,6 +237,55 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C14-12**, not assessed: Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs).
 * **CLM-C14-13**, potentially novel: H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product.
 
+## C15 — Magma cellular automata: light cones, streaming width and fast-forwarding
+
+**Theorems.**
+
+* **CLM-C15-01** (Lean), rediscovery: Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width.
+* **CLM-C15-02** (written), rediscovery: Affine magmas - binomial light cone and an O(L log L log t) fast-forward.
+* **CLM-C15-03** (written), not assessed: Commutative semigroups - fast-forward by exponent arithmetic.
+* **CLM-C15-04** (written), potentially novel: The fuse magma: linear streaming width, yet an O(L) fast-forward for every t.
+* **CLM-C15-05** (computer-assisted), rediscovery: Surjective iff permutive for magmas of order at most 3; false at order 4.
+* **CLM-C15-06** (written), rediscovery: The two-element magma automata are the elementary rules 17m.
+
+**Computationally supported.**
+
+* **CLM-C15-07**, potentially novel: Census of order-3 magma automata by streaming width.
+* **CLM-C15-13**, rediscovery: Affine fast-forward by operator powers.
+* **CLM-C15-14**, not assessed: Commutative-semigroup fast-forward by exponent arithmetic.
+* **CLM-C15-15**, potentially novel: Fuse fast-forward by burn times.
+* **CLM-C15-16**, rediscovery: Cycle detection as a generic fast-forward.
+* **CLM-C15-17**, not assessed: Earlier structures of the lab as automata.
+
+**Conjectures.**
+
+* **CLM-C15-18**, not assessed: Bounded streaming width implies a fast-forward.
+
+## C16 — Fibonacci dynamics in invented finite algebras
+
+**Theorems.**
+
+* **CLM-C16-01** (Lean), rediscovery: The Fibonacci pair map of a magma is a permutation iff every left translation is a bijection.
+* **CLM-C16-03** (written), rediscovery: Full-period magmas are de Bruijn cycles: there are (n!)\^n / n\^2 of them.
+* **CLM-C16-04** (written), not assessed: A parity condition for full periods.
+* **CLM-C16-05** (written), potentially novel: Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2.
+* **CLM-C16-07** (computer-assisted), potentially novel: Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16.
+* **CLM-C16-08** (written), not assessed: Direct products of full-period magmas of coprime orders are full-period.
+* **CLM-C16-09** (written), potentially novel: No isotope of a group of even order has a full-period Fibonacci pair map.
+* **CLM-C16-11** (Lean), not assessed: Fixed points of the pair map are idempotents.
+* **CLM-C16-12** (written), rediscovery: Affine magmas: periods are orders of companion matrices; the anchored magma x + y + 1 is the Fibonacci sequence mod N.
+* **CLM-C16-14** (written), rediscovery: Fibonacci sequences of nimbers: maximal period pi(2\^(2\^k) - 1).
+* **CLM-C16-15** (written), potentially novel: Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element.
+* **CLM-C16-18** (computer-assisted), not assessed: Maximal Fibonacci periods of small groups.
+
+**Computationally supported.**
+
+* **CLM-C16-10**, not assessed: Full-period quasigroups exist for every order n \>= 5.
+* **CLM-C16-13**, not assessed: For affine magmas the maximal period equals the order of the 3x3 affine matrix.
+* **CLM-C16-16**, not assessed: Fibonacci orbits in Laver tables reach the top element within 5 steps (n \<= 10).
+* **CLM-C16-17**, rediscovery: Magma Fibonacci generators are not competitive pseudo-random generators.
+* **CLM-C16-19**, not assessed: Random sampling finds full-period quasigroups where exact search fails.
+
 ## C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check
 
 **Theorems.**
@@ -233,6 +299,41 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C17-04**, rediscovery: Benchmark - generator and anchor tests versus the exhaustive check.
 * **CLM-C17-05**, not assessed: The anchor instance of left-distributivity singles out the Laver tables (N \<= 10).
 
+## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes
+
+**Theorems.**
+
+* **CLM-C18-01** (Lean), rediscovery: e-transformations are bijections of strings of fixed length.
+* **CLM-C18-02** (Lean), not assessed: Differences propagate forward only; forward-only tail hashes fail the strict avalanche criterion.
+* **CLM-C18-03** (Lean), not assessed: The tail-information bound: an e-transformation tail carries one byte of state.
+* **CLM-C18-04** (written), rediscovery: T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits into low output bits.
+* **CLM-C18-05** (written), rediscovery: GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences.
+* **CLM-C18-06** (written), not assessed: The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is anagram-blind.
+* **CLM-C18-07** (written), not assessed: The 8-pass cascade has a bijective 64-bit state update.
+
+**Computationally supported.**
+
+* **CLM-C18-08**, not assessed: H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche.
+* **CLM-C18-13**, not assessed: Quasigroup hashes against non-cryptographic baselines - no improvement.
+
+## C19 — The longest Zeckendorf game
+
+**Theorems.**
+
+* **CLM-C19-01** (written), rediscovery: Every Zeckendorf game has length B(n) - sum\_{i\>=2} (i-1) MC\_i.
+* **CLM-C19-02** (written), potentially novel: The split phase of the longest game ends at the lazy Fibonacci representation.
+* **CLM-C19-03** (written), potentially novel: Closed form of the longest game on a Fibonacci number: L(F\_k) = F\_{k+2} - k - 2 - floor((k-1)\^2/4).
+* **CLM-C19-04** (written), rediscovery: A short proof that only n = F\_k - 1 can be played with split moves alone (Cusenza et al., Thm 1.4).
+* **CLM-C19-07** (computer-assisted), rediscovery: Exact longest games for n \<= 150 and independent confirmation of the split-first strategy.
+* **CLM-C19-08** (written), not assessed: Every multiset of Fibonacci numbers with sum n is a reachable game position.
+
+**Computationally supported.**
+
+* **CLM-C19-05**, potentially novel: A two-sequence recursion for the longest Zeckendorf game on every n.
+* **CLM-C19-06**, potentially novel: The deficit of a two-summand number depends only on the lower level and the parity of the gap.
+* **CLM-C19-09**, not assessed: D(n) \<= floor(j\^2/4) for top level j, and L is strictly increasing.
+* **CLM-C19-14**, potentially novel: Computing the longest game in O(log\^2 n) operations instead of simulating Theta(n) moves.
+
 ## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03
 
 **Theorems.**
@@ -240,3 +341,4 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C20-01** (written), rediscovery: aab -\> ababa terminates, with derivational complexity D(n) = 2\^(n-2) - 1.
 * **CLM-C20-02** (written), potentially novel: aab -\> babaa terminates; exact per-word derivation length and D(n) = max\_b b(2\^floor((n-b)/2) - 1).
 * **CLM-C20-03** (computer-assisted), not assessed: The C04 extended termination census is complete - 480 of the 868 rules with \|l\| \<= 3, \|r\| \<= 5 terminate.
+* **CLM-C20-04** (written), rediscovery: C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation.

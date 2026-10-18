@@ -35,39 +35,39 @@
    "LD": true
   },
   "2": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "4": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "8": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "16": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "32": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "64": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "128": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "256": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   },
   "512": {
-   "equals_laver": false,
+   "equals_laver": true,
    "LD": true
   }
  },
@@ -151,5 +151,5 @@
    "LD": []
   }
  },
- "_seconds": 131.9
+ "_seconds": 130.4
 }

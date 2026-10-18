@@ -12,7 +12,7 @@ The last cycle of the batch attacks problems that earlier cycles left open.
 |---|---|---|---|
 | H-C20-1 | The 8 one-rule systems left undecided by C04 (classes aab → ababa, aab → babaa) terminate. | Inventor | **proved** (termination itself is a rediscovery: barren rules) |
 | H-C20-2 | Their derivational complexities are 2^(n−2) − 1 and max_b b·(2^⌊(n−b)/2⌋ − 1). | Explorer | **proved** |
-| H-C20-3 | C03's Conjecture 4.6 agrees with the published Zantema–Geser characterisation. | Historian | **inconclusive** — full text not retrievable here |
+| H-C20-3 | C03's Conjecture 4.6 agrees with the published Zantema–Geser characterisation. | Historian | **confirmed** — the Historian found the scanned report; its Theorem 1.1 is the conjecture verbatim (REDISCOVERY) |
 
 ## Step 2 — Definitions
 
@@ -60,9 +60,14 @@ of the C04 extended census are classified (480 terminating, 388 not).
 * A 2026 survey still lists termination of general one-rule string rewriting
   as open ([arXiv:2608.19397](https://arxiv.org/pdf/2608.19397)).
 * Zantema–Geser, *A complete characterization of termination of
-  0^p1^q → 1^r0^s*, AAECC 11 (2000) 1–25 (tech. report UU-CS-1994-44): the
-  full text could not be obtained (HTTP 403, a Cloudflare challenge and HTTP
-  500 from the Utrecht repository); the comparison with C03 stays open.
+  0^p1^q → 1^r0^s*, AAECC 11 (2000) 1–25 (tech. report UU-CS-1994-44). The
+  Director's retrieval attempts failed (HTTP 403, a Cloudflare challenge,
+  HTTP 500); the Historian later found the scanned report on an older archive
+  host ([ics-archive](https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf)).
+  Its Theorem 1.1 is C03's Conjecture 4.6 verbatim (equivalence checked by
+  case analysis and on all parameters ≤ 40): CLM-C20-04 and CLM-C03-10 are
+  **REDISCOVERY**, PROVEN by the published proof
+  (`reviews/historian_C03_C10.md`, item 20).
 
 ## Step 9 — Applications
 
@@ -75,6 +80,8 @@ updated (CLM-C04-03 now PROVEN).
 
 ## Next directions
 
-1. Obtain the Zantema–Geser theorem (human with library access).
-2. Complexity classes of all terminating barren one-rule systems with |l| ≤ 4.
-3. Formalise Theorems 1–2 in Lean.
+1. Complexity classes of all terminating barren one-rule systems with |l| ≤ 4.
+2. Formalise Theorems 1–2 in Lean.
+
+*(The first version of this list asked for the Zantema–Geser theorem; the
+Historian has since obtained and compared it — see Step 8.)*

@@ -1,0 +1,2371 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C07-03",
+    "file": "experiments/C07/E03_rows.py",
+    "sha256": "97483c0ecb39cb7388af2dfb152957e2bb228de6082ff405766fede2a11e5c9e",
+    "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+  },
+  "env": {
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:09:08Z",
+  "id": "EXP-C07-03",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "rows a = 1..5 computed to b < 1500 for the first spec of each of the 134 distinct operations of EXP-C07-01; a row counts as additively periodic if a period p <= 375 holds on a checked tail of length >= max(200, 3p)",
+      "row 2 of D[x^y] recomputed to b < 2^15 by an independent bitset algorithm"
+    ],
+    "cycle": "C07",
+    "falsification": "H-C07-4: a row without additive period. H-C07-5: any b < 2^15 violating the formula.",
+    "hypothesis": "H-C07-4 (bold): every row of every mex operation of the family is eventually additively periodic. H-C07-5 (from inspection of EXP-C07-02): row 2 of D[x^y], g(b) = mex(G u (b XOR G)) with G = {g(b') : b' < b}, satisfies g(b) = b + J_k for J_(k+1) <= b < J_(k+1) + J_k and g(b) = b - J_k for J_(k+1) + J_k <= b < J_(k+2) (k >= 1), J the Jacobsthal numbers.",
+    "id": "EXP-C07-03",
+    "methodology": "Rectangular mex tables (5 x 1500); additive_period on each row; independent recursion g(b) = least v with v not in G and v XOR b not in G (bitsets); comparison with the Jacobsthal block-swap formula; OEIS checks of the row and of |g(b) - b|.",
+    "question": "Is every row b -> f(a, b) (a = 1..5) of every mex operation eventually additively periodic, f(a, b + p) = f(a, b) + s, as for Wythoff's game? What is row 2 of D[x^y]?",
+    "title": "Rows of mex operations: additive periodicity, and a Jacobsthal block-swap row"
+  },
+  "results": {
+    "jacobsthal": {
+      "first_mismatch": null,
+      "first_terms": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        8,
+        9,
+        10,
+        5,
+        6,
+        7,
+        16,
+        17,
+        18,
+        19,
+        20,
+        11,
+        12,
+        13,
+        14,
+        15,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42
+      ],
+      "formula_mismatches": 0,
+      "independent_vs_mex_table_agree_1500": true,
+      "involution_on_range": true,
+      "n": 32768,
+      "oeis_abs_offset": {
+        "hits": [],
+        "status": "NO MATCH"
+      },
+      "oeis_row": {
+        "hits": [],
+        "status": "NO MATCH"
+      }
+    },
+    "n_operations": 134,
+    "operations_all_rows_periodic": 22,
+    "operations_no_row_periodic": [
+      "R+D[x^y]",
+      "R+D[x^z]",
+      "R+D[x^y^z]",
+      "R+D[x^y]+D[z]",
+      "R+D[x^y]+D[x^z]",
+      "R+D[x^y]+D[y^z]",
+      "R+D[x^y]+D[x^y^z]",
+      "R+D[z]+D[x^y^z]",
+      "R+D[x^z]+D[x^y^z]",
+      "R+D[y^z]+D[x^y^z]",
+      "R+D[x^y]+D[z]+D[y^z]",
+      "R+D[x^y]+D[z]+D[x^y^z]",
+      "R+D[x^y]+D[x^z]+D[x^y^z]",
+      "R+D[x^y]+D[y^z]+D[x^y^z]",
+      "R+D[z]+D[y^z]+D[x^y^z]",
+      "R+D[x^z]+D[y^z]+D[x^y^z]",
+      "R+D[x^y]+D[z]+D[y^z]+D[x^y^z]",
+      "R+D[x^y]+D[x^z]+D[y^z]+D[x^y^z]",
+      "R+D[z]+D[x^z]+D[y^z]+D[x^y^z]",
+      "R+D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]",
+      "L+R+D[x^y]",
+      "L+R+D[x^z]",
+      "L+R+D[x^y^z]",
+      "L+R+D[x^y]+D[z]",
+      "L+R+D[x^y]+D[x^z]",
+      "L+R+D[x^y]+D[y^z]",
+      "L+R+D[x^y]+D[x^y^z]",
+      "L+R+D[z]+D[x^y^z]",
+      "L+R+D[x^z]+D[x^y^z]",
+      "L+R+D[y^z]+D[x^y^z]",
+      "L+R+D[x^y]+D[z]+D[y^z]",
+      "L+R+D[x^y]+D[z]+D[x^y^z]",
+      "L+R+D[x^y]+D[x^z]+D[x^y^z]",
+      "L+R+D[x^y]+D[y^z]+D[x^y^z]",
+      "L+R+D[z]+D[y^z]+D[x^y^z]",
+      "L+R+D[x^z]+D[y^z]+D[x^y^z]",
+      "L+R+D[x^y]+D[z]+D[y^z]+D[x^y^z]",
+      "L+R+D[x^y]+D[x^z]+D[y^z]+D[x^y^z]",
+      "L+R+D[z]+D[x^z]+D[y^z]+D[x^y^z]",
+      "L+R+D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+    ],
+    "rows": [
+      {
+        "periods": {
+          "1": [
+            1,
+            0,
+            0
+          ],
+          "2": [
+            1,
+            0,
+            0
+          ],
+          "3": [
+            1,
+            0,
+            0
+          ],
+          "4": [
+            1,
+            0,
+            0
+          ],
+          "5": [
+            1,
+            0,
+            0
+          ]
+        },
+        "spec": "empty"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            0,
+            1
+          ],
+          "2": [
+            1,
+            0,
+            1
+          ],
+          "3": [
+            1,
+            0,
+            1
+          ],
+          "4": [
+            1,
+            0,
+            1
+          ],
+          "5": [
+            1,
+            0,
+            1
+          ]
+        },
+        "spec": "D[x]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            0
+          ],
+          "3": [
+            1,
+            1,
+            0
+          ],
+          "4": [
+            1,
+            1,
+            0
+          ],
+          "5": [
+            1,
+            1,
+            0
+          ]
+        },
+        "spec": "D[y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            0,
+            1
+          ],
+          "2": [
+            1,
+            0,
+            2
+          ],
+          "3": [
+            1,
+            0,
+            3
+          ],
+          "4": [
+            1,
+            0,
+            4
+          ],
+          "5": [
+            1,
+            0,
+            5
+          ]
+        },
+        "spec": "D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            2,
+            2,
+            1
+          ],
+          "3": [
+            4,
+            4,
+            1
+          ],
+          "4": [
+            4,
+            4,
+            1
+          ],
+          "5": [
+            8,
+            8,
+            1
+          ]
+        },
+        "spec": "D[x]+D[y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1001
+          ],
+          "3": [
+            1,
+            1,
+            945
+          ],
+          "4": [
+            1,
+            1,
+            915
+          ],
+          "5": [
+            1,
+            1,
+            929
+          ]
+        },
+        "spec": "D[x]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1290
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1
+          ],
+          "3": [
+            1,
+            1,
+            1
+          ],
+          "4": [
+            1,
+            1,
+            1
+          ],
+          "5": [
+            1,
+            1,
+            1
+          ]
+        },
+        "spec": "D[x]+D[y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            996
+          ],
+          "3": [
+            1,
+            1,
+            965
+          ],
+          "4": [
+            1,
+            1,
+            878
+          ],
+          "5": [
+            1,
+            1,
+            868
+          ]
+        },
+        "spec": "D[x]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            1,
+            1,
+            1024
+          ],
+          "4": [
+            8,
+            8,
+            1024
+          ],
+          "5": null
+        },
+        "spec": "D[y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            16,
+            16,
+            1021
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1290
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            1,
+            1,
+            1024
+          ],
+          "4": [
+            8,
+            8,
+            1024
+          ],
+          "5": null
+        },
+        "spec": "D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            256,
+            512,
+            256
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            8,
+            8,
+            1040
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            256,
+            512,
+            256
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            0
+          ],
+          "3": [
+            1,
+            1,
+            0
+          ],
+          "4": [
+            1,
+            1,
+            0
+          ],
+          "5": [
+            1,
+            1,
+            0
+          ]
+        },
+        "spec": "R"
+      },
+      {
+        "periods": {
+          "1": [
+            2,
+            2,
+            1
+          ],
+          "2": [
+            4,
+            4,
+            1
+          ],
+          "3": [
+            4,
+            4,
+            1
+          ],
+          "4": [
+            8,
+            8,
+            1
+          ],
+          "5": [
+            8,
+            8,
+            1
+          ]
+        },
+        "spec": "R+D[x]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1
+          ],
+          "2": [
+            1,
+            1,
+            1
+          ],
+          "3": [
+            1,
+            1,
+            1
+          ],
+          "4": [
+            1,
+            1,
+            1
+          ],
+          "5": [
+            1,
+            1,
+            1
+          ]
+        },
+        "spec": "R+D[x]+D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1001
+          ],
+          "2": [
+            1,
+            1,
+            945
+          ],
+          "3": [
+            1,
+            1,
+            915
+          ],
+          "4": [
+            1,
+            1,
+            929
+          ],
+          "5": [
+            1,
+            1,
+            764
+          ]
+        },
+        "spec": "R+D[x]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            8,
+            8,
+            1024
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1290
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            996
+          ],
+          "2": [
+            1,
+            1,
+            965
+          ],
+          "3": [
+            1,
+            1,
+            878
+          ],
+          "4": [
+            1,
+            1,
+            868
+          ],
+          "5": [
+            1,
+            1,
+            825
+          ]
+        },
+        "spec": "R+D[x]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            16,
+            16,
+            1021
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1290
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            1,
+            1,
+            1024
+          ],
+          "3": [
+            8,
+            8,
+            1024
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            256,
+            512,
+            256
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            8,
+            8,
+            1040
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            256,
+            512,
+            256
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "R+D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            0,
+            0
+          ],
+          "2": [
+            1,
+            0,
+            0
+          ],
+          "3": [
+            1,
+            0,
+            0
+          ],
+          "4": [
+            1,
+            0,
+            0
+          ],
+          "5": [
+            1,
+            0,
+            0
+          ]
+        },
+        "spec": "L"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            2,
+            2,
+            0
+          ],
+          "3": [
+            4,
+            4,
+            0
+          ],
+          "4": [
+            4,
+            4,
+            0
+          ],
+          "5": [
+            8,
+            8,
+            0
+          ]
+        },
+        "spec": "L+D[y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1000
+          ],
+          "3": [
+            1,
+            1,
+            944
+          ],
+          "4": [
+            1,
+            1,
+            914
+          ],
+          "5": [
+            1,
+            1,
+            928
+          ]
+        },
+        "spec": "L+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            0
+          ],
+          "3": [
+            1,
+            1,
+            0
+          ],
+          "4": [
+            1,
+            1,
+            0
+          ],
+          "5": [
+            1,
+            1,
+            0
+          ]
+        },
+        "spec": "L+D[y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            995
+          ],
+          "3": [
+            1,
+            1,
+            964
+          ],
+          "4": [
+            1,
+            1,
+            877
+          ],
+          "5": [
+            1,
+            1,
+            867
+          ]
+        },
+        "spec": "L+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1289
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1023
+          ],
+          "3": [
+            1,
+            1,
+            1023
+          ],
+          "4": [
+            8,
+            8,
+            1023
+          ],
+          "5": null
+        },
+        "spec": "L+D[y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1023
+          ],
+          "3": [
+            16,
+            16,
+            1020
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1289
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1023
+          ],
+          "3": [
+            1,
+            1,
+            1023
+          ],
+          "4": [
+            8,
+            8,
+            1023
+          ],
+          "5": null
+        },
+        "spec": "L+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            256,
+            512,
+            255
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            1023
+          ],
+          "3": [
+            8,
+            8,
+            1039
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            256,
+            512,
+            255
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            2,
+            2,
+            0
+          ],
+          "2": [
+            4,
+            4,
+            0
+          ],
+          "3": [
+            4,
+            4,
+            0
+          ],
+          "4": [
+            8,
+            8,
+            0
+          ],
+          "5": [
+            8,
+            8,
+            0
+          ]
+        },
+        "spec": "L+R"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            0
+          ],
+          "3": [
+            1,
+            1,
+            0
+          ],
+          "4": [
+            1,
+            1,
+            0
+          ],
+          "5": [
+            1,
+            1,
+            0
+          ]
+        },
+        "spec": "L+R+D[z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            2,
+            2,
+            0
+          ],
+          "2": [
+            1,
+            1,
+            988
+          ],
+          "3": [
+            1,
+            1,
+            891
+          ],
+          "4": [
+            2,
+            2,
+            891
+          ],
+          "5": [
+            1,
+            1,
+            798
+          ]
+        },
+        "spec": "L+R+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            4,
+            4,
+            1024
+          ],
+          "3": [
+            16,
+            16,
+            1024
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            996
+          ],
+          "2": [
+            1,
+            1,
+            946
+          ],
+          "3": [
+            1,
+            1,
+            908
+          ],
+          "4": [
+            1,
+            1,
+            838
+          ],
+          "5": [
+            1,
+            1,
+            801
+          ]
+        },
+        "spec": "L+R+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1269
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            32,
+            32,
+            1018
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[x^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1274
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            4,
+            4,
+            1024
+          ],
+          "3": [
+            32,
+            32,
+            1152
+          ],
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            256,
+            512,
+            256
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            1,
+            1,
+            1024
+          ],
+          "2": [
+            16,
+            16,
+            1030
+          ],
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[x^z]+D[y^z]"
+      },
+      {
+        "periods": {
+          "1": [
+            256,
+            512,
+            256
+          ],
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[x^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      },
+      {
+        "periods": {
+          "1": null,
+          "2": null,
+          "3": null,
+          "4": null,
+          "5": null
+        },
+        "spec": "L+R+D[x^y]+D[z]+D[x^z]+D[y^z]+D[x^y^z]"
+      }
+    ],
+    "rows_additively_periodic": 222,
+    "rows_tested": 670,
+    "summary": [
+      "222/670 rows (a = 1..5, b < 1500) additively periodic; 22 of 134 operations have all five rows periodic; 40 have none",
+      "D[x^y] row 2: independent algorithm = mex table (b < 1500): True; Jacobsthal block-swap formula mismatches for b < 32768: 0; involution: True",
+      "OEIS: row NO MATCH, |g(b)-b| NO MATCH"
+    ]
+  },
+  "results_sha256": "67c185cf15e3cba74eddf8bee2bd8eccee1d627491e9f1d7fec53560e837807d",
+  "runtime_s": 155.526,
+  "started": "2026-10-18T09:06:33Z"
+}

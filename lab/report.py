@@ -10,6 +10,33 @@ from .render import lean_status
 from .util import now_iso, read_json
 
 
+def proof_kind(proof_check: str) -> str:
+    """Coarse class of a PROVEN claim's evidence, read from its proof_check text."""
+    pc = proof_check.lower()
+    lean = "lean" in pc
+    written = "written" in pc or "by hand" in pc or "proved (" in pc
+    computed = "computer-assisted" in pc
+    if pc.startswith("published theorem") or "read verbatim" in pc:
+        return "published proof (literature)"
+    if lean and not (written or computed):
+        return "Lean (complete)"
+    if lean:
+        return "Lean + written or computational parts"
+    if computed:
+        return "computer-assisted"
+    return "written proof"
+
+
+def review_state(proof_check: str) -> str:
+    """Whether a non-formal proof was re-checked by someone other than its author."""
+    pc = proof_check.lower()
+    if "awaiting independent" in pc:
+        return "awaiting independent review"
+    if "skeptic-reviewed" in pc or "by the skeptic" in pc or "skeptic review" in pc:
+        return "independently reviewed"
+    return "no review recorded"
+
+
 def stats() -> dict:
     claims = db.all_records("claim")
     exps = db.all_records("experiment")
@@ -17,16 +44,14 @@ def stats() -> dict:
     v = Counter(c["verification"] for c in claims)
     n = Counter(c.get("novelty", "NOT ASSESSED") for c in claims)
     proof_checks = Counter()
+    review = Counter()
     for c in claims:
         if c["verification"] != "PROVEN":
             continue
-        pc = (c.get("proof_check") or "").lower()
-        if pc.startswith("lean"):
-            proof_checks["Lean-verified"] += 1
-        elif "computer-assisted" in pc:
-            proof_checks["computer-assisted"] += 1
-        else:
-            proof_checks["written proof"] += 1
+        kind = proof_kind(c.get("proof_check") or "")
+        proof_checks[kind] += 1
+        if kind != "Lean (complete)":
+            review[review_state(c.get("proof_check") or "")] += 1
     systems = Counter()
     for c in claims:
         systems[c.get("system") or "?"] += 1
@@ -44,6 +69,7 @@ def stats() -> dict:
         "verification": dict(v),
         "novelty": dict(n),
         "proven_by_check": dict(proof_checks),
+        "proven_not_fully_formal_by_review": dict(review),
         "claims_by_system": dict(systems),
         "lean_files_verified": sum(1 for k, x in lean.items() if x.get("ok") and "C00" not in k),
         "lean_theorems": lean_theorems,
@@ -95,6 +121,10 @@ def render_tables() -> str:
     out += ["", "| novelty | claims |", "|---|---|"] + [f"| {k} | {v} |" for k, v in sorted(s["novelty"].items())]
     out += ["", "| proof kind (PROVEN claims) | claims |", "|---|---|"]
     out += [f"| {k} | {v} |" for k, v in sorted(s["proven_by_check"].items())]
+    out += ["", "Classes are read from each claim's `proof_check` text; \"parts\" means that some steps",
+            "of the proof are written or computational rather than formal.", "",
+            "| review of the PROVEN claims that are not fully formal | claims |", "|---|---|"]
+    out += [f"| {k} | {v} |" for k, v in sorted(s["proven_not_fully_formal_by_review"].items())]
     out += ["", f"Lean: {s['lean_files_verified']} files verified, {s['lean_theorems']} theorems (standard axioms "
             f"only).", ""]
 
@@ -116,7 +146,8 @@ def render_tables() -> str:
     out += table("7. Potentially novel findings", [c for c in claims if c.get("novelty") == "POTENTIALLY NOVEL"],
                  ("basis", lambda c: (c.get("novelty_basis") or "")[:160]))
     out += table("8. Performance claims (algorithmic)", [c for c in claims if c.get("type") == "algorithmic"],
-                 ("improvement", lambda c: f"{c.get('improvement')}: {c.get('improvement_detail') or ''}"[:200]))
+                 ("improvement", lambda c: (f"{c.get('improvement')}: {c['improvement_detail']}"
+                                             if c.get("improvement_detail") else str(c.get("improvement")))[:200]))
     out += table("Inconclusive", [c for c in claims if c["verification"] == "INCONCLUSIVE"])
     out += ["## 9. Unresolved problems and next directions (from the cycle records)", ""]
     for r in recs:

@@ -20,7 +20,8 @@ Every bold hypothesis the laboratory proposed and refuted is kept here with the 
   *Counterexample:* 0011 -\> 111000 (both counts grow) is terminating - a published theorem (A. Geser, 'A Solution to Zantema's Problem', Passau MIP-9314, 1993; Zantema-Geser 2000; automated RFC match-bound proofs). Our own evidence agrees (all 3747 words of length \<= 12 containing 0011 have finite derivation trees) but we have no independent proof; the refutation rests on the cited proof.
 * **CLM-C03-08** (refuted). *Claimed:* The rule 0\^p 1\^q -\> 1\^r 0\^s terminates iff r \< 2q or s \< 2p.
   *Counterexample:* 011 -\> 11100 (r = 3 \< 4 = 2q) loops: 001111 -\>4 111 001111 00100 (Lean-verified, not\_terminating\_0\_11). 40 counterexamples with parameters \<= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review).
-* **CLM-C03-09** (inconclusive). *Claimed:* The rule is non-terminating iff r \> q, s \> p and (r \>= 2q or s \>= 2p).
+* **CLM-C03-09** (refuted). *Claimed:* The rule is non-terminating iff r \> q, s \> p and (r \>= 2q or s \>= 2p).
+  *Counterexample:* 0011 -\> 11100000 (p = q = 2, r = 3, s = 5): H-C03-3 predicts non-termination (r \> q, s \> p, s \>= 2p), but the rule terminates by Zantema-Geser Theorem 1.1, case 4 (q \< r \< 2q and p does not divide s). The refutation rests on the published proof.
 
 ## C04 — Derivation lengths, random descent and rewriting games
 
@@ -62,6 +63,8 @@ Every bold hypothesis the laboratory proposed and refuted is kept here with the 
 
 ## C08 — Circle multiplications on recurrence numeration systems
 
+* **CLM-C08-05** (refuted). *Claimed:* Smallest shift s0 with o\_s associative for all tested s0 \<= s \<= max tested: Fibonacci 2, Pell (1,2,5) 1, G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10; G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
+  *Counterexample:* Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10\^6) missed these rare failures. Corrected values in CLM-C08-07.
 * **CLM-C08-06** (refuted). *Claimed:* Among digit-convolution products a o\_s b = sum d\_i d\_j G\_(i+j+s), only Fibonacci with s = 2 is associative.
   *Counterexample:* Fibonacci with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric bases are associative for every s; many Pisot sequences are associative at larger shifts (EXP-C08-02).
 
@@ -93,10 +96,39 @@ Every bold hypothesis the laboratory proposed and refuted is kept here with the 
 * **CLM-C12-11** (refuted). *Claimed:* Subtraction games whose move sets are the squares, the triangular numbers, the Fibonacci numbers or the primes have P-positions of positive natural density.
   *Counterexample:* Squares and triangular numbers: the P-set has density 0 (CLM-C12-08); measured P-density 0.0538 -\> 0.0222 and 0.0344 -\> 0.0116 as N grows from 1.25e4 to 2e5. For Fibonacci numbers (0.180) and primes (0.155) the question remains open.
 
+## C13 — Anchored spectra II: which sets of integers are spectra?
+
+* **CLM-C13-07** (refuted). *Claimed:* If a set of laws has an anchored model of size N, it has one of every size d dividing N.
+  *Counterexample:* x = x(x(xx)) has models of every size except 2 (CLM-C13-05, Lean). Violations are common - 24 of 253 one-variable laws (N \<= 12), 81 of 300 random 2-variable laws (N \<= 9), 29 of 150 random 3-variable laws and 17 of 80 random pairs of laws (N \<= 8); e.g. ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at N = 2, 3, 4, 5.
+* **CLM-C13-08** (refuted). *Claimed:* For every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.
+  *Counterexample:* 198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8).
+* **CLM-C13-09** (refuted). *Claimed:* Every law t1(x) = t2(x) in one variable has anchored spectrum {1} or contains all sufficiently large N.
+  *Counterexample:* x = (xx)x has spectrum exactly {1, 2}: at x = 0 the anchor gives 0 = 2, and x\*y = x + 1 is a model of size 2; likewise x = ((xx)x)x has spectrum {1, 3} and x = (((xx)x)x)x has {1, 2, 4} (proofs/paper/C13.md, remark after Theorem 5).
+
 ## C14 — Graphs as quantities: the 256 local graph products
 
 * **CLM-C14-08** (refuted). *Claimed:* Each of the six commutative associative local products with unit K1 (Cartesian, strong, symmetric difference, and their complement-duals 221, co-normal, 141) has unique prime factorisation on connected graphs, or, for the complement-duals, on co-connected graphs.
   *Counterexample:* Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K\_{1,3}; K2 and K\_{1,3} are connected and prime, so this connected graph of order 8 has the two factorisations {K2,K2,K2} and {K2,K\_{1,3}} (proofs/paper/C14.md Theorem 8; explicit isomorphism in EXP-C14-06). In all graphs already C4 = K2 xor K2 = K2 xor 2K1. The other five products show no collision up to order 15 in the stated classes, consistent with Sabidussi-Vizing and Doerfler-Imrich/McKenzie.
+
+## C15 — Magma cellular automata: light cones, streaming width and fast-forwarding
+
+* **CLM-C15-08** (refuted). *Claimed:* For every magma automaton of order \<= 3 the streaming width lambda(t) is either bounded or grows geometrically; there is no intermediate growth.
+  *Counterexample:* The fuse magma \[\[0,0,0\],\[0,0,1\],\[1,2,2\]\] has floor((floor(t/2)+1)/2) \<= lambda(t) \<= 3t + 3 (Theorem 4; lambda(t) = t + 2 for t \<= 12); 104 order-3 classes show linear growth on t \<= 9 (EXP-C15-02).
+* **CLM-C15-09** (refuted). *Claimed:* An order-3 magma automaton has bounded streaming width iff the magma is a semigroup, is affine over Z\_3, or its light cone depends on at most two cells.
+  *Counterexample:* The 'if' direction holds for all 18 semigroup and 8 affine classes, but 685 bounded-width classes lie outside the three classes, e.g. the reversible automaton \[\[0,0,2\],\[2,2,0\],\[1,1,1\]\] whose light cone uses all t + 1 cells and whose width stays 3 (EXP-C15-02).
+* **CLM-C15-10** (refuted). *Claimed:* A magma automaton admits a fast-forward (rows at time t computable in time polynomial in L and log t) if and only if its streaming width is bounded.
+  *Counterexample:* The fuse magma has unbounded (linear) streaming width but its row at any time t is computable in O(L) operations (Theorem 4). The converse direction is open (CLM-C15-18).
+* **CLM-C15-11** (refuted). *Claimed:* For at least half of the order-3 classes a random cyclic row of length 32 repeats within 5000 steps, and only classes with geometric streaming width have rows that do not.
+  *Counterexample:* The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).
+* **CLM-C15-12** (refuted). *Claimed:* Each of the affine, commutative-semigroup and fuse fast-forwards is exact, beats direct numpy simulation by more than 100x at L = 1024, t = 10\^5, and loses for t below a few hundred steps.
+  *Counterexample:* Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10\^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).
+
+## C16 — Fibonacci dynamics in invented finite algebras
+
+* **CLM-C16-02** (refuted). *Claimed:* As for Pisano periods (where (0, 0) is fixed), the maximal period of the pair map on an n-element magma is at most n\^2 - 1, and the maximum is attained only by quasigroups.
+  *Counterexample:* x\*y = 1 - y on {0,1} has the single cycle (0,0) -\> (0,1) -\> (1,1) -\> (1,0) of length 4 = n\^2 and is not a quasigroup; every n has full-period tables (Theorem 2); for n \<= 4 none of them is a quasigroup (EXP-C16-01).
+* **CLM-C16-06** (refuted). *Claimed:* For every n, no quasigroup of order n has a full-period pair map; the maximal period of a quasigroup of order n is n\^2 - 1.
+  *Counterexample:* True for n = 2, 3, 4, false for n = 5 - exactly 3360 of the 161280 Latin squares of order 5 are full-period (e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3); examples exist for every order 6-16 (EXP-C16-02).
 
 ## C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check
 
@@ -105,7 +137,24 @@ Every bold hypothesis the laboratory proposed and refuted is kept here with the 
 * **CLM-C17-07** (refuted). *Claimed:* For every law of the C06 family, every anchored magma satisfying the instance z = 0 of the law satisfies the law (N \<= 5).
   *Counterexample:* 18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N \<= 10) for left-distributivity.
 
-## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03
+## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes
 
-* **CLM-C20-04** (inconclusive). *Claimed:* The published complete characterisation of termination of 0\^p 1\^q -\> 1\^r 0\^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-\*), because the full text could not be retrieved from this environment.
-  *Status:* Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.
+* **CLM-C18-09** (inconclusive). *Claimed:* Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.
+  *Status:* Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure.
+* **CLM-C18-10** (refuted). *Claimed:* QG-NIMINV p2+rev (x\*y = (x XOR y)\^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, \|chi-square z\| \<= 3 and a bucket-collision ratio within 2% on all four key sets.
+  *Counterexample:* Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03).
+* **CLM-C18-11** (refuted). *Claimed:* The cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of finalisation) have avalanche within 0.01 of BLAKE2b-64, \|z\| \<= 3, collision ratios within 2% and no full collisions on all four key sets.
+  *Counterexample:* QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).
+* **CLM-C18-12** (refuted). *Claimed:* The cascade QC-ARP d8 has a maximal bit-independence correlation of at least 0.5.
+  *Counterexample:* QC-ARP d8 has maximal correlation 0.176 (noise level about 0.11) - the cascade removes the perfect correlation of QG-ARP p2+rev, although 5 avalanche cells still exceed bias 0.1 (EXP-C18-05).
+
+## C19 — The longest Zeckendorf game
+
+* **CLM-C19-10** (refuted). *Claimed:* D(n) = sum\_t floor(j\_t\^2/4) - sum\_t R(j\_t, j\_{t+1}) over consecutive Zeckendorf levels j\_1 \> j\_2 \> ... of n.
+  *Counterexample:* n = 12 = F\_5 + F\_3 + F\_1 (levels 4, 2, 0): D(12) = 0 but the model gives 1; 23,680 of the n \< 30000 violate it (EXP-C19-03).
+* **CLM-C19-11** (refuted). *Claimed:* D(n) - D(n - F\_top) is a function of the two highest Zeckendorf levels of n.
+  *Counterexample:* Levels (4, 2) occur with D(n) - D(n - F\_5) in {0, 1} (n = 12 and n = 11); 87 such ambiguous pairs below 30000 (EXP-C19-03). The dependence is through the parity chain of lower levels, captured by rho in CLM-C19-05.
+* **CLM-C19-12** (refuted). *Claimed:* There is a function phi(start, length) with D(n) = sum of phi over the maximal runs of ones of the lazy representation of n.
+  *Counterexample:* For n \< 160 the linear system D(n) = sum phi(run) has coefficient rank 46 and augmented rank 47 (exact rational elimination), so it has no solution (EXP-C19-03).
+* **CLM-C19-13** (refuted). *Claimed:* L(n + 1) = L(n) + lambda(n), where lambda(n) is the longest game from the Zeckendorf representation of n plus one extra F\_1.
+  *Counterexample:* n = 3: L(4) = 3, L(3) = 2, lambda(3) = 0 (Zeckendorf(3) + F\_1 is already Zeckendorf); fails for 288 of the first 300 n (EXP-C19-02). Longest games avoid early normalisation, so they do not pass through Zeckendorf(n).

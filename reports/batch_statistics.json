@@ -1,26 +1,34 @@
 {
   "algorithmic_claims": {
     "CLM-C11-08": "MIXED",
-    "CLM-C17-04": "MIXED"
+    "CLM-C15-13": "IMPROVEMENT",
+    "CLM-C15-14": "MIXED",
+    "CLM-C15-15": "IMPROVEMENT",
+    "CLM-C15-16": "MIXED",
+    "CLM-C16-17": "NO IMPROVEMENT",
+    "CLM-C17-04": "MIXED",
+    "CLM-C18-13": "NO IMPROVEMENT",
+    "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 141,
+  "claims": 222,
   "claims_by_system": {
-    "SYS-A": 35,
-    "SYS-B": 36,
-    "SYS-C": 39,
-    "SYS-D": 31
+    "SYS-A": 39,
+    "SYS-B": 61,
+    "SYS-C": 40,
+    "SYS-D": 45,
+    "SYS-E": 37
   },
-  "cycles": 14,
-  "cycles_complete": 14,
-  "experiment_runs": 122,
-  "experiments": 83,
-  "generated": "2026-10-18T09:25:04Z",
-  "lean_files_verified": 10,
-  "lean_theorems": 141,
+  "cycles": 20,
+  "cycles_complete": 20,
+  "experiment_runs": 179,
+  "experiments": 109,
+  "generated": "2026-10-18T17:51:32Z",
+  "lean_files_verified": 15,
+  "lean_theorems": 191,
   "novelty": {
-    "NOT ASSESSED": 57,
-    "POTENTIALLY NOVEL": 26,
-    "REDISCOVERY": 58
+    "NOT ASSESSED": 68,
+    "POTENTIALLY NOVEL": 53,
+    "REDISCOVERY": 101
   },
   "potentially_novel": [
     [
@@ -59,14 +67,24 @@
       "PROVEN"
     ],
     [
+      "CLM-C04-11",
+      "H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)",
+      "REFUTED"
+    ],
+    [
       "CLM-C05-07",
-      "New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9",
+      "New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9",
       "PROVEN"
     ],
     [
       "CLM-C05-08",
       "New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6",
       "PROVEN"
+    ],
+    [
+      "CLM-C06-04",
+      "H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted)",
+      "REFUTED"
     ],
     [
       "CLM-C06-06",
@@ -79,9 +97,19 @@
       "PROVEN"
     ],
     [
-      "CLM-C06-08",
-      "Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156)",
-      "PROVEN"
+      "CLM-C06-09",
+      "H-C06-3: anchored spectra are affine spectra (refuted)",
+      "REFUTED"
+    ],
+    [
+      "CLM-C06-10",
+      "Laws with finite anchored spectra {1, 2} and {1, 3}",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C06-11",
+      "Mirror twins of the golden and odd laws",
+      "COMPUTATIONALLY SUPPORTED"
     ],
     [
       "CLM-C07-01",
@@ -94,6 +122,11 @@
       "PROVEN"
     ],
     [
+      "CLM-C08-02",
+      "Circle products over non-Pisot base sequences are never associative",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
       "CLM-C08-04",
       "Non-monotone associative-shift sets require a negative conjugate root",
       "COMPUTATIONALLY SUPPORTED"
@@ -102,6 +135,31 @@
       "CLM-C09-03",
       "Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible",
       "PROVEN"
+    ],
+    [
+      "CLM-C09-04",
+      "H-C09-1: circle irreducibles have density 0 like primes (refuted)",
+      "REFUTED"
+    ],
+    [
+      "CLM-C09-05",
+      "The density of circle irreducibles is exactly 1/phi^2",
+      "CONJECTURE"
+    ],
+    [
+      "CLM-C09-06",
+      "Factorisation lengths are bounded by the conjugate coordinate",
+      "PROVEN"
+    ],
+    [
+      "CLM-C09-08",
+      "Factorisation statistics of the circle semigroup up to 2e5",
+      "PROVEN"
+    ],
+    [
+      "CLM-C10-06",
+      "Multi-offset exchange rules have rule-specific average counting costs",
+      "COMPUTATIONALLY SUPPORTED"
     ],
     [
       "CLM-C11-04",
@@ -121,6 +179,26 @@
     [
       "CLM-C12-04",
       "Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15",
+      "PROVEN"
+    ],
+    [
+      "CLM-C13-02",
+      "Right-normed laws (xy)z = x V(y,z) have only translation models",
+      "PROVEN"
+    ],
+    [
+      "CLM-C13-03",
+      "The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1",
+      "PROVEN"
+    ],
+    [
+      "CLM-C13-04",
+      "Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x",
+      "PROVEN"
+    ],
+    [
+      "CLM-C13-11",
+      "Single laws whose affine spectra are classical arithmetic sets",
       "PROVEN"
     ],
     [
@@ -152,18 +230,90 @@
       "CLM-C14-13",
       "H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product",
       "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C15-04",
+      "The fuse magma: linear streaming width, yet an O(L) fast-forward for every t",
+      "PROVEN"
+    ],
+    [
+      "CLM-C15-07",
+      "Census of order-3 magma automata by streaming width",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C15-15",
+      "Fuse fast-forward by burn times",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C16-05",
+      "Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2",
+      "PROVEN"
+    ],
+    [
+      "CLM-C16-07",
+      "Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16",
+      "PROVEN"
+    ],
+    [
+      "CLM-C16-09",
+      "No isotope of a group of even order has a full-period Fibonacci pair map",
+      "PROVEN"
+    ],
+    [
+      "CLM-C16-15",
+      "Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element",
+      "PROVEN"
+    ],
+    [
+      "CLM-C19-02",
+      "The split phase of the longest game ends at the lazy Fibonacci representation",
+      "PROVEN"
+    ],
+    [
+      "CLM-C19-03",
+      "Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((k-1)^2/4)",
+      "PROVEN"
+    ],
+    [
+      "CLM-C19-05",
+      "A two-sequence recursion for the longest Zeckendorf game on every n",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C19-06",
+      "The deficit of a two-summand number depends only on the lower level and the parity of the gap",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C19-14",
+      "Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves",
+      "COMPUTATIONALLY SUPPORTED"
+    ],
+    [
+      "CLM-C20-02",
+      "aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b)/2) - 1)",
+      "PROVEN"
     ]
   ],
   "proven_by_check": {
-    "Lean-verified": 21,
-    "computer-assisted": 12,
-    "written proof": 50
+    "Lean (complete)": 14,
+    "Lean + written or computational parts": 35,
+    "computer-assisted": 15,
+    "published proof (literature)": 2,
+    "written proof": 61
+  },
+  "proven_not_fully_formal_by_review": {
+    "awaiting independent review": 22,
+    "independently reviewed": 23,
+    "no review recorded": 68
   },
   "verification": {
-    "COMPUTATIONALLY SUPPORTED": 24,
-    "CONJECTURE": 4,
+    "COMPUTATIONALLY SUPPORTED": 41,
+    "CONJECTURE": 5,
     "INCONCLUSIVE": 2,
-    "PROVEN": 83,
-    "REFUTED": 28
+    "PROVEN": 127,
+    "REFUTED": 47
   }
 }

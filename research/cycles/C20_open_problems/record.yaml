@@ -84,7 +84,12 @@ journal:
     text: "Both rules are right barren (McNaughton; Geser, ICASE 2002-33, Thm 3.2-3.3), so their termination was already known in principle - recorded as a rediscovery; the exact complexities were not found. The Zantema-Geser characterisation for C03 could not be retrieved (403/500/Cloudflare) - C03 Conjecture 4.6 stays unverified against it."
     refs: [CLM-C20-01, CLM-C20-02, CLM-C20-04]
 
+  - key: C20-05
+    agent: Historian
+    kind: novelty
+    text: "Revision of C20-04 - the scanned Zantema-Geser report UU-CS-1994-44 was found on ics-archive.science.uu.nl; its Theorem 1.1 is C03 Conjecture 4.6 verbatim (equivalence by case analysis, checked on all parameters <= 40). CLM-C20-04 and CLM-C03-10 are PROVEN (published proof) and REDISCOVERY."
+    refs: [CLM-C20-04, CLM-C03-10, reviews/historian_C03_C10.md]
+
 next_directions:
-  - "C20: obtain the Zantema-Geser (2000) theorem and compare with C03 Conjecture 4.6 (human with library access)"
   - "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?"
   - "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"

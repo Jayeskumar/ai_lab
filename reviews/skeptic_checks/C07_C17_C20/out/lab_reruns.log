@@ -1,0 +1,8 @@
+[EXP-C20-01] ok in 0.76s (reproduced previous hash)
+    8 rules (2 classes): words of length <= 12 - non-terminating within 10^6 steps: 0; rightmost vs leftmost mismatches: 0; vs exhaustive maximum (n <= 8): 0
+    aab -> ababa D(n), n = 1..12: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]; = 2^(n-2) - 1: True
+    aab -> babaa D(n): [0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62]; = max_b b(2^floor((n-b)/2) - 1): True; per-word formula mismatches: 0
+
+real	0m1.817s
+user	0m1.895s
+sys	0m0.104s

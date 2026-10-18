@@ -1,0 +1,18 @@
+'Infinity.C13.law13_size_dvd_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.law13_model_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.law12_size_dvd_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.law12_model_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.translation_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.linear_of_shift' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.golden_law_models' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.golden_law_model_of_root' depends on axioms: [propext, Quot.sound]
+'Infinity.C13.w_family_models' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.w_family_model_of_root' depends on axioms: [propext, Quot.sound]
+'Infinity.C13.right_normed_translation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.cube_law_no_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C13.cubeOp_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+
+real	0m6.485s
+user	0m5.381s
+sys	0m2.121s
+exit: 0

@@ -1,0 +1,12 @@
+'Infinity.C19.dPsi_split' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C19.dPsi_combine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C19.length_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C19.weight_even' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C19.weight_odd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C19.quarter_square_even' depends on axioms: [propext, Quot.sound]
+'Infinity.C19.quarter_square_odd' depends on axioms: [propext, Quot.sound]
+
+real	0m5.429s
+user	0m3.348s
+sys	0m2.140s
+exit: 0

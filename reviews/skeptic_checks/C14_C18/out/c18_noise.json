@@ -1,0 +1,69 @@
+{
+ "replicates": [
+  {
+   "max_bias": 0.0455,
+   "bic_max": 0.1003,
+   "mean_bias": 0.0089
+  },
+  {
+   "max_bias": 0.0435,
+   "bic_max": 0.1158,
+   "mean_bias": 0.0089
+  },
+  {
+   "max_bias": 0.042,
+   "bic_max": 0.1001,
+   "mean_bias": 0.0091
+  },
+  {
+   "max_bias": 0.043,
+   "bic_max": 0.1065,
+   "mean_bias": 0.009
+  },
+  {
+   "max_bias": 0.0445,
+   "bic_max": 0.104,
+   "mean_bias": 0.009
+  },
+  {
+   "max_bias": 0.0435,
+   "bic_max": 0.1024,
+   "mean_bias": 0.009
+  },
+  {
+   "max_bias": 0.0475,
+   "bic_max": 0.111,
+   "mean_bias": 0.0089
+  },
+  {
+   "max_bias": 0.045,
+   "bic_max": 0.0999,
+   "mean_bias": 0.0088
+  },
+  {
+   "max_bias": 0.039,
+   "bic_max": 0.1064,
+   "mean_bias": 0.0089
+  },
+  {
+   "max_bias": 0.0445,
+   "bic_max": 0.1,
+   "mean_bias": 0.0089
+  },
+  {
+   "max_bias": 0.048,
+   "bic_max": 0.106,
+   "mean_bias": 0.0088
+  },
+  {
+   "max_bias": 0.042,
+   "bic_max": 0.1108,
+   "mean_bias": 0.0091
+  }
+ ],
+ "max_bias_mean": 0.044,
+ "max_bias_max": 0.048,
+ "bic_max_mean": 0.1053,
+ "bic_max_max": 0.1158,
+ "runtime_s": 7.4
+}

@@ -1,0 +1,147 @@
+{
+ "QG-LS p2+rev": {
+  "mean_bias": 0.0089,
+  "max_bias": 0.045,
+  "argmax_cell(input_bit,output_bit)": [
+   92,
+   63
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.1086
+ },
+ "QG-NIMINV p2+rev": {
+  "mean_bias": 0.009,
+  "max_bias": 0.0395,
+  "argmax_cell(input_bit,output_bit)": [
+   121,
+   11
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.1089
+ },
+ "QG-ARP p2+rev": {
+  "mean_bias": 0.0088,
+  "max_bias": 0.0415,
+  "argmax_cell(input_bit,output_bit)": [
+   113,
+   62
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 1.0
+ },
+ "QG-LS p1": {
+  "mean_bias": 0.0896,
+  "max_bias": 0.5,
+  "argmax_cell(input_bit,output_bit)": [
+   80,
+   56
+  ],
+  "cells_gt_0.07": 1344,
+  "cells_gt_0.1": 1344,
+  "deterministic": 1344,
+  "bic_max": 1.0
+ },
+ "QG-ARP p1": {
+  "mean_bias": 0.1036,
+  "max_bias": 0.5,
+  "argmax_cell(input_bit,output_bit)": [
+   80,
+   56
+  ],
+  "cells_gt_0.07": 1607,
+  "cells_gt_0.1": 1356,
+  "deterministic": 1344,
+  "bic_max": 1.0
+ },
+ "QC-LS d8": {
+  "mean_bias": 0.0088,
+  "max_bias": 0.042,
+  "argmax_cell(input_bit,output_bit)": [
+   124,
+   3
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.107
+ },
+ "QC-ISO d8": {
+  "mean_bias": 0.0089,
+  "max_bias": 0.0455,
+  "argmax_cell(input_bit,output_bit)": [
+   59,
+   13
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.113
+ },
+ "QC-NIMINV d8": {
+  "mean_bias": 0.0091,
+  "max_bias": 0.0735,
+  "argmax_cell(input_bit,output_bit)": [
+   120,
+   63
+  ],
+  "cells_gt_0.07": 1,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.1605
+ },
+ "QC-ARP d8": {
+  "mean_bias": 0.011,
+  "max_bias": 0.1055,
+  "argmax_cell(input_bit,output_bit)": [
+   52,
+   62
+  ],
+  "cells_gt_0.07": 39,
+  "cells_gt_0.1": 4,
+  "deterministic": 0,
+  "bic_max": 0.1796
+ },
+ "MX64": {
+  "mean_bias": 0.009,
+  "max_bias": 0.044,
+  "argmax_cell(input_bit,output_bit)": [
+   111,
+   25
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.0977
+ },
+ "BLAKE2b-64": {
+  "mean_bias": 0.0089,
+  "max_bias": 0.045,
+  "argmax_cell(input_bit,output_bit)": [
+   23,
+   17
+  ],
+  "cells_gt_0.07": 0,
+  "cells_gt_0.1": 0,
+  "deterministic": 0,
+  "bic_max": 0.1021
+ },
+ "FNV-1a-64": {
+  "mean_bias": 0.0982,
+  "max_bias": 0.5,
+  "argmax_cell(input_bit,output_bit)": [
+   0,
+   0
+  ],
+  "cells_gt_0.07": 1788,
+  "cells_gt_0.1": 1688,
+  "deterministic": 948,
+  "bic_max": 1.0
+ },
+ "runtime_s": 8.1
+}

@@ -15,7 +15,7 @@ audit log, and refuted hypotheses are preserved alongside proven theorems.
 
 | What | Where |
 |---|---|
-| Research report (batch summary) | `reports/` |
+| Research report (batch 1 summary) | [`reports/RESEARCH_REPORT_batch1.md`](reports/RESEARCH_REPORT_batch1.md); tables in [`reports/REPORT_DATA.md`](reports/REPORT_DATA.md) |
 | Discovery index (theorems, conjectures, refutations, rediscoveries, novelty) | [`DISCOVERY_INDEX.md`](DISCOVERY_INDEX.md) |
 | Research journal (chronological, append-only) | [`journal/JOURNAL.md`](journal/JOURNAL.md) |
 | Full discovery database (human-readable) | [`db/DATABASE.md`](db/DATABASE.md); JSON records in `db/claims/`, `db/experiments/` |
@@ -46,10 +46,13 @@ pip install -r requirements.txt          # exact versions: requirements-lock.txt
 python -m lab status                     # counts of claims, experiments, journal entries
 python -m lab run EXP-C08-03             # re-run one experiment (results/ + db/ + audit log)
 python -m lab run --cycle C01            # re-run a whole cycle
-python -m lab verify                     # re-run everything and compare result hashes
+python -m lab run --dry EXP-C08-03       # re-run without recording anything
+python -m lab verify --cycle C08         # re-run a cycle and compare result hashes (--dry: do not record)
 python -m lab lean                       # check all Lean files (needs elan + Mathlib cache)
 python -m lab sync                       # import cycle records, render index/journal/database
-python -m lab book                       # build textbook HTML + PDF
+python -m lab catalogue                  # regenerate the catalogue volumes of the textbook
+python -m lab report                     # batch statistics + report tables (reports/)
+python -m lab book                       # build textbook HTML + PDF (--no-pdf: HTML only)
 python -m pytest -q tests/               # infrastructure tests
 ```
 

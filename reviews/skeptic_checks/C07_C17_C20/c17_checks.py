@@ -519,8 +519,9 @@ def laver(n):
     """Laver table A_n on {1..2^n} by the standard recursion, returned 0-based (p -> p-1)."""
     N = 2 ** n
     L = [[0] * (N + 1) for _ in range(N + 1)]
+    for p in range(1, N + 1):
+        L[p][1] = p % N + 1                       # p * 1 = p + 1 (mod 2^n), known for every row
     for p in range(N, 0, -1):
-        L[p][1] = p % N + 1
         for q in range(1, N):
             L[p][q + 1] = L[L[p][q]][p % N + 1]
     return [[L[p + 1][q + 1] - 1 for q in range(N)] for p in range(N)]

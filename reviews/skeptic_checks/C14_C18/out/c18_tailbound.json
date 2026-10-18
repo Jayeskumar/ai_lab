@@ -1,0 +1,95 @@
+{
+ "latin": {
+  "LS": true,
+  "ISO": true,
+  "NIMINV": true,
+  "ARP": true
+ },
+ "families_4096_keys": {
+  "LS": {
+   "rev_p2_distinct_per_family(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p1_distinct(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p2_distinct(min,max)": [
+    3947,
+    3988
+   ]
+  },
+  "ISO": {
+   "rev_p2_distinct_per_family(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p1_distinct(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p2_distinct(min,max)": [
+    3956,
+    3984
+   ]
+  },
+  "NIMINV": {
+   "rev_p2_distinct_per_family(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p1_distinct(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p2_distinct(min,max)": [
+    3953,
+    3985
+   ]
+  },
+  "ARP": {
+   "rev_p2_distinct_per_family(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p1_distinct(min,max)": [
+    256,
+    256
+   ],
+   "fwd_p2_distinct(min,max)": [
+    3954,
+    3985
+   ]
+  }
+ },
+ "near_duplicates_full_collisions": {
+  "LS p1": 36720,
+  "LS p2": 717,
+  "LS p1+rev": 32624,
+  "LS p2+rev": 32624,
+  "LS p4+rev": 32624,
+  "QC-LS d8": 0,
+  "ISO p1": 36720,
+  "ISO p2": 678,
+  "ISO p1+rev": 32624,
+  "ISO p2+rev": 32624,
+  "ISO p4+rev": 32625,
+  "QC-ISO d8": 0,
+  "NIMINV p1": 36720,
+  "NIMINV p2": 747,
+  "NIMINV p1+rev": 32626,
+  "NIMINV p2+rev": 32624,
+  "NIMINV p4+rev": 32625,
+  "QC-NIMINV d8": 0,
+  "ARP p1": 36720,
+  "ARP p2": 708,
+  "ARP p1+rev": 32626,
+  "ARP p2+rev": 32625,
+  "ARP p4+rev": 32624,
+  "QC-ARP d8": 0
+ },
+ "predicted_rev": 32624,
+ "predicted_fwd1_with_255_refinement": 36720,
+ "runtime_s": 1.9
+}
