@@ -834,7 +834,10 @@
     "proofs/lean/Infinity/C08_Knuth.lean": true,
     "proofs/lean/Infinity/C11_Codes.lean": true,
     "proofs/lean/Infinity/C12_Games.lean": true,
-    "proofs/lean/Infinity/C14_GraphProducts.lean": true
+    "proofs/lean/Infinity/C13_Spectra.lean": true,
+    "proofs/lean/Infinity/C14_GraphProducts.lean": true,
+    "proofs/lean/Infinity/C15_MagmaCA.lean": true,
+    "proofs/lean/Infinity/C18_Quasigroups.lean": true
   },
   "next_priorities": [
     "C09: arithmetic of the circle semigroup - irreducibles and factorisation",
@@ -868,5 +871,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T16:55:13Z"
+  "updated": "2026-10-18T16:55:43Z"
 }

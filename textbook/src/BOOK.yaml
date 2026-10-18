@@ -32,6 +32,8 @@ chapters:
   - vol07.md
   - 17_magma_automata.md
   - 19_law_testing.md
+  - vol08.md
+  - 20_quasigroup_mixing.md
   - vol09.md
   - generated/v09_failures.md
   - vol10.md

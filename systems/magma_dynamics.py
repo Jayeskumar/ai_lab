@@ -395,3 +395,89 @@ def row_sign_product(T: np.ndarray) -> int:
             if length % 2 == 0:
                 sgn = -sgn
     return sgn
+
+
+def random_latin(n: int, rng: np.random.Generator) -> np.ndarray:
+    """A random Latin square built row by row from random perfect matchings (Kuhn's algorithm with random orders).
+    Every Latin rectangle extends (Hall), so this never fails; the distribution is not uniform."""
+    T = -np.ones((n, n), dtype=np.int64)
+    colused = [set() for _ in range(n)]
+    for r in range(n):
+        match = {}                                    # symbol -> column
+
+        def augment(c, seen):
+            for s in rng.permutation(n).tolist():
+                if s in colused[c] or s in seen:
+                    continue
+                seen.add(s)
+                if s not in match or augment(match[s], seen):
+                    match[s] = c
+                    return True
+            return False
+
+        for c in rng.permutation(n).tolist():
+            if not augment(c, set()):
+                raise RuntimeError("no perfect matching (impossible by Hall's theorem)")
+        for s, c in match.items():
+            T[r, c] = s
+            colused[c].add(s)
+    return T
+
+
+def random_isotope(T: np.ndarray, rng: np.random.Generator) -> np.ndarray:
+    """x o y = gamma(alpha(x) * beta(y)) for random permutations alpha, beta, gamma."""
+    n = T.shape[0]
+    al, be, ga = rng.permutation(n), rng.permutation(n), rng.permutation(n)
+    return ga[T[al[:, None], be[None, :]]]
+
+
+def orbit_length_from_origin(T: np.ndarray) -> int | None:
+    """Length of the pair-map cycle through (0, 0), or None if (0, 0) is not periodic within n^2 steps."""
+    n = T.shape[0]
+    a = b = 0
+    for k in range(1, n * n + 1):
+        a, b = b, int(T[b, a])
+        if a == 0 and b == 0:
+            return k
+    return None
+
+
+def cycle_sequence(T: np.ndarray, start=(0, 0)) -> list[int]:
+    """The symbols x_0, x_1, ... along the pair-map cycle through `start` (one full period)."""
+    a, b = start
+    seq = [a]
+    while True:
+        a, b = b, int(T[b, a])
+        if (a, b) == start:
+            return seq
+        seq.append(a)
+
+
+def group_table(perms: list[tuple]) -> np.ndarray:
+    """Cayley table of a permutation group given as a list of all its elements (tuples); (g*h)(x) = g(h(x))."""
+    index = {p: i for i, p in enumerate(perms)}
+    n = len(perms)
+    T = np.zeros((n, n), dtype=np.int64)
+    for i, g in enumerate(perms):
+        for j, h in enumerate(perms):
+            T[i, j] = index[tuple(g[x] for x in h)]
+    return T
+
+
+def generate_group(gens: list[tuple]) -> list[tuple]:
+    deg = len(gens[0])
+    ident = tuple(range(deg))
+    elems = [ident]
+    frontier = [ident]
+    seen = {ident}
+    while frontier:
+        new = []
+        for e in frontier:
+            for g in gens:
+                p = tuple(g[x] for x in e)
+                if p not in seen:
+                    seen.add(p)
+                    elems.append(p)
+                    new.append(p)
+        frontier = new
+    return elems
