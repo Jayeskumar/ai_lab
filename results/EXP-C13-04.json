@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C13-04",
     "file": "experiments/C13/E04_finite_spectra.py",
     "sha256": "031dd70a2814fbfca1d5908cea48faffce9a44647860903975b29e621c4eedde",
-    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "env": {
-    "git_head": "1ae1c2b7a7a87cd7f889dedfa2d8f07fce5cf546",
+    "git_head": "ce67384a113ed9df444a5e53cfa853a8c4a8d400",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T09:27:41Z",
+  "finished": "2026-10-18T17:11:06Z",
   "id": "EXP-C13-04",
   "meta": {
     "agent": "Mathematical Skeptic",
@@ -1204,14 +1204,14 @@
         "unknown_N": []
       }
     ],
-    "runtime_s": 66.9,
+    "runtime_s": 67.6,
     "summary": [
       "17 laws; spectrum (N <= 12) equals the conjectured set for 17",
       "non-affine models: x(yz)=y((yx)z) at [2]",
       "UNKNOWN instances: 0"
     ]
   },
-  "results_sha256": "e2dc4a04980df47f66bd431777a7929fbc448abd078217f69e1ae65abe48c5cf",
-  "runtime_s": 66.864,
-  "started": "2026-10-18T09:26:34Z"
+  "results_sha256": "eb599e52ab7cf00520b976f87a78d48ef9ad8ab6300db8afe5b9e0ed3cb8a00b",
+  "runtime_s": 67.593,
+  "started": "2026-10-18T17:09:58Z"
 }
