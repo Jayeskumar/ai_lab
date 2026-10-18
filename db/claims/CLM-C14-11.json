@@ -1,0 +1,27 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-11",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Non-uniqueness of lexicographic prime factorisation (with an invariant number of factors) is due to Imrich; cited via arXiv:2407.02615 and the Handbook of Product Graphs. The specific minimal example was not looked up.",
+  "proof": "proofs/paper/C14.md#theorem-11-clm-c14-11--a-lexicographic-collision-at-order-10",
+  "proof_check": "by hand (both sides are two disjoint 4-cycles plus two isolated vertices); minimality by the exact census EXP-C14-04",
+  "references": [
+    "https://arxiv.org/abs/2407.02615"
+  ],
+  "statement": "2K1[C4 + K1] and (2K2 + K1)[2K1] are both isomorphic to 2C4 + 2K1; C4 + K1 and 2K2 + K1 are prime (order 5),\nso 2C4 + 2K1 has two lexicographic factorisations with different multisets of prime factors. No such\ncollision occurs below order 10.",
+  "system": "SYS-D",
+  "title": "The lexicographic product has non-unique factorisation already at order 10 (different multisets of primes)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

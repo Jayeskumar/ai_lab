@@ -36,16 +36,20 @@ def primes_upto(n):
     return np.nonzero(s)[0]
 
 
-def run():
-    rng = np.random.default_rng(META["seed"])
+def datasets(seed=META["seed"]):
+    rng = np.random.default_rng(seed)
     P = primes_upto(10 ** 7)
     gaps = np.diff(P)
     halved = gaps[1:] // 2
     post = rng.geometric(0.001, size=100_000)
     ps = rng.choice([0.1, 0.01, 0.001, 0.0001], size=100)
     bursty = np.concatenate([rng.geometric(p, size=1000) for p in ps])
-    data = [Empirical("prime gaps <= 1e7 (raw)", gaps), Empirical("prime gaps <= 1e7 (halved)", halved),
+    return [Empirical("prime gaps <= 1e7 (raw)", gaps), Empirical("prime gaps <= 1e7 (halved)", halved),
             Empirical("posting list geometric(0.001)", post), Empirical("bursty posting list (mixture)", bursty)]
+
+
+def run():
+    data = datasets()
     universal = baseline_codes() + [PatternCode(p) for p in FIXED_PATTERNS]
     table = {}
     for d in data:

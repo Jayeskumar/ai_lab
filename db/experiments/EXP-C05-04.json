@@ -1,0 +1,52 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "memberships taken from results/EXP-C05-03.json ('decided_beyond_notes' with status SAT)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-04",
+    "file": "experiments/C05/E04_lean_certificates.py",
+    "sha256": "8e2aa1c69e76596efd526b26d72a3c7d2079944080af53ee48574cbb83a77e0e",
+    "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+  },
+  "cycle": "C05",
+  "falsification": "A table that fails the Python re-check or the Lean kernel check.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:11:29Z"
+    }
+  ],
+  "hypothesis": "Each such membership is witnessed by an explicit Cayley table whose law can be checked by Lean's kernel with `decide`.",
+  "id": "EXP-C05-04",
+  "methodology": "Re-solve each (law, n) instance with the same encoding, re-verify the table in Python, and emit a Lean theorem `forall x y : Fin n, x = t(x, y)` proved by `decide` (the Lean file is compiled separately; see proofs/lean/Infinity/C05_Magmas.lean).",
+  "question": "Can every spectrum membership found by SAT beyond the ETP notes be machine-checked independently of the SAT solver?",
+  "results_file": "results/EXP-C05-04.json",
+  "results_sha256": "3f0e38909e989d68c10582d994088920cff5dd0a612465a35d642e6c6fd0a3b1",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-04",
+        "file": "experiments/C05/E04_lean_certificates.py",
+        "sha256": "8e2aa1c69e76596efd526b26d72a3c7d2079944080af53ee48574cbb83a77e0e",
+        "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:11:28Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-04.json",
+      "results_sha256": "3f0e38909e989d68c10582d994088920cff5dd0a612465a35d642e6c6fd0a3b1",
+      "runtime_s": 242.53,
+      "started": "2026-10-18T09:07:26Z",
+      "summary": [
+        "9 models re-solved, re-verified and emitted as Lean decide-certificates: [(467, 9), (677, 5), (677, 7), (677, 9), (883, 10), (1286, 9), (1313, 9), (1516, 9), (1719, 10)]"
+      ]
+    }
+  ],
+  "summary": [
+    "9 models re-solved, re-verified and emitted as Lean decide-certificates: [(467, 9), (677, 5), (677, 7), (677, 9), (883, 10), (1286, 9), (1313, 9), (1516, 9), (1719, 10)]"
+  ],
+  "title": "Lean decide-certificates for models establishing new spectrum memberships"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "The first part holds (Theorem 2); the second fails - e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, 13, 10, 15, 6, ... of L+R+D[x^y^z] and 0, 1, 3, 6, 8, 11, 10, 19, ... of D[z]+D[x^y^z] have no OEIS match (88 unmatched sequences, EXP-C07-02, OEIS state of 2026-10-18).",
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-07",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every commutative mex operation of the family, 0 is absorbing or an identity, and the diagonal f(n,n) is a sequence in the OEIS.",
+  "system": "SYS-B",
+  "title": "H-C07-3: the diagonals of commutative mex operations are known sequences (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

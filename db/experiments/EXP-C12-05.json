@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "H-C12-1 fails for G01, G02, G03, G05, G06 (first counterexamples (2, 3), (2, 3), (4, 9), (2, 3), (6, 10));\nonly G04 (g = Omega) depends on the prime signature alone.",
   "assumptions": [
     "n <= 5000"
   ],
@@ -17,12 +18,35 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:18:41Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "analysis",
+      "new": "H-C12-1 fails for G01, G02, G03, G05, G06 (first counterexamples (2, 3), (2, 3), (4, 9), (2, 3), (6, 10));\nonly G04 (g = Omega) depends on the prime signature alone.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C12-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "H-C12-1 (bold): for each of G01-G06, g(n) depends only on the prime signature of n.",
   "id": "EXP-C12-05",
   "methodology": "Group n by prime signature and look for two numbers with equal signature and different Grundy values.",
   "question": "Games G01-G06 are defined by multiplicative relations; is their Grundy value a function of the prime signature (sorted exponent vector) alone?",
+  "related": [
+    "CLM-C12-10"
+  ],
   "results_file": "results/EXP-C12-05.json",
   "results_sha256": "d4ca22ecc3ae95f45119d0e4e53f9f11e1c949ebb9dc62e5117ac0d0506b530d",
   "runs": [

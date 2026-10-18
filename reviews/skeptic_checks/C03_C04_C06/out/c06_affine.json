@@ -1,0 +1,253 @@
+{
+ "x(yz)=((zx)x)y": {
+  "conditions": [
+   "1 - 2*a",
+   "a**2 - 1",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "x(yz)=((zx)y)x": {
+  "conditions": [
+   "1 - 2*a",
+   "a**2 - 1",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "x(yz)=((zy)x)x": {
+  "conditions": [
+   "1 - 2*a",
+   "a**2 - 1",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "(xy)z=y((zx)y)": {
+  "conditions": [
+   "1 - a**2",
+   "-a**2 + a - 1",
+   "1 - 2*a"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "(xy)z=y((zy)x)": {
+  "conditions": [
+   "1 - a**2",
+   "-a**2 + a - 1",
+   "1 - 2*a"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "(xy)z=z((yx)z)": {
+  "conditions": [
+   "1 - a**2",
+   "-a**2 + a - 1",
+   "1 - 2*a"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "(xy)z=z((yz)x)": {
+  "conditions": [
+   "1 - a**2",
+   "-a**2 + a - 1",
+   "1 - 2*a"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   3
+  ]
+ },
+ "x(yz)=y((yx)z)": {
+  "conditions": [
+   "1 - a**2",
+   "-1",
+   "-a"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1
+  ]
+ },
+ "x(yz)=((xx)y)z": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xx)z)y": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xy)x)z": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xy)y)z": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xy)z)x": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xy)z)y": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xz)x)y": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xz)y)x": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=((xz)y)y": {
+  "conditions": [
+   "-a",
+   "a**2 - a",
+   "a - 2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1,
+   2
+  ]
+ },
+ "x(yz)=y(x(yz))": {
+  "conditions": [
+   "1 - a",
+   "-a**2 + a - 1",
+   "-a**3 + a**2",
+   "-a**2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1
+  ]
+ },
+ "x(yz)=y(x(xz))": {
+  "conditions": [
+   "-a**2 - a + 1",
+   "a - 1",
+   "-a**3 + a**2",
+   "-a**2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1
+  ]
+ },
+ "x(yz)=y(y(xz))": {
+  "conditions": [
+   "1 - a**2",
+   "-1",
+   "-a**3 + a**2",
+   "-a**2"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1
+  ]
+ },
+ "x(yz)=(yx)(yz)": {
+  "conditions": [
+   "1 - a",
+   "-1",
+   "-1"
+  ],
+  "no_common_complex_root": true,
+  "affine_spectrum_N_le_300": [
+   1
+  ]
+ },
+ "_seconds": 2.1
+}

@@ -1,0 +1,35 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-01",
+    "EXP-C12-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "limitations",
+      "new": "No closed form is known to us for the odd values of G06; g(m)/m < 0.24985 for odd m <= 5000 (a bound m/4 is not proved).",
+      "old": "The odd values of G06 have no closed form; g(m)/m < 0.24985 for odd m <= 5000 (a bound m/4 is not proved).",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C12-02",
+  "limitations": "No closed form is known to us for the odd values of G06; g(m)/m < 0.24985 for odd m <= 5000 (a bound m/4 is not proved).",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Iannucci & Larsson 2021, Theorem 5 (totative = G05, with the subtraction equivalence) and Theorem 6\n(nontotative: SG(2n) = n, SG(n) = 1 iff n prime, i.e. our G06 values plus one; they also prove SG(n) <= n/2).\nOEIS A055396, A279119 (= G06 exactly), A008578.",
+  "proof": "proofs/paper/C12.md#theorem-2-clm-c12-02--coprimality-games",
+  "proof_check": "written proof (proofs/paper/C12.md Theorem 2); 0 mismatches for n <= 5000 (G07 = G05 for n <= 1500) (EXP-C12-02)",
+  "statement": "G05 (n -> m, 1 <= m < n, gcd(m, n) = 1), which coincides with \"subtract k, 1 <= k < n, gcd(k, n) = 1\", has\ng(1) = 0 and g(n) = j for n >= 2, where the smallest prime factor of n is the j-th prime. G06 (n -> m,\n1 <= m < n, gcd(m, n) > 1) has g(2k) = k - 1, g(m) <= (m - 1)/2 for odd m, and its P-positions n >= 1 are\nexactly 1 and the primes.",
+  "system": "SYS-D",
+  "title": "Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k - 1",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

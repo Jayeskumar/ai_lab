@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "19 games: 5 eventually periodic (subtract a power of 2, 3, 4 with periods 3, 2, 5; coprime and dividing\nsplits with period 2), none arithmetic-periodic, 14 without either behaviour within range. The first run\nreported spurious end-of-range periods; the detector now requires the periodic tail to cover half the range\nand the census was re-run (both runs on record).",
   "assumptions": [
     "heaps n <= 1e5 (cheap option sets), 2e4 (floor division), 5e3 (option sets of size ~n)",
     "period search p <= 2000; the periodic tail must repeat >= 3 times and cover >= half of the range (a first run without the half-range rule reported spurious end-of-range periods)"
@@ -33,12 +34,39 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T08:15:14Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "analysis",
+      "new": "19 games: 5 eventually periodic (subtract a power of 2, 3, 4 with periods 3, 2, 5; coprime and dividing\nsplits with period 2), none arithmetic-periodic, 14 without either behaviour within range. The first run\nreported spurious end-of-range periods; the detector now requires the periodic tail to cover half the range\nand the census was re-run (both runs on record).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C12-09",
+        "CLM-C12-07",
+        "CLM-C12-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "H-C12-0 (exploratory): every game shows one of three behaviours within the computed range - eventually periodic, arithmetic-periodic, or a closed form in a number-theoretic function.",
   "id": "EXP-C12-01",
   "methodology": "Exact Grundy computation (bitset method for sparse subtraction sets); record max value, growth, P-position density, eventual (arithmetic) periodicity.",
   "question": "What structure do Sprague-Grundy values have when the moves of a one-heap game are defined by relations (divisibility, coprimality, membership in a sparse set, bitwise inclusion, splitting) instead of fixed magnitudes?",
+  "related": [
+    "CLM-C12-09",
+    "CLM-C12-07",
+    "CLM-C12-06"
+  ],
   "results_file": "results/EXP-C12-01.json",
   "results_sha256": "987180423b983168b408fa5b2f5200c5888d6bea373a0013b0cdf1df25c8a7c9",
   "runs": [

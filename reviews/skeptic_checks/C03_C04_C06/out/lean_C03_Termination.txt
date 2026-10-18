@@ -1,0 +1,7 @@
+'Infinity.C03.terminating_of_count_lt' depends on axioms: [propext, Quot.sound]
+'Infinity.C03.terminating_swap' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C03.not_terminating_of_loop' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C03.loop_map' depends on axioms: [propext]
+'Infinity.C03.not_terminating_double' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C03.not_terminating_0_11' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit 0, wall 1792314027-1792314020 = 7 s

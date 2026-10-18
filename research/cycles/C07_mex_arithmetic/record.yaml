@@ -1,0 +1,150 @@
+cycle: C07
+title: "Arithmetic from the minimal excludant: a census of mex-defined operations"
+branch: B-D
+status: complete
+systems: [SYS-B, SYS-D]
+
+experiments:
+  - id: EXP-C07-01
+    analysis: "The 512 specs give 134 distinct operations on [0,64)^2, 34 commutative. Exactly 11 operations (44 specs) show no associativity violation on the evaluable triples of [0,16)^3 and [0,64)^3; they are 0, a, b, a[b>0], b[a>0], min, a+b, XOR, nim-product and zero-absorbing shifts of XOR and +. The other 468 specs have explicit violating triples. 30 of the 34 commutative operations are not closed on [0,2), [0,4) or [0,16)."
+    verification: PROVEN
+    counterexamples: ["L+R+D[z] = a + b and D[z] = min(a, b) are associative (H-C07-1 refuted)", "D[x^y]: f(2,3) = 4, so [0,4) is not closed (H-C07-2 refuted)"]
+    related: [CLM-C07-01, CLM-C07-02, CLM-C07-04]
+  - id: EXP-C07-02
+    analysis: "In all 34 commutative operations 0 is absorbing (no L, R options) or an identity (L and R); no simple closed form for the chaotic ones (tested candidates a^b^ab, (a^1)(b^1)^1, ab, ...). Of the diagonals and rows 1-3 looked up, 88 sequences have no OEIS match (e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, ... of L+R+D[x^y^z]); maximal values grow roughly quadratically (bounded by (a+1)(b+1) - 1). One match (L+R+D[x^y] diagonal 0, 2, 1, 1, 1, ... vs A137993) is a coincidence of an almost constant sequence."
+    related: [CLM-C07-03, CLM-C07-07]
+  - id: EXP-C07-03
+    analysis: "Only 222 of 670 rows (a = 1..5, b < 1500) are additively periodic with period <= 375; 22 operations have all five rows periodic, 40 none. Row 2 of D[x^y] is the Jacobsthal block swap - an independent bitset recursion agrees with the mex table for b < 1500 and with the formula for every b < 2^15; it is an involution; neither the row nor |g(b) - b| is in the OEIS."
+    verification: PROVEN
+    counterexamples: ["Row 2 of D[x^y] is not additively periodic (|f(2,b) - b| = J_k unbounded, Theorem 3)"]
+    related: [CLM-C07-05, CLM-C07-06, CLM-C07-08]
+
+claims:
+  - id: CLM-C07-01
+    type: theorem
+    system: SYS-B
+    title: The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives
+    statement: |
+      In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),
+      f(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],
+      D[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,
+      a (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all
+      associative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11
+      operations on [0,64)^2.
+    verification: PROVEN
+    proof_check: "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review"
+    proof: proofs/paper/C07.md#theorem-1-clm-c07-01--the-associative-mex-operations
+    evidence: [EXP-C07-01]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Each formula is classical or elementary - nim-sum and nim-product (Conway, On Numbers and Games, 1976); a + b and min(a, b) are the Grundy functions of 'reduce either or both heaps' and 'reduce both heaps' (rank functions of product posets). The census of a 512-member family and the resulting classification were not found (one web search, OEIS); small."
+    limitations: Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.
+  - id: CLM-C07-02
+    type: hypothesis
+    system: SYS-B
+    title: "H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted)"
+    statement: Apart from trivial operations (0, projections), the only associative mex operations of the family are Conway's nim-sum and nim-product.
+    verification: REFUTED
+    counterexample: "L+R+D[z] gives ordinary addition a + b and D[z] gives min(a, b) (Theorem 1); also the zero-absorbing shifts of XOR and +."
+    evidence: [EXP-C07-01]
+    novelty: NOT ASSESSED
+  - id: CLM-C07-03
+    type: theorem
+    system: SYS-B
+    title: In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbing
+    statement: If the spec contains L and R then f(0,b) = b and f(a,0) = a; if it contains neither, f(0,b) = f(a,0) = 0.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C07.md Theorem 2, two-line induction); all 34 commutative operations of EXP-C07-02 conform
+    proof: proofs/paper/C07.md#theorem-2-clm-c07-03--0-is-an-identity-or-absorbing
+    evidence: [EXP-C07-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary.
+  - id: CLM-C07-04
+    type: hypothesis
+    system: SYS-B
+    title: "H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refuted)"
+    statement: Every commutative mex operation of the family is closed on [0, 2), [0, 4) and [0, 16), like the nimbers.
+    verification: REFUTED
+    counterexample: "D[x^y]: f(2,3) = 4, so [0,4) is not closed; 30 of the 34 commutative operations fail (EXP-C07-01)."
+    evidence: [EXP-C07-01]
+    novelty: NOT ASSESSED
+  - id: CLM-C07-05
+    type: theorem
+    system: SYS-B
+    title: "The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_k, 2^k) and [2^k, 2^k + J_k)"
+    statement: |
+      For the mex operation D[x^y], f(a,b) = mex{f(a',b) XOR f(a,b') : a' < a, b' < b}: f(0,b) = 0, f(1,b) = b, and
+      g(b) = f(2,b) satisfies g(0) = 0 and, for every k >= 1, g(b) = b + J_k for 2^k - J_k <= b < 2^k and
+      g(b) = b - J_k for 2^k <= b < 2^k + J_k, where J_k = (2^k - (-1)^k)/3 are the Jacobsthal numbers. Equivalently,
+      g(b) is the least v with v and v XOR b both outside {g(b') : b' < b}. The row is an involution and is not
+      additively periodic.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review
+    proof: proofs/paper/C07.md#theorem-3-clm-c07-05--the-jacobsthal-row
+    evidence: [EXP-C07-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "OEIS: no match for the row (2, 1, 4, 3, 8, 9, 10, 5, ...), for |g(b) - b| or for g(b) XOR b; text searches for greedy XOR-avoiding permutations found unrelated entries (A109812, A357578); a web search found no mex recursion of this form (closest: Multiplicative Modular Nim, arXiv:2507.08830, a different recursion). Small."
+  - id: CLM-C07-06
+    type: hypothesis
+    system: SYS-B
+    title: "H-C07-4: every row of every mex operation is eventually additively periodic (refuted)"
+    statement: For every operation of the family and every a, the row b -> f(a,b) satisfies f(a, b + p) = f(a, b) + s for all large b, for some p >= 1 and s, as for Wythoff's game.
+    verification: REFUTED
+    counterexample: "Row 2 of D[x^y] (Theorem 3): |f(2,b) - b| = J_k on the k-th block pair, which rules out every (p, s). Numerically only 222 of 670 rows (a = 1..5, b < 1500) have a period <= 375."
+    evidence: [EXP-C07-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C07-07
+    type: hypothesis
+    system: SYS-B
+    title: "H-C07-3: the diagonals of commutative mex operations are known sequences (refuted)"
+    statement: For every commutative mex operation of the family, 0 is absorbing or an identity, and the diagonal f(n,n) is a sequence in the OEIS.
+    verification: REFUTED
+    counterexample: "The first part holds (Theorem 2); the second fails - e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, 13, 10, 15, 6, ... of L+R+D[x^y^z] and 0, 1, 3, 6, 8, 11, 10, 19, ... of D[z]+D[x^y^z] have no OEIS match (88 unmatched sequences, EXP-C07-02, OEIS state of 2026-10-18)."
+    evidence: [EXP-C07-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C07-08
+    type: observation
+    system: SYS-B
+    title: Additive periodicity is the exception among mex operations
+    statement: Among the 134 distinct mex operations, 22 have additively periodic rows a = 1..5 (period <= 375 within b < 1500), 40 have none, and the rest are mixed.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C07-03]
+    novelty: NOT ASSESSED
+    limitations: Finite windows; a row without a detected period may have a longer one.
+
+journal:
+  - key: C07-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "Operations defined only by exclusion - f(a,b) is the least value not produced by earlier entries - form a 512-member family containing Conway's nim-sum and nim-product. H-C07-1 (bold) - these two are the only non-trivial associative members. H-C07-2 (bold) - commutative members are closed on the Fermat segments like the nimbers."
+    refs: [EXP-C07-01]
+  - key: C07-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C07-01 - 134 distinct operations, 11 associative - 0, projections, a[b>0], b[a>0], min, +, XOR, nim-product and zero-absorbing shifts of XOR and +. Ordinary addition and min arise from mex as well, refuting H-C07-1; H-C07-2 fails for 30 of 34 commutative operations."
+    refs: [EXP-C07-01, CLM-C07-01, CLM-C07-02, CLM-C07-04]
+  - key: C07-03
+    agent: Formal Verifier
+    kind: decision
+    text: "Found and fixed a bug before it affected any recorded result - in systems/mex.table the loop variable over D-masks shadowed the column count m of the new rectangular mode, truncating rows. EXP-C07-01/02 used the square mode (unaffected); the fix was regression-tested against the plain implementation."
+    refs: [EXP-C07-03]
+  - key: C07-04
+    agent: Mathematical Explorer
+    kind: result
+    text: "Row 2 of D[x^y] is not additively periodic - f(2,b) - b takes the values +-1, +-3, +-5, +-11, +-21, ..., the Jacobsthal numbers, in blocks of the same lengths. Verified for b < 2^15 with an independent algorithm (EXP-C07-03)."
+    refs: [EXP-C07-03]
+  - key: C07-05
+    agent: Formal Verifier
+    kind: proof
+    text: "Proved the Jacobsthal row (Theorem 3) - since J_(k+1) + J_k = 2^k, the row swaps [2^k - J_k, 2^k) with [2^k, 2^k + J_k); each step of the induction reduces to a bit estimate (x XOR (x + c) > x for c > x; J_k < 2^(k-1) < J_(k+1)). The theorem refutes the bold additive-periodicity hypothesis H-C07-4 rigorously."
+    refs: [CLM-C07-05, CLM-C07-06, proofs/paper/C07.md]
+  - key: C07-06
+    agent: Historian
+    kind: novelty
+    text: "Nim-sum and nim-product are Conway's; + and min are rank functions of product posets (folklore in combinatorial game theory). No OEIS entry for the Jacobsthal row or for 88 further sequences of the census; no prior mex recursion of the D[x^y] form found."
+    refs: [CLM-C07-01, CLM-C07-05, CLM-C07-07]
+
+next_directions:
+  - "C07: rows a >= 3 of D[x^y] - an exploratory look suggested row 3 is injective and rows 4-6 are not; is there a recursive block structure?"
+  - "C07: prove (or refute) that the 33 remaining specs equal their associative formulas for all a, b"
+  - "C07: submit the Jacobsthal row and selected census sequences to the OEIS (human decision)"
+  - "C07: which mex operations are automatic sequences (2-automatic tables)? A Walnut-style decision procedure would turn observations into proofs"

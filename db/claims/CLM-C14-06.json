@@ -1,0 +1,33 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-03",
+    "EXP-C14-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-06",
+  "lean": [
+    "proofs/lean/Infinity/C14_GraphProducts.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists.",
+  "proof": "proofs/paper/C14.md#theorem-6-clm-c14-06--the-symmetric-difference-is-the-kronecker-product-of-seidel-matrices",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)",
+  "references": [
+    "https://www.mscand.dk/article/view/10817",
+    "https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs",
+    "https://en.wikipedia.org/wiki/Two-graph"
+  ],
+  "statement": "For all graphs G, H: S(G xor H) + I = (S(G) + I) (x) (S(H) + I), where xor is the symmetric-difference product\nand S the Seidel matrix. Hence the Seidel eigenvalues of G xor H are (theta+1)(eta+1) - 1, and xor is\ncompatible with Seidel switching, giving a commutative associative product on two-graphs with unit [K1].",
+  "system": "SYS-D",
+  "title": "The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

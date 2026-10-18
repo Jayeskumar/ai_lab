@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "All 78 implementations (9 baseline universal codes, 61 pattern-terminated codes, 8 Golomb/Rice codes) round-trip,\nare prefix-free on their first 20000 codewords and have nondecreasing length functions; Kraft partial sums of the\npattern codes lie in [0.999999999993, 1] at lengths <= 1500; Fibonacci C1 and T_11 have the same length function\nfor n <= 2e5. The first runs failed on test-design errors (a table too short for growth-rate-1 patterns, a\nmonotonicity check on an unsorted list giving 70 false problems, Kraft sums of 0.865 at lengths <= 120); they\nstay in the run history.",
   "assumptions": [
     "universal codes: all n <= 5000 plus 3000 random n up to 2^60",
     "Golomb/Rice codes: n <= 5000 (unary quotients make huge n impractical)",
@@ -9,7 +10,7 @@
     "command": "python -m lab run EXP-C11-01",
     "file": "experiments/C11/E01_correctness.py",
     "sha256": "c501cff11dd7a3c2130c3fd5db4d804342d1953e513234b5e61c1f405628fb0e",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
   "cycle": "C11",
   "falsification": "Any mismatch, prefix relation, decreasing length step, or Kraft sum exceeding 1.",
@@ -45,12 +46,35 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T08:36:40Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 78 implementations (9 baseline universal codes, 61 pattern-terminated codes, 8 Golomb/Rice codes) round-trip,\nare prefix-free on their first 20000 codewords and have nondecreasing length functions; Kraft partial sums of the\npattern codes lie in [0.999999999993, 1] at lengths <= 1500; Fibonacci C1 and T_11 have the same length function\nfor n <= 2e5. The first runs failed on test-design errors (a table too short for growth-rate-1 patterns, a\nmonotonicity check on an unsorted list giving 70 false problems, Kraft sums of 0.865 at lengths <= 120); they\nstay in the run history.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C11-01"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "Every implemented code round-trips on random data; every pattern-terminated code T_p is prefix-free with Kraft sum tending to 1; T_11 has exactly the length function of the Fibonacci C1 code.",
   "id": "EXP-C11-01",
   "methodology": "Encode/decode single values and concatenated streams; trie check of the first 20000 codewords; length(n) == len(encode(n)); monotonicity of length(n) on n <= 2e5 and on sorted random big n; exact Kraft partial sums over lengths <= 1500 for pattern codes.",
   "question": "Are the encoders/decoders exact inverses, prefix-free, with nondecreasing length functions, and are pattern-terminated codes complete (Kraft sum 1)?",
+  "related": [
+    "CLM-C11-01"
+  ],
   "results_file": "results/EXP-C11-01.json",
   "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
   "runs": [
@@ -124,6 +148,26 @@
       "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
       "runtime_s": 14.731,
       "started": "2026-10-18T08:36:25Z",
+      "summary": [
+        "9 baseline + 61 pattern + 8 Golomb codes: problems = 0",
+        "Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]",
+        "Fibonacci C1 length function == T_11 for n <= 2e5: True"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-01",
+        "file": "experiments/C11/E01_correctness.py",
+        "sha256": "c501cff11dd7a3c2130c3fd5db4d804342d1953e513234b5e61c1f405628fb0e",
+        "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:50:17Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C11-01.json",
+      "results_sha256": "8cb4a80a78a8c4a88b5fef6626dab09aec26cb371bb1513b843be2ec13a7836b",
+      "runtime_s": 15.598,
+      "started": "2026-10-18T08:50:01Z",
       "summary": [
         "9 baseline + 61 pattern + 8 Golomb codes: problems = 0",
         "Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]",

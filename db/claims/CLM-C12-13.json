@@ -1,0 +1,24 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-03",
+    "EXP-C12-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-13",
+  "limitations": "Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.",
+  "notes": "The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.",
+  "novelty": "NOT ASSESSED",
+  "statement": "The Grundy values of the subtraction game with move set {1, 2, 3, 5, 8, ...} (Fibonacci numbers) are bounded;\nthe observed maximum is 14 for n <= 2e5.",
+  "system": "SYS-D",
+  "title": "Subtract-a-Fibonacci-number has bounded Grundy values",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

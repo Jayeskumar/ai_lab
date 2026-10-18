@@ -1,0 +1,34 @@
+{
+  "fetched": "2026-10-18T08:59:52Z",
+  "query": "0,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1",
+  "response": [
+    {
+      "author": "_M. F. Hasler_, Mar 16 2008",
+      "comment": [
+        "As usual, \"mod 3\" means to choose the unique representative in { 0,1,2 } of the equivalence class modulo 3Z.",
+        "Here the conventions of A014138 are used, but it seems somehow unnatural to start with offset 0 corresponding to the Catalan number A000108(1).",
+        "For m>1, the length of the m-th block of nonzero elements (and thus the approximate length of the m-th string of consecutive 1's) is given by 2 A137822(m)-1."
+      ],
+      "created": "2008-06-29T03:00:00-04:00",
+      "data": "1,0,2,1,1,1,1,0,2,1,2,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,2,1,2,0,1,1,1,1,2,0,1,0,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0",
+      "formula": [
+        "a(n) = sum( k=1..n+1, C(k) ) (mod 3), where C(k) = binomial(2k,k)/(k+1) = A000108(k).",
+        "a(n) = 0 <=> n+1 = 2 A137821(m) for some m."
+      ],
+      "keyword": "easy,nonn",
+      "name": "A014138 (= partial sums of Catalan numbers starting with 1,2,5) mod 3.",
+      "number": 137993,
+      "offset": "0,3",
+      "program": [
+        "(PARI) A137993(n) = lift( sum( k=1,n+1, binomial( 2*k,k )/(k+1), Mod(0,3) ))"
+      ],
+      "references": 2,
+      "revision": 7,
+      "time": "2015-02-01T09:37:50-05:00",
+      "xref": [
+        "Cf. A014138, A000108, A137821-A137824, A107755, A137992, A014137(n+1) = a(n)+1 (mod 3)."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=0%2C2%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1%2C1&fmt=json"
+}

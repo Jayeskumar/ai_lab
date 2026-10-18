@@ -1,0 +1,25 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-03",
+    "EXP-C12-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-08",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "For squares the P-set is a maximal square-difference-free set, of density zero by Furstenberg-Sarkozy\n(Wikipedia \"Square-difference-free set\"; D. Eppstein, \"Faster evaluation of subtraction games\", FUN 2018).\nThe triangular case is the same argument with an intersective polynomial.",
+  "proof": "proofs/paper/C12.md#theorem-7-clm-c12-08--sparse-sets-with-density-zero-p-positions",
+  "proof_check": "written proof (proofs/paper/C12.md Theorem 7) from the Furstenberg-Sarkozy theorem and its polynomial version (Kamae-Mendes France 1978), which are cited, not re-proved; P-densities 0.0222 and 0.0116 at n <= 2e5 (EXP-C12-03)",
+  "statement": "For the subtraction games whose move sets are the positive squares and the triangular numbers, the set of\nP-positions is infinite and has natural density 0; hence neither Grundy sequence is eventually periodic or\neventually arithmetic-periodic.",
+  "system": "SYS-D",
+  "title": "Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and are not periodic",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

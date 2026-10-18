@@ -1,0 +1,34 @@
+{
+  "fetched": "2026-10-18T08:57:12Z",
+  "query": "1,13,37,61,73,97,109,157,169,181,193",
+  "response": [
+    {
+      "author": "_Steven Lu_, Jun 01 2022",
+      "comment": [
+        "All the prime factors of each term in this sequence are terms of A068228."
+      ],
+      "created": "2022-07-03T09:24:37-04:00",
+      "data": "1,13,37,61,73,97,109,157,169,181,193,229,241,277,313,337,349,373,397,409,421,433,457,481,541,577,601,613,661,673,709,733,757,769,793,829,853,877,937,949,997,1009,1021,1033,1069,1093,1117,1129,1153,1201,1213",
+      "keyword": "nonn",
+      "link": [
+        "Robert Price, <a href=\"/A354467/b354467.txt\">Table of n, a(n) for n = 1..10000</a>"
+      ],
+      "mathematica": [
+        "Select[Range[10000], Count[Mod[First /@ FactorInteger[#], 12], 1] == Length[FactorInteger[#]] &]"
+      ],
+      "name": "Positive integers whose prime factors are congruent to 1 (mod 12).",
+      "number": 354467,
+      "offset": "1,2",
+      "program": [
+        "(PARI) isok(m) = my(f=factor(m)); for (k=1, #f~, if ((f[k,1] % 12) != 1, return(0))); return (1); \\\\ _Michel Marcus_, Jun 02 2022"
+      ],
+      "references": 1,
+      "revision": 19,
+      "time": "2025-04-20T02:28:13-04:00",
+      "xref": [
+        "Cf. A068228."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C13%2C37%2C61%2C73%2C97%2C109%2C157%2C169%2C181%2C193&fmt=json"
+}

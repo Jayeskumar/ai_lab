@@ -1,0 +1,27 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-04",
+  "lean": [
+    "proofs/lean/Infinity/C14_GraphProducts.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; we found no statement classifying the local products with such a linearisation, nor the symmetric-difference case in general (four web searches 2026-10-18, see CLM-C14-06). Small result; possibly folklore.",
+  "proof": "proofs/paper/C14.md#theorem-4-clm-c14-04--multiplicative-characters",
+  "proof_check": "written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs",
+  "statement": "There is c = (cE, cA, cN) in C^3 with cA != cN and M_c(G*H) = M_c(G) (x) M_c(H) for all graphs, where\nM_c(G) = cE I + cA A + cN (J - I - A), exactly for: direct (c = (0,1,0), M = A), code 127 (0,0,1),\nstrong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), M = S(G) + I with S the Seidel matrix,\nand code 141 (1,1,-1), M = I - S(G); the character is unique in each case, and every such product is\nassociative and commutative.",
+  "system": "SYS-D",
+  "title": "Exactly six local products are Kronecker products in disguise (multiplicative characters)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

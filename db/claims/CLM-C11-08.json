@@ -1,0 +1,27 @@
+{
+  "applications": "Universal coding of heavy-tailed integer streams of unknown scale (posting-list gaps, magnitudes spread over many orders).",
+  "cycle": "C11",
+  "evidence": [
+    "EXP-C11-03",
+    "EXP-C11-04",
+    "EXP-C11-05",
+    "EXP-C11-09"
+  ],
+  "history": [
+    {
+      "actor": "sync:C11",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C11-08",
+  "improvement": "MIXED",
+  "limitations": "12 synthetic sources (exact expectations) and 4 data sets, two of them simulated; memoryless codes compared with zeroth-order entropy; tuned codes are tuned on the evaluated data (optimistic for them); CPython string implementations without table-driven decoding; no claim of optimality beyond the tested baselines.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Among fixed (untuned) universal codes, a pattern-terminated code (T_101, T_0111 or T_00111) has the smallest\nexpected length on 5 of 12 synthetic sources (Zipf 1.1, geometric 0.001, uniform 2^16, uniform 2^32,\nlog-uniform on [1, 1e6]) and on both posting-list data sets, beating the best classical universal code\n(Elias, Levenshtein, Fibonacci, Fraenkel-Klein C3, LEB128, fixed Exp-Golomb) by 0.34-3.06 bits per value; on\nZipf 1.1, log-uniform and the bursty posting list it also beats Golomb and Exp-Golomb codes tuned to the source.\nIt loses on light-tailed sources (Zipf >= 1.5, geometric >= 0.01, prime gaps) and to tuned Golomb/Exp-Golomb\ncodes on geometric and uniform sources, and the reference implementation is 4-10 times slower than the Elias\nand Exp-Golomb codes.",
+  "system": "SYS-C",
+  "title": "Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result)",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

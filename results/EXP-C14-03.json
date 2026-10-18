@@ -1,0 +1,130 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C14-03",
+    "file": "experiments/C14/E03_kronecker_characters.py",
+    "sha256": "e344842e394ced2537d2f8017e406ead69cfd368c6944ee9ef63d81c6833ee74",
+    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+  },
+  "env": {
+    "git_head": "f503d24626bd2b073316c2d6a649a6b45c4da44e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:42:25Z",
+  "id": "EXP-C14-03",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "characters solved exactly over C with sympy (independent of the hand case analysis)",
+      "numerical confirmation on 30 seeded random pairs of graphs with 1-5 vertices per product"
+    ],
+    "cycle": "C14",
+    "falsification": "A product outside the predicted lists with a solution, a predicted product without one, or a numerical failure of M_c(G*H) = M_c(G) (x) M_c(H).",
+    "hypothesis": "H-C14-5 (derived by hand, Theorem 4/5 of proofs/paper/C14.md): exactly six products have a multiplicative character - direct (c=(0,1,0)), strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), EA AE AA NN (1,1,-1) and the complement-dual of the direct product (0,0,1); exactly two have an additive character - Cartesian (0,1,0) and its complement-dual (0,0,1). H-C14-6 (bold): every commutative associative local product except the empty and complete products has a character of one of the two kinds.",
+    "id": "EXP-C14-03",
+    "methodology": "Cell decomposition: A(G*H) = sum over cells in S of R_r1(G) (x) R_r2(H), R_E = I, R_A = A, R_N = J - I - A, with disjoint supports, all realised by P3 x P3; the functional equations reduce to polynomial equations in (c_E, c_A, c_N), solved by sympy for each of the 256 codes.",
+    "question": "For which local products is there a matrix functor M_c(G) = c_E I + c_A A + c_N (J - I - A) (c_A != c_N) with M_c(G*H) = M_c(G) (x) M_c(H) (multiplicative character) or M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) (additive character) for all graphs?",
+    "seed": 1414,
+    "title": "Multiplicative and additive Kronecker characters of local graph products"
+  },
+  "results": {
+    "additive": {
+      "EA AE AA AN NA NN": [
+        [
+          0,
+          0,
+          1,
+          "scalable"
+        ]
+      ],
+      "cartesian": [
+        [
+          0,
+          1,
+          0,
+          "scalable"
+        ]
+      ]
+    },
+    "commutative_associative": [
+      "empty",
+      "cartesian",
+      "direct",
+      "strong",
+      "symmetric difference",
+      "co-normal",
+      "EA EN AE AA AN NE NA",
+      "EA AE AA NN",
+      "EA AE AA AN NA NN",
+      "complete"
+    ],
+    "commutative_associative_without_character": [
+      "empty",
+      "complete"
+    ],
+    "multiplicative": {
+      "EA AE AA NN": [
+        [
+          1,
+          1,
+          -1
+        ]
+      ],
+      "EA EN AE AA AN NE NA": [
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "co-normal": [
+        [
+          1,
+          0,
+          1
+        ]
+      ],
+      "direct": [
+        [
+          0,
+          1,
+          0
+        ]
+      ],
+      "strong": [
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "symmetric difference": [
+        [
+          1,
+          -1,
+          1
+        ]
+      ]
+    },
+    "numeric_failures": [],
+    "products_with_character_not_comm_assoc": [],
+    "summary": [
+      "multiplicative characters: {direct: [(0, 1, 0)], strong: [(1, 1, 0)], symmetric difference: [(1, -1, 1)], co-normal: [(1, 0, 1)], EA EN AE AA AN NE NA: [(0, 0, 1)], EA AE AA NN: [(1, 1, -1)]}",
+      "additive characters: {cartesian: [(0, 1, 0, 'scalable')], EA AE AA AN NA NN: [(0, 0, 1, 'scalable')]}",
+      "commutative associative products without a character: ['empty', 'complete']",
+      "sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30"
+    ],
+    "sympy_vs_enumeration_mismatches": [],
+    "xor_seidel_spectrum_failures": 0
+  },
+  "results_sha256": "08e6e8f9b788c831fccb21a5b3185a3a4210750edd10584854843530c5e159a6",
+  "runtime_s": 3.872,
+  "started": "2026-10-18T08:42:21Z"
+}

@@ -1,0 +1,22 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-12",
+  "limitations": "Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every connected graph has exactly one factorisation into connected primes with respect to the product\n(g,h) ~ (g',h') iff (EA, AE, AA or NN); equivalently every graph with connected complement factors uniquely\nunder the symmetric-difference product into primes with connected complement.",
+  "system": "SYS-D",
+  "title": "Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs)",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

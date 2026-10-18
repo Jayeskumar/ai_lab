@@ -1,0 +1,148 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C14-07",
+    "file": "experiments/C14/E07_spectra_benchmark.py",
+    "sha256": "7697119e7d96295aff1e4975c318b452801d6116c4709267ac25752c315b946e",
+    "systems_sha256": "7f4a460f3c7e0ec694cb78503916925152e974e6d03149c13bd6c60f4986e730"
+  },
+  "env": {
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:01:23Z",
+  "id": "EXP-C14-07",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "Erdos-Renyi G(n, 1/2) factors with n = m in {10, 20, 30, 40} (seeded)",
+      "baseline: numpy.linalg.eigvalsh on the full (nm x nm) matrix",
+      "timings are machine-dependent and stored under 'timings' (excluded from the result hash)"
+    ],
+    "cycle": "C14",
+    "falsification": "Max deviation above 1e-8 * spectral norm, or no speed-up at nm = 1600.",
+    "hypothesis": "The factor route is exact up to rounding (max error < 1e-8 relative to the spectral norm) and asymptotically faster (O(n^3 + m^3 + nm log nm) vs O((nm)^3)); this is the standard Kronecker eigenvalue speed-up, newly applicable to the symmetric-difference product via Seidel matrices.",
+    "id": "EXP-C14-07",
+    "methodology": "XOR: Seidel spectrum = {(s+1)(t+1) - 1}; strong: adjacency spectrum = {(a+1)(b+1) - 1}; co-normal: spectrum of J - A multiplies; Cartesian: adjacency spectrum = {a + b}. Compare sorted spectra and wall-clock times (median of 3).",
+    "question": "How much faster and how accurate is it to obtain the spectrum of a product graph from its factors via the Kronecker characters (Theorems 4-6) instead of diagonalising the product matrix?",
+    "seed": 1407,
+    "title": "Spectra of symmetric-difference, strong, co-normal and Cartesian products from the factors"
+  },
+  "results": {
+    "max_relative_error_below_1e-8": true,
+    "relative_errors": {
+      "cartesian n=m=10": 8.470886600999417e-16,
+      "cartesian n=m=20": 1.7147265229910054e-15,
+      "cartesian n=m=30": 2.2669780748493228e-15,
+      "cartesian n=m=40": 2.4800123515972495e-15,
+      "co-normal n=m=10": 1.1450723388995371e-15,
+      "co-normal n=m=20": 1.73640736683463e-15,
+      "co-normal n=m=30": 1.698589360924149e-15,
+      "co-normal n=m=40": 2.2691213808653018e-15,
+      "strong n=m=10": 9.116720356985477e-16,
+      "strong n=m=20": 1.3954263836234574e-15,
+      "strong n=m=30": 1.6626136225462909e-15,
+      "strong n=m=40": 1.3938658798132654e-15,
+      "symmetric difference n=m=10": 2.52741791660617e-15,
+      "symmetric difference n=m=20": 4.10515986187671e-15,
+      "symmetric difference n=m=30": 7.950719428474427e-15,
+      "symmetric difference n=m=40": 1.2056965935353639e-14
+    },
+    "summary": [
+      "max relative spectral error over 16 cases: 1.2e-14 (< 1e-8: True)",
+      "timings (machine-dependent) are under 'timings'"
+    ],
+    "timings": {
+      "cartesian n=m=10": {
+        "direct_s": 0.00046,
+        "factored_s": 3.4e-05,
+        "speedup": 13.5
+      },
+      "cartesian n=m=20": {
+        "direct_s": 1.29572,
+        "factored_s": 6e-05,
+        "speedup": 21569.4
+      },
+      "cartesian n=m=30": {
+        "direct_s": 6.6452,
+        "factored_s": 0.000112,
+        "speedup": 59111.5
+      },
+      "cartesian n=m=40": {
+        "direct_s": 18.69903,
+        "factored_s": 0.000182,
+        "speedup": 102637.6
+      },
+      "co-normal n=m=10": {
+        "direct_s": 0.00044,
+        "factored_s": 3.3e-05,
+        "speedup": 13.4
+      },
+      "co-normal n=m=20": {
+        "direct_s": 1.21232,
+        "factored_s": 5.9e-05,
+        "speedup": 20673.5
+      },
+      "co-normal n=m=30": {
+        "direct_s": 6.78904,
+        "factored_s": 0.000105,
+        "speedup": 64499.7
+      },
+      "co-normal n=m=40": {
+        "direct_s": 13.96863,
+        "factored_s": 0.000353,
+        "speedup": 39536.2
+      },
+      "strong n=m=10": {
+        "direct_s": 0.00047,
+        "factored_s": 3.6e-05,
+        "speedup": 13.0
+      },
+      "strong n=m=20": {
+        "direct_s": 1.29538,
+        "factored_s": 8.9e-05,
+        "speedup": 14545.0
+      },
+      "strong n=m=30": {
+        "direct_s": 6.44631,
+        "factored_s": 0.000107,
+        "speedup": 60310.1
+      },
+      "strong n=m=40": {
+        "direct_s": 13.69771,
+        "factored_s": 0.000195,
+        "speedup": 70388.4
+      },
+      "symmetric difference n=m=10": {
+        "direct_s": 0.00082,
+        "factored_s": 8e-05,
+        "speedup": 10.2
+      },
+      "symmetric difference n=m=20": {
+        "direct_s": 1.22261,
+        "factored_s": 8.2e-05,
+        "speedup": 14849.2
+      },
+      "symmetric difference n=m=30": {
+        "direct_s": 6.45538,
+        "factored_s": 0.00013,
+        "speedup": 49778.2
+      },
+      "symmetric difference n=m=40": {
+        "direct_s": 17.76296,
+        "factored_s": 0.000226,
+        "speedup": 78717.0
+      }
+    }
+  },
+  "results_sha256": "ebfb04d1f745529f48e20d96cbb19098a22e000c1c95d3181714a2885b1da036",
+  "runtime_s": 291.198,
+  "started": "2026-10-18T08:56:32Z"
+}

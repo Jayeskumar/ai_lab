@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C11-07",
     "file": "experiments/C11/E07_gap_formula.py",
     "sha256": "f0ebfcc66cda54cdd98c860abf1ac26a9f69edf25e58207ac48c75b8fbaf52f0",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
   "env": {
-    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:29:30Z",
+  "finished": "2026-10-18T08:50:42Z",
   "id": "EXP-C11-07",
   "meta": {
     "agent": "Mathematical Skeptic",
@@ -94,6 +94,6 @@
     ]
   },
   "results_sha256": "d5f3d2ea6e605cf901aefc4abc8a9a323e67898edec12c741dcc3cb34f5442a0",
-  "runtime_s": 0.144,
-  "started": "2026-10-18T08:29:30Z"
+  "runtime_s": 0.054,
+  "started": "2026-10-18T08:50:42Z"
 }

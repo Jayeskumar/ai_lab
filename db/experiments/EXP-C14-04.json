@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Exact factorisation census for the 8 unital associative products, orders <= 15 (factors: all graphs with <= 7 vertices). All graphs: Cartesian, strong, co-normal and 221 have no collision; lexicographic and its transpose collide at orders 10 and 14 as multisets (e.g. 2K1 o (C4+K1) = (2K2+K1) o 2K1); symmetric difference and 141 collide at orders 4, 6, 8, 10, 12, 14, 15 (1, 2, 3, 7, 16, 54, 1 classes). Inside connected graphs the symmetric difference collides at orders 8, 10, 12, 14 (2, 6, 15, 53 classes: K2 xor K2 xor K2 = K2 xor K_{1,3}) - H-C14-3 refuted - while code 141 (equivalently XOR on co-connected graphs) has none. Connected Cartesian and strong prime counts both equal OEIS A129582 for n = 2..15; prime counts over all graphs computed for every product (no OEIS match). The classical 63-vertex Cartesian/strong counterexample for disconnected graphs was verified.",
   "assumptions": [
     "all graphs with <= 7 vertices (networkx atlas) as candidate factors; composites of order n <= 15 are exactly the products of primes of orders whose product is n (n in 4,6,8,9,10,12,14,15)",
     "graph counts A000088 / A001349 taken from the OEIS (cached) to turn composite counts into prime counts",
@@ -11,6 +12,10 @@
     "sha256": "6ec37cf3b4547e7b5cd2f4f9b7b6cfc4b3a24d1202523121a131c53f7dfe1ede",
     "systems_sha256": "0e3cdebc2fc10d491a03ce47222f48a283e26c444ac4b31099144a2acd71a4cd"
   },
+  "counterexamples": [
+    "Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3} (connected, order 8); C4 = K2 xor K2 = K2 xor 2K1 (order 4)",
+    "Lexicographic: 2K1[C4+K1] = (2K2+K1)[2K1] = 2C4 + 2K1 (order 10)"
+  ],
   "cycle": "C14",
   "falsification": "A connected (resp. co-connected) graph with two different factorisations into connected (resp. co-connected) primes for one of the six commutative unital products.",
   "history": [
@@ -19,12 +24,64 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:43:44Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Exact factorisation census for the 8 unital associative products, orders <= 15 (factors: all graphs with <= 7 vertices). All graphs: Cartesian, strong, co-normal and 221 have no collision; lexicographic and its transpose collide at orders 10 and 14 as multisets (e.g. 2K1 o (C4+K1) = (2K2+K1) o 2K1); symmetric difference and 141 collide at orders 4, 6, 8, 10, 12, 14, 15 (1, 2, 3, 7, 16, 54, 1 classes). Inside connected graphs the symmetric difference collides at orders 8, 10, 12, 14 (2, 6, 15, 53 classes: K2 xor K2 xor K2 = K2 xor K_{1,3}) - H-C14-3 refuted - while code 141 (equivalently XOR on co-connected graphs) has none. Connected Cartesian and strong prime counts both equal OEIS A129582 for n = 2..15; prime counts over all graphs computed for every product (no OEIS match). The classical 63-vertex Cartesian/strong counterexample for disconnected graphs was verified.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3} (connected, order 8); C4 = K2 xor K2 = K2 xor 2K1 (order 4)",
+        "Lexicographic: 2K1[C4+K1] = (2K2+K1)[2K1] = 2C4 + 2K1 (order 10)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C14-08",
+        "CLM-C14-09",
+        "CLM-C14-10",
+        "CLM-C14-11",
+        "CLM-C14-12"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
     }
   ],
   "hypothesis": "H-C14-3 (bold, Inventor): each of the six commutative unital associative products has unique prime factorisation on connected graphs (Cartesian: Sabidussi-Vizing; strong: Doerfler-Imrich/McKenzie) or, for the complement-duals, on co-connected graphs. H-C14-7: Cartesian-prime and strong-prime connected graphs are equinumerous in every order (forced by unique factorisation and the common count of connected graphs).",
   "id": "EXP-C14-04",
   "methodology": "For each product: find the composite graphs of orders 4 and 6 among the atlas graphs, take the rest as primes, enumerate all prime factorisations (multisets for commutative products, sequences otherwise) of every order <= 15, classify the products up to isomorphism, and record classes with more than one factorisation; repeat inside the class of connected graphs; verify the classical 63-vertex Cartesian counterexample (K1+K2+Q2)(K1+Q3) = (K1+Q2+Q4)(K1+K2).",
   "question": "For each associative local product with two-sided unit K1, which graphs of order <= 15 are composite, how many primes are there of each order, and where does unique factorisation fail?",
+  "related": [
+    "CLM-C14-08",
+    "CLM-C14-09",
+    "CLM-C14-10",
+    "CLM-C14-11",
+    "CLM-C14-12"
+  ],
   "results_file": "results/EXP-C14-04.json",
   "results_sha256": "c44f6486f55aff8622706b291461fc8d7d84f659f969e118d564baf635ff8b22",
   "runs": [
@@ -74,5 +131,6 @@
     "63-vertex counterexample verified: {'cartesian': {'order': 63, 'isomorphic': True}, 'strong': {'order': 63, 'isomorphic': True}}",
     "OEIS: cartesian connected primes n=2..15: MATCH; strong connected primes n=2..15: MATCH; cartesian primes (all graphs) n=2..11: NO MATCH; strong primes (all graphs) n=2..11: NO MATCH; lexicographic primes (all graphs) n=2..11: NO MATCH; EA AE AA NA primes (all graphs) n=2..11: NO MATCH; symmetric difference primes (all graphs) n=2..11: NO MATCH; co-normal primes (all graphs) n=2..11: NO MATCH; EA AE AA NN primes (all graphs) n=2..11: NO MATCH; EA AE AA AN NA NN primes (all graphs) n=2..11: NO MATCH"
   ],
-  "title": "Prime factorisation census for the eight associative local products with unit K1 (orders <= 15)"
+  "title": "Prime factorisation census for the eight associative local products with unit K1 (orders <= 15)",
+  "verification": "REFUTED"
 }

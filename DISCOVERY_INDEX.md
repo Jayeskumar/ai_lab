@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T08:46:39Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T09:13:45Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 49 |
-| COMPUTATIONALLY SUPPORTED | 16 |
-| CONJECTURE | 2 |
-| REFUTED | 14 |
-| INCONCLUSIVE | 1 |
+| PROVEN | 76 |
+| COMPUTATIONALLY SUPPORTED | 21 |
+| CONJECTURE | 3 |
+| REFUTED | 23 |
+| INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 38 |
-| POTENTIALLY NOVEL | 12 |
-| NOT ASSESSED | 32 |
+| REDISCOVERY | 52 |
+| POTENTIALLY NOVEL | 24 |
+| NOT ASSESSED | 49 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -63,6 +63,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | written proof (proofs/paper/C06.md Theorem 6); model counts… | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | Lean 4 + Mathlib for the structural core (centralizer_eq, c… | POTENTIALLY NOVEL | EXP-C06-02 |
 | CLM-C06-12 | Anchored spectra are closed under coprime products | written proof (proofs/paper/C06.md Theorem 8); consistent w… | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
+| CLM-C07-01 | The associative mex operations are 0, projections, min, +, XOR, nim-product and four rela… | written proof for the 11 canonical formulas (proofs/paper/C… | POTENTIALLY NOVEL | EXP-C07-01 |
+| CLM-C07-03 | In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbi… | written proof (proofs/paper/C07.md Theorem 2, two-line indu… | NOT ASSESSED | EXP-C07-02 |
+| CLM-C07-05 | The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_… | written proof (proofs/paper/C07.md Theorem 3, induction ove… | POTENTIALLY NOVEL | EXP-C07-03 |
 | CLM-C08-01 | Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative… | Lean 4 + Mathlib (Infinity.C08.circ_assoc, circ_comm, key, … | REDISCOVERY | EXP-C08-01, EXP-C08-03, EXP-C08-05 |
 | CLM-C09-01 | Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images | written proof (proofs/paper/C09.md Theorem 1) relying on CL… | REDISCOVERY | EXP-C09-03 |
 | CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | written proof (proofs/paper/C09.md Theorem 3; Weyl equidist… | POTENTIALLY NOVEL | EXP-C09-04 |
@@ -73,6 +76,30 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C10-02 | Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2 | written proof (proofs/paper/C10.md Theorem 2); recurrence e… | REDISCOVERY | EXP-C10-02, EXP-C10-04 |
 | CLM-C10-04 | Exchange systems fire 1/(m - sum b) times per increment on average | written proof (proofs/paper/C10.md Theorem 3) from the abel… | NOT ASSESSED | EXP-C10-03 |
 | CLM-C10-05 | Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q… | written proof (proofs/paper/C10.md Theorem 4); deviation <=… | NOT ASSESSED | EXP-C10-03 |
+| CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | Prefix property and unique parsing machine-checked in Lean … | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
+| CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) … | REDISCOVERY | EXP-C11-02 |
+| CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | written proof (proofs/paper/C11.md Theorem 3); 0 mismatches… | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
+| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | written proof (proofs/paper/C11.md Corollary 4); exhaustive… | POTENTIALLY NOVEL | EXP-C11-06 |
+| CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | written proof (proofs/paper/C11.md Proposition 5); both con… | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
+| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | written proof (proofs/paper/C11.md Corollary 6, from cum_01… | POTENTIALLY NOVEL | EXP-C11-09 |
+| CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | written proof (proofs/paper/C12.md Theorem 1); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | written proof (proofs/paper/C12.md Theorem 2); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-03 | P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers… | Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g0… | REDISCOVERY | EXP-C12-02, EXP-C12-04 |
+| CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | Computer-assisted (proofs/paper/C12.md Theorem 8): exact co… | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
+| CLM-C12-05 | Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n) | written proof (proofs/paper/C12.md Theorem 4); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02, EXP-C12-04 |
+| CLM-C12-06 | Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, … | (a) machine-checked in Lean (Infinity.C12.residue_grundy, I… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | written proof (proofs/paper/C12.md Theorem 7) from the Furs… | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C14-01 | Associativity of a local graph product is a finite identity on relations, detected by P3 … | Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty,… | NOT ASSESSED | EXP-C14-01, EXP-C14-06 |
+| CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | Lean 4 kernel computation (assoc_codes, comm_assoc_codes by… | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
+| CLM-C14-03 | For local graph products, associativity and commutativity up to isomorphism are no weaker… | computer-assisted - explicit witnesses for all 236 + 224 co… | NOT ASSESSED | EXP-C14-02, EXP-C14-06 |
+| CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | written case analysis (proofs/paper/C14.md Theorem 4); poly… | POTENTIALLY NOVEL | EXP-C14-03 |
+| CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | written proof (proofs/paper/C14.md Theorem 5); sympy over C… | POTENTIALLY NOVEL | EXP-C14-03 |
+| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | written proof (proofs/paper/C14.md Theorem 6); entry-level … | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |
+| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | written proof (proofs/paper/C14.md Theorem 7; (c) via twin … | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
+| CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | written proof (proofs/paper/C14.md Theorem 9) relying on th… | REDISCOVERY | EXP-C14-04 |
+| CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | computer-assisted exact census (all prime factorisations of… | POTENTIALLY NOVEL | EXP-C14-04 |
+| CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | by hand (both sides are two disjoint 4-cycles plus two isol… | REDISCOVERY | EXP-C14-04 |
 
 ## 2. Unproven conjectures (CONJECTURE and COMPUTATIONALLY SUPPORTED)
 
@@ -80,6 +107,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 |---|---|---|---|---|
 | CLM-C04-16 | Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.0… | CONJECTURE | REDISCOVERY | EXP-C04-08, EXP-C04-09 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | NOT ASSESSED | EXP-C09-04, EXP-C09-01 |
+| CLM-C12-13 | Subtract-a-Fibonacci-number has bounded Grundy values | CONJECTURE | NOT ASSESSED | EXP-C12-03, EXP-C12-01 |
 | CLM-C01-08 | Common-border conjecture: one-relation class counts depend only on common borders | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C01-05, EXP-C01-06, EXP-C01-07 |
 | CLM-C01-10 | Common-border formula with exactly one common border (derivation sketch from Gray-Steinbe… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C01-06, EXP-C01-07, EXP-C01-08 |
 | CLM-C01-11 | Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contain… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C01-08 |
@@ -90,12 +118,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-10 | Laws with finite anchored spectra {1, 2} and {1, 3} | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-11 | Mirror twins of the golden and odd laws | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C06-04 |
+| CLM-C07-08 | Additive periodicity is the exception among mex operations | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C07-03 |
 | CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C08-02 |
 | CLM-C08-03 | Pisot base sequences give associative circle products for all sufficiently large shifts | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03 |
 | CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03 |
 | CLM-C08-05 | Measured associativity thresholds for 45 base sequences | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C08-02, EXP-C08-03 |
 | CLM-C10-06 | Multi-offset exchange rules have rule-specific average counting costs | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C10-03 |
 | CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C10-01 |
+| CLM-C11-08 | Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-ra… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09 |
+| CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C14-12 | Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmet… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C14-04 |
+| CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
 
 ## 3. Potentially novel ideas
 
@@ -113,8 +146,20 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | PROVEN | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | PROVEN | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | PROVEN | POTENTIALLY NOVEL | EXP-C06-02 |
+| CLM-C07-01 | The associative mex operations are 0, projections, min, +, XOR, nim-product and four rela… | PROVEN | POTENTIALLY NOVEL | EXP-C07-01 |
+| CLM-C07-05 | The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_… | PROVEN | POTENTIALLY NOVEL | EXP-C07-03 |
 | CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03 |
 | CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
+| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | PROVEN | POTENTIALLY NOVEL | EXP-C11-06 |
+| CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | PROVEN | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
+| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | PROVEN | POTENTIALLY NOVEL | EXP-C11-09 |
+| CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
+| CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
+| CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
+| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |
+| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
+| CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C14-04 |
+| CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
 
 ## 4. Rediscovered existing mathematics
 
@@ -158,10 +203,26 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C10-01 | Average cost of counting in classical representations (b/(b-1), e-1, 1) | PROVEN | REDISCOVERY | EXP-C10-01 |
 | CLM-C10-02 | Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2 | PROVEN | REDISCOVERY | EXP-C10-02, EXP-C10-04 |
 | CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C10-01 |
+| CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | PROVEN | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
+| CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | PROVEN | REDISCOVERY | EXP-C11-02 |
+| CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | PROVEN | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
+| CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-03 | P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers… | PROVEN | REDISCOVERY | EXP-C12-02, EXP-C12-04 |
+| CLM-C12-05 | Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n) | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02, EXP-C12-04 |
+| CLM-C12-06 | Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, … | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | PROVEN | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | PROVEN | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
+| CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | PROVEN | REDISCOVERY | EXP-C14-04 |
+| CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | PROVEN | REDISCOVERY | EXP-C14-04 |
 
 ## 5. Practical algorithmic results
 
-_None yet._
+| Claim | Title | Outcome | Verification | Evidence |
+|---|---|---|---|---|
+| CLM-C11-08 | Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-ra… | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09 |
 
 ## 6. Refuted hypotheses
 
@@ -177,14 +238,24 @@ _None yet._
 | CLM-C04-14 | H-C04-6: Grundy values of rewriting games never exceed 3 (refuted) | REFUTED | NOT ASSESSED | EXP-C04-08 |
 | CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | NOT ASSESSED | EXP-C06-03 |
 | CLM-C06-09 | H-C06-3: anchored spectra are affine spectra (refuted) | REFUTED | NOT ASSESSED | EXP-C06-04 |
+| CLM-C07-02 | H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted) | REFUTED | NOT ASSESSED | EXP-C07-01 |
+| CLM-C07-04 | H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refut… | REFUTED | NOT ASSESSED | EXP-C07-01 |
+| CLM-C07-06 | H-C07-4: every row of every mex operation is eventually additively periodic (refuted) | REFUTED | NOT ASSESSED | EXP-C07-03 |
+| CLM-C07-07 | H-C07-3: the diagonals of commutative mex operations are known sequences (refuted) | REFUTED | NOT ASSESSED | EXP-C07-02 |
 | CLM-C08-06 | H-C08-1: Knuth's associative circle product is an isolated case (refuted) | REFUTED | NOT ASSESSED | EXP-C08-01, EXP-C08-02 |
 | CLM-C09-02 | H-C09-2: factorisation into circle irreducibles is unique (refuted) | REFUTED | NOT ASSESSED | EXP-C09-02 |
 | CLM-C09-04 | H-C09-1: circle irreducibles have density 0 like primes (refuted) | REFUTED | NOT ASSESSED | EXP-C09-01, EXP-C09-04 |
 | CLM-C10-03 | H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted) | REFUTED | NOT ASSESSED | EXP-C10-01, EXP-C10-02 |
+| CLM-C11-05 | H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes) | REFUTED | NOT ASSESSED | EXP-C11-02 |
+| CLM-C11-06 | Average gain of an unbordered terminator over 1^k: log_lambda(1/(lambda-1)), then converg… | REFUTED | NOT ASSESSED | EXP-C11-06, EXP-C11-07 |
+| CLM-C12-10 | H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signatu… | REFUTED | NOT ASSESSED | EXP-C12-05 |
+| CLM-C12-11 | H-C12-2: sparse move sets keep a positive density of P-positions (refuted) | REFUTED | NOT ASSESSED | EXP-C12-03 |
+| CLM-C14-08 | H-C14-3: the six commutative unital associative products factor uniquely on connected (or… | REFUTED | NOT ASSESSED | EXP-C14-04, EXP-C14-06 |
 
 ## 7. Inconclusive
 
 | Claim | Title | Verification | Novelty | Evidence |
 |---|---|---|---|---|
 | CLM-C03-09 | H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evi… | INCONCLUSIVE | NOT ASSESSED | EXP-C03-02, EXP-C03-03 |
+| CLM-C12-09 | H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inc… | INCONCLUSIVE | NOT ASSESSED | EXP-C12-01, EXP-C12-02, EXP-C12-06, EXP-C12-03 |
 

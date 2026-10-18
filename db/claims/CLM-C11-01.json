@@ -1,0 +1,28 @@
+{
+  "cycle": "C11",
+  "evidence": [
+    "EXP-C11-01",
+    "EXP-C11-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C11",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C11-01",
+  "lean": [
+    "proofs/lean/Infinity/C11_Codes.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.",
+  "proof": "proofs/paper/C11.md#theorem-1-clm-c11-01--t_p-is-a-complete-prefix-code",
+  "proof_check": "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)",
+  "statement": "For a binary pattern p of length k, the set T_p of binary words in which p occurs for the first time at the end\nis a prefix code with Kraft sum 1, the number of its codewords of each length has generating function\nx^k / (x^k + (1 - 2x) c_p(x)) with c_p the autocorrelation polynomial of p, and T_11 (T_(1^k)) is exactly the\ncodeword set of the Fibonacci code C1 (of its order-k generalisation).",
+  "system": "SYS-C",
+  "title": "Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_p(x)); T_11 is the Fibonacci code",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

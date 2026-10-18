@@ -1,0 +1,30 @@
+{
+ "recursion_LD_N_le_64": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64
+ ],
+ "recursion_outcomes_non_pow2": [
+  "not LD"
+ ],
+ "A_n_LD_exhaustive_N_le_256": {
+  "1": true,
+  "2": true,
+  "4": true,
+  "8": true,
+  "16": true,
+  "32": true,
+  "64": true,
+  "128": true,
+  "256": true
+ },
+ "lean_laver3_equals_own_A3": true,
+ "LD_SAT_models_N2_equal_Laver": true,
+ "LD_SAT_models_N4_equal_Laver": true,
+ "LD_SAT_models_N8_equal_Laver": true,
+ "_seconds": 0.5
+}

@@ -1,0 +1,318 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C12-06",
+    "file": "experiments/C12/E06_deleting_divisors.py",
+    "sha256": "9286238fe54575dfad34398623baf26daa0d481c28daa5934e855793bee627ae",
+    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+  },
+  "env": {
+    "git_head": "f503d24626bd2b073316c2d6a649a6b45c4da44e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:40:45Z",
+  "id": "EXP-C12-06",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "exact Grundy values recomputed for n <= 1e5",
+      "closed form F from the table in proofs/paper/C12.md Theorem 8",
+      "inductive-step certificate: odd parts m <= 15, exponents 13 <= a <= 100",
+      "random spot checks of the mex equation for F: 3000 even n = 2^a m (17 <= m < 1e6, a <= 40) and 1000 odd n < 1e8; seed 1206"
+    ],
+    "cycle": "C12",
+    "falsification": "Any n with g(n) != F(n), or any n where F violates the mex equation.",
+    "hypothesis": "H-C12-3: g(n) = v2(n) whenever the odd part m of n is at least 17; for m <= 15, g(2^a m) = a + c_m for all a >= a_m with (m: a_m, c_m) = (3: 6, -2), (5: 6, +2), (7, 9, 11, 15: 3, +1), (13: 4, +1); g(2^a) = 0 for odd a and a - 1 for even a (except g(16) = 2); ten sporadic values in between.",
+    "id": "EXP-C12-06",
+    "methodology": "Compare g with F on [0, 1e5]; check F(n) = mex{F(n - d)} on the certificate range and on random large n by enumerating divisors exactly.",
+    "question": "The P-positions of G03 are known (CLM-C12-03), but its Grundy sequence matches nothing in the OEIS (EXP-C12-04). What is the Grundy function?",
+    "seed": 1206,
+    "title": "Grundy values of the deleting-divisors game G03: v2(n) except for odd parts <= 15"
+  },
+  "results": {
+    "N": 100000,
+    "certificate_failures": [],
+    "exceptions_by_odd_part": {
+      "1": 16,
+      "11": 11,
+      "13": 9,
+      "15": 10,
+      "3": 15,
+      "5": 13,
+      "7": 11,
+      "9": 11
+    },
+    "max_dev_off_P": 2,
+    "mismatches": [],
+    "offsets_a13_a14": {
+      "m=1,a=13": {
+        "mex_minus_a": -13,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2
+        ],
+        "zero_present": false
+      },
+      "m=1,a=14": {
+        "mex_minus_a": -1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2
+        ],
+        "zero_present": true
+      },
+      "m=11,a=13": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          3
+        ],
+        "zero_present": true
+      },
+      "m=11,a=14": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          3
+        ],
+        "zero_present": true
+      },
+      "m=13,a=13": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0
+        ],
+        "zero_present": true
+      },
+      "m=13,a=14": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0
+        ],
+        "zero_present": true
+      },
+      "m=15,a=13": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          2,
+          3
+        ],
+        "zero_present": true
+      },
+      "m=15,a=14": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          2,
+          3
+        ],
+        "zero_present": true
+      },
+      "m=3,a=13": {
+        "mex_minus_a": -2,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -1,
+          0,
+          1
+        ],
+        "zero_present": true
+      },
+      "m=3,a=14": {
+        "mex_minus_a": -2,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -1,
+          1
+        ],
+        "zero_present": true
+      },
+      "m=5,a=13": {
+        "mex_minus_a": 2,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1
+        ],
+        "zero_present": true
+      },
+      "m=5,a=14": {
+        "mex_minus_a": 2,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          1
+        ],
+        "zero_present": true
+      },
+      "m=7,a=13": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0
+        ],
+        "zero_present": true
+      },
+      "m=7,a=14": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0
+        ],
+        "zero_present": true
+      },
+      "m=9,a=13": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0,
+          2
+        ],
+        "zero_present": true
+      },
+      "m=9,a=14": {
+        "mex_minus_a": 1,
+        "offsets>=-4": [
+          -4,
+          -3,
+          -2,
+          -1,
+          0
+        ],
+        "zero_present": true
+      }
+    },
+    "random_even_failures": 0,
+    "random_odd_failures": 0,
+    "records": [
+      [
+        0,
+        0
+      ],
+      [
+        4,
+        1
+      ],
+      [
+        6,
+        2
+      ],
+      [
+        12,
+        3
+      ],
+      [
+        24,
+        4
+      ],
+      [
+        64,
+        5
+      ],
+      [
+        96,
+        6
+      ],
+      [
+        256,
+        7
+      ],
+      [
+        320,
+        8
+      ],
+      [
+        640,
+        9
+      ],
+      [
+        1280,
+        10
+      ],
+      [
+        2560,
+        11
+      ],
+      [
+        5120,
+        12
+      ],
+      [
+        10240,
+        13
+      ],
+      [
+        20480,
+        14
+      ],
+      [
+        40960,
+        15
+      ],
+      [
+        81920,
+        16
+      ]
+    ],
+    "summary": [
+      "g = F on [0, 100000]: mismatches 0; positions with g != v2: 96 (by odd part {'1': 16, '3': 15, '5': 13, '7': 11, '9': 11, '11': 11, '15': 10, '13': 9})",
+      "max |g - v2| off the P-positions 2^(2j+1): 2; records (n, g): [[0, 0], [4, 1], [6, 2], [12, 3], [24, 4], [64, 5], [96, 6], [256, 7], [320, 8], [640, 9], [1280, 10], [2560, 11], [5120, 12], [10240, 13], [20480, 14], [40960, 15], [81920, 16]]",
+      "certificate m <= 15, 13 <= a <= 100: mismatches 0",
+      "random mex checks: even n 0/3000 failures, odd n 0/1000 failures"
+    ]
+  },
+  "results_sha256": "fe0eff630e328833856ac396a8b7440272a033f96aaa984cebdefbfa661bae92",
+  "runtime_s": 0.837,
+  "started": "2026-10-18T08:40:44Z"
+}

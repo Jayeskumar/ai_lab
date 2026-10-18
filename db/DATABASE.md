@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T09:13:45Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1155,6 +1155,131 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C06-03; EXP-C06-04
 - **novelty_basis:** Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
 
+### CLM-C07-01: The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives
+
+- **cycle:** C07
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),
+  f(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],
+  D[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,
+  a (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all
+  associative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11
+  operations on [0,64)^2.
+
+- **proof:** proofs/paper/C07.md#theorem-1-clm-c07-01--the-associative-mex-operations
+- **evidence:** EXP-C07-01
+- **novelty_basis:**
+
+  Each formula is classical or elementary - nim-sum and nim-product (Conway, On Numbers and Games, 1976); a + b and min(a, b) are the Grundy functions of 'reduce either or both heaps' and 'reduce both heaps' (rank functions of product posets). The census of a 512-member family and the resulting classification were not found (one web search, OEIS); small.
+
+- **limitations:** Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.
+
+### CLM-C07-02: H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted)
+
+- **cycle:** C07
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Apart from trivial operations (0, projections), the only associative mex operations of the family are Conway's nim-sum and nim-product.
+- **evidence:** EXP-C07-01
+- **counterexample:** L+R+D[z] gives ordinary addition a + b and D[z] gives min(a, b) (Theorem 1); also the zero-absorbing shifts of XOR and +.
+
+### CLM-C07-03: In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbing
+
+- **cycle:** C07
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C07.md Theorem 2, two-line induction); all 34 commutative operations of EXP-C07-02 conform
+- **novelty:** NOT ASSESSED
+- **statement:** If the spec contains L and R then f(0,b) = b and f(a,0) = a; if it contains neither, f(0,b) = f(a,0) = 0.
+- **proof:** proofs/paper/C07.md#theorem-2-clm-c07-03--0-is-an-identity-or-absorbing
+- **evidence:** EXP-C07-02
+- **novelty_basis:** Elementary.
+
+### CLM-C07-04: H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refuted)
+
+- **cycle:** C07
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Every commutative mex operation of the family is closed on [0, 2), [0, 4) and [0, 16), like the nimbers.
+- **evidence:** EXP-C07-01
+- **counterexample:** D[x^y]: f(2,3) = 4, so [0,4) is not closed; 30 of the 34 commutative operations fail (EXP-C07-01).
+
+### CLM-C07-05: The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_k, 2^k) and [2^k, 2^k + J_k)
+
+- **cycle:** C07
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For the mex operation D[x^y], f(a,b) = mex{f(a',b) XOR f(a,b') : a' < a, b' < b}: f(0,b) = 0, f(1,b) = b, and
+  g(b) = f(2,b) satisfies g(0) = 0 and, for every k >= 1, g(b) = b + J_k for 2^k - J_k <= b < 2^k and
+  g(b) = b - J_k for 2^k <= b < 2^k + J_k, where J_k = (2^k - (-1)^k)/3 are the Jacobsthal numbers. Equivalently,
+  g(b) is the least v with v and v XOR b both outside {g(b') : b' < b}. The row is an involution and is not
+  additively periodic.
+
+- **proof:** proofs/paper/C07.md#theorem-3-clm-c07-05--the-jacobsthal-row
+- **evidence:** EXP-C07-03
+- **novelty_basis:**
+
+  OEIS: no match for the row (2, 1, 4, 3, 8, 9, 10, 5, ...), for |g(b) - b| or for g(b) XOR b; text searches for greedy XOR-avoiding permutations found unrelated entries (A109812, A357578); a web search found no mex recursion of this form (closest: Multiplicative Modular Nim, arXiv:2507.08830, a different recursion). Small.
+
+
+### CLM-C07-06: H-C07-4: every row of every mex operation is eventually additively periodic (refuted)
+
+- **cycle:** C07
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every operation of the family and every a, the row b -> f(a,b) satisfies f(a, b + p) = f(a, b) + s for all large b, for some p >= 1 and s, as for Wythoff's game.
+- **evidence:** EXP-C07-03
+- **counterexample:** Row 2 of D[x^y] (Theorem 3): |f(2,b) - b| = J_k on the k-th block pair, which rules out every (p, s). Numerically only 222 of 670 rows (a = 1..5, b < 1500) have a period <= 375.
+
+### CLM-C07-07: H-C07-3: the diagonals of commutative mex operations are known sequences (refuted)
+
+- **cycle:** C07
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every commutative mex operation of the family, 0 is absorbing or an identity, and the diagonal f(n,n) is a sequence in the OEIS.
+- **evidence:** EXP-C07-02
+- **counterexample:**
+
+  The first part holds (Theorem 2); the second fails - e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, 13, 10, 15, 6, ... of L+R+D[x^y^z] and 0, 1, 3, 6, 8, 11, 10, 19, ... of D[z]+D[x^y^z] have no OEIS match (88 unmatched sequences, EXP-C07-02, OEIS state of 2026-10-18).
+
+
+### CLM-C07-08: Additive periodicity is the exception among mex operations
+
+- **cycle:** C07
+- **type:** observation
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** Among the 134 distinct mex operations, 22 have additively periodic rows a = 1..5 (period <= 375 within b < 1500), 40 have none, and the rest are mixed.
+- **evidence:** EXP-C07-03
+- **limitations:** Finite windows; a row without a detected period may have a longer one.
+
 ### CLM-C08-01: Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative (t >= 0)
 
 - **cycle:** C08
@@ -1470,6 +1595,781 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **statement:** In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).
 - **evidence:** EXP-C10-01
 - **novelty_basis:** Myers (1983), Okasaki (skew binary random-access lists).
+
+### CLM-C11-01: Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_p(x)); T_11 is the Fibonacci code
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:**
+
+  Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For a binary pattern p of length k, the set T_p of binary words in which p occurs for the first time at the end
+  is a prefix code with Kraft sum 1, the number of its codewords of each length has generating function
+  x^k / (x^k + (1 - 2x) c_p(x)) with c_p the autocorrelation polynomial of p, and T_11 (T_(1^k)) is exactly the
+  codeword set of the Fibonacci code C1 (of its order-k generalisation).
+
+- **proof:** proofs/paper/C11.md#theorem-1-clm-c11-01--t_p-is-a-complete-prefix-code
+- **lean:** proofs/lean/Infinity/C11_Codes.lean
+- **evidence:** EXP-C11-01; EXP-C11-02
+- **novelty_basis:**
+
+  Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.
+
+
+### CLM-C11-02: The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k patterns
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  Let lambda_p = 1/rho_p, with rho_p the smallest positive root of x^k + (1 - 2x) c_p(x). Among binary patterns of
+  length k, 1^k and 0^k have the largest lambda_p and every other pattern has a strictly smaller one; hence
+  T_(1^k) has the smallest asymptotic codeword length log2(n)/log2(lambda) among length-k terminators.
+
+- **proof:** proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate
+- **evidence:** EXP-C11-02
+- **novelty_basis:**
+
+  In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
+
+
+### CLM-C11-03: Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the all-ones counts
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C11.md Theorem 3); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If u is unbordered and |u| = k + 1, the codeword counts of T_u are the partial sums of those of T_(1^k):
+  f_u(L) = cum_(1^k)(L - 1). Hence lambda_u is the k-bonacci constant lambda and cum_u(L)/cum_(1^k)(L) -> 1/(lambda - 1).
+
+- **proof:** proofs/paper/C11.md#theorem-3-clm-c11-03--unbordered-terminators-the-x1--x-identity
+- **evidence:** EXP-C11-06; EXP-C11-02
+- **novelty_basis:**
+
+  An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
+
+
+### CLM-C11-04: T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L values per level
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  cum_11(L) = F_(L+1) - 1 and cum_011(L) = F_(L+2) - L - 1. If the Fibonacci (C1) codeword of n has length L + 1,
+  the T_011 codeword is one bit shorter when n <= F_(L+2) - L - 1 and of equal length for the last L values of the
+  level; T_011 is longer than C1 only for n in {1, 2, 4}. The same holds for every unbordered 3-letter terminator.
+
+- **proof:** proofs/paper/C11.md#corollary-4-clm-c11-04--t_011-versus-the-fibonacci-code
+- **evidence:** EXP-C11-06
+- **novelty_basis:**
+
+  Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09).
+
+- **applications:** A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
+
+### CLM-C11-05: H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes)
+
+- **cycle:** C11
+- **type:** hypothesis
+- **system:** SYS-C
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every k, the all-ones terminator 1^k gives the shortest codeword among all length-k terminators for every n beyond a small threshold.
+- **evidence:** EXP-C11-02
+- **counterexample:**
+
+  k = 4, n = 1000: terminators 1000, 1001 and 1010 give codewords 1 bit shorter than 1111. Rivals beat 1^k at 762, 972 and 1127 sampled n >= 1000 (all n <= 2048 and quarter-powers of 2 up to 2^64) for k = 4, 5, 6, up to n = 311743, 2^45 and about 1.3e19 respectively (EXP-C11-02). By Theorem 2 (CLM-C11-02), 1^k does win eventually.
+
+
+### CLM-C11-06: Average gain of an unbordered terminator over 1^k: log_lambda(1/(lambda-1)), then convergence to (2-lambda)/(lambda-1)^2 (both refuted)
+
+- **cycle:** C11
+- **type:** hypothesis
+- **system:** SYS-C
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  (a) The average over n <= N of L_(1^k)(n) - L_u(n), u unbordered of length k + 1, tends to log_lambda(1/(lambda - 1)).
+  (b) Corrected version: this average converges to (2 - lambda)/(lambda - 1)^2.
+
+- **evidence:** EXP-C11-06; EXP-C11-07
+- **counterexample:**
+
+  k = 3 (111 vs 0111): the average over n <= 2^40 is 0.2282 against the prediction 0.2875 of (a) (EXP-C11-06); the running average is 0.228181, 0.309709 and 0.228548 at N = 2^40, 2^80 and 2^120, so it does not converge (EXP-C11-07). Both statements hold only for k = 2 (value 1).
+
+
+### CLM-C11-07: The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-1)
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For k >= 2, lambda the k-bonacci constant and u unbordered of length k + 1, the running average
+  G(N) = (1/N) sum_(n<=N) (L_(1^k)(n) - L_u(n)) has liminf (2 - lambda)/(lambda - 1)^2 and limsup
+  lambda(2 - lambda)/(lambda - 1) (both 1 for k = 2; 0.228155 and 0.352201 for k = 3).
+
+- **proof:** proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates
+- **evidence:** EXP-C11-08; EXP-C11-07
+- **novelty_basis:**
+
+  Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.
+
+
+### CLM-C11-08: Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result)
+
+- **cycle:** C11
+- **type:** algorithmic
+- **system:** SYS-C
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **improvement:** MIXED
+- **statement:**
+
+  Among fixed (untuned) universal codes, a pattern-terminated code (T_101, T_0111 or T_00111) has the smallest
+  expected length on 5 of 12 synthetic sources (Zipf 1.1, geometric 0.001, uniform 2^16, uniform 2^32,
+  log-uniform on [1, 1e6]) and on both posting-list data sets, beating the best classical universal code
+  (Elias, Levenshtein, Fibonacci, Fraenkel-Klein C3, LEB128, fixed Exp-Golomb) by 0.34-3.06 bits per value; on
+  Zipf 1.1, log-uniform and the bursty posting list it also beats Golomb and Exp-Golomb codes tuned to the source.
+  It loses on light-tailed sources (Zipf >= 1.5, geometric >= 0.01, prime gaps) and to tuned Golomb/Exp-Golomb
+  codes on geometric and uniform sources, and the reference implementation is 4-10 times slower than the Elias
+  and Exp-Golomb codes.
+
+- **evidence:** EXP-C11-03; EXP-C11-04; EXP-C11-05; EXP-C11-09
+- **applications:** Universal coding of heavy-tailed integer streams of unknown scale (posting-list gaps, magnitudes spread over many orders).
+- **limitations:**
+
+  12 synthetic sources (exact expectations) and 4 data sets, two of them simulated; memoryless codes compared with zeroth-order entropy; tuned codes are tuned on the evaluated data (optimistic for them); CPython string implementations without table-driven decoding; no claim of optimality beyond the tested baselines.
+
+
+### CLM-C11-09: T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer than C1 except at n = 1
+
+- **cycle:** C11
+- **type:** theorem
+- **system:** SYS-C
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  The Fraenkel-Klein code C3 (2F_(r-2) codewords of length r >= 3, so cum_C3(L) = 2F_L - 2) is never longer than the
+  Fibonacci code C1 except at n = 1, and T_011 is never longer than C3 except at n in {2, 4, 8}; moreover
+  cum_011(L)/cum_C3(L) -> phi^2/2 and cum_C3(L)/cum_C1(L) -> 2/phi.
+
+- **proof:** proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3
+- **evidence:** EXP-C11-09
+- **novelty_basis:**
+
+  Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).
+
+
+### CLM-C12-01: Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 1); 0 mismatches for n <= 1e5 (EXP-C12-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  G01 (n -> n - d with d | n, d < n) has Grundy function g(n) = v2(n) (n >= 1); G02 (d = n also allowed) has
+  g(n) = v2(n) + 1 (n >= 1); G04 (n -> d with d | n, d < n) has g(n) = Omega(n).
+
+- **proof:** proofs/paper/C12.md#theorem-1-clm-c12-01--divisibility-games
+- **evidence:** EXP-C12-01; EXP-C12-02
+- **novelty_basis:**
+
+  Iannucci & Larsson, "Game values of arithmetic functions" (arXiv:2101.07608, 2021), Theorem 1 (maliquot =
+  G04) and Theorem 2 (saliquot = G02); G01 is the "Divisor Game" puzzle (LeetCode 1025) and its Grundy
+  function follows from the saliquot proof. OEIS A007814, A001511, A001222.
+
+
+### CLM-C12-02: Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k - 1
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 2); 0 mismatches for n <= 5000 (G07 = G05 for n <= 1500) (EXP-C12-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  G05 (n -> m, 1 <= m < n, gcd(m, n) = 1), which coincides with "subtract k, 1 <= k < n, gcd(k, n) = 1", has
+  g(1) = 0 and g(n) = j for n >= 2, where the smallest prime factor of n is the j-th prime. G06 (n -> m,
+  1 <= m < n, gcd(m, n) > 1) has g(2k) = k - 1, g(m) <= (m - 1)/2 for odd m, and its P-positions n >= 1 are
+  exactly 1 and the primes.
+
+- **proof:** proofs/paper/C12.md#theorem-2-clm-c12-02--coprimality-games
+- **evidence:** EXP-C12-01; EXP-C12-02
+- **novelty_basis:**
+
+  Iannucci & Larsson 2021, Theorem 5 (totative = G05, with the subtraction equivalence) and Theorem 6
+  (nontotative: SG(2n) = n, SG(n) = 1 iff n prime, i.e. our G06 values plus one; they also prove SG(n) <= n/2).
+  OEIS A055396, A279119 (= G06 exactly), A008578.
+
+- **limitations:** No closed form is known to us for the odd values of G06; g(m)/m < 0.24985 for odd m <= 5000 (a bound m/4 is not proved).
+- **status history:**
+
+### CLM-C12-03: P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers, 2^(2j+1)
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g03_P_positions (axioms propext, Classical.choice, Quot.sound; no sorry, no native_decide); 0 mismatches for n <= 1e5 (EXP-C12-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  In G03 (n -> n - d with d | n and 1 < d < n) the P-positions are exactly 0, the odd numbers and the powers
+  2^(2j+1).
+
+- **proof:** proofs/paper/C12.md#theorem-3-clm-c12-03--p-positions-of-the-deleting-divisors-game
+- **lean:** proofs/lean/Infinity/C12_Games.lean
+- **evidence:** EXP-C12-02; EXP-C12-04
+- **novelty_basis:**
+
+  Codeforces problem 1537D "Deleting Divisors" (Round #726, June 2021): the official solution declares the
+  second player the winner exactly for odd n and for n = 2^k with k odd. First assessed as potentially novel
+  (no OEIS match); downgraded after the Historian found the problem.
+
+
+### CLM-C12-04: Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  Computer-assisted (proofs/paper/C12.md Theorem 8): exact computation for n <= 1e5 and an inductive-step
+  certificate for odd parts <= 15 and 13 <= a <= 100 (EXP-C12-06, 0 failures); written induction for odd parts
+  >= 17 and shift-invariance argument for odd parts <= 15; odd n via the Lean P-set theorem g03_pset. Trust
+  base: exact Python integer arithmetic plus the written Steps 2-3 (not yet reviewed by the Skeptic).
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Let g be the Grundy function of G03 and n = 2^a m with m odd. Then g(n) = 0 for odd n, and for a >= 1:
+  g(2^a m) = a if m >= 17; g(2^a) = 0 for odd a and a - 1 for even a, except g(16) = 2; for m = 3 the values
+  are 2, 3, 4, 3, 6 (a = 1..5) and a - 2 (a >= 6); for m = 5 they are 1, 3, 4, 3, 6 (a = 1..5) and a + 2
+  (a >= 6); for m = 7, 9, 11, 15 they are a (a <= 2) and a + 1 (a >= 3); for m = 13 they are a (a <= 3) and
+  a + 1 (a >= 4). Consequently |g(n) - v2(n)| <= 2 unless n is an odd power of 2, and the record values occur
+  at n = 5 * 2^a for a >= 6.
+
+- **proof:** proofs/paper/C12.md#theorem-8-clm-c12-04--grundy-values-of-the-deleting-divisors-game
+- **evidence:** EXP-C12-06; EXP-C12-04; EXP-C12-01
+- **novelty_basis:**
+
+  The Grundy sequence is not in the OEIS (EXP-C12-04, queried 2026-10-18); the game is not among the divisor
+  games of Iannucci & Larsson 2021; Codeforces 1537D and its solution determine only the P-positions; web
+  searches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.
+
+- **applications:** Sums of deleting-divisors heaps are solved by XOR of closed-form values (the P-positions alone do not solve sums).
+- **limitations:** The written inductive step awaits independent Skeptic review; beyond a = 100 the certificate relies on the shift-invariance argument.
+
+### CLM-C12-05: Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n)
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 4); 0 mismatches for n <= 1e5, 5000 and 2e4 respectively (EXP-C12-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  G13 (move to a proper binary submask) has g(n) = popcount(n); G19 (n -> n mod k, 1 <= k < n) has
+  g(n) = floor(log2((n + 1)/3)) + 1 for n >= 2 (g(0) = g(1) = 0); G20 (n -> floor(n/k), 2 <= k <= n) has
+  g(n) = floor(log2 n) for n >= 1.
+
+- **proof:** proofs/paper/C12.md#theorem-4-clm-c12-05--bitwise-and-quotient-games
+- **evidence:** EXP-C12-01; EXP-C12-02; EXP-C12-04
+- **novelty_basis:**
+
+  G19 is the residue-throw-divisor game, Theorem 12 of Iannucci & Larsson 2021 (proof left to the reader there;
+  our written proof supplies it). Sequences OEIS A000120, A099396 (g(n) = A099396(n + 1)), A000523. G13 is Nim
+  on the number of 1-bits; the quotient game G20 was not located in the literature but its analysis is
+  elementary.
+
+
+### CLM-C12-06: Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, k}
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  (a) machine-checked in Lean (Infinity.C12.residue_grundy, Infinity.C12.power_of_two_grundy; axioms propext, Classical.choice, Quot.sound; no sorry); (b) written proof (proofs/paper/C12.md Theorem 5); 0 mismatches for k = 2..20, n <= 2e4 (EXP-C12-02)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  (a) If no element of the move set S is divisible by q and 1, ..., q - 1 are in S, the subtraction game S has
+  g(n) = n mod q; in particular subtract-a-power-of-2 has g(n) = n mod 3. (b) For every k >= 2,
+  subtract-a-power-of-k has the same Grundy function as the subtraction game {1, k}: n mod 2 for odd k, and
+  P(n mod (k + 1)) with P(r) = r mod 2 for r < k and P(k) = 2 for even k.
+
+- **proof:** proofs/paper/C12.md#theorem-5-clm-c12-06--the-residue-lemma-and-powers-of-k
+- **lean:** proofs/lean/Infinity/C12_Games.lean
+- **evidence:** EXP-C12-01; EXP-C12-02
+- **novelty_basis:**
+
+  Two-element subtraction games and their periods are classical (Berlekamp, Conway & Guy, Winning Ways);
+  subtract-a-power-of-2 = n mod 3 is folklore (Grundy sequence OEIS A010872). The reduction of powers of k to
+  {1, k} is a one-line congruence (k^i = +-1 mod k + 1); it was not located verbatim.
+
+
+### CLM-C12-07: Splitting games in which every heap can be split have g(n) = [n even]
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext, Quot.sound; no sorry); G16, G17 and 40 random splitting relations checked (EXP-C12-02)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  In every take-and-break game in which a heap is replaced by two nonempty heaps from a set of allowed splits,
+  and every heap n >= 2 has at least one allowed split, g(n) = 1 for even n and g(n) = 0 for odd n (n >= 1);
+  equivalently, every play lasts exactly n - 1 moves.
+
+- **proof:** proofs/paper/C12.md#theorem-6-clm-c12-07--splitting-games
+- **lean:** proofs/lean/Infinity/C12_Games.lean
+- **evidence:** EXP-C12-01; EXP-C12-02
+- **novelty_basis:** Classical parity argument (every move adds one heap, as in the chocolate-bar puzzle); the sequences are OEIS A000035 / A059841.
+
+### CLM-C12-08: Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and are not periodic
+
+- **cycle:** C12
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C12.md Theorem 7) from the Furstenberg-Sarkozy theorem and its polynomial version (Kamae-Mendes France 1978), which are cited, not re-proved; P-densities 0.0222 and 0.0116 at n <= 2e5 (EXP-C12-03)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For the subtraction games whose move sets are the positive squares and the triangular numbers, the set of
+  P-positions is infinite and has natural density 0; hence neither Grundy sequence is eventually periodic or
+  eventually arithmetic-periodic.
+
+- **proof:** proofs/paper/C12.md#theorem-7-clm-c12-08--sparse-sets-with-density-zero-p-positions
+- **evidence:** EXP-C12-03; EXP-C12-01
+- **novelty_basis:**
+
+  For squares the P-set is a maximal square-difference-free set, of density zero by Furstenberg-Sarkozy
+  (Wikipedia "Square-difference-free set"; D. Eppstein, "Faster evaluation of subtraction games", FUN 2018).
+  The triangular case is the same argument with an intersective polynomial.
+
+
+### CLM-C12-09: H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inconclusive)
+
+- **cycle:** C12
+- **type:** hypothesis
+- **system:** SYS-D
+- **verification:** INCONCLUSIVE
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Every game of the catalogue is eventually periodic, eventually arithmetic-periodic, or has a Grundy function
+  given by a closed form in a number-theoretic function.
+
+- **evidence:** EXP-C12-01; EXP-C12-02; EXP-C12-06; EXP-C12-03
+- **limitations:** The "closed form" clause is not precisely defined, so the hypothesis cannot be refuted as stated; recorded as inconclusive rather than refuted.
+- **notes:**
+
+  13 of 19 games conform (5 periodic; closed forms for G01-G05, G13, G19, G20, G03 by CLM-C12-04).
+  Subtract-a-square and subtract-a-triangular-number are provably neither eventually periodic nor
+  arithmetic-periodic (CLM-C12-08), but the absence of a closed form is not a theorem. G06 (odd values),
+  subtract-a-Fibonacci, subtract-a-prime and Grundy's game remain unexplained within range (whether Grundy's
+  game is eventually periodic is a well-known open problem).
+
+
+### CLM-C12-10: H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signature (refuted)
+
+- **cycle:** C12
+- **type:** hypothesis
+- **system:** SYS-D
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For each of the games G01-G06, g(n) depends only on the prime signature (sorted exponent vector) of n.
+- **evidence:** EXP-C12-05
+- **counterexample:**
+
+  G01: n = 2 and n = 3 have signature (1) but g = 1 and 0. Further first counterexamples: G02 (2, 3: g = 2, 1),
+  G03 (4, 9: 1, 0), G05 (2, 3: 1, 2), G06 (6, 10: 2, 4). Only G04 (g = Omega) depends on the signature alone.
+
+
+### CLM-C12-11: H-C12-2: sparse move sets keep a positive density of P-positions (refuted)
+
+- **cycle:** C12
+- **type:** hypothesis
+- **system:** SYS-D
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Subtraction games whose move sets are the squares, the triangular numbers, the Fibonacci numbers or the primes
+  have P-positions of positive natural density.
+
+- **evidence:** EXP-C12-03
+- **counterexample:**
+
+  Squares and triangular numbers: the P-set has density 0 (CLM-C12-08); measured P-density 0.0538 -> 0.0222 and
+  0.0344 -> 0.0116 as N grows from 1.25e4 to 2e5. For Fibonacci numbers (0.180) and primes (0.155) the question
+  remains open.
+
+
+### CLM-C12-12: Subtract-a-prime has Grundy values at most 11
+
+- **cycle:** C12
+- **type:** conjecture
+- **system:** SYS-D
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **statement:** The Grundy values of the subtraction game whose move set is the set of primes satisfy g(n) <= 11 for all n.
+- **evidence:** EXP-C12-03; EXP-C12-01
+- **novelty_basis:**
+
+  OEIS A014589 records a(n) <= 11 for n <= 32452842 (A. Huet, 2022) and for n <= 1e9 (B. Dobbelaere, 2024);
+  we found no proof of boundedness.
+
+- **limitations:** Our own check covers n <= 2e5 only (maximum 11 from n <= 1.25e4 on).
+
+### CLM-C12-13: Subtract-a-Fibonacci-number has bounded Grundy values
+
+- **cycle:** C12
+- **type:** conjecture
+- **system:** SYS-D
+- **verification:** CONJECTURE
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The Grundy values of the subtraction game with move set {1, 2, 3, 5, 8, ...} (Fibonacci numbers) are bounded;
+  the observed maximum is 14 for n <= 2e5.
+
+- **evidence:** EXP-C12-03; EXP-C12-01
+- **limitations:** Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.
+- **notes:** The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.
+
+### CLM-C14-01: Associativity of a local graph product is a finite identity on relations, detected by P3 x P3 x P3 (Lean)
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty, assoc_of_P3; arbitrary vertex types; standard axioms only); commutative part written
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For a local product S the canonical bijection ((g,h),k) -> (g,(h,k)) is an isomorphism (G*H)*K -> G*(H*K)
+  for all simple graphs G, H, K iff it is one for G = H = K = P3 iff phi_S(phi_S(r1,r2),r3) =
+  phi_S(r1,phi_S(r2,r3)) for all relations r1, r2, r3 in {E, A, N}. Likewise the swap is an isomorphism
+  G*H -> H*G for all G, H iff S is symmetric.
+
+- **proof:** proofs/paper/C14.md#theorem-1-clm-c14-01--associativity-is-a-finite-identity-on-relations
+- **lean:** proofs/lean/Infinity/C14_GraphProducts.lean
+- **evidence:** EXP-C14-01; EXP-C14-06
+- **novelty_basis:** Elementary and implicit in the Imrich-Izbicki (1975) scheme of products defined by factor adjacencies; the full text of that paper was not consulted.
+
+### CLM-C14-02: Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K1 (Lean decide)
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 kernel computation (assoc_codes, comm_assoc_codes by decide; standard axioms) on top of the Lean-verified reduction CLM-C14-01; independently in two Python implementations with graph-level brute force (EXP-C14-01, EXP-C14-06)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  The associative local products are the codes 0, 1, 4, 5, 8, 13, 28, 29, 31, 73, 77, 85, 93, 109, 127, 141,
+  221, 223, 253, 255 (bit order EA, EN, AE, AA, AN, NE, NA, NN). The commutative ones among them are empty (0),
+  Cartesian (5), direct (8), strong (13), symmetric difference (85), co-normal (93), 127, 141, 221 and complete
+  (255). Exactly 8 have the two-sided unit K1: Cartesian, strong, lexicographic (29), its transpose (77),
+  symmetric difference, co-normal, 141, 221. They form 8 orbits under transposition and complement-conjugation.
+
+- **proof:** proofs/paper/C14.md#theorem-2-clm-c14-02--the-twenty-associative-products
+- **lean:** proofs/lean/Infinity/C14_GraphProducts.lean
+- **evidence:** EXP-C14-01; EXP-C14-06
+- **novelty_basis:**
+
+  W. Imrich, H. Izbicki, Associative products of graphs, Monatsh. Math. 80 (1975) 277-281, doi:10.1007/BF01472575 - exactly twenty associative products; R. J. Nowakowski, D. F. Rall, Discuss. Math. Graph Theory 16 (1996) 53-79, doi:10.7151/dmgt.1023 - ten depend on both factors, eight of those commutative. Our list agrees with both counts.
+
+- **references:** https://pure.unileoben.ac.at/en/publications/associative-products-of-graphs/; https://www.dmgt.uz.zgora.pl/publish/article.php?doi=1023
+
+### CLM-C14-03: For local graph products, associativity and commutativity up to isomorphism are no weaker than the strict notions
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - explicit witnesses for all 236 + 224 codes, each certified by edge count/degree sequence (hand-checkable), found in EXP-C14-02 and re-certified by the independent implementation of EXP-C14-06
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  A local product satisfies (G*H)*K isomorphic to G*(H*K) for all graphs iff it is strictly associative, and
+  G*H isomorphic to H*G for all graphs iff S is symmetric. For each of the 236 non-associative (224
+  non-commutative) products a witness exists with factors of at most 3 vertices whose two sides differ in edge
+  count or degree sequence.
+
+- **proof:** proofs/paper/C14.md#theorem-3-clm-c14-03--up-to-isomorphism-is-no-weaker
+- **evidence:** EXP-C14-02; EXP-C14-06
+- **novelty_basis:** Bold hypothesis H-C14-1 of this cycle; whether Imrich-Izbicki or later work address isomorphism-level associativity could not be checked (abstracts only).
+
+### CLM-C14-04: Exactly six local products are Kronecker products in disguise (multiplicative characters)
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  There is c = (cE, cA, cN) in C^3 with cA != cN and M_c(G*H) = M_c(G) (x) M_c(H) for all graphs, where
+  M_c(G) = cE I + cA A + cN (J - I - A), exactly for: direct (c = (0,1,0), M = A), code 127 (0,0,1),
+  strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), M = S(G) + I with S the Seidel matrix,
+  and code 141 (1,1,-1), M = I - S(G); the character is unique in each case, and every such product is
+  associative and commutative.
+
+- **proof:** proofs/paper/C14.md#theorem-4-clm-c14-04--multiplicative-characters
+- **lean:** proofs/lean/Infinity/C14_GraphProducts.lean
+- **evidence:** EXP-C14-03
+- **novelty_basis:**
+
+  The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; we found no statement classifying the local products with such a linearisation, nor the symmetric-difference case in general (four web searches 2026-10-18, see CLM-C14-06). Small result; possibly folklore.
+
+
+### CLM-C14-05: Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) for all graphs (cA != cN) holds exactly for the Cartesian product
+  (c = (0,t,0)) and code 221 (c = (0,0,t)), t != 0. Hence each of the ten commutative associative local
+  products except the empty and the complete product has exactly one kind of character (multiplicative or
+  additive).
+
+- **proof:** proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
+- **evidence:** EXP-C14-03
+- **novelty_basis:** The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
+
+### CLM-C14-06: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For all graphs G, H: S(G xor H) + I = (S(G) + I) (x) (S(H) + I), where xor is the symmetric-difference product
+  and S the Seidel matrix. Hence the Seidel eigenvalues of G xor H are (theta+1)(eta+1) - 1, and xor is
+  compatible with Seidel switching, giving a commutative associative product on two-graphs with unit [K1].
+
+- **proof:** proofs/paper/C14.md#theorem-6-clm-c14-06--the-symmetric-difference-is-the-kronecker-product-of-seidel-matrices
+- **lean:** proofs/lean/Infinity/C14_GraphProducts.lean
+- **evidence:** EXP-C14-03; EXP-C14-06
+- **novelty_basis:**
+
+  Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists.
+
+- **references:** https://www.mscand.dk/article/view/10817; https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs; https://en.wikipedia.org/wiki/Two-graph
+
+### CLM-C14-07: Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  (a) K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; so (|V|, |a-b|) is multiplicative on complete bipartite graphs.
+  (b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).
+  (c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.
+
+- **proof:** proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
+- **evidence:** EXP-C14-05; EXP-C14-06
+- **novelty_basis:** No statement found in the searches listed for CLM-C14-06. Small result.
+
+### CLM-C14-08: H-C14-3: the six commutative unital associative products factor uniquely on connected (or co-connected) graphs (refuted)
+
+- **cycle:** C14
+- **type:** hypothesis
+- **system:** SYS-D
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Each of the six commutative associative local products with unit K1 (Cartesian, strong, symmetric
+  difference, and their complement-duals 221, co-normal, 141) has unique prime factorisation on connected
+  graphs, or, for the complement-duals, on co-connected graphs.
+
+- **evidence:** EXP-C14-04; EXP-C14-06
+- **counterexample:**
+
+  Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3}; K2 and K_{1,3} are connected and prime, so this connected graph of order 8 has the two factorisations {K2,K2,K2} and {K2,K_{1,3}} (proofs/paper/C14.md Theorem 8; explicit isomorphism in EXP-C14-06). In all graphs already C4 = K2 xor K2 = K2 xor 2K1. The other five products show no collision up to order 15 in the stated classes, consistent with Sabidussi-Vizing and Doerfler-Imrich/McKenzie.
+
+
+### CLM-C14-09: The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoids; equal prime counts (A129582)
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  There is an order-preserving monoid isomorphism between (finite graphs, Cartesian product) and (finite graphs,
+  strong product), and by complementation between the co-normal product and code 221; for every n the four
+  products have the same number of prime graphs of order n, and the connected Cartesian and strong primes are
+  equinumerous (OEIS A129582).
+
+- **proof:** proofs/paper/C14.md#theorem-9-clm-c14-09--cartesian-and-strong-products-give-isomorphic-graded-monoids
+- **evidence:** EXP-C14-04
+- **novelty_basis:**
+
+  Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation.
+
+- **references:** https://arxiv.org/abs/0705.0038; https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf
+
+### CLM-C14-10: Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15
+
+- **cycle:** C14
+- **type:** observation
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted exact census (all prime factorisations of each order <= 15 with factors from the complete list of graphs with <= 7 vertices, isomorphism decided by VF2 within invariant buckets; graph totals from OEIS A000088); pipeline validated by reproducing A129582 to n = 15
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Prime graphs of order n = 2..11 over all finite graphs: Cartesian = strong = co-normal = code 221:
+  2, 4, 8, 34, 148, 1044, 12326, 274658, 12005100, 1018997864; symmetric difference = code 141:
+  2, 4, 9, 34, 150, 1044, 12333, 274658, 12005127, 1018997864; lexicographic = its transpose:
+  2, 4, 7, 34, 142, 1044, 12310, 274652, 12005036, 1018997864 (values to n = 15 in results/EXP-C14-04.json).
+
+- **proof:** proofs/paper/C14.md#theorem-10-clm-c14-10--prime-counts-over-all-graphs-computer-assisted
+- **evidence:** EXP-C14-04
+- **novelty_basis:** OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.
+
+### CLM-C14-11: The lexicographic product has non-unique factorisation already at order 10 (different multisets of primes)
+
+- **cycle:** C14
+- **type:** theorem
+- **system:** SYS-D
+- **verification:** PROVEN
+- **proof_check:** by hand (both sides are two disjoint 4-cycles plus two isolated vertices); minimality by the exact census EXP-C14-04
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  2K1[C4 + K1] and (2K2 + K1)[2K1] are both isomorphic to 2C4 + 2K1; C4 + K1 and 2K2 + K1 are prime (order 5),
+  so 2C4 + 2K1 has two lexicographic factorisations with different multisets of prime factors. No such
+  collision occurs below order 10.
+
+- **proof:** proofs/paper/C14.md#theorem-11-clm-c14-11--a-lexicographic-collision-at-order-10
+- **evidence:** EXP-C14-04
+- **novelty_basis:**
+
+  Non-uniqueness of lexicographic prime factorisation (with an invariant number of factors) is due to Imrich; cited via arXiv:2407.02615 and the Handbook of Product Graphs. The specific minimal example was not looked up.
+
+- **references:** https://arxiv.org/abs/2407.02615
+
+### CLM-C14-12: Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs)
+
+- **cycle:** C14
+- **type:** conjecture
+- **system:** SYS-D
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Every connected graph has exactly one factorisation into connected primes with respect to the product
+  (g,h) ~ (g',h') iff (EA, AE, AA or NN); equivalently every graph with connected complement factors uniquely
+  under the symmetric-difference product into primes with connected complement.
+
+- **evidence:** EXP-C14-04
+- **limitations:**
+
+  Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation.
+
+
+### CLM-C14-13: H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product
+
+- **cycle:** C14
+- **type:** conjecture
+- **system:** SYS-D
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Every switching class of finite graphs has a unique factorisation into prime switching classes with respect
+  to the product induced by the symmetric difference (equivalently, symmetric +-1 matrices with unit diagonal
+  up to signed permutation similarity, under the Kronecker product).
+
+- **evidence:** EXP-C14-05
+- **novelty_basis:** No source found for a product of two-graphs induced by the symmetric difference (searches listed under CLM-C14-06); OEIS has no match for the prime counts.
+- **limitations:**
+
+  No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).
+
 
 ## Experiments
 
@@ -2130,6 +3030,62 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - mirror pairs with different spectra (must be 0): 0
 - **runs:** 1; last 2026-10-18T08:07:36Z (154.555 s), results sha256 `607a0e46158d394b…`, code `experiments/C05/E01_two_variable_census.py`
 
+### EXP-C05-02: Restricted-spectrum identities: extended spectra (n = 7, 8) and forced structure
+
+- **cycle:** C05
+- **agent:** Mathematical Explorer
+- **question:** For identities whose spectrum is restricted, which classical laws hold in all their small models, and how do the spectra continue beyond n = 7?
+- **hypothesis:**
+
+  Restricted spectra come from identities that force quasigroups with extra laws (idempotence, semisymmetry, total symmetry), i.e. classical combinatorial designs; their spectra continue with the corresponding design spectra.
+
+- **assumptions:**
+  - input: the restricted identities found by EXP-C05-01 (read from results/EXP-C05-01.json)
+  - SAT conflict budget 5e5 per instance for n = 7, 8 (UNKNOWN recorded as such)
+  - sound implied constraints (Lemma 1/4 of proofs/paper/C05.md): rows are permutations when t = y*(...), columns are permutations when t = (...)*y; symmetry break 0*0 in {0,1}
+- **methodology:**
+
+  Extend each spectrum to n = 7, 8. Enumerate all models up to isomorphism for n <= 5 (cap 5000 per size) and test a battery of classical laws on every model; group identities with identical model sets for n <= 5 (candidate equivalent laws).
+
+- **falsification:** A restricted identity with a non-quasigroup model, or spectra that do not match any design-type pattern.
+- **summary:**
+  - 63 identities studied; spectrum patterns over n = 1..8: {'1000001?': 2, '10001000': 2, '10001011': 8, '1000101?': 4, '10011001': 2, '10011011': 2, '100110??': 2, '10011??1': 1, '1010001?': 2, '10101111': 4, '10110010': 4, '10110011': 2, '10111011': 16, '10111111': 4, '11011011': 8}
+  - all small models quasigroups for 52/63
+  - 58 groups of identities with identical model sets for n <= 5
+- **runs:** 1; last 2026-10-18T08:52:38Z (670.295 s), results sha256 `b19f342fcd32f106…`, code `experiments/C05/E02_restricted_structure.py`
+
+### EXP-C05-03: Frontier push: spectra of open order-4 laws for n = 2..10 (SAT with sound Latin-row constraints)
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** For the order-4 laws x = t whose spectrum is listed as unknown in the Equational Theories Project notes, which sizes n <= 12 admit models?
+- **hypothesis:** Several open laws have unresolved small sizes that SAT can decide; our results must agree with every membership/non-membership already stated in the notes.
+- **assumptions:**
+  - laws and partial knowledge taken from B. Le Floch's ETP notes 'spectrum.pdf' (Lean Zulip)
+  - for laws of the form x = y*(...), every left translation is onto, hence a bijection in a finite magma, so 'every row is a permutation' is added as a sound implied constraint
+  - symmetry breaking 0*0 in {0,1} (any magma can be relabelled so)
+  - CaDiCaL conflict budget 1e6 per instance; UNKNOWN is reported as such
+- **methodology:** SAT model search for each law and n = 2..10; every SAT answer is re-verified by evaluating the law on the returned table; results are compared with the sizes stated in the notes.
+- **falsification:** A disagreement with a size stated in the notes would indicate a bug (ours or theirs).
+- **summary:** 467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]; 670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]; 677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]; 907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]; 1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]; 1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]; 1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]; 1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]; 1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]; 1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]; 1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]; 1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []; disagreements with the notes: 0
+- **runs:** 1; last 2026-10-18T09:06:51Z (2795.777 s), results sha256 `81c21f0a1a59b00c…`, code `experiments/C05/E03_frontier_push.py`
+
+### EXP-C05-04: Lean decide-certificates for models establishing new spectrum memberships
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Can every spectrum membership found by SAT beyond the ETP notes be machine-checked independently of the SAT solver?
+- **hypothesis:** Each such membership is witnessed by an explicit Cayley table whose law can be checked by Lean's kernel with `decide`.
+- **assumptions:** memberships taken from results/EXP-C05-03.json ('decided_beyond_notes' with status SAT)
+- **methodology:**
+
+  Re-solve each (law, n) instance with the same encoding, re-verify the table in Python, and emit a Lean theorem `forall x y : Fin n, x = t(x, y)` proved by `decide` (the Lean file is compiled separately; see proofs/lean/Infinity/C05_Magmas.lean).
+
+- **falsification:** A table that fails the Python re-check or the Lean kernel check.
+- **summary:**
+  - 9 models re-solved, re-verified and emitted as Lean decide-certificates: [(467, 9), (677, 5), (677, 7), (677, 9), (883, 10), (1286, 9), (1313, 9), (1516, 9), (1719, 10)]
+- **runs:** 1; last 2026-10-18T09:11:28Z (242.53 s), results sha256 `3f0e38909e989d68…`, code `experiments/C05/E04_lean_certificates.py`
+
 ### EXP-C05-05: Bold hypothesis H-C05-A: full spectrum iff affine models over every Z_n
 
 - **cycle:** C05
@@ -2252,6 +3208,89 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **related:** CLM-C06-06; CLM-C06-07; CLM-C06-09; CLM-C06-10; CLM-C06-11
 - **runs:** 1; last 2026-10-18T08:33:18Z (318.236 s), results sha256 `8a8aca5cd93cd72e…`, code `experiments/C06/E04_affine_spectra.py`
+
+### EXP-C07-01: Census of mex-defined binary operations: closure, associativity, identities, distributivity
+
+- **cycle:** C07
+- **agent:** Mathematical Explorer
+- **question:**
+
+  Which operations f(a,b) = mex V(a,b) of the family (L, R, D) (options f(a',b), f(a,b') and XOR combinations of f(a',b), f(a,b'), f(a',b')) are associative, commutative, closed on initial segments, have identities, distribute over XOR?
+
+- **hypothesis:**
+
+  H-C07-1 (bold): apart from trivial operations, the only associative operations of the family are Conway's nim-sum and nim-product. H-C07-2 (bold): every commutative operation of the family is closed on the 'Fermat' segments [0, 2^(2^m)), m = 0, 1, 2, like the nimbers.
+
+- **assumptions:** tables computed for a, b < 64; associativity tested on all evaluable triples in [0,16)^3 and [0,64)^3 (triples whose intermediate value is >= 64 are skipped and counted); properties on finite windows only; an operation is called associative here if no violation is found on the evaluated triples
+- **methodology:**
+
+  Compute the 64 x 64 table of every spec (vectorised mex, cross-checked against a plain-set implementation); group identical tables; record commutativity, closure on [0, 2^j), associativity violations, identities, XOR-distributivity and the Latin property on [0, 16).
+
+- **falsification:** H-C07-1: an associative non-trivial operation other than XOR and nim-product. H-C07-2: a commutative operation not closed on [0,2), [0,4) or [0,16).
+- **summary:**
+  - 512 specs -> 134 distinct operations on [0,64)^2; commutative: 34; associative on the tested windows: 11
+  - associative operations: R (x8, xor=False, nimprod=False, zero=False); L (x8, xor=False, nimprod=False, zero=False); D[x] (x6, xor=False, nimprod=False, zero=False); D[y] (x6, xor=False, nimprod=False, zero=False); D[x^y^z] (x4, xor=False, nimprod=True, zero=False); L+R (x4, xor=True, nimprod=False, zero=False); L+R+D[z] (x4, xor=False, nimprod=False, zero=False); empty (x1, xor=False, nimprod=Fal…
+  - commutative operations not closed on [0,2), [0,4), [0,16): 30
+- **analysis:**
+
+  The 512 specs give 134 distinct operations on [0,64)^2, 34 commutative. Exactly 11 operations (44 specs) show no associativity violation on the evaluable triples of [0,16)^3 and [0,64)^3; they are 0, a, b, a[b>0], b[a>0], min, a+b, XOR, nim-product and zero-absorbing shifts of XOR and +. The other 468 specs have explicit violating triples. 30 of the 34 commutative operations are not closed on [0,2), [0,4) or [0,16).
+
+- **counterexamples:** L+R+D[z] = a + b and D[z] = min(a, b) are associative (H-C07-1 refuted); D[x^y]: f(2,3) = 4, so [0,4) is not closed (H-C07-2 refuted)
+- **verification:** PROVEN
+- **related:** CLM-C07-01; CLM-C07-02; CLM-C07-04
+- **runs:** 1; last 2026-10-18T08:52:44Z (95.687 s), results sha256 `e2022b82a7e62eb4…`, code `experiments/C07/E01_mex_census.py`
+
+### EXP-C07-02: Commutative mex operations: identities, zeros, value growth and OEIS status of their sequences
+
+- **cycle:** C07
+- **agent:** Historian
+- **question:** Do the non-associative commutative mex operations have recognisable structure (identity elements, absorbing elements, linear growth, known sequences)?
+- **hypothesis:** H-C07-3: every commutative mex operation has 0 as an absorbing element or an identity, and its diagonal f(n,n) is a known OEIS sequence.
+- **assumptions:** tables for a, b < 96; OEIS lookups cached in cache/oeis; constant, identity-like and arithmetic-progression sequences are not looked up
+- **methodology:**
+
+  For each distinct commutative operation (first spec of each group, as in EXP-C07-01): absorbing/identity checks on [0,96)^2, growth of f(n,n) and max f(a,b) for a,b < n, OEIS novelty checks of the diagonal and of rows 1-3 (first 40 terms).
+
+- **falsification:** A commutative operation in which 0 is neither absorbing nor an identity, or a diagonal without OEIS match.
+- **summary:**
+  - 34 commutative operations; 0 neither absorbing nor identity in 0: []
+  - sequences without OEIS match: 88 [('D[x^y]', 'row2'), ('D[x^y]', 'row3'), ('D[x^y]+D[z]', 'diag'), ('D[x^y]+D[z]', 'row2'), ('D[x^y]+D[z]', 'row3'), ('D[x^y]+D[x^y^z]', 'diag'), ('D[x^y]+D[x^y^z]', 'row2'), ('D[x^y]+D[x^y^z]', 'row3'), ('D[z]+D[x^y^z]', 'diag'), ('D[z]+D[x^y^z]', 'row2'), ('D[z]+D[x^y^z]', 'row3'), ('D[x^z]+D[y^z]', 'diag')]
+- **analysis:**
+
+  In all 34 commutative operations 0 is absorbing (no L, R options) or an identity (L and R); no simple closed form for the chaotic ones (tested candidates a^b^ab, (a^1)(b^1)^1, ab, ...). Of the diagonals and rows 1-3 looked up, 88 sequences have no OEIS match (e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, ... of L+R+D[x^y^z]); maximal values grow roughly quadratically (bounded by (a+1)(b+1) - 1). One match (L+R+D[x^y] diagonal 0, 2, 1, 1, 1, ... vs A137993) is a coincidence of an almost constant sequence.
+
+- **related:** CLM-C07-03; CLM-C07-07
+- **runs:** 1; last 2026-10-18T09:03:52Z (591.138 s), results sha256 `a6b41e5bac1bd976…`, code `experiments/C07/E02_commutative_structure.py`
+
+### EXP-C07-03: Rows of mex operations: additive periodicity, and a Jacobsthal block-swap row
+
+- **cycle:** C07
+- **agent:** Mathematical Explorer
+- **question:** Is every row b -> f(a, b) (a = 1..5) of every mex operation eventually additively periodic, f(a, b + p) = f(a, b) + s, as for Wythoff's game? What is row 2 of D[x^y]?
+- **hypothesis:**
+
+  H-C07-4 (bold): every row of every mex operation of the family is eventually additively periodic. H-C07-5 (from inspection of EXP-C07-02): row 2 of D[x^y], g(b) = mex(G u (b XOR G)) with G = {g(b') : b' < b}, satisfies g(b) = b + J_k for J_(k+1) <= b < J_(k+1) + J_k and g(b) = b - J_k for J_(k+1) + J_k <= b < J_(k+2) (k >= 1), J the Jacobsthal numbers.
+
+- **assumptions:**
+  - rows a = 1..5 computed to b < 1500 for the first spec of each of the 134 distinct operations of EXP-C07-01; a row counts as additively periodic if a period p <= 375 holds on a checked tail of length >= max(200, 3p)
+  - row 2 of D[x^y] recomputed to b < 2^15 by an independent bitset algorithm
+- **methodology:**
+
+  Rectangular mex tables (5 x 1500); additive_period on each row; independent recursion g(b) = least v with v not in G and v XOR b not in G (bitsets); comparison with the Jacobsthal block-swap formula; OEIS checks of the row and of |g(b) - b|.
+
+- **falsification:** H-C07-4: a row without additive period. H-C07-5: any b < 2^15 violating the formula.
+- **summary:**
+  - 222/670 rows (a = 1..5, b < 1500) additively periodic; 22 of 134 operations have all five rows periodic; 40 have none
+  - D[x^y] row 2: independent algorithm = mex table (b < 1500): True; Jacobsthal block-swap formula mismatches for b < 32768: 0; involution: True
+  - OEIS: row NO MATCH, |g(b)-b| NO MATCH
+- **analysis:**
+
+  Only 222 of 670 rows (a = 1..5, b < 1500) are additively periodic with period <= 375; 22 operations have all five rows periodic, 40 none. Row 2 of D[x^y] is the Jacobsthal block swap - an independent bitset recursion agrees with the mex table for b < 1500 and with the formula for every b < 2^15; it is an involution; neither the row nor |g(b) - b| is in the OEIS.
+
+- **counterexamples:** Row 2 of D[x^y] is not additively periodic (|f(2,b) - b| = J_k unbounded, Theorem 3)
+- **verification:** PROVEN
+- **related:** CLM-C07-05; CLM-C07-06; CLM-C07-08
+- **runs:** 1; last 2026-10-18T09:09:08Z (155.526 s), results sha256 `67c185cf15e3cba7…`, code `experiments/C07/E03_rows.py`
 
 ### EXP-C08-01: Associativity atlas of circle products a o b = sum d_i(a) d_j(b) G_(i+j+s)
 
@@ -2485,7 +3524,17 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Any mismatch, prefix relation, decreasing length step, or Kraft sum exceeding 1.
 - **summary:** 9 baseline + 61 pattern + 8 Golomb codes: problems = 0; Kraft partial sums (lengths <= 1500) of pattern codes in [0.999999999993, 1.000000000000]; Fibonacci C1 length function == T_11 for n <= 2e5: True
-- **runs:** 4; last 2026-10-18T08:36:40Z (14.731 s), results sha256 `8cb4a80a78a8c4a8…`, code `experiments/C11/E01_correctness.py`
+- **analysis:**
+
+  All 78 implementations (9 baseline universal codes, 61 pattern-terminated codes, 8 Golomb/Rice codes) round-trip,
+  are prefix-free on their first 20000 codewords and have nondecreasing length functions; Kraft partial sums of the
+  pattern codes lie in [0.999999999993, 1] at lengths <= 1500; Fibonacci C1 and T_11 have the same length function
+  for n <= 2e5. The first runs failed on test-design errors (a table too short for growth-rate-1 patterns, a
+  monotonicity check on an unsorted list giving 70 false problems, Kraft sums of 0.865 at lengths <= 120); they
+  stay in the run history.
+
+- **related:** CLM-C11-01
+- **runs:** 5; last 2026-10-18T08:50:17Z (15.598 s), results sha256 `8cb4a80a78a8c4a8…`, code `experiments/C11/E01_correctness.py`
 
 ### EXP-C11-02: Pattern-terminated codes: growth rates, the all-ones maximum, and the best terminator per range
 
@@ -2509,7 +3558,16 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - H-C11-2 rival wins over 1^k for n >= 1000: {3: 0, 4: 762, 5: 972, 6: 1127}
   - cumulative-count ratios unbordered/1^(k-1): {'cum_011/cum_11 at L=300': 1.618033989, 'cum_0111/cum_111 at L=300': 1.191487884, 'cum_01111/cum_1111 at L=300': 1.078095078}
   - OEIS: {'011': 'MATCH', '101': 'MATCH', '0101': 'MATCH', '0111': 'MATCH', '1011': 'MATCH', '0110': 'MATCH'}
-- **runs:** 1; last 2026-10-18T08:24:42Z (7.954 s), results sha256 `44eb2516b244b91f…`, code `experiments/C11/E02_pattern_theory.py`
+- **analysis:**
+
+  1^k and 0^k uniquely maximise the growth rate for every k = 2..10 (2044 patterns, 0 violations); unbordered
+  patterns have the (k-1)-bonacci growth rate (0 violations); roots and count ratios agree to 1.3e-15. But rival
+  terminators beat 1^k at 762 / 972 / 1127 sampled n >= 1000 for k = 4 / 5 / 6, the last up to n = 1.3e19.
+  Count sequences of 011, 101, 0101, 0111, 0110/1011 are OEIS A000071, A005314, A112575, A008937, A059633.
+
+- **counterexamples:** H-C11-2: k = 4, n = 1000: terminators 1000, 1001, 1010 give codewords 1 bit shorter than 1111.
+- **related:** CLM-C11-02; CLM-C11-03; CLM-C11-05
+- **runs:** 2; last 2026-10-18T08:50:19Z (0.826 s), results sha256 `44eb2516b244b91f…`, code `experiments/C11/E02_pattern_theory.py`
 
 ### EXP-C11-03: Benchmark: expected length minus entropy on Zipf, geometric, uniform and log-uniform sources
 
@@ -2536,7 +3594,16 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - uniform [1, 2^16]: H=16.0; best classical ['LEB128 varint', 5.9844]; best fixed ['T_0111', 3.2978]; best overall ['tuned Golomb(M=16384)', 0.5]
   - uniform [1, 2^32]: H=32.0; best classical ['LEB128 varint', 7.4961]; best fixed ['T_00111', 4.4391]; best overall ['tuned Golomb(M=1073741824)', 0.5]
   - log-uniform 1/n on [1,1e+06]: H=13.4061; best classical ['Fibonacci C1', 1.6368]; best fixed ['T_0111', 0.4006]; best overall ['T_0111', 0.4006]
-- **runs:** 1; last 2026-10-18T08:25:40Z (7.548 s), results sha256 `a67c4269318e034f…`, code `experiments/C11/E03_synthetic_benchmarks.py`
+- **analysis:**
+
+  Exact expected lengths on 12 sources. A fixed pattern code is the best fixed universal code on Zipf 1.1 (T_101,
+  redundancy 0.1935), geometric 0.001 (T_0111, 1.735), uniform 2^16 (T_0111, 3.2978), uniform 2^32 (T_00111,
+  4.4391) and log-uniform (T_0111, 0.4006); classical codes win on the other 7 (Zipf >= 1.5, geometric >= 0.01,
+  uniform 2^8). Tuned Golomb codes are nearly optimal on geometric sources (redundancy <= 0.0352) and best on
+  uniform ones (0.5), but poor on Zipf 1.1 (5.3783) and log-uniform (3.9299).
+
+- **related:** CLM-C11-08
+- **runs:** 2; last 2026-10-18T08:50:27Z (7.28 s), results sha256 `a67c4269318e034f…`, code `experiments/C11/E03_synthetic_benchmarks.py`
 
 ### EXP-C11-04: Benchmark on in-repo data: prime gaps up to 1e7 and simulated posting lists
 
@@ -2555,7 +3622,15 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]
   - posting list geometric(0.001) (n=100000, H0=11.3626): best classical ['Fibonacci C1', 14.3563], best fixed ['T_0111', 13.1548], best overall ['tuned Golomb(M=693)', 11.446]
   - bursty posting list (mixture) (n=100000, H0=10.7142): best classical ['Fibonacci C1', 12.1459], best fixed ['T_101', 11.4728], best overall ['T_101', 11.4728]
-- **runs:** 2; last 2026-10-18T08:42:58Z (0.224 s), results sha256 `06e9eae27066d241…`, code `experiments/C11/E04_data_benchmarks.py`
+- **analysis:**
+
+  Prime gaps <= 1e7: Exp-Golomb (raw 5.7208, halved 4.5787 bits) is the best fixed code and tuned Golomb the best
+  overall (5.2713, 4.2713). Posting lists: T_0111 is the best fixed code on geometric gaps (13.1548, tuned Golomb
+  11.446) and T_101 the best code overall on the bursty mixture (11.4728 vs Fibonacci 12.1459, tuned Exp-Golomb
+  11.7868, tuned Golomb 12.8038).
+
+- **related:** CLM-C11-08
+- **runs:** 3; last 2026-10-18T08:50:28Z (0.179 s), results sha256 `06e9eae27066d241…`, code `experiments/C11/E04_data_benchmarks.py`
 
 ### EXP-C11-05: Throughput of the reference implementations (Python, string-based)
 
@@ -2572,7 +3647,15 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **summary:**
   - all round trips ok: True
   - bits per value: Elias gamma 19.98, Elias delta 15.89, Elias omega 17.04, Levenshtein 17.85, Fibonacci C1 15.57, LEB128 varint 15.57, Exp-Golomb(0) 19.98, Exp-Golomb(2) 18.40, Exp-Golomb(4) 17.14, Rice(6) 1193.51, T_11 15.57, T_111 14.31, T_0111 14.20, T_101 14.41
-- **runs:** 1; last 2026-10-18T08:26:47Z (10.11 s), results sha256 `27bfc39153c790f4…`, code `experiments/C11/E05_speed.py`
+- **analysis:**
+
+  All 14 implementations round-trip on 1e5 log-uniform values below 2^20; bits per value T_0111 14.20, T_111
+  14.31, T_101 14.41, Fibonacci 15.57, Elias delta 15.89. The string-based pattern codes need about 3 us per value
+  against 0.4-0.7 us for the Elias codes and 2.1 us for Fibonacci (CPython; machine-dependent, outside the result
+  hash).
+
+- **related:** CLM-C11-08
+- **runs:** 2; last 2026-10-18T08:50:40Z (11.31 s), results sha256 `27bfc39153c790f4…`, code `experiments/C11/E05_speed.py`
 
 ### EXP-C11-06: Unbordered terminators: count series x/(1-x) times the all-ones series; T_011 beats Fibonacci by one bit
 
@@ -2591,7 +3674,16 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - T_011 longer than Fibonacci only for n in [1, 2, 4]; length differences (Fib - T011) for n <= 2e6: {-1: 3, 0: 429, 1: 1999568}
   - block-wise check L = 5..90: violations []
   - average gaps vs prediction: {'011': {'avg_gap_bits_[1,2^40]': 1.0, 'predicted_log_lambda(1/(lambda-1))': 1.0}, '0111': {'avg_gap_bits_[1,2^40]': 0.2282, 'predicted_log_lambda(1/(lambda-1))': 0.2875}, '01111': {'avg_gap_bits_[1,2^40]': 0.0844, 'predicted_log_lambda(1/(lambda-1))': 0.1146}, '011111': {'avg_gap_bits_[1,2^40]': 0.0395, 'predicted_log_lambda(1/(lambda-1))': 0.0513}}
-- **runs:** 1; last 2026-10-18T08:28:59Z (1.131 s), results sha256 `4188be25b5ce210f…`, code `experiments/C11/E06_unbordered_theorem.py`
+- **analysis:**
+
+  F_u = x/(1-x) F_(1^k) holds with 0 mismatches for all unbordered u of length 3..9 up to length 200. T_011 is
+  longer than Fibonacci only for n in {1, 2, 4}; for n <= 2e6 the difference (Fibonacci - T_011) is -1 three times,
+  0 429 times and 1 1999568 times; block checks up to L = 90 find no violation. The predicted average gain
+  log_lambda(1/(lambda-1)) fails for k >= 3 (0.2282 measured vs 0.2875 for k = 3).
+
+- **counterexamples:** Average gain of 0111 over 111 for n <= 2^40: 0.2282, predicted 0.2875.
+- **related:** CLM-C11-03; CLM-C11-04; CLM-C11-06
+- **runs:** 2; last 2026-10-18T08:50:42Z (1.163 s), results sha256 `4188be25b5ce210f…`, code `experiments/C11/E06_unbordered_theorem.py`
 
 ### EXP-C11-07: Average one-bit gain of unbordered terminators: corrected constant (2 - lambda)/(lambda - 1)^2
 
@@ -2606,7 +3698,14 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Exact average codeword lengths from cumulative counts; compare with both formulas.
 - **falsification:** Disagreement with (2 - lambda)/(lambda - 1)^2 that does not shrink as N grows.
 - **summary:** 011: corrected 1.0, old 1.0, measured {'2^40': 1.0, '2^80': 1.0, '2^120': 1.0}; 0111: corrected 0.228155, old 0.287511, measured {'2^40': 0.228181, '2^80': 0.309709, '2^120': 0.228548}; 01111: corrected 0.084194, old 0.114583, measured {'2^40': 0.084414, '2^80': 0.137827, '2^120': 0.117081}; 011111: corrected 0.036495, old 0.051252, measured {'2^40': 0.039521, '2^80': 0.039092, '2^120': 0.038667}; 0111111: corrected 0.01697, old 0.024169, measured {'2^40': 0.025472, '2^80': 0.018318, '2^120': 0.02613}
-- **runs:** 1; last 2026-10-18T08:29:30Z (0.144 s), results sha256 `d5f3d2ea6e605cf9…`, code `experiments/C11/E07_gap_formula.py`
+- **analysis:**
+
+  The corrected constant (2-lambda)/(lambda-1)^2 matches the running average at 2^40 and 2^120 for k = 3 (0.228181,
+  0.228548 vs 0.228155) but not at 2^80 (0.309709): the average gain does not converge for k >= 3.
+
+- **counterexamples:** k = 3: running average 0.228181, 0.309709, 0.228548 at N = 2^40, 2^80, 2^120.
+- **related:** CLM-C11-06; CLM-C11-07
+- **runs:** 2; last 2026-10-18T08:50:42Z (0.054 s), results sha256 `d5f3d2ea6e605cf9…`, code `experiments/C11/E07_gap_formula.py`
 
 ### EXP-C11-08: Running average gain of unbordered terminators: liminf (2-l)/(l-1)^2, limsup l(2-l)/(l-1)
 
@@ -2621,7 +3720,13 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Exact running sums of the length difference evaluated at N = cum_O(L) and at N = cum_U(L-1) for large L; compare with both constants.
 - **falsification:** Values at large L not approaching the two constants.
 - **summary:** 011: liminf pred 1.0 vs [1.0, 1.0, 1.0]; limsup pred 1.0 vs [1.0, 1.0, 1.0]; 0111: liminf pred 0.228155 vs [0.228155, 0.228155, 0.228155]; limsup pred 0.352201 vs [0.352201, 0.352201, 0.352201]; 01111: liminf pred 0.084194 vs [0.084194, 0.084194, 0.084194]; limsup pred 0.150533 vs [0.150533, 0.150533, 0.150533]; 011111: liminf pred 0.036495 vs [0.036495, 0.036495, 0.036495]; limsup pred 0.069304 vs [0.069304, 0.069304, 0.069304]; 0111111: liminf pred 0.01697 vs [0.01697, 0.01697, 0.01697]; limsup pred 0.033108 vs [0.033108, 0.033108, 0.033108]
-- **runs:** 1; last 2026-10-18T08:30:03Z (0.169 s), results sha256 `627c7f71c24cf0bc…`, code `experiments/C11/E08_gain_oscillation.py`
+- **analysis:**
+
+  At level ends the running average equals (2-lambda)/(lambda-1)^2 and at the ends of the saved segments
+  lambda(2-lambda)/(lambda-1), to 6 digits for k = 2..6 at L = 100, 200, 400 (k = 3: 0.228155 and 0.352201).
+
+- **related:** CLM-C11-07
+- **runs:** 2; last 2026-10-18T08:50:43Z (0.144 s), results sha256 `627c7f71c24cf0bc…`, code `experiments/C11/E08_gain_oscillation.py`
 
 ### EXP-C11-09: Fraenkel-Klein C3 as a baseline: counts, exact length comparison with T_011 and C1, benchmarks
 
@@ -2651,7 +3756,17 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - ratios {'cum_011/cum_C3 at L=300': 1.309016994, 'phi^2/2': 1.309016994, 'cum_C3/cum_C1 at L=299': 1.236067977, '2/phi': 1.236067977}
   - average length difference (bits) {'2^40': {'C1 - C3': 0.462228, 'C3 - T_011': 0.537772}, '2^80': {'C1 - C3': 0.399663, 'C3 - T_011': 0.600337}, '2^120': {'C1 - C3': 0.480593, 'C3 - T_011': 0.519407}}
   - C3 beats T_011 on: ['Zipf(s=1.5, N=1e6)', 'Zipf(s=2.0, N=1e6)', 'Zipf(s=3.0, N=1e6)', 'geometric(p=0.5)', 'geometric(p=0.1)', 'prime gaps <= 1e7 (raw)', 'prime gaps <= 1e7 (halved)']
-- **runs:** 1; last 2026-10-18T08:44:31Z (0.991 s), results sha256 `30d4d6e2b7a623f5…`, code `experiments/C11/E09_c3_baseline.py`
+- **analysis:**
+
+  Fraenkel-Klein C3 implemented from the paper (first 12 codewords equal the printed list, 0 problems, Kraft
+  partial sum 1, not prefix-free). For n <= 2e6, C3 is longer than C1 only at n = 1 and T_011 longer than C3 only
+  at n in {2, 4, 8}; (C3 - T_011) is 1 bit for 1167558 values and 0 for 832439; the count inequalities fail only at
+  L = 3, 4, 5 (T_011 vs C3) and L = 2 (C3 vs C1) for L < 300; cum_011/cum_C3 = 1.309016994 = phi^2/2. The average
+  of L_C1 - L_C3 is 0.462, 0.400, 0.481 over n <= 2^40, 2^80, 2^120 (the T_011 gain over C1 is the complement to
+  1). C3 beats T_011 on Zipf 1.5/2/3, geometric 0.5/0.1 and both prime-gap data sets, and loses on the other 9.
+
+- **related:** CLM-C11-09; CLM-C11-08; CLM-C11-04
+- **runs:** 2; last 2026-10-18T08:50:45Z (0.534 s), results sha256 `30d4d6e2b7a623f5…`, code `experiments/C11/E09_c3_baseline.py`
 
 ### EXP-C12-01: Grundy census of 19 relational one-heap games
 
@@ -2668,6 +3783,14 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Exact Grundy computation (bitset method for sparse subtraction sets); record max value, growth, P-position density, eventual (arithmetic) periodicity.
 - **falsification:** A game with none of the three behaviours refutes H-C12-0 within the range.
 - **summary:** 19 games; eventually periodic: 5; arithmetic-periodic: 0; neither (within range): 14; G01 subtract a divisor d<n: max 16 (N=100000), period None, arith None, P-density 0.500005; G02 subtract any divisor: max 17 (N=100000), period None, arith None, P-density 1e-05; G03 subtract a nontrivial proper divisor: max 16 (N=100000), period None, arith None, P-density 0.500085; G04 move to a proper divisor: max 16 (N=100000), period None, arith None, P-density 2e-05; G05 move to a smaller coprime: max 669 (N=5000), period None, arith None, P-density 0.0004; G06 move to a smaller non-coprime: max 2499 (N=5000), period None, arith None, P-density 0.134173; G08 subtract a square: max 74 (N=100000), period None, arith None, P-density 0.02781; G09 subtract a Fibonacci number: max 14 (N=100000), period None, arith None, P-density 0.172148; G10 subtract a power of 2: max 2 (N=100000), period (0, 3), arith None, P-density 0.333337; G10b subtract a power of 3: max 1 (N=100000), period (0, 2), arith None, P-density 0.500005; G10c subtract a power of 4: max 2 (N=100000), period (0, 5), arith None, P-density 0.400006; G11 subtract a prime: max 11 (N=100000), period None, arith None, P-density 0.150658; G12 subtract a triangular number: max 110 (N=100000), period None, arith None, P-density 0.01524; G13 move to a proper binary submask: max 16 (N=100000), period None, arith None, P-density 1e-05; G16 split into coprime parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G17 split into dividing parts: max 1 (N=5000), period (1, 2), arith None, P-density 0.5001; G18 Grundy's game (unequal split): max 65 (N=5000), period None, arith None, P-density 0.008398; G19 move to a remainder: max 11 (N=5000), period None, arith None, P-density 0.0004; G20 move to a quotient: max 14 (N=20000), period None, arith None, P-density 0.0001
+- **analysis:**
+
+  19 games: 5 eventually periodic (subtract a power of 2, 3, 4 with periods 3, 2, 5; coprime and dividing
+  splits with period 2), none arithmetic-periodic, 14 without either behaviour within range. The first run
+  reported spurious end-of-range periods; the detector now requires the periodic tail to cover half the range
+  and the census was re-run (both runs on record).
+
+- **related:** CLM-C12-09; CLM-C12-07; CLM-C12-06
 - **runs:** 2; last 2026-10-18T08:15:13Z (50.971 s), results sha256 `987180423b983168…`, code `experiments/C12/E01_grundy_census.py`
 
 ### EXP-C12-02: Closed forms for relational games: verification against exact Grundy values
@@ -2697,6 +3820,14 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - G06 g(2k)=k-1, g(odd m)<=(m-1)/2, P = {1} and primes: {'even_mismatches': 0, 'odd_bound_violations': 0, 'P_mismatches': 0, 'max_ratio_odd': 0.24984984984984984}
   - G07 subtract a coprime = G05: {'mismatches': 0}
   - random splitting relations (every n>=2 splittable): {'relations': 40, 'mismatches': 0}
+- **analysis:**
+
+  Every closed form matches the exact values with 0 mismatches (v2, v2 + 1, Omega, popcount up to 1e5; prime
+  index, G06 formulas, remainder game up to 5000; floor-division game up to 2e4; G03 P-positions up to 1e5;
+  powers of k for k = 2..20 up to 2e4; 40 random splitting relations up to 1500). Largest g(m)/m over odd
+  m <= 5000 in G06 is 0.24985.
+
+- **related:** CLM-C12-01; CLM-C12-02; CLM-C12-03; CLM-C12-05; CLM-C12-06; CLM-C12-07
 - **runs:** 1; last 2026-10-18T08:16:07Z (3.484 s), results sha256 `1b93f3e7a5761ea9…`, code `experiments/C12/E02_closed_forms.py`
 
 ### EXP-C12-03: Sparse subtraction sets: Grundy growth and the density of P-positions
@@ -2713,6 +3844,14 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - triangular: P-density {'12500': 0.034397, '25000': 0.026039, '50000': 0.01998, '100000': 0.01524, '200000': 0.01163}, max g {'12500': 50, '25000': 65, '50000': 84, '100000': 110, '200000': 144}, clash None
   - Fibonacci: P-density {'12500': 0.168547, '25000': 0.170833, '50000': 0.173877, '100000': 0.172148, '200000': 0.180444}, max g {'12500': 13, '25000': 13, '50000': 14, '100000': 14, '200000': 14}, clash None
   - primes: P-density {'12500': 0.134709, '25000': 0.140234, '50000': 0.145497, '100000': 0.150658, '200000': 0.154854}, max g {'12500': 11, '25000': 11, '50000': 11, '100000': 11, '200000': 11}, clash None
+- **analysis:**
+
+  P-density from N = 1.25e4 to 2e5: squares 0.0538 -> 0.0222 and triangular numbers 0.0344 -> 0.0116 (counts
+  growing roughly like N^0.67 and N^0.61), consistent with density zero; Fibonacci 0.169 -> 0.180 and primes
+  0.135 -> 0.155 do not decay. Maximal Grundy values grow for squares (36 -> 95) and triangular numbers
+  (50 -> 144) but stay at 14 (Fibonacci, from 5e4 on) and 11 (primes).
+
+- **related:** CLM-C12-08; CLM-C12-11; CLM-C12-12; CLM-C12-13
 - **runs:** 1; last 2026-10-18T08:18:40Z (103.606 s), results sha256 `cf179710040f928e…`, code `experiments/C12/E03_sparse_subtraction.py`
 
 ### EXP-C12-04: OEIS look-ups for the Grundy and P-position sequences of the 19 games
@@ -2725,6 +3864,12 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** novelty_check on the first 40 terms; the matched entries' names are recorded for manual reading (a shifted-window hit is not accepted as a match without inspection).
 - **falsification:** n/a (literature check)
 - **summary:** Grundy sequences without OEIS match: ['G03 subtract a nontrivial proper divisor']; P-position sets without match: ['G03 subtract a nontrivial proper divisor']; G01 subtract a divisor d<n: G MATCH ['A007814', 'A371093'] | P MATCH ['A005408', 'A060747']; G02 subtract any divisor: G MATCH ['A001511', 'A091090'] | P TOO FEW P-POSITIONS []; G03 subtract a nontrivial proper divisor: G NO MATCH [] | P NO MATCH []; G04 move to a proper divisor: G MATCH ['A001222'] | P TOO FEW P-POSITIONS []; G05 move to a smaller coprime: G MATCH ['A055396'] | P TOO FEW P-POSITIONS []; G06 move to a smaller non-coprime: G MATCH ['A279119'] | P MATCH ['A008578', 'A015919']; G08 subtract a square: G MATCH ['A014586'] | P MATCH ['A030193']; G09 subtract a Fibonacci number: G MATCH ['A014588'] | P MATCH ['A001581']; G10 subtract a power of 2: G MATCH ['A010872'] | P MATCH ['A008585', 'A008486']; G10b subtract a power of 3: G MATCH ['A000035', 'A059841'] | P MATCH ['A005843', 'A004275']; G10c subtract a power of 4: G MATCH (shifted window) ['A014586'] | P MATCH ['A047215', 'A038126']; G11 subtract a prime: G MATCH ['A014589'] | P MATCH ['A025043']; G12 subtract a triangular number: G MATCH ['A019509'] | P MATCH ['A030194']; G13 move to a proper binary submask: G MATCH ['A000120', 'A048881'] | P TOO FEW P-POSITIONS []; G16 split into coprime parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']; G17 split into dividing parts: G MATCH ['A000035', 'A059841'] | P MATCH ['A005408', 'A060747']; G18 Grundy's game (unequal split): G MATCH ['A002188'] | P MATCH ['A036685']; G19 move to a remainder: G MATCH ['A099396'] | P TOO FEW P-POSITIONS []; G20 move to a quotient: G MATCH ['A000523'] | P TOO FEW P-POSITIONS []
+- **analysis:**
+
+  18 of 19 Grundy sequences are in the OEIS; the G10c hit (a shifted window of A014586) is spurious and G19 is
+  A099396 shifted by one index. Only G03 matches nothing, for both its Grundy and its P-position sequence.
+
+- **related:** CLM-C12-03; CLM-C12-04; CLM-C12-02; CLM-C12-05
 - **runs:** 1; last 2026-10-18T08:19:44Z (54.528 s), results sha256 `b7eb439c285686fa…`, code `experiments/C12/E04_novelty.py`
 
 ### EXP-C12-05: Prime-signature hypothesis for divisibility and coprimality games
@@ -2737,6 +3882,12 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Group n by prime signature and look for two numbers with equal signature and different Grundy values.
 - **falsification:** Two numbers with the same signature and different Grundy values.
 - **summary:** G01 subtract a divisor d<n: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 0}; G02 subtract any divisor: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 2, 'g2': 1}; G03 subtract a nontrivial proper divisor: signature-only = False {'n1': 4, 'n2': 9, 'signature': [2], 'g1': 1, 'g2': 0}; G04 move to a proper divisor: signature-only = True ; G05 move to a smaller coprime: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 2}; G06 move to a smaller non-coprime: signature-only = False {'n1': 6, 'n2': 10, 'signature': [1, 1], 'g1': 2, 'g2': 4}
+- **analysis:**
+
+  H-C12-1 fails for G01, G02, G03, G05, G06 (first counterexamples (2, 3), (2, 3), (4, 9), (2, 3), (6, 10));
+  only G04 (g = Omega) depends on the prime signature alone.
+
+- **related:** CLM-C12-10
 - **runs:** 1; last 2026-10-18T08:18:41Z (0.249 s), results sha256 `d4ca22ecc3ae95f4…`, code `experiments/C12/E05_signature_hypothesis.py`
 
 ### EXP-C12-06: Grundy values of the deleting-divisors game G03: v2(n) except for odd parts <= 15
@@ -2756,7 +3907,46 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - max |g - v2| off the P-positions 2^(2j+1): 2; records (n, g): [[0, 0], [4, 1], [6, 2], [12, 3], [24, 4], [64, 5], [96, 6], [256, 7], [320, 8], [640, 9], [1280, 10], [2560, 11], [5120, 12], [10240, 13], [20480, 14], [40960, 15], [81920, 16]]
   - certificate m <= 15, 13 <= a <= 100: mismatches 0
   - random mex checks: even n 0/3000 failures, odd n 0/1000 failures
+- **analysis:**
+
+  The closed form of Theorem 8 equals the Grundy function of G03 on [0, 1e5]; the 96 positions with
+  g != v2 all have odd part <= 15; the inductive-step certificate (odd parts <= 15, 13 <= a <= 100) and 4000
+  random mex checks beyond the computed range have 0 failures.
+
+- **related:** CLM-C12-04
 - **runs:** 1; last 2026-10-18T08:40:45Z (0.837 s), results sha256 `fe0eff630e328833…`, code `experiments/C12/E06_deleting_divisors.py`
+
+### EXP-C13-01: Atlas of affine anchored spectra for all laws with at most 4 leaves per side (and 2-variable laws with at most 5)
+
+- **cycle:** C13
+- **agent:** Mathematical Explorer
+- **question:**
+
+  For every law s = t over {x,y,z} with at most 4 leaves per side (up to renaming and exchange of sides), and every law over {x,y} with at most 5 leaves per side, which sets of N admit an affine anchored model x*y = x + a*y + 1 (mod N)? Which arithmetic sets occur?
+
+- **hypothesis:**
+
+  H-C13-3: affine spectra are exactly the sets {N : a fixed polynomial system has a root mod N}; they are divisor-closed and closed under coprime products, every finite one is the set of divisors of a single integer, and the infinite ones are governed by the Q-gcd of the system (a classical quadratic/cubic residue condition plus finitely many exceptional primes).
+
+- **assumptions:** laws up to renaming of variables and exchange of sides; s != t; affine spectra computed through prime powers <= 200 (CRT); finite spectra computed exactly from a resultant bound; OEIS lookups of every infinite spectrum (terms <= 200)
+- **methodology:**
+
+  Evaluate both sides as linear forms with coefficients in Z[a]; the law's affine system is the set of coefficient differences. Group laws by system, then systems by spectrum. For each system compute the gcd over Q[a]; if it is constant, bound the spectrum by the gcd of the pairwise resultants R and find the largest prime powers dividing R that admit a common root; otherwise record the gcd polynomial. Look up every infinite spectrum in the OEIS and record the hits.
+
+- **falsification:**
+
+  A finite affine spectrum that is not the set of divisors of its maximum, or a spectrum that is not divisor-closed, would contradict the (proved) Theorem 1 of proofs/paper/C13.md and reveal an implementation error.
+
+- **summary:**
+  - 3var_le4: 18581 laws, 2400 affine systems, 27 distinct spectra
+  - 3var_le4 finite spectra: Div(1) x11658; Div(2) x2182; Div(3) x407; Div(4) x128; Div(5) x70; Div(8) x22; Div(7) x15; Div(10) x11; Div(6) x9; Div(14) x8; Div(9) x7; Div(20) x1; Div(27) x1; Div(11) x1
+  - 3var_le4 infinite: 0/2*a**2 + a/2*a**2 + a - 1 x3809; a**2 + a - 1/a**2 - a - 1 x61; a**2 + a + 1/a**2 - a + 1 x57; a**2 + 1 x55; 2*a + 1/2*a - 1 x45; a**3 + a + 1/a**3 + a - 1/a**3 + a**2 + 1 x8; a**3 + a**2 - 1/a**3 - a + 1/a**3 - a - 1 x8; a**2 + 2*a - 1/a**2 - 2*a - 1 x6; a**3 + a**2 + a - 1/a**3 + a**2 - a + 1/a**3 - a**2 + a + 1 x4; 2*a**2 + 1 x2; 2*a**2 + a + 1/2*a**2 - a + 1 x2; 2*a**2 - …
+  - 2var_le5: 75625 laws, 3631 affine systems, 125 distinct spectra
+  - 2var_le5 finite spectra: Div(1) x23743; Div(2) x9718; Div(3) x4889; Div(4) x1806; Div(5) x1375; Div(7) x964; Div(9) x662; Div(6) x648; Div(10) x539; Div(8) x536; Div(11) x382; Div(14) x343; Div(13) x266; Div(17) x182; Div(27) x159; Div(15) x136; Div(26) x113; Div(22) x99; Div(19) x84; Div(21) x80; Div(23) x74; Div(34) x70; Div(16) x64; Div(18) x64; Div(20) x61; Div(36) x54; Div(51) x52; Div(33) x…
+  - 2var_le5 infinite: 0/2*a**2 + a/2*a**2 + a - 1 x24999; a**2 + 3*a + 1/a**2 + a - 1/a**2 - 3*a + 1 x647; a**2 + a + 1/a**2 - a + 1/a**4 + a**2 + 1 x520; 2*a + 1/2*a - 1/2*a - 3 x439; a**2 + 1 x339; a**3 + 2*a**2 + a + 1/a**3 + a**2 + 2*a + 1/a**3 + a**2 - 1 x190; a**2 + 2*a - 1/a**2 - 2/a**2 - 2*a - 1 x164; a**3 + 2*a**2 + a - 1/a**3 + a + 1/a**3 + a - 1 x160; a**3 + a**2 + a - 1/a**3 + a**2 - a +…
+  - every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 2
+  - OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a…
+- **runs:** 2; last 2026-10-18T08:59:02Z (25.828 s), results sha256 `ba2746d029908a44…`, code `experiments/C13/E01_affine_atlas.py`
 
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
 
@@ -2778,6 +3968,12 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']
   - relation-level vs graph-level disagreements: 0
   - 76 orbits under <transpose, conjugate>; associativity orbit-invariant: True
+- **analysis:**
+
+  Exhaustive classification of the 256 local products: exactly 20 are associative (10 of them commutative; 32 symmetric products in total); exactly 8 have the two-sided unit K1 (Cartesian, strong, lexicographic and its transpose, symmetric difference, co-normal, codes 141 and 221); associative and distributive over disjoint union on both sides: codes 0, 1, 4, Cartesian, direct, strong. The relation-level verdict agrees with brute-force graph computations (P3^3 and 40 random triples per code) for every code; the 20 associative products form 8 orbits under transposition and complement-conjugation.
+
+- **verification:** PROVEN
+- **related:** CLM-C14-01; CLM-C14-02
 - **runs:** 2; last 2026-10-18T08:40:47Z (0.227 s), results sha256 `98a25916b494a20d…`, code `experiments/C14/E01_classification.py`
 
 ### EXP-C14-02: Isomorphism-level versus strict associativity and commutativity of local products
@@ -2795,6 +3991,12 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
 - **methodology:** For each non-strict code, search the smallest triple (G,H,K) with (G*H)*K not isomorphic to G*(H*K), and the smallest pair with G*H not isomorphic to H*G.
 - **falsification:** A non-strict code without any witness (then it would be associative/commutative only up to isomorphism, refuting H-C14-1, and would be examined by hand).
 - **summary:** associativity witnesses among graphs <= 3 vertices: 236/236; without: []; commutativity witnesses: 224/224; without: []; witness product orders: {2: 144, 4: 84, 8: 8}; witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224
+- **analysis:**
+
+  Every one of the 236 non-associative products has a witness (G*H)*K not isomorphic to G*(H*K) with factors of at most 3 vertices (product orders 2: 144 codes, 4: 84, 8: 8), and every one of the 224 non-commutative products a witness G*H not isomorphic to H*G; all 460 witnesses are certified by edge count or degree sequence. Associativity and commutativity up to isomorphism are therefore no weaker than the strict notions (bold H-C14-1 survives).
+
+- **verification:** PROVEN
+- **related:** CLM-C14-03
 - **runs:** 2; last 2026-10-18T08:41:26Z (1.008 s), results sha256 `9bbb02dc8486fdf1…`, code `experiments/C14/E02_iso_vs_strict.py`
 
 ### EXP-C14-03: Multiplicative and additive Kronecker characters of local graph products
@@ -2820,6 +4022,12 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - additive characters: {cartesian: [(0, 1, 0, 'scalable')], EA AE AA AN NA NN: [(0, 0, 1, 'scalable')]}
   - commutative associative products without a character: ['empty', 'complete']
   - sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30
+- **analysis:**
+
+  The character equations solved over C (sympy) for all 256 codes give exactly six multiplicative characters - direct (0,1,0), strong (1,1,0), symmetric difference (1,-1,1), co-normal (1,0,1), code 127 (0,0,1), code 141 (1,1,-1) - and exactly two additive ones - Cartesian (0,t,0) and code 221 (0,0,t); identical to the hand case analysis; 0 numerical failures of the matrix identities on 30 random pairs per product; the Seidel spectrum of symmetric-difference products is multiplicative (shifted by 1) on 30/30 pairs. Only the empty and complete products among the 10 commutative associative ones have no character.
+
+- **verification:** PROVEN
+- **related:** CLM-C14-04; CLM-C14-05; CLM-C14-06
 - **runs:** 2; last 2026-10-18T08:42:25Z (3.872 s), results sha256 `08e6e8f9b788c831…`, code `experiments/C14/E03_kronecker_characters.py`
 
 ### EXP-C14-04: Prime factorisation census for the eight associative local products with unit K1 (orders <= 15)
@@ -2846,5 +4054,89 @@ _Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; 
   - Cartesian connected primes n=2..15: [1, 2, 5, 21, 110, 853, 11111, 261077, 11716550, 1006700565, 164059830354, 50335907869219, 29003487462847208, 31397381142761241918]; equal to strong: True
   - 63-vertex counterexample verified: {'cartesian': {'order': 63, 'isomorphic': True}, 'strong': {'order': 63, 'isomorphic': True}}
   - OEIS: cartesian connected primes n=2..15: MATCH; strong connected primes n=2..15: MATCH; cartesian primes (all graphs) n=2..11: NO MATCH; strong primes (all graphs) n=2..11: NO MATCH; lexicographic primes (all graphs) n=2..11: NO MATCH; EA AE AA NA primes (all graphs) n=2..11: NO MATCH; symmetric difference primes (all graphs) n=2..11: NO MATCH; co-normal primes (all graphs) n=2..11: NO MATCH; EA…
+- **analysis:**
+
+  Exact factorisation census for the 8 unital associative products, orders <= 15 (factors: all graphs with <= 7 vertices). All graphs: Cartesian, strong, co-normal and 221 have no collision; lexicographic and its transpose collide at orders 10 and 14 as multisets (e.g. 2K1 o (C4+K1) = (2K2+K1) o 2K1); symmetric difference and 141 collide at orders 4, 6, 8, 10, 12, 14, 15 (1, 2, 3, 7, 16, 54, 1 classes). Inside connected graphs the symmetric difference collides at orders 8, 10, 12, 14 (2, 6, 15, 53 classes: K2 xor K2 xor K2 = K2 xor K_{1,3}) - H-C14-3 refuted - while code 141 (equivalently XOR on co-connected graphs) has none. Connected Cartesian and strong prime counts both equal OEIS A129582 for n = 2..15; prime counts over all graphs computed for every product (no OEIS match). The classical 63-vertex Cartesian/strong counterexample for disconnected graphs was verified.
+
+- **counterexamples:** Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3} (connected, order 8); C4 = K2 xor K2 = K2 xor 2K1 (order 4); Lexicographic: 2K1[C4+K1] = (2K2+K1)[2K1] = 2C4 + 2K1 (order 10)
+- **verification:** REFUTED
+- **related:** CLM-C14-08; CLM-C14-09; CLM-C14-10; CLM-C14-11; CLM-C14-12
 - **runs:** 2; last 2026-10-18T08:44:49Z (47.26 s), results sha256 `c44f6486f55aff86…`, code `experiments/C14/E04_factorisation_census.py`
+
+### EXP-C14-05: Prime factorisation of two-graphs under the symmetric-difference product
+
+- **cycle:** C14
+- **agent:** Mathematical Inventor
+- **question:** The symmetric difference (XOR) product respects Seidel switching (Theorem 6). On switching classes (two-graphs), is factorisation into primes unique?
+- **hypothesis:**
+
+  H-C14-4 (bold): every two-graph of order <= 16 has exactly one factorisation into prime two-graphs under XOR. H-C14-8: K2 xor X and K2 xor Y are isomorphic graphs iff X and Y are switching equivalent (the 'if' part is proved in Theorem 7; 'only if' is tested here for orders <= 7).
+
+- **assumptions:**
+  - switching classes of order n <= 8 obtained from all graphs with <= 7 vertices (order 8: a 7-vertex graph plus an isolated vertex represents every class)
+  - switching equivalence decided exactly: same Seidel spectrum, then isomorphism of descendants
+  - class counts validated against OEIS A002854
+- **methodology:**
+
+  Classify switching classes by order, find composite classes (orders 4, 6, 8), enumerate all multisets of prime classes with product order n in {4,6,8,9,10,12,14,15,16}, classify the XOR products up to switching, record collisions; count primes per order.
+
+- **falsification:** Two different multisets of prime two-graphs with switching-equivalent XOR products.
+- **summary:**
+  - switching classes n=1..8: [1, 1, 2, 3, 7, 16, 54, 243] (A002854 match: True)
+  - non-unique factorisations by order: {4: 0, 6: 0, 8: 0, 9: 0, 10: 0, 12: 0, 14: 0, 15: 0, 16: 0}
+  - prime two-graphs n=2..16: [1, 2, 2, 7, 14, 54, 240, 2035, 33113, 1182004, 87723276, 12886193064, 3633057074530, 1944000150734306, 1967881448329407250]; OEIS: NO MATCH
+  - K2 xor X = K2 xor Y <=> X ~ Y: 0 violations in 12713 pairs (orders <= 6)
+- **analysis:**
+
+  Switching classes of order <= 8 reproduce OEIS A002854 (1, 1, 2, 3, 7, 16, 54, 243). Under the symmetric difference no two-graph of order <= 16 has two factorisations into prime two-graphs (composite classes 1, 2, 3, 3, 7, 20, 54, 14, 246 at orders 4, 6, 8, 9, 10, 12, 14, 15, 16, each with exactly one factorisation); prime two-graph counts 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... (n = 2, 3, ...), not in the OEIS. K2 xor X = K2 xor Y holds exactly for switching-equivalent X, Y on all 12,713 pairs of graphs with <= 6 vertices.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C14-07; CLM-C14-13
+- **runs:** 1; last 2026-10-18T08:47:59Z (17.299 s), results sha256 `5e7aa69637739d58…`, code `experiments/C14/E05_two_graph_factorisation.py`
+
+### EXP-C14-06: Independent re-verification of the C14 claims (pure Python, no shared library code)
+
+- **cycle:** C14
+- **agent:** Mathematical Skeptic
+- **question:** Do the classification, the non-isomorphism witnesses, the XOR identities and the explicit non-unique factorisations survive an implementation that shares no code with systems/graph_products.py?
+- **hypothesis:** All C14 computational claims are reproduced; any disagreement is a bug in one implementation.
+- **assumptions:**
+  - graphs as Python sets of frozenset edges on range(n); products built from the definition
+  - isomorphism of small graphs by exhaustive permutation search (n <= 8); the bipartite formula checked edge by edge (sign-vector description) for a, b, c, d <= 4
+- **methodology:**
+
+  Re-implement local products from the definition; recount associative/commutative codes with random and P3 triples; re-check the 236/224 witnesses' degree sequences (witness list read from EXP-C14-02); verify K2+K2+K2 = K2+K_{1,3} (XOR) by an explicit isomorphism; verify K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; verify the Seidel identity exactly in integers for all pairs of graphs with <= 3 vertices; verify K2 xor X = K2 xor (X switched) on 200 random cases.
+
+- **falsification:** Any mismatch.
+- **summary:** independent recount: 20 associative, 10 commutative; witness re-checks failing: assoc 0, comm 0; K2 xor K2 xor K2 = K2 xor K_1,3: True; K2 xor K2 = K2 xor 2K1: True; K_ab xor K_cd = K_(ac+bd, ad+bc) failures: 0; Seidel identity entry failures: 0; K2-absorption failures: 0/200
+- **analysis:**
+
+  Skeptic's re-implementation sharing no code with systems/graph_products.py reproduces the 20/10 classification, re-certifies all 460 non-isomorphism witnesses, finds an explicit isomorphism K2 xor K2 xor K2 -> K2 xor K_{1,3} and K2 xor K2 -> K2 xor 2K1, checks K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc} edge by edge for a, b, c, d <= 4, the identity S(G xor H) + I = (S(G)+I) (x) (S(H)+I) exactly in integers for all pairs of graphs with <= 3 vertices, and K2 xor X = K2 xor X^Z on 200 random cases. No discrepancy.
+
+- **verification:** PROVEN
+- **related:** CLM-C14-02; CLM-C14-03; CLM-C14-06; CLM-C14-07; CLM-C14-08
+- **runs:** 2; last 2026-10-18T08:56:02Z (0.351 s), results sha256 `efdc6dd59314fba7…`, code `experiments/C14/E06_skeptic_recheck.py`
+
+### EXP-C14-07: Spectra of symmetric-difference, strong, co-normal and Cartesian products from the factors
+
+- **cycle:** C14
+- **agent:** Application Researcher
+- **question:** How much faster and how accurate is it to obtain the spectrum of a product graph from its factors via the Kronecker characters (Theorems 4-6) instead of diagonalising the product matrix?
+- **hypothesis:**
+
+  The factor route is exact up to rounding (max error < 1e-8 relative to the spectral norm) and asymptotically faster (O(n^3 + m^3 + nm log nm) vs O((nm)^3)); this is the standard Kronecker eigenvalue speed-up, newly applicable to the symmetric-difference product via Seidel matrices.
+
+- **assumptions:** Erdos-Renyi G(n, 1/2) factors with n = m in {10, 20, 30, 40} (seeded); baseline: numpy.linalg.eigvalsh on the full (nm x nm) matrix; timings are machine-dependent and stored under 'timings' (excluded from the result hash)
+- **methodology:**
+
+  XOR: Seidel spectrum = {(s+1)(t+1) - 1}; strong: adjacency spectrum = {(a+1)(b+1) - 1}; co-normal: spectrum of J - A multiplies; Cartesian: adjacency spectrum = {a + b}. Compare sorted spectra and wall-clock times (median of 3).
+
+- **falsification:** Max deviation above 1e-8 * spectral norm, or no speed-up at nm = 1600.
+- **summary:** max relative spectral error over 16 cases: 1.2e-14 (< 1e-8: True); timings (machine-dependent) are under 'timings'
+- **analysis:**
+
+  Spectra of symmetric-difference (Seidel), strong (A+I), co-normal (J-A) and Cartesian (A) products obtained from the factors agree with direct diagonalisation to relative error 1.2e-14 in all 16 cases (n = m <= 40); at nm = 1600 the factor route took about 0.2-0.4 ms against 14-19 s for numpy.linalg.eigvalsh on the shared, heavily loaded machine (absolute times inflated by load; the gain is the standard Kronecker O((nm)^3) -> O(n^3 + m^3 + nm log nm)).
+
+- **related:** CLM-C14-04; CLM-C14-05; CLM-C14-06
+- **runs:** 1; last 2026-10-18T09:01:23Z (291.198 s), results sha256 `ebfb04d1f745529f…`, code `experiments/C14/E07_spectra_benchmark.py`
 

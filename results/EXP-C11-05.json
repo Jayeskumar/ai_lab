@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C11-05",
     "file": "experiments/C11/E05_speed.py",
     "sha256": "9efc826d28f9d458cfbeb6c2396c159c49980db3afd693e3be1f68ea9294889e",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
   "env": {
-    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:26:47Z",
+  "finished": "2026-10-18T08:50:40Z",
   "id": "EXP-C11-05",
   "meta": {
     "agent": "Application Researcher",
@@ -58,60 +58,60 @@
     ],
     "timings": {
       "Elias delta": {
-        "decode_us_per_value": 0.678,
-        "encode_us_per_value": 0.52
+        "decode_us_per_value": 1.324,
+        "encode_us_per_value": 0.97
       },
       "Elias gamma": {
-        "decode_us_per_value": 0.664,
-        "encode_us_per_value": 0.44
+        "decode_us_per_value": 1.226,
+        "encode_us_per_value": 0.326
       },
       "Elias omega": {
-        "decode_us_per_value": 0.64,
-        "encode_us_per_value": 0.557
+        "decode_us_per_value": 1.159,
+        "encode_us_per_value": 1.083
       },
       "Exp-Golomb(0)": {
-        "decode_us_per_value": 1.318,
-        "encode_us_per_value": 0.446
+        "decode_us_per_value": 0.75,
+        "encode_us_per_value": 0.326
       },
       "Exp-Golomb(2)": {
-        "decode_us_per_value": 0.764,
-        "encode_us_per_value": 0.318
+        "decode_us_per_value": 0.686,
+        "encode_us_per_value": 0.307
       },
       "Exp-Golomb(4)": {
-        "decode_us_per_value": 0.662,
-        "encode_us_per_value": 0.317
+        "decode_us_per_value": 0.676,
+        "encode_us_per_value": 0.305
       },
       "Fibonacci C1": {
-        "decode_us_per_value": 2.107,
-        "encode_us_per_value": 2.087
+        "decode_us_per_value": 1.272,
+        "encode_us_per_value": 1.058
       },
       "LEB128 varint": {
-        "decode_us_per_value": 1.039,
-        "encode_us_per_value": 1.204
+        "decode_us_per_value": 0.483,
+        "encode_us_per_value": 0.614
       },
       "Levenshtein": {
-        "decode_us_per_value": 1.268,
-        "encode_us_per_value": 0.98
+        "decode_us_per_value": 0.86,
+        "encode_us_per_value": 1.135
       },
       "Rice(6)": {
-        "decode_us_per_value": 56.918,
-        "encode_us_per_value": 2.512
+        "decode_us_per_value": 66.74,
+        "encode_us_per_value": 2.715
       },
       "T_0111": {
-        "decode_us_per_value": 3.525,
-        "encode_us_per_value": 2.998
+        "decode_us_per_value": 3.122,
+        "encode_us_per_value": 3.124
       },
       "T_101": {
-        "decode_us_per_value": 2.893,
-        "encode_us_per_value": 2.984
+        "decode_us_per_value": 3.054,
+        "encode_us_per_value": 3.655
       },
       "T_11": {
-        "decode_us_per_value": 3.073,
-        "encode_us_per_value": 3.174
+        "decode_us_per_value": 4.021,
+        "encode_us_per_value": 3.176
       },
       "T_111": {
-        "decode_us_per_value": 3.123,
-        "encode_us_per_value": 3.164
+        "decode_us_per_value": 4.944,
+        "encode_us_per_value": 3.487
       }
     },
     "total_bits": {
@@ -132,6 +132,6 @@
     }
   },
   "results_sha256": "27bfc39153c790f44263baa25ab3e6095ea605a53cf15bd546b759d830b34fad",
-  "runtime_s": 10.11,
-  "started": "2026-10-18T08:26:37Z"
+  "runtime_s": 11.31,
+  "started": "2026-10-18T08:50:29Z"
 }

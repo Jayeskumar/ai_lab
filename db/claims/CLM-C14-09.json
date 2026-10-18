@@ -1,0 +1,28 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-09",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation.",
+  "proof": "proofs/paper/C14.md#theorem-9-clm-c14-09--cartesian-and-strong-products-give-isomorphic-graded-monoids",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15",
+  "references": [
+    "https://arxiv.org/abs/0705.0038",
+    "https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf"
+  ],
+  "statement": "There is an order-preserving monoid isomorphism between (finite graphs, Cartesian product) and (finite graphs,\nstrong product), and by complementation between the co-normal product and code 221; for every n the four\nproducts have the same number of prime graphs of order n, and the connected Cartesian and strong primes are\nequinumerous (OEIS A129582).",
+  "system": "SYS-D",
+  "title": "The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoids; equal prime counts (A129582)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

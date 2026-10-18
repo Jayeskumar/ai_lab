@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Every closed form matches the exact values with 0 mismatches (v2, v2 + 1, Omega, popcount up to 1e5; prime\nindex, G06 formulas, remainder game up to 5000; floor-division game up to 2e4; G03 P-positions up to 1e5;\npowers of k for k = 2..20 up to 2e4; 40 random splitting relations up to 1500). Largest g(m)/m over odd\nm <= 5000 in G06 is 0.24985.",
   "assumptions": [
     "exact Grundy values from EXP-C12-01 (n <= 1e5 / 5e3 / 2e4)",
     "power-of-k games recomputed for k = 2..20, n <= 2e4",
@@ -19,12 +20,45 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:16:08Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Every closed form matches the exact values with 0 mismatches (v2, v2 + 1, Omega, popcount up to 1e5; prime\nindex, G06 formulas, remainder game up to 5000; floor-division game up to 2e4; G03 P-positions up to 1e5;\npowers of k for k = 2..20 up to 2e4; 40 random splitting relations up to 1500). Largest g(m)/m over odd\nm <= 5000 in G06 is 0.24985.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C12-01",
+        "CLM-C12-02",
+        "CLM-C12-03",
+        "CLM-C12-05",
+        "CLM-C12-06",
+        "CLM-C12-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "G01 = v2(n); G02 = v2(n)+1; G03 P-positions = odd numbers and 2^(2j+1); G04 = Omega(n); G05 = index of the smallest prime factor (and 'subtract k coprime to n' is the same game); G06: g(2k) = k-1, g(odd m) <= (m-1)/2, P-positions = {1} and the primes; subtract-a-power-of-k = the subtraction game {1, k}; any splitting game in which every heap >= 2 has an allowed split has g(n) = [n even]; G13 = popcount; G19 = floor(log2((n+1)/3)) + 1 (n >= 2); G20 = floor(log2 n).",
   "id": "EXP-C12-02",
   "methodology": "Compare each closed form term by term with the exact values; count mismatches.",
   "question": "Do the conjectured closed forms hold on the whole computed range, and do the general structure theorems (power-of-k reduction, splitting parity) hold on new instances?",
+  "related": [
+    "CLM-C12-01",
+    "CLM-C12-02",
+    "CLM-C12-03",
+    "CLM-C12-05",
+    "CLM-C12-06",
+    "CLM-C12-07"
+  ],
   "results_file": "results/EXP-C12-02.json",
   "results_sha256": "1b93f3e7a5761ea939a5352b2e801654037156cd39eaa63db372af1608f47ad1",
   "runs": [

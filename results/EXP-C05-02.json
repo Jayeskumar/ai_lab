@@ -1,0 +1,1231 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-02",
+    "file": "experiments/C05/E02_restricted_structure.py",
+    "sha256": "8c54e96bae4f6b57760584699b71b8ce704aee06b46a813e481c6ef12e35daa2",
+    "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+  },
+  "env": {
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:52:38Z",
+  "id": "EXP-C05-02",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "input: the restricted identities found by EXP-C05-01 (read from results/EXP-C05-01.json)",
+      "SAT conflict budget 5e5 per instance for n = 7, 8 (UNKNOWN recorded as such)",
+      "sound implied constraints (Lemma 1/4 of proofs/paper/C05.md): rows are permutations when t = y*(...), columns are permutations when t = (...)*y; symmetry break 0*0 in {0,1}"
+    ],
+    "cycle": "C05",
+    "falsification": "A restricted identity with a non-quasigroup model, or spectra that do not match any design-type pattern.",
+    "hypothesis": "Restricted spectra come from identities that force quasigroups with extra laws (idempotence, semisymmetry, total symmetry), i.e. classical combinatorial designs; their spectra continue with the corresponding design spectra.",
+    "id": "EXP-C05-02",
+    "methodology": "Extend each spectrum to n = 7, 8. Enumerate all models up to isomorphism for n <= 5 (cap 5000 per size) and test a battery of classical laws on every model; group identities with identical model sets for n <= 5 (candidate equivalent laws).",
+    "question": "For identities whose spectrum is restricted, which classical laws hold in all their small models, and how do the spectra continue beyond n = 7?",
+    "title": "Restricted-spectrum identities: extended spectra (n = 7, 8) and forced structure"
+  },
+  "results": {
+    "model_equivalence_groups": [
+      [
+        "y(x(xy)) = x"
+      ],
+      [
+        "y(x(yy)) = x"
+      ],
+      [
+        "y(y(xy)) = x",
+        "y((yx)y) = x"
+      ],
+      [
+        "y((xx)y) = x"
+      ],
+      [
+        "y((xy)y) = x",
+        "(y(xy))y = x"
+      ],
+      [
+        "(yx)(xy) = x"
+      ],
+      [
+        "(yx)(yy) = x"
+      ],
+      [
+        "(yy)(xy) = x"
+      ],
+      [
+        "(y(xx))y = x"
+      ],
+      [
+        "(y(yx))y = x"
+      ],
+      [
+        "((yx)x)y = x"
+      ],
+      [
+        "((yx)y)y = x"
+      ],
+      [
+        "((yy)x)y = x"
+      ],
+      [
+        "y(x(x(yy))) = x"
+      ],
+      [
+        "y(x(y(xy))) = x"
+      ],
+      [
+        "y(y(x(xy))) = x"
+      ],
+      [
+        "y(x((xx)y)) = x"
+      ],
+      [
+        "y(x((xy)y)) = x"
+      ],
+      [
+        "y(x((yx)y)) = x"
+      ],
+      [
+        "y(y((xx)y)) = x"
+      ],
+      [
+        "y((xx)(yy)) = x"
+      ],
+      [
+        "y((xy)(xy)) = x"
+      ],
+      [
+        "y((xy)(yy)) = x"
+      ],
+      [
+        "y((yx)(xy)) = x",
+        "((yx)(xy))y = x"
+      ],
+      [
+        "y((x(xy))y) = x",
+        "(y(x(xy)))y = x"
+      ],
+      [
+        "y((x(yx))y) = x"
+      ],
+      [
+        "y((y(xx))y) = x"
+      ],
+      [
+        "y(((xx)y)y) = x"
+      ],
+      [
+        "y(((yx)x)y) = x"
+      ],
+      [
+        "y(((yy)x)y) = x"
+      ],
+      [
+        "(yx)(y(xy)) = x"
+      ],
+      [
+        "(yy)(x(xy)) = x"
+      ],
+      [
+        "(yy)(y(xy)) = x"
+      ],
+      [
+        "(yx)((xy)y) = x"
+      ],
+      [
+        "(yx)((yx)y) = x"
+      ],
+      [
+        "(yy)((xx)y) = x"
+      ],
+      [
+        "(y(xx))(yy) = x"
+      ],
+      [
+        "(y(xy))(xy) = x"
+      ],
+      [
+        "(y(yx))(xy) = x"
+      ],
+      [
+        "((yx)x)(yy) = x"
+      ],
+      [
+        "((yx)y)(xy) = x"
+      ],
+      [
+        "((yx)y)(yy) = x"
+      ],
+      [
+        "(y(x(yy)))y = x"
+      ],
+      [
+        "(y(y(xx)))y = x"
+      ],
+      [
+        "(y((xx)y))y = x"
+      ],
+      [
+        "(y((xy)x))y = x"
+      ],
+      [
+        "(y((yx)x))y = x"
+      ],
+      [
+        "((yx)(yx))y = x"
+      ],
+      [
+        "((yy)(xx))y = x"
+      ],
+      [
+        "((yy)(yx))y = x"
+      ],
+      [
+        "((y(xx))x)y = x"
+      ],
+      [
+        "((y(xx))y)y = x"
+      ],
+      [
+        "((y(xy))x)y = x"
+      ],
+      [
+        "((y(yx))x)y = x"
+      ],
+      [
+        "(((yx)x)y)y = x"
+      ],
+      [
+        "(((yx)y)x)y = x"
+      ],
+      [
+        "(((yy)x)x)y = x"
+      ],
+      [
+        "y(((xy)x)y) = x",
+        "(y(x(yx)))y = x"
+      ]
+    ],
+    "n_model_equivalence_groups": 58,
+    "patterns_1_10": {
+      "1000001?": [
+        "y(((xy)x)y) = x",
+        "(y(x(yx)))y = x"
+      ],
+      "10001000": [
+        "y((x(xy))y) = x",
+        "(y((yx)x))y = x"
+      ],
+      "10001011": [
+        "y(x(x(yy))) = x",
+        "y(y((xx)y)) = x",
+        "y(((xx)y)y) = x",
+        "(yy)(x(xy)) = x",
+        "((yx)x)(yy) = x",
+        "(y(y(xx)))y = x",
+        "((y(xx))y)y = x",
+        "(((yy)x)x)y = x"
+      ],
+      "1000101?": [
+        "y(x((yx)y)) = x",
+        "y(((yx)x)y) = x",
+        "(y(x(xy)))y = x",
+        "((y(xy))x)y = x"
+      ],
+      "10011001": [
+        "y(y(x(xy))) = x",
+        "(((yx)x)y)y = x"
+      ],
+      "10011011": [
+        "y((y(xx))y) = x",
+        "(y((xx)y))y = x"
+      ],
+      "100110??": [
+        "y(x((xy)y)) = x",
+        "((y(yx))x)y = x"
+      ],
+      "10011??1": [
+        "(yx)(xy) = x"
+      ],
+      "1010001?": [
+        "y((yx)(xy)) = x",
+        "((yx)(xy))y = x"
+      ],
+      "10101111": [
+        "y(x(y(xy))) = x",
+        "(yx)(y(xy)) = x",
+        "((yx)y)(xy) = x",
+        "(((yx)y)x)y = x"
+      ],
+      "10110010": [
+        "y(x(yy)) = x",
+        "(yx)(yy) = x",
+        "(yy)(xy) = x",
+        "((yy)x)y = x"
+      ],
+      "10110011": [
+        "y((x(yx))y) = x",
+        "(y((xy)x))y = x"
+      ],
+      "10111011": [
+        "y(x(xy)) = x",
+        "y(y(xy)) = x",
+        "y((xx)y) = x",
+        "y((xy)y) = x",
+        "y((yx)y) = x",
+        "(y(xx))y = x",
+        "(y(xy))y = x",
+        "(y(yx))y = x",
+        "((yx)x)y = x",
+        "((yx)y)y = x",
+        "y((xx)(yy)) = x",
+        "y((xy)(xy)) = x",
+        "(yx)((yx)y) = x",
+        "(y(xy))(xy) = x",
+        "((yx)(yx))y = x",
+        "((yy)(xx))y = x"
+      ],
+      "10111111": [
+        "(yx)((xy)y) = x",
+        "(yy)((xx)y) = x",
+        "(y(xx))(yy) = x",
+        "(y(yx))(xy) = x"
+      ],
+      "11011011": [
+        "y(x((xx)y)) = x",
+        "y((xy)(yy)) = x",
+        "y(((yy)x)y) = x",
+        "(yy)(y(xy)) = x",
+        "((yx)y)(yy) = x",
+        "(y(x(yy)))y = x",
+        "((yy)(yx))y = x",
+        "((y(xx))x)y = x"
+      ]
+    },
+    "rows": [
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(x(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(x(yy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110010"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(y(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((xx)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((xy)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((yx)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(yx)(xy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 58,
+          "5": ">=3438 (cap)"
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10011??1"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yx)(yy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110010"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yy)(xy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110010"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(xx))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(xy))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(yx))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)y)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yy)x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110010"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(x(x(yy))) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 3
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "y(x(y(xy))) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 3
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "left-symmetric x(xy)=y"
+        ],
+        "spectrum_1_8": "10101111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "y(y(x(xy))) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 15,
+          "5": 12
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10011001"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(x((xx)y)) = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 5
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "y(x((xy)y)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "100110??"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(x((yx)y)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "left-symmetric x(xy)=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000101?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(y((xx)y)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((xx)(yy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((xy)(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((xy)(yy)) = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((yx)(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "semisymmetric x(yx)=y",
+          "left-symmetric x(xy)=y",
+          "right-symmetric (yx)x=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1010001?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((x(xy))y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001000"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((x(yx))y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "left-symmetric x(xy)=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y((y(xx))y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(((xx)y)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "left-symmetric x(xy)=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(((yx)x)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "left-symmetric x(xy)=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000101?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(((yy)x)y) = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(yx)(y(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x"
+        ],
+        "spectrum_1_8": "10101111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yy)(x(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yy)(y(xy)) = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(yx)((xy)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 6
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10111111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yx)((yx)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(yy)((xx)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 3,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10111111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(xx))(yy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 3,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10111111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(xy))(xy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(y(yx))(xy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 2,
+          "4": 2,
+          "5": 6
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10111111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)x)(yy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "((yx)y)(xy) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x"
+        ],
+        "spectrum_1_8": "10101111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)y)(yy) = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(x(xy)))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000101?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(x(yy)))y = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(y(xx)))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y((xx)y))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y((xy)x))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "right-symmetric (yx)x=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10110011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y((yx)x))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "left-symmetric x(xy)=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001000"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)(xy))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "semisymmetric x(yx)=y",
+          "left-symmetric x(xy)=y",
+          "right-symmetric (yx)x=y",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1010001?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yx)(yx))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yy)(xx))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10111011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((yy)(yx))y = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((y(xx))x)y = x",
+        "iso_models_n2_5": {
+          "2": 1,
+          "3": 0,
+          "4": 2,
+          "5": 5
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "11011011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((y(xx))y)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 2
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "((y(xy))x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000101?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "((y(yx))x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 1,
+          "5": 1
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "100110??"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(((yx)x)y)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 15,
+          "5": 12
+        },
+        "laws_holding_in_all_models_n_le_5": [],
+        "spectrum_1_8": "10011001"
+      },
+      {
+        "all_models_quasigroups_n_le_5": false,
+        "identity": "(((yx)y)x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 1,
+          "4": 0,
+          "5": 3
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "right-symmetric (yx)x=y"
+        ],
+        "spectrum_1_8": "10101111"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(((yy)x)x)y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 3
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "10001011"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "y(((xy)x)y) = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "semisymmetric x(yx)=y",
+          "left-symmetric x(xy)=y",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "Schroeder (xy)(yx)=x",
+          "unipotent xx=yy",
+          "associative",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000001?"
+      },
+      {
+        "all_models_quasigroups_n_le_5": true,
+        "identity": "(y(x(yx)))y = x",
+        "iso_models_n2_5": {
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0
+        },
+        "laws_holding_in_all_models_n_le_5": [
+          "idempotent  xx=x",
+          "commutative xy=yx",
+          "semisymmetric x(yx)=y",
+          "left-symmetric x(xy)=y",
+          "right-symmetric (yx)x=y",
+          "Stein x(xy)=yx",
+          "Schroeder (xy)(yx)=x",
+          "unipotent xx=yy",
+          "associative",
+          "medial (xy)(zw)=(xz)(yw)"
+        ],
+        "spectrum_1_8": "1000001?"
+      }
+    ],
+    "summary": [
+      "63 identities studied; spectrum patterns over n = 1..8: {'1000001?': 2, '10001000': 2, '10001011': 8, '1000101?': 4, '10011001': 2, '10011011': 2, '100110??': 2, '10011??1': 1, '1010001?': 2, '10101111': 4, '10110010': 4, '10110011': 2, '10111011': 16, '10111111': 4, '11011011': 8}",
+      "all small models quasigroups for 52/63",
+      "58 groups of identities with identical model sets for n <= 5"
+    ],
+    "timings": {
+      "seconds": 670.3
+    }
+  },
+  "results_sha256": "b19f342fcd32f106003f86f6883fa6fc2f3b963ba19953ec3317dda23820b942",
+  "runtime_s": 670.295,
+  "started": "2026-10-18T08:41:28Z"
+}

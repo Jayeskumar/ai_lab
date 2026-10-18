@@ -1,0 +1,245 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C11-09",
+    "file": "experiments/C11/E09_c3_baseline.py",
+    "sha256": "58168097e4b352c1a2ba7b17011fe97ab419d96b58bcad6fb16974aa1f3cb39d",
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
+  },
+  "env": {
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:50:45Z",
+  "id": "EXP-C11-09",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "C3 implemented from the paper's construction; its decoder reads one bit past each codeword (input virtually followed by '1'), so C3 is compared as a uniquely decipherable code",
+      "exact length comparison for n <= 2e6 and count inequalities for L <= 300 (big integers)",
+      "sources and data sets exactly as in EXP-C11-03 and EXP-C11-04"
+    ],
+    "cycle": "C11",
+    "falsification": "C3 shorter than T_011 for some n > 8; a round-trip failure; C3 better than T_011 on Zipf 1.1, log-uniform or the bursty posting list.",
+    "hypothesis": "H-C11-5: C3 has 2F_L - 2 codewords of length <= L (Fraenkel-Klein Prop. 5), so T_011 (F_(L+2) - L - 1) is never longer than C3 except for a few small n, cum_011/cum_C3 -> phi^2/2, and T_011 has the smaller expected length on the heavy-tailed sources.",
+    "id": "EXP-C11-09",
+    "methodology": "Check the first 12 codewords against the list printed in the paper, the length counts against 2F_(r-2) and the construction, round trips of concatenated streams, length(n) == len(encode(n)); compare length functions exactly; expected lengths on 12 sources and 4 data sets.",
+    "question": "Fraenkel and Klein (1996) already improved the Fibonacci code C1 with C3, a uniquely decipherable but non-prefix code that is also decoded by searching for the pattern 011. Does T_011 still improve on the strongest code of that family?",
+    "seed": 9,
+    "title": "Fraenkel-Klein C3 as a baseline: counts, exact length comparison with T_011 and C1, benchmarks"
+  },
+  "results": {
+    "L_with_cum_C3_below_cum_C1": [
+      2
+    ],
+    "L_with_cum_T011_below_cum_C3": [
+      3,
+      4,
+      5
+    ],
+    "average_length_difference": {
+      "2^120": {
+        "C1 - C3": 0.480593,
+        "C3 - T_011": 0.519407
+      },
+      "2^40": {
+        "C1 - C3": 0.462228,
+        "C3 - T_011": 0.537772
+      },
+      "2^80": {
+        "C1 - C3": 0.399663,
+        "C3 - T_011": 0.600337
+      }
+    },
+    "counts_2F_r_minus_2_checked_up_to_length": 20,
+    "data_bits_per_value": {
+      "bursty posting list (mixture)": {
+        "Fibonacci C1": 12.1459,
+        "Fraenkel-Klein C3": 11.8169,
+        "T_011": 11.5408,
+        "T_0111": 11.5172,
+        "T_101": 11.4728
+      },
+      "posting list geometric(0.001)": {
+        "Fibonacci C1": 14.3563,
+        "Fraenkel-Klein C3": 13.9292,
+        "T_011": 13.4418,
+        "T_0111": 13.1548,
+        "T_101": 13.3598
+      },
+      "prime gaps <= 1e7 (halved)": {
+        "Fibonacci C1": 4.9385,
+        "Fraenkel-Klein C3": 4.9233,
+        "T_011": 5.1068,
+        "T_0111": 6.064,
+        "T_101": 5.2712
+      },
+      "prime gaps <= 1e7 (raw)": {
+        "Fibonacci C1": 6.1756,
+        "Fraenkel-Klein C3": 5.9385,
+        "T_011": 6.1389,
+        "T_0111": 7.0668,
+        "T_101": 6.4174
+      }
+    },
+    "first_codewords": [
+      "101",
+      "111",
+      "1001",
+      "1101",
+      "10001",
+      "10101",
+      "11001",
+      "11101",
+      "100001",
+      "101001",
+      "100101",
+      "110001"
+    ],
+    "kraft_partial_sum_L_le_1500": 1.0,
+    "length_diff_C1_minus_C3_n_le_2e6": {
+      "-1": 1,
+      "0": 1167988,
+      "1": 832011
+    },
+    "length_diff_C3_minus_T011_n_le_2e6": {
+      "-1": 3,
+      "0": 832439,
+      "1": 1167558
+    },
+    "n_where_C3_longer_than_C1": [
+      1
+    ],
+    "n_where_T011_longer_than_C3": [
+      2,
+      4,
+      8
+    ],
+    "prefix_pairs_among_first_codewords": 5033,
+    "problems": [],
+    "ratios": {
+      "2/phi": 1.236067977,
+      "cum_011/cum_C3 at L=300": 1.309016994,
+      "cum_C3/cum_C1 at L=299": 1.236067977,
+      "phi^2/2": 1.309016994
+    },
+    "sources_where_C3_beats_T011": [
+      "Zipf(s=1.5, N=1e6)",
+      "Zipf(s=2.0, N=1e6)",
+      "Zipf(s=3.0, N=1e6)",
+      "geometric(p=0.5)",
+      "geometric(p=0.1)",
+      "prime gaps <= 1e7 (raw)",
+      "prime gaps <= 1e7 (halved)"
+    ],
+    "sources_where_C3_best_of_C1_C3_T011_T0111_T101": [
+      "geometric(p=0.1)",
+      "prime gaps <= 1e7 (raw)",
+      "prime gaps <= 1e7 (halved)"
+    ],
+    "summary": [
+      "C3 implementation: problems = 0; first 12 codewords match the paper: True; not prefix-free (5033 prefix pairs among the first codewords); Kraft partial sum 1.0",
+      "n <= 2e6: C3 longer than C1 only for n in [1]; T_011 longer than C3 only for n in [2, 4, 8]; (C3 - T_011) histogram {-1: 3, 0: 832439, 1: 1167558}",
+      "cum inequalities fail only at L = [3, 4, 5] (T_011 vs C3) and L = [2] (C3 vs C1)",
+      "ratios {'cum_011/cum_C3 at L=300': 1.309016994, 'phi^2/2': 1.309016994, 'cum_C3/cum_C1 at L=299': 1.236067977, '2/phi': 1.236067977}",
+      "average length difference (bits) {'2^40': {'C1 - C3': 0.462228, 'C3 - T_011': 0.537772}, '2^80': {'C1 - C3': 0.399663, 'C3 - T_011': 0.600337}, '2^120': {'C1 - C3': 0.480593, 'C3 - T_011': 0.519407}}",
+      "C3 beats T_011 on: ['Zipf(s=1.5, N=1e6)', 'Zipf(s=2.0, N=1e6)', 'Zipf(s=3.0, N=1e6)', 'geometric(p=0.5)', 'geometric(p=0.1)', 'prime gaps <= 1e7 (raw)', 'prime gaps <= 1e7 (halved)']"
+    ],
+    "synthetic_redundancy": {
+      "Zipf(s=1.1, N=1e6)": {
+        "Fibonacci C1": 0.769,
+        "Fraenkel-Klein C3": 0.6014,
+        "T_011": 0.4162,
+        "T_0111": 0.3251,
+        "T_101": 0.1935
+      },
+      "Zipf(s=1.5, N=1e6)": {
+        "Fibonacci C1": 0.0999,
+        "Fraenkel-Klein C3": 0.377,
+        "T_011": 0.5169,
+        "T_0111": 1.3771,
+        "T_101": 0.5981
+      },
+      "Zipf(s=2.0, N=1e6)": {
+        "Fibonacci C1": 0.6106,
+        "Fraenkel-Klein C3": 1.189,
+        "T_011": 1.3802,
+        "T_0111": 2.3644,
+        "T_101": 1.4164
+      },
+      "Zipf(s=3.0, N=1e6)": {
+        "Fibonacci C1": 1.2852,
+        "Fraenkel-Klein C3": 2.1143,
+        "T_011": 2.2327,
+        "T_0111": 3.2322,
+        "T_101": 2.2369
+      },
+      "geometric(p=0.001)": {
+        "Fibonacci C1": 2.9342,
+        "Fraenkel-Klein C3": 2.5063,
+        "T_011": 2.0205,
+        "T_0111": 1.735,
+        "T_101": 1.9399
+      },
+      "geometric(p=0.01)": {
+        "Fibonacci C1": 1.5594,
+        "Fraenkel-Klein C3": 1.1974,
+        "T_011": 0.9332,
+        "T_0111": 1.4503,
+        "T_101": 1.246
+      },
+      "geometric(p=0.1)": {
+        "Fibonacci C1": 0.5928,
+        "Fraenkel-Klein C3": 0.5309,
+        "T_011": 0.7188,
+        "T_0111": 1.6679,
+        "T_101": 0.9296
+      },
+      "geometric(p=0.5)": {
+        "Fibonacci C1": 0.8206,
+        "Fraenkel-Klein C3": 1.3165,
+        "T_011": 1.6329,
+        "T_0111": 2.6328,
+        "T_101": 1.6411
+      },
+      "log-uniform 1/n on [1,1e+06]": {
+        "Fibonacci C1": 1.6368,
+        "Fraenkel-Klein C3": 1.3568,
+        "T_011": 1.0479,
+        "T_0111": 0.4006,
+        "T_101": 0.5581
+      },
+      "uniform [1, 2^16]": {
+        "Fibonacci C1": 6.1481,
+        "Fraenkel-Klein C3": 5.7112,
+        "T_011": 5.1519,
+        "T_0111": 3.2978,
+        "T_101": 4.035
+      },
+      "uniform [1, 2^32]": {
+        "Fibonacci C1": 13.1889,
+        "Fraenkel-Klein C3": 12.7613,
+        "T_011": 12.1889,
+        "T_0111": 5.4912,
+        "T_101": 7.6991
+      },
+      "uniform [1, 2^8]": {
+        "Fibonacci C1": 2.6719,
+        "Fraenkel-Klein C3": 2.2734,
+        "T_011": 1.9297,
+        "T_0111": 2.3203,
+        "T_101": 2.2305
+      }
+    }
+  },
+  "results_sha256": "30d4d6e2b7a623f52d5c42feecd97395a5939f711f9f042e20d17ef67a077872",
+  "runtime_s": 0.534,
+  "started": "2026-10-18T08:50:44Z"
+}

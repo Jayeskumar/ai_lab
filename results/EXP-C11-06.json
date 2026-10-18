@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C11-06",
     "file": "experiments/C11/E06_unbordered_theorem.py",
     "sha256": "9d17ece62b15218d904c3bebdb020861c4e974d848b9b865c891c98ac223c999",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
   "env": {
-    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:28:59Z",
+  "finished": "2026-10-18T08:50:42Z",
   "id": "EXP-C11-06",
   "meta": {
     "agent": "Formal Verifier",
@@ -73,6 +73,6 @@
     ]
   },
   "results_sha256": "4188be25b5ce210f3e97f1c40f9e387d3e231730d5680f8bef7d7b6ca41c3247",
-  "runtime_s": 1.131,
-  "started": "2026-10-18T08:28:58Z"
+  "runtime_s": 1.163,
+  "started": "2026-10-18T08:50:41Z"
 }

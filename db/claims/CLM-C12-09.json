@@ -1,0 +1,26 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-01",
+    "EXP-C12-02",
+    "EXP-C12-06",
+    "EXP-C12-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-09",
+  "limitations": "The \"closed form\" clause is not precisely defined, so the hypothesis cannot be refuted as stated; recorded as inconclusive rather than refuted.",
+  "notes": "13 of 19 games conform (5 periodic; closed forms for G01-G05, G13, G19, G20, G03 by CLM-C12-04).\nSubtract-a-square and subtract-a-triangular-number are provably neither eventually periodic nor\narithmetic-periodic (CLM-C12-08), but the absence of a closed form is not a theorem. G06 (odd values),\nsubtract-a-Fibonacci, subtract-a-prime and Grundy's game remain unexplained within range (whether Grundy's\ngame is eventually periodic is a well-known open problem).",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every game of the catalogue is eventually periodic, eventually arithmetic-periodic, or has a Grundy function\ngiven by a closed form in a number-theoretic function.",
+  "system": "SYS-D",
+  "title": "H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inconclusive)",
+  "type": "hypothesis",
+  "verification": "INCONCLUSIVE"
+}

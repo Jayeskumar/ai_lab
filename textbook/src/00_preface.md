@@ -39,6 +39,19 @@ audit found our "novelty" already in the literature: Chapter 2 tells how a
 formula we first believed new turned out to follow, in most cases, from 2022
 and 2026 papers on the homology of one-relator monoids.
 
+*How the book is organised.* The ten volumes follow the plan with which the
+laboratory started, adjusted to what the research actually produced. Volumes
+1–5 and 7–8 contain the research chapters, one per research cycle: foundations
+(quantity, exchange, termination, derivations), invented operations,
+emergent structures, alternative representations of quantities,
+transformations and relationships, computational experiments, and
+applications. Volumes 6, 9 and 10 are *catalogues generated from the
+laboratory's database*: every verified theorem and open conjecture, every
+refuted hypothesis with its counterexample, and every open problem. They
+cannot drift from the evidence, because they are rebuilt from it each time the
+book is built. Volumes are unequal in size; no chapter was written to fill a
+volume.
+
 Each chapter follows the same plan: motivation, definitions, examples,
 results with proofs or proof attempts, the computational experiments behind
 them (with experiment identifiers that can be re-run from the repository),

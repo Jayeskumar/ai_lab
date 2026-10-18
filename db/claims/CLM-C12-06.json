@@ -1,0 +1,28 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-01",
+    "EXP-C12-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-06",
+  "lean": [
+    "proofs/lean/Infinity/C12_Games.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Two-element subtraction games and their periods are classical (Berlekamp, Conway & Guy, Winning Ways);\nsubtract-a-power-of-2 = n mod 3 is folklore (Grundy sequence OEIS A010872). The reduction of powers of k to\n{1, k} is a one-line congruence (k^i = +-1 mod k + 1); it was not located verbatim.",
+  "proof": "proofs/paper/C12.md#theorem-5-clm-c12-06--the-residue-lemma-and-powers-of-k",
+  "proof_check": "(a) machine-checked in Lean (Infinity.C12.residue_grundy, Infinity.C12.power_of_two_grundy; axioms propext, Classical.choice, Quot.sound; no sorry); (b) written proof (proofs/paper/C12.md Theorem 5); 0 mismatches for k = 2..20, n <= 2e4 (EXP-C12-02)",
+  "statement": "(a) If no element of the move set S is divisible by q and 1, ..., q - 1 are in S, the subtraction game S has\ng(n) = n mod q; in particular subtract-a-power-of-2 has g(n) = n mod 3. (b) For every k >= 2,\nsubtract-a-power-of-k has the same Grundy function as the subtraction game {1, k}: n mod 2 for odd k, and\nP(n mod (k + 1)) with P(r) = r mod 2 for r < k and P(k) = 2 for even k.",
+  "system": "SYS-D",
+  "title": "Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, k}",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

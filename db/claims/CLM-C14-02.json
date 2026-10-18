@@ -1,0 +1,32 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-01",
+    "EXP-C14-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-02",
+  "lean": [
+    "proofs/lean/Infinity/C14_GraphProducts.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "W. Imrich, H. Izbicki, Associative products of graphs, Monatsh. Math. 80 (1975) 277-281, doi:10.1007/BF01472575 - exactly twenty associative products; R. J. Nowakowski, D. F. Rall, Discuss. Math. Graph Theory 16 (1996) 53-79, doi:10.7151/dmgt.1023 - ten depend on both factors, eight of those commutative. Our list agrees with both counts.",
+  "proof": "proofs/paper/C14.md#theorem-2-clm-c14-02--the-twenty-associative-products",
+  "proof_check": "Lean 4 kernel computation (assoc_codes, comm_assoc_codes by decide; standard axioms) on top of the Lean-verified reduction CLM-C14-01; independently in two Python implementations with graph-level brute force (EXP-C14-01, EXP-C14-06)",
+  "references": [
+    "https://pure.unileoben.ac.at/en/publications/associative-products-of-graphs/",
+    "https://www.dmgt.uz.zgora.pl/publish/article.php?doi=1023"
+  ],
+  "statement": "The associative local products are the codes 0, 1, 4, 5, 8, 13, 28, 29, 31, 73, 77, 85, 93, 109, 127, 141,\n221, 223, 253, 255 (bit order EA, EN, AE, AA, AN, NE, NA, NN). The commutative ones among them are empty (0),\nCartesian (5), direct (8), strong (13), symmetric difference (85), co-normal (93), 127, 141, 221 and complete\n(255). Exactly 8 have the two-sided unit K1: Cartesian, strong, lexicographic (29), its transpose (77),\nsymmetric difference, co-normal, 141, 221. They form 8 orbits under transposition and complement-conjugation.",
+  "system": "SYS-D",
+  "title": "Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K1 (Lean decide)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

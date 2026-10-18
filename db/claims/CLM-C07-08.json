@@ -1,0 +1,22 @@
+{
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-08",
+  "limitations": "Finite windows; a row without a detected period may have a longer one.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Among the 134 distinct mex operations, 22 have additively periodic rows a = 1..5 (period <= 375 within b < 1500), 40 have none, and the rest are mixed.",
+  "system": "SYS-B",
+  "title": "Additive periodicity is the exception among mex operations",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

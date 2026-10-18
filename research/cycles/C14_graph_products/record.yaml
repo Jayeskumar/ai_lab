@@ -1,0 +1,294 @@
+cycle: C14
+title: "Graphs as quantities: the 256 local graph products"
+branch: D
+status: complete
+systems: [SYS-D]
+
+experiments:
+  - id: EXP-C14-01
+    analysis: "Exhaustive classification of the 256 local products: exactly 20 are associative (10 of them commutative; 32 symmetric products in total); exactly 8 have the two-sided unit K1 (Cartesian, strong, lexicographic and its transpose, symmetric difference, co-normal, codes 141 and 221); associative and distributive over disjoint union on both sides: codes 0, 1, 4, Cartesian, direct, strong. The relation-level verdict agrees with brute-force graph computations (P3^3 and 40 random triples per code) for every code; the 20 associative products form 8 orbits under transposition and complement-conjugation."
+    verification: PROVEN
+    related: [CLM-C14-01, CLM-C14-02]
+  - id: EXP-C14-02
+    analysis: "Every one of the 236 non-associative products has a witness (G*H)*K not isomorphic to G*(H*K) with factors of at most 3 vertices (product orders 2: 144 codes, 4: 84, 8: 8), and every one of the 224 non-commutative products a witness G*H not isomorphic to H*G; all 460 witnesses are certified by edge count or degree sequence. Associativity and commutativity up to isomorphism are therefore no weaker than the strict notions (bold H-C14-1 survives)."
+    verification: PROVEN
+    related: [CLM-C14-03]
+  - id: EXP-C14-03
+    analysis: "The character equations solved over C (sympy) for all 256 codes give exactly six multiplicative characters - direct (0,1,0), strong (1,1,0), symmetric difference (1,-1,1), co-normal (1,0,1), code 127 (0,0,1), code 141 (1,1,-1) - and exactly two additive ones - Cartesian (0,t,0) and code 221 (0,0,t); identical to the hand case analysis; 0 numerical failures of the matrix identities on 30 random pairs per product; the Seidel spectrum of symmetric-difference products is multiplicative (shifted by 1) on 30/30 pairs. Only the empty and complete products among the 10 commutative associative ones have no character."
+    verification: PROVEN
+    related: [CLM-C14-04, CLM-C14-05, CLM-C14-06]
+  - id: EXP-C14-04
+    analysis: "Exact factorisation census for the 8 unital associative products, orders <= 15 (factors: all graphs with <= 7 vertices). All graphs: Cartesian, strong, co-normal and 221 have no collision; lexicographic and its transpose collide at orders 10 and 14 as multisets (e.g. 2K1 o (C4+K1) = (2K2+K1) o 2K1); symmetric difference and 141 collide at orders 4, 6, 8, 10, 12, 14, 15 (1, 2, 3, 7, 16, 54, 1 classes). Inside connected graphs the symmetric difference collides at orders 8, 10, 12, 14 (2, 6, 15, 53 classes: K2 xor K2 xor K2 = K2 xor K_{1,3}) - H-C14-3 refuted - while code 141 (equivalently XOR on co-connected graphs) has none. Connected Cartesian and strong prime counts both equal OEIS A129582 for n = 2..15; prime counts over all graphs computed for every product (no OEIS match). The classical 63-vertex Cartesian/strong counterexample for disconnected graphs was verified."
+    verification: REFUTED
+    counterexamples: ["Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3} (connected, order 8); C4 = K2 xor K2 = K2 xor 2K1 (order 4)", "Lexicographic: 2K1[C4+K1] = (2K2+K1)[2K1] = 2C4 + 2K1 (order 10)"]
+    related: [CLM-C14-08, CLM-C14-09, CLM-C14-10, CLM-C14-11, CLM-C14-12]
+  - id: EXP-C14-05
+    analysis: "Switching classes of order <= 8 reproduce OEIS A002854 (1, 1, 2, 3, 7, 16, 54, 243). Under the symmetric difference no two-graph of order <= 16 has two factorisations into prime two-graphs (composite classes 1, 2, 3, 3, 7, 20, 54, 14, 246 at orders 4, 6, 8, 9, 10, 12, 14, 15, 16, each with exactly one factorisation); prime two-graph counts 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... (n = 2, 3, ...), not in the OEIS. K2 xor X = K2 xor Y holds exactly for switching-equivalent X, Y on all 12,713 pairs of graphs with <= 6 vertices."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C14-07, CLM-C14-13]
+  - id: EXP-C14-06
+    analysis: "Skeptic's re-implementation sharing no code with systems/graph_products.py reproduces the 20/10 classification, re-certifies all 460 non-isomorphism witnesses, finds an explicit isomorphism K2 xor K2 xor K2 -> K2 xor K_{1,3} and K2 xor K2 -> K2 xor 2K1, checks K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc} edge by edge for a, b, c, d <= 4, the identity S(G xor H) + I = (S(G)+I) (x) (S(H)+I) exactly in integers for all pairs of graphs with <= 3 vertices, and K2 xor X = K2 xor X^Z on 200 random cases. No discrepancy."
+    verification: PROVEN
+    related: [CLM-C14-02, CLM-C14-03, CLM-C14-06, CLM-C14-07, CLM-C14-08]
+  - id: EXP-C14-07
+    analysis: "Spectra of symmetric-difference (Seidel), strong (A+I), co-normal (J-A) and Cartesian (A) products obtained from the factors agree with direct diagonalisation to relative error 1.2e-14 in all 16 cases (n = m <= 40); at nm = 1600 the factor route took about 0.2-0.4 ms against 14-19 s for numpy.linalg.eigvalsh on the shared, heavily loaded machine (absolute times inflated by load; the gain is the standard Kronecker O((nm)^3) -> O(n^3 + m^3 + nm log nm))."
+    related: [CLM-C14-04, CLM-C14-05, CLM-C14-06]
+
+claims:
+  - id: CLM-C14-01
+    type: theorem
+    system: SYS-D
+    title: "Associativity of a local graph product is a finite identity on relations, detected by P3 x P3 x P3 (Lean)"
+    statement: |
+      For a local product S the canonical bijection ((g,h),k) -> (g,(h,k)) is an isomorphism (G*H)*K -> G*(H*K)
+      for all simple graphs G, H, K iff it is one for G = H = K = P3 iff phi_S(phi_S(r1,r2),r3) =
+      phi_S(r1,phi_S(r2,r3)) for all relations r1, r2, r3 in {E, A, N}. Likewise the swap is an isomorphism
+      G*H -> H*G for all G, H iff S is symmetric.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty, assoc_of_P3; arbitrary vertex types; standard axioms only); commutative part written
+    proof: proofs/paper/C14.md#theorem-1-clm-c14-01--associativity-is-a-finite-identity-on-relations
+    lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
+    evidence: [EXP-C14-01, EXP-C14-06]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary and implicit in the Imrich-Izbicki (1975) scheme of products defined by factor adjacencies; the full text of that paper was not consulted.
+  - id: CLM-C14-02
+    type: theorem
+    system: SYS-D
+    title: "Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K1 (Lean decide)"
+    statement: |
+      The associative local products are the codes 0, 1, 4, 5, 8, 13, 28, 29, 31, 73, 77, 85, 93, 109, 127, 141,
+      221, 223, 253, 255 (bit order EA, EN, AE, AA, AN, NE, NA, NN). The commutative ones among them are empty (0),
+      Cartesian (5), direct (8), strong (13), symmetric difference (85), co-normal (93), 127, 141, 221 and complete
+      (255). Exactly 8 have the two-sided unit K1: Cartesian, strong, lexicographic (29), its transpose (77),
+      symmetric difference, co-normal, 141, 221. They form 8 orbits under transposition and complement-conjugation.
+    verification: PROVEN
+    proof_check: Lean 4 kernel computation (assoc_codes, comm_assoc_codes by decide; standard axioms) on top of the Lean-verified reduction CLM-C14-01; independently in two Python implementations with graph-level brute force (EXP-C14-01, EXP-C14-06)
+    proof: proofs/paper/C14.md#theorem-2-clm-c14-02--the-twenty-associative-products
+    lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
+    evidence: [EXP-C14-01, EXP-C14-06]
+    novelty: REDISCOVERY
+    novelty_basis: "W. Imrich, H. Izbicki, Associative products of graphs, Monatsh. Math. 80 (1975) 277-281, doi:10.1007/BF01472575 - exactly twenty associative products; R. J. Nowakowski, D. F. Rall, Discuss. Math. Graph Theory 16 (1996) 53-79, doi:10.7151/dmgt.1023 - ten depend on both factors, eight of those commutative. Our list agrees with both counts."
+    references: ["https://pure.unileoben.ac.at/en/publications/associative-products-of-graphs/", "https://www.dmgt.uz.zgora.pl/publish/article.php?doi=1023"]
+  - id: CLM-C14-03
+    type: theorem
+    system: SYS-D
+    title: "For local graph products, associativity and commutativity up to isomorphism are no weaker than the strict notions"
+    statement: |
+      A local product satisfies (G*H)*K isomorphic to G*(H*K) for all graphs iff it is strictly associative, and
+      G*H isomorphic to H*G for all graphs iff S is symmetric. For each of the 236 non-associative (224
+      non-commutative) products a witness exists with factors of at most 3 vertices whose two sides differ in edge
+      count or degree sequence.
+    verification: PROVEN
+    proof_check: computer-assisted - explicit witnesses for all 236 + 224 codes, each certified by edge count/degree sequence (hand-checkable), found in EXP-C14-02 and re-certified by the independent implementation of EXP-C14-06
+    proof: proofs/paper/C14.md#theorem-3-clm-c14-03--up-to-isomorphism-is-no-weaker
+    evidence: [EXP-C14-02, EXP-C14-06]
+    novelty: NOT ASSESSED
+    novelty_basis: Bold hypothesis H-C14-1 of this cycle; whether Imrich-Izbicki or later work address isomorphism-level associativity could not be checked (abstracts only).
+  - id: CLM-C14-04
+    type: theorem
+    system: SYS-D
+    title: "Exactly six local products are Kronecker products in disguise (multiplicative characters)"
+    statement: |
+      There is c = (cE, cA, cN) in C^3 with cA != cN and M_c(G*H) = M_c(G) (x) M_c(H) for all graphs, where
+      M_c(G) = cE I + cA A + cN (J - I - A), exactly for: direct (c = (0,1,0), M = A), code 127 (0,0,1),
+      strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), M = S(G) + I with S the Seidel matrix,
+      and code 141 (1,1,-1), M = I - S(G); the character is unique in each case, and every such product is
+      associative and commutative.
+    verification: PROVEN
+    proof_check: written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs
+    proof: proofs/paper/C14.md#theorem-4-clm-c14-04--multiplicative-characters
+    lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
+    evidence: [EXP-C14-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; we found no statement classifying the local products with such a linearisation, nor the symmetric-difference case in general (four web searches 2026-10-18, see CLM-C14-06). Small result; possibly folklore."
+  - id: CLM-C14-05
+    type: theorem
+    system: SYS-D
+    title: "Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character"
+    statement: |
+      M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) for all graphs (cA != cN) holds exactly for the Cartesian product
+      (c = (0,t,0)) and code 221 (c = (0,0,t)), t != 0. Hence each of the ten commutative associative local
+      products except the empty and the complete product has exactly one kind of character (multiplicative or
+      additive).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)
+    proof: proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
+    evidence: [EXP-C14-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
+  - id: CLM-C14-06
+    type: theorem
+    system: SYS-D
+    title: "The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs"
+    statement: |
+      For all graphs G, H: S(G xor H) + I = (S(G) + I) (x) (S(H) + I), where xor is the symmetric-difference product
+      and S the Seidel matrix. Hence the Seidel eigenvalues of G xor H are (theta+1)(eta+1) - 1, and xor is
+      compatible with Seidel switching, giving a commutative associative product on two-graphs with unit [K1].
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)
+    proof: proofs/paper/C14.md#theorem-6-clm-c14-06--the-symmetric-difference-is-the-kronecker-product-of-seidel-matrices
+    lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
+    evidence: [EXP-C14-03, EXP-C14-06]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists."
+    references: ["https://www.mscand.dk/article/view/10817", "https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs", "https://en.wikipedia.org/wiki/Two-graph"]
+  - id: CLM-C14-07
+    type: theorem
+    system: SYS-D
+    title: "Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching"
+    statement: |
+      (a) K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; so (|V|, |a-b|) is multiplicative on complete bipartite graphs.
+      (b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).
+      (c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)
+    proof: proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
+    evidence: [EXP-C14-05, EXP-C14-06]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: No statement found in the searches listed for CLM-C14-06. Small result.
+  - id: CLM-C14-08
+    type: hypothesis
+    system: SYS-D
+    title: "H-C14-3: the six commutative unital associative products factor uniquely on connected (or co-connected) graphs (refuted)"
+    statement: |
+      Each of the six commutative associative local products with unit K1 (Cartesian, strong, symmetric
+      difference, and their complement-duals 221, co-normal, 141) has unique prime factorisation on connected
+      graphs, or, for the complement-duals, on co-connected graphs.
+    verification: REFUTED
+    counterexample: "Symmetric difference: K2 xor K2 xor K2 is isomorphic to K2 xor K_{1,3}; K2 and K_{1,3} are connected and prime, so this connected graph of order 8 has the two factorisations {K2,K2,K2} and {K2,K_{1,3}} (proofs/paper/C14.md Theorem 8; explicit isomorphism in EXP-C14-06). In all graphs already C4 = K2 xor K2 = K2 xor 2K1. The other five products show no collision up to order 15 in the stated classes, consistent with Sabidussi-Vizing and Doerfler-Imrich/McKenzie."
+    evidence: [EXP-C14-04, EXP-C14-06]
+    novelty: NOT ASSESSED
+  - id: CLM-C14-09
+    type: theorem
+    system: SYS-D
+    title: "The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoids; equal prime counts (A129582)"
+    statement: |
+      There is an order-preserving monoid isomorphism between (finite graphs, Cartesian product) and (finite graphs,
+      strong product), and by complementation between the co-normal product and code 221; for every n the four
+      products have the same number of prime graphs of order n, and the connected Cartesian and strong primes are
+      equinumerous (OEIS A129582).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15
+    proof: proofs/paper/C14.md#theorem-9-clm-c14-09--cartesian-and-strong-products-give-isomorphic-graded-monoids
+    evidence: [EXP-C14-04]
+    novelty: REDISCOVERY
+    novelty_basis: "Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation."
+    references: ["https://arxiv.org/abs/0705.0038", "https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf"]
+  - id: CLM-C14-10
+    type: observation
+    system: SYS-D
+    title: "Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15"
+    statement: |
+      Prime graphs of order n = 2..11 over all finite graphs: Cartesian = strong = co-normal = code 221:
+      2, 4, 8, 34, 148, 1044, 12326, 274658, 12005100, 1018997864; symmetric difference = code 141:
+      2, 4, 9, 34, 150, 1044, 12333, 274658, 12005127, 1018997864; lexicographic = its transpose:
+      2, 4, 7, 34, 142, 1044, 12310, 274652, 12005036, 1018997864 (values to n = 15 in results/EXP-C14-04.json).
+    verification: PROVEN
+    proof_check: computer-assisted exact census (all prime factorisations of each order <= 15 with factors from the complete list of graphs with <= 7 vertices, isomorphism decided by VF2 within invariant buckets; graph totals from OEIS A000088); pipeline validated by reproducing A129582 to n = 15
+    proof: proofs/paper/C14.md#theorem-10-clm-c14-10--prime-counts-over-all-graphs-computer-assisted
+    evidence: [EXP-C14-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.
+  - id: CLM-C14-11
+    type: theorem
+    system: SYS-D
+    title: "The lexicographic product has non-unique factorisation already at order 10 (different multisets of primes)"
+    statement: |
+      2K1[C4 + K1] and (2K2 + K1)[2K1] are both isomorphic to 2C4 + 2K1; C4 + K1 and 2K2 + K1 are prime (order 5),
+      so 2C4 + 2K1 has two lexicographic factorisations with different multisets of prime factors. No such
+      collision occurs below order 10.
+    verification: PROVEN
+    proof_check: by hand (both sides are two disjoint 4-cycles plus two isolated vertices); minimality by the exact census EXP-C14-04
+    proof: proofs/paper/C14.md#theorem-11-clm-c14-11--a-lexicographic-collision-at-order-10
+    evidence: [EXP-C14-04]
+    novelty: REDISCOVERY
+    novelty_basis: Non-uniqueness of lexicographic prime factorisation (with an invariant number of factors) is due to Imrich; cited via arXiv:2407.02615 and the Handbook of Product Graphs. The specific minimal example was not looked up.
+    references: ["https://arxiv.org/abs/2407.02615"]
+  - id: CLM-C14-12
+    type: conjecture
+    system: SYS-D
+    title: "Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs)"
+    statement: |
+      Every connected graph has exactly one factorisation into connected primes with respect to the product
+      (g,h) ~ (g',h') iff (EA, AE, AA or NN); equivalently every graph with connected complement factors uniquely
+      under the symmetric-difference product into primes with connected complement.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C14-04]
+    limitations: Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation.
+    novelty: NOT ASSESSED
+  - id: CLM-C14-13
+    type: conjecture
+    system: SYS-D
+    title: "H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product"
+    statement: |
+      Every switching class of finite graphs has a unique factorisation into prime switching classes with respect
+      to the product induced by the symmetric difference (equivalently, symmetric +-1 matrices with unit diagonal
+      up to signed permutation similarity, under the Kronecker product).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C14-05]
+    limitations: "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c)."
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: No source found for a product of two-graphs induced by the symmetric difference (searches listed under CLM-C14-06); OEIS has no match for the prime counts.
+
+journal:
+  - key: C14-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "Opened C14 (System D): treat graphs as the quantities and the 256 local products as candidate multiplications. Bold hypotheses: H-C14-1 (isomorphism-level associativity is no weaker than strict), H-C14-3 (unique factorisation for all six commutative unital associative products on connected or co-connected graphs), H-C14-4 (two-graphs factor uniquely under xor)."
+    refs: [EXP-C14-01, EXP-C14-02]
+  - key: C14-02
+    agent: Formal Verifier
+    kind: proof
+    text: "Reduced associativity to a 27-entry identity on relations and proved in Lean that P3 x P3 x P3 detects every failure (both directions, arbitrary vertex types); the count 20/10 then follows by kernel computation."
+    refs: [CLM-C14-01, CLM-C14-02]
+  - key: C14-03
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: "The count of 20 associative products is Imrich-Izbicki (1975); Nowakowski-Rall (1996) report 10 depending on both factors, 8 of them commutative - our classification reproduces both numbers exactly."
+    refs: [CLM-C14-02]
+  - key: C14-04
+    agent: Mathematical Explorer
+    kind: result
+    text: "H-C14-1 survives: all 236 non-associative and 224 non-commutative products are already caught by factors with at most 3 vertices, and the degree sequences alone certify every witness."
+    refs: [EXP-C14-02, CLM-C14-03]
+  - key: C14-05
+    agent: Formal Verifier
+    kind: surprise
+    text: "Solving the character equations shows that the commutative associative products are exactly the products linearised by I, A and J: six multiplicative (Kronecker) and two additive (Kronecker sum). For the symmetric difference the character is S(G) + I - the symmetric difference is the Kronecker product of Seidel matrices and therefore acts on two-graphs."
+    refs: [EXP-C14-03, CLM-C14-04, CLM-C14-05, CLM-C14-06]
+  - key: C14-06
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: "H-C14-3 refuted by the symmetric difference: K2 xor K2 xor K2 = K2 xor K_{1,3} (connected, order 8), and in all graphs C4 = K2 xor K2 = K2 xor 2K1. Cause: K2 absorbs Seidel switching, and C4 ~ K_{1,3}."
+    refs: [EXP-C14-04, CLM-C14-08, CLM-C14-07]
+  - key: C14-07
+    agent: Mathematical Explorer
+    kind: pattern
+    text: "Complete bipartite graphs under xor behave like split-complex numbers: K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}, i.e. order and imbalance multiply - the order-15 collision 3K1 xor K_{2,3} = K_{1,2} xor K_{1,4} is (3,3)(5,1) = (3,1)(5,3)."
+    refs: [CLM-C14-07, EXP-C14-04]
+  - key: C14-08
+    agent: Mathematical Explorer
+    kind: surprise
+    text: "On the level the product actually sees - two-graphs - every factorisation up to order 16 is unique, and on co-connected graphs (product 141 on connected graphs) none collide up to order 15. H-C14-4 survives as a conjecture."
+    refs: [EXP-C14-05, CLM-C14-12, CLM-C14-13]
+  - key: C14-09
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: "The connected Cartesian prime counts are OEIS A129582 (Ji Li 2007) for every n <= 15, which also validates the census pipeline; the strong product gives identical counts because both monoids are polynomial semirings in their connected primes. No source found for the Seidel-Kronecker identity of the symmetric difference beyond the edgeless-factor special case."
+    refs: [CLM-C14-09, CLM-C14-06]
+  - key: C14-10
+    agent: Application Researcher
+    kind: result
+    text: "Spectra of products from factors via the characters: exact to 1.2e-14 and orders of magnitude faster than diagonalising the product (standard Kronecker gain). Squaring the 6-point regular two-graph gives 36 equiangular lines in R^18 - no improvement (36 lines exist already in R^15; 57 <= N(18) <= 59)."
+    refs: [EXP-C14-07]
+  - key: C14-11
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent re-implementation (no shared code) reproduced the classification, all 460 witnesses, the explicit xor isomorphisms, the bipartite formula, the Seidel identity in exact integers and K2-absorption; the census pipeline was validated against A129582 and A002854."
+    refs: [EXP-C14-06]
+
+next_directions:
+  - "C14: prove or refute that two-graphs are a free commutative monoid under the symmetric-difference product (twin reducts; analogue of McKenzie's theorem for Kronecker products of +-1 matrices)"
+  - "C14: unique factorisation of product 141 on connected graphs (no collision to order 15)"
+  - "C14: classify the graphs G that absorb switching (G xor X = G xor X^Z for all X); K_{a,a} do"
+  - "C14: characters for directed graphs and for products of graphs with loops"

@@ -1,0 +1,295 @@
+cycle: C11
+title: Pattern-terminated universal integer codes
+branch: C-A
+status: complete
+systems: [SYS-C, SYS-A]
+
+experiments:
+  - id: EXP-C11-01
+    analysis: |
+      All 78 implementations (9 baseline universal codes, 61 pattern-terminated codes, 8 Golomb/Rice codes) round-trip,
+      are prefix-free on their first 20000 codewords and have nondecreasing length functions; Kraft partial sums of the
+      pattern codes lie in [0.999999999993, 1] at lengths <= 1500; Fibonacci C1 and T_11 have the same length function
+      for n <= 2e5. The first runs failed on test-design errors (a table too short for growth-rate-1 patterns, a
+      monotonicity check on an unsorted list giving 70 false problems, Kraft sums of 0.865 at lengths <= 120); they
+      stay in the run history.
+    related: [CLM-C11-01]
+  - id: EXP-C11-02
+    analysis: |
+      1^k and 0^k uniquely maximise the growth rate for every k = 2..10 (2044 patterns, 0 violations); unbordered
+      patterns have the (k-1)-bonacci growth rate (0 violations); roots and count ratios agree to 1.3e-15. But rival
+      terminators beat 1^k at 762 / 972 / 1127 sampled n >= 1000 for k = 4 / 5 / 6, the last up to n = 1.3e19.
+      Count sequences of 011, 101, 0101, 0111, 0110/1011 are OEIS A000071, A005314, A112575, A008937, A059633.
+    counterexamples: "H-C11-2: k = 4, n = 1000: terminators 1000, 1001, 1010 give codewords 1 bit shorter than 1111."
+    related: [CLM-C11-02, CLM-C11-03, CLM-C11-05]
+  - id: EXP-C11-03
+    analysis: |
+      Exact expected lengths on 12 sources. A fixed pattern code is the best fixed universal code on Zipf 1.1 (T_101,
+      redundancy 0.1935), geometric 0.001 (T_0111, 1.735), uniform 2^16 (T_0111, 3.2978), uniform 2^32 (T_00111,
+      4.4391) and log-uniform (T_0111, 0.4006); classical codes win on the other 7 (Zipf >= 1.5, geometric >= 0.01,
+      uniform 2^8). Tuned Golomb codes are nearly optimal on geometric sources (redundancy <= 0.0352) and best on
+      uniform ones (0.5), but poor on Zipf 1.1 (5.3783) and log-uniform (3.9299).
+    related: [CLM-C11-08]
+  - id: EXP-C11-04
+    analysis: |
+      Prime gaps <= 1e7: Exp-Golomb (raw 5.7208, halved 4.5787 bits) is the best fixed code and tuned Golomb the best
+      overall (5.2713, 4.2713). Posting lists: T_0111 is the best fixed code on geometric gaps (13.1548, tuned Golomb
+      11.446) and T_101 the best code overall on the bursty mixture (11.4728 vs Fibonacci 12.1459, tuned Exp-Golomb
+      11.7868, tuned Golomb 12.8038).
+    related: [CLM-C11-08]
+  - id: EXP-C11-05
+    analysis: |
+      All 14 implementations round-trip on 1e5 log-uniform values below 2^20; bits per value T_0111 14.20, T_111
+      14.31, T_101 14.41, Fibonacci 15.57, Elias delta 15.89. The string-based pattern codes need about 3 us per value
+      against 0.4-0.7 us for the Elias codes and 2.1 us for Fibonacci (CPython; machine-dependent, outside the result
+      hash).
+    related: [CLM-C11-08]
+  - id: EXP-C11-06
+    analysis: |
+      F_u = x/(1-x) F_(1^k) holds with 0 mismatches for all unbordered u of length 3..9 up to length 200. T_011 is
+      longer than Fibonacci only for n in {1, 2, 4}; for n <= 2e6 the difference (Fibonacci - T_011) is -1 three times,
+      0 429 times and 1 1999568 times; block checks up to L = 90 find no violation. The predicted average gain
+      log_lambda(1/(lambda-1)) fails for k >= 3 (0.2282 measured vs 0.2875 for k = 3).
+    counterexamples: "Average gain of 0111 over 111 for n <= 2^40: 0.2282, predicted 0.2875."
+    related: [CLM-C11-03, CLM-C11-04, CLM-C11-06]
+  - id: EXP-C11-07
+    analysis: |
+      The corrected constant (2-lambda)/(lambda-1)^2 matches the running average at 2^40 and 2^120 for k = 3 (0.228181,
+      0.228548 vs 0.228155) but not at 2^80 (0.309709): the average gain does not converge for k >= 3.
+    counterexamples: "k = 3: running average 0.228181, 0.309709, 0.228548 at N = 2^40, 2^80, 2^120."
+    related: [CLM-C11-06, CLM-C11-07]
+  - id: EXP-C11-08
+    analysis: |
+      At level ends the running average equals (2-lambda)/(lambda-1)^2 and at the ends of the saved segments
+      lambda(2-lambda)/(lambda-1), to 6 digits for k = 2..6 at L = 100, 200, 400 (k = 3: 0.228155 and 0.352201).
+    related: [CLM-C11-07]
+  - id: EXP-C11-09
+    analysis: |
+      Fraenkel-Klein C3 implemented from the paper (first 12 codewords equal the printed list, 0 problems, Kraft
+      partial sum 1, not prefix-free). For n <= 2e6, C3 is longer than C1 only at n = 1 and T_011 longer than C3 only
+      at n in {2, 4, 8}; (C3 - T_011) is 1 bit for 1167558 values and 0 for 832439; the count inequalities fail only at
+      L = 3, 4, 5 (T_011 vs C3) and L = 2 (C3 vs C1) for L < 300; cum_011/cum_C3 = 1.309016994 = phi^2/2. The average
+      of L_C1 - L_C3 is 0.462, 0.400, 0.481 over n <= 2^40, 2^80, 2^120 (the T_011 gain over C1 is the complement to
+      1). C3 beats T_011 on Zipf 1.5/2/3, geometric 0.5/0.1 and both prime-gap data sets, and loses on the other 9.
+    related: [CLM-C11-09, CLM-C11-08, CLM-C11-04]
+
+claims:
+  - id: CLM-C11-01
+    type: theorem
+    system: SYS-C
+    title: "Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_p(x)); T_11 is the Fibonacci code"
+    statement: |
+      For a binary pattern p of length k, the set T_p of binary words in which p occurs for the first time at the end
+      is a prefix code with Kraft sum 1, the number of its codewords of each length has generating function
+      x^k / (x^k + (1 - 2x) c_p(x)) with c_p the autocorrelation polynomial of p, and T_11 (T_(1^k)) is exactly the
+      codeword set of the Fibonacci code C1 (of its order-k generalisation).
+    verification: PROVEN
+    proof_check: "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)"
+    proof: proofs/paper/C11.md#theorem-1-clm-c11-01--t_p-is-a-complete-prefix-code
+    lean: [proofs/lean/Infinity/C11_Codes.lean]
+    evidence: [EXP-C11-01, EXP-C11-02]
+    novelty: REDISCOVERY
+    novelty_basis: "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard."
+  - id: CLM-C11-02
+    type: theorem
+    system: SYS-C
+    title: The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k patterns
+    statement: |
+      Let lambda_p = 1/rho_p, with rho_p the smallest positive root of x^k + (1 - 2x) c_p(x). Among binary patterns of
+      length k, 1^k and 0^k have the largest lambda_p and every other pattern has a strictly smaller one; hence
+      T_(1^k) has the smallest asymptotic codeword length log2(n)/log2(lambda) among length-k terminators.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)
+    proof: proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate
+    evidence: [EXP-C11-02]
+    novelty: REDISCOVERY
+    novelty_basis: In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
+  - id: CLM-C11-03
+    type: theorem
+    system: SYS-C
+    title: "Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the all-ones counts"
+    statement: |
+      If u is unbordered and |u| = k + 1, the codeword counts of T_u are the partial sums of those of T_(1^k):
+      f_u(L) = cum_(1^k)(L - 1). Hence lambda_u is the k-bonacci constant lambda and cum_u(L)/cum_(1^k)(L) -> 1/(lambda - 1).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C11.md Theorem 3); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)
+    proof: proofs/paper/C11.md#theorem-3-clm-c11-03--unbordered-terminators-the-x1--x-identity
+    evidence: [EXP-C11-06, EXP-C11-02]
+    novelty: REDISCOVERY
+    novelty_basis: An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
+  - id: CLM-C11-04
+    type: theorem
+    system: SYS-C
+    title: T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L values per level
+    statement: |
+      cum_11(L) = F_(L+1) - 1 and cum_011(L) = F_(L+2) - L - 1. If the Fibonacci (C1) codeword of n has length L + 1,
+      the T_011 codeword is one bit shorter when n <= F_(L+2) - L - 1 and of equal length for the last L values of the
+      level; T_011 is longer than C1 only for n in {1, 2, 4}. The same holds for every unbordered 3-letter terminator.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
+    proof: proofs/paper/C11.md#corollary-4-clm-c11-04--t_011-versus-the-fibonacci-code
+    evidence: [EXP-C11-06]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09)."
+    applications: A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
+  - id: CLM-C11-05
+    type: hypothesis
+    system: SYS-C
+    title: "H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes)"
+    statement: For every k, the all-ones terminator 1^k gives the shortest codeword among all length-k terminators for every n beyond a small threshold.
+    verification: REFUTED
+    counterexample: "k = 4, n = 1000: terminators 1000, 1001 and 1010 give codewords 1 bit shorter than 1111. Rivals beat 1^k at 762, 972 and 1127 sampled n >= 1000 (all n <= 2048 and quarter-powers of 2 up to 2^64) for k = 4, 5, 6, up to n = 311743, 2^45 and about 1.3e19 respectively (EXP-C11-02). By Theorem 2 (CLM-C11-02), 1^k does win eventually."
+    evidence: [EXP-C11-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C11-06
+    type: hypothesis
+    system: SYS-C
+    title: "Average gain of an unbordered terminator over 1^k: log_lambda(1/(lambda-1)), then convergence to (2-lambda)/(lambda-1)^2 (both refuted)"
+    statement: |
+      (a) The average over n <= N of L_(1^k)(n) - L_u(n), u unbordered of length k + 1, tends to log_lambda(1/(lambda - 1)).
+      (b) Corrected version: this average converges to (2 - lambda)/(lambda - 1)^2.
+    verification: REFUTED
+    counterexample: "k = 3 (111 vs 0111): the average over n <= 2^40 is 0.2282 against the prediction 0.2875 of (a) (EXP-C11-06); the running average is 0.228181, 0.309709 and 0.228548 at N = 2^40, 2^80 and 2^120, so it does not converge (EXP-C11-07). Both statements hold only for k = 2 (value 1)."
+    evidence: [EXP-C11-06, EXP-C11-07]
+    novelty: NOT ASSESSED
+  - id: CLM-C11-07
+    type: theorem
+    system: SYS-C
+    title: "The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-1)"
+    statement: |
+      For k >= 2, lambda the k-bonacci constant and u unbordered of length k + 1, the running average
+      G(N) = (1/N) sum_(n<=N) (L_(1^k)(n) - L_u(n)) has liminf (2 - lambda)/(lambda - 1)^2 and limsup
+      lambda(2 - lambda)/(lambda - 1) (both 1 for k = 2; 0.228155 and 0.352201 for k = 3).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)
+    proof: proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates
+    evidence: [EXP-C11-08, EXP-C11-07]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04."
+  - id: CLM-C11-08
+    type: algorithmic
+    system: SYS-C
+    title: "Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result)"
+    statement: |
+      Among fixed (untuned) universal codes, a pattern-terminated code (T_101, T_0111 or T_00111) has the smallest
+      expected length on 5 of 12 synthetic sources (Zipf 1.1, geometric 0.001, uniform 2^16, uniform 2^32,
+      log-uniform on [1, 1e6]) and on both posting-list data sets, beating the best classical universal code
+      (Elias, Levenshtein, Fibonacci, Fraenkel-Klein C3, LEB128, fixed Exp-Golomb) by 0.34-3.06 bits per value; on
+      Zipf 1.1, log-uniform and the bursty posting list it also beats Golomb and Exp-Golomb codes tuned to the source.
+      It loses on light-tailed sources (Zipf >= 1.5, geometric >= 0.01, prime gaps) and to tuned Golomb/Exp-Golomb
+      codes on geometric and uniform sources, and the reference implementation is 4-10 times slower than the Elias
+      and Exp-Golomb codes.
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: MIXED
+    evidence: [EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09]
+    novelty: NOT ASSESSED
+    limitations: "12 synthetic sources (exact expectations) and 4 data sets, two of them simulated; memoryless codes compared with zeroth-order entropy; tuned codes are tuned on the evaluated data (optimistic for them); CPython string implementations without table-driven decoding; no claim of optimality beyond the tested baselines."
+    applications: Universal coding of heavy-tailed integer streams of unknown scale (posting-list gaps, magnitudes spread over many orders).
+  - id: CLM-C11-09
+    type: theorem
+    system: SYS-C
+    title: "T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer than C1 except at n = 1"
+    statement: |
+      The Fraenkel-Klein code C3 (2F_(r-2) codewords of length r >= 3, so cum_C3(L) = 2F_L - 2) is never longer than the
+      Fibonacci code C1 except at n = 1, and T_011 is never longer than C3 except at n in {2, 4, 8}; moreover
+      cum_011(L)/cum_C3(L) -> phi^2/2 and cum_C3(L)/cum_C1(L) -> 2/phi.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
+    proof: proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3
+    evidence: [EXP-C11-09]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04)."
+
+journal:
+  - key: C11-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: |
+      Read the Fibonacci code as "the words in which 11 occurs first at the end" and replaced 11 by any terminator p:
+      the family T_p, encoded enumeratively with a KMP automaton. Bold guess H-C11-2: the all-ones terminator 1^k is
+      the best length-k terminator beyond small n.
+    refs: [CLM-C11-05, CLM-C11-01]
+  - key: C11-02
+    agent: Formal Verifier
+    kind: failure
+    text: |
+      The first EXP-C11-01 runs failed for test-design reasons, not code errors: growth-rate-1 patterns (10, 01) could
+      not reach 2^60 within the table (ValueError), a monotonicity check on an unsorted value list produced 70 false
+      problems, and Kraft partial sums at L <= 120 were only 0.865 for 00000 (expected waiting time 62). Fixed the
+      tests and kept the runs; a later fix of an inaccurate assumption string (61, not 62, pattern codes) reproduced
+      the result hash.
+    refs: [EXP-C11-01]
+  - key: C11-03
+    agent: Mathematical Explorer
+    kind: proof
+    text: |
+      1^k and 0^k maximise the growth rate for all 2044 patterns of length 2..10; proved in general from
+      D_(1^k) - D_p = (1 - 2x)(c_(1^k) - c_p) <= 0 for x > 1/2.
+    refs: [CLM-C11-02, EXP-C11-02]
+  - key: C11-04
+    agent: Mathematical Skeptic
+    kind: rejection
+    text: |
+      H-C11-2 rejected: maximal growth rate does not mean shortest codewords at practical sizes. At n = 1000 the
+      terminators 1000, 1001, 1010 beat 1111 by one bit, and for k = 6 rivals still win at n near 1.3e19.
+    refs: [CLM-C11-05, EXP-C11-02]
+  - key: C11-05
+    agent: Mathematical Explorer
+    kind: surprise
+    text: |
+      Unbordered terminators have exactly the partial sums of the all-ones counts (x/(1-x) identity), so T_011 is one
+      bit shorter than the Fibonacci code on 1,999,568 of the first 2e6 integers and longer only at n = 1, 2, 4.
+    refs: [CLM-C11-03, CLM-C11-04, EXP-C11-06]
+  - key: C11-06
+    agent: Mathematical Explorer
+    kind: failure
+    text: |
+      Two predictions of the average gain failed: log_lambda(1/(lambda-1)) (0.2875 predicted, 0.2282 measured for
+      k = 3), then convergence to (2-lambda)/(lambda-1)^2 (0.228, 0.310, 0.229 at 2^40, 2^80, 2^120).
+    refs: [CLM-C11-06, EXP-C11-06, EXP-C11-07]
+  - key: C11-07
+    agent: Formal Verifier
+    kind: proof
+    text: |
+      Proved the oscillation (Proposition 5: liminf (2-lambda)/(lambda-1)^2, limsup lambda(2-lambda)/(lambda-1)),
+      confirmed to 6 digits for k = 2..6; Lean proofs of prefix-freeness and unique parsing of every T_p (no axioms).
+    refs: [CLM-C11-07, CLM-C11-01, EXP-C11-08]
+  - key: C11-08
+    agent: Application Researcher
+    kind: result
+    text: |
+      Benchmarks with exact expectations: a fixed pattern code is the best fixed universal code on 5/12 synthetic
+      sources and on both posting lists; tuned Golomb wins every geometric source and tuned Golomb/Exp-Golomb every
+      uniform one; pattern codes are 4-10 times slower in CPython. A draft sentence claiming that pattern codes beat
+      tuned Golomb on every non-geometric source was false (uniform sources) and was corrected before recording.
+    refs: [CLM-C11-08, EXP-C11-03, EXP-C11-04, EXP-C11-05]
+  - key: C11-09
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: |
+      T_11 and T_(1^k) are the Fibonacci codes of Apostolico-Fraenkel (1987) and Fraenkel-Klein (1996); the generating
+      function and the correlation ordering are Guibas-Odlyzko (1981); counts are in the OEIS. Fraenkel-Klein's C3
+      (1996) is the closest prior art for T_011: it already improves C1 using the pattern 011, but is not prefix-free.
+      Corollaries 4 and 6 and Proposition 5 were not found: potentially novel, low confidence.
+    refs: [CLM-C11-01, CLM-C11-02, CLM-C11-04, CLM-C11-07, CLM-C11-09]
+  - key: C11-10
+    agent: Mathematical Skeptic
+    kind: review
+    text: |
+      Demanded C3 as a baseline (EXP-C11-09). T_011 beats C3 except at n = 2, 4, 8, but those three values let C3 beat
+      T_011 on 7 light-tailed sources and data sets; with C3 included, the margin of pattern codes over the best
+      classical code shrinks from 0.58-3.06 to 0.34-3.06 bits per value. The improvement claim stays MIXED.
+    refs: [CLM-C11-09, CLM-C11-08, EXP-C11-09]
+  - key: C11-11
+    agent: Research Director
+    kind: direction
+    text: |
+      Recommend T_0111 or T_101 for heavy-tailed integer streams of unknown scale, Golomb-Rice for geometric gaps and
+      gamma, Fibonacci or C3 for small values. Open: table-driven decoders, multi-pattern terminators, robustness.
+    refs: [CLM-C11-08]
+
+next_directions:
+  - "C11: table-driven (byte-wise) decoders for T_p and a fair speed comparison with optimised Elias and Fibonacci decoders"
+  - "C11: multi-pattern terminators (sets of delimiters, as in multi-delimiter codes) and the best set per source"
+  - "C11: synchronisation and robustness after bit errors for unbordered terminators (the classical selling point of Fibonacci codes)"
+  - "C11: exact oscillation constants for the average gain of T_011 over C3 (as Proposition 5 does for 1^k)"

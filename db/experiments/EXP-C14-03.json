@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "The character equations solved over C (sympy) for all 256 codes give exactly six multiplicative characters - direct (0,1,0), strong (1,1,0), symmetric difference (1,-1,1), co-normal (1,0,1), code 127 (0,0,1), code 141 (1,1,-1) - and exactly two additive ones - Cartesian (0,t,0) and code 221 (0,0,t); identical to the hand case analysis; 0 numerical failures of the matrix identities on 30 random pairs per product; the Seidel spectrum of symmetric-difference products is multiplicative (shifted by 1) on 30/30 pairs. Only the empty and complete products among the 10 commutative associative ones have no character.",
   "assumptions": [
     "characters solved exactly over C with sympy (independent of the hand case analysis)",
     "numerical confirmation on 30 seeded random pairs of graphs with 1-5 vertices per product"
@@ -18,12 +19,48 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:42:13Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The character equations solved over C (sympy) for all 256 codes give exactly six multiplicative characters - direct (0,1,0), strong (1,1,0), symmetric difference (1,-1,1), co-normal (1,0,1), code 127 (0,0,1), code 141 (1,1,-1) - and exactly two additive ones - Cartesian (0,t,0) and code 221 (0,0,t); identical to the hand case analysis; 0 numerical failures of the matrix identities on 30 random pairs per product; the Seidel spectrum of symmetric-difference products is multiplicative (shifted by 1) on 30/30 pairs. Only the empty and complete products among the 10 commutative associative ones have no character.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C14-04",
+        "CLM-C14-05",
+        "CLM-C14-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
     }
   ],
   "hypothesis": "H-C14-5 (derived by hand, Theorem 4/5 of proofs/paper/C14.md): exactly six products have a multiplicative character - direct (c=(0,1,0)), strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), EA AE AA NN (1,1,-1) and the complement-dual of the direct product (0,0,1); exactly two have an additive character - Cartesian (0,1,0) and its complement-dual (0,0,1). H-C14-6 (bold): every commutative associative local product except the empty and complete products has a character of one of the two kinds.",
   "id": "EXP-C14-03",
   "methodology": "Cell decomposition: A(G*H) = sum over cells in S of R_r1(G) (x) R_r2(H), R_E = I, R_A = A, R_N = J - I - A, with disjoint supports, all realised by P3 x P3; the functional equations reduce to polynomial equations in (c_E, c_A, c_N), solved by sympy for each of the 256 codes.",
   "question": "For which local products is there a matrix functor M_c(G) = c_E I + c_A A + c_N (J - I - A) (c_A != c_N) with M_c(G*H) = M_c(G) (x) M_c(H) (multiplicative character) or M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) (additive character) for all graphs?",
+  "related": [
+    "CLM-C14-04",
+    "CLM-C14-05",
+    "CLM-C14-06"
+  ],
   "results_file": "results/EXP-C14-03.json",
   "results_sha256": "08e6e8f9b788c831fccb21a5b3185a3a4210750edd10584854843530c5e159a6",
   "runs": [
@@ -76,5 +113,6 @@
     "commutative associative products without a character: ['empty', 'complete']",
     "sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30"
   ],
-  "title": "Multiplicative and additive Kronecker characters of local graph products"
+  "title": "Multiplicative and additive Kronecker characters of local graph products",
+  "verification": "PROVEN"
 }

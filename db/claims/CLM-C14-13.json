@@ -1,0 +1,23 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-13",
+  "limitations": "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "No source found for a product of two-graphs induced by the symmetric difference (searches listed under CLM-C14-06); OEIS has no match for the prime counts.",
+  "statement": "Every switching class of finite graphs has a unique factorisation into prime switching classes with respect\nto the product induced by the symmetric difference (equivalently, symmetric +-1 matrices with unit diagonal\nup to signed permutation similarity, under the Kronecker product).",
+  "system": "SYS-D",
+  "title": "H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

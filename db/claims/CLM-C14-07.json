@@ -1,0 +1,25 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-05",
+    "EXP-C14-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-07",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "No statement found in the searches listed for CLM-C14-06. Small result.",
+  "proof": "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)",
+  "statement": "(a) K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; so (|V|, |a-b|) is multiplicative on complete bipartite graphs.\n(b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).\n(c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.",
+  "system": "SYS-D",
+  "title": "Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

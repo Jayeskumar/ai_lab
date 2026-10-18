@@ -1,0 +1,22 @@
+{
+  "counterexample": "k = 4, n = 1000: terminators 1000, 1001 and 1010 give codewords 1 bit shorter than 1111. Rivals beat 1^k at 762, 972 and 1127 sampled n >= 1000 (all n <= 2048 and quarter-powers of 2 up to 2^64) for k = 4, 5, 6, up to n = 311743, 2^45 and about 1.3e19 respectively (EXP-C11-02). By Theorem 2 (CLM-C11-02), 1^k does win eventually.",
+  "cycle": "C11",
+  "evidence": [
+    "EXP-C11-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C11",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C11-05",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every k, the all-ones terminator 1^k gives the shortest codeword among all length-k terminators for every n beyond a small threshold.",
+  "system": "SYS-C",
+  "title": "H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "D[x^y]: f(2,3) = 4, so [0,4) is not closed; 30 of the 34 commutative operations fail (EXP-C07-01).",
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-04",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every commutative mex operation of the family is closed on [0, 2), [0, 4) and [0, 16), like the nimbers.",
+  "system": "SYS-B",
+  "title": "H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

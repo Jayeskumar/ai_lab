@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Exhaustive classification of the 256 local products: exactly 20 are associative (10 of them commutative; 32 symmetric products in total); exactly 8 have the two-sided unit K1 (Cartesian, strong, lexicographic and its transpose, symmetric difference, co-normal, codes 141 and 221); associative and distributive over disjoint union on both sides: codes 0, 1, 4, Cartesian, direct, strong. The relation-level verdict agrees with brute-force graph computations (P3^3 and 40 random triples per code) for every code; the 20 associative products form 8 orbits under transposition and complement-conjugation.",
   "assumptions": [
     "simple graphs (no loops); a product is a subset of the 8 cells (r1,r2) != (E,E)",
     "strict notions (identity-like canonical maps); isomorphism-level notions in EXP-C14-02",
@@ -19,12 +20,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:40:36Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Exhaustive classification of the 256 local products: exactly 20 are associative (10 of them commutative; 32 symmetric products in total); exactly 8 have the two-sided unit K1 (Cartesian, strong, lexicographic and its transpose, symmetric difference, co-normal, codes 141 and 221); associative and distributive over disjoint union on both sides: codes 0, 1, 4, Cartesian, direct, strong. The relation-level verdict agrees with brute-force graph computations (P3^3 and 40 random triples per code) for every code; the 20 associative products form 8 orbits under transposition and complement-conjugation.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C14-01",
+        "CLM-C14-02"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
     }
   ],
   "hypothesis": "H-C14-2 (from the Historian's recollection of Imrich-Izbicki 1975): exactly 20 local products are associative, 10 of them commutative. H-C14-R (reduction lemma, to be proved): the canonical map ((g,h),k) -> (g,(h,k)) is an isomorphism for all G, H, K iff the relation-level identity phi(phi(r1,r2),r3) = phi(r1,phi(r2,r3)) holds on the 26 triples != (E,E,E), and P3*P3*P3 already detects every failure.",
   "id": "EXP-C14-01",
   "methodology": "Relation-level check of the 26 triples for every code; independent brute-force check on actual graphs (P3^3 and random triples: adjacency matrices of (G*H)*K and G*(H*K) compared entrywise, the canonical map being the identity on the index g|H||K| + h|K| + k); orbits under transposition and complement-conjugation.",
   "question": "Which of the 256 local products of simple graphs are (strictly) associative, commutative, unital and distributive over disjoint union?",
+  "related": [
+    "CLM-C14-01",
+    "CLM-C14-02"
+  ],
   "results_file": "results/EXP-C14-01.json",
   "results_sha256": "98a25916b494a20da66a9944723ced4d164d1a6ca57036625c2513c27e1587f8",
   "runs": [
@@ -77,5 +112,6 @@
     "relation-level vs graph-level disagreements: 0",
     "76 orbits under <transpose, conjugate>; associativity orbit-invariant: True"
   ],
-  "title": "Exhaustive classification of the 256 local graph products"
+  "title": "Exhaustive classification of the 256 local graph products",
+  "verification": "PROVEN"
 }

@@ -1,0 +1,28 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-02",
+    "EXP-C12-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-03",
+  "lean": [
+    "proofs/lean/Infinity/C12_Games.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Codeforces problem 1537D \"Deleting Divisors\" (Round #726, June 2021): the official solution declares the\nsecond player the winner exactly for odd n and for n = 2^k with k odd. First assessed as potentially novel\n(no OEIS match); downgraded after the Historian found the problem.",
+  "proof": "proofs/paper/C12.md#theorem-3-clm-c12-03--p-positions-of-the-deleting-divisors-game",
+  "proof_check": "Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g03_P_positions (axioms propext, Classical.choice, Quot.sound; no sorry, no native_decide); 0 mismatches for n <= 1e5 (EXP-C12-02)",
+  "statement": "In G03 (n -> n - d with d | n and 1 < d < n) the P-positions are exactly 0, the odd numbers and the powers\n2^(2j+1).",
+  "system": "SYS-D",
+  "title": "P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers, 2^(2j+1)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

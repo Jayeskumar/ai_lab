@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "P-density from N = 1.25e4 to 2e5: squares 0.0538 -> 0.0222 and triangular numbers 0.0344 -> 0.0116 (counts\ngrowing roughly like N^0.67 and N^0.61), consistent with density zero; Fibonacci 0.169 -> 0.180 and primes\n0.135 -> 0.155 do not decay. Maximal Grundy values grow for squares (36 -> 95) and triangular numbers\n(50 -> 144) but stay at 14 (Fibonacci, from 5e4 on) and 11 (primes).",
   "assumptions": [
     "n <= 2e5",
     "densities measured at N/16, N/8, N/4, N/2, N"
@@ -18,12 +19,41 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:18:40Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "analysis",
+      "new": "P-density from N = 1.25e4 to 2e5: squares 0.0538 -> 0.0222 and triangular numbers 0.0344 -> 0.0116 (counts\ngrowing roughly like N^0.67 and N^0.61), consistent with density zero; Fibonacci 0.169 -> 0.180 and primes\n0.135 -> 0.155 do not decay. Maximal Grundy values grow for squares (36 -> 95) and triangular numbers\n(50 -> 144) but stay at 14 (Fibonacci, from 5e4 on) and 11 (primes).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C12-08",
+        "CLM-C12-11",
+        "CLM-C12-12",
+        "CLM-C12-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "H-C12-2 (bold): for every such game the P-positions have positive density.",
   "id": "EXP-C12-03",
   "methodology": "Exact Grundy values (bitset method); P-position density and maximal Grundy value by scale; implementation check that no two P-positions differ by an element of the move set.",
   "question": "Do subtraction games whose move sets are sparse (squares, triangular numbers, Fibonacci numbers, primes) keep a positive proportion of losing positions?",
+  "related": [
+    "CLM-C12-08",
+    "CLM-C12-11",
+    "CLM-C12-12",
+    "CLM-C12-13"
+  ],
   "results_file": "results/EXP-C12-03.json",
   "results_sha256": "cf179710040f928e62121cc2c84a716ca0fff482bae805a05b28f6089679dbac",
   "runs": [

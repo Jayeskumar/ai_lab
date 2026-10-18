@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "1^k and 0^k uniquely maximise the growth rate for every k = 2..10 (2044 patterns, 0 violations); unbordered\npatterns have the (k-1)-bonacci growth rate (0 violations); roots and count ratios agree to 1.3e-15. But rival\nterminators beat 1^k at 762 / 972 / 1127 sampled n >= 1000 for k = 4 / 5 / 6, the last up to n = 1.3e19.\nCount sequences of 011, 101, 0101, 0111, 0110/1011 are OEIS A000071, A005314, A112575, A008937, A059633.",
   "assumptions": [
     "all binary patterns of length 2..10 (2044 patterns)",
     "codeword counts by exact dynamic programming (big integers), growth rates from the denominator x^k + (1-2x) c_p(x)",
@@ -9,8 +10,9 @@
     "command": "python -m lab run EXP-C11-02",
     "file": "experiments/C11/E02_pattern_theory.py",
     "sha256": "2d820eb175a6b9077be7e3e343805645ef0756020a3f7d9c340c198ed0865ce5",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
+  "counterexamples": "H-C11-2: k = 4, n = 1000: terminators 1000, 1001, 1010 give codewords 1 bit shorter than 1111.",
   "cycle": "C11",
   "falsification": "A length-k pattern other than 0^k, 1^k with lambda >= lambda_(1^k); a range of large n where a pattern beats 1^k of the same length (refutes H-C11-2).",
   "history": [
@@ -19,12 +21,48 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:24:42Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "analysis",
+      "new": "1^k and 0^k uniquely maximise the growth rate for every k = 2..10 (2044 patterns, 0 violations); unbordered\npatterns have the (k-1)-bonacci growth rate (0 violations); roots and count ratios agree to 1.3e-15. But rival\nterminators beat 1^k at 762 / 972 / 1127 sampled n >= 1000 for k = 4 / 5 / 6, the last up to n = 1.3e19.\nCount sequences of 011, 101, 0101, 0111, 0110/1011 are OEIS A000071, A005314, A112575, A008937, A059633.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": "H-C11-2: k = 4, n = 1000: terminators 1000, 1001, 1010 give codewords 1 bit shorter than 1111.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C11-02",
+        "CLM-C11-03",
+        "CLM-C11-05"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
     }
   ],
   "hypothesis": "H-C11-1: among binary patterns of length k, exactly 1^k and 0^k maximise the growth rate lambda_p (hence the asymptotic efficiency 1/log2 lambda_p). H-C11-2 (bold, inventor): for every n beyond a small threshold, the best length-k terminator is 1^k. H-C11-3: unbordered patterns of length k have lambda equal to the (k-1)-bonacci constant.",
   "id": "EXP-C11-02",
   "methodology": "Compute lambda_p two ways (polynomial root; count ratio at length 400); rank patterns; compare cumulative codeword counts of 1^k with unbordered patterns; compute, for every n <= 2^64, the pattern of length <= 8 giving the shortest codeword (envelope) and crossover points against Elias gamma/delta/omega/Levenshtein; OEIS checks of count sequences.",
   "question": "How does the terminator pattern p control the code T_p? Is 1^k best among patterns of length k?",
+  "related": [
+    "CLM-C11-02",
+    "CLM-C11-03",
+    "CLM-C11-05"
+  ],
   "results_file": "results/EXP-C11-02.json",
   "results_sha256": "44eb2516b244b91f6b40646218c00d18a8751cec3900fdb199e8fd717091ab9f",
   "runs": [
@@ -42,6 +80,29 @@
       "results_sha256": "44eb2516b244b91f6b40646218c00d18a8751cec3900fdb199e8fd717091ab9f",
       "runtime_s": 7.954,
       "started": "2026-10-18T08:24:34Z",
+      "summary": [
+        "H-C11-1 (1^k, 0^k uniquely maximise lambda, k=2..10): violations []",
+        "H-C11-3 (unbordered => (k-1)-bonacci lambda): violations 0",
+        "root-vs-count-ratio max error 1.33e-15",
+        "H-C11-2 rival wins over 1^k for n >= 1000: {3: 0, 4: 762, 5: 972, 6: 1127}",
+        "cumulative-count ratios unbordered/1^(k-1): {'cum_011/cum_11 at L=300': 1.618033989, 'cum_0111/cum_111 at L=300': 1.191487884, 'cum_01111/cum_1111 at L=300': 1.078095078}",
+        "OEIS: {'011': 'MATCH', '101': 'MATCH', '0101': 'MATCH', '0111': 'MATCH', '1011': 'MATCH', '0110': 'MATCH'}"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-02",
+        "file": "experiments/C11/E02_pattern_theory.py",
+        "sha256": "2d820eb175a6b9077be7e3e343805645ef0756020a3f7d9c340c198ed0865ce5",
+        "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:50:19Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C11-02.json",
+      "results_sha256": "44eb2516b244b91f6b40646218c00d18a8751cec3900fdb199e8fd717091ab9f",
+      "runtime_s": 0.826,
+      "started": "2026-10-18T08:50:18Z",
       "summary": [
         "H-C11-1 (1^k, 0^k uniquely maximise lambda, k=2..10): violations []",
         "H-C11-3 (unbordered => (k-1)-bonacci lambda): violations 0",

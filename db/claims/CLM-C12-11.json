@@ -1,0 +1,22 @@
+{
+  "counterexample": "Squares and triangular numbers: the P-set has density 0 (CLM-C12-08); measured P-density 0.0538 -> 0.0222 and\n0.0344 -> 0.0116 as N grows from 1.25e4 to 2e5. For Fibonacci numbers (0.180) and primes (0.155) the question\nremains open.",
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-11",
+  "novelty": "NOT ASSESSED",
+  "statement": "Subtraction games whose move sets are the squares, the triangular numbers, the Fibonacci numbers or the primes\nhave P-positions of positive natural density.",
+  "system": "SYS-D",
+  "title": "H-C12-2: sparse move sets keep a positive density of P-positions (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,632 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-03",
+    "file": "experiments/C05/E03_frontier_push.py",
+    "sha256": "e420409bc2d102edb475c9f6650324f498ff1f06ef2da322a2827d26ec75ae3c",
+    "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+  },
+  "env": {
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:06:51Z",
+  "id": "EXP-C05-03",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "laws and partial knowledge taken from B. Le Floch's ETP notes 'spectrum.pdf' (Lean Zulip)",
+      "for laws of the form x = y*(...), every left translation is onto, hence a bijection in a finite magma, so 'every row is a permutation' is added as a sound implied constraint",
+      "symmetry breaking 0*0 in {0,1} (any magma can be relabelled so)",
+      "CaDiCaL conflict budget 1e6 per instance; UNKNOWN is reported as such"
+    ],
+    "cycle": "C05",
+    "falsification": "A disagreement with a size stated in the notes would indicate a bug (ours or theirs).",
+    "hypothesis": "Several open laws have unresolved small sizes that SAT can decide; our results must agree with every membership/non-membership already stated in the notes.",
+    "id": "EXP-C05-03",
+    "methodology": "SAT model search for each law and n = 2..10; every SAT answer is re-verified by evaluating the law on the returned table; results are compared with the sizes stated in the notes.",
+    "question": "For the order-4 laws x = t whose spectrum is listed as unknown in the Equational Theories Project notes, which sizes n <= 12 admit models?",
+    "title": "Frontier push: spectra of open order-4 laws for n = 2..10 (SAT with sound Latin-row constraints)"
+  },
+  "results": {
+    "disagreements_with_notes": [],
+    "rows": [
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "etp_number": 467,
+        "in_spectrum": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(x(x(yy)))",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,5,7,8",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": [
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "etp_number": 501,
+        "in_spectrum": [
+          4,
+          5,
+          8,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(y(x(xy)))",
+        "not_in_spectrum": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "notes": "unknown spectrum containing 1,4,5,8,9",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "UNSAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": [
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3
+        ],
+        "etp_number": 670,
+        "in_spectrum": [
+          4,
+          5
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(x((xy)y))",
+        "not_in_spectrum": [
+          2,
+          3,
+          6,
+          7
+        ],
+        "notes": "unknown spectrum starting with 1,4,5, not 6 nor 7",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "UNSAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          9
+        ],
+        "etp_number": 677,
+        "in_spectrum": [
+          5,
+          7,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(x((yx)y))",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum (no sizes stated)",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "UNKNOWN",
+          "9": "SAT"
+        },
+        "unknown": [
+          8,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "etp_number": 704,
+        "in_spectrum": [
+          5,
+          7,
+          8
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(y((xx)y))",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,5,7,8 and no 9",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          9,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          3,
+          6,
+          10
+        ],
+        "etp_number": 883,
+        "in_spectrum": [
+          2,
+          4,
+          5,
+          7,
+          8,
+          10
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y((xy)(yy))",
+        "not_in_spectrum": [
+          3,
+          6
+        ],
+        "notes": "unknown spectrum containing {1,2 mod 3}",
+        "status_n_2_10": {
+          "10": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          9
+        ]
+      },
+      {
+        "decided_beyond_notes": [],
+        "etp_number": 907,
+        "in_spectrum": [
+          3,
+          7
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y((yx)(xy))",
+        "not_in_spectrum": [
+          2,
+          4,
+          5,
+          6
+        ],
+        "notes": "unknown spectrum containing 1,3,7,9,13, not 2,4,5,6",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          8,
+          9,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          8
+        ],
+        "etp_number": 1076,
+        "in_spectrum": [
+          5
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y((x(xy))y)",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6,
+          7,
+          8
+        ],
+        "notes": "unknown spectrum starting with 1,5, not 6 nor 7",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          9,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          5,
+          6
+        ],
+        "etp_number": 1083,
+        "in_spectrum": [
+          3,
+          4,
+          7,
+          8,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y((x(yx))y)",
+        "not_in_spectrum": [
+          2,
+          5,
+          6
+        ],
+        "notes": "unknown spectrum containing 1,3,4,7,8,9",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": [
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          6
+        ],
+        "etp_number": 1110,
+        "in_spectrum": [
+          4,
+          5,
+          7,
+          8,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y((y(xx))y)",
+        "not_in_spectrum": [
+          2,
+          3,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,4,5,7,8,9",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": [
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "etp_number": 1279,
+        "in_spectrum": [
+          5,
+          7,
+          8
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(((xx)y)y)",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,5,7,8 and no 9",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        },
+        "unknown": [
+          9,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          9
+        ],
+        "etp_number": 1286,
+        "in_spectrum": [
+          7,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(((xy)x)y)",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,7",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "UNKNOWN",
+          "9": "SAT"
+        },
+        "unknown": [
+          8,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "etp_number": 1313,
+        "in_spectrum": [
+          5,
+          7,
+          9
+        ],
+        "latin_row_constraints": true,
+        "law": "x = y(((yx)x)y)",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,5,7",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "UNKNOWN",
+          "9": "SAT"
+        },
+        "unknown": [
+          8,
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          3,
+          4,
+          6,
+          9
+        ],
+        "etp_number": 1516,
+        "in_spectrum": [
+          5,
+          7,
+          8,
+          9
+        ],
+        "latin_row_constraints": false,
+        "law": "x = (yy)(x(xy))",
+        "not_in_spectrum": [
+          2,
+          3,
+          4,
+          6
+        ],
+        "notes": "unknown spectrum starting with 1,5,7,8",
+        "status_n_2_10": {
+          "10": "UNKNOWN",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "UNSAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": [
+          10
+        ]
+      },
+      {
+        "decided_beyond_notes": [
+          2,
+          10
+        ],
+        "etp_number": 1719,
+        "in_spectrum": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "latin_row_constraints": false,
+        "law": "x = (yy)((xx)y)",
+        "not_in_spectrum": [
+          2
+        ],
+        "notes": "unknown spectrum containing {0,1 mod 3} and 5, 8",
+        "status_n_2_10": {
+          "10": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "7": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        },
+        "unknown": []
+      }
+    ],
+    "summary": [
+      "467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+      "501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]",
+      "670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]",
+      "677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+      "704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+      "883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]",
+      "907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]",
+      "1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]",
+      "1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]",
+      "1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]",
+      "1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+      "1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]",
+      "1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+      "1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+      "1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []",
+      "disagreements with the notes: 0"
+    ],
+    "timings": {
+      "seconds": 2795.8
+    }
+  },
+  "results_sha256": "81c21f0a1a59b00cc62922e80ddd0e49226ce9eb22b75f31e671edfd40557510",
+  "runtime_s": 2795.777,
+  "started": "2026-10-18T08:20:16Z"
+}

@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "Every one of the 236 non-associative products has a witness (G*H)*K not isomorphic to G*(H*K) with factors of at most 3 vertices (product orders 2: 144 codes, 4: 84, 8: 8), and every one of the 224 non-commutative products a witness G*H not isomorphic to H*G; all 460 witnesses are certified by edge count or degree sequence. Associativity and commutativity up to isomorphism are therefore no weaker than the strict notions (bold H-C14-1 survives).",
   "assumptions": [
     "witness search over the 7 graphs with 1-3 vertices (all triples / pairs, ordered by total order), escalating to graphs with <= 4 vertices if needed",
     "isomorphism decided exactly (invariants, then networkx VF2)"
@@ -18,12 +19,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:41:12Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Every one of the 236 non-associative products has a witness (G*H)*K not isomorphic to G*(H*K) with factors of at most 3 vertices (product orders 2: 144 codes, 4: 84, 8: 8), and every one of the 224 non-commutative products a witness G*H not isomorphic to H*G; all 460 witnesses are certified by edge count or degree sequence. Associativity and commutativity up to isomorphism are therefore no weaker than the strict notions (bold H-C14-1 survives).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C14-03"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
     }
   ],
   "hypothesis": "H-C14-1 (bold): no - for local products, associativity and commutativity up to isomorphism are equivalent to their strict versions; for every one of the 236 non-associative (224 non-commutative) products a witness exists among graphs with at most 3 vertices.",
   "id": "EXP-C14-02",
   "methodology": "For each non-strict code, search the smallest triple (G,H,K) with (G*H)*K not isomorphic to G*(H*K), and the smallest pair with G*H not isomorphic to H*G.",
   "question": "Can a local product satisfy (G*H)*K = G*(H*K) (or G*H = H*G) up to isomorphism for all graphs although the canonical map is not an isomorphism?",
+  "related": [
+    "CLM-C14-03"
+  ],
   "results_file": "results/EXP-C14-02.json",
   "results_sha256": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
   "runs": [
@@ -75,5 +108,6 @@
     "witness product orders: {2: 144, 4: 84, 8: 8}",
     "witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224"
   ],
-  "title": "Isomorphism-level versus strict associativity and commutativity of local products"
+  "title": "Isomorphism-level versus strict associativity and commutativity of local products",
+  "verification": "PROVEN"
 }

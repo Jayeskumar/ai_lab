@@ -1,0 +1,105 @@
+{
+ "n_laws": 382,
+ "class_counts": {
+  "trivial only": 283,
+  "all": 77,
+  "restricted": 22
+ },
+ "restricted": {
+  "x(yz) = y((yx)z)": [
+   1,
+   2
+  ],
+  "x(yz) = (xy)(xz)": [
+   1,
+   2,
+   4
+  ],
+  "x(yz) = ((xx)y)z": [
+   1,
+   2
+  ],
+  "x(yz) = ((xx)z)y": [
+   1,
+   2
+  ],
+  "x(yz) = ((xy)x)z": [
+   1,
+   2
+  ],
+  "x(yz) = ((xy)y)z": [
+   1,
+   2
+  ],
+  "x(yz) = ((xy)z)x": [
+   1,
+   2
+  ],
+  "x(yz) = ((xy)z)y": [
+   1,
+   2
+  ],
+  "x(yz) = ((xz)x)y": [
+   1,
+   2
+  ],
+  "x(yz) = ((xz)y)x": [
+   1,
+   2
+  ],
+  "x(yz) = ((xz)y)y": [
+   1,
+   2
+  ],
+  "x(yz) = ((zx)x)y": [
+   1,
+   3
+  ],
+  "x(yz) = ((zx)y)x": [
+   1,
+   3
+  ],
+  "x(yz) = ((zy)x)x": [
+   1,
+   3
+  ],
+  "(xy)z = x(y(zz))": [
+   1,
+   5
+  ],
+  "(xy)z = x(z(yy))": [
+   1,
+   5
+  ],
+  "(xy)z = x((yz)z)": [
+   1,
+   3,
+   5
+  ],
+  "(xy)z = x((zy)y)": [
+   1,
+   3,
+   5
+  ],
+  "(xy)z = y((zx)y)": [
+   1,
+   3
+  ],
+  "(xy)z = y((zy)x)": [
+   1,
+   3
+  ],
+  "(xy)z = z((yx)z)": [
+   1,
+   3
+  ],
+  "(xy)z = z((yz)x)": [
+   1,
+   3
+  ]
+ },
+ "disagreements_with_lab": [],
+ "missing_in_lab": [],
+ "seconds": 13.8,
+ "_seconds": 13.8
+}

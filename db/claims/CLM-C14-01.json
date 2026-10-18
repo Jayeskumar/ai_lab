@@ -1,0 +1,28 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-01",
+    "EXP-C14-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-01",
+  "lean": [
+    "proofs/lean/Infinity/C14_GraphProducts.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary and implicit in the Imrich-Izbicki (1975) scheme of products defined by factor adjacencies; the full text of that paper was not consulted.",
+  "proof": "proofs/paper/C14.md#theorem-1-clm-c14-01--associativity-is-a-finite-identity-on-relations",
+  "proof_check": "Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty, assoc_of_P3; arbitrary vertex types; standard axioms only); commutative part written",
+  "statement": "For a local product S the canonical bijection ((g,h),k) -> (g,(h,k)) is an isomorphism (G*H)*K -> G*(H*K)\nfor all simple graphs G, H, K iff it is one for G = H = K = P3 iff phi_S(phi_S(r1,r2),r3) =\nphi_S(r1,phi_S(r2,r3)) for all relations r1, r2, r3 in {E, A, N}. Likewise the swap is an isomorphism\nG*H -> H*G for all G, H iff S is symmetric.",
+  "system": "SYS-D",
+  "title": "Associativity of a local graph product is a finite identity on relations, detected by P3 x P3 x P3 (Lean)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

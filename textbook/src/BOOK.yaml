@@ -1,8 +1,10 @@
 title: "Beyond Conventional Mathematics"
 subtitle: "An Experimental Journey into AI-Discovered Mathematical Systems"
 version: "1.0 (research batch 1, cycles C01-C20)"
-# Chapter n+1 reports research cycle Cn for n <= 10; volume pages and the generated catalogue volumes are
+# Research chapters are numbered by pandoc in this order; volume pages and the generated catalogue volumes are
 # unnumbered.  Regenerate the catalogue with `python -m lab catalogue` (done automatically by `python -m lab book`).
+# Chapter <- cycle: 2 C01, 3 C02, 4 C03, 5 C04, 6 C05, 7 C06, 8 C13, 9 C08, 10 C09, 11 C10, 12 C11, 13 C12, 14 C07,
+# 15 C14, then C15-C20.
 chapters:
   - 00_preface.md
   - 01_method.md
@@ -11,10 +13,17 @@ chapters:
   - 03_exchange.md
   - 04_termination.md
   - 05_derivations.md
+  - vol02.md
+  - 07_anchored.md
   - vol04.md
   - 09_circle_products.md
   - 10_circle_primes.md
   - 11_cost_of_counting.md
+  - 12_integer_codes.md
+  - vol05.md
+  - 13_relational_games.md
+  - 14_mex_arithmetic.md
+  - 15_graph_products.md
   - vol06.md
   - generated/v06_results.md
   - vol09.md

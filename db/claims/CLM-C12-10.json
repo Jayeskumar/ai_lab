@@ -1,0 +1,22 @@
+{
+  "counterexample": "G01: n = 2 and n = 3 have signature (1) but g = 1 and 0. Further first counterexamples: G02 (2, 3: g = 2, 1),\nG03 (4, 9: 1, 0), G05 (2, 3: 1, 2), G06 (6, 10: 2, 4). Only G04 (g = Omega) depends on the signature alone.",
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-10",
+  "novelty": "NOT ASSESSED",
+  "statement": "For each of the games G01-G06, g(n) depends only on the prime signature (sorted exponent vector) of n.",
+  "system": "SYS-D",
+  "title": "H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signature (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -7,6 +7,10 @@
 | [C03](C03_one_rule_termination/README.md) | Termination of one-rule string rewriting 0^p 1^q -> 1^r 0^s | A | complete | 4 | 11 |
 | [C04](C04_derivations_games/README.md) | Derivation lengths, random descent and rewriting games | A-D | complete | 10 | 16 |
 | [C06](C06_successor_anchored/README.md) | Successor-anchored magmas: spectra of composition laws | B | complete | 4 | 12 |
+| [C07](C07_mex_arithmetic/README.md) | Arithmetic from the minimal excludant: a census of mex-defined operations | B-D | complete | 3 | 8 |
 | [C08](C08_circle_products/README.md) | Circle multiplications on recurrence numeration systems | C | complete | 5 | 6 |
 | [C09](C09_circle_arithmetic/README.md) | Arithmetic of Knuth's circle semigroup | C-B | complete | 4 | 8 |
 | [C10](C10_cost_of_counting/README.md) | The cost of counting across representations | C | complete | 4 | 7 |
+| [C11](C11_integer_codes/README.md) | Pattern-terminated universal integer codes | C-A | complete | 9 | 9 |
+| [C12](C12_relational_games/README.md) | Relational one-heap games | D | complete | 6 | 13 |
+| [C14](C14_graph_products/README.md) | Graphs as quantities: the 256 local graph products | D | complete | 7 | 13 |

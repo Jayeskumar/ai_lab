@@ -1,0 +1,327 @@
+cycle: C12
+title: Relational one-heap games
+branch: D
+status: complete
+systems: [SYS-D]
+
+experiments:
+  - id: EXP-C12-01
+    analysis: |
+      19 games: 5 eventually periodic (subtract a power of 2, 3, 4 with periods 3, 2, 5; coprime and dividing
+      splits with period 2), none arithmetic-periodic, 14 without either behaviour within range. The first run
+      reported spurious end-of-range periods; the detector now requires the periodic tail to cover half the range
+      and the census was re-run (both runs on record).
+    related: [CLM-C12-09, CLM-C12-07, CLM-C12-06]
+  - id: EXP-C12-02
+    analysis: |
+      Every closed form matches the exact values with 0 mismatches (v2, v2 + 1, Omega, popcount up to 1e5; prime
+      index, G06 formulas, remainder game up to 5000; floor-division game up to 2e4; G03 P-positions up to 1e5;
+      powers of k for k = 2..20 up to 2e4; 40 random splitting relations up to 1500). Largest g(m)/m over odd
+      m <= 5000 in G06 is 0.24985.
+    related: [CLM-C12-01, CLM-C12-02, CLM-C12-03, CLM-C12-05, CLM-C12-06, CLM-C12-07]
+  - id: EXP-C12-03
+    analysis: |
+      P-density from N = 1.25e4 to 2e5: squares 0.0538 -> 0.0222 and triangular numbers 0.0344 -> 0.0116 (counts
+      growing roughly like N^0.67 and N^0.61), consistent with density zero; Fibonacci 0.169 -> 0.180 and primes
+      0.135 -> 0.155 do not decay. Maximal Grundy values grow for squares (36 -> 95) and triangular numbers
+      (50 -> 144) but stay at 14 (Fibonacci, from 5e4 on) and 11 (primes).
+    related: [CLM-C12-08, CLM-C12-11, CLM-C12-12, CLM-C12-13]
+  - id: EXP-C12-04
+    analysis: |
+      18 of 19 Grundy sequences are in the OEIS; the G10c hit (a shifted window of A014586) is spurious and G19 is
+      A099396 shifted by one index. Only G03 matches nothing, for both its Grundy and its P-position sequence.
+    related: [CLM-C12-03, CLM-C12-04, CLM-C12-02, CLM-C12-05]
+  - id: EXP-C12-05
+    analysis: |
+      H-C12-1 fails for G01, G02, G03, G05, G06 (first counterexamples (2, 3), (2, 3), (4, 9), (2, 3), (6, 10));
+      only G04 (g = Omega) depends on the prime signature alone.
+    related: [CLM-C12-10]
+  - id: EXP-C12-06
+    analysis: |
+      The closed form of Theorem 8 equals the Grundy function of G03 on [0, 1e5]; the 96 positions with
+      g != v2 all have odd part <= 15; the inductive-step certificate (odd parts <= 15, 13 <= a <= 100) and 4000
+      random mex checks beyond the computed range have 0 failures.
+    related: [CLM-C12-04]
+
+claims:
+  - id: CLM-C12-01
+    type: theorem
+    system: SYS-D
+    title: "Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega"
+    statement: |
+      G01 (n -> n - d with d | n, d < n) has Grundy function g(n) = v2(n) (n >= 1); G02 (d = n also allowed) has
+      g(n) = v2(n) + 1 (n >= 1); G04 (n -> d with d | n, d < n) has g(n) = Omega(n).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C12.md Theorem 1); 0 mismatches for n <= 1e5 (EXP-C12-02)
+    proof: proofs/paper/C12.md#theorem-1-clm-c12-01--divisibility-games
+    evidence: [EXP-C12-01, EXP-C12-02]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      Iannucci & Larsson, "Game values of arithmetic functions" (arXiv:2101.07608, 2021), Theorem 1 (maliquot =
+      G04) and Theorem 2 (saliquot = G02); G01 is the "Divisor Game" puzzle (LeetCode 1025) and its Grundy
+      function follows from the saliquot proof. OEIS A007814, A001511, A001222.
+  - id: CLM-C12-02
+    type: theorem
+    system: SYS-D
+    title: "Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k - 1"
+    statement: |
+      G05 (n -> m, 1 <= m < n, gcd(m, n) = 1), which coincides with "subtract k, 1 <= k < n, gcd(k, n) = 1", has
+      g(1) = 0 and g(n) = j for n >= 2, where the smallest prime factor of n is the j-th prime. G06 (n -> m,
+      1 <= m < n, gcd(m, n) > 1) has g(2k) = k - 1, g(m) <= (m - 1)/2 for odd m, and its P-positions n >= 1 are
+      exactly 1 and the primes.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C12.md Theorem 2); 0 mismatches for n <= 5000 (G07 = G05 for n <= 1500) (EXP-C12-02)
+    proof: proofs/paper/C12.md#theorem-2-clm-c12-02--coprimality-games
+    evidence: [EXP-C12-01, EXP-C12-02]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      Iannucci & Larsson 2021, Theorem 5 (totative = G05, with the subtraction equivalence) and Theorem 6
+      (nontotative: SG(2n) = n, SG(n) = 1 iff n prime, i.e. our G06 values plus one; they also prove SG(n) <= n/2).
+      OEIS A055396, A279119 (= G06 exactly), A008578.
+    limitations: No closed form is known to us for the odd values of G06; g(m)/m < 0.24985 for odd m <= 5000 (a bound m/4 is not proved).
+  - id: CLM-C12-03
+    type: theorem
+    system: SYS-D
+    title: "P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers, 2^(2j+1)"
+    statement: |
+      In G03 (n -> n - d with d | n and 1 < d < n) the P-positions are exactly 0, the odd numbers and the powers
+      2^(2j+1).
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g03_P_positions (axioms propext, Classical.choice, Quot.sound; no sorry, no native_decide); 0 mismatches for n <= 1e5 (EXP-C12-02)"
+    proof: proofs/paper/C12.md#theorem-3-clm-c12-03--p-positions-of-the-deleting-divisors-game
+    lean: [proofs/lean/Infinity/C12_Games.lean]
+    evidence: [EXP-C12-02, EXP-C12-04]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      Codeforces problem 1537D "Deleting Divisors" (Round #726, June 2021): the official solution declares the
+      second player the winner exactly for odd n and for n = 2^k with k odd. First assessed as potentially novel
+      (no OEIS match); downgraded after the Historian found the problem.
+  - id: CLM-C12-04
+    type: theorem
+    system: SYS-D
+    title: "Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15"
+    statement: |
+      Let g be the Grundy function of G03 and n = 2^a m with m odd. Then g(n) = 0 for odd n, and for a >= 1:
+      g(2^a m) = a if m >= 17; g(2^a) = 0 for odd a and a - 1 for even a, except g(16) = 2; for m = 3 the values
+      are 2, 3, 4, 3, 6 (a = 1..5) and a - 2 (a >= 6); for m = 5 they are 1, 3, 4, 3, 6 (a = 1..5) and a + 2
+      (a >= 6); for m = 7, 9, 11, 15 they are a (a <= 2) and a + 1 (a >= 3); for m = 13 they are a (a <= 3) and
+      a + 1 (a >= 4). Consequently |g(n) - v2(n)| <= 2 unless n is an odd power of 2, and the record values occur
+      at n = 5 * 2^a for a >= 6.
+    verification: PROVEN
+    proof_check: |
+      Computer-assisted (proofs/paper/C12.md Theorem 8): exact computation for n <= 1e5 and an inductive-step
+      certificate for odd parts <= 15 and 13 <= a <= 100 (EXP-C12-06, 0 failures); written induction for odd parts
+      >= 17 and shift-invariance argument for odd parts <= 15; odd n via the Lean P-set theorem g03_pset. Trust
+      base: exact Python integer arithmetic plus the written Steps 2-3 (not yet reviewed by the Skeptic).
+    proof: proofs/paper/C12.md#theorem-8-clm-c12-04--grundy-values-of-the-deleting-divisors-game
+    evidence: [EXP-C12-06, EXP-C12-04, EXP-C12-01]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: |
+      The Grundy sequence is not in the OEIS (EXP-C12-04, queried 2026-10-18); the game is not among the divisor
+      games of Iannucci & Larsson 2021; Codeforces 1537D and its solution determine only the P-positions; web
+      searches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.
+    applications: Sums of deleting-divisors heaps are solved by XOR of closed-form values (the P-positions alone do not solve sums).
+    limitations: The written inductive step awaits independent Skeptic review; beyond a = 100 the certificate relies on the shift-invariance argument.
+  - id: CLM-C12-05
+    type: theorem
+    system: SYS-D
+    title: "Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n)"
+    statement: |
+      G13 (move to a proper binary submask) has g(n) = popcount(n); G19 (n -> n mod k, 1 <= k < n) has
+      g(n) = floor(log2((n + 1)/3)) + 1 for n >= 2 (g(0) = g(1) = 0); G20 (n -> floor(n/k), 2 <= k <= n) has
+      g(n) = floor(log2 n) for n >= 1.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C12.md Theorem 4); 0 mismatches for n <= 1e5, 5000 and 2e4 respectively (EXP-C12-02)
+    proof: proofs/paper/C12.md#theorem-4-clm-c12-05--bitwise-and-quotient-games
+    evidence: [EXP-C12-01, EXP-C12-02, EXP-C12-04]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      G19 is the residue-throw-divisor game, Theorem 12 of Iannucci & Larsson 2021 (proof left to the reader there;
+      our written proof supplies it). Sequences OEIS A000120, A099396 (g(n) = A099396(n + 1)), A000523. G13 is Nim
+      on the number of 1-bits; the quotient game G20 was not located in the literature but its analysis is
+      elementary.
+  - id: CLM-C12-06
+    type: theorem
+    system: SYS-D
+    title: "Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, k}"
+    statement: |
+      (a) If no element of the move set S is divisible by q and 1, ..., q - 1 are in S, the subtraction game S has
+      g(n) = n mod q; in particular subtract-a-power-of-2 has g(n) = n mod 3. (b) For every k >= 2,
+      subtract-a-power-of-k has the same Grundy function as the subtraction game {1, k}: n mod 2 for odd k, and
+      P(n mod (k + 1)) with P(r) = r mod 2 for r < k and P(k) = 2 for even k.
+    verification: PROVEN
+    proof_check: "(a) machine-checked in Lean (Infinity.C12.residue_grundy, Infinity.C12.power_of_two_grundy; axioms propext, Classical.choice, Quot.sound; no sorry); (b) written proof (proofs/paper/C12.md Theorem 5); 0 mismatches for k = 2..20, n <= 2e4 (EXP-C12-02)"
+    proof: proofs/paper/C12.md#theorem-5-clm-c12-06--the-residue-lemma-and-powers-of-k
+    lean: [proofs/lean/Infinity/C12_Games.lean]
+    evidence: [EXP-C12-01, EXP-C12-02]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      Two-element subtraction games and their periods are classical (Berlekamp, Conway & Guy, Winning Ways);
+      subtract-a-power-of-2 = n mod 3 is folklore (Grundy sequence OEIS A010872). The reduction of powers of k to
+      {1, k} is a one-line congruence (k^i = +-1 mod k + 1); it was not located verbatim.
+  - id: CLM-C12-07
+    type: theorem
+    system: SYS-D
+    title: Splitting games in which every heap can be split have g(n) = [n even]
+    statement: |
+      In every take-and-break game in which a heap is replaced by two nonempty heaps from a set of allowed splits,
+      and every heap n >= 2 has at least one allowed split, g(n) = 1 for even n and g(n) = 0 for odd n (n >= 1);
+      equivalently, every play lasts exactly n - 1 moves.
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext, Quot.sound; no sorry); G16, G17 and 40 random splitting relations checked (EXP-C12-02)"
+    proof: proofs/paper/C12.md#theorem-6-clm-c12-07--splitting-games
+    lean: [proofs/lean/Infinity/C12_Games.lean]
+    evidence: [EXP-C12-01, EXP-C12-02]
+    novelty: REDISCOVERY
+    novelty_basis: Classical parity argument (every move adds one heap, as in the chocolate-bar puzzle); the sequences are OEIS A000035 / A059841.
+  - id: CLM-C12-08
+    type: theorem
+    system: SYS-D
+    title: Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and are not periodic
+    statement: |
+      For the subtraction games whose move sets are the positive squares and the triangular numbers, the set of
+      P-positions is infinite and has natural density 0; hence neither Grundy sequence is eventually periodic or
+      eventually arithmetic-periodic.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C12.md Theorem 7) from the Furstenberg-Sarkozy theorem and its polynomial version (Kamae-Mendes France 1978), which are cited, not re-proved; P-densities 0.0222 and 0.0116 at n <= 2e5 (EXP-C12-03)
+    proof: proofs/paper/C12.md#theorem-7-clm-c12-08--sparse-sets-with-density-zero-p-positions
+    evidence: [EXP-C12-03, EXP-C12-01]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      For squares the P-set is a maximal square-difference-free set, of density zero by Furstenberg-Sarkozy
+      (Wikipedia "Square-difference-free set"; D. Eppstein, "Faster evaluation of subtraction games", FUN 2018).
+      The triangular case is the same argument with an intersective polynomial.
+  - id: CLM-C12-09
+    type: hypothesis
+    system: SYS-D
+    title: "H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inconclusive)"
+    statement: |
+      Every game of the catalogue is eventually periodic, eventually arithmetic-periodic, or has a Grundy function
+      given by a closed form in a number-theoretic function.
+    verification: INCONCLUSIVE
+    evidence: [EXP-C12-01, EXP-C12-02, EXP-C12-06, EXP-C12-03]
+    novelty: NOT ASSESSED
+    notes: |
+      13 of 19 games conform (5 periodic; closed forms for G01-G05, G13, G19, G20, G03 by CLM-C12-04).
+      Subtract-a-square and subtract-a-triangular-number are provably neither eventually periodic nor
+      arithmetic-periodic (CLM-C12-08), but the absence of a closed form is not a theorem. G06 (odd values),
+      subtract-a-Fibonacci, subtract-a-prime and Grundy's game remain unexplained within range (whether Grundy's
+      game is eventually periodic is a well-known open problem).
+    limitations: The "closed form" clause is not precisely defined, so the hypothesis cannot be refuted as stated; recorded as inconclusive rather than refuted.
+  - id: CLM-C12-10
+    type: hypothesis
+    system: SYS-D
+    title: "H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signature (refuted)"
+    statement: For each of the games G01-G06, g(n) depends only on the prime signature (sorted exponent vector) of n.
+    verification: REFUTED
+    counterexample: |
+      G01: n = 2 and n = 3 have signature (1) but g = 1 and 0. Further first counterexamples: G02 (2, 3: g = 2, 1),
+      G03 (4, 9: 1, 0), G05 (2, 3: 1, 2), G06 (6, 10: 2, 4). Only G04 (g = Omega) depends on the signature alone.
+    evidence: [EXP-C12-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C12-11
+    type: hypothesis
+    system: SYS-D
+    title: "H-C12-2: sparse move sets keep a positive density of P-positions (refuted)"
+    statement: |
+      Subtraction games whose move sets are the squares, the triangular numbers, the Fibonacci numbers or the primes
+      have P-positions of positive natural density.
+    verification: REFUTED
+    counterexample: |
+      Squares and triangular numbers: the P-set has density 0 (CLM-C12-08); measured P-density 0.0538 -> 0.0222 and
+      0.0344 -> 0.0116 as N grows from 1.25e4 to 2e5. For Fibonacci numbers (0.180) and primes (0.155) the question
+      remains open.
+    evidence: [EXP-C12-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C12-12
+    type: conjecture
+    system: SYS-D
+    title: Subtract-a-prime has Grundy values at most 11
+    statement: The Grundy values of the subtraction game whose move set is the set of primes satisfy g(n) <= 11 for all n.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C12-03, EXP-C12-01]
+    novelty: REDISCOVERY
+    novelty_basis: |
+      OEIS A014589 records a(n) <= 11 for n <= 32452842 (A. Huet, 2022) and for n <= 1e9 (B. Dobbelaere, 2024);
+      we found no proof of boundedness.
+    limitations: Our own check covers n <= 2e5 only (maximum 11 from n <= 1.25e4 on).
+  - id: CLM-C12-13
+    type: conjecture
+    system: SYS-D
+    title: Subtract-a-Fibonacci-number has bounded Grundy values
+    statement: |
+      The Grundy values of the subtraction game with move set {1, 2, 3, 5, 8, ...} (Fibonacci numbers) are bounded;
+      the observed maximum is 14 for n <= 2e5.
+    verification: CONJECTURE
+    evidence: [EXP-C12-03, EXP-C12-01]
+    novelty: NOT ASSESSED
+    notes: The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.
+    limitations: Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.
+
+journal:
+  - key: C12-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: Bold guesses H-C12-1 (Grundy values of divisibility and coprimality games depend only on the prime signature) and H-C12-2 (sparse move sets keep a positive density of P-positions, as powers of k do).
+    refs: [CLM-C12-10, CLM-C12-11]
+  - key: C12-02
+    agent: Mathematical Explorer
+    kind: experiment
+    text: Census of 19 relational one-heap games - 5 eventually periodic, 14 not within range; recognisable values v2, v2 + 1, Omega, smallest-prime index, popcount and logarithmic step functions.
+    refs: [EXP-C12-01, CLM-C12-09]
+  - key: C12-03
+    agent: Mathematical Skeptic
+    kind: failure
+    text: The first census reported a period for subtract-a-Fibonacci with preperiod 99970 and constant tails for the logarithmic games - end-of-range artefacts. The detector now requires the periodic tail to cover half the range; the census was re-run and both runs are kept.
+    refs: [EXP-C12-01]
+  - key: C12-04
+    agent: Formal Verifier
+    kind: proof
+    text: Lean - uniqueness of Grundy functions, the residue lemma (powers of 2 give n mod 3), the splitting parity theorem and the P-positions of G03, all with standard axioms and no sorry. Written proofs for the divisibility, coprimality, bitwise and quotient games.
+    refs: [CLM-C12-01, CLM-C12-02, CLM-C12-03, CLM-C12-05, CLM-C12-06, CLM-C12-07]
+  - key: C12-05
+    agent: Mathematical Explorer
+    kind: result
+    text: Both bold hypotheses fail - n = 2 and 3 already separate a signature class in G01, and the P-density of subtract-a-square falls from 0.0538 to 0.0222; the Furstenberg-Sarkozy theorem shows it must tend to 0.
+    refs: [EXP-C12-05, EXP-C12-03, CLM-C12-10, CLM-C12-11, CLM-C12-08]
+  - key: C12-06
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: OEIS - only G03 matches nothing. The G10c hit (shifted window of A014586) is spurious; G19 is A099396 shifted by one; G06 is exactly A279119.
+    refs: [EXP-C12-04]
+  - key: C12-07
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: G03 is Codeforces 1537D "Deleting Divisors" (2021) - its P-positions are the official solution, so CLM-C12-03 is downgraded from potentially novel to rediscovery. Iannucci and Larsson (2021) already contain G02, G04, G05, G06 (values plus one) and G19 (Theorem 12, proof left to the reader).
+    refs: [CLM-C12-03, CLM-C12-01, CLM-C12-02, CLM-C12-05]
+  - key: C12-08
+    agent: Mathematical Explorer
+    kind: surprise
+    text: The Grundy values of G03 equal v2(n) except on numbers with odd part at most 15 (96 exceptions up to 1e5) - forbidding "subtract 1" perturbs G01 only on a thin, explicitly describable set, with eventual shifts -2, +2, +1 and -1.
+    refs: [EXP-C12-06, CLM-C12-04]
+  - key: C12-09
+    agent: Formal Verifier
+    kind: proof
+    text: Theorem 8 proved computer-assisted - exact base range n <= 1e5, written induction for odd parts >= 17, shift invariance plus a finite certificate for odd parts <= 15 (0 failures for a <= 100), 0 failures in 4000 random mex checks. Flagged for Skeptic review.
+    refs: [CLM-C12-04, EXP-C12-06]
+  - key: C12-10
+    agent: Mathematical Skeptic
+    kind: decision
+    text: H-C12-0 is recorded as inconclusive, not refuted - its "closed form" clause is not falsifiable; only the periodic alternatives are excluded, by proof, for squares and triangular numbers.
+    refs: [CLM-C12-09, CLM-C12-08]
+  - key: C12-11
+    agent: Application Researcher
+    kind: result
+    text: Theorem 8 solves sums of deleting-divisors heaps by XOR of closed-form values; beyond recreational and competitive-programming games no application was found, and no performance improvement is claimed.
+    refs: [CLM-C12-04]
+  - key: C12-12
+    agent: Historian and Novelty Analyst
+    kind: novelty
+    text: The bound 11 for subtract-a-prime is documented in OEIS A014589 up to 1e9 (Huet 2022, Dobbelaere 2024), so CLM-C12-12 is a weak rediscovery; the Fibonacci bound (CLM-C12-13) was not found in the entries read.
+    refs: [CLM-C12-12, CLM-C12-13]
+
+next_directions:
+  - "C12: boundedness of the Grundy values of subtract-a-prime (11) and subtract-a-Fibonacci (14); convergence of the Fibonacci P-density (<= 1/5)"
+  - "C12: forbidden-move perturbations - for which d0 does forbidding 'subtract d0' in G01 give finitely many exceptional odd parts as in Theorem 8?"
+  - "C12: prove g(m) < m/4 for odd m in the non-coprime game G06 (max ratio 0.24985 up to 5000)"
+  - "C12: formalise Theorem 8 in Lean (finite certificate plus the shift-invariance lemma)"

@@ -1,0 +1,81 @@
+measure,source,code,bits
+synthetic redundancy,"Zipf(s=1.1, N=1e6)",Fibonacci C1,0.769
+synthetic redundancy,"Zipf(s=1.1, N=1e6)",Fraenkel-Klein C3,0.6014
+synthetic redundancy,"Zipf(s=1.1, N=1e6)",T_011,0.4162
+synthetic redundancy,"Zipf(s=1.1, N=1e6)",T_0111,0.3251
+synthetic redundancy,"Zipf(s=1.1, N=1e6)",T_101,0.1935
+synthetic redundancy,"Zipf(s=1.5, N=1e6)",Fibonacci C1,0.0999
+synthetic redundancy,"Zipf(s=1.5, N=1e6)",Fraenkel-Klein C3,0.377
+synthetic redundancy,"Zipf(s=1.5, N=1e6)",T_011,0.5169
+synthetic redundancy,"Zipf(s=1.5, N=1e6)",T_0111,1.3771
+synthetic redundancy,"Zipf(s=1.5, N=1e6)",T_101,0.5981
+synthetic redundancy,"Zipf(s=2.0, N=1e6)",Fibonacci C1,0.6106
+synthetic redundancy,"Zipf(s=2.0, N=1e6)",Fraenkel-Klein C3,1.189
+synthetic redundancy,"Zipf(s=2.0, N=1e6)",T_011,1.3802
+synthetic redundancy,"Zipf(s=2.0, N=1e6)",T_0111,2.3644
+synthetic redundancy,"Zipf(s=2.0, N=1e6)",T_101,1.4164
+synthetic redundancy,"Zipf(s=3.0, N=1e6)",Fibonacci C1,1.2852
+synthetic redundancy,"Zipf(s=3.0, N=1e6)",Fraenkel-Klein C3,2.1143
+synthetic redundancy,"Zipf(s=3.0, N=1e6)",T_011,2.2327
+synthetic redundancy,"Zipf(s=3.0, N=1e6)",T_0111,3.2322
+synthetic redundancy,"Zipf(s=3.0, N=1e6)",T_101,2.2369
+synthetic redundancy,geometric(p=0.001),Fibonacci C1,2.9342
+synthetic redundancy,geometric(p=0.001),Fraenkel-Klein C3,2.5063
+synthetic redundancy,geometric(p=0.001),T_011,2.0205
+synthetic redundancy,geometric(p=0.001),T_0111,1.735
+synthetic redundancy,geometric(p=0.001),T_101,1.9399
+synthetic redundancy,geometric(p=0.01),Fibonacci C1,1.5594
+synthetic redundancy,geometric(p=0.01),Fraenkel-Klein C3,1.1974
+synthetic redundancy,geometric(p=0.01),T_011,0.9332
+synthetic redundancy,geometric(p=0.01),T_0111,1.4503
+synthetic redundancy,geometric(p=0.01),T_101,1.246
+synthetic redundancy,geometric(p=0.1),Fibonacci C1,0.5928
+synthetic redundancy,geometric(p=0.1),Fraenkel-Klein C3,0.5309
+synthetic redundancy,geometric(p=0.1),T_011,0.7188
+synthetic redundancy,geometric(p=0.1),T_0111,1.6679
+synthetic redundancy,geometric(p=0.1),T_101,0.9296
+synthetic redundancy,geometric(p=0.5),Fibonacci C1,0.8206
+synthetic redundancy,geometric(p=0.5),Fraenkel-Klein C3,1.3165
+synthetic redundancy,geometric(p=0.5),T_011,1.6329
+synthetic redundancy,geometric(p=0.5),T_0111,2.6328
+synthetic redundancy,geometric(p=0.5),T_101,1.6411
+synthetic redundancy,"log-uniform 1/n on [1,1e+06]",Fibonacci C1,1.6368
+synthetic redundancy,"log-uniform 1/n on [1,1e+06]",Fraenkel-Klein C3,1.3568
+synthetic redundancy,"log-uniform 1/n on [1,1e+06]",T_011,1.0479
+synthetic redundancy,"log-uniform 1/n on [1,1e+06]",T_0111,0.4006
+synthetic redundancy,"log-uniform 1/n on [1,1e+06]",T_101,0.5581
+synthetic redundancy,"uniform [1, 2^16]",Fibonacci C1,6.1481
+synthetic redundancy,"uniform [1, 2^16]",Fraenkel-Klein C3,5.7112
+synthetic redundancy,"uniform [1, 2^16]",T_011,5.1519
+synthetic redundancy,"uniform [1, 2^16]",T_0111,3.2978
+synthetic redundancy,"uniform [1, 2^16]",T_101,4.035
+synthetic redundancy,"uniform [1, 2^32]",Fibonacci C1,13.1889
+synthetic redundancy,"uniform [1, 2^32]",Fraenkel-Klein C3,12.7613
+synthetic redundancy,"uniform [1, 2^32]",T_011,12.1889
+synthetic redundancy,"uniform [1, 2^32]",T_0111,5.4912
+synthetic redundancy,"uniform [1, 2^32]",T_101,7.6991
+synthetic redundancy,"uniform [1, 2^8]",Fibonacci C1,2.6719
+synthetic redundancy,"uniform [1, 2^8]",Fraenkel-Klein C3,2.2734
+synthetic redundancy,"uniform [1, 2^8]",T_011,1.9297
+synthetic redundancy,"uniform [1, 2^8]",T_0111,2.3203
+synthetic redundancy,"uniform [1, 2^8]",T_101,2.2305
+data bits per value,bursty posting list (mixture),Fibonacci C1,12.1459
+data bits per value,bursty posting list (mixture),Fraenkel-Klein C3,11.8169
+data bits per value,bursty posting list (mixture),T_011,11.5408
+data bits per value,bursty posting list (mixture),T_0111,11.5172
+data bits per value,bursty posting list (mixture),T_101,11.4728
+data bits per value,posting list geometric(0.001),Fibonacci C1,14.3563
+data bits per value,posting list geometric(0.001),Fraenkel-Klein C3,13.9292
+data bits per value,posting list geometric(0.001),T_011,13.4418
+data bits per value,posting list geometric(0.001),T_0111,13.1548
+data bits per value,posting list geometric(0.001),T_101,13.3598
+data bits per value,prime gaps <= 1e7 (halved),Fibonacci C1,4.9385
+data bits per value,prime gaps <= 1e7 (halved),Fraenkel-Klein C3,4.9233
+data bits per value,prime gaps <= 1e7 (halved),T_011,5.1068
+data bits per value,prime gaps <= 1e7 (halved),T_0111,6.064
+data bits per value,prime gaps <= 1e7 (halved),T_101,5.2712
+data bits per value,prime gaps <= 1e7 (raw),Fibonacci C1,6.1756
+data bits per value,prime gaps <= 1e7 (raw),Fraenkel-Klein C3,5.9385
+data bits per value,prime gaps <= 1e7 (raw),T_011,6.1389
+data bits per value,prime gaps <= 1e7 (raw),T_0111,7.0668
+data bits per value,prime gaps <= 1e7 (raw),T_101,6.4174

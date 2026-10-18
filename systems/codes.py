@@ -292,6 +292,43 @@ class FibonacciC1(Code):
         return bisect.bisect_right(self.F, n) + 1
 
 
+class FraenkelKleinC3(Code):
+    """Fraenkel-Klein (1996) code C3: C1 codewords minus their final 1, each length block taken twice with prefixes
+    '10' then '11' (101, 111, 1001, 1101, 10001, ...).  Uniquely decipherable but NOT prefix-free: a codeword ends
+    where '011' is seen with its last 1 being the first bit of the next codeword (the input is virtually followed by
+    '1'); the codeword 111 is recognised as '1111'."""
+    name = "Fraenkel-Klein C3"
+
+    def __init__(self):
+        self.c1 = FibonacciC1()
+        self.Fs = [0, 1, 1]                        # standard Fibonacci numbers F_0, F_1, F_2, ...
+        while len(self.Fs) < 400:
+            self.Fs.append(self.Fs[-1] + self.Fs[-2])
+        self.cum = [max(2 * f - 2, 0) for f in self.Fs]   # cum[r] = codewords of length <= r = 2 F_r - 2
+
+    def length(self, n):
+        return bisect.bisect_left(self.cum, n)
+
+    def encode(self, n):
+        r = self.length(n)
+        t = n - self.cum[r - 1] - 1
+        b, j = divmod(t, self.Fs[r - 2])
+        return ("11" if b else "10") + self.c1.encode(self.Fs[r - 1] + j)[:-1]
+
+    def decode(self, bits, pos=0):
+        def bit(i):
+            return bits[i] if i < len(bits) else "1"
+        if bit(pos) == bit(pos + 1) == bit(pos + 2) == bit(pos + 3) == "1":
+            return 2, pos + 3
+        i = pos + 1
+        while not (bit(i) == "0" and bit(i + 1) == "1" and bit(i + 2) == "1"):
+            i += 1
+        end = i + 2
+        r = end - pos
+        j, _ = self.c1.decode(bits[pos + 2:end] + "1")
+        return self.cum[r - 1] + (bits[pos + 1] == "1") * self.Fs[r - 2] + (j - self.Fs[r - 1]) + 1, end
+
+
 # ------------------------------------------------------------------ pattern-terminated codes
 class PatternCode(Code):
     """T_p: codewords = binary words whose first occurrence of p is at the end (enumerative coding)."""

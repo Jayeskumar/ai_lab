@@ -1,0 +1,85 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "laws and partial knowledge taken from B. Le Floch's ETP notes 'spectrum.pdf' (Lean Zulip)",
+    "for laws of the form x = y*(...), every left translation is onto, hence a bijection in a finite magma, so 'every row is a permutation' is added as a sound implied constraint",
+    "symmetry breaking 0*0 in {0,1} (any magma can be relabelled so)",
+    "CaDiCaL conflict budget 1e6 per instance; UNKNOWN is reported as such"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-03",
+    "file": "experiments/C05/E03_frontier_push.py",
+    "sha256": "e420409bc2d102edb475c9f6650324f498ff1f06ef2da322a2827d26ec75ae3c",
+    "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+  },
+  "cycle": "C05",
+  "falsification": "A disagreement with a size stated in the notes would indicate a bug (ours or theirs).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:06:52Z"
+    }
+  ],
+  "hypothesis": "Several open laws have unresolved small sizes that SAT can decide; our results must agree with every membership/non-membership already stated in the notes.",
+  "id": "EXP-C05-03",
+  "methodology": "SAT model search for each law and n = 2..10; every SAT answer is re-verified by evaluating the law on the returned table; results are compared with the sizes stated in the notes.",
+  "question": "For the order-4 laws x = t whose spectrum is listed as unknown in the Equational Theories Project notes, which sizes n <= 12 admit models?",
+  "results_file": "results/EXP-C05-03.json",
+  "results_sha256": "81c21f0a1a59b00cc62922e80ddd0e49226ce9eb22b75f31e671edfd40557510",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-03",
+        "file": "experiments/C05/E03_frontier_push.py",
+        "sha256": "e420409bc2d102edb475c9f6650324f498ff1f06ef2da322a2827d26ec75ae3c",
+        "systems_sha256": "03b92cf75f03ffe6e01fe946b1793bf911f28677634be2bb1a5045e56641f343"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:06:51Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-03.json",
+      "results_sha256": "81c21f0a1a59b00cc62922e80ddd0e49226ce9eb22b75f31e671edfd40557510",
+      "runtime_s": 2795.777,
+      "started": "2026-10-18T08:20:16Z",
+      "summary": [
+        "467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+        "501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]",
+        "670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]",
+        "677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+        "704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+        "883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]",
+        "907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]",
+        "1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]",
+        "1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]",
+        "1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]",
+        "1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+        "1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]",
+        "1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+        "1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+        "1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []",
+        "disagreements with the notes: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "467: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+    "501: in [4, 5, 8, 9], out [2, 3, 6, 7], unknown [10]",
+    "670: in [4, 5], out [2, 3, 6, 7], unknown [8, 9, 10]",
+    "677: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+    "704: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+    "883: in [2, 4, 5, 7, 8, 10], out [3, 6], unknown [9]",
+    "907: in [3, 7], out [2, 4, 5, 6], unknown [8, 9, 10]",
+    "1076: in [5], out [2, 3, 4, 6, 7, 8], unknown [9, 10]",
+    "1083: in [3, 4, 7, 8, 9], out [2, 5, 6], unknown [10]",
+    "1110: in [4, 5, 7, 8, 9], out [2, 3, 6], unknown [10]",
+    "1279: in [5, 7, 8], out [2, 3, 4, 6], unknown [9, 10]",
+    "1286: in [7, 9], out [2, 3, 4, 5, 6], unknown [8, 10]",
+    "1313: in [5, 7, 9], out [2, 3, 4, 6], unknown [8, 10]",
+    "1516: in [5, 7, 8, 9], out [2, 3, 4, 6], unknown [10]",
+    "1719: in [3, 4, 5, 6, 7, 8, 9, 10], out [2], unknown []",
+    "disagreements with the notes: 0"
+  ],
+  "title": "Frontier push: spectra of open order-4 laws for n = 2..10 (SAT with sound Latin-row constraints)"
+}

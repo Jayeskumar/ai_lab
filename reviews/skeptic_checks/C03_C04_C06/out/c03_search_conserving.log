@@ -1,0 +1,2 @@
+== search (0.8 s)
+{"predicted_nonterminating": 76, "loops_found_and_verified": 76, "missing": [], "max_steps": 157, "by_how": {"mirror of own loop": 5, "direct": 71}, "seconds": 0.8, "_seconds": 0.8}

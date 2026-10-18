@@ -2,7 +2,8 @@
 
 Run from the repository root:  python benchmarks/C11/make_tables.py
 Inputs: results/EXP-C11-03.json (synthetic sources), results/EXP-C11-04.json (data),
-results/EXP-C11-05.json (bits per value and machine-dependent timings).  Nothing is recomputed.
+results/EXP-C11-05.json (bits per value and machine-dependent timings), results/EXP-C11-09.json (Fraenkel-Klein C3
+comparison).  Nothing is recomputed.
 """
 
 from __future__ import annotations
@@ -56,6 +57,15 @@ def main():
     write("speed_cpython.csv", ["code", "total_bits_1e5_values", "roundtrip_ok", "encode_us_per_value",
                                 "decode_us_per_value"], rows)
     sources.append(("EXP-C11-05", h5, "speed_cpython.csv"))
+
+    c3, h9 = load("EXP-C11-09")
+    rows = []
+    for kind, key in (("synthetic redundancy", "synthetic_redundancy"), ("data bits per value", "data_bits_per_value")):
+        for src, row in c3["results"][key].items():
+            for code, val in sorted(row.items()):
+                rows.append([kind, src, code, val])
+    write("c3_comparison.csv", ["measure", "source", "code", "bits"], rows)
+    sources.append(("EXP-C11-09", h9, "c3_comparison.csv"))
 
     with open(OUT / "PROVENANCE.txt", "w", encoding="utf-8") as f:
         f.write("C11 benchmark tables, exported verbatim by make_tables.py from recorded runs.\n")

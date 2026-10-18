@@ -1,0 +1,309 @@
+{
+  "fetched": "2026-10-18T09:09:06Z",
+  "query": "octal game .06",
+  "response": [
+    {
+      "author": "_N. J. A. Sloane_",
+      "comment": [
+        "Octal games 4.4, 4.41, 4.42, 4.43, 4.6, 4.61, 4.62 and 4.63 have values a(n-1).",
+        "\"The periodicity was first proved by _R. K. Guy_ in 1949, the sequence necessarily being calculated by hand.\" [Beasley]."
+      ],
+      "created": "1991-04-30T03:00:00-04:00",
+      "data": "0,1,2,3,1,4,3,2,1,4,2,6,4,1,2,7,1,4,3,2,1,4,6,7,4,1,2,8,5,4,7,2,1,8,6,7,4,1,2,3,1,4,7,2,1,8,2,7,4,1,2,8,1,4,7,2,1,4,2,7,4,1,2,8,1,4,7,2,1,8,6,7,4,1,2,8,1,4,7,2,1,8,2,7,4,1,2,8,1,4,7,2,1,8,2,7,4,1,2,8,1,4,7,2,1",
+      "ext": [
+        "More terms from Francisco Salinas (franciscodesalinas(AT)hotmail.com), Dec 08 2001",
+        "Edited by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "formula": [
+        "From n=71 on, the sequence is periodic with period 12. The only exceptions are n=0, 3, 6, 9, 11, 15, 18, 21, 22, 28, 34, 39, 57 and 70."
+      ],
+      "id": "M0410 N0156",
+      "keyword": "nonn,nice,easy",
+      "link": [
+        "Sierra Brown, Spencer Daugherty, Eugene Fiorini, Barbara Maldonado, Diego Manzano-Ruiz, Sean Rainville, Riley Waechter, and Tony W. H. Wong, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL23/Wong/wong24.html\">Nimber Sequences of Node-Kayles Games</a>, J. Int. Seq., Vol. 23 (2020), Article 20.3.5.",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal_sparse.html\">Octal games</a>",
+        "R. K. Guy, <a href=\"/A002186/a002186.pdf\">Letters to N. J. A. Sloane, June-August 1968</a>",
+        "R. K. Guy, <a href=\"/A005251/a005251_1.pdf\">Anyone for Twopins?</a>, in D. A. Klarner, editor, The Mathematical Gardner. Prindle, Weber and Schmidt, Boston, 1981, pp. 2-15. [Annotated scanned copy, with permission]",
+        "<a href=\"/index/Rec#order_12\">Index entries for linear recurrences with constant coefficients</a>, signature (0,0,0,0,0,0,0,0,0,0,0,1)."
+      ],
+      "name": "Sprague-Grundy values for the game of Kayles (octal games .77 and .771).",
+      "number": 2186,
+      "offset": "0,3",
+      "reference": [
+        "John D. Beasley, The Mathematics of Games, Dover Publ., Mineola, NY 2006, page 111.",
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982, see p. 91.",
+        "Calkin, Neil J.; James, Kevin; Janoski, Janine E.; Leggett, Sarah; Richards, Bryce; Sitaraman, Nathan; and Thomas, Stephanie M.; Computing strategies for graphical Nim, in Proceedings of the Forty-First Southeastern International Conference on Combinatorics, Graph Theory and Computing. Congr. Numer. 202 (2010), 171-185. (See page 174.)",
+        "J. H. Conway, On Numbers and Games, Second Edition. A K Peters, Ltd, 2001, p. 128.",
+        "R. K. Guy, \"Anyone for Twopins?\", in D. A. Klarner, editor, The Mathematical Gardner. Prindle, Weber and Schmidt, Boston, 1981, pp. 2-15.",
+        "Guy, R. K. and Smith, C. A. B.; The G-values of various games. Proc. Cambridge Philos. Soc. 52 (1956), 514-526.",
+        "N. J. A. Sloane, A Handbook of Integer Sequences, Academic Press, 1973 (includes this sequence).",
+        "N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence)."
+      ],
+      "references": 30,
+      "revision": 42,
+      "time": "2026-05-16T16:48:48-04:00",
+      "xref": [
+        "Cf. A071074, A071434."
+      ]
+    },
+    {
+      "author": "_Richard Sabey_, Jan 24 2007",
+      "comment": [
+        "Computed through heap size 2^27 = 134217728 by Tyler Satchel Orden (2026), extending A. Flammenkamp's tables, which reached 2^26. One new rare value (in Flammenkamp's sparse-space sense) appears beyond the old bound: a(130980749) = 1936; the maximum value through 2^27 remains 3105. - _Tyler Satchel Orden_, Jul 21 2026"
+      ],
+      "created": "2007-05-11T03:00:00-04:00",
+      "data": "1,2,0,1,2,0,2,1,2,3,1,2,4,5,3,0,3,5,1,2,1,3,2,1,2,1,2,5,6,2,1,5,4,0,2,0,6,2,1,2,8,1,2,0,5,1,6,3,1,2,4,5,3,0,3,5,1,2,1,6,2,1,3,4,8,3,6,2,1,5,4,0,3,0,6,8,1,2,8,1,2,0,5,1,6,3,1,9,4,5,4,10,3,5,9,4,1,12,2",
+      "keyword": "nonn",
+      "link": [
+        "Tyler Satchel Orden, <a href=\"/A125921/b125921.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal.html\">Sprague-Grundy values of octal games</a>",
+        "Tyler Satchel Orden, <a href=\"/A125921/a125921_1.txt\">C++ program (checkpointed solver for the Sprague-Grundy values of any octal game, Flammenkamp's sparse-space method)</a>"
+      ],
+      "name": "Sprague-Grundy values for octal game .314.",
+      "number": 125921,
+      "offset": "1,2",
+      "program": [
+        "(C++) // See Links."
+      ],
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, p. 104."
+      ],
+      "references": 11,
+      "revision": 19,
+      "time": "2026-07-24T00:58:47-04:00"
+    },
+    {
+      "author": "_Richard Sabey_, Jan 24 2007",
+      "comment": [
+        "Octal games 4.326, 4.334 and 4.336 also have values a(n)."
+      ],
+      "created": "2007-05-11T03:00:00-04:00",
+      "data": "1,2,0,3,1,2,4,3,5,2,4,1,3,5,2,4,7,5,6,4,7,2,6,8,7,9,1,6,5,7,4,2,5,9,4,2,7,3,12,4,2,1,3,8,2,1,4,8,12,9,10,2,11,3,1,2,4,3,13,2,4,1,5,2,4,15,7,14,12,4,7,2,6,10,7,9,2,8,5,7,4,13,11,9,16,2,7,11,4,10,9,1,8",
+      "keyword": "nonn",
+      "name": "Sprague-Grundy values for octal game 4.324.",
+      "number": 125940,
+      "offset": "1,2",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, p. 104."
+      ],
+      "references": 8,
+      "revision": 3,
+      "time": "2013-10-12T15:17:34-04:00"
+    },
+    {
+      "author": "_N. J. A. Sloane_ and _Sue Pope_, May 29 2002",
+      "comment": [
+        "Also, with different offsets, Sprague-Grundy values for .04 [a(n-3)], .007 [a(n-2)] (Treblecross) and .0137 [a(n-1)]."
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,1,1,2,2,0,3,3,1,1,1,0,4,3,3,3,2,2,2,4,4,0,5,5,2,2,2,3,3,0,5,0,1,1,1,3,3,3,5,6,4,4,1,0,5,5,6,6,2,7,7,7,8,0,1,9,2,7,2,3,3,3,9,0,5,4,4,8,6,6,2,7,1,1,1,0,5,5,9,3,1,8,2,8,5,0,1,1,12,2,2,7,3,3,9,4,4,0,11,3,3",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "keyword": "nonn,look",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071426/b071426.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Sierra Brown, Spencer Daugherty, Eugene Fiorini, Barbara Maldonado, Diego Manzano-Ruiz, Sean Rainville, Riley Waechter, and Tony W. H. Wong, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL23/Wong/wong24.html\">Nimber Sequences of Node-Kayles Games</a>, J. Int. Seq., Vol. 23 (2020), Article 20.3.5.",
+        "Eugene Fiorini, Maxwell Fogler, Katherine Levandosky, Bryan Lu, Jacob Porter, and Andrew Woldar, <a href=\"https://arxiv.org/abs/2411.08247\">On the Nature and Complexity of an Impartial Two-Player Variant of the Game Lights-Out</a>, arXiv:2411.08247 [math.CO], 2024. See p. 15.",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal.html\">Octal games</a>"
+      ],
+      "name": "Sprague-Grundy values for octal game .11337.",
+      "number": 71426,
+      "offset": "1,4",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, pp. 94, 102."
+      ],
+      "references": 5,
+      "revision": 21,
+      "time": "2024-11-18T16:39:02-05:00"
+    },
+    {
+      "author": "_N. J. A. Sloane_, May 26 2002",
+      "comment": [
+        "Sequence is eventually periodic with period 24. The last exception is at n=141. - _Eric M. Schmidt_, Jan 11 2017"
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "0,1,2,3,4,5,6,7,3,2,8,9,7,6,5,4,3,2,8,9,4,5,12,13,9,8,2,3,4,5,15,14,3,2,8,9,7,6,5,4,3,2,8,9,13,12,15,14,9,8,2,3,4,5,16,17,10,11,8,9,14,15,5,4,3,2,16,17,13,12,15,14,9,8,2,3,4,5,6,7,3,2,8,9,14,15,5,4,3,2",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "formula": [
+        "Let b=A002186. Cases A, B: b(n)=0, 2, 5, 7. Cases C, D: b(n)=1, 3, 4, 6, 8. Cases A, C: n even. Cases B, D: n odd. Cases A, D: a(2n)=2*b(n), a(2n+1)=2*b(n)+1. Cases B, C: a(2n)=2*b(n)+1, a(2n+1)=2*b(n)."
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071074/b071074.txt\">Table of n, a(n) for n = 0..200</a>",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal_sparse.html\">Octal games</a>"
+      ],
+      "name": "Sprague-Grundy values for the game of Double Kayles (octal game .7777).",
+      "number": 71074,
+      "offset": "0,3",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982, see p. 98.",
+        "J. H. Conway, On Numbers and Games, Second Edition. A K Peters, Ltd, 2001, p. 129.",
+        "Guy, R. K. and Smith, C. A. B.; The G-values of various games. Proc. Cambridge Philos. Soc. 52 (1956), 514-526. See page 521."
+      ],
+      "references": 4,
+      "revision": 12,
+      "time": "2026-05-16T16:48:48-04:00",
+      "xref": [
+        "Cf. A002186."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_",
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "0,0,1,2,0,1,2,3,1,2,3,4,0,3,4,2,1,3,2,1,0,2,1,4,5,1,4,5,1,2,0,1,2,3,1,2,3,4,2,3,4,2,3,4,2,1,0,2,8,4,5,3,4,5,6,2,5,1,2,3,1,2,3,4,2,3,4,2,3,4,2,3,0,2,3,4,5,3,4,5,6,4,5,6,2,3,1,2,3,4,2,3,4,2,3,4,2,3,0,2,3,4",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "formula": [
+        "a(n) = A071433(n-1). - Typo corrected by _Allan C. Wechsler_, Oct 24 2014"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Allan C. Wechsler, <a href=\"/A046695/b046695.txt\">Table of n, a(n) for n = 0..1000</a>",
+        "I. Caines et al., <a href=\"https://www.jstor.org/stable/2589561\">Periods in taking and splitting games</a>, Amer. Math. Monthly, 106 (1999), 359-361."
+      ],
+      "name": "Sprague-Grundy values for the game Couples-are-Forever (and for octal games .6, .601, .61, .611, .62, .621, .63, .631).",
+      "number": 46695,
+      "offset": "0,4",
+      "program": [
+        "(Haskell)",
+        "nimSum 0 0 = 0",
+        "nimSum a 0 = a",
+        "nimSum 0 b = b",
+        "nimSum a b = 2*(nimSum (div a 2) (div b 2)) + (rem ((rem a 2) + (rem b 2)) 2)",
+        "mexp l = head (filter (\\x -> (not (elem x l))) [0..])",
+        "a046695_list = map a046695 [0..]",
+        "a046695 0 = 0",
+        "a046695 1 = 0",
+        "a046695 n = mexp (a046695' n)",
+        "a046695' n = (map trymove [0..(div (n-1) 2)])",
+        "  where trymove k = nimSum (a046695_list !! k) (a046695_list !! (n-k-1))",
+        "-- _Allan C. Wechsler_, Nov 18 2014"
+      ],
+      "references": 3,
+      "revision": 20,
+      "time": "2025-11-05T15:35:29-05:00",
+      "xref": [
+        "Cf. A071433."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_ and _Sue Pope_, May 29 2002",
+      "comment": [
+        "Octal games .074-.077 have values a(n-1). Octal games .440-.443 and .460-.463 have values a(n-2).",
+        "Sequence is eventually periodic with period 24. The last exception is at n=140."
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,1,2,2,3,3,1,1,4,4,3,3,2,2,1,1,4,4,2,2,6,6,4,4,1,1,2,2,7,7,1,1,4,4,3,3,2,2,1,1,4,4,6,6,7,7,4,4,1,1,2,2,8,8,5,5,4,4,7,7,2,2,1,1,8,8,6,6,7,7,4,4,1,1,2,2,3,3,1,1,4,4,7,7,2,2,1,1,8,8,2,2,7,7,4,4,1,1,2,2,8,8",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "formula": [
+        "a(2n-1) = a(2n) = A002186(n)."
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071434/b071434.txt\">Table of n, a(n) for n = 1..200</a>",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal_sparse.html\">Octal games</a>",
+        "<a href=\"/index/Per#periodic\">Index entries for periodic sequences</a>.",
+        "<a href=\"/index/Rec#order_24\">Index entries for linear recurrences with constant coefficients</a>, signature (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1)."
+      ],
+      "name": "Sprague-Grundy values for octal game .1377.",
+      "number": 71434,
+      "offset": "1,3",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, p. 102."
+      ],
+      "references": 3,
+      "revision": 16,
+      "time": "2026-05-27T00:02:45-04:00",
+      "xref": [
+        "Cf. A002186."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_ and _Sue Pope_, May 29 2002",
+      "comment": [
+        "Octal game .036 and .037 have values a(n-1). Octal games .06, .061, .062 and .063 have values a(n-2)."
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,1,2,2,0,3,1,1,2,2,3,3,4,4,0,5,3,3,4,2,2,1,1,3,0,2,2,1,1,4,4,5,5,2,6,4,7,5,8,1,2,2,0,3,1,1,2,2,3,3,4,8,1,5,5,3,3,10,2,1,9,3,0,2,2,5,9,4,4,8,11,2,6,4,4,8,8,6,6,2,0,3,11,6,2,2,3,3,11,5,1,9,9,7,3,10,1,1,9,3",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071427/b071427.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal_sparse.html\">Octal games</a>"
+      ],
+      "name": "Sprague-Grundy values for octal game .1337.",
+      "number": 71427,
+      "offset": "1,3",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, p. 102."
+      ],
+      "references": 2,
+      "revision": 12,
+      "time": "2026-05-16T16:48:48-04:00"
+    },
+    {
+      "author": "_N. J. A. Sloane_ and _Sue Pope_, May 29 2002",
+      "comment": [
+        "Octal games .6, .601, .61, .611, .62, .621, .63, .631 (Officers) have values a(n-1)."
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,2,0,1,2,3,1,2,3,4,0,3,4,2,1,3,2,1,0,2,1,4,5,1,4,5,1,2,0,1,2,3,1,2,3,4,2,3,4,2,3,4,2,1,0,2,8,4,5,3,4,5,6,2,5,1,2,3,1,2,3,4,2,3,4,2,3,4,2,3,0,2,3,4,5,3,4,5,6,4,5,6,2,3,1,2,3,4,2,3,4,2,3,4,2,3,0,2,3,4,5,3",
+      "ext": [
+        "Edited and extended by _Christian G. Bower_, Oct 22 2002"
+      ],
+      "keyword": "nonn,look",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071433/b071433.txt\">Table of n, a(n) for n = 1..10000</a>",
+        "I. Caines et al., <a href=\"https://www.jstor.org/stable/2589561\">Periods in taking and splitting games</a>, Amer. Math. Monthly, 106 (1999), 359-361.",
+        "Achim Flammenkamp, <a href=\"https://wwwhomes.uni-bielefeld.de/achim/octal_sparse.html\">Octal games</a>"
+      ],
+      "name": "Sprague-Grundy values for octal game .37.",
+      "number": 71433,
+      "offset": "1,2",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4, pp. 96, 102.",
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Second Edition, Vol. 1, A K Peters, 2001, pp. 102, 109."
+      ],
+      "references": 2,
+      "revision": 19,
+      "time": "2026-05-16T16:48:48-04:00",
+      "xref": [
+        "a(n) = A046695(n+1)."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_ and _Sue Pope_, May 29 2002",
+      "comment": [
+        "Sequence is eventually periodic with period 62. The last exception is at n=121. - _Eric M. Schmidt_, Jan 20 2017"
+      ],
+      "created": "2003-05-16T03:00:00-04:00",
+      "data": "1,0,0,1,1,0,2,1,3,0,2,1,3,0,1,1,3,0,2,3,3,2,2,3,4,2,5,0,4,2,5,3,2,2,3,3,2,0,3,1,1,0,3,1,2,0,3,1,2,0,1,1,4,0,5,5,4,7,2,6,4,7,5,0,4,1,1,0,2,1,3,0,2,1,3,0,1,1,3,0,2,3,3,2,2,7,4",
+      "ext": [
+        "Edited and extended by _Eric M. Schmidt_, Jan 20 2017"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Eric M. Schmidt, <a href=\"/A071461/b071461.txt\">Table of n, a(n) for n = 1..200</a>",
+        "Sierra Brown, Spencer Daugherty, Eugene Fiorini, Barbara Maldonado, Diego Manzano-Ruiz, Sean Rainville, Riley Waechter, and Tony W. H. Wong, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL23/Wong/wong24.html\">Nimber Sequences of Node-Kayles Games</a>, J. Int. Seq., Vol. 23 (2020), Article 20.3.5."
+      ],
+      "name": "Sprague-Grundy values for octal games .124 and .1241.",
+      "number": 71461,
+      "offset": "1,7",
+      "reference": [
+        "E. R. Berlekamp, J. H. Conway and R. K. Guy, Winning Ways, Academic Press, NY, 2 vols., 1982; see Chapter 4."
+      ],
+      "references": 2,
+      "revision": 13,
+      "time": "2020-07-06T17:32:29-04:00"
+    }
+  ],
+  "url": "https://oeis.org/search?q=octal+game+.06&fmt=json"
+}

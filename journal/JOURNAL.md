@@ -599,3 +599,275 @@ Answered the cycle's own question 'can a spectrum be the primes?' - no, since di
 
 *Evidence:* CLM-C06-12
 
+
+## C11
+
+### [2026-10-18T08:50:02Z] Mathematical Inventor — hypothesis (`C11-01`)
+
+Read the Fibonacci code as "the words in which 11 occurs first at the end" and replaced 11 by any terminator p:
+the family T_p, encoded enumeratively with a KMP automaton. Bold guess H-C11-2: the all-ones terminator 1^k is
+the best length-k terminator beyond small n.
+
+*Evidence:* CLM-C11-05, CLM-C11-01
+
+### [2026-10-18T08:50:02Z] Formal Verifier — failure (`C11-02`)
+
+The first EXP-C11-01 runs failed for test-design reasons, not code errors: growth-rate-1 patterns (10, 01) could
+not reach 2^60 within the table (ValueError), a monotonicity check on an unsorted value list produced 70 false
+problems, and Kraft partial sums at L <= 120 were only 0.865 for 00000 (expected waiting time 62). Fixed the
+tests and kept the runs; a later fix of an inaccurate assumption string (61, not 62, pattern codes) reproduced
+the result hash.
+
+*Evidence:* EXP-C11-01
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — proof (`C11-03`)
+
+1^k and 0^k maximise the growth rate for all 2044 patterns of length 2..10; proved in general from
+D_(1^k) - D_p = (1 - 2x)(c_(1^k) - c_p) <= 0 for x > 1/2.
+
+*Evidence:* CLM-C11-02, EXP-C11-02
+
+### [2026-10-18T08:50:02Z] Mathematical Skeptic — rejection (`C11-04`)
+
+H-C11-2 rejected: maximal growth rate does not mean shortest codewords at practical sizes. At n = 1000 the
+terminators 1000, 1001, 1010 beat 1111 by one bit, and for k = 6 rivals still win at n near 1.3e19.
+
+*Evidence:* CLM-C11-05, EXP-C11-02
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — surprise (`C11-05`)
+
+Unbordered terminators have exactly the partial sums of the all-ones counts (x/(1-x) identity), so T_011 is one
+bit shorter than the Fibonacci code on 1,999,568 of the first 2e6 integers and longer only at n = 1, 2, 4.
+
+*Evidence:* CLM-C11-03, CLM-C11-04, EXP-C11-06
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — failure (`C11-06`)
+
+Two predictions of the average gain failed: log_lambda(1/(lambda-1)) (0.2875 predicted, 0.2282 measured for
+k = 3), then convergence to (2-lambda)/(lambda-1)^2 (0.228, 0.310, 0.229 at 2^40, 2^80, 2^120).
+
+*Evidence:* CLM-C11-06, EXP-C11-06, EXP-C11-07
+
+### [2026-10-18T08:50:02Z] Formal Verifier — proof (`C11-07`)
+
+Proved the oscillation (Proposition 5: liminf (2-lambda)/(lambda-1)^2, limsup lambda(2-lambda)/(lambda-1)),
+confirmed to 6 digits for k = 2..6; Lean proofs of prefix-freeness and unique parsing of every T_p (no axioms).
+
+*Evidence:* CLM-C11-07, CLM-C11-01, EXP-C11-08
+
+### [2026-10-18T08:50:02Z] Application Researcher — result (`C11-08`)
+
+Benchmarks with exact expectations: a fixed pattern code is the best fixed universal code on 5/12 synthetic
+sources and on both posting lists; tuned Golomb wins every geometric source and tuned Golomb/Exp-Golomb every
+uniform one; pattern codes are 4-10 times slower in CPython. A draft sentence claiming that pattern codes beat
+tuned Golomb on every non-geometric source was false (uniform sources) and was corrected before recording.
+
+*Evidence:* CLM-C11-08, EXP-C11-03, EXP-C11-04, EXP-C11-05
+
+### [2026-10-18T08:50:02Z] Historian and Novelty Analyst — novelty (`C11-09`)
+
+T_11 and T_(1^k) are the Fibonacci codes of Apostolico-Fraenkel (1987) and Fraenkel-Klein (1996); the generating
+function and the correlation ordering are Guibas-Odlyzko (1981); counts are in the OEIS. Fraenkel-Klein's C3
+(1996) is the closest prior art for T_011: it already improves C1 using the pattern 011, but is not prefix-free.
+Corollaries 4 and 6 and Proposition 5 were not found: potentially novel, low confidence.
+
+*Evidence:* CLM-C11-01, CLM-C11-02, CLM-C11-04, CLM-C11-07, CLM-C11-09
+
+### [2026-10-18T08:50:02Z] Mathematical Skeptic — review (`C11-10`)
+
+Demanded C3 as a baseline (EXP-C11-09). T_011 beats C3 except at n = 2, 4, 8, but those three values let C3 beat
+T_011 on 7 light-tailed sources and data sets; with C3 included, the margin of pattern codes over the best
+classical code shrinks from 0.58-3.06 to 0.34-3.06 bits per value. The improvement claim stays MIXED.
+
+*Evidence:* CLM-C11-09, CLM-C11-08, EXP-C11-09
+
+### [2026-10-18T08:50:02Z] Research Director — direction (`C11-11`)
+
+Recommend T_0111 or T_101 for heavy-tailed integer streams of unknown scale, Golomb-Rice for geometric gaps and
+gamma, Fibonacci or C3 for small values. Open: table-driven decoders, multi-pattern terminators, robustness.
+
+*Evidence:* CLM-C11-08
+
+
+## C12
+
+### [2026-10-18T08:50:02Z] Mathematical Inventor — hypothesis (`C12-01`)
+
+Bold guesses H-C12-1 (Grundy values of divisibility and coprimality games depend only on the prime signature) and H-C12-2 (sparse move sets keep a positive density of P-positions, as powers of k do).
+
+*Evidence:* CLM-C12-10, CLM-C12-11
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — experiment (`C12-02`)
+
+Census of 19 relational one-heap games - 5 eventually periodic, 14 not within range; recognisable values v2, v2 + 1, Omega, smallest-prime index, popcount and logarithmic step functions.
+
+*Evidence:* EXP-C12-01, CLM-C12-09
+
+### [2026-10-18T08:50:02Z] Mathematical Skeptic — failure (`C12-03`)
+
+The first census reported a period for subtract-a-Fibonacci with preperiod 99970 and constant tails for the logarithmic games - end-of-range artefacts. The detector now requires the periodic tail to cover half the range; the census was re-run and both runs are kept.
+
+*Evidence:* EXP-C12-01
+
+### [2026-10-18T08:50:02Z] Formal Verifier — proof (`C12-04`)
+
+Lean - uniqueness of Grundy functions, the residue lemma (powers of 2 give n mod 3), the splitting parity theorem and the P-positions of G03, all with standard axioms and no sorry. Written proofs for the divisibility, coprimality, bitwise and quotient games.
+
+*Evidence:* CLM-C12-01, CLM-C12-02, CLM-C12-03, CLM-C12-05, CLM-C12-06, CLM-C12-07
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — result (`C12-05`)
+
+Both bold hypotheses fail - n = 2 and 3 already separate a signature class in G01, and the P-density of subtract-a-square falls from 0.0538 to 0.0222; the Furstenberg-Sarkozy theorem shows it must tend to 0.
+
+*Evidence:* EXP-C12-05, EXP-C12-03, CLM-C12-10, CLM-C12-11, CLM-C12-08
+
+### [2026-10-18T08:50:02Z] Historian and Novelty Analyst — novelty (`C12-06`)
+
+OEIS - only G03 matches nothing. The G10c hit (shifted window of A014586) is spurious; G19 is A099396 shifted by one; G06 is exactly A279119.
+
+*Evidence:* EXP-C12-04
+
+### [2026-10-18T08:50:02Z] Historian and Novelty Analyst — novelty (`C12-07`)
+
+G03 is Codeforces 1537D "Deleting Divisors" (2021) - its P-positions are the official solution, so CLM-C12-03 is downgraded from potentially novel to rediscovery. Iannucci and Larsson (2021) already contain G02, G04, G05, G06 (values plus one) and G19 (Theorem 12, proof left to the reader).
+
+*Evidence:* CLM-C12-03, CLM-C12-01, CLM-C12-02, CLM-C12-05
+
+### [2026-10-18T08:50:02Z] Mathematical Explorer — surprise (`C12-08`)
+
+The Grundy values of G03 equal v2(n) except on numbers with odd part at most 15 (96 exceptions up to 1e5) - forbidding "subtract 1" perturbs G01 only on a thin, explicitly describable set, with eventual shifts -2, +2, +1 and -1.
+
+*Evidence:* EXP-C12-06, CLM-C12-04
+
+### [2026-10-18T08:50:02Z] Formal Verifier — proof (`C12-09`)
+
+Theorem 8 proved computer-assisted - exact base range n <= 1e5, written induction for odd parts >= 17, shift invariance plus a finite certificate for odd parts <= 15 (0 failures for a <= 100), 0 failures in 4000 random mex checks. Flagged for Skeptic review.
+
+*Evidence:* CLM-C12-04, EXP-C12-06
+
+### [2026-10-18T08:50:02Z] Mathematical Skeptic — decision (`C12-10`)
+
+H-C12-0 is recorded as inconclusive, not refuted - its "closed form" clause is not falsifiable; only the periodic alternatives are excluded, by proof, for squares and triangular numbers.
+
+*Evidence:* CLM-C12-09, CLM-C12-08
+
+### [2026-10-18T08:50:02Z] Application Researcher — result (`C12-11`)
+
+Theorem 8 solves sums of deleting-divisors heaps by XOR of closed-form values; beyond recreational and competitive-programming games no application was found, and no performance improvement is claimed.
+
+*Evidence:* CLM-C12-04
+
+### [2026-10-18T08:50:02Z] Historian and Novelty Analyst — novelty (`C12-12`)
+
+The bound 11 for subtract-a-prime is documented in OEIS A014589 up to 1e9 (Huet 2022, Dobbelaere 2024), so CLM-C12-12 is a weak rediscovery; the Fibonacci bound (CLM-C12-13) was not found in the entries read.
+
+*Evidence:* CLM-C12-12, CLM-C12-13
+
+
+## C07
+
+### [2026-10-18T09:13:45Z] Mathematical Inventor — hypothesis (`C07-01`)
+
+Operations defined only by exclusion - f(a,b) is the least value not produced by earlier entries - form a 512-member family containing Conway's nim-sum and nim-product. H-C07-1 (bold) - these two are the only non-trivial associative members. H-C07-2 (bold) - commutative members are closed on the Fermat segments like the nimbers.
+
+*Evidence:* EXP-C07-01
+
+### [2026-10-18T09:13:45Z] Mathematical Explorer — result (`C07-02`)
+
+EXP-C07-01 - 134 distinct operations, 11 associative - 0, projections, a[b>0], b[a>0], min, +, XOR, nim-product and zero-absorbing shifts of XOR and +. Ordinary addition and min arise from mex as well, refuting H-C07-1; H-C07-2 fails for 30 of 34 commutative operations.
+
+*Evidence:* EXP-C07-01, CLM-C07-01, CLM-C07-02, CLM-C07-04
+
+### [2026-10-18T09:13:45Z] Formal Verifier — decision (`C07-03`)
+
+Found and fixed a bug before it affected any recorded result - in systems/mex.table the loop variable over D-masks shadowed the column count m of the new rectangular mode, truncating rows. EXP-C07-01/02 used the square mode (unaffected); the fix was regression-tested against the plain implementation.
+
+*Evidence:* EXP-C07-03
+
+### [2026-10-18T09:13:45Z] Mathematical Explorer — result (`C07-04`)
+
+Row 2 of D[x^y] is not additively periodic - f(2,b) - b takes the values +-1, +-3, +-5, +-11, +-21, ..., the Jacobsthal numbers, in blocks of the same lengths. Verified for b < 2^15 with an independent algorithm (EXP-C07-03).
+
+*Evidence:* EXP-C07-03
+
+### [2026-10-18T09:13:45Z] Formal Verifier — proof (`C07-05`)
+
+Proved the Jacobsthal row (Theorem 3) - since J_(k+1) + J_k = 2^k, the row swaps [2^k - J_k, 2^k) with [2^k, 2^k + J_k); each step of the induction reduces to a bit estimate (x XOR (x + c) > x for c > x; J_k < 2^(k-1) < J_(k+1)). The theorem refutes the bold additive-periodicity hypothesis H-C07-4 rigorously.
+
+*Evidence:* CLM-C07-05, CLM-C07-06, proofs/paper/C07.md
+
+### [2026-10-18T09:13:45Z] Historian — novelty (`C07-06`)
+
+Nim-sum and nim-product are Conway's; + and min are rank functions of product posets (folklore in combinatorial game theory). No OEIS entry for the Jacobsthal row or for 88 further sequences of the census; no prior mex recursion of the D[x^y] form found.
+
+*Evidence:* CLM-C07-01, CLM-C07-05, CLM-C07-07
+
+
+## C14
+
+### [2026-10-18T09:13:45Z] Mathematical Inventor — hypothesis (`C14-01`)
+
+Opened C14 (System D): treat graphs as the quantities and the 256 local products as candidate multiplications. Bold hypotheses: H-C14-1 (isomorphism-level associativity is no weaker than strict), H-C14-3 (unique factorisation for all six commutative unital associative products on connected or co-connected graphs), H-C14-4 (two-graphs factor uniquely under xor).
+
+*Evidence:* EXP-C14-01, EXP-C14-02
+
+### [2026-10-18T09:13:45Z] Formal Verifier — proof (`C14-02`)
+
+Reduced associativity to a 27-entry identity on relations and proved in Lean that P3 x P3 x P3 detects every failure (both directions, arbitrary vertex types); the count 20/10 then follows by kernel computation.
+
+*Evidence:* CLM-C14-01, CLM-C14-02
+
+### [2026-10-18T09:13:45Z] Historian and Novelty Analyst — novelty (`C14-03`)
+
+The count of 20 associative products is Imrich-Izbicki (1975); Nowakowski-Rall (1996) report 10 depending on both factors, 8 of them commutative - our classification reproduces both numbers exactly.
+
+*Evidence:* CLM-C14-02
+
+### [2026-10-18T09:13:45Z] Mathematical Explorer — result (`C14-04`)
+
+H-C14-1 survives: all 236 non-associative and 224 non-commutative products are already caught by factors with at most 3 vertices, and the degree sequences alone certify every witness.
+
+*Evidence:* EXP-C14-02, CLM-C14-03
+
+### [2026-10-18T09:13:45Z] Formal Verifier — surprise (`C14-05`)
+
+Solving the character equations shows that the commutative associative products are exactly the products linearised by I, A and J: six multiplicative (Kronecker) and two additive (Kronecker sum). For the symmetric difference the character is S(G) + I - the symmetric difference is the Kronecker product of Seidel matrices and therefore acts on two-graphs.
+
+*Evidence:* EXP-C14-03, CLM-C14-04, CLM-C14-05, CLM-C14-06
+
+### [2026-10-18T09:13:45Z] Mathematical Skeptic — rejection (`C14-06`)
+
+H-C14-3 refuted by the symmetric difference: K2 xor K2 xor K2 = K2 xor K_{1,3} (connected, order 8), and in all graphs C4 = K2 xor K2 = K2 xor 2K1. Cause: K2 absorbs Seidel switching, and C4 ~ K_{1,3}.
+
+*Evidence:* EXP-C14-04, CLM-C14-08, CLM-C14-07
+
+### [2026-10-18T09:13:45Z] Mathematical Explorer — pattern (`C14-07`)
+
+Complete bipartite graphs under xor behave like split-complex numbers: K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}, i.e. order and imbalance multiply - the order-15 collision 3K1 xor K_{2,3} = K_{1,2} xor K_{1,4} is (3,3)(5,1) = (3,1)(5,3).
+
+*Evidence:* CLM-C14-07, EXP-C14-04
+
+### [2026-10-18T09:13:45Z] Mathematical Explorer — surprise (`C14-08`)
+
+On the level the product actually sees - two-graphs - every factorisation up to order 16 is unique, and on co-connected graphs (product 141 on connected graphs) none collide up to order 15. H-C14-4 survives as a conjecture.
+
+*Evidence:* EXP-C14-05, CLM-C14-12, CLM-C14-13
+
+### [2026-10-18T09:13:45Z] Historian and Novelty Analyst — novelty (`C14-09`)
+
+The connected Cartesian prime counts are OEIS A129582 (Ji Li 2007) for every n <= 15, which also validates the census pipeline; the strong product gives identical counts because both monoids are polynomial semirings in their connected primes. No source found for the Seidel-Kronecker identity of the symmetric difference beyond the edgeless-factor special case.
+
+*Evidence:* CLM-C14-09, CLM-C14-06
+
+### [2026-10-18T09:13:45Z] Application Researcher — result (`C14-10`)
+
+Spectra of products from factors via the characters: exact to 1.2e-14 and orders of magnitude faster than diagonalising the product (standard Kronecker gain). Squaring the 6-point regular two-graph gives 36 equiangular lines in R^18 - no improvement (36 lines exist already in R^15; 57 <= N(18) <= 59).
+
+*Evidence:* EXP-C14-07
+
+### [2026-10-18T09:13:45Z] Mathematical Skeptic — review (`C14-11`)
+
+Independent re-implementation (no shared code) reproduced the classification, all 460 witnesses, the explicit xor isomorphisms, the bipartite formula, the Seidel identity in exact integers and K2-absorption; the census pipeline was validated against A129582 and A002854.
+
+*Evidence:* EXP-C14-06
+

@@ -1,0 +1,10 @@
+{
+ "words_len_le_12_containing_0011": 3747,
+ "finite_reachable": 3747,
+ "largest_reachable_set": 33,
+ "reach_001001001111_under_0011->11100000": {
+  "words": 232,
+  "longest": 104
+ },
+ "_seconds": 0.0
+}

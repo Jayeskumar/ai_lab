@@ -1,0 +1,28 @@
+{
+  "cycle": "C12",
+  "evidence": [
+    "EXP-C12-01",
+    "EXP-C12-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C12",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C12-07",
+  "lean": [
+    "proofs/lean/Infinity/C12_Games.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Classical parity argument (every move adds one heap, as in the chocolate-bar puzzle); the sequences are OEIS A000035 / A059841.",
+  "proof": "proofs/paper/C12.md#theorem-6-clm-c12-07--splitting-games",
+  "proof_check": "Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext, Quot.sound; no sorry); G16, G17 and 40 random splitting relations checked (EXP-C12-02)",
+  "statement": "In every take-and-break game in which a heap is replaced by two nonempty heaps from a set of allowed splits,\nand every heap n >= 2 has at least one allowed split, g(n) = 1 for even n and g(n) = 0 for odd n (n >= 1);\nequivalently, every play lasts exactly n - 1 moves.",
+  "system": "SYS-D",
+  "title": "Splitting games in which every heap can be split have g(n) = [n even]",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

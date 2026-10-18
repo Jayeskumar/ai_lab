@@ -3,10 +3,10 @@
     "command": "python -m lab run EXP-C11-08",
     "file": "experiments/C11/E08_gain_oscillation.py",
     "sha256": "133bc11ba9a0aa91213d3fd04bde6355b8823a8044a15fb8c9cdeee4d83d6043",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "ba4aa212b7a37a6416ad716176d703b87034f77fd484a857eb61536e5097896e"
   },
   "env": {
-    "git_head": "9ea9c0a3c1725392b7e95d5f69ee83c540439d04",
+    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:30:03Z",
+  "finished": "2026-10-18T08:50:43Z",
   "id": "EXP-C11-08",
   "meta": {
     "agent": "Mathematical Skeptic",
@@ -115,6 +115,6 @@
     ]
   },
   "results_sha256": "627c7f71c24cf0bc80c33f76e8bdae38de1b74c8cf25998e471c22ee6f12fc8a",
-  "runtime_s": 0.169,
-  "started": "2026-10-18T08:30:03Z"
+  "runtime_s": 0.144,
+  "started": "2026-10-18T08:50:43Z"
 }

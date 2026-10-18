@@ -1,0 +1,25 @@
+{
+  "cycle": "C14",
+  "evidence": [
+    "EXP-C14-02",
+    "EXP-C14-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C14",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C14-03",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Bold hypothesis H-C14-1 of this cycle; whether Imrich-Izbicki or later work address isomorphism-level associativity could not be checked (abstracts only).",
+  "proof": "proofs/paper/C14.md#theorem-3-clm-c14-03--up-to-isomorphism-is-no-weaker",
+  "proof_check": "computer-assisted - explicit witnesses for all 236 + 224 codes, each certified by edge count/degree sequence (hand-checkable), found in EXP-C14-02 and re-certified by the independent implementation of EXP-C14-06",
+  "statement": "A local product satisfies (G*H)*K isomorphic to G*(H*K) for all graphs iff it is strictly associative, and\nG*H isomorphic to H*G for all graphs iff S is symmetric. For each of the 236 non-associative (224\nnon-commutative) products a witness exists with factors of at most 3 vertices whose two sides differ in edge\ncount or degree sequence.",
+  "system": "SYS-D",
+  "title": "For local graph products, associativity and commutativity up to isomorphism are no weaker than the strict notions",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

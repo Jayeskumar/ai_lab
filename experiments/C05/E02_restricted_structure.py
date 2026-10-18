@@ -11,7 +11,7 @@ from systems.magma import MagmaSAT, is_quasigroup, models_up_to_iso, parse, sati
 META = {
     "id": "EXP-C05-02",
     "cycle": "C05",
-    "title": "Restricted-spectrum identities: extended spectra (n = 7..10) and forced structure",
+    "title": "Restricted-spectrum identities: extended spectra (n = 7, 8) and forced structure",
     "agent": "Mathematical Explorer",
     "question": "For identities whose spectrum is restricted, which classical laws hold in all their small models, "
                 "and how do the spectra continue beyond n = 7?",
@@ -19,10 +19,10 @@ META = {
                   "semisymmetry, total symmetry), i.e. classical combinatorial designs; their spectra continue "
                   "with the corresponding design spectra.",
     "assumptions": ["input: the restricted identities found by EXP-C05-01 (read from results/EXP-C05-01.json)",
-                    "SAT conflict budget 3e6 per instance for n = 7..10 (UNKNOWN recorded as such)",
+                    "SAT conflict budget 5e5 per instance for n = 7, 8 (UNKNOWN recorded as such)",
                     "sound implied constraints (Lemma 1/4 of proofs/paper/C05.md): rows are permutations when "
                     "t = y*(...), columns are permutations when t = (...)*y; symmetry break 0*0 in {0,1}"],
-    "methodology": "Extend each spectrum to n = 7..10. Enumerate all models up to isomorphism for n <= 5 "
+    "methodology": "Extend each spectrum to n = 7, 8. Enumerate all models up to isomorphism for n <= 5 "
                    "(cap 5000 per size) and test a battery of classical laws on every model; group identities "
                    "with identical model sets for n <= 5 (candidate equivalent laws).",
     "falsification": "A restricted identity with a non-quasigroup model, or spectra that do not match any "
@@ -45,7 +45,7 @@ def extended_status(law, n):
                 sat.clauses += CardEnc.equals([sat.v[a, b, c] for a in R], 1, vpool=sat.pool,
                                               encoding=EncType.pairwise).clauses
     sat.clauses.append([sat.v[0, 0, 0], sat.v[0, 0, 1]])
-    status, T = sat.solve(conf_budget=3_000_000)
+    status, T = sat.solve(conf_budget=500_000)
     if status == "SAT":
         assert satisfies(T, law)
     return status
@@ -73,7 +73,7 @@ def run():
     rows = []
     for r in restricted + only_one:
         law = (parse(r["identity"].split(" = ")[0]), "x")
-        ext = {n: extended_status(law, n) for n in range(7, 11)}
+        ext = {n: extended_status(law, n) for n in range(7, 9)}
         props = {name: True for name in BATTERY}
         qg = True
         reps_all = []
@@ -90,8 +90,8 @@ def run():
                 for name, idn in BATTERY.items():
                     if props[name] and not satisfies(T, idn):
                         props[name] = False
-        pattern = r["spectrum_1_6"] + "".join({"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[ext[n]] for n in range(7, 11))
-        rows.append({"identity": r["identity"], "spectrum_1_10": pattern, "iso_models_n2_5": iso_counts,
+        pattern = r["spectrum_1_6"] + "".join({"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[ext[n]] for n in range(7, 9))
+        rows.append({"identity": r["identity"], "spectrum_1_8": pattern, "iso_models_n2_5": iso_counts,
                      "all_models_quasigroups_n_le_5": qg,
                      "laws_holding_in_all_models_n_le_5": [k for k, v in props.items() if v],
                      "model_signature": sorted(map(str, reps_all))})
@@ -103,7 +103,7 @@ def run():
         row.pop("model_signature")
     by_pattern = {}
     for row in rows:
-        by_pattern.setdefault(row["spectrum_1_10"], []).append(row["identity"])
+        by_pattern.setdefault(row["spectrum_1_8"], []).append(row["identity"])
     return {
         "rows": rows,
         "patterns_1_10": {p: v for p, v in sorted(by_pattern.items())},
@@ -111,7 +111,7 @@ def run():
         "model_equivalence_groups": [g for g in groups.values()],
         "timings": {"seconds": round(time.time() - t0, 1)},
         "summary": [
-            f"{len(rows)} identities studied; spectrum patterns over n = 1..10: "
+            f"{len(rows)} identities studied; spectrum patterns over n = 1..8: "
             f"{ {p: len(v) for p, v in sorted(by_pattern.items())} }",
             f"all small models quasigroups for {sum(r['all_models_quasigroups_n_le_5'] for r in rows)}/{len(rows)}",
             f"{len(groups)} groups of identities with identical model sets for n <= 5",

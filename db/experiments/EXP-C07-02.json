@@ -1,0 +1,80 @@
+{
+  "agent": "Historian",
+  "analysis": "In all 34 commutative operations 0 is absorbing (no L, R options) or an identity (L and R); no simple closed form for the chaotic ones (tested candidates a^b^ab, (a^1)(b^1)^1, ab, ...). Of the diagonals and rows 1-3 looked up, 88 sequences have no OEIS match (e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, ... of L+R+D[x^y^z]); maximal values grow roughly quadratically (bounded by (a+1)(b+1) - 1). One match (L+R+D[x^y] diagonal 0, 2, 1, 1, 1, ... vs A137993) is a coincidence of an almost constant sequence.",
+  "assumptions": [
+    "tables for a, b < 96; OEIS lookups cached in cache/oeis; constant, identity-like and arithmetic-progression sequences are not looked up"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C07-02",
+    "file": "experiments/C07/E02_commutative_structure.py",
+    "sha256": "4fbdd8da5c560d053189acfc7da223d85ce4625d0a4d041e43ddddcaf46b9377",
+    "systems_sha256": "7f4a460f3c7e0ec694cb78503916925152e974e6d03149c13bd6c60f4986e730"
+  },
+  "cycle": "C07",
+  "falsification": "A commutative operation in which 0 is neither absorbing nor an identity, or a diagonal without OEIS match.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:03:53Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "analysis",
+      "new": "In all 34 commutative operations 0 is absorbing (no L, R options) or an identity (L and R); no simple closed form for the chaotic ones (tested candidates a^b^ab, (a^1)(b^1)^1, ab, ...). Of the diagonals and rows 1-3 looked up, 88 sequences have no OEIS match (e.g. the diagonal 0, 2, 1, 5, 7, 4, 3, 16, ... of L+R+D[x^y^z]); maximal values grow roughly quadratically (bounded by (a+1)(b+1) - 1). One match (L+R+D[x^y] diagonal 0, 2, 1, 1, 1, ... vs A137993) is a coincidence of an almost constant sequence.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C07-03",
+        "CLM-C07-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "hypothesis": "H-C07-3: every commutative mex operation has 0 as an absorbing element or an identity, and its diagonal f(n,n) is a known OEIS sequence.",
+  "id": "EXP-C07-02",
+  "methodology": "For each distinct commutative operation (first spec of each group, as in EXP-C07-01): absorbing/identity checks on [0,96)^2, growth of f(n,n) and max f(a,b) for a,b < n, OEIS novelty checks of the diagonal and of rows 1-3 (first 40 terms).",
+  "question": "Do the non-associative commutative mex operations have recognisable structure (identity elements, absorbing elements, linear growth, known sequences)?",
+  "related": [
+    "CLM-C07-03",
+    "CLM-C07-07"
+  ],
+  "results_file": "results/EXP-C07-02.json",
+  "results_sha256": "a6b41e5bac1bd976308a9e0a15146f2f070f22b22ec9fc0309745f4eb0da47ee",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C07-02",
+        "file": "experiments/C07/E02_commutative_structure.py",
+        "sha256": "4fbdd8da5c560d053189acfc7da223d85ce4625d0a4d041e43ddddcaf46b9377",
+        "systems_sha256": "7f4a460f3c7e0ec694cb78503916925152e974e6d03149c13bd6c60f4986e730"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:03:52Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C07-02.json",
+      "results_sha256": "a6b41e5bac1bd976308a9e0a15146f2f070f22b22ec9fc0309745f4eb0da47ee",
+      "runtime_s": 591.138,
+      "started": "2026-10-18T08:54:01Z",
+      "summary": [
+        "34 commutative operations; 0 neither absorbing nor identity in 0: []",
+        "sequences without OEIS match: 88 [('D[x^y]', 'row2'), ('D[x^y]', 'row3'), ('D[x^y]+D[z]', 'diag'), ('D[x^y]+D[z]', 'row2'), ('D[x^y]+D[z]', 'row3'), ('D[x^y]+D[x^y^z]', 'diag'), ('D[x^y]+D[x^y^z]', 'row2'), ('D[x^y]+D[x^y^z]', 'row3'), ('D[z]+D[x^y^z]', 'diag'), ('D[z]+D[x^y^z]', 'row2'), ('D[z]+D[x^y^z]', 'row3'), ('D[x^z]+D[y^z]', 'diag')]"
+      ]
+    }
+  ],
+  "summary": [
+    "34 commutative operations; 0 neither absorbing nor identity in 0: []",
+    "sequences without OEIS match: 88 [('D[x^y]', 'row2'), ('D[x^y]', 'row3'), ('D[x^y]+D[z]', 'diag'), ('D[x^y]+D[z]', 'row2'), ('D[x^y]+D[z]', 'row3'), ('D[x^y]+D[x^y^z]', 'diag'), ('D[x^y]+D[x^y^z]', 'row2'), ('D[x^y]+D[x^y^z]', 'row3'), ('D[z]+D[x^y^z]', 'diag'), ('D[z]+D[x^y^z]', 'row2'), ('D[z]+D[x^y^z]', 'row3'), ('D[x^z]+D[y^z]', 'diag')]"
+  ],
+  "title": "Commutative mex operations: identities, zeros, value growth and OEIS status of their sequences"
+}

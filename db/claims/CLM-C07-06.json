@@ -1,0 +1,22 @@
+{
+  "counterexample": "Row 2 of D[x^y] (Theorem 3): |f(2,b) - b| = J_k on the k-th block pair, which rules out every (p, s). Numerically only 222 of 670 rows (a = 1..5, b < 1500) have a period <= 375.",
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every operation of the family and every a, the row b -> f(a,b) satisfies f(a, b + p) = f(a, b) + s for all large b, for some p >= 1 and s, as for Wythoff's game.",
+  "system": "SYS-B",
+  "title": "H-C07-4: every row of every mex operation is eventually additively periodic (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

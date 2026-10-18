@@ -1,0 +1,25 @@
+{
+  "cycle": "C11",
+  "evidence": [
+    "EXP-C11-08",
+    "EXP-C11-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C11",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:50:02Z"
+    }
+  ],
+  "id": "CLM-C11-07",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.",
+  "proof": "proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates",
+  "proof_check": "written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)",
+  "statement": "For k >= 2, lambda the k-bonacci constant and u unbordered of length k + 1, the running average\nG(N) = (1/N) sum_(n<=N) (L_(1^k)(n) - L_u(n)) has liminf (2 - lambda)/(lambda - 1)^2 and limsup\nlambda(2 - lambda)/(lambda - 1) (both 1 for k = 2; 0.228155 and 0.352201 for k = 3).",
+  "system": "SYS-C",
+  "title": "The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-1)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

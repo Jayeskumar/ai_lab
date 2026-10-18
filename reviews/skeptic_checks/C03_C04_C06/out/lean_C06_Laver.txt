@@ -1,0 +1,13 @@
+'Infinity.C06.laver3_anchored' depends on axioms: [propext]
+'Infinity.C06.laver3_left_distributive' depends on axioms: [propext]
+'Infinity.C06.no_anchored_ld_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C06.anchored_assoc_unique' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.anchored_rd_unique' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.odd_law_even_impossible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C06.odd_law_formula' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.odd_law_model' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.leftPerm_assoc' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.leftPerm_comm' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.leftPerm_one_mul' depends on axioms: [propext, Quot.sound]
+'Infinity.C06.leftPerm_mul_one' depends on axioms: [propext, Quot.sound]
+exit 0, wall 1792314046-1792314032 = 14 s

@@ -1,0 +1,1945 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C14-04",
+    "file": "experiments/C14/E04_factorisation_census.py",
+    "sha256": "6ec37cf3b4547e7b5cd2f4f9b7b6cfc4b3a24d1202523121a131c53f7dfe1ede",
+    "systems_sha256": "0e3cdebc2fc10d491a03ce47222f48a283e26c444ac4b31099144a2acd71a4cd"
+  },
+  "env": {
+    "git_head": "f503d24626bd2b073316c2d6a649a6b45c4da44e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:44:49Z",
+  "id": "EXP-C14-04",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "all graphs with <= 7 vertices (networkx atlas) as candidate factors; composites of order n <= 15 are exactly the products of primes of orders whose product is n (n in 4,6,8,9,10,12,14,15)",
+      "graph counts A000088 / A001349 taken from the OEIS (cached) to turn composite counts into prime counts",
+      "isomorphism decided exactly (invariants + VF2)"
+    ],
+    "cycle": "C14",
+    "falsification": "A connected (resp. co-connected) graph with two different factorisations into connected (resp. co-connected) primes for one of the six commutative unital products.",
+    "hypothesis": "H-C14-3 (bold, Inventor): each of the six commutative unital associative products has unique prime factorisation on connected graphs (Cartesian: Sabidussi-Vizing; strong: Doerfler-Imrich/McKenzie) or, for the complement-duals, on co-connected graphs. H-C14-7: Cartesian-prime and strong-prime connected graphs are equinumerous in every order (forced by unique factorisation and the common count of connected graphs).",
+    "id": "EXP-C14-04",
+    "methodology": "For each product: find the composite graphs of orders 4 and 6 among the atlas graphs, take the rest as primes, enumerate all prime factorisations (multisets for commutative products, sequences otherwise) of every order <= 15, classify the products up to isomorphism, and record classes with more than one factorisation; repeat inside the class of connected graphs; verify the classical 63-vertex Cartesian counterexample (K1+K2+Q2)(K1+Q3) = (K1+Q2+Q4)(K1+K2).",
+    "question": "For each associative local product with two-sided unit K1, which graphs of order <= 15 are composite, how many primes are there of each order, and where does unique factorisation fail?",
+    "title": "Prime factorisation census for the eight associative local products with unit K1 (orders <= 15)"
+  },
+  "results": {
+    "cartesian_equals_strong_connected_prime_counts": true,
+    "connected_primes_cartesian_strong": {
+      "cartesian": {
+        "2": 1,
+        "3": 2,
+        "4": 5,
+        "5": 21,
+        "6": 110,
+        "7": 853,
+        "8": 11111,
+        "9": 261077,
+        "10": 11716550,
+        "11": 1006700565,
+        "12": 164059830354,
+        "13": 50335907869219,
+        "14": 29003487462847208,
+        "15": 31397381142761241918
+      },
+      "strong": {
+        "2": 1,
+        "3": 2,
+        "4": 5,
+        "5": 21,
+        "6": 110,
+        "7": 853,
+        "8": 11111,
+        "9": 261077,
+        "10": 11716550,
+        "11": 1006700565,
+        "12": 164059830354,
+        "13": 50335907869219,
+        "14": 29003487462847208,
+        "15": 31397381142761241918
+      }
+    },
+    "known_63_vertex_counterexample": {
+      "cartesian": {
+        "isomorphic": true,
+        "order": 63
+      },
+      "strong": {
+        "isomorphic": true,
+        "order": 63
+      }
+    },
+    "nonunique_multiset_all_graphs": {
+      "EA AE AA AN NA NN": {},
+      "EA AE AA NA": {
+        "10": 2,
+        "14": 6
+      },
+      "EA AE AA NN": {
+        "4": 1,
+        "6": 2,
+        "8": 3,
+        "10": 7,
+        "12": 16,
+        "14": 54,
+        "15": 1
+      },
+      "cartesian": {},
+      "co-normal": {},
+      "lexicographic": {
+        "10": 2,
+        "14": 6
+      },
+      "strong": {},
+      "symmetric difference": {
+        "4": 1,
+        "6": 2,
+        "8": 3,
+        "10": 7,
+        "12": 16,
+        "14": 54,
+        "15": 1
+      }
+    },
+    "nonunique_multiset_connected": {
+      "EA AE AA AN NA NN": {
+        "12": 2
+      },
+      "EA AE AA NA": {
+        "10": 1,
+        "12": 1,
+        "14": 3
+      },
+      "EA AE AA NN": {},
+      "cartesian": {},
+      "co-normal": {
+        "12": 2
+      },
+      "lexicographic": {
+        "10": 1,
+        "12": 1,
+        "14": 3
+      },
+      "strong": {},
+      "symmetric difference": {
+        "8": 2,
+        "10": 6,
+        "12": 15,
+        "14": 53
+      }
+    },
+    "nonunique_ordered_all_graphs": {
+      "EA AE AA AN NA NN": {},
+      "EA AE AA NA": {
+        "6": 2,
+        "10": 4,
+        "12": 6,
+        "14": 8,
+        "15": 2
+      },
+      "EA AE AA NN": {
+        "4": 1,
+        "6": 2,
+        "8": 3,
+        "10": 7,
+        "12": 16,
+        "14": 54,
+        "15": 1
+      },
+      "cartesian": {},
+      "co-normal": {},
+      "lexicographic": {
+        "6": 2,
+        "10": 4,
+        "12": 6,
+        "14": 8,
+        "15": 2
+      },
+      "strong": {},
+      "symmetric difference": {
+        "4": 1,
+        "6": 2,
+        "8": 3,
+        "10": 7,
+        "12": 16,
+        "14": 54,
+        "15": 1
+      }
+    },
+    "oeis": {
+      "EA AE AA AN NA NN primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          8,
+          34,
+          148,
+          1044,
+          12326,
+          274658,
+          12005100,
+          1018997864
+        ]
+      },
+      "EA AE AA NA primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          7,
+          34,
+          142,
+          1044,
+          12310,
+          274652,
+          12005036,
+          1018997864
+        ]
+      },
+      "EA AE AA NN primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          9,
+          34,
+          150,
+          1044,
+          12333,
+          274658,
+          12005127,
+          1018997864
+        ]
+      },
+      "cartesian connected primes n=2..15": {
+        "hits": [
+          {
+            "anumber": "A129582",
+            "name": "Number of unlabeled prime graphs with respect to the Cartesian multiplication of graphs with n vertices."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          5,
+          21,
+          110,
+          853,
+          11111,
+          261077,
+          11716550,
+          1006700565,
+          164059830354,
+          50335907869219,
+          29003487462847208,
+          31397381142761241918
+        ]
+      },
+      "cartesian primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          8,
+          34,
+          148,
+          1044,
+          12326,
+          274658,
+          12005100,
+          1018997864
+        ]
+      },
+      "co-normal primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          8,
+          34,
+          148,
+          1044,
+          12326,
+          274658,
+          12005100,
+          1018997864
+        ]
+      },
+      "lexicographic primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          7,
+          34,
+          142,
+          1044,
+          12310,
+          274652,
+          12005036,
+          1018997864
+        ]
+      },
+      "strong connected primes n=2..15": {
+        "hits": [
+          {
+            "anumber": "A129582",
+            "name": "Number of unlabeled prime graphs with respect to the Cartesian multiplication of graphs with n vertices."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          5,
+          21,
+          110,
+          853,
+          11111,
+          261077,
+          11716550,
+          1006700565,
+          164059830354,
+          50335907869219,
+          29003487462847208,
+          31397381142761241918
+        ]
+      },
+      "strong primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          8,
+          34,
+          148,
+          1044,
+          12326,
+          274658,
+          12005100,
+          1018997864
+        ]
+      },
+      "symmetric difference primes (all graphs) n=2..11": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          2,
+          4,
+          9,
+          34,
+          150,
+          1044,
+          12333,
+          274658,
+          12005127,
+          1018997864
+        ]
+      }
+    },
+    "products": {
+      "EA AE AA AN NA NN": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 8,
+            "example": null,
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 20,
+            "example": null,
+            "factorisations": 20
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 68,
+            "example": null,
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 340,
+            "example": null,
+            "factorisations": 340
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2088,
+            "example": null,
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 136,
+            "example": null,
+            "factorisations": 136
+          }
+        },
+        "code": 221,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 6,
+            "example": null,
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 21,
+            "example": null,
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 120,
+            "example": [
+              [
+                "A_",
+                "EyUw"
+              ],
+              [
+                "Bo",
+                "Cl"
+              ]
+            ],
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 853,
+            "example": null,
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 8,
+          "5": 34,
+          "6": 148,
+          "7": 1044,
+          "8": 12326,
+          "9": 274658,
+          "10": 12005100,
+          "11": 1018997864,
+          "12": 165091172252,
+          "13": 50502031367952,
+          "14": 29054155657233400,
+          "15": 31426485969804308632
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      },
+      "EA AE AA NA": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 4,
+            "example": null,
+            "factorisations": 4
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 14,
+            "example": [
+              [
+                "A?",
+                "B?"
+              ],
+              [
+                "B?",
+                "A?"
+              ]
+            ],
+            "factorisations": 16
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 36,
+            "example": null,
+            "factorisations": 36
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 16,
+            "example": null,
+            "factorisations": 16
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 4,
+            "composite_classes": 132,
+            "example": [
+              [
+                "A?",
+                "DOC"
+              ],
+              [
+                "Dl?",
+                "A?"
+              ]
+            ],
+            "factorisations": 136
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 6,
+            "composite_classes": 664,
+            "example": [
+              [
+                "A?",
+                "A?",
+                "B?"
+              ],
+              [
+                "A?",
+                "B?",
+                "A?"
+              ],
+              [
+                "B?",
+                "A?",
+                "A?"
+              ]
+            ],
+            "factorisations": 672
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 6,
+            "classes_with_several_factorisations": 8,
+            "composite_classes": 4168,
+            "example": [
+              [
+                "FGOg?",
+                "A?"
+              ],
+              [
+                "A?",
+                "F??K?"
+              ]
+            ],
+            "factorisations": 4176
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 270,
+            "example": [
+              [
+                "D??",
+                "B?"
+              ],
+              [
+                "B?",
+                "D??"
+              ]
+            ],
+            "factorisations": 272
+          }
+        },
+        "code": 77,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 3,
+            "example": [
+              [
+                "A_",
+                "Bw"
+              ],
+              [
+                "Bw",
+                "A_"
+              ]
+            ],
+            "factorisations": 4
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 11,
+            "example": null,
+            "factorisations": 11
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 4,
+            "example": null,
+            "factorisations": 4
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 40,
+            "example": [
+              [
+                "A_",
+                "Dl{"
+              ],
+              [
+                "D`{",
+                "A_"
+              ]
+            ],
+            "factorisations": 42
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 241,
+            "example": [
+              [
+                "EznW",
+                "A_"
+              ],
+              [
+                "Cl",
+                "Bw"
+              ]
+            ],
+            "factorisations": 244
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 3,
+            "classes_with_several_factorisations": 4,
+            "composite_classes": 1702,
+            "example": [
+              [
+                "FGEFw",
+                "A_"
+              ],
+              [
+                "A_",
+                "Fs\\vw"
+              ]
+            ],
+            "factorisations": 1706
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 83,
+            "example": [
+              [
+                "D~{",
+                "Bw"
+              ],
+              [
+                "Bw",
+                "D~{"
+              ]
+            ],
+            "factorisations": 84
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 7,
+          "5": 34,
+          "6": 142,
+          "7": 1044,
+          "8": 12310,
+          "9": 274652,
+          "10": 12005036,
+          "11": 1018997864,
+          "12": 165091171928,
+          "13": 50502031367952,
+          "14": 29054155657231320,
+          "15": 31426485969804308498
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 109,
+          "7": 853
+        }
+      },
+      "EA AE AA NN": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 2,
+            "example": [
+              [
+                "A?",
+                "A?"
+              ],
+              [
+                "A?",
+                "A_"
+              ]
+            ],
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 6,
+            "example": [
+              [
+                "A?",
+                "B?"
+              ],
+              [
+                "A?",
+                "Bo"
+              ]
+            ],
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 3,
+            "classes_with_several_factorisations": 3,
+            "composite_classes": 13,
+            "example": [
+              [
+                "A?",
+                "A?",
+                "A?"
+              ],
+              [
+                "A?",
+                "A?",
+                "A_"
+              ],
+              [
+                "A?",
+                "A_",
+                "A_"
+              ]
+            ],
+            "factorisations": 22
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 7,
+            "classes_with_several_factorisations": 7,
+            "composite_classes": 41,
+            "example": [
+              [
+                "A?",
+                "D??"
+              ],
+              [
+                "A?",
+                "D?{"
+              ],
+              [
+                "A?",
+                "D]o"
+              ]
+            ],
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 16,
+            "classes_with_several_factorisations": 16,
+            "composite_classes": 206,
+            "example": [
+              [
+                "A?",
+                "A?",
+                "B?"
+              ],
+              [
+                "A?",
+                "A?",
+                "Bo"
+              ],
+              [
+                "A?",
+                "A_",
+                "B?"
+              ]
+            ],
+            "factorisations": 348
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 54,
+            "classes_with_several_factorisations": 54,
+            "composite_classes": 1098,
+            "example": [
+              [
+                "A?",
+                "F????"
+              ],
+              [
+                "A?",
+                "F??Fw"
+              ],
+              [
+                "A?",
+                "F]rE?"
+              ]
+            ],
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 135,
+            "example": [
+              [
+                "BG",
+                "Des"
+              ],
+              [
+                "Bw",
+                "DwC"
+              ]
+            ],
+            "factorisations": 136
+          }
+        },
+        "code": 141,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 6,
+            "example": null,
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 21,
+            "example": null,
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 122,
+            "example": null,
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 853,
+            "example": null,
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 9,
+          "5": 34,
+          "6": 150,
+          "7": 1044,
+          "8": 12333,
+          "9": 274658,
+          "10": 12005127,
+          "11": 1018997864,
+          "12": 165091172386,
+          "13": 50502031367952,
+          "14": 29054155657234390,
+          "15": 31426485969804308633
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      },
+      "cartesian": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 8,
+            "example": null,
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 20,
+            "example": null,
+            "factorisations": 20
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 68,
+            "example": null,
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 340,
+            "example": null,
+            "factorisations": 340
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2088,
+            "example": null,
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 136,
+            "example": null,
+            "factorisations": 136
+          }
+        },
+        "code": 5,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 6,
+            "example": null,
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 21,
+            "example": null,
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 122,
+            "example": null,
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 853,
+            "example": null,
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 8,
+          "5": 34,
+          "6": 148,
+          "7": 1044,
+          "8": 12326,
+          "9": 274658,
+          "10": 12005100,
+          "11": 1018997864,
+          "12": 165091172252,
+          "13": 50502031367952,
+          "14": 29054155657233400,
+          "15": 31426485969804308632
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      },
+      "co-normal": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 8,
+            "example": null,
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 20,
+            "example": null,
+            "factorisations": 20
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 68,
+            "example": null,
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 340,
+            "example": null,
+            "factorisations": 340
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2088,
+            "example": null,
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 136,
+            "example": null,
+            "factorisations": 136
+          }
+        },
+        "code": 93,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 6,
+            "example": null,
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 21,
+            "example": null,
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 120,
+            "example": [
+              [
+                "A_",
+                "E?~o"
+              ],
+              [
+                "Bo",
+                "Cl"
+              ]
+            ],
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 853,
+            "example": null,
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 8,
+          "5": 34,
+          "6": 148,
+          "7": 1044,
+          "8": 12326,
+          "9": 274658,
+          "10": 12005100,
+          "11": 1018997864,
+          "12": 165091172252,
+          "13": 50502031367952,
+          "14": 29054155657233400,
+          "15": 31426485969804308632
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      },
+      "lexicographic": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 4,
+            "example": null,
+            "factorisations": 4
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 14,
+            "example": [
+              [
+                "A?",
+                "B?"
+              ],
+              [
+                "B?",
+                "A?"
+              ]
+            ],
+            "factorisations": 16
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 36,
+            "example": null,
+            "factorisations": 36
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 16,
+            "example": null,
+            "factorisations": 16
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 4,
+            "composite_classes": 132,
+            "example": [
+              [
+                "A?",
+                "Dl?"
+              ],
+              [
+                "DOC",
+                "A?"
+              ]
+            ],
+            "factorisations": 136
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 6,
+            "composite_classes": 664,
+            "example": [
+              [
+                "A?",
+                "A?",
+                "B?"
+              ],
+              [
+                "A?",
+                "B?",
+                "A?"
+              ],
+              [
+                "B?",
+                "A?",
+                "A?"
+              ]
+            ],
+            "factorisations": 672
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 6,
+            "classes_with_several_factorisations": 8,
+            "composite_classes": 4168,
+            "example": [
+              [
+                "F??K?",
+                "A?"
+              ],
+              [
+                "A?",
+                "FGOg?"
+              ]
+            ],
+            "factorisations": 4176
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 270,
+            "example": [
+              [
+                "D??",
+                "B?"
+              ],
+              [
+                "B?",
+                "D??"
+              ]
+            ],
+            "factorisations": 272
+          }
+        },
+        "code": 29,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 3,
+            "example": [
+              [
+                "A_",
+                "Bw"
+              ],
+              [
+                "Bw",
+                "A_"
+              ]
+            ],
+            "factorisations": 4
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 11,
+            "example": null,
+            "factorisations": 11
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 4,
+            "example": null,
+            "factorisations": 4
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 40,
+            "example": [
+              [
+                "A_",
+                "D`{"
+              ],
+              [
+                "Dl{",
+                "A_"
+              ]
+            ],
+            "factorisations": 42
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 241,
+            "example": [
+              [
+                "A_",
+                "EznW"
+              ],
+              [
+                "Bw",
+                "Cl"
+              ]
+            ],
+            "factorisations": 244
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 3,
+            "classes_with_several_factorisations": 4,
+            "composite_classes": 1702,
+            "example": [
+              [
+                "Fs\\vw",
+                "A_"
+              ],
+              [
+                "A_",
+                "FGEFw"
+              ]
+            ],
+            "factorisations": 1706
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 83,
+            "example": [
+              [
+                "D~{",
+                "Bw"
+              ],
+              [
+                "Bw",
+                "D~{"
+              ]
+            ],
+            "factorisations": 84
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 7,
+          "5": 34,
+          "6": 142,
+          "7": 1044,
+          "8": 12310,
+          "9": 274652,
+          "10": 12005036,
+          "11": 1018997864,
+          "12": 165091171928,
+          "13": 50502031367952,
+          "14": 29054155657231320,
+          "15": 31426485969804308498
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 109,
+          "7": 853
+        }
+      },
+      "strong": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 8,
+            "example": null,
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 20,
+            "example": null,
+            "factorisations": 20
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 68,
+            "example": null,
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 340,
+            "example": null,
+            "factorisations": 340
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2088,
+            "example": null,
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 136,
+            "example": null,
+            "factorisations": 136
+          }
+        },
+        "code": 13,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 6,
+            "example": null,
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 21,
+            "example": null,
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 122,
+            "example": null,
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 853,
+            "example": null,
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 8,
+          "5": 34,
+          "6": 148,
+          "7": 1044,
+          "8": 12326,
+          "9": 274658,
+          "10": 12005100,
+          "11": 1018997864,
+          "12": 165091172252,
+          "13": 50502031367952,
+          "14": 29054155657233400,
+          "15": 31426485969804308632
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      },
+      "symmetric difference": {
+        "all_graphs": {
+          "4": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 2,
+            "example": [
+              [
+                "A?",
+                "A_"
+              ],
+              [
+                "A_",
+                "A_"
+              ]
+            ],
+            "factorisations": 3
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 6,
+            "example": [
+              [
+                "A_",
+                "B?"
+              ],
+              [
+                "A_",
+                "Bo"
+              ]
+            ],
+            "factorisations": 8
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 3,
+            "classes_with_several_factorisations": 3,
+            "composite_classes": 13,
+            "example": [
+              [
+                "A?",
+                "A?",
+                "A_"
+              ],
+              [
+                "A?",
+                "A_",
+                "A_"
+              ],
+              [
+                "A_",
+                "A_",
+                "A_"
+              ]
+            ],
+            "factorisations": 22
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 10,
+            "example": null,
+            "factorisations": 10
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 7,
+            "classes_with_several_factorisations": 7,
+            "composite_classes": 41,
+            "example": [
+              [
+                "A_",
+                "D??"
+              ],
+              [
+                "A_",
+                "D?{"
+              ],
+              [
+                "A_",
+                "D]o"
+              ]
+            ],
+            "factorisations": 68
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 16,
+            "classes_with_several_factorisations": 16,
+            "composite_classes": 206,
+            "example": [
+              [
+                "A?",
+                "A_",
+                "B?"
+              ],
+              [
+                "A?",
+                "A_",
+                "Bo"
+              ],
+              [
+                "A_",
+                "A_",
+                "B?"
+              ]
+            ],
+            "factorisations": 348
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 54,
+            "classes_with_several_factorisations": 54,
+            "composite_classes": 1098,
+            "example": [
+              [
+                "A_",
+                "F????"
+              ],
+              [
+                "A_",
+                "F??Fw"
+              ],
+              [
+                "A_",
+                "F]rE?"
+              ]
+            ],
+            "factorisations": 2088
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 1,
+            "classes_with_several_factorisations": 1,
+            "composite_classes": 135,
+            "example": [
+              [
+                "B?",
+                "D]o"
+              ],
+              [
+                "Bo",
+                "D?{"
+              ]
+            ],
+            "factorisations": 136
+          }
+        },
+        "code": 85,
+        "connected": {
+          "4": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 1,
+            "example": null,
+            "factorisations": 1
+          },
+          "6": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 2,
+            "example": null,
+            "factorisations": 2
+          },
+          "8": {
+            "classes_with_several_factor_multisets": 2,
+            "classes_with_several_factorisations": 2,
+            "composite_classes": 3,
+            "example": [
+              [
+                "A_",
+                "A_",
+                "A_"
+              ],
+              [
+                "A_",
+                "CF"
+              ]
+            ],
+            "factorisations": 6
+          },
+          "9": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 3,
+            "example": null,
+            "factorisations": 3
+          },
+          "10": {
+            "classes_with_several_factor_multisets": 6,
+            "classes_with_several_factorisations": 6,
+            "composite_classes": 7,
+            "example": [
+              [
+                "A_",
+                "D?{"
+              ],
+              [
+                "A_",
+                "D]o"
+              ]
+            ],
+            "factorisations": 21
+          },
+          "12": {
+            "classes_with_several_factor_multisets": 15,
+            "classes_with_several_factorisations": 15,
+            "composite_classes": 26,
+            "example": [
+              [
+                "A_",
+                "A_",
+                "Bo"
+              ],
+              [
+                "A_",
+                "E?Bw"
+              ],
+              [
+                "A_",
+                "E?~o"
+              ]
+            ],
+            "factorisations": 122
+          },
+          "14": {
+            "classes_with_several_factor_multisets": 53,
+            "classes_with_several_factorisations": 53,
+            "composite_classes": 54,
+            "example": [
+              [
+                "A_",
+                "F??Fw"
+              ],
+              [
+                "A_",
+                "F]rE?"
+              ],
+              [
+                "A_",
+                "FreRW"
+              ]
+            ],
+            "factorisations": 853
+          },
+          "15": {
+            "classes_with_several_factor_multisets": 0,
+            "classes_with_several_factorisations": 0,
+            "composite_classes": 42,
+            "example": null,
+            "factorisations": 42
+          }
+        },
+        "primes_all_graphs": {
+          "2": 2,
+          "3": 4,
+          "4": 9,
+          "5": 34,
+          "6": 150,
+          "7": 1044,
+          "8": 12333,
+          "9": 274658,
+          "10": 12005127,
+          "11": 1018997864,
+          "12": 165091172386,
+          "13": 50502031367952,
+          "14": 29054155657234390,
+          "15": 31426485969804308633
+        },
+        "primes_connected_le7": {
+          "2": 1,
+          "3": 2,
+          "4": 5,
+          "5": 21,
+          "6": 110,
+          "7": 853
+        }
+      }
+    },
+    "summary": [
+      "orders with non-unique factorisation (multisets of primes, all graphs): {'cartesian': {}, 'strong': {}, 'lexicographic': {10: 2, 14: 6}, 'EA AE AA NA': {10: 2, 14: 6}, 'symmetric difference': {4: 1, 6: 2, 8: 3, 10: 7, 12: 16, 14: 54, 15: 1}, 'co-normal': {}, 'EA AE AA NN': {4: 1, 6: 2, 8: 3, 10: 7, 12: 16, 14: 54, 15: 1}, 'EA AE AA AN NA NN': {}}",
+      "... inside connected graphs: {'cartesian': {}, 'strong': {}, 'lexicographic': {10: 1, 12: 1, 14: 3}, 'EA AE AA NA': {10: 1, 12: 1, 14: 3}, 'symmetric difference': {8: 2, 10: 6, 12: 15, 14: 53}, 'co-normal': {12: 2}, 'EA AE AA NN': {}, 'EA AE AA AN NA NN': {12: 2}}",
+      "Cartesian connected primes n=2..15: [1, 2, 5, 21, 110, 853, 11111, 261077, 11716550, 1006700565, 164059830354, 50335907869219, 29003487462847208, 31397381142761241918]; equal to strong: True",
+      "63-vertex counterexample verified: {'cartesian': {'order': 63, 'isomorphic': True}, 'strong': {'order': 63, 'isomorphic': True}}",
+      "OEIS: cartesian connected primes n=2..15: MATCH; strong connected primes n=2..15: MATCH; cartesian primes (all graphs) n=2..11: NO MATCH; strong primes (all graphs) n=2..11: NO MATCH; lexicographic primes (all graphs) n=2..11: NO MATCH; EA AE AA NA primes (all graphs) n=2..11: NO MATCH; symmetric difference primes (all graphs) n=2..11: NO MATCH; co-normal primes (all graphs) n=2..11: NO MATCH; EA AE AA NN primes (all graphs) n=2..11: NO MATCH; EA AE AA AN NA NN primes (all graphs) n=2..11: NO MATCH"
+    ]
+  },
+  "results_sha256": "c44f6486f55aff8622706b291461fc8d7d84f659f969e118d564baf635ff8b22",
+  "runtime_s": 47.26,
+  "started": "2026-10-18T08:44:02Z"
+}

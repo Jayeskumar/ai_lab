@@ -1,0 +1,137 @@
+{
+  "agent": "Mathematical Skeptic",
+  "analysis": "Skeptic's re-implementation sharing no code with systems/graph_products.py reproduces the 20/10 classification, re-certifies all 460 non-isomorphism witnesses, finds an explicit isomorphism K2 xor K2 xor K2 -> K2 xor K_{1,3} and K2 xor K2 -> K2 xor 2K1, checks K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc} edge by edge for a, b, c, d <= 4, the identity S(G xor H) + I = (S(G)+I) (x) (S(H)+I) exactly in integers for all pairs of graphs with <= 3 vertices, and K2 xor X = K2 xor X^Z on 200 random cases. No discrepancy.",
+  "assumptions": [
+    "graphs as Python sets of frozenset edges on range(n); products built from the definition",
+    "isomorphism of small graphs by exhaustive permutation search (n <= 8); the bipartite formula checked edge by edge (sign-vector description) for a, b, c, d <= 4"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C14-06",
+    "file": "experiments/C14/E06_skeptic_recheck.py",
+    "sha256": "e58404121143de43966bda9eb556e27f07044eb808d26d77ac9af4d82bb241f8",
+    "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+  },
+  "cycle": "C14",
+  "falsification": "Any mismatch.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:55:48Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "graphs as Python sets of frozenset edges on range(n); products built from the definition",
+        "isomorphism of small graphs by exhaustive permutation search (n <= 8); the bipartite formula checked edge by edge (sign-vector description) for a, b, c, d <= 4"
+      ],
+      "old": [
+        "graphs as Python sets of frozenset edges on range(n); products built from the definition",
+        "isomorphism of small graphs by exhaustive permutation search (n <= 8) or by degree sequences when those differ; the bipartite formula checked for a, b, c, d <= 4"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T08:56:02Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Skeptic's re-implementation sharing no code with systems/graph_products.py reproduces the 20/10 classification, re-certifies all 460 non-isomorphism witnesses, finds an explicit isomorphism K2 xor K2 xor K2 -> K2 xor K_{1,3} and K2 xor K2 -> K2 xor 2K1, checks K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc} edge by edge for a, b, c, d <= 4, the identity S(G xor H) + I = (S(G)+I) (x) (S(H)+I) exactly in integers for all pairs of graphs with <= 3 vertices, and K2 xor X = K2 xor X^Z on 200 random cases. No discrepancy.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C14-02",
+        "CLM-C14-03",
+        "CLM-C14-06",
+        "CLM-C14-07",
+        "CLM-C14-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "hypothesis": "All C14 computational claims are reproduced; any disagreement is a bug in one implementation.",
+  "id": "EXP-C14-06",
+  "methodology": "Re-implement local products from the definition; recount associative/commutative codes with random and P3 triples; re-check the 236/224 witnesses' degree sequences (witness list read from EXP-C14-02); verify K2+K2+K2 = K2+K_{1,3} (XOR) by an explicit isomorphism; verify K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; verify the Seidel identity exactly in integers for all pairs of graphs with <= 3 vertices; verify K2 xor X = K2 xor (X switched) on 200 random cases.",
+  "question": "Do the classification, the non-isomorphism witnesses, the XOR identities and the explicit non-unique factorisations survive an implementation that shares no code with systems/graph_products.py?",
+  "related": [
+    "CLM-C14-02",
+    "CLM-C14-03",
+    "CLM-C14-06",
+    "CLM-C14-07",
+    "CLM-C14-08"
+  ],
+  "results_file": "results/EXP-C14-06.json",
+  "results_sha256": "efdc6dd59314fba7761a7864e5e95d59b9df959a94c1f053a7b076fad3898fba",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-06",
+        "file": "experiments/C14/E06_skeptic_recheck.py",
+        "sha256": "9ad4bdf49f7cd0c600f2f5e2e99553a0497f9c85f264eb51fc49a60bb071f7b8",
+        "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:55:48Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C14-06.json",
+      "results_sha256": "efdc6dd59314fba7761a7864e5e95d59b9df959a94c1f053a7b076fad3898fba",
+      "runtime_s": 0.394,
+      "started": "2026-10-18T08:55:48Z",
+      "summary": [
+        "independent recount: 20 associative, 10 commutative",
+        "witness re-checks failing: assoc 0, comm 0",
+        "K2 xor K2 xor K2 = K2 xor K_1,3: True; K2 xor K2 = K2 xor 2K1: True",
+        "K_ab xor K_cd = K_(ac+bd, ad+bc) failures: 0; Seidel identity entry failures: 0; K2-absorption failures: 0/200"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-06",
+        "file": "experiments/C14/E06_skeptic_recheck.py",
+        "sha256": "e58404121143de43966bda9eb556e27f07044eb808d26d77ac9af4d82bb241f8",
+        "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:56:02Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C14-06.json",
+      "results_sha256": "efdc6dd59314fba7761a7864e5e95d59b9df959a94c1f053a7b076fad3898fba",
+      "runtime_s": 0.351,
+      "started": "2026-10-18T08:56:01Z",
+      "summary": [
+        "independent recount: 20 associative, 10 commutative",
+        "witness re-checks failing: assoc 0, comm 0",
+        "K2 xor K2 xor K2 = K2 xor K_1,3: True; K2 xor K2 = K2 xor 2K1: True",
+        "K_ab xor K_cd = K_(ac+bd, ad+bc) failures: 0; Seidel identity entry failures: 0; K2-absorption failures: 0/200"
+      ]
+    }
+  ],
+  "summary": [
+    "independent recount: 20 associative, 10 commutative",
+    "witness re-checks failing: assoc 0, comm 0",
+    "K2 xor K2 xor K2 = K2 xor K_1,3: True; K2 xor K2 = K2 xor 2K1: True",
+    "K_ab xor K_cd = K_(ac+bd, ad+bc) failures: 0; Seidel identity entry failures: 0; K2-absorption failures: 0/200"
+  ],
+  "title": "Independent re-verification of the C14 claims (pure Python, no shared library code)",
+  "verification": "PROVEN"
+}

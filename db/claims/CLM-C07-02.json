@@ -1,0 +1,22 @@
+{
+  "counterexample": "L+R+D[z] gives ordinary addition a + b and D[z] gives min(a, b) (Theorem 1); also the zero-absorbing shifts of XOR and +.",
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-02",
+  "novelty": "NOT ASSESSED",
+  "statement": "Apart from trivial operations (0, projections), the only associative mex operations of the family are Conway's nim-sum and nim-product.",
+  "system": "SYS-B",
+  "title": "H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

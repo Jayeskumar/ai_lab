@@ -1,0 +1,24 @@
+{
+  "cycle": "C07",
+  "evidence": [
+    "EXP-C07-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C07",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:13:45Z"
+    }
+  ],
+  "id": "CLM-C07-03",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary.",
+  "proof": "proofs/paper/C07.md#theorem-2-clm-c07-03--0-is-an-identity-or-absorbing",
+  "proof_check": "written proof (proofs/paper/C07.md Theorem 2, two-line induction); all 34 commutative operations of EXP-C07-02 conform",
+  "statement": "If the spec contains L and R then f(0,b) = b and f(a,0) = a; if it contains neither, f(0,b) = f(a,0) = 0.",
+  "system": "SYS-B",
+  "title": "In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbing",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

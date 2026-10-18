@@ -1,0 +1,3 @@
+x(yz)=((zx)x)y {'spectrum': [], 'expected_within_range': [], 'ok': True, 'max_sec': 3.0}
+x(yz)=((zx)y)x {'spectrum': [], 'expected_within_range': [], 'ok': True, 'max_sec': 4.3}
+x(yz)=((zy)x)x {'spectrum': [], 'expected_within_range': [], 'ok': True, 'max_sec': 4.6}
