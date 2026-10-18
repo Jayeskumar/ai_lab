@@ -15,9 +15,10 @@ META = {
                   "T-C09-B: every factorisation of n into r irreducibles satisfies |nu'(n)| < |psi|^r, where "
                   "nu'(n) = n*psi + n*.",
     "assumptions": ["n <= 10^6 for T-C09-A; factorisations for n <= 2e5 for T-C09-B",
-                    "floating-point evaluation of nu'(n) = n psi + n*: safe because the only exact boundary hits "
-                    "are n = 1 (nu' = psi^2) and n = 2 (nu' = psi^3), both irreducible, and otherwise "
-                    "|nu'(n) - boundary| = |(n-1) psi - p| >= 0.4/n >> 1e-10 for n <= 1e6 (psi badly approximable)"],
+                    "zone membership decided exactly by integer sign tests in Z[sqrt5] (revised after the Skeptic's "
+                    "review - the first version used floating point, which put the boundary point n = 1 inside the "
+                    "open zone); the length bound of T-C09-B is still evaluated in floating point",
+                    "factorisation sets computed exactly (the first version truncated them at 64 per n)"],
     "methodology": "Scan n <= 10^6: compute f exactly via integer square roots; check every n with f outside the "
                    "product zone is irreducible; measure densities by scale; within the product zone measure the "
                    "irreducible fraction. For T-C09-B compare max factorisation length with log|nu'|/log|psi|.",
@@ -33,14 +34,29 @@ def nu_conj(n):
     return n * PSI + shadow(n)
 
 
+def sign_minus_sqrt5(a: int, b: int) -> int:
+    """Exact sign of a - b*sqrt(5) for integers a, b."""
+    if a >= 0 and b <= 0:
+        return 0 if a == 0 and b == 0 else 1
+    if a <= 0 and b >= 0:
+        return -1
+    d = a * a - 5 * b * b
+    return (d > 0) - (d < 0) if a > 0 else (d < 0) - (d > 0)
+
+
+def in_product_zone(n: int) -> bool:
+    """psi^3 < nu'(n) < psi^2, decided exactly: nu'(n) = (n + 2n*)/2 - (n/2) sqrt5, psi^2 = (3 - sqrt5)/2,
+    psi^3 = 2 - sqrt5. (The first version compared floats and put the boundary point n = 1 inside.)"""
+    m = n + 2 * shadow(n)
+    return sign_minus_sqrt5(m - 4, n - 2) > 0 and sign_minus_sqrt5(m - 3, n - 1) < 0
+
+
 def run():
     reps = products_upto(N)
-    lo, hi = PSI ** 3, PSI ** 2          # product zone for nu'
     violations, forced, zone, zone_irr = [], 0, 0, 0
     scale = {}
     for n in range(1, N + 1):
-        c = nu_conj(n)
-        in_zone = lo < c < hi
+        in_zone = in_product_zone(n)
         if not in_zone:
             forced += 1
             if n in reps:

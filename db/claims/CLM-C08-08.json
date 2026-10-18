@@ -1,0 +1,24 @@
+{
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-07",
+    "EXP-C08-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
+    }
+  ],
+  "id": "CLM-C08-08",
+  "limitations": "Two earlier versions of these thresholds (CLM-C08-05, CLM-C08-07) were refuted because failures are rare among random or small inputs. The targeted search is heuristic - its grid cannot see failures within one cell of the fractal window boundary (the tribonacci failure at s = 3 is found only through the literature seed), so the upper values may still be too low.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are measurements. The Skeptic's independent search (reviews/skeptic_C05_C08_C12.md, P2 and Appendix C.1) gives the same lower bounds.",
+  "statement": "For the circle product o_s: Fibonacci (1,2) fails for s <= 1, associative for s >= 2 (Lean, CLM-C08-01); Pell\n(1,2,5) fails at s = 0 (associative for s >= 1, Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for\ns <= 6; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 11; tribonacci (1,2,4) fails for s <= 3; 4-bonacci\n(1,2,4,8) fails for s <= 7; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10; G(k+1) = G(k) + G(k-3) (1,2,3,4)\nfails for every s <= 16 (the Skeptic - every s <= 24). Every failure is certified by an explicit triple. Above\nthese bounds no failure was found up to s = 16 by the targeted search of EXP-C08-07 and by the Skeptic's\nindependent extreme-conjugate search - computational support only.",
+  "system": "SYS-C",
+  "title": "Associativity thresholds after the targeted search - certified lower bounds, no failure up to s = 16",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

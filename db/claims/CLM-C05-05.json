@@ -9,6 +9,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:23:58Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md, A.1)",
+      "old": "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written part upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C05-05",
@@ -18,7 +27,7 @@
   "novelty": "REDISCOVERY",
   "novelty_basis": "Standard finite-set argument (a surjective self-map of a finite set is bijective), used throughout the ETP notes.",
   "proof": "proofs/paper/C05.md#lemma-1-clm-c05-05--translations-along-the-path-to-a-unique-occurrence-of-x",
-  "proof_check": "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof",
+  "proof_check": "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md, A.1)",
   "statement": "If a finite magma satisfies x = y * s(x, y) for some binary term operation s, every left translation a -> y*a\nis a bijection (every row of the Cayley table is a permutation). More generally, in a finite model of t = x\nwith x occurring once in t, every translation on the path from the root of t to x is a bijection.",
   "system": "SYS-B",
   "title": "Identities x = y*s(x, y) make every left translation of a finite model bijective",

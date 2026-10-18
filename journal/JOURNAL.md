@@ -1504,3 +1504,60 @@ Out-of-sample test of the recursion on 6,272 n not used to infer it (up to 2*10^
 
 *Evidence:* EXP-C19-04, EXP-C19-02
 
+
+## C03
+
+### [2026-10-18T18:17:35Z] Formal Verifier — revision (`C03-14#rev9`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C05
+
+### [2026-10-18T18:17:35Z] Mathematical Skeptic — rejection (`C05-14`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - CLM-C05-09 refuted by linear models of order 16 over GF(16) for both laws (Lean-checked); all other C05 claims upheld (own CNF encodings with CaDiCaL and Kissat reproduce the census and all 15 claimed gaps).
+
+*Evidence:* CLM-C05-09, reviews/skeptic_C05_C08_C12.md
+
+### [2026-10-18T18:17:35Z] Mathematical Explorer — result (`C05-15`)
+
+EXP-C05-07 - systematic search for linear models over GF(q), q <= 128. 0 conflicts with SAT, DRUP gaps or notes; even orders for 14 of 15 laws; 670 at n = 9 settled (new relative to the notes). Lesson - the Z_n affine search of EXP-C05-05 was blind to non-cyclic additive groups.
+
+*Evidence:* EXP-C05-07, CLM-C05-10
+
+
+## C06
+
+### [2026-10-18T18:17:35Z] Formal Verifier — revision (`C06-11#rev9`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C08
+
+### [2026-10-18T18:17:35Z] Mathematical Skeptic — rejection (`C08-12`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - five of the eight thresholds of CLM-C08-05 fail with explicit triples, and the lab's own corrected values (EXP-C08-06, CLM-C08-07) are still too low for (2,2;1,2) and (3,3;1,5). Root cause - random or small inputs rarely hit the extreme-conjugate inputs that break associativity. CLM-C08-02 needs a dominant root > 1 (G_k = k + 1 is associative at every shift); the evidence of CLM-C08-04 is contaminated, its statement survives a stronger search.
+
+*Evidence:* CLM-C08-02, CLM-C08-04, CLM-C08-05, CLM-C08-07, reviews/skeptic_C05_C08_C12.md
+
+### [2026-10-18T18:17:35Z] Mathematical Explorer — result (`C08-13`)
+
+EXP-C08-07 - a targeted search (extreme conjugates, a window occupancy grid, known pairs as seeds, minimal recurrences) reproduces every certified failure of the review with the lab's own code; thresholds now (2,2;1,2) >= 7, (3,3;1,5) >= 12, tribonacci >= 4, 4-bonacci >= 8, G+G(k-2) >= 11 (CLM-C08-08); 8 non-monotone quadratic rows, all beta < 0 and non-canonical. Lesson for the lab - for rare failures, search where the theory says failures live.
+
+*Evidence:* EXP-C08-07, CLM-C08-08, CLM-C08-04
+
+
+## C20
+
+### [2026-10-18T18:17:35Z] Historian — novelty (`C20-05`)
+
+Revision of C20-04 - the scanned Zantema-Geser report UU-CS-1994-44 was found on ics-archive.science.uu.nl; its Theorem 1.1 is C03 Conjecture 4.6 verbatim (equivalence by case analysis, checked on all parameters <= 40). CLM-C20-04 and CLM-C03-10 are PROVEN (published proof) and REDISCOVERY.
+
+*Evidence:* CLM-C20-04, CLM-C03-10, reviews/historian_C03_C10.md
+

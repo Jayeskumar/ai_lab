@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T17:45:11Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T18:17:35Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 127 |
-| COMPUTATIONALLY SUPPORTED | 41 |
-| CONJECTURE | 5 |
-| REFUTED | 47 |
+| PROVEN | 129 |
+| COMPUTATIONALLY SUPPORTED | 40 |
+| CONJECTURE | 4 |
+| REFUTED | 49 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 101 |
+| REDISCOVERY | 102 |
 | POTENTIALLY NOVEL | 53 |
-| NOT ASSESSED | 68 |
+| NOT ASSESSED | 69 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -62,6 +62,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-05 | Identities x = y*s(x, y) make every left translation of a finite model bijective | Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_biject… | REDISCOVERY | EXP-C05-03 |
 | CLM-C05-07 | New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 … | Lean 4 kernel decide on explicit tables (E677_order5_law, E… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
 | CLM-C05-08 | New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; … | computer-assisted - DRUP refutations from Glucose 4 verifie… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-06 |
+| CLM-C05-10 | Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a mo… | computer-assisted - exhaustive search over GF(q)^2 for ever… | NOT ASSESSED | EXP-C05-07 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | written proof (proofs/paper/C06.md Theorem 4), skeptic-revi… | REDISCOVERY | EXP-C06-02 |
@@ -74,25 +75,26 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C07-05 | The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_… | written proof (proofs/paper/C07.md Theorem 3, induction ove… | POTENTIALLY NOVEL | EXP-C07-03 |
 | CLM-C08-01 | Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative… | Lean 4 + Mathlib (Infinity.C08.circ_assoc, circ_comm, key, … | REDISCOVERY | EXP-C08-01, EXP-C08-03, EXP-C08-05 |
 | CLM-C09-01 | Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images | written proof (proofs/paper/C09.md Theorem 1) relying on CL… | REDISCOVERY | EXP-C09-03 |
-| CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | written proof (proofs/paper/C09.md Theorem 3; Weyl equidist… | POTENTIALLY NOVEL | EXP-C09-04 |
-| CLM-C09-06 | Factorisation lengths are bounded by the conjugate coordinate | written proof (proofs/paper/C09.md Theorem 4); 0 violations… | POTENTIALLY NOVEL | EXP-C09-04 |
-| CLM-C09-07 | The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product | written proof (proofs/paper/C09.md Theorem 1); multiplicati… | REDISCOVERY | EXP-C09-03 |
-| CLM-C09-08 | Factorisation statistics of the circle semigroup up to 2e5 | computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C… | POTENTIALLY NOVEL | EXP-C09-01, EXP-C09-02 |
+| CLM-C09-03 | Window obstruction: at least a proportion 1/phi^2 of all integers are circle-irreducible | written proof (proofs/paper/C09.md Theorem 3; Weyl equidist… | POTENTIALLY NOVEL | EXP-C09-04 |
+| CLM-C09-06 | Factorisation lengths are bounded by the conjugate coordinate | written proof (proofs/paper/C09.md Theorem 4), skeptic-revi… | POTENTIALLY NOVEL | EXP-C09-04 |
+| CLM-C09-07 | The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product | written proof (proofs/paper/C09.md Theorem 1 and the bound … | REDISCOVERY | EXP-C09-03 |
+| CLM-C09-08 | Factorisation statistics of the circle semigroup up to 2e5 | computer-assisted enumeration (EXP-C09-01, EXP-C09-02). The… | POTENTIALLY NOVEL | EXP-C09-01, EXP-C09-02 |
 | CLM-C10-01 | Average cost of counting in classical representations (b/(b-1), e-1, 1) | written proof (proofs/paper/C10.md Theorem 1); confirmed to… | REDISCOVERY | EXP-C10-01 |
 | CLM-C10-02 | Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2 | written proof (proofs/paper/C10.md Theorem 2); recurrence e… | REDISCOVERY | EXP-C10-02, EXP-C10-04 |
 | CLM-C10-04 | Exchange systems fire 1/(m - sum b) times per increment on average | written proof (proofs/paper/C10.md Theorem 3) from the abel… | REDISCOVERY | EXP-C10-03 |
-| CLM-C10-05 | Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q… | written proof (proofs/paper/C10.md Theorem 4); deviation <=… | REDISCOVERY | EXP-C10-03 |
+| CLM-C10-05 | Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q… | written proof (proofs/paper/C10.md Theorem 4), skeptic-revi… | REDISCOVERY | EXP-C10-03 |
+| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [… | REDISCOVERY | EXP-C10-01 |
 | CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | Prefix property and unique parsing machine-checked in Lean … | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
 | CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) … | REDISCOVERY | EXP-C11-02 |
-| CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | written proof (proofs/paper/C11.md Theorem 3); 0 mismatches… | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
-| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | written proof (proofs/paper/C11.md Corollary 4); exhaustive… | POTENTIALLY NOVEL | EXP-C11-06 |
-| CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | written proof (proofs/paper/C11.md Proposition 5); both con… | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
+| CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | written proof (proofs/paper/C11.md Theorem 3), skeptic-revi… | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
+| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | written proof (proofs/paper/C11.md Corollary 4), skeptic-re… | POTENTIALLY NOVEL | EXP-C11-06 |
+| CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | written proof (proofs/paper/C11.md Proposition 5), skeptic-… | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
 | CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | written proof (proofs/paper/C11.md Corollary 6, from cum_01… | POTENTIALLY NOVEL | EXP-C11-09 |
-| CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | written proof (proofs/paper/C12.md Theorem 1); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
-| CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | written proof (proofs/paper/C12.md Theorem 2); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | written proof (proofs/paper/C12.md Theorem 1), skeptic-revi… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
+| CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | written proof (proofs/paper/C12.md Theorem 2), skeptic-revi… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-03 | P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers… | Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g0… | REDISCOVERY | EXP-C12-02, EXP-C12-04 |
 | CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | Computer-assisted (proofs/paper/C12.md Theorem 8): exact co… | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
-| CLM-C12-05 | Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n) | written proof (proofs/paper/C12.md Theorem 4); 0 mismatches… | REDISCOVERY | EXP-C12-01, EXP-C12-02, EXP-C12-04 |
+| CLM-C12-05 | Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n) | written proof (proofs/paper/C12.md Theorem 4), skeptic-revi… | REDISCOVERY | EXP-C12-01, EXP-C12-02, EXP-C12-04 |
 | CLM-C12-06 | Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, … | (a) machine-checked in Lean (Infinity.C12.residue_grundy, I… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | written proof (proofs/paper/C12.md Theorem 7) from the Furs… | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
@@ -157,7 +159,6 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | Claim | Title | Verification | Novelty | Evidence |
 |---|---|---|---|---|
 | CLM-C04-16 | Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.0… | CONJECTURE | REDISCOVERY | EXP-C04-08, EXP-C04-09 |
-| CLM-C05-09 | Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 | CONJECTURE | NOT ASSESSED | EXP-C05-03, EXP-C05-02 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | POTENTIALLY NOVEL | EXP-C09-04, EXP-C09-01 |
 | CLM-C12-13 | Subtract-a-Fibonacci-number has bounded Grundy values | CONJECTURE | NOT ASSESSED | EXP-C12-03, EXP-C12-01 |
 | CLM-C15-18 | Bounded streaming width implies a fast-forward | CONJECTURE | NOT ASSESSED | EXP-C15-02, EXP-C15-03 |
@@ -171,12 +172,11 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C06-10 | Laws with finite anchored spectra {1, 2} and {1, 3} | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-11 | Mirror twins of the golden and odd laws | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C07-08 | Additive periodicity is the exception among mex operations | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C07-03 |
-| CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-02 |
-| CLM-C08-03 | Recurrences with non-increasing coefficients and canonical initial values give associativ… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06 |
-| CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03, EXP-C08-06 |
-| CLM-C08-07 | Corrected associativity thresholds - certified lower bounds and searched ranges | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-06 |
+| CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-02, EXP-C08-07 |
+| CLM-C08-03 | Recurrences with non-increasing coefficients and canonical initial values give associativ… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07 |
+| CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-07, EXP-C08-06, EXP-C08-04, EXP-C08-03 |
+| CLM-C08-08 | Associativity thresholds after the targeted search - certified lower bounds, no failure u… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-07, EXP-C08-06 |
 | CLM-C10-06 | Multi-offset exchange rules have rule-specific average counting costs | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C10-03 |
-| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C10-01 |
 | CLM-C11-08 | Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-ra… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09 |
 | CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
 | CLM-C13-10 | Spectra of one-variable laws are finite or cofinite | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C13-07 |
@@ -227,9 +227,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C06-11 | Mirror twins of the golden and odd laws | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C07-01 | The associative mex operations are 0, projections, min, +, XOR, nim-product and four rela… | PROVEN | POTENTIALLY NOVEL | EXP-C07-01 |
 | CLM-C07-05 | The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_… | PROVEN | POTENTIALLY NOVEL | EXP-C07-03 |
-| CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-02 |
-| CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03, EXP-C08-06 |
-| CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
+| CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-02, EXP-C08-07 |
+| CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-07, EXP-C08-06, EXP-C08-04, EXP-C08-03 |
+| CLM-C09-03 | Window obstruction: at least a proportion 1/phi^2 of all integers are circle-irreducible | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
 | CLM-C09-04 | H-C09-1: circle irreducibles have density 0 like primes (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C09-01, EXP-C09-04 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | POTENTIALLY NOVEL | EXP-C09-04, EXP-C09-01 |
 | CLM-C09-06 | Factorisation lengths are bounded by the conjugate coordinate | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
@@ -318,10 +318,11 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-12 | Anchored spectra are closed under coprime products | PROVEN | REDISCOVERY | EXP-C06-03, EXP-C06-04 |
 | CLM-C08-01 | Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative… | PROVEN | REDISCOVERY | EXP-C08-01, EXP-C08-03, EXP-C08-05 |
-| CLM-C08-03 | Recurrences with non-increasing coefficients and canonical initial values give associativ… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06 |
-| CLM-C08-05 | Measured associativity thresholds for 45 base sequences (refuted - four thresholds were t… | REFUTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06 |
+| CLM-C08-03 | Recurrences with non-increasing coefficients and canonical initial values give associativ… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07 |
+| CLM-C08-05 | Measured associativity thresholds for 46 base sequences (refuted - five of the eight quot… | REFUTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07 |
 | CLM-C08-06 | H-C08-1: Knuth's associative circle product is an isolated case (refuted) | REFUTED | REDISCOVERY | EXP-C08-01, EXP-C08-02 |
-| CLM-C08-07 | Corrected associativity thresholds - certified lower bounds and searched ranges | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-06 |
+| CLM-C08-07 | Corrected associativity thresholds - certified lower bounds and searched ranges | REFUTED | REDISCOVERY | EXP-C08-06, EXP-C08-07 |
+| CLM-C08-08 | Associativity thresholds after the targeted search - certified lower bounds, no failure u… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-07, EXP-C08-06 |
 | CLM-C09-01 | Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images | PROVEN | REDISCOVERY | EXP-C09-03 |
 | CLM-C09-02 | H-C09-2: factorisation into circle irreducibles is unique (refuted) | REFUTED | REDISCOVERY | EXP-C09-02 |
 | CLM-C09-07 | The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product | PROVEN | REDISCOVERY | EXP-C09-03 |
@@ -330,7 +331,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C10-03 | H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted) | REFUTED | REDISCOVERY | EXP-C10-01, EXP-C10-02 |
 | CLM-C10-04 | Exchange systems fire 1/(m - sum b) times per increment on average | PROVEN | REDISCOVERY | EXP-C10-03 |
 | CLM-C10-05 | Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q… | PROVEN | REDISCOVERY | EXP-C10-03 |
-| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C10-01 |
+| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | PROVEN | REDISCOVERY | EXP-C10-01 |
 | CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | PROVEN | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
 | CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | PROVEN | REDISCOVERY | EXP-C11-02 |
 | CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | PROVEN | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
@@ -399,14 +400,16 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C05-01 | H-C05-1: a single identity t = x cannot restrict the orders of its finite models (refuted) | REFUTED | NOT ASSESSED | EXP-C05-01 |
 | CLM-C05-03 | H-C05-Q: nontrivial identities t = x force their finite models to be quasigroups (refuted) | REFUTED | NOT ASSESSED | EXP-C05-01, EXP-C05-02 |
 | CLM-C05-06 | H-C05-A: full spectrum iff affine models over every Z_n (refuted) | REFUTED | NOT ASSESSED | EXP-C05-05, EXP-C05-01 |
+| CLM-C05-09 | Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have mod… | REFUTED | NOT ASSESSED | EXP-C05-03, EXP-C05-02, EXP-C05-07 |
 | CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-03 |
 | CLM-C06-09 | H-C06-3: anchored spectra are affine spectra (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C07-02 | H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted) | REFUTED | NOT ASSESSED | EXP-C07-01 |
 | CLM-C07-04 | H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refut… | REFUTED | NOT ASSESSED | EXP-C07-01 |
 | CLM-C07-06 | H-C07-4: every row of every mex operation is eventually additively periodic (refuted) | REFUTED | NOT ASSESSED | EXP-C07-03 |
 | CLM-C07-07 | H-C07-3: the diagonals of commutative mex operations are known sequences (refuted) | REFUTED | NOT ASSESSED | EXP-C07-02 |
-| CLM-C08-05 | Measured associativity thresholds for 45 base sequences (refuted - four thresholds were t… | REFUTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06 |
+| CLM-C08-05 | Measured associativity thresholds for 46 base sequences (refuted - five of the eight quot… | REFUTED | REDISCOVERY | EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07 |
 | CLM-C08-06 | H-C08-1: Knuth's associative circle product is an isolated case (refuted) | REFUTED | REDISCOVERY | EXP-C08-01, EXP-C08-02 |
+| CLM-C08-07 | Corrected associativity thresholds - certified lower bounds and searched ranges | REFUTED | REDISCOVERY | EXP-C08-06, EXP-C08-07 |
 | CLM-C09-02 | H-C09-2: factorisation into circle irreducibles is unique (refuted) | REFUTED | REDISCOVERY | EXP-C09-02 |
 | CLM-C09-04 | H-C09-1: circle irreducibles have density 0 like primes (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C09-01, EXP-C09-04 |
 | CLM-C10-03 | H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted) | REFUTED | REDISCOVERY | EXP-C10-01, EXP-C10-02 |

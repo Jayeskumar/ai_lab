@@ -1,0 +1,25 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
+    }
+  ],
+  "id": "CLM-C05-10",
+  "limitations": "Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05).",
+  "proof": "proofs/paper/C05.md#theorem-6-clm-c05-10--linear-models-over-finite-fields-computer-assisted",
+  "proof_check": "computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); every model found re-checked on its full table with the generic evaluator; three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)",
+  "statement": "For each of the 15 open ETP laws of EXP-C05-03 the prime powers q <= 128 admitting a linear model x*y = ax + by over GF(q) are exactly those listed in results/EXP-C05-07.json. In particular laws 670, 677, 1076, 1286 and 1313 have models of order 16 (1286 also of order 32), law 670 has a model of order 9, and no law has a linear model at an order excluded by the SAT search, the DRUP certificates (CLM-C05-08) or the ETP notes.",
+  "system": "SYS-B",
+  "title": "Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a model x*y = ax + by over GF(q)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

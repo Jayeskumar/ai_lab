@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1112,7 +1112,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof
+- **proof_check:** Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md, A.1)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -1124,6 +1124,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **lean:** proofs/lean/Infinity/C05_Magmas.lean
 - **evidence:** EXP-C05-03
 - **novelty_basis:** Standard finite-set argument (a surjective self-map of a finite set is bijective), used throughout the ETP notes.
+- **status history:**
 
 ### CLM-C05-06: H-C05-A: full spectrum iff affine models over every Z_n (refuted)
 
@@ -1171,7 +1172,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law)
+  computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law). Independently confirmed by the Skeptic - all 15 claimed gaps UNSAT under its own CNF encoding with Kissat 4.0.4, the 13 with n <= 6 also under CaDiCaL 1.9.5 without the extra constraints (reviews/skeptic_C05_C08_C12.md)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1189,19 +1190,48 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **status history:**
 
-### CLM-C05-09: Laws 677 and 1313 have spectrum {1} together with all odd n >= 5
+### CLM-C05-09: Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have models of order 16)
 
 - **cycle:** C05
 - **type:** conjecture
 - **system:** SYS-B
-- **verification:** CONJECTURE
+- **verification:** REFUTED
 - **novelty:** NOT ASSESSED
 - **statement:** The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.
-- **evidence:** EXP-C05-03; EXP-C05-02
+- **evidence:** EXP-C05-03; EXP-C05-02; EXP-C05-07
+- **counterexample:**
+
+  Linear models of order 16 (found by the Skeptic, reviews/skeptic_C05_C08_C12.md, Appendix B) - over GF(16) = GF(2)[t]/(t^4 + t + 1), x*y = (1 + t^3)x + t^3 y satisfies law 677 and x*y = t^3 x + (1 + t^3)y satisfies law 1313 (each has 8 such pairs (a, b)). Re-found by EXP-C05-07 and Lean-certified (E677_order16_law, E1313_order16_law, kernel decide on the 16 x 16 tables).
+
 - **limitations:**
 
-  Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.
+  Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10.
 
+- **status history:**
+  - 2026-10-18T18:17:35Z verification: CONJECTURE → REFUTED (sync:C05; Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture)
+
+### CLM-C05-10: Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a model x*y = ax + by over GF(q)
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); every model found re-checked on its full table with the generic evaluator; three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For each of the 15 open ETP laws of EXP-C05-03 the prime powers q <= 128 admitting a linear model x*y = ax + by over GF(q) are exactly those listed in results/EXP-C05-07.json. In particular laws 670, 677, 1076, 1286 and 1313 have models of order 16 (1286 also of order 32), law 670 has a model of order 9, and no law has a linear model at an order excluded by the SAT search, the DRUP certificates (CLM-C05-08) or the ETP notes.
+
+- **proof:** proofs/paper/C05.md#theorem-6-clm-c05-10--linear-models-over-finite-fields-computer-assisted
+- **evidence:** EXP-C05-07
+- **novelty_basis:**
+
+  Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05).
+
+- **limitations:** Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -1600,15 +1630,19 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
-  If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta
-  other than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.
+  If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a dominant root alpha > 1 and
+  another characteristic root beta with |beta| >= 1 (counted with multiplicity: a repeated dominant root counts as
+  such a beta), then the circle product o_s is non-associative for every s >= 0.
 
-- **evidence:** EXP-C08-02
+- **evidence:** EXP-C08-02; EXP-C08-07
 - **novelty_basis:**
 
   As a conjecture, low confidence - not found; natural attack via Messaoudi's Cor 1 (window stability); related: property (F) implies Pisot (Frougny-Solomyak 1992) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 
-- **limitations:** 10 non-Pisot sequences, shifts 0..8 only.
+- **limitations:**
+
+  10 non-Pisot sequences, shifts 0..8 (EXP-C08-02); the 10 again with certified failures at every s <= 12 (EXP-C08-07); the Skeptic adds 8 more non-Pisot sequences and the double root (x - 2)^2, all failing at every tested shift (s <= 25, resp. 12). The condition alpha > 1 is needed - G_k = k + 1 (minimal polynomial (x - 1)^2) gives a o_s b = a + b + s - 1, associative at every shift; the first wording, without it, was false (Skeptic review 2026-10-18).
+
 - **status history:**
   - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C08; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
@@ -1626,10 +1660,14 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   associative once the shift s is large enough. (The earlier title, "Pisot base sequences ...", overstated
   the published theorem.)
 
-- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06
+- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06; EXP-C08-07
 - **novelty_basis:**
 
   Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md).
+
+- **limitations:**
+
+  The lab's supporting thresholds were twice too low (CLM-C08-05, CLM-C08-07); the targeted search EXP-C08-07 still finds a first associative shift for every Pisot sequence of the atlas except G(k+1) = G(k) + G(k-3), which fails at every s <= 16 (the Skeptic - s <= 24) and seems to lie outside the theorem's hypotheses (its coefficients 1, 0, 0, 1 are not non-increasing).
 
 - **status history:**
 
@@ -1642,22 +1680,24 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
-  For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is
-  associative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)
-  occur only when beta < 0.
+  For quadratic Pisot base sequences G(k+1) = pG(k) + qG(k-1) with non-canonical initial values (for canonical
+  ones the associative shifts are upward closed whatever the sign of beta, by Messaoudi's Thm 2 as derived by
+  the Historian): if the conjugate root beta is positive, the set of shifts s for which o_s is associative is
+  upward-closed; sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...) occur only when
+  beta < 0.
 
-- **evidence:** EXP-C08-04; EXP-C08-03; EXP-C08-06
+- **evidence:** EXP-C08-07; EXP-C08-06; EXP-C08-04; EXP-C08-03
 - **novelty_basis:**
 
   Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md).
 
 - **limitations:**
 
-  Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.
+  Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative. The Skeptic's review found the evidence of EXP-C08-04 contaminated - 31 of its 90 rows (8 with beta > 0) list certified-failing shifts as associative, and 4 of its 10 non-monotone rows are artefacts. After the targeted search EXP-C08-07 (shifts 0..12) 8 rows are non-monotone, all with beta < 0 and non-canonical initial values, and none of the 30 beta > 0 rows; the Skeptic's stronger search finds 0 of 231 beta > 0 sequences non-monotone (s <= 16) and 60 of 396 beta < 0 ones, none canonical.
 
 - **status history:**
 
-### CLM-C08-05: Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)
+### CLM-C08-05: Measured associativity thresholds for 46 base sequences (refuted - five of the eight quoted thresholds were too small)
 
 - **cycle:** C08
 - **type:** observation
@@ -1670,10 +1710,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;
   G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
 
-- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06
+- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06; EXP-C08-07
 - **counterexample:**
 
-  Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.
+  Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. The Skeptic's review adds G(k+1) = 3G(k) + 3G(k-1) (1,5) at s = 10: (173938 o 173938) o 1 != 173938 o (173938 o 1) - the fifth wrong value. Thresholds after the targeted search in CLM-C08-08.
 
 - **novelty_basis:** Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works).
 - **status history:**
@@ -1699,7 +1739,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C08
 - **type:** observation
 - **system:** SYS-C
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** REFUTED
 - **proof_check:**
 
   lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)
@@ -1715,11 +1755,44 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 9, no failure found for 10 <= s <= 12. Every failure is
   certified by an explicit triple; every "no failure" is computational support only.
 
-- **evidence:** EXP-C08-06
+- **evidence:** EXP-C08-06; EXP-C08-07
+- **counterexample:**
+
+  Two of its 'no failure found' ranges were wrong (Skeptic review 2026-10-18, reviews/skeptic_C05_C08_C12.md, P2) - G(k+1) = 2G(k) + 2G(k-1) (1,2) fails at s = 6: (314965 o 314965) o 1 != 314965 o (314965 o 1); G(k+1) = 3G(k) + 3G(k-1) (1,5) fails at s = 10 and s = 11: (173938 o 173938) o 1 != 173938 o (173938 o 1). Both re-verified with the lab's code and re-found by EXP-C08-07 (e.g. (5653, 42197, 1) at s = 6; (3192, 173938, 1) at s = 10; (12100, 12100, 1) at s = 11). The certified lower bounds of this claim stand; the thresholds it implied for these two sequences do not. Superseded by CLM-C08-08.
+
 - **novelty_basis:** Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements.
 - **limitations:**
 
-  Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked).
+  Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked). The lab's second attempt at these thresholds repeated the first one's mistake - searching where failures are rare.
+
+- **status history:**
+  - 2026-10-18T18:17:35Z verification: COMPUTATIONALLY SUPPORTED → REFUTED (sync:C08; Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges)
+
+### CLM-C08-08: Associativity thresholds after the targeted search - certified lower bounds, no failure up to s = 16
+
+- **cycle:** C08
+- **type:** observation
+- **system:** SYS-C
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For the circle product o_s: Fibonacci (1,2) fails for s <= 1, associative for s >= 2 (Lean, CLM-C08-01); Pell
+  (1,2,5) fails at s = 0 (associative for s >= 1, Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for
+  s <= 6; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 11; tribonacci (1,2,4) fails for s <= 3; 4-bonacci
+  (1,2,4,8) fails for s <= 7; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10; G(k+1) = G(k) + G(k-3) (1,2,3,4)
+  fails for every s <= 16 (the Skeptic - every s <= 24). Every failure is certified by an explicit triple. Above
+  these bounds no failure was found up to s = 16 by the targeted search of EXP-C08-07 and by the Skeptic's
+  independent extreme-conjugate search - computational support only.
+
+- **evidence:** EXP-C08-07; EXP-C08-06
+- **novelty_basis:**
+
+  Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are measurements. The Skeptic's independent search (reviews/skeptic_C05_C08_C12.md, P2 and Appendix C.1) gives the same lower bounds.
+
+- **limitations:**
+
+  Two earlier versions of these thresholds (CLM-C08-05, CLM-C08-07) were refuted because failures are rare among random or small inputs. The targeted search is heuristic - its grid cannot see failures within one cell of the fractal window boundary (the tribonacci failure at s = 3 is found only through the literature seed), so the upper values may still be too low.
 
 
 ### CLM-C09-01: Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images
@@ -1728,7 +1801,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01; formulas checked on 89,401 pairs; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); formulas checked on 89,401 pairs; the Skeptic checked the window and n* = floor((n+1)/phi) exactly for all n <= 1e8
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -1755,13 +1831,16 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **status history:**
   - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
-### CLM-C09-03: Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible
+### CLM-C09-03: Window obstruction: at least a proportion 1/phi^2 of all integers are circle-irreducible
 
 - **cycle:** C09
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution); 0 counterexamples up to 1e6, density 0.381966 observed; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 counterexamples up to 1e6 (the Skeptic - up to 1e8), forced density 0.381967 at 1e6
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -1775,6 +1854,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   Irreducibles/reducibles of Knuth's product are not in the OEIS (2026-10-18); no study of circle-product factorisation found in the C08 literature search. Elementary consequence of Arnoux's embedding; may exist in the literature on factorisation in submonoids of rings of integers.
 
+- **status history:**
 
 ### CLM-C09-04: H-C09-1: circle irreducibles have density 0 like primes (refuted)
 
@@ -1800,7 +1880,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **statement:** Almost every n whose conjugate lies in the product zone is a circle product, so the circle irreducibles have natural density 1/phi^2.
 - **evidence:** EXP-C09-04; EXP-C09-01
 - **novelty_basis:** As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
-- **limitations:** The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.
+- **limitations:**
+
+  The irreducible fraction inside the product zone decreases only slowly (0.314, 0.291, 0.270, 0.255 at 1e3..1e6; the Skeptic - 0.2418 at 1e7, 0.2310 at 1e8). The decay fits c (log n)^(-0.33) well, which is consistent with a limit 0 (the conjecture) but also with a positive limit; the rate is unknown.
+
 - **status history:**
   - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
@@ -1810,7 +1893,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C09.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations for n <= 2e5 (the Skeptic - exact test with exact factorisation lengths, maximal length 13)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:** If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.
 - **proof:** proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations
@@ -1825,7 +1911,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
+- **proof_check:**
+
+  written proof (proofs/paper/C09.md Theorem 1 and the bound added after it - the bound was missing from the first version and its one-line proof is the Skeptic's), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
+
 - **novelty:** REDISCOVERY
 - **statement:** N(a o b) = N(a) N(b) for all a, b >= 1; |N(n)| < (sqrt5/phi) n + 1; N(n) = +-1 iff n is a Fibonacci number.
 - **proof:** proofs/paper/C09.md#theorem-1-clm-c09-01--structure
@@ -1840,7 +1929,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** observation
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)
+- **proof_check:**
+
+  computer-assisted enumeration (EXP-C09-01, EXP-C09-02). The first version of EXP-C09-02 truncated factorisation sets at 64 per n (41 truncated n; the largest set has 111 elements), so it was not exhaustive; the Skeptic's exact recount reproduced every number, and the corrected (exact) EXP-C09-02 gives the same results. The elasticity 2.5 is first attained at n = 98,700.
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -1919,7 +2011,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules
+- **proof_check:**
+
+  written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); deviation <= 5.7e-4 at n = 2e5 for all 31 rules (the Skeptic - 3.4e-4 at n = 4e5)
+
 - **novelty:** REDISCOVERY
 - **statement:** For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).
 - **proof:** proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems
@@ -1934,7 +2029,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules
+- **proof_check:**
+
+  written proof (proofs/paper/C10.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); EXP-C10-03 summarised only the 5 rules with offset g = 1 (deviation <= 2.7e-4); the Skeptic checked all 18 single-offset rules increment by increment - every one of 400,000 increments costs exactly firings + 1
+
 - **novelty:** REDISCOVERY
 - **statement:** If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).
 - **proof:** proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules
@@ -1968,11 +2066,18 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C10
 - **type:** observation
 - **system:** SYS-C
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)
+
 - **novelty:** REDISCOVERY
-- **statement:** In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).
+- **statement:** In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).
+- **proof:** proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting
 - **evidence:** EXP-C10-01
 - **novelty_basis:** Myers (1983), Okasaki (skew binary random-access lists).
+- **status history:**
+  - 2026-10-18T18:17:35Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C10; Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise)
 
 ### CLM-C11-01: Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_p(x)); T_11 is the Fibonacci code
 
@@ -1982,7 +2087,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)
+  Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -1999,6 +2104,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.
 
+- **status history:**
 
 ### CLM-C11-02: The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k patterns
 
@@ -2006,7 +2112,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)
+- **proof_check:**
+
+  written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -2020,6 +2129,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
 
+- **status history:**
 
 ### CLM-C11-03: Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the all-ones counts
 
@@ -2029,7 +2139,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C11.md Theorem 3); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)
+  written proof (proofs/paper/C11.md Theorem 3), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -2043,6 +2153,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
 
+- **status history:**
 
 ### CLM-C11-04: T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L values per level
 
@@ -2050,7 +2161,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
+- **proof_check:**
+
+  written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -2065,6 +2179,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09).
 
 - **applications:** A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
+- **status history:**
 
 ### CLM-C11-05: H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes)
 
@@ -2104,7 +2219,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)
+- **proof_check:**
+
+  written proof (proofs/paper/C11.md Proposition 5), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -2118,6 +2236,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.
 
+- **status history:**
 
 ### CLM-C11-08: Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result)
 
@@ -2151,7 +2270,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-C
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
+- **proof_check:**
+
+  written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -2165,6 +2287,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
   Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).
 
+- **status history:**
 
 ### CLM-C12-01: Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega
 
@@ -2172,7 +2295,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-D
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C12.md Theorem 1); 0 mismatches for n <= 1e5 (EXP-C12-02)
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for n <= 1e5 (EXP-C12-02)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -2187,6 +2310,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   G04) and Theorem 2 (saliquot = G02); G01 is the "Divisor Game" puzzle (LeetCode 1025) and its Grundy
   function follows from the saliquot proof. OEIS A007814, A001511, A001222.
 
+- **status history:**
 
 ### CLM-C12-02: Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k - 1
 
@@ -2194,7 +2318,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-D
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C12.md Theorem 2); 0 mismatches for n <= 5000 (G07 = G05 for n <= 1500) (EXP-C12-02)
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 2), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for n <= 5000 (G07 = G05 for n <= 1500) (EXP-C12-02)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -2248,7 +2372,9 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   Computer-assisted (proofs/paper/C12.md Theorem 8): exact computation for n <= 1e5 and an inductive-step
   certificate for odd parts <= 15 and 13 <= a <= 100 (EXP-C12-06, 0 failures); written induction for odd parts
   >= 17 and shift-invariance argument for odd parts <= 15; odd n via the Lean P-set theorem g03_pset. Trust
-  base: exact Python integer arithmetic plus the written Steps 2-3 (not yet reviewed by the Skeptic).
+  base: exact Python integer arithmetic plus the written Steps 1-3, skeptic-reviewed 2026-10-18
+  (reviews/skeptic_C05_C08_C12.md, A.5 - steps correct; the Skeptic's own C computation gives g = the closed form
+  for all n <= 1e8, the mex certificate for 6 <= a <= 400 and the shift invariance for 13 <= a <= 400).
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -2269,7 +2395,8 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   searches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.
 
 - **applications:** Sums of deleting-divisors heaps are solved by XOR of closed-form values (the P-positions alone do not solve sums).
-- **limitations:** The written inductive step awaits independent Skeptic review; beyond a = 100 the certificate relies on the shift-invariance argument.
+- **limitations:** Beyond a = 100 (the Skeptic - a = 400) the certificate relies on the written shift-invariance argument.
+- **status history:**
 
 ### CLM-C12-05: Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n)
 
@@ -2277,7 +2404,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-D
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C12.md Theorem 4); 0 mismatches for n <= 1e5, 5000 and 2e4 respectively (EXP-C12-02)
+- **proof_check:** written proof (proofs/paper/C12.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for n <= 1e5, 5000 and 2e4 respectively (EXP-C12-02)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -2294,6 +2421,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   on the number of 1-bits; the quotient game G20 was not located in the literature but its analysis is
   elementary.
 
+- **status history:**
 
 ### CLM-C12-06: Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, k}
 
@@ -2303,7 +2431,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  (a) machine-checked in Lean (Infinity.C12.residue_grundy, Infinity.C12.power_of_two_grundy; axioms propext, Classical.choice, Quot.sound; no sorry); (b) written proof (proofs/paper/C12.md Theorem 5); 0 mismatches for k = 2..20, n <= 2e4 (EXP-C12-02)
+  (a) machine-checked in Lean (Infinity.C12.residue_grundy, Infinity.C12.power_of_two_grundy; axioms propext, Classical.choice, Quot.sound; no sorry); (b) written proof (proofs/paper/C12.md Theorem 5), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for k = 2..20, n <= 2e4 (EXP-C12-02)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -2322,6 +2450,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   subtract-a-power-of-2 = n mod 3 is folklore (Grundy sequence OEIS A010872). The reduction of powers of k to
   {1, k} is a one-line congruence (k^i = +-1 mod k + 1); it was not located verbatim.
 
+- **status history:**
 
 ### CLM-C12-07: Splitting games in which every heap can be split have g(n) = [n even]
 
@@ -2350,7 +2479,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C12.md Theorem 7) from the Furstenberg-Sarkozy theorem and its polynomial version (Kamae-Mendes France 1978), which are cited, not re-proved; P-densities 0.0222 and 0.0116 at n <= 2e5 (EXP-C12-03)
+  written proof (proofs/paper/C12.md Theorem 7) from the Furstenberg-Sarkozy theorem and its polynomial version (Kamae-Mendes France 1978), which are cited, not re-proved; skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); P-densities 0.0222 and 0.0116 at n <= 2e5 (EXP-C12-03)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -2367,6 +2496,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   (Wikipedia "Square-difference-free set"; D. Eppstein, "Faster evaluation of subtraction games", FUN 2018).
   The triangular case is the same argument with an intersective polynomial.
 
+- **status history:**
 
 ### CLM-C12-09: H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inconclusive)
 
@@ -2440,7 +2570,8 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   OEIS A014589 records a(n) <= 11 for n <= 32452842 (A. Huet, 2022) and for n <= 1e9 (B. Dobbelaere, 2024);
   we found no proof of boundedness.
 
-- **limitations:** Our own check covers n <= 2e5 only (maximum 11 from n <= 1.25e4 on).
+- **limitations:** Our own check covers n <= 2e5 (maximum 11 from n <= 1.25e4 on); the Skeptic's bitset computation to 1e6 also gives maximum 11 (P-density 0.1639 at 1e6, still rising).
+- **status history:**
 
 ### CLM-C12-13: Subtract-a-Fibonacci-number has bounded Grundy values
 
@@ -2455,8 +2586,12 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   the observed maximum is 14 for n <= 2e5.
 
 - **evidence:** EXP-C12-03; EXP-C12-01
-- **limitations:** Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.
+- **limitations:**
+
+  Weak support. The maximum is 14 up to 2e5 (13 first at 12,071, 14 at 48,652), but the Skeptic's computation to 1e8 finds new records just outside the lab's range - 15 first at n = 206,025 and 16 at n = 63,331,966. P-density stays in 0.165-0.180 up to 1e8. 'Unchanged up to 2e5' was true but misleading; the values may well be unbounded.
+
 - **notes:** The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.
+- **status history:**
 
 ### CLM-C13-01: Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed, finite ones are divisor sets
 
@@ -5003,7 +5138,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x = (y*x)*(x*(y*y)): NAND on {0,1} is a model, no affine operation over Z_2 is
 - **verification:** REFUTED
 - **related:** CLM-C05-06
-- **runs:** 1; last 2026-10-18T08:08:00Z (8.901 s), results sha256 `21216128a8bf6abe…`, code `experiments/C05/E05_affine_hypothesis.py`
+- **runs:** 2; last 2026-10-18T17:59:53Z (2.194 s), results sha256 `21216128a8bf6abe…`, code `experiments/C05/E05_affine_hypothesis.py`
 
 ### EXP-C05-06: Certified UNSAT: DRUP proofs checked by drat-trim for new spectrum gaps
 
@@ -5027,6 +5162,27 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **related:** CLM-C05-08
 - **runs:** 1; last 2026-10-18T09:15:21Z (218.249 s), results sha256 `ebeff4aa1d7fb9d4…`, code `experiments/C05/E06_certified_unsat.py`
+
+### EXP-C05-07: Linear models over finite fields GF(q), q <= 128, for the 15 open ETP laws
+
+- **cycle:** C05
+- **agent:** Mathematical Explorer
+- **question:** For which prime powers q do the open laws of EXP-C05-03 have a linear model x*y = a x + b y over GF(q), and does this settle sizes that EXP-C05-03 left UNKNOWN or that CLM-C05-09 excluded?
+- **hypothesis:** H-C05-F: linear models over GF(p^k), k > 1, give spectrum members that the Z_n search of EXP-C05-05 cannot see - among them even orders for laws whose small even orders are gaps.
+- **assumptions:** GF(p^k) built as GF(p)[t]/(f) with the first monic irreducible f of degree k in lexicographic order; exhaustive over all (a, b) in GF(q)^2; q <= 128
+- **methodology:** Vectorised evaluation of (alpha, beta) for all (a, b); every model found is re-checked on its full table; comparison with the SAT statuses of EXP-C05-03 and the certified gaps of CLM-C05-08.
+- **falsification:** A linear model at an order that EXP-C05-03 found UNSAT or that EXP-C05-06 certified as a gap (would expose a bug); for H-C05-F, no linear model of any even order for 677 and 1313.
+- **summary:**
+  - 15 laws, 44 prime powers q <= 128; conflicts with SAT, certified gaps or the notes: 0
+  - smallest even orders with a linear model: 467: [8, 64]; 501: [4, 16, 64]; 670: [16]; 677: [16]; 704: [8, 32, 64]; 883: [2, 4, 8, 16]; 907: []; 1076: [16]; 1083: [4, 8, 16, 64]; 1110: [4, 8, 16, 64]; 1279: [8, 32, 64]; 1286: [16, 32]; 1313: [16]; 1516: [8, 16, 64]; 1719: [4, 16, 64]
+  - sizes n <= 10 left UNKNOWN by EXP-C05-03 and settled here: law 670 at n = 9 (not stated in the notes), law 907 at n = 9 (also stated in the notes)
+  - laws 677 and 1313: linear models of orders 677: [5, 7, 9, 11, 13, 16, 19, 25, 31, 37, 41, 43]; 1313: [5, 7, 9, 13, 16, 17, 19, 23, 25, 31, 37, 43]
+- **analysis:**
+
+  After the Skeptic's refutation of CLM-C05-09 - linear models x*y = ax + by over every GF(q), q <= 128 (44 prime powers), for the 15 open laws. 0 conflicts with the SAT statuses, the DRUP-certified gaps or the ETP notes. Even orders occur for 14 of the 15 laws (none for 907); 677 and 1313 have models of order 16 (their smallest even linear order). Two sizes left UNKNOWN by EXP-C05-03 are settled - law 670 at n = 9 (not in the notes) and law 907 at n = 9 (already in the notes).
+
+- **related:** CLM-C05-09; CLM-C05-10
+- **runs:** 1; last 2026-10-18T18:02:24Z (0.958 s), results sha256 `8a9a46b752bbcc71…`, code `experiments/C05/E07_finite_field_models.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 
@@ -5168,7 +5324,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** L+R+D[z] = a + b and D[z] = min(a, b) are associative (H-C07-1 refuted); D[x^y]: f(2,3) = 4, so [0,4) is not closed (H-C07-2 refuted)
 - **verification:** PROVEN
 - **related:** CLM-C07-01; CLM-C07-02; CLM-C07-04
-- **runs:** 1; last 2026-10-18T08:52:44Z (95.687 s), results sha256 `e2022b82a7e62eb4…`, code `experiments/C07/E01_mex_census.py`
+- **runs:** 2; last 2026-10-18T17:54:52Z (86.848 s), results sha256 `e2022b82a7e62eb4…`, code `experiments/C07/E01_mex_census.py`
 
 ### EXP-C07-02: Commutative mex operations: identities, zeros, value growth and OEIS status of their sequences
 
@@ -5220,7 +5376,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** Row 2 of D[x^y] is not additively periodic (|f(2,b) - b| = J_k unbounded, Theorem 3)
 - **verification:** PROVEN
 - **related:** CLM-C07-05; CLM-C07-06; CLM-C07-08
-- **runs:** 1; last 2026-10-18T09:09:08Z (155.526 s), results sha256 `67c185cf15e3cba7…`, code `experiments/C07/E03_rows.py`
+- **runs:** 2; last 2026-10-18T17:57:11Z (135.603 s), results sha256 `67c185cf15e3cba7…`, code `experiments/C07/E03_rows.py`
 
 ### EXP-C08-01: Associativity atlas of circle products a o b = sum d_i(a) d_j(b) G_(i+j+s)
 
@@ -5267,9 +5423,12 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Same circle-product implementation; seeded random triples; record first counterexample.
 - **falsification:** A counterexample on large inputs for a pair previously considered associative.
 - **summary:** Knuth's product (s=2), 20000 random triples up to 1e9: no failure; Fibonacci 1,2,3,5: associative shifts ['2', '3', '4', '5', '6', '7', '8']; 1,3,4,7,11 (G1=3): associative shifts ['2', '4', '5', '6', '7', '8']; 1,4,5,9,14 (G1=4): associative shifts ['4', '6', '7', '8']; 2,2-recurrence 1,2,6,16: associative shifts ['5', '6', '7', '8', '9', '10']; 3,3-recurrence 1,5,18: associative shifts ['10', '11', '12', '13', '14', '15', '16']; G(k+1)=G(k)+G(k-2) 1,2,3: associative shifts ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']; G(k+1)=G(k)+G(k-3) 1,2,3,4: associative shifts []; 4-bonacci 1,2,4,8: associative shifts ['7', '8', '9', '10', '11', '12', '13', '14']
-- **analysis:** Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine.
+- **analysis:**
+
+  Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine. CORRECTED by EXP-C08-06 - random triples missed rare failures; several of these 'associative' shifts are certified non-associative, and two of the non-monotone examples were artefacts.
+
 - **related:** CLM-C08-03; CLM-C08-04; CLM-C08-05
-- **runs:** 1; last 2026-10-18T07:31:06Z (32.519 s), results sha256 `d941931eb126e5fc…`, code `experiments/C08/E03_deep_tests.py`
+- **runs:** 2; last 2026-10-18T18:00:18Z (24.637 s), results sha256 `d941931eb126e5fc…`, code `experiments/C08/E03_deep_tests.py`
 
 ### EXP-C08-04: Sign of the conjugate root versus monotonicity of the associative-shift set
 
@@ -5287,7 +5446,10 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Classify each sequence by the sign of beta; compute the associative-shift set; check upward-closure.
 - **falsification:** A positive-beta sequence with a non-upward-closed associative-shift set.
 - **summary:** 90 quadratic Pisot sequences: 30 with beta > 0, 60 with beta < 0; beta > 0: non-upward-closed shift sets = 0; with no associative shift <= 10: 0; beta < 0: non-upward-closed shift sets = 10; with no associative shift <= 10: 0
-- **analysis:** Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.
+- **analysis:**
+
+  Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root. CORRECTED by EXP-C08-06 - 6 rows listed shifts that are certified non-associative; after the certified re-test 10 rows are still non-monotone, all with beta < 0 and non-canonical initial values.
+
 - **related:** CLM-C08-04
 - **runs:** 1; last 2026-10-18T07:32:24Z (45.746 s), results sha256 `2fb9f1f2a26da1f3…`, code `experiments/C08/E04_sign_of_conjugate.py`
 
@@ -5328,7 +5490,46 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **summary:**
   - thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 10/11; (3,3) 1,5: 9/10
   - quadratic rows re-tested (the 90 of EXP-C08-04): 90; rows whose earlier 'associative' shifts are now certified to fail: 6; still non-monotone on 0..10: 10 (canonical: 0, positive beta: 0 of 30 rows)
+- **analysis:**
+
+  Certified re-test after the Historian's audit - an exact embedding filter (circle product as multiplication in Z[x]/(characteristic polynomial)) and explicit failing triples. Certified thresholds (largest failing shift / first shift without a failure found) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 5/6, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, (3,3;1,5) 9/10. Upper values are 'no failure found', not proofs. Of the 90 quadratic rows of EXP-C08-04, 6 had certified-failing 'associative' shifts; 10 remain non-monotone, none with beta > 0.
+
+- **related:** CLM-C08-03; CLM-C08-04; CLM-C08-05; CLM-C08-07
 - **runs:** 3; last 2026-10-18T17:06:12Z (114.107 s), results sha256 `f34b3a55127266be…`, code `experiments/C08/E06_certified_thresholds.py`
+
+### EXP-C08-07: Extreme-conjugate search: certified non-associativity for the named sequences, the 45-sequence atlas and the 90 quadratic rows
+
+- **cycle:** C08
+- **agent:** Mathematical Explorer
+- **question:** Do the associativity thresholds and the shift sets of EXP-C08-02, -04 and -06 survive a search that targets inputs with extreme conjugate coordinates?
+- **hypothesis:**
+
+  H-C08-7: targeted inputs find certified failures at shifts that random and small-input searches passed (as the Skeptic reports for (2,2;1,2) at s = 6 and (3,3;1,5) at s = 10); after the targeted search, no Pisot sequence with a positive conjugate root has a non-monotone shift set (CLM-C08-04) and no non-Pisot sequence has a shift without failure (CLM-C08-02).
+
+- **assumptions:**
+  - named sequences - N = 200000, K = 25, pool 1..1500 plus 1500 random n <= N plus the candidates, the known failing pairs as seeds, shifts 0..16
+  - atlas (the 45 base sequences of EXP-C08-02) and the 90 quadratic rows of EXP-C08-04 - N = 50000, K = 12, pool 1..800 plus 800 random, shifts 0..12
+  - window filter - occupancy grid of {c(n) : n <= N}, dilated by one cell; it cannot see failures whose product conjugate lies within one cell of the window (fractal boundaries), which is why the known pairs are added as seeds
+  - a failing pair is certified only by an explicit triple
+- **methodology:**
+
+  Candidate inputs with extreme conjugates; exact embedding test on all candidate pairs and on the pool pairs whose product conjugate falls outside the occupancy grid of the window; explicit triples for failing pairs; per sequence, the shifts with a certified failure and the shifts without any failure found.
+
+- **falsification:**
+
+  A certified failure for Fibonacci at s >= 2 (would contradict the Lean theorem CLM-C08-01); a certified failure at a shift listed as associative by EXP-C08-06 (refutes that row); a positive-beta quadratic row whose no-failure set is not upward closed (refutes CLM-C08-04).
+
+- **summary:**
+  - named sequences (largest certified failing shift / shifts 0..16 without a failure found): Fibonacci 1,2: 1 / [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; Pell 1,2,5: 0 / [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (2,2) 1,2: 6 / [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; (3,3) 1,5: 11 / [12, 13, 14, 15, 16]; tribonacci 1,2,4: 3 / [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]; 4…
+  - atlas: 46 sequences; non-Pisot with a shift without failure: 0 []; Pisot with no shift without failure in 0..12: 1 ['G(k+1)=G(k)+G(k-3); 1,2,3,4']
+  - quadratic rows: 90; rows with a newly certified failure at a shift EXP-C08-06 passed: 27; non-monotone on 0..12: 8 (beta > 0: 0 of 30 rows; canonical: 0)
+  - uncertified embedding failures (no triple found): 0
+- **analysis:**
+
+  After the Skeptic's review - targeted search at extreme conjugates (candidates with extreme conjugate coordinates, pool pairs whose product conjugate leaves an occupancy grid of the window, literature and Historian pairs as seeds; minimal recurrence by Berlekamp-Massey). Certified failures re-found for every named sequence, including the two the Skeptic reported against EXP-C08-06 ((2,2;1,2) at s = 6; (3,3;1,5) at s = 10, 11). Largest certified failing shift / first shift without failure (s <= 16) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 6/7, (3,3;1,5) 11/12, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, G(k+1) = G(k) + G(k-3) fails at every s <= 16. Atlas of 46 sequences - no non-Pisot sequence has a shift without failure (s <= 12). 90 quadratic rows - 27 have newly certified failures at shifts EXP-C08-06 had passed; 8 rows non-monotone on 0..12, all with beta < 0 and non-canonical initial values (0 of 30 beta > 0 rows). 0 uncertified embedding failures. The window filter cannot see failures within one grid cell of the fractal window boundary; the tribonacci failure at s = 3 is found only through the literature seed.
+
+- **related:** CLM-C08-02; CLM-C08-03; CLM-C08-04; CLM-C08-05; CLM-C08-07; CLM-C08-08
+- **runs:** 1; last 2026-10-18T18:11:04Z (219.771 s), results sha256 `2f8d050c520184c0…`, code `experiments/C08/E07_extreme_conjugates.py`
 
 ### EXP-C09-01: Irreducibles ('circle primes') of (N>=1, o) up to 10^6
 
@@ -5367,7 +5568,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** 8 = 1 o 1 o 1 = 2 o 2
 - **verification:** REFUTED
 - **related:** CLM-C09-02; CLM-C09-08
-- **runs:** 1; last 2026-10-18T07:38:27Z (1.992 s), results sha256 `dfffff33d3a79430…`, code `experiments/C09/E02_factorizations.py`
+- **runs:** 2; last 2026-10-18T18:15:06Z (1.812 s), results sha256 `dfffff33d3a79430…`, code `experiments/C09/E02_factorizations.py`
 
 ### EXP-C09-03: Norm map N(n) = n*^2 + n n* - n^2 and circle irreducibility
 
@@ -5394,16 +5595,20 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **assumptions:**
   - n <= 10^6 for T-C09-A; factorisations for n <= 2e5 for T-C09-B
-  - floating-point evaluation of nu'(n) = n psi + n*: safe because the only exact boundary hits are n = 1 (nu' = psi^2) and n = 2 (nu' = psi^3), both irreducible, and otherwise |nu'(n) - boundary| = |(n-1) psi - p| >= 0.4/n >> 1e-10 for n <= 1e6 (psi badly approximable)
+  - zone membership decided exactly by integer sign tests in Z[sqrt5] (revised after the Skeptic's review - the first version used floating point, which put the boundary point n = 1 inside the open zone); the length bound of T-C09-B is still evaluated in floating point
+  - factorisation sets computed exactly (the first version truncated them at 64 per n)
 - **methodology:**
 
   Scan n <= 10^6: compute f exactly via integer square roots; check every n with f outside the product zone is irreducible; measure densities by scale; within the product zone measure the irreducible fraction. For T-C09-B compare max factorisation length with log|nu'|/log|psi|.
 
 - **falsification:** A reducible n with f outside (0.2361, 0.8541); a factorisation longer than the bound.
-- **summary:** T-C09-A: 0 reducible numbers outside the product zone (n <= 1e6); forced-irreducible density at 1e6 = 0.381966 (limit 1/phi^2 = 0.381966); irreducible fraction inside the product zone by scale: {'1000': 0.315534, '10000': 0.290777, '100000': 0.270391, '1000000': 0.254721}; T-C09-B (length bound |nu'| < |psi|^r): 0 violations for n <= 200000
-- **analysis:** No reducible number outside the product zone up to 1e6; forced-irreducible density matches 1/phi^2 to 6 digits; length bound never violated.
+- **summary:** T-C09-A: 0 reducible numbers outside the product zone (n <= 1e6); forced-irreducible density at 1e6 = 0.381967 (limit 1/phi^2 = 0.381966); irreducible fraction inside the product zone by scale: {'1000': 0.314425, '10000': 0.290662, '100000': 0.27038, '1000000': 0.254719}; T-C09-B (length bound |nu'| < |psi|^r): 0 violations for n <= 200000
+- **analysis:**
+
+  No reducible number outside the product zone up to 1e6; forced-irreducible density matches 1/phi^2 to 6 digits (0.381967 at 1e6); length bound never violated. Revised after the Skeptic's review - zone membership now decided exactly (the floating-point test had put the boundary point n = 1 inside the open zone; irreducible fraction in the zone 0.314425 at 1e3, 0.254719 at 1e6) and factorisation sets are no longer truncated at 64.
+
 - **related:** CLM-C09-03; CLM-C09-06; CLM-C09-05
-- **runs:** 2; last 2026-10-18T07:41:00Z (7.832 s), results sha256 `19fc2980806d81ba…`, code `experiments/C09/E04_window_obstruction.py`
+- **runs:** 4; last 2026-10-18T18:15:11Z (4.881 s), results sha256 `d340009f5d9af08b…`, code `experiments/C09/E04_window_obstruction.py`
 
 ### EXP-C10-01: Average and worst-case digit changes per increment in classical representations
 
@@ -5434,7 +5639,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **summary:** recurrence agrees with brute force for m <= 24: True; T_m/G_m at m = 10, 20, 40, 60, 89: [1.951388888889, 1.999322454971, 1.999999917884, 1.999999999992, 2.0]; D_m = 2G_m - T_m: [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10]
 - **analysis:** The block recurrence matches brute force; D_m = ceil(m/2) + 2 exactly.
 - **related:** CLM-C10-02
-- **runs:** 1; last 2026-10-18T07:50:10Z (1.166 s), results sha256 `e6984bce3c41fa67…`, code `experiments/C10/E02_zeckendorf_exact.py`
+- **runs:** 2; last 2026-10-18T17:59:47Z (0.628 s), results sha256 `e6984bce3c41fa67…`, code `experiments/C10/E02_zeckendorf_exact.py`
 
 ### EXP-C10-03: Firings and digit changes per increment for the 31 terminating carry rules
 
@@ -5719,7 +5924,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   1). C3 beats T_011 on Zipf 1.5/2/3, geometric 0.5/0.1 and both prime-gap data sets, and loses on the other 9.
 
 - **related:** CLM-C11-09; CLM-C11-08; CLM-C11-04
-- **runs:** 2; last 2026-10-18T08:50:45Z (0.534 s), results sha256 `30d4d6e2b7a623f5…`, code `experiments/C11/E09_c3_baseline.py`
+- **runs:** 3; last 2026-10-18T17:59:48Z (0.855 s), results sha256 `30d4d6e2b7a623f5…`, code `experiments/C11/E09_c3_baseline.py`
 
 ### EXP-C12-01: Grundy census of 19 relational one-heap games
 
@@ -5867,7 +6072,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   random mex checks beyond the computed range have 0 failures.
 
 - **related:** CLM-C12-04
-- **runs:** 1; last 2026-10-18T08:40:45Z (0.837 s), results sha256 `fe0eff630e328833…`, code `experiments/C12/E06_deleting_divisors.py`
+- **runs:** 2; last 2026-10-18T17:59:50Z (0.81 s), results sha256 `fe0eff630e328833…`, code `experiments/C12/E06_deleting_divisors.py`
 
 ### EXP-C13-01: Atlas of affine anchored spectra for all laws with at most 4 leaves per side (and 2-variable laws with at most 5)
 
@@ -6140,7 +6345,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C14-01; CLM-C14-02
-- **runs:** 2; last 2026-10-18T08:40:47Z (0.227 s), results sha256 `98a25916b494a20d…`, code `experiments/C14/E01_classification.py`
+- **runs:** 3; last 2026-10-18T17:45:52Z (0.207 s), results sha256 `98a25916b494a20d…`, code `experiments/C14/E01_classification.py`
 
 ### EXP-C14-02: Isomorphism-level versus strict associativity and commutativity of local products
 
@@ -6394,7 +6599,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
   - H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **related:** CLM-C15-02; CLM-C15-03; CLM-C15-04; CLM-C15-12; CLM-C15-13; CLM-C15-14; CLM-C15-15
-- **runs:** 1; last 2026-10-18T09:31:25Z (45.725 s), results sha256 `60337b19e325b458…`, code `experiments/C15/E03_algebraic_fast_forward.py`
+- **runs:** 2; last 2026-10-18T17:46:52Z (39.332 s), results sha256 `60337b19e325b458…`, code `experiments/C15/E03_algebraic_fast_forward.py`
 
 ### EXP-C15-04: Cycle detection as a universal fast-forward: transient plus period of random cyclic rows
 
@@ -6448,7 +6653,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C15-04; CLM-C15-05; CLM-C15-17
-- **runs:** 1; last 2026-10-18T16:38:01Z (7.762 s), results sha256 `e298d006e6541e19…`, code `experiments/C15/E05_case_studies.py`
+- **runs:** 2; last 2026-10-18T17:45:59Z (1.728 s), results sha256 `e298d006e6541e19…`, code `experiments/C15/E05_case_studies.py`
 
 ### EXP-C16-01: Cycle structure of the Fibonacci pair map (a, b) -> (b, b*a) for all small magmas
 
@@ -6485,7 +6690,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x*y = 1 - y on {0,1}: period 4 = n^2, not a quasigroup (H-C16-1 refuted)
 - **verification:** PROVEN
 - **related:** CLM-C16-01; CLM-C16-02; CLM-C16-03
-- **runs:** 1; last 2026-10-18T09:27:31Z (7.899 s), results sha256 `0550e32b9f950756…`, code `experiments/C16/E01_small_magmas.py`
+- **runs:** 2; last 2026-10-18T17:45:57Z (3.23 s), results sha256 `0f06a8f1a8fc6661…`, code `experiments/C16/E01_small_magmas.py`
 
 ### EXP-C16-02: Quasigroups whose Fibonacci pair map is a single cycle through all n^2 pairs
 
@@ -6520,7 +6725,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** 3360 full-period quasigroups of order 5, e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3 (H-C16-5 refuted)
 - **verification:** PROVEN
 - **related:** CLM-C16-04; CLM-C16-05; CLM-C16-06; CLM-C16-07; CLM-C16-08; CLM-C16-09; CLM-C16-10
-- **runs:** 1; last 2026-10-18T16:56:50Z (31.628 s), results sha256 `054116983d846545…`, code `experiments/C16/E02_quasigroups.py`
+- **runs:** 2; last 2026-10-18T17:47:22Z (28.803 s), results sha256 `054116983d846545…`, code `experiments/C16/E02_quasigroups.py`
 
 ### EXP-C16-03: Fibonacci dynamics in structured families: Laver tables, affine and anchored magmas, nimbers, groups
 
@@ -6648,7 +6853,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **related:** CLM-C17-04; CLM-C17-06
-- **runs:** 1; last 2026-10-18T09:22:07Z (31.632 s), results sha256 `37d6185d5af8141e…`, code `experiments/C17/E01_assoc_benchmark.py`
+- **runs:** 2; last 2026-10-18T17:52:04Z (31.896 s), results sha256 `37d6185d5af8141e…`, code `experiments/C17/E01_assoc_benchmark.py`
 
 ### EXP-C17-02: The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?
 
@@ -6672,7 +6877,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)
 - **verification:** REFUTED
 - **related:** CLM-C17-02; CLM-C17-05; CLM-C17-07
-- **runs:** 2; last 2026-10-18T09:21:14Z (75.658 s), results sha256 `f4c5466ad1841f84…`, code `experiments/C17/E02_anchor_instance.py`
+- **runs:** 3; last 2026-10-18T17:53:21Z (73.781 s), results sha256 `f4c5466ad1841f84…`, code `experiments/C17/E02_anchor_instance.py`
 
 ### EXP-C18-01: Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems
 
@@ -6804,7 +7009,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **related:** CLM-C18-13
-- **runs:** 1; last 2026-10-18T16:49:11Z (3.127 s), results sha256 `fc4153a514764663…`, code `experiments/C18/E04_throughput.py`
+- **runs:** 2; last 2026-10-18T17:46:12Z (2.484 s), results sha256 `fc4153a514764663…`, code `experiments/C18/E04_throughput.py`
 
 ### EXP-C18-05: Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state
 
@@ -6840,7 +7045,7 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted); QC-ARP d8: bit-independence maximum 0.176 < 0.5 (H-C18-9 refuted)
 - **verification:** REFUTED
 - **related:** CLM-C18-03; CLM-C18-07; CLM-C18-11; CLM-C18-12; CLM-C18-13
-- **runs:** 1; last 2026-10-18T16:48:40Z (35.152 s), results sha256 `b65260e9bb0972c2…`, code `experiments/C18/E05_cascade.py`
+- **runs:** 2; last 2026-10-18T17:47:31Z (7.963 s), results sha256 `b65260e9bb0972c2…`, code `experiments/C18/E05_cascade.py`
 
 ### EXP-C19-01: Exact longest Zeckendorf games for n <= 150 and independent check of the published strategy
 
@@ -6972,5 +7177,5 @@ _Generated 2026-10-18T17:45:11Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C20-01; CLM-C20-02; CLM-C20-03
-- **runs:** 1; last 2026-10-18T09:30:35Z (0.521 s), results sha256 `ca16de94a06cb31d…`, code `experiments/C20/E01_last_one_rule_cases.py`
+- **runs:** 2; last 2026-10-18T17:51:30Z (0.757 s), results sha256 `ca16de94a06cb31d…`, code `experiments/C20/E01_last_one_rule_cases.py`
 

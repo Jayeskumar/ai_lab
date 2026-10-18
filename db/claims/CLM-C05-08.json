@@ -28,13 +28,22 @@
       "old": "Not stated in Le Floch's notes (which say 'containing' for 501, 883, 1083, 'unknown' for 677, 'not 6 nor 7' for 1076). Sizes 2 and 3 are surely known to the ETP (it determined size-2 and size-3 model existence for all order-4 laws), and small sizes may be in its finite-magma searches; only the gaps at n >= 5 (501: 6,7; 677: 6; 883: 6; 1076: 8; 1083: 5,6) are plausible additions.",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law). Independently confirmed by the Skeptic - all 15 claimed gaps UNSAT under its own CNF encoding with Kissat 4.0.4, the 13 with n <= 6 also under CaDiCaL 1.9.5 without the extra constraints (reviews/skeptic_C05_C08_C12.md)",
+      "old": "computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - gaps independently re-derived",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C05-08",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Le Floch's notes list the 31 laws without a model of order 2 (including 501, 677, 1083, 1719) and the 14 with a model of order 2 but none of order 3 (including 883); otherwise they say 'containing' for 501, 883, 1083, 'unknown spectrum' for 677 and 'not 6 nor 7' for 1076. The gaps at orders 3 and 4 are small enough that ETP finite-magma searches probably settle them; the plausible additions are the gaps at n >= 5 (501: 6, 7; 677: 6; 883: 6; 1076: 8; 1083: 5, 6).",
   "proof": "proofs/paper/C05.md#lemma-4--soundness-of-the-extra-sat-constraints-exp-c05-03--04--06",
-  "proof_check": "computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law)",
+  "proof_check": "computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law). Independently confirmed by the Skeptic - all 15 claimed gaps UNSAT under its own CNF encoding with Kissat 4.0.4, the 13 with n <= 6 also under CaDiCaL 1.9.5 without the extra constraints (reviews/skeptic_C05_C08_C12.md)",
   "statement": "No magma of the stated order satisfies the law. Not stated in Le Floch's notes: 501 x = y(y(x(xy))) - orders\n3, 6, 7; 677 x = y(x((yx)y)) - orders 3, 4, 6; 883 x = y((xy)(yy)) - order 6; 1076 x = y((x(xy))y) - order 8;\n1083 x = y((x(yx))y) - orders 5, 6. Also certified, but already stated in the notes: no model of order 2 for\n501, 677, 1083 and 1719 x = (yy)((xx)y), and none of order 3 for 883.",
   "system": "SYS-B",
   "title": "New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6",

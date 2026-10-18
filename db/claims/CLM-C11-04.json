@@ -10,13 +10,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)",
+      "old": "written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C11-04",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09).",
   "proof": "proofs/paper/C11.md#corollary-4-clm-c11-04--t_011-versus-the-fibonacci-code",
-  "proof_check": "written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)",
+  "proof_check": "written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)",
   "statement": "cum_11(L) = F_(L+1) - 1 and cum_011(L) = F_(L+2) - L - 1. If the Fibonacci (C1) codeword of n has length L + 1,\nthe T_011 codeword is one bit shorter when n <= F_(L+2) - L - 1 and of equal length for the last L values of the\nlevel; T_011 is longer than C1 only for n in {1, 2, 4}. The same holds for every unbordered 3-letter terminator.",
   "system": "SYS-C",
   "title": "T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L values per level",

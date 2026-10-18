@@ -1,7 +1,9 @@
 {
+  "counterexample": "Two of its 'no failure found' ranges were wrong (Skeptic review 2026-10-18, reviews/skeptic_C05_C08_C12.md, P2) - G(k+1) = 2G(k) + 2G(k-1) (1,2) fails at s = 6: (314965 o 314965) o 1 != 314965 o (314965 o 1); G(k+1) = 3G(k) + 3G(k-1) (1,5) fails at s = 10 and s = 11: (173938 o 173938) o 1 != 173938 o (173938 o 1). Both re-verified with the lab's code and re-found by EXP-C08-07 (e.g. (5653, 42197, 1) at s = 6; (3192, 173938, 1) at s = 10; (12100, 12100, 1) at s = 11). The certified lower bounds of this claim stand; the thresholds it implied for these two sequences do not. Superseded by CLM-C08-08.",
   "cycle": "C08",
   "evidence": [
-    "EXP-C08-06"
+    "EXP-C08-06",
+    "EXP-C08-07"
   ],
   "history": [
     {
@@ -9,10 +11,51 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-06",
+        "EXP-C08-07"
+      ],
+      "old": [
+        "EXP-C08-06"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Two of its 'no failure found' ranges were wrong (Skeptic review 2026-10-18, reviews/skeptic_C05_C08_C12.md, P2) - G(k+1) = 2G(k) + 2G(k-1) (1,2) fails at s = 6: (314965 o 314965) o 1 != 314965 o (314965 o 1); G(k+1) = 3G(k) + 3G(k-1) (1,5) fails at s = 10 and s = 11: (173938 o 173938) o 1 != 173938 o (173938 o 1). Both re-verified with the lab's code and re-found by EXP-C08-07 (e.g. (5653, 42197, 1) at s = 6; (3192, 173938, 1) at s = 10; (12100, 12100, 1) at s = 11). The certified lower bounds of this claim stand; the thresholds it implied for these two sequences do not. Superseded by CLM-C08-08.",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked). The lab's second attempt at these thresholds repeated the first one's mistake - searching where failures are rare.",
+      "old": "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked).",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the 'no failure found' ranges",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C08-07",
-  "limitations": "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked).",
+  "limitations": "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked). The lab's second attempt at these thresholds repeated the first one's mistake - searching where failures are rare.",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements.",
   "proof_check": "lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)",
@@ -20,5 +63,5 @@
   "system": "SYS-C",
   "title": "Corrected associativity thresholds - certified lower bounds and searched ranges",
   "type": "observation",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "verification": "REFUTED"
 }

@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
+      "old": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C11-02",
   "novelty": "REDISCOVERY",
   "novelty_basis": "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.",
   "proof": "proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate",
-  "proof_check": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
+  "proof_check": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
   "statement": "Let lambda_p = 1/rho_p, with rho_p the smallest positive root of x^k + (1 - 2x) c_p(x). Among binary patterns of\nlength k, 1^k and 0^k have the largest lambda_p and every other pattern has a strictly smaller one; hence\nT_(1^k) has the smallest asymptotic codeword length log2(n)/log2(lambda) among length-k terminators.",
   "system": "SYS-C",
   "title": "The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k patterns",

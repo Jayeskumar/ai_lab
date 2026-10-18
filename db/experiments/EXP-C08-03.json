@@ -1,6 +1,6 @@
 {
   "agent": "Mathematical Skeptic",
-  "analysis": "Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine.",
+  "analysis": "Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine. CORRECTED by EXP-C08-06 - random triples missed rare failures; several of these 'associative' shifts are certified non-associative, and two of the non-monotone examples were artefacts.",
   "assumptions": [
     "exhaustive [1,14]^3 plus 4000 random triples in [1,1e6]^3 per (G, s); Knuth s=2: 20000 random triples in [1,1e9]^3"
   ],
@@ -40,6 +40,15 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine. CORRECTED by EXP-C08-06 - random triples missed rare failures; several of these 'associative' shifts are certified non-associative, and two of the non-monotone examples were artefacts.",
+      "old": "Associative pairs survive inputs up to 1e6 (Knuth up to 1e9); slow Pisot systems become associative at shifts 7-10; non-monotone shift sets are genuine.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "hypothesis": "Associative (G, s) pairs from EXP-C08-02 remain associative on large inputs; the three Pisot sequences without an associative shift <= 8 become associative for some larger s.",

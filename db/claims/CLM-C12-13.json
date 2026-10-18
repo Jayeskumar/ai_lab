@@ -10,10 +10,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Weak support. The maximum is 14 up to 2e5 (13 first at 12,071, 14 at 48,652), but the Skeptic's computation to 1e8 finds new records just outside the lab's range - 15 first at n = 206,025 and 16 at n = 63,331,966. P-density stays in 0.165-0.180 up to 1e8. 'Unchanged up to 2e5' was true but misleading; the values may well be unbounded.",
+      "old": "Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.",
+      "reason": "Skeptic review 2026-10-18 - new record values 15 and 16 beyond the lab's range",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C12-13",
-  "limitations": "Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.",
+  "limitations": "Weak support. The maximum is 14 up to 2e5 (13 first at 12,071, 14 at 48,652), but the Skeptic's computation to 1e8 finds new records just outside the lab's range - 15 first at n = 206,025 and 16 at n = 63,331,966. P-density stays in 0.165-0.180 up to 1e8. 'Unchanged up to 2e5' was true but misleading; the values may well be unbounded.",
   "notes": "The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.",
   "novelty": "NOT ASSESSED",
   "statement": "The Grundy values of the subtraction game with move set {1, 2, 3, 5, 8, ...} (Fibonacci numbers) are bounded;\nthe observed maximum is 14 for n <= 2e5.",

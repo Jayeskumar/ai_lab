@@ -1,10 +1,11 @@
 {
-  "counterexample": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.",
+  "counterexample": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. The Skeptic's review adds G(k+1) = 3G(k) + 3G(k-1) (1,5) at s = 10: (173938 o 173938) o 1 != 173938 o (173938 o 1) - the fifth wrong value. Thresholds after the targeted search in CLM-C08-08.",
   "cycle": "C08",
   "evidence": [
     "EXP-C08-02",
     "EXP-C08-03",
-    "EXP-C08-06"
+    "EXP-C08-06",
+    "EXP-C08-07"
   ],
   "history": [
     {
@@ -73,6 +74,42 @@
       "old": null,
       "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "title",
+      "new": "Measured associativity thresholds for 46 base sequences (refuted - five of the eight quoted thresholds were too small)",
+      "old": "Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P2) - a fifth wrong threshold; the sequence count is 46, not 45",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06",
+        "EXP-C08-07"
+      ],
+      "old": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P2) - a fifth wrong threshold; the sequence count is 46, not 45",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. The Skeptic's review adds G(k+1) = 3G(k) + 3G(k-1) (1,5) at s = 10: (173938 o 173938) o 1 != 173938 o (173938 o 1) - the fifth wrong value. Thresholds after the targeted search in CLM-C08-08.",
+      "old": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P2) - a fifth wrong threshold; the sequence count is 46, not 45",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C08-05",
@@ -80,7 +117,7 @@
   "novelty_basis": "Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works).",
   "statement": "Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,\nG(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;\nG(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).",
   "system": "SYS-C",
-  "title": "Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)",
+  "title": "Measured associativity thresholds for 46 base sequences (refuted - five of the eight quoted thresholds were too small)",
   "type": "observation",
   "verification": "REFUTED"
 }

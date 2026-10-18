@@ -10,10 +10,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Our own check covers n <= 2e5 (maximum 11 from n <= 1.25e4 on); the Skeptic's bitset computation to 1e6 also gives maximum 11 (P-density 0.1639 at 1e6, still rising).",
+      "old": "Our own check covers n <= 2e5 only (maximum 11 from n <= 1.25e4 on).",
+      "reason": "Skeptic review 2026-10-18 - range extended to 1e6",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C12-12",
-  "limitations": "Our own check covers n <= 2e5 only (maximum 11 from n <= 1.25e4 on).",
+  "limitations": "Our own check covers n <= 2e5 (maximum 11 from n <= 1.25e4 on); the Skeptic's bitset computation to 1e6 also gives maximum 11 (P-density 0.1639 at 1e6, still rising).",
   "novelty": "REDISCOVERY",
   "novelty_basis": "OEIS A014589 records a(n) <= 11 for n <= 32452842 (A. Huet, 2022) and for n <= 1e9 (B. Dobbelaere, 2024);\nwe found no proof of boundedness.",
   "statement": "The Grundy values of the subtraction game whose move set is the set of primes satisfy g(n) <= 11 for all n.",

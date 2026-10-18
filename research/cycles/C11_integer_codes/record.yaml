@@ -84,12 +84,13 @@ claims:
       x^k / (x^k + (1 - 2x) c_p(x)) with c_p the autocorrelation polynomial of p, and T_11 (T_(1^k)) is exactly the
       codeword set of the Fibonacci code C1 (of its order-k generalisation).
     verification: PROVEN
-    proof_check: "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)"
+    proof_check: "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)"
     proof: proofs/paper/C11.md#theorem-1-clm-c11-01--t_p-is-a-complete-prefix-code
     lean: [proofs/lean/Infinity/C11_Codes.lean]
     evidence: [EXP-C11-01, EXP-C11-02]
     novelty: REDISCOVERY
     novelty_basis: "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written parts upheld"
   - id: CLM-C11-02
     type: theorem
     system: SYS-C
@@ -99,11 +100,12 @@ claims:
       length k, 1^k and 0^k have the largest lambda_p and every other pattern has a strictly smaller one; hence
       T_(1^k) has the smallest asymptotic codeword length log2(n)/log2(lambda) among length-k terminators.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)
+    proof_check: "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)"
     proof: proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate
     evidence: [EXP-C11-02]
     novelty: REDISCOVERY
     novelty_basis: In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C11-03
     type: theorem
     system: SYS-C
@@ -112,11 +114,12 @@ claims:
       If u is unbordered and |u| = k + 1, the codeword counts of T_u are the partial sums of those of T_(1^k):
       f_u(L) = cum_(1^k)(L - 1). Hence lambda_u is the k-bonacci constant lambda and cum_u(L)/cum_(1^k)(L) -> 1/(lambda - 1).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C11.md Theorem 3); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)
+    proof_check: "written proof (proofs/paper/C11.md Theorem 3), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)"
     proof: proofs/paper/C11.md#theorem-3-clm-c11-03--unbordered-terminators-the-x1--x-identity
     evidence: [EXP-C11-06, EXP-C11-02]
     novelty: REDISCOVERY
     novelty_basis: An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C11-04
     type: theorem
     system: SYS-C
@@ -126,12 +129,13 @@ claims:
       the T_011 codeword is one bit shorter when n <= F_(L+2) - L - 1 and of equal length for the last L values of the
       level; T_011 is longer than C1 only for n in {1, 2, 4}. The same holds for every unbordered 3-letter terminator.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C11.md Corollary 4); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
+    proof_check: "written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)"
     proof: proofs/paper/C11.md#corollary-4-clm-c11-04--t_011-versus-the-fibonacci-code
     evidence: [EXP-C11-06]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09)."
     applications: A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C11-05
     type: hypothesis
     system: SYS-C
@@ -161,11 +165,12 @@ claims:
       G(N) = (1/N) sum_(n<=N) (L_(1^k)(n) - L_u(n)) has liminf (2 - lambda)/(lambda - 1)^2 and limsup
       lambda(2 - lambda)/(lambda - 1) (both 1 for k = 2; 0.228155 and 0.352201 for k = 3).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)
+    proof_check: "written proof (proofs/paper/C11.md Proposition 5), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)"
     proof: proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates
     evidence: [EXP-C11-08, EXP-C11-07]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C11-08
     type: algorithmic
     system: SYS-C
@@ -194,11 +199,12 @@ claims:
       Fibonacci code C1 except at n = 1, and T_011 is never longer than C3 except at n in {2, 4, 8}; moreover
       cum_011(L)/cum_C3(L) -> phi^2/2 and cum_C3(L)/cum_C1(L) -> 2/phi.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
+    proof_check: "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)"
     proof: proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3
     evidence: [EXP-C11-09]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04)."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
 
 journal:
   - key: C11-01

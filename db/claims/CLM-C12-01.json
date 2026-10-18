@@ -10,13 +10,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C12.md Theorem 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for n <= 1e5 (EXP-C12-02)",
+      "old": "written proof (proofs/paper/C12.md Theorem 1); 0 mismatches for n <= 1e5 (EXP-C12-02)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C12-01",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Iannucci & Larsson, \"Game values of arithmetic functions\" (arXiv:2101.07608, 2021), Theorem 1 (maliquot =\nG04) and Theorem 2 (saliquot = G02); G01 is the \"Divisor Game\" puzzle (LeetCode 1025) and its Grundy\nfunction follows from the saliquot proof. OEIS A007814, A001511, A001222.",
   "proof": "proofs/paper/C12.md#theorem-1-clm-c12-01--divisibility-games",
-  "proof_check": "written proof (proofs/paper/C12.md Theorem 1); 0 mismatches for n <= 1e5 (EXP-C12-02)",
+  "proof_check": "written proof (proofs/paper/C12.md Theorem 1), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches for n <= 1e5 (EXP-C12-02)",
   "statement": "G01 (n -> n - d with d | n, d < n) has Grundy function g(n) = v2(n) (n >= 1); G02 (d = n also allowed) has\ng(n) = v2(n) + 1 (n >= 1); G04 (n -> d with d | n, d < n) has g(n) = Omega(n).",
   "system": "SYS-D",
   "title": "Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega",

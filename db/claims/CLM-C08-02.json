@@ -1,7 +1,8 @@
 {
   "cycle": "C08",
   "evidence": [
-    "EXP-C08-02"
+    "EXP-C08-02",
+    "EXP-C08-07"
   ],
   "history": [
     {
@@ -27,13 +28,45 @@
       "old": null,
       "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "statement",
+      "new": "If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a dominant root alpha > 1 and\nanother characteristic root beta with |beta| >= 1 (counted with multiplicity: a repeated dominant root counts as\nsuch a beta), then the circle product o_s is non-associative for every s >= 0.",
+      "old": "If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta\nother than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P10) - the statement needs a dominant root > 1; evidence extended by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-02",
+        "EXP-C08-07"
+      ],
+      "old": [
+        "EXP-C08-02"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P10) - the statement needs a dominant root > 1; evidence extended by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "limitations",
+      "new": "10 non-Pisot sequences, shifts 0..8 (EXP-C08-02); the 10 again with certified failures at every s <= 12 (EXP-C08-07); the Skeptic adds 8 more non-Pisot sequences and the double root (x - 2)^2, all failing at every tested shift (s <= 25, resp. 12). The condition alpha > 1 is needed - G_k = k + 1 (minimal polynomial (x - 1)^2) gives a o_s b = a + b + s - 1, associative at every shift; the first wording, without it, was false (Skeptic review 2026-10-18).",
+      "old": "10 non-Pisot sequences, shifts 0..8 only.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P10) - the statement needs a dominant root > 1; evidence extended by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C08-02",
-  "limitations": "10 non-Pisot sequences, shifts 0..8 only.",
+  "limitations": "10 non-Pisot sequences, shifts 0..8 (EXP-C08-02); the 10 again with certified failures at every s <= 12 (EXP-C08-07); the Skeptic adds 8 more non-Pisot sequences and the double root (x - 2)^2, all failing at every tested shift (s <= 25, resp. 12). The condition alpha > 1 is needed - G_k = k + 1 (minimal polynomial (x - 1)^2) gives a o_s b = a + b + s - 1, associative at every shift; the first wording, without it, was false (Skeptic review 2026-10-18).",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "As a conjecture, low confidence - not found; natural attack via Messaoudi's Cor 1 (window stability); related: property (F) implies Pisot (Frougny-Solomyak 1992) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
-  "statement": "If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta\nother than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.",
+  "statement": "If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a dominant root alpha > 1 and\nanother characteristic root beta with |beta| >= 1 (counted with multiplicity: a repeated dominant root counts as\nsuch a beta), then the circle product o_s is non-associative for every s >= 0.",
   "system": "SYS-C",
   "title": "Circle products over non-Pisot base sequences are never associative",
   "type": "conjecture",

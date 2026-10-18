@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Skeptic",
+  "analysis": "Certified re-test after the Historian's audit - an exact embedding filter (circle product as multiplication in Z[x]/(characteristic polynomial)) and explicit failing triples. Certified thresholds (largest failing shift / first shift without a failure found) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 5/6, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, (3,3;1,5) 9/10. Upper values are 'no failure found', not proofs. Of the 90 quadratic rows of EXP-C08-04, 6 had certified-failing 'associative' shifts; 10 remain non-monotone, none with beta > 0.",
   "assumptions": [
     "pairs a <= b < 300, plus 4000 seeded random pairs in [1, 10^6), plus the literature example and the three pairs reported by the Historian",
     "for each failing pair, c is searched in [1, 300)",
@@ -36,12 +37,41 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T17:03:29Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Certified re-test after the Historian's audit - an exact embedding filter (circle product as multiplication in Z[x]/(characteristic polynomial)) and explicit failing triples. Certified thresholds (largest failing shift / first shift without a failure found) - Fibonacci 1/2, Pell 0/1, (2,2;1,2) 5/6, tribonacci 3/4, 4-bonacci 7/8, G(k+1) = G(k) + G(k-2) 10/11, (3,3;1,5) 9/10. Upper values are 'no failure found', not proofs. Of the 90 quadratic rows of EXP-C08-04, 6 had certified-failing 'associative' shifts; 10 remain non-monotone, none with beta > 0.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C08-03",
+        "CLM-C08-04",
+        "CLM-C08-05",
+        "CLM-C08-07"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "hypothesis": "The Historian's audit (reviews/historian_C03_C10.md) predicts failures at tribonacci s = 3, G(k+1) = G(k) + G(k-2) at s = 10, (2,2;1,2) at s = 4, 4-bonacci at s = 6, (3,3;1,5) at s = 9, (4,3;1,5) at s = 4 and (3,3;1,2) at s = 7, all listed as associative before.",
   "id": "EXP-C08-06",
   "methodology": "For every sequence and shift: test the embedding identity on the pair set; on the first failing pair search an explicit triple; record a certified counterexample or 'no failure found'.",
   "question": "Which associativity claims of EXP-C08-02..04 survive a stronger search (embedding identity on all pairs a <= b < 200, 2000 random pairs below 10^6, the literature example of Ambroz-Frougny-Masakova-Pelantova for tribonacci), with explicit counterexamples for every failure?",
+  "related": [
+    "CLM-C08-03",
+    "CLM-C08-04",
+    "CLM-C08-05",
+    "CLM-C08-07"
+  ],
   "results_file": "results/EXP-C08-06.json",
   "results_sha256": "f34b3a55127266bebe9794ebadfb45b948d68289590667fed8f302c1c0348dcf",
   "runs": [

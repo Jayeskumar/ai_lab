@@ -1,0 +1,106 @@
+{
+ "2a+1 odd": {
+  "n_in_set": 1000,
+  "differences": []
+ },
+ "3a+1 3\u2224N": {
+  "n_in_set": 1334,
+  "differences": []
+ },
+ "a^2+1  -1 square": {
+  "n_in_set": 359,
+  "differences": []
+ },
+ "a^2-2a-1  2 square": {
+  "n_in_set": 310,
+  "differences": []
+ },
+ "a^2+2a-2  3 square": {
+  "n_in_set": 394,
+  "differences": []
+ },
+ "a^2+a+1  x^2+x+1 has a root": {
+  "n_in_set": 293,
+  "differences": []
+ },
+ "a^2-a-1  golden": {
+  "n_in_set": 226,
+  "differences": []
+ },
+ "2a^2+2a+1  all p \u2261 1 mod 4": {
+  "n_in_set": 236,
+  "differences": []
+ },
+ "2a^2-1  all p \u2261 \u00b11 mod 8": {
+  "n_in_set": 203,
+  "differences": []
+ },
+ "a^4+1  -1 fourth power": {
+  "n_in_set": 116,
+  "differences": []
+ },
+ "a^4-a^2+1  all p \u2261 1 mod 12": {
+  "n_in_set": 78,
+  "differences": []
+ },
+ "examples": {
+  "x(xx)=y(xy)": [
+   [
+    1,
+    0,
+    1
+   ]
+  ],
+  "(xx)(xy)=(yy)(yx)": [
+   [
+    -1,
+    -2,
+    1
+   ]
+  ],
+  "x=x((xx)x)": [
+   [
+    0,
+    1,
+    2
+   ],
+   [
+    1,
+    2
+   ]
+  ],
+  "((xx)x)x=((yy)y)y": [
+   [
+    1,
+    3
+   ]
+  ],
+  "x=x(x(xx))": [
+   [
+    0,
+    1,
+    1,
+    1
+   ],
+   [
+    1,
+    1,
+    1
+   ]
+  ],
+  "x(xy)=y(yx)": [
+   [
+    -1,
+    -1,
+    1
+   ]
+  ],
+  "x((xy)y)=y((xx)x)": [
+   [
+    -1,
+    0,
+    2
+   ]
+  ]
+ }
+}

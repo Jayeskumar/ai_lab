@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C09-02",
     "file": "experiments/C09/E02_factorizations.py",
     "sha256": "dab0b1f12b580af049c1fc887b1ed94db01ceecd026da28bc40385c8c584ec84",
-    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+    "systems_sha256": "0295ebf850895e5dd590abe9f798b03031a9e128e2a2fa1bacf73fd964f820e0"
   },
   "counterexamples": [
     "8 = 1 o 1 o 1 = 2 o 2"
@@ -90,6 +90,25 @@
       "results_sha256": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
       "runtime_s": 1.992,
       "started": "2026-10-18T07:38:25Z",
+      "summary": [
+        "n <= 200000: 75332 with >= 2 factorisations; first: 8 = [[1, 1, 1], [2, 2]]",
+        "first with factorisations of different lengths: 8; count 29577; max elasticity 2.5 at n = 196405"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C09-02",
+        "file": "experiments/C09/E02_factorizations.py",
+        "sha256": "dab0b1f12b580af049c1fc887b1ed94db01ceecd026da28bc40385c8c584ec84",
+        "systems_sha256": "0295ebf850895e5dd590abe9f798b03031a9e128e2a2fa1bacf73fd964f820e0"
+      },
+      "error": false,
+      "finished": "2026-10-18T18:15:06Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C09-02.json",
+      "results_sha256": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
+      "runtime_s": 1.812,
+      "started": "2026-10-18T18:15:04Z",
       "summary": [
         "n <= 200000: 75332 with >= 2 factorisations; first: 8 = [[1, 1, 1], [2, 2]]",
         "first with factorisations of different lengths: 8; count 29577; max elasticity 2.5 at n = 196405"

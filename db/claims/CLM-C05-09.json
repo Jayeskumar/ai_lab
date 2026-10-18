@@ -1,8 +1,10 @@
 {
+  "counterexample": "Linear models of order 16 (found by the Skeptic, reviews/skeptic_C05_C08_C12.md, Appendix B) - over GF(16) = GF(2)[t]/(t^4 + t + 1), x*y = (1 + t^3)x + t^3 y satisfies law 677 and x*y = t^3 x + (1 + t^3)y satisfies law 1313 (each has 8 such pairs (a, b)). Re-found by EXP-C05-07 and Lean-certified (E677_order16_law, E1313_order16_law, kernel decide on the 16 x 16 tables).",
   "cycle": "C05",
   "evidence": [
     "EXP-C05-03",
-    "EXP-C05-02"
+    "EXP-C05-02",
+    "EXP-C05-07"
   ],
   "history": [
     {
@@ -10,14 +12,66 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:23:58Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "title",
+      "new": "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have models of order 16)",
+      "old": "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": "CONJECTURE",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C05-03",
+        "EXP-C05-02",
+        "EXP-C05-07"
+      ],
+      "old": [
+        "EXP-C05-03",
+        "EXP-C05-02"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Linear models of order 16 (found by the Skeptic, reviews/skeptic_C05_C08_C12.md, Appendix B) - over GF(16) = GF(2)[t]/(t^4 + t + 1), x*y = (1 + t^3)x + t^3 y satisfies law 677 and x*y = t^3 x + (1 + t^3)y satisfies law 1313 (each has 8 such pairs (a, b)). Re-found by EXP-C05-07 and Lean-certified (E677_order16_law, E1313_order16_law, kernel decide on the 16 x 16 tables).",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10.",
+      "old": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C05-09",
-  "limitations": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.",
+  "limitations": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10.",
   "novelty": "NOT ASSESSED",
   "statement": "The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.",
   "system": "SYS-B",
-  "title": "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5",
+  "title": "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have models of order 16)",
   "type": "conjecture",
-  "verification": "CONJECTURE"
+  "verification": "REFUTED"
 }

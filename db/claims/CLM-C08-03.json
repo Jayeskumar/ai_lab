@@ -3,7 +3,8 @@
   "evidence": [
     "EXP-C08-02",
     "EXP-C08-03",
-    "EXP-C08-06"
+    "EXP-C08-06",
+    "EXP-C08-07"
   ],
   "history": [
     {
@@ -54,9 +55,37 @@
       ],
       "reason": "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06",
+        "EXP-C08-07"
+      ],
+      "old": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - supporting evidence replaced by the targeted search EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "limitations",
+      "new": "The lab's supporting thresholds were twice too low (CLM-C08-05, CLM-C08-07); the targeted search EXP-C08-07 still finds a first associative shift for every Pisot sequence of the atlas except G(k+1) = G(k) + G(k-3), which fails at every s <= 16 (the Skeptic - s <= 24) and seems to lie outside the theorem's hypotheses (its coefficients 1, 0, 0, 1 are not non-increasing).",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - supporting evidence replaced by the targeted search EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C08-03",
+  "limitations": "The lab's supporting thresholds were twice too low (CLM-C08-05, CLM-C08-07); the targeted search EXP-C08-07 still finds a first associative shift for every Pisot sequence of the atlas except G(k+1) = G(k) + G(k-3), which fails at every s <= 16 (the Skeptic - s <= 24) and seems to lie outside the theorem's hypotheses (its coefficients 1, 0, 0, 1 are not non-increasing).",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md).",
   "statement": "For base sequences G_k = a_1 G_(k-1) + ... + a_d G_(k-d) with a_1 >= a_2 >= ... >= a_d >= 1 and canonical\ninitial values (the conditions of Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is\nassociative once the shift s is large enough. (The earlier title, \"Pisot base sequences ...\", overstated\nthe published theorem.)",

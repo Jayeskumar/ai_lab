@@ -1,9 +1,10 @@
 {
   "cycle": "C08",
   "evidence": [
+    "EXP-C08-07",
+    "EXP-C08-06",
     "EXP-C08-04",
-    "EXP-C08-03",
-    "EXP-C08-06"
+    "EXP-C08-03"
   ],
   "history": [
     {
@@ -45,13 +46,49 @@
       "old": "90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).",
       "reason": "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "statement",
+      "new": "For quadratic Pisot base sequences G(k+1) = pG(k) + qG(k-1) with non-canonical initial values (for canonical\nones the associative shifts are upward closed whatever the sign of beta, by Messaoudi's Thm 2 as derived by\nthe Historian): if the conjugate root beta is positive, the set of shifts s for which o_s is associative is\nupward-closed; sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...) occur only when\nbeta < 0.",
+      "old": "For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is\nassociative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)\noccur only when beta < 0.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P3) - statement restricted to non-canonical initial values; evidence replaced by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-07",
+        "EXP-C08-06",
+        "EXP-C08-04",
+        "EXP-C08-03"
+      ],
+      "old": [
+        "EXP-C08-04",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P3) - statement restricted to non-canonical initial values; evidence replaced by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative. The Skeptic's review found the evidence of EXP-C08-04 contaminated - 31 of its 90 rows (8 with beta > 0) list certified-failing shifts as associative, and 4 of its 10 non-monotone rows are artefacts. After the targeted search EXP-C08-07 (shifts 0..12) 8 rows are non-monotone, all with beta < 0 and non-canonical initial values, and none of the 30 beta > 0 rows; the Skeptic's stronger search finds 0 of 231 beta > 0 sequences non-monotone (s <= 16) and 60 of 396 beta < 0 ones, none canonical.",
+      "old": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P3) - statement restricted to non-canonical initial values; evidence replaced by EXP-C08-07",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C08-04",
-  "limitations": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.",
+  "limitations": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative. The Skeptic's review found the evidence of EXP-C08-04 contaminated - 31 of its 90 rows (8 with beta > 0) list certified-failing shifts as associative, and 4 of its 10 non-monotone rows are artefacts. After the targeted search EXP-C08-07 (shifts 0..12) 8 rows are non-monotone, all with beta < 0 and non-canonical initial values, and none of the 30 beta > 0 rows; the Skeptic's stronger search finds 0 of 231 beta > 0 sequences non-monotone (s <= 16) and 60 of 396 beta < 0 ones, none canonical.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md).",
-  "statement": "For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is\nassociative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)\noccur only when beta < 0.",
+  "statement": "For quadratic Pisot base sequences G(k+1) = pG(k) + qG(k-1) with non-canonical initial values (for canonical\nones the associative shifts are upward closed whatever the sign of beta, by Messaoudi's Thm 2 as derived by\nthe Historian): if the conjugate root beta is positive, the set of shifts s for which o_s is associative is\nupward-closed; sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...) occur only when\nbeta < 0.",
   "system": "SYS-C",
   "title": "Non-monotone associative-shift sets require a negative conjugate root",
   "type": "conjecture",

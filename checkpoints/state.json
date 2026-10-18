@@ -229,7 +229,11 @@
       "POTENTIALLY NOVEL"
     ],
     "CLM-C05-09": [
-      "CONJECTURE",
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C05-10": [
+      "PROVEN",
       "NOT ASSESSED"
     ],
     "CLM-C06-01": [
@@ -337,6 +341,10 @@
       "REDISCOVERY"
     ],
     "CLM-C08-07": [
+      "REFUTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C08-08": [
       "COMPUTATIONALLY SUPPORTED",
       "REDISCOVERY"
     ],
@@ -397,7 +405,7 @@
       "POTENTIALLY NOVEL"
     ],
     "CLM-C10-07": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "REDISCOVERY"
     ],
     "CLM-C11-01": [
@@ -948,6 +956,7 @@
     "EXP-C05-04": "3f0e38909e989d68c10582d994088920cff5dd0a612465a35d642e6c6fd0a3b1",
     "EXP-C05-05": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
     "EXP-C05-06": "ebeff4aa1d7fb9d4f7a3533ced8ecd2ccd034fbe6f7bf16aefe1fdf957cfdce1",
+    "EXP-C05-07": "8a9a46b752bbcc718a90ee58aae177fd488c00ed57d8d11a71f7dbdccca49368",
     "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
     "EXP-C06-02": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
     "EXP-C06-03": "600036cb0b6a407141af975ccb520c58a061428cf17479294c15fec8437da968",
@@ -961,10 +970,11 @@
     "EXP-C08-04": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
     "EXP-C08-05": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
     "EXP-C08-06": "f34b3a55127266bebe9794ebadfb45b948d68289590667fed8f302c1c0348dcf",
+    "EXP-C08-07": "2f8d050c520184c0a27932002b907407ccd43bbcc323b3c3fdd660b2f68553cb",
     "EXP-C09-01": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
     "EXP-C09-02": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
     "EXP-C09-03": "06fdb3356c7705b31fec007aefb6c0ced4bbb4f10cfc0a456bd5d5306d0c046f",
-    "EXP-C09-04": "19fc2980806d81bad0a82b4717fca593d9599067c2217c0af2802523bbda4802",
+    "EXP-C09-04": "d340009f5d9af08bafcb1fd5cfd306800cf27a179f542ca21b26460b77bb0430",
     "EXP-C10-01": "1cd226cc89f9dcb76273fbdda307fc1ae8644c2c414d81cfa8addfbe5a704678",
     "EXP-C10-02": "e6984bce3c41fa67f07ab9f777bdd28ce72b16d21c649a89cf4e25b6a7851df4",
     "EXP-C10-03": "5059156b9182ec52399629c9c608b3cbba2d227cd900996141b136f0210342a2",
@@ -1005,7 +1015,7 @@
     "EXP-C15-03": "60337b19e325b45873eb1c0fb43195ffbe656fe4152d00e73965517f0d3a8bbb",
     "EXP-C15-04": "e2a0d442418ecca98be790f3b18e52a9f8e7b61c5cb6585a3b0a816e7aa8c226",
     "EXP-C15-05": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
-    "EXP-C16-01": "0550e32b9f950756b68842e6de36f42d31787ea2a035853b59136abb6bb96001",
+    "EXP-C16-01": "0f06a8f1a8fc6661966c69c9874f526e1065173397c8df724f6d04190fde0a15",
     "EXP-C16-02": "054116983d84654527486cd1e8225025cd05677598cb95aadee9db15d48098af",
     "EXP-C16-03": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
     "EXP-C16-04": "815066cf04de7b6de4ac7271dc5386fe9f4e010076e92d8c8404525bf1f5d4eb",
@@ -1038,9 +1048,11 @@
     "proofs/lean/Infinity/C14_GraphProducts.lean": true,
     "proofs/lean/Infinity/C15_MagmaCA.lean": true,
     "proofs/lean/Infinity/C16_Dynamics.lean": true,
-    "proofs/lean/Infinity/C18_Quasigroups.lean": true
+    "proofs/lean/Infinity/C18_Quasigroups.lean": true,
+    "proofs/lean/Infinity/C19_Zeckendorf.lean": true
   },
   "next_priorities": [
+    "C12: formalise Theorem 8 in Lean (finite certificate plus the shift-invariance lemma)",
     "C13: prove the last case of CLM-C06-10, x(yz) = y((yx)z) (spectrum {1,2}, with a non-affine model at N = 2)",
     "C13: which arithmetic sets are TRUE spectra of rigid laws? Find a rigid law realising '-1 is a square mod N' (A008784)",
     "C13: prove that spectra of one-variable laws are finite or cofinite (CLM-C13-10)",
@@ -1068,9 +1080,8 @@
     "C19: prove D(n) <= floor(j^2/4) and the strict monotonicity of L",
     "C19: generalise the lazy-phase theorem and the Fibonacci-input formula to the generalised Zeckendorf games of Baird-Smith et al. (other linear recurrences)",
     "C19: submit L(n) and L(F_k) to the OEIS (human decision)",
-    "C20: obtain the Zantema-Geser (2000) theorem and compare with C03 Conjecture 4.6 (human with library access)",
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T17:45:12Z"
+  "updated": "2026-10-18T18:17:36Z"
 }

@@ -9,14 +9,52 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "statement",
+      "new": "In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).",
+      "old": "In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C10-07",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Myers (1983), Okasaki (skew binary random-access lists).",
-  "statement": "In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).",
+  "proof": "proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)",
+  "statement": "In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).",
   "system": "SYS-C",
   "title": "Skew binary counting has worst-case cost 2 and average 3/2",
   "type": "observation",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "verification": "PROVEN"
 }

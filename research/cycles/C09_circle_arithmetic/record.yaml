@@ -17,7 +17,7 @@ experiments:
     analysis: The norm map is multiplicative; |N(n)| <= 1.382 n; norm +-1 exactly at Fibonacci numbers.
     related: [CLM-C09-01, CLM-C09-07]
   - id: EXP-C09-04
-    analysis: No reducible number outside the product zone up to 1e6; forced-irreducible density matches 1/phi^2 to 6 digits; length bound never violated.
+    analysis: "No reducible number outside the product zone up to 1e6; forced-irreducible density matches 1/phi^2 to 6 digits (0.381967 at 1e6); length bound never violated. Revised after the Skeptic's review - zone membership now decided exactly (the floating-point test had put the boundary point n = 1 inside the open zone; irreducible fraction in the zone 0.314425 at 1e3, 0.254719 at 1e6) and factorisation sets are no longer truncated at 64."
     related: [CLM-C09-03, CLM-C09-06, CLM-C09-05]
 
 claims:
@@ -30,12 +30,12 @@ claims:
       nu(n) = n phi + n*, n* = floor((n+1)/phi), is an injective homomorphism into (Z[phi], x); a o b = ab + ab* + a*b.
       nu(n) is a unit iff n is a Fibonacci number F_k (k >= 2), and F_j o F_k = F_(j+k).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01; formulas checked on 89,401 pairs; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); formulas checked on 89,401 pairs; the Skeptic checked the window and n* = floor((n+1)/phi) exactly for all n <= 1e8"
     proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
     evidence: [EXP-C09-03]
     novelty: "REDISCOVERY"
     novelty_basis: "Arnoux 1989; the product formula is Lunnon's formula in OEIS A101330 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C09-02
     type: hypothesis
     system: SYS-C
@@ -50,17 +50,18 @@ claims:
   - id: CLM-C09-03
     type: theorem
     system: SYS-C
-    title: "Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible"
+    title: "Window obstruction: at least a proportion 1/phi^2 of all integers are circle-irreducible"
     statement: |
       If n is a circle product then nu'(n) = n psi + n* lies in (psi^3, psi^2), i.e. frac((n+1)/phi) lies in
       (1/phi - psi^2, 1/phi - psi^3) = (0.2360..., 0.8541...). Hence every n with frac((n+1)/phi) outside this
       interval is circle-irreducible, and these n have natural density exactly 1/phi^2 = 0.381966...
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution); 0 counterexamples up to 1e6, density 0.381966 observed; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 counterexamples up to 1e6 (the Skeptic - up to 1e8), forced density 0.381967 at 1e6"
     proof: proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ²
     evidence: [EXP-C09-04]
     novelty: POTENTIALLY NOVEL
     novelty_basis: Irreducibles/reducibles of Knuth's product are not in the OEIS (2026-10-18); no study of circle-product factorisation found in the C08 literature search. Elementary consequence of Arnoux's embedding; may exist in the literature on factorisation in submonoids of rings of integers.
+    change_reason: "Skeptic review 2026-10-18 - proof upheld; title said 'a proportion 1/phi^2 are irreducible', which is Conjecture CLM-C09-05; the theorem gives 'at least'"
   - id: CLM-C09-04
     type: hypothesis
     system: SYS-C
@@ -80,33 +81,33 @@ claims:
     verification: CONJECTURE
     evidence: [EXP-C09-04, EXP-C09-01]
     novelty: "POTENTIALLY NOVEL"
-    limitations: The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.
+    limitations: "The irreducible fraction inside the product zone decreases only slowly (0.314, 0.291, 0.270, 0.255 at 1e3..1e6; the Skeptic - 0.2418 at 1e7, 0.2310 at 1e8). The decay fits c (log n)^(-0.33) well, which is consistent with a limit 0 (the conjecture) but also with a positive limit; the rate is unknown."
     novelty_basis: "As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 - data to 1e8 recorded"
   - id: CLM-C09-06
     type: theorem
     system: SYS-C
     title: Factorisation lengths are bounded by the conjugate coordinate
     statement: If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C09.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations for n <= 2e5 (the Skeptic - exact test with exact factorisation lengths, maximal length 13)"
     proof: proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations
     evidence: [EXP-C09-04]
     novelty: "POTENTIALLY NOVEL"
     novelty_basis: "Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C09-07
     type: theorem
     system: SYS-C
     title: The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product
     statement: N(a o b) = N(a) N(b) for all a, b >= 1; |N(n)| < (sqrt5/phi) n + 1; N(n) = +-1 iff n is a Fibonacci number.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
+    proof_check: "written proof (proofs/paper/C09.md Theorem 1 and the bound added after it - the bound was missing from the first version and its one-line proof is the Skeptic's), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5"
     proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
     evidence: [EXP-C09-03]
     novelty: "REDISCOVERY"
     novelty_basis: "In substance - the norm of Q(sqrt 5) combined with Arnoux's embedding (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (P6) - the bound |N(n)| < (sqrt5/phi) n + 1 had no proof in the cited file; proof added"
   - id: CLM-C09-08
     type: observation
     system: SYS-C
@@ -116,12 +117,12 @@ claims:
       factorisations (first: 8), 29,577 have factorisations of different lengths, and the maximal elasticity is 2.5
       (n = 196,405).
     verification: PROVEN
-    proof_check: computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)
+    proof_check: "computer-assisted enumeration (EXP-C09-01, EXP-C09-02). The first version of EXP-C09-02 truncated factorisation sets at 64 per n (41 truncated n; the largest set has 111 elements), so it was not exhaustive; the Skeptic's exact recount reproduced every number, and the corrected (exact) EXP-C09-02 gives the same results. The elasticity 2.5 is first attained at n = 98,700."
     proof: results/EXP-C09-01.json and results/EXP-C09-02.json
     evidence: [EXP-C09-01, EXP-C09-02]
     novelty: "POTENTIALLY NOVEL"
     novelty_basis: "As data; not in the OEIS (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (P4) - the enumeration was truncated; now exact, same numbers"
 
 journal:
   - key: C09-01

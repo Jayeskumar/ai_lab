@@ -27,13 +27,22 @@
       "old": null,
       "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C09.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations for n <= 2e5 (the Skeptic - exact test with exact factorisation lengths, maximal length 13)",
+      "old": "written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C09-06",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations",
-  "proof_check": "written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C09.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations for n <= 2e5 (the Skeptic - exact test with exact factorisation lengths, maximal length 13)",
   "statement": "If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.",
   "system": "SYS-C",
   "title": "Factorisation lengths are bounded by the conjugate coordinate",

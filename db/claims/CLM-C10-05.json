@@ -27,13 +27,22 @@
       "old": null,
       "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C10.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); EXP-C10-03 summarised only the 5 rules with offset g = 1 (deviation <= 2.7e-4); the Skeptic checked all 18 single-offset rules increment by increment - every one of 400,000 increments costs exactly firings + 1",
+      "old": "written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules",
+      "reason": "Skeptic review 2026-10-18 (P7) - proof upheld; the evidence summary covered only the offset-1 rules",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C10-05",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Partial - BFRS 2020 Thm 3.23 (p/(p-q), Akiyama-Frougny-Sakarovitch normalisation) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules",
-  "proof_check": "written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules",
+  "proof_check": "written proof (proofs/paper/C10.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); EXP-C10-03 summarised only the 5 rules with offset g = 1 (deviation <= 2.7e-4); the Skeptic checked all 18 single-offset rules increment by increment - every one of 400,000 increments costs exactly firings + 1",
   "statement": "If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).",
   "system": "SYS-C",
   "title": "Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q))",

@@ -92,12 +92,13 @@ claims:
       is a bijection (every row of the Cayley table is a permutation). More generally, in a finite model of t = x
       with x occurring once in t, every translation on the path from the root of t to x is a bijection.
     verification: PROVEN
-    proof_check: Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof
+    proof_check: "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md, A.1)"
     proof: proofs/paper/C05.md#lemma-1-clm-c05-05--translations-along-the-path-to-a-unique-occurrence-of-x
     lean: [proofs/lean/Infinity/C05_Magmas.lean]
     evidence: [EXP-C05-03]
     novelty: REDISCOVERY
     novelty_basis: Standard finite-set argument (a surjective self-map of a finite set is bijective), used throughout the ETP notes.
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written part upheld"
   - id: CLM-C05-06
     type: hypothesis
     system: SYS-B
@@ -133,11 +134,12 @@ claims:
       1083 x = y((x(yx))y) - orders 5, 6. Also certified, but already stated in the notes: no model of order 2 for
       501, 677, 1083 and 1719 x = (yy)((xx)y), and none of order 3 for 883.
     verification: PROVEN
-    proof_check: computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law)
+    proof_check: computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law). Independently confirmed by the Skeptic - all 15 claimed gaps UNSAT under its own CNF encoding with Kissat 4.0.4, the 13 with n <= 6 also under CaDiCaL 1.9.5 without the extra constraints (reviews/skeptic_C05_C08_C12.md)
     proof: proofs/paper/C05.md#lemma-4--soundness-of-the-extra-sat-constraints-exp-c05-03--04--06
     evidence: [EXP-C05-03, EXP-C05-06]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Le Floch's notes list the 31 laws without a model of order 2 (including 501, 677, 1083, 1719) and the 14 with a model of order 2 but none of order 3 (including 883); otherwise they say 'containing' for 501, 883, 1083, 'unknown spectrum' for 677 and 'not 6 nor 7' for 1076. The gaps at orders 3 and 4 are small enough that ETP finite-magma searches probably settle them; the plausible additions are the gaps at n >= 5 (501: 6, 7; 677: 6; 883: 6; 1076: 8; 1083: 5, 6)."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - gaps independently re-derived"
   - id: CLM-C05-09
     type: conjecture
     system: SYS-B

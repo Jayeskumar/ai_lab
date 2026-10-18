@@ -1,6 +1,6 @@
 {
   "agent": "Mathematical Explorer",
-  "analysis": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.",
+  "analysis": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root. CORRECTED by EXP-C08-06 - 6 rows listed shifts that are certified non-associative; after the certified re-test 10 rows are still non-monotone, all with beta < 0 and non-canonical initial values.",
   "assumptions": [
     "quadratic recurrences G_(k+1) = p G_k + q G_(k-1) with p in 1..5, q in -3..3 (q != 0), Pisot with real conjugate, several initial values G_1",
     "shifts 0..10",
@@ -40,6 +40,15 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root. CORRECTED by EXP-C08-06 - 6 rows listed shifts that are certified non-associative; after the certified re-test 10 rows are still non-monotone, all with beta < 0 and non-canonical initial values.",
+      "old": "Positive conjugate root implies upward-closed shift sets in all 30 cases; all 10 non-monotone cases have a negative conjugate root.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "hypothesis": "H-C08-4: for quadratic Pisot base sequences, if the conjugate root beta is positive the set of associative shifts is upward-closed; non-monotone sets occur only when beta < 0 (the factor beta^s flips the sign of the conjugate of the product and the conjugate window is asymmetric).",

@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:50:02Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
+      "old": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "id": "CLM-C11-09",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).",
   "proof": "proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3",
-  "proof_check": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
+  "proof_check": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
   "statement": "The Fraenkel-Klein code C3 (2F_(r-2) codewords of length r >= 3, so cum_C3(L) = 2F_L - 2) is never longer than the\nFibonacci code C1 except at n = 1, and T_011 is never longer than C3 except at n in {2, 4, 8}; moreover\ncum_011(L)/cum_C3(L) -> phi^2/2 and cum_C3(L)/cum_C1(L) -> 2/phi.",
   "system": "SYS-C",
   "title": "T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer than C1 except at n = 1",

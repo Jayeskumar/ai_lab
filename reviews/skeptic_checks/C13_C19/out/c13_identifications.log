@@ -7,3 +7,16 @@ a^2+a+1  x^2+x+1 has a root              |set|= 293 differences (N<=2000): []
 a^2-a-1  golden                          |set|= 226 differences (N<=2000): []
 2a^2+2a+1  all p ≡ 1 mod 4               |set|= 236 differences (N<=2000): []
 2a^2-1  all p ≡ ±1 mod 8                 |set|= 203 differences (N<=2000): []
+a^4+1  -1 fourth power                   |set|= 116 differences (N<=2000): []
+a^4-a^2+1  all p ≡ 1 mod 12              |set|=  78 differences (N<=2000): []
+affine system of x(xx)=y(xy) : [(1, 0, 1)]
+affine system of (xx)(xy)=(yy)(yx) : [(-1, -2, 1)]
+affine system of x=x((xx)x) : [(0, 1, 2), (1, 2)]
+affine system of ((xx)x)x=((yy)y)y : [(1, 3)]
+affine system of x=x(x(xx)) : [(0, 1, 1, 1), (1, 1, 1)]
+affine system of x(xy)=y(yx) : [(-1, -1, 1)]
+affine system of x((xy)y)=y((xx)x) : [(-1, 0, 2)]
+
+real	0m5.561s
+user	0m5.766s
+sys	0m0.028s

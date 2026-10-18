@@ -41,8 +41,12 @@ def products_upto(N: int) -> dict[int, list[tuple[int, int]]]:
     return out
 
 
-def factorizations(N: int, reps: dict[int, list[tuple[int, int]]], max_count: int = 64):
-    """Multisets of irreducibles whose o-product is n, for every n <= N (truncated per n)."""
+def factorizations(N: int, reps: dict[int, list[tuple[int, int]]], max_count: int | None = None):
+    """Multisets of irreducibles whose o-product is n, for every n <= N.
+
+    Exact by default. (The first version truncated each set at 64 elements; the Skeptic's review found 41
+    truncated n below 2e5, the largest set having 111 elements.) A positive ``max_count`` restores truncation.
+    """
     fact: dict[int, set[tuple[int, ...]]] = {}
     for n in range(1, N + 1):
         if n not in reps:
@@ -53,7 +57,7 @@ def factorizations(N: int, reps: dict[int, list[tuple[int, int]]], max_count: in
             for fa in fact[a]:
                 for fb in fact[b]:
                     fs.add(tuple(sorted(fa + fb)))
-                    if len(fs) >= max_count:
-                        break
+            if max_count and len(fs) >= max_count:
+                break
         fact[n] = fs
     return fact

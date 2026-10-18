@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "After the Skeptic's refutation of CLM-C05-09 - linear models x*y = ax + by over every GF(q), q <= 128 (44 prime powers), for the 15 open laws. 0 conflicts with the SAT statuses, the DRUP-certified gaps or the ETP notes. Even orders occur for 14 of the 15 laws (none for 907); 677 and 1313 have models of order 16 (their smallest even linear order). Two sizes left UNKNOWN by EXP-C05-03 are settled - law 670 at n = 9 (not in the notes) and law 907 at n = 9 (already in the notes).",
   "assumptions": [
     "GF(p^k) built as GF(p)[t]/(f) with the first monic irreducible f of degree k in lexicographic order",
     "exhaustive over all (a, b) in GF(q)^2",
@@ -19,12 +20,37 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T18:02:24Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "After the Skeptic's refutation of CLM-C05-09 - linear models x*y = ax + by over every GF(q), q <= 128 (44 prime powers), for the 15 open laws. 0 conflicts with the SAT statuses, the DRUP-certified gaps or the ETP notes. Even orders occur for 14 of the 15 laws (none for 907); 677 and 1313 have models of order 16 (their smallest even linear order). Two sizes left UNKNOWN by EXP-C05-03 are settled - law 670 at n = 9 (not in the notes) and law 907 at n = 9 (already in the notes).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-09",
+        "CLM-C05-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T18:17:35Z"
     }
   ],
   "hypothesis": "H-C05-F: linear models over GF(p^k), k > 1, give spectrum members that the Z_n search of EXP-C05-05 cannot see - among them even orders for laws whose small even orders are gaps.",
   "id": "EXP-C05-07",
   "methodology": "Vectorised evaluation of (alpha, beta) for all (a, b); every model found is re-checked on its full table; comparison with the SAT statuses of EXP-C05-03 and the certified gaps of CLM-C05-08.",
   "question": "For which prime powers q do the open laws of EXP-C05-03 have a linear model x*y = a x + b y over GF(q), and does this settle sizes that EXP-C05-03 left UNKNOWN or that CLM-C05-09 excluded?",
+  "related": [
+    "CLM-C05-09",
+    "CLM-C05-10"
+  ],
   "results_file": "results/EXP-C05-07.json",
   "results_sha256": "8a9a46b752bbcc718a90ee58aae177fd488c00ed57d8d11a71f7dbdccca49368",
   "runs": [

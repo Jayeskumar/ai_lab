@@ -1,0 +1,112 @@
+{
+ "c06": [
+  {
+   "law": "x(yz)=((zx)x)y",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((zx)y)x",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((zy)x)x",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "(xy)z=y((zx)y)",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "(xy)z=y((zy)x)",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "(xy)z=z((yx)z)",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "(xy)z=z((yz)x)",
+   "own_bound": 3,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=y((yx)z)",
+   "own_bound": 0,
+   "exact": false
+  },
+  {
+   "law": "x(yz)=((xx)y)z",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xx)z)y",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xy)x)z",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xy)y)z",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xy)z)x",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xy)z)y",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xz)x)y",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xz)y)x",
+   "own_bound": 2,
+   "exact": true
+  },
+  {
+   "law": "x(yz)=((xz)y)y",
+   "own_bound": 2,
+   "exact": true
+  }
+ ],
+ "family_size": 18581,
+ "own_bounds": {
+  "0": 11342,
+  "1": 6044,
+  "2": 1023,
+  "3": 106,
+  "4": 63,
+  "5": 1,
+  "6": 1,
+  "8": 1
+ },
+ "own_exact": {
+  "1": 6044,
+  "2": 770,
+  "3": 84,
+  "4": 13,
+  "5": 1
+ },
+ "own_exact_total": 6912,
+ "own_viol_N23": [],
+ "n_models_N2": 7924,
+ "n_models_N3": 6732,
+ "elapsed_s": 42.9
+}

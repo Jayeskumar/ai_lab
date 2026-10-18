@@ -67,24 +67,24 @@ claims:
     title: Exchange systems fire 1/(m - sum b) times per increment on average
     statement: For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules
+    proof_check: "written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); deviation <= 5.7e-4 at n = 2e5 for all 31 rules (the Skeptic - 3.4e-4 at n = 4e5)"
     proof: proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems
     evidence: [EXP-C10-03]
     novelty: "REDISCOVERY"
     novelty_basis: "In substance - token conservation; b-ary counter (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
   - id: CLM-C10-05
     type: theorem
     system: SYS-C
     title: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q))
     statement: If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules
+    proof_check: "written proof (proofs/paper/C10.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); EXP-C10-03 summarised only the 5 rules with offset g = 1 (deviation <= 2.7e-4); the Skeptic checked all 18 single-offset rules increment by increment - every one of 400,000 increments costs exactly firings + 1"
     proof: proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules
     evidence: [EXP-C10-03]
     novelty: "REDISCOVERY"
     novelty_basis: "Partial - BFRS 2020 Thm 3.23 (p/(p-q), Akiyama-Frougny-Sakarovitch normalisation) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Skeptic review 2026-10-18 (P7) - proof upheld; the evidence summary covered only the offset-1 rules"
   - id: CLM-C10-06
     type: conjecture
     system: SYS-C
@@ -104,9 +104,13 @@ claims:
     type: observation
     system: SYS-C
     title: Skew binary counting has worst-case cost 2 and average 3/2
-    statement: In canonical skew binary, every increment changes at most 2 digits and the average is 3/2 (n < 1e6).
-    verification: COMPUTATIONALLY SUPPORTED
+    statement: In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)"
+    proof: "proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting"
     evidence: [EXP-C10-01]
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise"
+
     novelty: REDISCOVERY
     novelty_basis: Myers (1983), Okasaki (skew binary random-access lists).
 

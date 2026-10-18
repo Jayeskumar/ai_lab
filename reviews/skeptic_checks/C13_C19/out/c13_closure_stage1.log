@@ -1,0 +1,24 @@
+C06-10 law x(yz)=((zx)x)y own bound 3 exact Div(g): True
+C06-10 law x(yz)=((zx)y)x own bound 3 exact Div(g): True
+C06-10 law x(yz)=((zy)x)x own bound 3 exact Div(g): True
+C06-10 law (xy)z=y((zx)y) own bound 3 exact Div(g): True
+C06-10 law (xy)z=y((zy)x) own bound 3 exact Div(g): True
+C06-10 law (xy)z=z((yx)z) own bound 3 exact Div(g): True
+C06-10 law (xy)z=z((yz)x) own bound 3 exact Div(g): True
+C06-10 law x(yz)=y((yx)z) own bound 0 exact Div(g): False
+C06-10 law x(yz)=((xx)y)z own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xx)z)y own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xy)x)z own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xy)y)z own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xy)z)x own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xy)z)y own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xz)x)y own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xz)y)x own bound 2 exact Div(g): True
+C06-10 law x(yz)=((xz)y)y own bound 2 exact Div(g): True
+family size 18581
+own closure bounds: {0: 11342, 1: 6044, 2: 1023, 3: 106, 4: 63, 5: 1, 6: 1, 8: 1} exact Div(g): {1: 6044, 2: 770, 3: 84, 4: 13, 5: 1} total exact 6912
+own closure vs exhaustive N=2,3: violations 0 []
+
+real	0m43.022s
+user	0m41.983s
+sys	0m0.042s
