@@ -14,11 +14,11 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C01-04** (written), rediscovery: Multiplication emerges as composition of substitutions; with two symbols it is non-commutative.
 * **CLM-C01-06** (written), rediscovery: Border-containment theorem for one length-preserving relation.
 * **CLM-C01-07** (computer-assisted), rediscovery: Common-border formula proved for 1632 specific relations by verified finite completions.
+* **CLM-C01-09** (written), rediscovery: Common-border formula when u and v share no border (c = 1) - consequence of published results.
 
 **Computationally supported.**
 
 * **CLM-C01-08**, potentially novel: Common-border conjecture: one-relation class counts depend only on common borders.
-* **CLM-C01-09**, rediscovery: Common-border formula when u and v share no border (c = 1) - consequence of published results.
 * **CLM-C01-10**, potentially novel: Common-border formula with exactly one common border (derivation sketch from Gray-Steinberg 2022).
 * **CLM-C01-11**, rediscovery: Converse of border containment: u -\> v (\|u\| = \|v\|) is confluent iff Borders(u) is contained in Borders(v).
 
@@ -58,6 +58,7 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 **Theorems.**
 
 * **CLM-C04-01** (computer-assisted), not assessed: Termination census of one-rule systems with \|l\|, \|r\| \<= 3: non-terminating iff l is a factor of r.
+* **CLM-C04-03** (written), rediscovery: The rules aab -\> ababa and aab -\> babaa (and their six symmetric images) terminate.
 * **CLM-C04-04** (Lean), rediscovery: ab -\> ba: every derivation has inv(w) steps, D(n) = floor(n\^2/4), P-positions = even inversion count.
 * **CLM-C04-05** (Lean), rediscovery: One-rule systems with an unbordered left-hand side have random descent (Lean-verified).
 * **CLM-C04-06** (written), not assessed: Every one-rule system has a constant-step potential; for terminating ones confluence is equivalent to random descent.
@@ -69,12 +70,58 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 **Computationally supported.**
 
-* **CLM-C04-03**, not assessed: The rules aab -\> ababa and aab -\> babaa (and their six symmetric images) terminate.
 * **CLM-C04-12**, not assessed: Complexity classes and closed forms of the 162 terminating rules with \|l\|, \|r\| \<= 3.
 
 **Conjectures.**
 
 * **CLM-C04-16**, rediscovery: Open: are the rewriting games of aa -\> ab (Officers), aaa -\> b (0.007) and aaa -\> ab (0.06) ultimately periodic?.
+
+## C05 — Spectra of single-identity magma varieties
+
+**Theorems.**
+
+* **CLM-C05-04** (Lean), rediscovery: Law 167, x = (y\*x)\*(x\*y): every finite model has order 0 or 1 mod 4.
+* **CLM-C05-05** (Lean), rediscovery: Identities x = y\*s(x, y) make every left translation of a finite model bijective.
+* **CLM-C05-07** (Lean), potentially novel: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9.
+* **CLM-C05-08** (computer-assisted), potentially novel: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6.
+
+**Computationally supported.**
+
+* **CLM-C05-02**, rediscovery: Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n \<= 6, restricted ones to n \<= 8).
+
+**Conjectures.**
+
+* **CLM-C05-09**, not assessed: Laws 677 and 1313 have spectrum {1} together with all odd n \>= 5.
+
+## C06 — Successor-anchored magmas: spectra of composition laws
+
+**Theorems.**
+
+* **CLM-C06-02** (Lean), rediscovery: Anchored associativity forces x\*y = x + y + 1, for every N.
+* **CLM-C06-03** (Lean), not assessed: Anchored right-distributivity forces x\*y = x + 1, for every N.
+* **CLM-C06-05** (written), not assessed: Anchored right-permutable magmas are x\*y = x + c(y); there are N\^(N-1) of them.
+* **CLM-C06-06** (Lean), potentially novel: An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique.
+* **CLM-C06-07** (written), potentially novel: A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a\^2 + a = 1 mod N.
+* **CLM-C06-08** (Lean), potentially novel: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156).
+* **CLM-C06-12** (written), not assessed: Anchored spectra are closed under coprime products.
+
+**Computationally supported.**
+
+* **CLM-C06-01**, rediscovery: Left-distributivity with a successor anchor: the Laver tables (rediscovery).
+* **CLM-C06-10**, not assessed: Laws with finite anchored spectra {1, 2} and {1, 3}.
+* **CLM-C06-11**, not assessed: Mirror twins of the golden and odd laws.
+
+## C07 — Arithmetic from the minimal excludant: a census of mex-defined operations
+
+**Theorems.**
+
+* **CLM-C07-01** (computer-assisted), potentially novel: The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives.
+* **CLM-C07-03** (written), not assessed: In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbing.
+* **CLM-C07-05** (written), potentially novel: The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks \[2\^k - J\_k, 2\^k) and \[2\^k, 2\^k + J\_k).
+
+**Computationally supported.**
+
+* **CLM-C07-08**, not assessed: Additive periodicity is the exception among mex operations.
 
 ## C08 — Circle multiplications on recurrence numeration systems
 
@@ -116,3 +163,80 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 
 * **CLM-C10-06**, not assessed: Multi-offset exchange rules have rule-specific average counting costs.
 * **CLM-C10-07**, rediscovery: Skew binary counting has worst-case cost 2 and average 3/2.
+
+## C11 — Pattern-terminated universal integer codes
+
+**Theorems.**
+
+* **CLM-C11-01** (written), rediscovery: Pattern-terminated codes T\_p are complete prefix codes with counts x\^k / (x\^k + (1-2x) c\_p(x)); T\_11 is the Fibonacci code.
+* **CLM-C11-02** (written), rediscovery: The all-ones terminator 1\^k (and 0\^k) uniquely maximises the growth rate among length-k patterns.
+* **CLM-C11-03** (written), rediscovery: Unbordered terminators: F\_u = x/(1-x) F\_(1\^k), so codeword counts are partial sums of the all-ones counts.
+* **CLM-C11-04** (written), potentially novel: T\_011 is never longer than the Fibonacci code for n \>= 5 and one bit shorter on all but L values per level.
+* **CLM-C11-07** (written), potentially novel: The average gain oscillates between (2-lambda)/(lambda-1)\^2 and lambda(2-lambda)/(lambda-1).
+* **CLM-C11-09** (written), potentially novel: T\_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer than C1 except at n = 1.
+
+**Computationally supported.**
+
+* **CLM-C11-08**, not assessed: Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result).
+
+## C12 — Relational one-heap games
+
+**Theorems.**
+
+* **CLM-C12-01** (written), rediscovery: Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega.
+* **CLM-C12-02** (written), rediscovery: Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k - 1.
+* **CLM-C12-03** (Lean), rediscovery: P-positions of the deleting-divisors game (subtract d \| n with 1 \< d \< n): 0, odd numbers, 2\^(2j+1).
+* **CLM-C12-04** (computer-assisted), potentially novel: Grundy function of the deleting-divisors game: v2(n) except on odd parts \<= 15.
+* **CLM-C12-05** (written), rediscovery: Bitwise and quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2 n).
+* **CLM-C12-06** (written), rediscovery: Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, k}.
+* **CLM-C12-07** (Lean), rediscovery: Splitting games in which every heap can be split have g(n) = \[n even\].
+* **CLM-C12-08** (written), rediscovery: Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and are not periodic.
+
+**Computationally supported.**
+
+* **CLM-C12-12**, rediscovery: Subtract-a-prime has Grundy values at most 11.
+
+**Conjectures.**
+
+* **CLM-C12-13**, not assessed: Subtract-a-Fibonacci-number has bounded Grundy values.
+
+## C14 — Graphs as quantities: the 256 local graph products
+
+**Theorems.**
+
+* **CLM-C14-01** (Lean), not assessed: Associativity of a local graph product is a finite identity on relations, detected by P3 x P3 x P3 (Lean).
+* **CLM-C14-02** (Lean), rediscovery: Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K1 (Lean decide).
+* **CLM-C14-03** (computer-assisted), not assessed: For local graph products, associativity and commutativity up to isomorphism are no weaker than the strict notions.
+* **CLM-C14-04** (written), potentially novel: Exactly six local products are Kronecker products in disguise (multiplicative characters).
+* **CLM-C14-05** (written), potentially novel: Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character.
+* **CLM-C14-06** (written), potentially novel: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs.
+* **CLM-C14-07** (written), potentially novel: Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching.
+* **CLM-C14-09** (written), rediscovery: The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoids; equal prime counts (A129582).
+* **CLM-C14-10** (computer-assisted), potentially novel: Numbers of prime graphs (all graphs) for the unital associative products, orders \<= 15.
+* **CLM-C14-11** (written), rediscovery: The lexicographic product has non-unique factorisation already at order 10 (different multisets of primes).
+
+**Computationally supported.**
+
+* **CLM-C14-12**, not assessed: Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs).
+* **CLM-C14-13**, potentially novel: H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product.
+
+## C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check
+
+**Theorems.**
+
+* **CLM-C17-01** (written), rediscovery: Light's test: generators suffice for associativity.
+* **CLM-C17-02** (written), not assessed: Associativity of an anchored magma is decided by one O(n\^2) identity.
+* **CLM-C17-03** (written), rediscovery: The Rajagopalan-Schulman randomised associativity test is one-sided.
+
+**Computationally supported.**
+
+* **CLM-C17-04**, rediscovery: Benchmark - generator and anchor tests versus the exhaustive check.
+* **CLM-C17-05**, not assessed: The anchor instance of left-distributivity singles out the Laver tables (N \<= 10).
+
+## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03
+
+**Theorems.**
+
+* **CLM-C20-01** (written), rediscovery: aab -\> ababa terminates, with derivational complexity D(n) = 2\^(n-2) - 1.
+* **CLM-C20-02** (written), potentially novel: aab -\> babaa terminates; exact per-word derivation length and D(n) = max\_b b(2\^floor((n-b)/2) - 1).
+* **CLM-C20-03** (computer-assisted), not assessed: The C04 extended termination census is complete - 480 of the 868 rules with \|l\| \<= 3, \|r\| \<= 5 terminate.

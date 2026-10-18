@@ -1048,3 +1048,21 @@ Both rules are right barren (McNaughton; Geser, ICASE 2002-33, Thm 3.2-3.3), so 
 
 *Evidence:* CLM-C20-01, CLM-C20-02, CLM-C20-04
 
+
+## C03
+
+### [2026-10-18T16:49:49Z] Formal Verifier — revision (`C03-14#rev1`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T16:49:49Z] Formal Verifier — revision (`C06-11#rev1`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+

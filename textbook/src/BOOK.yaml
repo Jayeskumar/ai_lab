@@ -4,7 +4,7 @@ version: "1.0 (research batch 1, cycles C01-C20)"
 # Research chapters are numbered by pandoc in this order; volume pages and the generated catalogue volumes are
 # unnumbered.  Regenerate the catalogue with `python -m lab catalogue` (done automatically by `python -m lab book`).
 # Chapter <- cycle: 2 C01, 3 C02, 4 C03, 5 C04, 6 C05, 7 C06, 8 C13, 9 C08, 10 C09, 11 C10, 12 C11, 13 C12, 14 C07,
-# 15 C14, then C15-C20.
+# 15 C14, 16 C19, 17 C15, 18 C16, 19 C17, 20 C18, 21 C20 (Volume 10, before the generated open-problem catalogue).
 chapters:
   - 00_preface.md
   - 01_method.md
@@ -14,7 +14,10 @@ chapters:
   - 04_termination.md
   - 05_derivations.md
   - vol02.md
+  - 06_magma_laws.md
   - 07_anchored.md
+  - vol03.md
+  - 08_anchored_spectra.md
   - vol04.md
   - 09_circle_products.md
   - 10_circle_primes.md
@@ -26,7 +29,10 @@ chapters:
   - 15_graph_products.md
   - vol06.md
   - generated/v06_results.md
+  - vol07.md
+  - 19_law_testing.md
   - vol09.md
   - generated/v09_failures.md
   - vol10.md
+  - 21_open_problems.md
   - generated/v10_open.md

@@ -226,7 +226,7 @@ journal:
     refs: [CLM-C06-07, CLM-C06-10, CLM-C06-11, CLM-C06-12, reviews/skeptic_C03_C04_C06.md]
   - key: C06-11
     agent: Formal Verifier
-    kind: correction
+    kind: revision
     text: "EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run."
     refs: [EXP-C06-03, EXP-C06-04]
 
