@@ -1,0 +1,19 @@
+{
+ "n_non_assoc": 236,
+ "assoc_min_witness_order_hist": {
+  "2": 144,
+  "4": 84,
+  "8": 8
+ },
+ "assoc_codes_without_witness_le3": [],
+ "assoc_codes_whose_minimal_witness_is_not_degree_certified": [],
+ "assoc_codes_without_any_degree_certified_witness": [],
+ "n_non_comm": 224,
+ "comm_first_witness_order_hist": {
+  "2": 192,
+  "4": 32
+ },
+ "comm_codes_without_witness": [],
+ "comm_first_witness_not_degree_certified": [],
+ "runtime_s": 1.0
+}

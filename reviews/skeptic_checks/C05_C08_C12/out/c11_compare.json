@@ -1,0 +1,40 @@
+{
+ "part": "compare",
+ "result": {
+  "cum11_closed_form_ok": true,
+  "cum011_closed_form_ok": true,
+  "cumC3_closed_form_2F_L_minus_2_ok": true,
+  "n_max": 2000000,
+  "C1_minus_T011_counts(-1,0,+1)": {
+   "-1": 3,
+   "0": 429,
+   "1": 1999568
+  },
+  "T011_longer_than_C1_at": [
+   1,
+   2,
+   4
+  ],
+  "C3_longer_than_C1_at": [
+   1
+  ],
+  "T011_longer_than_C3_at": [
+   2,
+   4,
+   8
+  ],
+  "L_with_cum011_lt_cumC3": [
+   3,
+   4,
+   5
+  ],
+  "L_with_cumC3_lt_cumC1": [
+   2
+  ],
+  "ratio_cum011_cumC3_L299": 1.3090169943749475,
+  "phi2_over_2": 1.3090169943749475,
+  "ratio_cumC3_cumC1_L299": 1.2360679774997898,
+  "C3_codewords_len3_5_from_construction": null
+ },
+ "wall_seconds": 2.9
+}

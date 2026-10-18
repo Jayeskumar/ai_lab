@@ -1,0 +1,22 @@
+{
+  "counterexample": "Levels (4, 2) occur with D(n) - D(n - F_5) in {0, 1} (n = 12 and n = 11); 87 such ambiguous pairs below 30000 (EXP-C19-03). The dependence is through the parity chain of lower levels, captured by rho in CLM-C19-05.",
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-11",
+  "novelty": "NOT ASSESSED",
+  "statement": "D(n) - D(n - F_top) is a function of the two highest Zeckendorf levels of n.",
+  "system": "SYS-D",
+  "title": "H-C19-2: the effect of the top summand depends only on the two highest levels (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

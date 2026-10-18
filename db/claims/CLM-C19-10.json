@@ -1,0 +1,22 @@
+{
+  "counterexample": "n = 12 = F_5 + F_3 + F_1 (levels 4, 2, 0): D(12) = 0 but the model gives 1; 23,680 of the n < 30000 violate it (EXP-C19-03).",
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-10",
+  "novelty": "NOT ASSESSED",
+  "statement": "D(n) = sum_t floor(j_t^2/4) - sum_t R(j_t, j_{t+1}) over consecutive Zeckendorf levels j_1 > j_2 > ... of n.",
+  "system": "SYS-D",
+  "title": "H-C19-1: the deficit is additive up to consecutive-pair corrections (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,8 @@
+class counts {1: 1, 2: 1, 3: 2, 4: 3, 5: 7, 6: 16, 7: 54, 8: 243} 25.7
+prime counts {2: 1, 3: 2, 4: 2, 5: 7, 6: 14, 7: 54, 8: 240} 27.5
+8 {'multisets': 3, 'spectral_classes': 3, 'spectral_coincidence_groups': 0, 'multisets_in_coincidence_groups': 0, 'exact_tests': 0} collisions so far 0 28.3
+16 {'multisets': 246, 'spectral_classes': 238, 'spectral_coincidence_groups': 7, 'multisets_in_coincidence_groups': 15, 'exact_tests': 9} collisions so far 0 28.4
+24 {'multisets': 528, 'spectral_classes': 512, 'spectral_coincidence_groups': 14, 'multisets_in_coincidence_groups': 30, 'exact_tests': 18} collisions so far 0 28.4
+32 {'multisets': 726, 'spectral_classes': 702, 'spectral_coincidence_groups': 21, 'multisets_in_coincidence_groups': 45, 'exact_tests': 27} collisions so far 0 28.4
+40 {'multisets': 1701, 'spectral_classes': 1645, 'spectral_coincidence_groups': 49, 'multisets_in_coincidence_groups': 105, 'exact_tests': 63} collisions so far 0 28.5
+collisions: [] multisets 4291 runtime 28.5

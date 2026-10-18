@@ -1,0 +1,7 @@
+{
+ "rule": "aab -> babaa",
+ "nmax": 16,
+ "journeys_examined": 269435,
+ "violations": {},
+ "_seconds": 6.0
+}

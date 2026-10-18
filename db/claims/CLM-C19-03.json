@@ -1,0 +1,28 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-01",
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-03",
+  "lean": [
+    "proofs/lean/Infinity/C19_Zeckendorf.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature.",
+  "proof": "proofs/paper/C19.md#theorem-4-clm-c19-03--the-longest-game-on-a-fibonacci-number",
+  "proof_check": "written proof (proofs/paper/C19.md Theorem 4) from CLM-C19-01, CLM-C19-02 and the published optimality of the split-first strategy (Cusenza et al. 2022, Thm 1.2); the weight sums are Lean-verified (weight_even, weight_odd, quarter_square_even, quarter_square_odd); checked for every level j <= 33 (EXP-C19-03) and by exhaustive search for n <= 150 (EXP-C19-01); awaiting independent skeptic review",
+  "statement": "With F_1 = 1, F_2 = 2, F_{i+1} = F_i + F_{i-1}, the longest Zeckendorf game on n = F_k has length\nF_{k+2} - k - 2 - floor((k-1)^2/4) (0, 1, 2, 5, 10, 20, 37, 67, 117, 201, ...), i.e. its deficit to the bound\nB(F_k) is the quarter-square floor((k-1)^2/4).",
+  "system": "SYS-D",
+  "title": "Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((k-1)^2/4)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

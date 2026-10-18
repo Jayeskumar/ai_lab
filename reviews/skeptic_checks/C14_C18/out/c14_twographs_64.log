@@ -1,0 +1,11 @@
+class counts {1: 1, 2: 1, 3: 2, 4: 3, 5: 7, 6: 16, 7: 54, 8: 243} 25.4
+prime counts {2: 1, 3: 2, 4: 2, 5: 7, 6: 14, 7: 54, 8: 240} 27.3
+8 {'multisets': 3, 'spectral_classes': 3, 'spectral_coincidence_groups': 0, 'multisets_in_coincidence_groups': 0, 'exact_tests': 0} collisions so far 0 28.6
+16 {'multisets': 246, 'spectral_classes': 238, 'spectral_coincidence_groups': 7, 'multisets_in_coincidence_groups': 15, 'exact_tests': 9} collisions so far 0 28.6
+24 {'multisets': 528, 'spectral_classes': 512, 'spectral_coincidence_groups': 14, 'multisets_in_coincidence_groups': 30, 'exact_tests': 18} collisions so far 0 28.6
+32 {'multisets': 726, 'spectral_classes': 702, 'spectral_coincidence_groups': 21, 'multisets_in_coincidence_groups': 45, 'exact_tests': 27} collisions so far 0 28.7
+40 {'multisets': 1701, 'spectral_classes': 1645, 'spectral_coincidence_groups': 49, 'multisets_in_coincidence_groups': 105, 'exact_tests': 63} collisions so far 0 28.8
+48 {'multisets': 3894, 'spectral_classes': 3766, 'spectral_coincidence_groups': 112, 'multisets_in_coincidence_groups': 240, 'exact_tests': 144} collisions so far 0 29.2
+56 {'multisets': 13122, 'spectral_classes': 12690, 'spectral_coincidence_groups': 378, 'multisets_in_coincidence_groups': 810, 'exact_tests': 486} collisions so far 0 31.1
+64 {'multisets': 29650, 'spectral_classes': 27734, 'spectral_coincidence_groups': 1624, 'multisets_in_coincidence_groups': 3540, 'exact_tests': 2265} collisions so far 0 42.0
+collisions: [] multisets 53703 runtime 42.0

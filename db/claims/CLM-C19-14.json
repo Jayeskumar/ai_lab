@@ -1,0 +1,25 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-14",
+  "improvement": "IMPROVEMENT",
+  "improvement_detail": "n = 10^7 - simulation 8.28 s, recursion 9.3e-5 s; n = 10^6 - 0.85 s vs 7.1e-5 s (CPython, loaded machine; order of magnitude only). Correctness of the recursion beyond the tested n is conjectural (CLM-C19-05); the simulation remains the reference method.",
+  "limitations": "Conditional on CLM-C19-05.",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "No sublinear method for the longest game was found in the literature listed under CLM-C19-05.",
+  "statement": "The recursion of CLM-C19-05 evaluates L(n) with O(log^2 n) arithmetic operations; the published method (playing the split-first game) needs L(n) ~ phi^2 n moves. On the tested range both agree.",
+  "system": "SYS-D",
+  "title": "Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -1,0 +1,11 @@
+'Infinity.C16.pairMap_injective_iff' depends on axioms: [propext]
+'Infinity.C16.pairMap_bijective_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C16.mirrorMap_eq' depends on axioms: [Quot.sound]
+'Infinity.C16.pairMap_fixed_iff' depends on axioms: [propext]
+'Infinity.C16.top_two_cycle' depends on axioms: [propext]
+'Infinity.C16.anchored_fibonacci' depends on axioms: [propext, Quot.sound]
+exit=0
+
+real	0m3.849s
+user	0m2.328s
+sys	0m1.368s

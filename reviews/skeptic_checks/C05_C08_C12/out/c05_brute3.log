@@ -1,0 +1,1 @@
+{"part": "brute3", "result": {"n_identities": 115, "n_distinct": 115, "lab_identities_not_generated": [], "model_count_mismatches_vs_EXP-C05-01": [], "identities_with_nonquasigroup_models_order_le_3": 18}, "wall_seconds": 50.2}

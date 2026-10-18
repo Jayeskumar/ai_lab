@@ -1,0 +1,25 @@
+{
+ "1": {
+  "tables": 1,
+  "associative": 1,
+  "generating_sets_checked": 1,
+  "wrong_verdicts": 0
+ },
+ "2": {
+  "tables": 16,
+  "associative": 8,
+  "generating_sets_checked": 32,
+  "wrong_verdicts": 0
+ },
+ "3": {
+  "tables": 19683,
+  "associative": 113,
+  "generating_sets_checked": 94770,
+  "wrong_verdicts": 0
+ },
+ "4_random_20000": {
+  "generating_sets_checked": 236381,
+  "wrong_verdicts": 0
+ },
+ "_seconds": 1.4
+}

@@ -1,0 +1,305 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C08-03",
+    "file": "experiments/C08/E03_deep_tests.py",
+    "sha256": "1e5c5db53de081501aa2785a112ea6192f4c8d4c06e8d3157734d909c6efa324",
+    "systems_sha256": "7d15d8cd8b71b048d712d6ebf6e42734f9f660fb2148077bb7e4e62c539ba75d"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:31:06Z",
+  "id": "EXP-C08-03",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "exhaustive [1,14]^3 plus 4000 random triples in [1,1e6]^3 per (G, s); Knuth s=2: 20000 random triples in [1,1e9]^3"
+    ],
+    "cycle": "C08",
+    "falsification": "A counterexample on large inputs for a pair previously considered associative.",
+    "hypothesis": "Associative (G, s) pairs from EXP-C08-02 remain associative on large inputs; the three Pisot sequences without an associative shift <= 8 become associative for some larger s.",
+    "id": "EXP-C08-03",
+    "methodology": "Same circle-product implementation; seeded random triples; record first counterexample.",
+    "question": "Do the associative shifts found on small inputs survive large inputs? Do slow Pisot systems become associative at larger shifts? Is the non-monotone threshold real?",
+    "seed": 20261018,
+    "title": "Deep tests: shifts up to 20, inputs up to 1e6, Knuth's product up to 1e9"
+  },
+  "results": {
+    "knuth_large_failure": null,
+    "rows": {
+      "1,3,4,7,11 (G1=3)": {
+        "0": [
+          2,
+          2,
+          3
+        ],
+        "1": [
+          1,
+          1,
+          2
+        ],
+        "2": null,
+        "3": [
+          1,
+          2,
+          6
+        ],
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null
+      },
+      "1,4,5,9,14 (G1=4)": {
+        "0": [
+          2,
+          2,
+          4
+        ],
+        "1": [
+          1,
+          1,
+          2
+        ],
+        "2": [
+          1,
+          3,
+          8
+        ],
+        "3": [
+          1,
+          2,
+          3
+        ],
+        "4": null,
+        "5": [
+          1,
+          8,
+          8
+        ],
+        "6": null,
+        "7": null,
+        "8": null
+      },
+      "2,2-recurrence 1,2,6,16": {
+        "0": [
+          2,
+          4,
+          4
+        ],
+        "1": [
+          1,
+          4,
+          13
+        ],
+        "10": null,
+        "2": [
+          1,
+          7,
+          13
+        ],
+        "3": [
+          894079,
+          857856,
+          703798
+        ],
+        "4": [
+          400964,
+          828437,
+          122781
+        ],
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null,
+        "9": null
+      },
+      "3,3-recurrence 1,5,18": {
+        "10": null,
+        "11": null,
+        "12": null,
+        "13": null,
+        "14": null,
+        "15": null,
+        "16": null,
+        "6": [
+          798318,
+          550773,
+          126863
+        ],
+        "7": [
+          735026,
+          136060,
+          836718
+        ],
+        "8": [
+          204124,
+          8329,
+          50952
+        ],
+        "9": [
+          489394,
+          534726,
+          917826
+        ]
+      },
+      "4-bonacci 1,2,4,8": {
+        "10": null,
+        "11": null,
+        "12": null,
+        "13": null,
+        "14": null,
+        "6": [
+          539049,
+          465295,
+          334691
+        ],
+        "7": null,
+        "8": null,
+        "9": null
+      },
+      "Fibonacci 1,2,3,5": {
+        "0": [
+          2,
+          4,
+          4
+        ],
+        "1": [
+          1,
+          4,
+          4
+        ],
+        "2": null,
+        "3": null,
+        "4": null,
+        "5": null,
+        "6": null,
+        "7": null,
+        "8": null
+      },
+      "G(k+1)=G(k)+G(k-2) 1,2,3": {
+        "10": null,
+        "11": null,
+        "12": null,
+        "13": null,
+        "14": null,
+        "15": null,
+        "16": null,
+        "17": null,
+        "18": null,
+        "19": null,
+        "20": null,
+        "6": [
+          1,
+          5,
+          5
+        ],
+        "7": [
+          409996,
+          535277,
+          524938
+        ],
+        "8": [
+          381435,
+          642336,
+          497766
+        ],
+        "9": [
+          769623,
+          656426,
+          829405
+        ]
+      },
+      "G(k+1)=G(k)+G(k-3) 1,2,3,4": {
+        "10": [
+          1,
+          6,
+          6
+        ],
+        "11": [
+          1,
+          6,
+          6
+        ],
+        "12": [
+          1,
+          6,
+          6
+        ],
+        "13": [
+          1,
+          6,
+          6
+        ],
+        "14": [
+          1,
+          6,
+          6
+        ],
+        "15": [
+          1,
+          6,
+          6
+        ],
+        "16": [
+          1,
+          6,
+          6
+        ],
+        "17": [
+          1,
+          6,
+          6
+        ],
+        "18": [
+          1,
+          6,
+          6
+        ],
+        "19": [
+          1,
+          6,
+          6
+        ],
+        "20": [
+          1,
+          6,
+          6
+        ],
+        "8": [
+          1,
+          6,
+          6
+        ],
+        "9": [
+          1,
+          6,
+          6
+        ]
+      }
+    },
+    "summary": [
+      "Knuth's product (s=2), 20000 random triples up to 1e9: no failure",
+      "Fibonacci 1,2,3,5: associative shifts ['2', '3', '4', '5', '6', '7', '8']",
+      "1,3,4,7,11 (G1=3): associative shifts ['2', '4', '5', '6', '7', '8']",
+      "1,4,5,9,14 (G1=4): associative shifts ['4', '6', '7', '8']",
+      "2,2-recurrence 1,2,6,16: associative shifts ['5', '6', '7', '8', '9', '10']",
+      "3,3-recurrence 1,5,18: associative shifts ['10', '11', '12', '13', '14', '15', '16']",
+      "G(k+1)=G(k)+G(k-2) 1,2,3: associative shifts ['10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']",
+      "G(k+1)=G(k)+G(k-3) 1,2,3,4: associative shifts []",
+      "4-bonacci 1,2,4,8: associative shifts ['7', '8', '9', '10', '11', '12', '13', '14']"
+    ]
+  },
+  "results_sha256": "d941931eb126e5fc09da9382a88e5756a1efa494e0333461abd3ffd0c36cbba1",
+  "runtime_s": 32.519,
+  "started": "2026-10-18T07:30:34Z"
+}

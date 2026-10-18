@@ -1,0 +1,7 @@
+'Infinity.C15.ca_step_shift' does not depend on any axioms
+'Infinity.C15.ca_comm_binomial' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+
+real	0m3.253s
+user	0m2.161s
+sys	0m0.954s

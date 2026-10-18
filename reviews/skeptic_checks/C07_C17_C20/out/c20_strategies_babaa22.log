@@ -18,3 +18,4 @@
 18 {'D': 510, 'closed_form': 510, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaabb'], 'elapsed_s': 19.4}
 19 {'D': 765, 'closed_form': 765, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaabbb'], 'elapsed_s': 46.6}
 20 {'D': 1022, 'closed_form': 1022, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaaaabb'], 'elapsed_s': 114.7}
+21 {'D': 1533, 'closed_form': 1533, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaaaabbb'], 'elapsed_s': 280.8}

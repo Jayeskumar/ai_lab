@@ -1,0 +1,91 @@
+{
+ "class_counts_n1_8": {
+  "1": 1,
+  "2": 1,
+  "3": 2,
+  "4": 3,
+  "5": 7,
+  "6": 16,
+  "7": 54,
+  "8": 243
+ },
+ "prime_counts_n2_8": {
+  "2": 1,
+  "3": 2,
+  "4": 2,
+  "5": 7,
+  "6": 14,
+  "7": 54,
+  "8": 240
+ },
+ "orders": {
+  "4": {
+   "multisets": 1,
+   "spectral_classes": 1,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "6": {
+   "multisets": 2,
+   "spectral_classes": 2,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "8": {
+   "multisets": 3,
+   "spectral_classes": 3,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "9": {
+   "multisets": 3,
+   "spectral_classes": 3,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "10": {
+   "multisets": 7,
+   "spectral_classes": 7,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "12": {
+   "multisets": 20,
+   "spectral_classes": 20,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "14": {
+   "multisets": 54,
+   "spectral_classes": 54,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "15": {
+   "multisets": 14,
+   "spectral_classes": 14,
+   "spectral_coincidence_groups": 0,
+   "multisets_in_coincidence_groups": 0,
+   "exact_tests": 0
+  },
+  "16": {
+   "multisets": 246,
+   "spectral_classes": 238,
+   "spectral_coincidence_groups": 7,
+   "multisets_in_coincidence_groups": 15,
+   "exact_tests": 9
+  }
+ },
+ "total_multisets": 350,
+ "total_in_coincidence_groups": 15,
+ "total_exact_tests": 9,
+ "collisions": [],
+ "runtime_s": 30.2
+}

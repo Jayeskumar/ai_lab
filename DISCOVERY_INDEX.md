@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T17:27:51Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T17:45:11Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 121 |
-| COMPUTATIONALLY SUPPORTED | 37 |
+| PROVEN | 127 |
+| COMPUTATIONALLY SUPPORTED | 41 |
 | CONJECTURE | 5 |
-| REFUTED | 43 |
+| REFUTED | 47 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 98 |
-| POTENTIALLY NOVEL | 48 |
-| NOT ASSESSED | 62 |
+| REDISCOVERY | 101 |
+| POTENTIALLY NOVEL | 53 |
+| NOT ASSESSED | 68 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -141,6 +141,12 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | written proof (proofs/paper/C18.md Theorem 5); one distinct… | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-06 | The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is … | written proof (proofs/paper/C18.md Theorem 6); 2000/2000 on… | NOT ASSESSED | EXP-C18-01, EXP-C18-02, EXP-C18-03 |
 | CLM-C18-07 | The 8-pass cascade has a bijective 64-bit state update | written proof (proofs/paper/C18.md Theorem 7, triangular co… | NOT ASSESSED | EXP-C18-05 |
+| CLM-C19-01 | Every Zeckendorf game has length B(n) - sum_{i>=2} (i-1) MC_i | written proof (proofs/paper/C19.md Theorem 1; potential Psi… | REDISCOVERY | EXP-C19-02 |
+| CLM-C19-02 | The split phase of the longest game ends at the lazy Fibonacci representation | written proof (proofs/paper/C19.md Theorem 2 - abelian prop… | POTENTIALLY NOVEL | EXP-C19-02 |
+| CLM-C19-03 | Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((… | written proof (proofs/paper/C19.md Theorem 4) from CLM-C19-… | POTENTIALLY NOVEL | EXP-C19-01, EXP-C19-03 |
+| CLM-C19-04 | A short proof that only n = F_k - 1 can be played with split moves alone (Cusenza et al.,… | written proof (proofs/paper/C19.md Corollary 3, from CLM-C1… | REDISCOVERY | EXP-C19-01, EXP-C19-02 |
+| CLM-C19-07 | Exact longest games for n <= 150 and independent confirmation of the split-first strategy | computer-assisted - exhaustive longest-path dynamic program… | REDISCOVERY | EXP-C19-01 |
+| CLM-C19-08 | Every multiset of Fibonacci numbers with sum n is a reachable game position | written proof (proofs/paper/C19.md Proposition 6 - undoing … | NOT ASSESSED | EXP-C19-01 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | written proof (proofs/paper/C20.md Theorem 1 - run encoding… | REDISCOVERY | EXP-C20-01 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | written proof (proofs/paper/C20.md Theorem 2 - a pair of a'… | POTENTIALLY NOVEL | EXP-C20-01 |
 | CLM-C20-03 | The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r|… | computer-assisted certificates for 860 rules (EXP-C04-02, C… | NOT ASSESSED | EXP-C04-02, EXP-C20-01 |
@@ -192,6 +198,10 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (N <= 10) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-02 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
+| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04 |
+| CLM-C19-06 | The deficit of a two-summand number depends only on the lower level and the parity of the… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03 |
+| CLM-C19-09 | D(n) <= floor(j^2/4) for top level j, and L is strictly increasing | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C19-03 |
+| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-04 |
 
 ## 3. Potentially novel ideas
 
@@ -246,6 +256,11 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C16-07 | Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order … | PROVEN | POTENTIALLY NOVEL | EXP-C16-02 |
 | CLM-C16-09 | No isotope of a group of even order has a full-period Fibonacci pair map | PROVEN | POTENTIALLY NOVEL | EXP-C16-02 |
 | CLM-C16-15 | Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycle… | PROVEN | POTENTIALLY NOVEL | EXP-C16-03 |
+| CLM-C19-02 | The split phase of the longest game ends at the lazy Fibonacci representation | PROVEN | POTENTIALLY NOVEL | EXP-C19-02 |
+| CLM-C19-03 | Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((… | PROVEN | POTENTIALLY NOVEL | EXP-C19-01, EXP-C19-03 |
+| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04 |
+| CLM-C19-06 | The deficit of a two-summand number depends only on the lower level and the parity of the… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03 |
+| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-04 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | PROVEN | POTENTIALLY NOVEL | EXP-C20-01 |
 
 ## 4. Rediscovered existing mathematics
@@ -348,6 +363,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C18-01 | e-transformations are bijections of strings of fixed length | PROVEN | REDISCOVERY | EXP-C18-01 |
 | CLM-C18-04 | T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits in… | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
+| CLM-C19-01 | Every Zeckendorf game has length B(n) - sum_{i>=2} (i-1) MC_i | PROVEN | REDISCOVERY | EXP-C19-02 |
+| CLM-C19-04 | A short proof that only n = F_k - 1 can be played with split moves alone (Cusenza et al.,… | PROVEN | REDISCOVERY | EXP-C19-01, EXP-C19-02 |
+| CLM-C19-07 | Exact longest games for n <= 150 and independent confirmation of the split-first strategy | PROVEN | REDISCOVERY | EXP-C19-01 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | PROVEN | REDISCOVERY | EXP-C20-01 |
 | CLM-C20-04 | C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation | PROVEN | REDISCOVERY | EXP-C03-01 |
 
@@ -363,6 +381,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C16-04 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C17-01 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
+| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C19-04 |
 
 ## 6. Refuted hypotheses
 
@@ -411,6 +430,10 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C18-10 | H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted) | REFUTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03 |
 | CLM-C18-11 | H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted) | REFUTED | NOT ASSESSED | EXP-C18-05 |
 | CLM-C18-12 | H-C18-9: the cascade over x + c(y) still fails bit independence (refuted) | REFUTED | NOT ASSESSED | EXP-C18-05 |
+| CLM-C19-10 | H-C19-1: the deficit is additive up to consecutive-pair corrections (refuted) | REFUTED | NOT ASSESSED | EXP-C19-03 |
+| CLM-C19-11 | H-C19-2: the effect of the top summand depends only on the two highest levels (refuted) | REFUTED | NOT ASSESSED | EXP-C19-03 |
+| CLM-C19-12 | H-C19-3: the deficit is additive over the runs of the lazy representation (refuted) | REFUTED | NOT ASSESSED | EXP-C19-03 |
+| CLM-C19-13 | H-C19-4: the longest game is built by inserting one chip at a time (refuted) | REFUTED | NOT ASSESSED | EXP-C19-02 |
 
 ## 7. Inconclusive
 

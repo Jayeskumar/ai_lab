@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Exhaustive dynamic programming (no strategy assumed) gives the longest game L(n) for every n <= 150 (up to 910,775 configurations at n = 150). It reproduces the lab's values (n <= 40), the Skeptic's (n <= 60) and hence the published ones (n <= 49); the split-first strategy of Cusenza et al. attains the optimum for every n <= 150; their bound B(n) is attained exactly for n = 1, 2, 4, 7, 12, 20, 33, 54, 88, 143 = F_k - 1; the reachable positions are exactly the partitions of n into Fibonacci parts (OEIS A003107).",
   "assumptions": [
     "levels 0, 1, 2, ... carry F_1 = 1, F_2 = 2, F_3 = 3, ...",
     "exact DP over all configurations reachable from n ones (memoised longest path; the move graph is acyclic because the game terminates)"
@@ -18,12 +19,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T17:08:44Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Exhaustive dynamic programming (no strategy assumed) gives the longest game L(n) for every n <= 150 (up to 910,775 configurations at n = 150). It reproduces the lab's values (n <= 40), the Skeptic's (n <= 60) and hence the published ones (n <= 49); the split-first strategy of Cusenza et al. attains the optimum for every n <= 150; their bound B(n) is attained exactly for n = 1, 2, 4, 7, 12, 20, 33, 54, 88, 143 = F_k - 1; the reachable positions are exactly the partitions of n into Fibonacci parts (OEIS A003107).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C19-07",
+        "CLM-C19-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
     }
   ],
   "hypothesis": "H-C19-0: the greedy strategy attains L(n) for every n <= 150; the published values (n <= 49) and the lab's earlier values (n <= 60) are reproduced; Cusenza's bound sum a_i delta_i is attained exactly for n = F_k - 1 (their Thm 1.4).",
   "id": "EXP-C19-01",
   "methodology": "For each n <= 150: memoised longest path over all reachable configurations; compare with C02 values (results/EXP-C02-02.json, n <= 40), the Skeptic's values (n = 41..60), the simple and the fast greedy implementations, and Cusenza's bound; record the state counts and compare them with the number of partitions of n into Fibonacci parts.",
   "question": "What is the longest game L(n) for n <= 150, computed without assuming any strategy, and does the split-first greedy strategy of Cusenza et al. (2022, Thm 1.2) attain it?",
+  "related": [
+    "CLM-C19-07",
+    "CLM-C19-08"
+  ],
   "results_file": "results/EXP-C19-01.json",
   "results_sha256": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
   "runs": [
@@ -55,5 +90,6 @@
     "Cusenza bound attained exactly at n in [1, 2, 4, 7, 12, 20, 33, 54, 88, 143] - i.e. iff n = F_k - 1: True",
     "reachable configurations = partitions of n into Fibonacci parts for every n <= 150: True"
   ],
-  "title": "Exact longest Zeckendorf games for n <= 150 and independent check of the published strategy"
+  "title": "Exact longest Zeckendorf games for n <= 150 and independent check of the published strategy",
+  "verification": "PROVEN"
 }

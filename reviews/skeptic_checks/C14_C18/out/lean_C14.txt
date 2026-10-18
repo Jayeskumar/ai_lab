@@ -1,0 +1,13 @@
+'Infinity.C14.rel_lprod' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.assoc_iso' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.assoc_iso_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.assoc_of_P3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.assoc_codes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.comm_assoc_codes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.character_codes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C14.xor_character' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0
+
+real	0m29.461s
+user	0m25.377s
+sys	0m6.310s

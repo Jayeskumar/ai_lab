@@ -1,0 +1,24 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-08",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary; the reverse-move argument is used for shortest games by Cheigh et al. (2025).",
+  "proof": "proofs/paper/C19.md#proposition-6-clm-c19-08--every-fibonacci-partition-of-n-is-a-reachable-position",
+  "proof_check": "written proof (proofs/paper/C19.md Proposition 6 - undoing combines reaches n copies of F_1; read backwards this is a forward game); state counts equal the partition counts for every n <= 150 (EXP-C19-01)",
+  "statement": "The positions reachable from n copies of F_1 are exactly the multisets of Fibonacci numbers F_1, F_2, ... with sum n; their number is the number of partitions of n into Fibonacci parts (OEIS A003107).",
+  "system": "SYS-D",
+  "title": "Every multiset of Fibonacci numbers with sum n is a reachable game position",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

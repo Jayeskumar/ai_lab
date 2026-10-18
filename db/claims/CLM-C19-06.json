@@ -1,0 +1,23 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-06",
+  "limitations": "Checked for all 276 pairs with j <= 24; no proof.",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Special case of CLM-C19-05; not found in the literature searched.",
+  "statement": "For levels j >= i + 2, D(F_{j+1} + F_{i+1}) = floor(j^2/4) + floor(i^2/4) - R(j,i) with R(j,0) = 1,\nR(j,i) = floor((i+1)^2/4) + 1 if j - i is odd and R(j,i) = floor(i^2/4) + 2 if j - i is even (i >= 1).",
+  "system": "SYS-D",
+  "title": "The deficit of a two-summand number depends only on the lower level and the parity of the gap",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

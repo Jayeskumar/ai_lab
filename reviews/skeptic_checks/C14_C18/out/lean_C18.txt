@@ -1,0 +1,10 @@
+'Infinity.C18.eT_length' depends on axioms: [propext]
+'Infinity.C18.eT_injective' depends on axioms: [propext]
+'Infinity.C18.eT_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C18.eT_append' depends on axioms: [propext]
+'Infinity.C18.eT_tail_factors' depends on axioms: [propext]
+exit=0
+
+real	0m3.731s
+user	0m2.358s
+sys	0m1.343s

@@ -27,6 +27,7 @@ chapters:
   - 13_relational_games.md
   - 14_mex_arithmetic.md
   - 15_graph_products.md
+  - 16_zeckendorf_game.md
   - vol06.md
   - generated/v06_results.md
   - vol07.md

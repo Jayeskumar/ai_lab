@@ -89,10 +89,10 @@ def growth(p):
     D[k] += 1
     # smallest positive root of D (increasing powers) by bisection on (1/2, 1]
     def Dv(x):
-        return sum(D[i] * x ** i for i in range(k + 1))
-    # scan for first sign change
+        return float(np.polyval(D[::-1], x))
+    # scan for first sign change (D > 0 on (0, 1/2], see Theorem 2)
     xs = np.linspace(0.5, 1.0, 20001)
-    vals = [Dv(x) for x in xs]
+    vals = np.polyval(D[::-1], xs)
     for i in range(1, len(xs)):
         if vals[i] <= 0:
             lo, hi = xs[i - 1], xs[i]
@@ -389,7 +389,7 @@ def part_oscillation():
 
 # ---------------------------------------------------------------- part: bench (a few exact expectations)
 def part_bench():
-    F = fib_list(200)
+    F = fib_list(400)
     T = {p: cum(counts_automaton(p, 400)) for p in ("101", "0111", "00111", "011", "111")}
     cumC1 = [F[L + 1] - 1 for L in range(200)]
     cumC3 = [max(2 * F[L] - 2, 0) for L in range(200)]

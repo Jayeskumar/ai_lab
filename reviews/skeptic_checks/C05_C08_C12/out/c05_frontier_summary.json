@@ -1,0 +1,71 @@
+{
+ "note": "parsed from out/c05_frontier.log; run stopped by the reviewer during the membership re-search 677@9 (memberships are Lean-certified)",
+ "rows": {
+  "501@2": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "501@3": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "501@6": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "501@7": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": null
+  },
+  "677@2": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "677@3": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "677@4": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "677@6": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "883@3": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "883@6": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "1076@8": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": null
+  },
+  "1083@2": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "1083@5": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "1083@6": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "1719@2": {
+   "kissat404_with_sound_constraints": "UNSAT",
+   "cadical195_without_extra_constraints": "UNSAT"
+  },
+  "677@5 (membership)": {
+   "cadical195_with_sound_constraints": "SAT"
+  },
+  "677@7 (membership)": {
+   "cadical195_with_sound_constraints": "SAT"
+  }
+ }
+}

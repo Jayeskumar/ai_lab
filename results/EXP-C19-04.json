@@ -1,0 +1,279 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C19-04",
+    "file": "experiments/C19/E04_out_of_sample.py",
+    "sha256": "db2b41ba5be1c3dc614170d7037e7c9b01913816d8281a3b484e8bf38c5064df",
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+  },
+  "env": {
+    "git_head": "26eb8ac1698d86066ec6b69a31782244af95e517",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:40:15Z",
+  "id": "EXP-C19-04",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "greedy lengths are optimal (Cusenza et al. 2022, Thm 1.2; independently confirmed for n <= 150 in EXP-C19-01)",
+      "random samples drawn with a fixed seed"
+    ],
+    "cycle": "C19",
+    "falsification": "Any tested n with longest_rec(n) != greedy length.",
+    "hypothesis": "H-C19-R (out of sample): longest_rec(n) = greedy length for every tested n >= 30000.",
+    "id": "EXP-C19-04",
+    "methodology": "Compare longest_rec(n) with the fast greedy simulation for all n in [30000, 36000), 200 random n in [4e4, 1e6), 12 random n in [1e6, 2e7) and 60 numbers F_j + m (j in [20, 30], m < 40); time both methods; OEIS novelty checks of L, D, L(F_j), rho_0, rho_1; tabulate (phi^2 n - L(n)) / (log_phi n)^2.",
+    "question": "Does the recursion D(F_j + m) = floor(j^2/4) + D(m) - rho_(j mod 2)(m), inferred from n < 30000, predict the longest game for n it was not fitted on? How fast is it, and what do L and D look like asymptotically?",
+    "seed": 1919,
+    "title": "Out-of-sample tests of the conjectured recursion for the longest Zeckendorf game"
+  },
+  "results": {
+    "L_huge_conjectural": {
+      "1000000000000": 2618033987626,
+      "1000000000000000000": 2618033988749891985,
+      "1000000000000000000000000000000": 2618033988749894848204586826876
+    },
+    "asymptotics": [
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3399,
+        "L/n": 2.548,
+        "n": "1e3"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3776,
+        "L/n": 2.6042,
+        "n": "1e4"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3798,
+        "L/n": 2.61586,
+        "n": "1e5"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.353,
+        "L/n": 2.617743,
+        "n": "1e6"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3698,
+        "L/n": 2.6179925,
+        "n": "1e7"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3714,
+        "L/n": 2.6180333,
+        "n": "1e9"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3409,
+        "L/n": 2.618033988,
+        "n": "1e12"
+      },
+      {
+        "(phi^2 n - L)/(log_phi n)^2": 0.3451,
+        "L/n": 2.618033989,
+        "n": "1e18"
+      }
+    ],
+    "benchmark": [
+      {
+        "L": 26042,
+        "agree": true,
+        "greedy_s": 0.0115,
+        "n": 10000,
+        "recursion_s": 7.1e-05
+      },
+      {
+        "L": 261586,
+        "agree": true,
+        "greedy_s": 0.102,
+        "n": 100000,
+        "recursion_s": 6.2e-05
+      },
+      {
+        "L": 2617743,
+        "agree": true,
+        "greedy_s": 0.8548,
+        "n": 1000000,
+        "recursion_s": 7.1e-05
+      },
+      {
+        "L": 26179925,
+        "agree": true,
+        "greedy_s": 8.2811,
+        "n": 10000000,
+        "recursion_s": 9.3e-05
+      }
+    ],
+    "mismatches": [],
+    "n_mismatches": 0,
+    "n_tested": 6272,
+    "oeis": {
+      "D(n), n>=1": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          0,
+          0,
+          1,
+          0,
+          2,
+          1,
+          0,
+          4,
+          3,
+          2,
+          2,
+          0,
+          6,
+          5,
+          4,
+          4,
+          3,
+          4,
+          2,
+          0
+        ]
+      },
+      "L(F_j), j>=0": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          0,
+          1,
+          2,
+          5,
+          10,
+          20,
+          37,
+          67,
+          117,
+          201,
+          339,
+          566,
+          936,
+          1539,
+          2518,
+          4107,
+          6682,
+          10854,
+          17609,
+          28545
+        ]
+      },
+      "L(n), n>=1": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          6,
+          8,
+          10,
+          11,
+          13,
+          15,
+          17,
+          20,
+          21,
+          23,
+          25,
+          26,
+          29,
+          31,
+          34
+        ]
+      },
+      "rho_0(m), m>=1": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          5,
+          5,
+          6,
+          6,
+          7,
+          8,
+          9,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "rho_1(m), m>=1": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          1,
+          2,
+          3,
+          3,
+          4,
+          5,
+          6,
+          7,
+          7,
+          7,
+          7,
+          7,
+          8,
+          8,
+          8,
+          9,
+          9,
+          10,
+          11,
+          12
+        ]
+      }
+    },
+    "ranges": {
+      "all": [
+        30000,
+        35999
+      ],
+      "fibonacci_plus_small": 60,
+      "random_large": [
+        1000000,
+        19999999
+      ],
+      "random_mid": [
+        40000,
+        999999
+      ]
+    },
+    "summary": [
+      "recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches",
+      "speed: n=1e4: greedy 0.0115 s, recursion 7.1e-05 s; n=1e5: greedy 0.102 s, recursion 6.2e-05 s; n=1e6: greedy 0.8548 s, recursion 7.1e-05 s; n=1e7: greedy 8.2811 s, recursion 9.3e-05 s",
+      "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
+      "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
+    ],
+    "timings": {
+      "greedy_total_s": 371.4,
+      "tests_s": 371.6
+    }
+  },
+  "results_sha256": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
+  "runtime_s": 393.334,
+  "started": "2026-10-18T17:33:42Z"
+}

@@ -1441,3 +1441,66 @@ EXP-C13-09 cross-checked the main results by independent code paths - explicit c
 
 *Evidence:* EXP-C13-09, CLM-C13-03, CLM-C13-05, CLM-C13-11
 
+
+## C03
+
+### [2026-10-18T17:45:11Z] Formal Verifier — revision (`C03-14#rev8`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T17:45:11Z] Formal Verifier — revision (`C06-11#rev8`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C19
+
+### [2026-10-18T17:45:11Z] Historian — novelty (`C19-01`)
+
+Literature read before experimenting - Baird-Smith et al. (shortest game n - Z(n), arXiv:1809.04881), Li et al. (deterministic games, bound 3n - 3Z(n) - IZ(n) + 1, arXiv:2006.16457), Cusenza et al. (split-first strategy is longest, bound B(n), equality iff n = F_k - 1; Fib. Quart. 60 (2022), arXiv:2009.09510), Cheigh et al. (every length between shortest and longest occurs; closed form for non-Fibonacci inputs open; CANT VI 2025). The cycle's target became the open closed form.
+
+*Evidence:* CLM-C19-05
+
+### [2026-10-18T17:45:11Z] Mathematical Explorer — result (`C19-02`)
+
+Exact search for all n <= 150 (EXP-C19-01) confirms the published strategy and the equality cases independently; the reachable positions are all Fibonacci partitions of n.
+
+*Evidence:* EXP-C19-01, CLM-C19-07, CLM-C19-08
+
+### [2026-10-18T17:45:11Z] Formal Verifier — proof (`C19-03`)
+
+A potential with weights a_i = F_{i+2} - i - 2 changes by 1 for every split or combine-1 and by i for the combine C_i, giving |G| = B(n) - sum (i-1) MC_i for every game; the longest game minimises a weighted count of combines (Lean-verified arithmetic core).
+
+*Evidence:* CLM-C19-01
+
+### [2026-10-18T17:45:11Z] Mathematical Inventor — hypothesis (`C19-04`)
+
+Bold guesses for the deficit D(n) - additivity with consecutive-pair corrections (H-C19-1), dependence on the two top levels (H-C19-2), additivity over lazy runs (H-C19-3), chip-by-chip insertion (H-C19-4). All four were refuted; each failure pointed to longer-range carries.
+
+*Evidence:* CLM-C19-10, CLM-C19-11, CLM-C19-12, CLM-C19-13
+
+### [2026-10-18T17:45:11Z] Mathematical Explorer — result (`C19-05`)
+
+The greedy game splits until every level holds at most one chip and only then combines; the intermediate configuration is the lazy Fibonacci representation (proved, Theorem 2). For a Fibonacci input the combines form a single upward cascade C_j, C_{j-2}, ..., giving D = floor(j^2/4) (proved, Theorem 4).
+
+*Evidence:* CLM-C19-02, CLM-C19-03
+
+### [2026-10-18T17:45:11Z] Mathematical Explorer — result (`C19-06`)
+
+The saving rho = D(F_j) + D(m) - D(F_j + m) depends only on m and the parity of j (no exception among 17,711 cases), and rho itself is constant on Zeckendorf blocks of the wrong parity and shifted-clipped on the others - an exact recursion for D, inferred from n < 30000.
+
+*Evidence:* CLM-C19-05, CLM-C19-06
+
+### [2026-10-18T17:45:11Z] Mathematical Skeptic — result (`C19-07`)
+
+Out-of-sample test of the recursion on 6,272 n not used to infer it (up to 2*10^7) - 0 mismatches. A first run of EXP-C19-04 crashed at its last step because the Fibonacci table ended near 5*10^19 (n = 10^30 requested); the table was extended to 200 terms and the experiment re-run. A first version of EXP-C19-02 was stopped because it was too slow (quadratic simulation up to n = 20000) and was rescaled.
+
+*Evidence:* EXP-C19-04, EXP-C19-02
+

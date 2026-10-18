@@ -1,0 +1,108 @@
+{
+ "63": {
+  "etp_line": "x = y ◇ (x ◇ (x ◇ y))",
+  "ours": "x = y(x(xy))",
+  "match": true
+ },
+ "66": {
+  "etp_line": "x = y ◇ (x ◇ (y ◇ y))",
+  "ours": "x = y(x(yy))",
+  "match": true
+ },
+ "115": {
+  "etp_line": "x = y ◇ ((x ◇ x) ◇ y)",
+  "ours": "x = y((xx)y)",
+  "match": true
+ },
+ "167": {
+  "etp_line": "x = (y ◇ x) ◇ (x ◇ y)",
+  "ours": "x = (yx)(xy)",
+  "match": true
+ },
+ "467": {
+  "etp_line": "x = y ◇ (x ◇ (x ◇ (y ◇ y)))",
+  "ours": "x = y(x(x(yy)))",
+  "match": true
+ },
+ "474": {
+  "etp_line": "x = y ◇ (x ◇ (y ◇ (x ◇ y)))",
+  "ours": "x = y(x(y(xy)))",
+  "match": true
+ },
+ "501": {
+  "etp_line": "x = y ◇ (y ◇ (x ◇ (x ◇ y)))",
+  "ours": "x = y(y(x(xy)))",
+  "match": true
+ },
+ "670": {
+  "etp_line": "x = y ◇ (x ◇ ((x ◇ y) ◇ y))",
+  "ours": "x = y(x((xy)y))",
+  "match": true
+ },
+ "677": {
+  "etp_line": "x = y ◇ (x ◇ ((y ◇ x) ◇ y))",
+  "ours": "x = y(x((yx)y))",
+  "match": true
+ },
+ "704": {
+  "etp_line": "x = y ◇ (y ◇ ((x ◇ x) ◇ y))",
+  "ours": "x = y(y((xx)y))",
+  "match": true
+ },
+ "883": {
+  "etp_line": "x = y ◇ ((x ◇ y) ◇ (y ◇ y))",
+  "ours": "x = y((xy)(yy))",
+  "match": true
+ },
+ "907": {
+  "etp_line": "x = y ◇ ((y ◇ x) ◇ (x ◇ y))",
+  "ours": "x = y((yx)(xy))",
+  "match": true
+ },
+ "1076": {
+  "etp_line": "x = y ◇ ((x ◇ (x ◇ y)) ◇ y)",
+  "ours": "x = y((x(xy))y)",
+  "match": true
+ },
+ "1083": {
+  "etp_line": "x = y ◇ ((x ◇ (y ◇ x)) ◇ y)",
+  "ours": "x = y((x(yx))y)",
+  "match": true
+ },
+ "1110": {
+  "etp_line": "x = y ◇ ((y ◇ (x ◇ x)) ◇ y)",
+  "ours": "x = y((y(xx))y)",
+  "match": true
+ },
+ "1279": {
+  "etp_line": "x = y ◇ (((x ◇ x) ◇ y) ◇ y)",
+  "ours": "x = y(((xx)y)y)",
+  "match": true
+ },
+ "1286": {
+  "etp_line": "x = y ◇ (((x ◇ y) ◇ x) ◇ y)",
+  "ours": "x = y(((xy)x)y)",
+  "match": true
+ },
+ "1313": {
+  "etp_line": "x = y ◇ (((y ◇ x) ◇ x) ◇ y)",
+  "ours": "x = y(((yx)x)y)",
+  "match": true
+ },
+ "1516": {
+  "etp_line": "x = (y ◇ y) ◇ (x ◇ (x ◇ y))",
+  "ours": "x = (yy)(x(xy))",
+  "match": true
+ },
+ "1685": {
+  "etp_line": "x = (y ◇ x) ◇ ((x ◇ y) ◇ y)",
+  "ours": "x = (yx)((xy)y)",
+  "match": true
+ },
+ "1719": {
+  "etp_line": "x = (y ◇ y) ◇ ((x ◇ x) ◇ y)",
+  "ours": "x = (yy)((xx)y)",
+  "match": true
+ },
+ "168": "x = (y ◇ x) ◇ (x ◇ z)"
+}

@@ -816,6 +816,62 @@
       "COMPUTATIONALLY SUPPORTED",
       "NOT ASSESSED"
     ],
+    "CLM-C19-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C19-02": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C19-03": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C19-04": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C19-05": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C19-06": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C19-07": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C19-08": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-09": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-10": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-11": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-12": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-13": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C19-14": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
     "CLM-C20-01": [
       "PROVEN",
       "REDISCOVERY"
@@ -852,6 +908,7 @@
     "C16",
     "C17",
     "C18",
+    "C19",
     "C20"
   ],
   "cycles_in_progress": [],
@@ -963,6 +1020,7 @@
     "EXP-C19-01": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
     "EXP-C19-02": "f4aa28e4b7690df527e658c5ef7a0a281dce33a233aacaa53257e1b7da89f10f",
     "EXP-C19-03": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
+    "EXP-C19-04": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
     "EXP-C20-01": "ca16de94a06cb31d7f07d1e82454245eb60b32d2fda85fae228a717ac9d2b2a3"
   },
   "lean": {
@@ -983,10 +1041,6 @@
     "proofs/lean/Infinity/C18_Quasigroups.lean": true
   },
   "next_priorities": [
-    "C12: boundedness of the Grundy values of subtract-a-prime (11) and subtract-a-Fibonacci (14); convergence of the Fibonacci P-density (<= 1/5)",
-    "C12: forbidden-move perturbations - for which d0 does forbidding 'subtract d0' in G01 give finitely many exceptional odd parts as in Theorem 8?",
-    "C12: prove g(m) < m/4 for odd m in the non-coprime game G06 (max ratio 0.24985 up to 5000)",
-    "C12: formalise Theorem 8 in Lean (finite certificate plus the shift-invariance lemma)",
     "C13: prove the last case of CLM-C06-10, x(yz) = y((yx)z) (spectrum {1,2}, with a non-affine model at N = 2)",
     "C13: which arithmetic sets are TRUE spectra of rigid laws? Find a rigid law realising '-1 is a square mod N' (A008784)",
     "C13: prove that spectra of one-variable laws are finite or cofinite (CLM-C13-10)",
@@ -1010,9 +1064,13 @@
     "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness",
     "C18: explain the residual bias of the nimber-inversion cascade (x*x = 0 and commutativity) - which quasigroup properties hurt cascades?",
     "C18: a probabilistic model of the cascade over a random Latin square - how does the avalanche bias decay with the depth?",
+    "C19: prove the recursion CLM-C19-05 by analysing the normalisation phase from the lazy representation (carries through alternating blocks)",
+    "C19: prove D(n) <= floor(j^2/4) and the strict monotonicity of L",
+    "C19: generalise the lazy-phase theorem and the Fibonacci-input formula to the generalised Zeckendorf games of Baird-Smith et al. (other linear recurrences)",
+    "C19: submit L(n) and L(F_k) to the OEIS (human decision)",
     "C20: obtain the Zantema-Geser (2000) theorem and compare with C03 Conjecture 4.6 (human with library access)",
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T17:27:52Z"
+  "updated": "2026-10-18T17:45:12Z"
 }

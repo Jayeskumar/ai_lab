@@ -1,0 +1,147 @@
+{
+ "relation_level_associative": [
+  0,
+  1,
+  4,
+  5,
+  8,
+  13,
+  28,
+  29,
+  31,
+  73,
+  77,
+  85,
+  93,
+  109,
+  127,
+  141,
+  221,
+  223,
+  253,
+  255
+ ],
+ "n_assoc": 20,
+ "graph_level_P3_associative": [
+  0,
+  1,
+  4,
+  5,
+  8,
+  13,
+  28,
+  29,
+  31,
+  73,
+  77,
+  85,
+  93,
+  109,
+  127,
+  141,
+  221,
+  223,
+  253,
+  255
+ ],
+ "P3_equals_relation_level": true,
+ "assoc_codes_failing_random_graph_triples": [],
+ "n_symmetric_S": 32,
+ "graph_level_commutative_equals_symmetric": true,
+ "assoc_and_comm": [
+  0,
+  5,
+  8,
+  13,
+  85,
+  93,
+  127,
+  141,
+  221,
+  255
+ ],
+ "two_sided_unit_K1_by_isomorphism": [
+  5,
+  13,
+  29,
+  77,
+  85,
+  93,
+  141,
+  221
+ ],
+ "unital_named": [
+  "EA AE",
+  "EA AE AA",
+  "EA AE AA AN",
+  "EA AE AA NA",
+  "EA AE AN NA",
+  "EA AE AA AN NA",
+  "EA AE AA NN",
+  "EA AE AA AN NA NN"
+ ],
+ "n_orbits": 76,
+ "assoc_orbits": [
+  [
+   0,
+   255
+  ],
+  [
+   1,
+   4,
+   223,
+   253
+  ],
+  [
+   5,
+   221
+  ],
+  [
+   8,
+   127
+  ],
+  [
+   13,
+   93
+  ],
+  [
+   28,
+   31,
+   73,
+   109
+  ],
+  [
+   29,
+   77
+  ],
+  [
+   85,
+   141
+  ]
+ ],
+ "orbits_mixing_assoc_and_nonassoc": [],
+ "assoc_depending_on_both_factors": [
+  5,
+  8,
+  13,
+  29,
+  77,
+  85,
+  93,
+  127,
+  141,
+  221
+ ],
+ "of_which_commutative": [
+  5,
+  8,
+  13,
+  85,
+  93,
+  127,
+  141,
+  221
+ ],
+ "claimed_list_matches": true,
+ "runtime_s": 0.3
+}

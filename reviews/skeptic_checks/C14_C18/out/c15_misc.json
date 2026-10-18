@@ -1,0 +1,207 @@
+{
+ "order2_rules": [
+  0,
+  17,
+  34,
+  51,
+  68,
+  85,
+  102,
+  119,
+  136,
+  153,
+  170,
+  187,
+  204,
+  221,
+  238,
+  255
+ ],
+ "order2_surjective_rules": [
+  51,
+  85,
+  102,
+  153,
+  170,
+  204
+ ],
+ "xor_essential_eq_2_popcount": true,
+ "laver_A2": {
+  "ess": [
+   1,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "widths": [
+   [
+    4,
+    4
+   ],
+   [
+    5,
+    5
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "left_distributive": false
+ },
+ "laver_A3": {
+  "ess": [
+   1,
+   2,
+   2,
+   2,
+   2,
+   2
+  ],
+  "widths": [
+   [
+    8,
+    8
+   ],
+   [
+    9,
+    9
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    2
+   ]
+  ],
+  "left_distributive": false
+ },
+ "gf4_widths": [
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ]
+ ],
+ "xor4_widths": [
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   4
+  ]
+ ],
+ "band": {
+  "assoc": true,
+  "surjective": true,
+  "injective": true,
+  "permutive": false,
+  "cyclic_bijective_L1_6": true
+ },
+ "order2_surj_iff_perm": true,
+ "golden5": {
+  "permutive": true,
+  "surjective": true
+ },
+ "golden11": {
+  "permutive": true,
+  "surjective": true
+ },
+ "odd5": {
+  "permutive": true,
+  "surjective": true
+ },
+ "runtime_total_s": 0.1
+}

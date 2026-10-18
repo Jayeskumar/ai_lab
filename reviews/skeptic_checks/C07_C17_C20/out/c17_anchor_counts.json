@@ -1,0 +1,99 @@
+{
+ "x(yz) = (xy)z @N=2": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)z @N=3": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)z @N=4": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)z @N=5": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = y(y(xz)) @N=2": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = y(y(xz)) @N=3": {
+  "models_of_instance": 2,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = y(y(xz)) @N=4": {
+  "models_of_instance": 11,
+  "complete": true,
+  "violating_full_law": 2,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = y(y(xz)) @N=5": {
+  "models_of_instance": 190,
+  "complete": true,
+  "violating_full_law": 114,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = x(zy) @N=3": {
+  "models_of_instance": 82,
+  "complete": true,
+  "violating_full_law": 54,
+  "models_failing_my_direct_check": 0
+ },
+ "(xy)z = (z(xy))x @N=3": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 1,
+  "models_failing_my_direct_check": 0
+ },
+ "(xy)z = (z(xy))x @N=4": {
+  "models_of_instance": 67,
+  "complete": true,
+  "violating_full_law": 67,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = y(x(zx)) @N=4": {
+  "models_of_instance": 16,
+  "complete": true,
+  "violating_full_law": 16,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)(xz) @N=2": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)(xz) @N=3": {
+  "models_of_instance": 0,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)(xz) @N=4": {
+  "models_of_instance": 1,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "x(yz) = (xy)(xz) @N=5": {
+  "models_of_instance": 0,
+  "complete": true,
+  "violating_full_law": 0,
+  "models_failing_my_direct_check": 0
+ },
+ "_seconds": 0.1
+}

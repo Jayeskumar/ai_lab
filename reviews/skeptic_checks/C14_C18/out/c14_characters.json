@@ -1,0 +1,82 @@
+{
+ "multiplicative": {
+  "AA": [
+   [
+    "0",
+    "1",
+    "0"
+   ]
+  ],
+  "EA AE AA": [
+   [
+    "1",
+    "1",
+    "0"
+   ]
+  ],
+  "EA AE AN NA": [
+   [
+    "1",
+    "-1",
+    "1"
+   ]
+  ],
+  "EA AE AA AN NA": [
+   [
+    "1",
+    "0",
+    "1"
+   ]
+  ],
+  "EA EN AE AA AN NE NA": [
+   [
+    "0",
+    "0",
+    "1"
+   ]
+  ],
+  "EA AE AA NN": [
+   [
+    "1",
+    "1",
+    "-1"
+   ]
+  ]
+ },
+ "multiplicative_codes": [
+  8,
+  13,
+  85,
+  93,
+  127,
+  141
+ ],
+ "additive": {
+  "EA AE": [
+   [
+    "0",
+    "cA",
+    "0"
+   ]
+  ],
+  "EA AE AA AN NA NN": [
+   [
+    "0",
+    "0",
+    "cN"
+   ]
+  ]
+ },
+ "additive_codes": [
+  5,
+  221
+ ],
+ "numeric_failures_random_pairs": [],
+ "comm_assoc_without_character": [
+  0,
+  255
+ ],
+ "comm_assoc_with_both_kinds": [],
+ "characters_on_non_comm_assoc_codes": [],
+ "runtime_s": 4.5
+}

@@ -1,0 +1,9 @@
+{
+ "random_equivalent_true": 30,
+ "random_trials": 30,
+ "product_equivalent_true": 30,
+ "product_trials": 30,
+ "nonequiv_false": 30,
+ "nonequiv_trials": 30,
+ "runtime_s": 16.5
+}

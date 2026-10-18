@@ -1,0 +1,22 @@
+{
+  "counterexample": "n = 3: L(4) = 3, L(3) = 2, lambda(3) = 0 (Zeckendorf(3) + F_1 is already Zeckendorf); fails for 288 of the first 300 n (EXP-C19-02). Longest games avoid early normalisation, so they do not pass through Zeckendorf(n).",
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-13",
+  "novelty": "NOT ASSESSED",
+  "statement": "L(n + 1) = L(n) + lambda(n), where lambda(n) is the longest game from the Zeckendorf representation of n plus one extra F_1.",
+  "system": "SYS-D",
+  "title": "H-C19-4: the longest game is built by inserting one chip at a time (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

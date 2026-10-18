@@ -1,0 +1,24 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-02",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965).",
+  "proof": "proofs/paper/C19.md#theorem-2-clm-c19-02--the-split-phase-ends-at-the-lazy-representation",
+  "proof_check": "written proof (proofs/paper/C19.md Theorem 2 - abelian property, an explicit carry lemma by induction, increment of the lazy representation); verified for every n < 5000 and for 300 random firing orders (EXP-C19-02); awaiting independent skeptic review",
+  "statement": "From n copies of F_1, every maximal sequence of split moves (F_1 + F_1 -> F_2, F_2 + F_2 -> F_1 + F_3,\nF_i + F_i -> F_{i-2} + F_{i+1}) has the same length and ends at the lazy representation of n - the unique\nrepresentation as a sum of distinct F_i (F_1 = 1, F_2 = 2, ...) without two consecutive missing indices below\nthe largest one.",
+  "system": "SYS-D",
+  "title": "The split phase of the longest game ends at the lazy Fibonacci representation",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

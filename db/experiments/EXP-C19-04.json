@@ -1,0 +1,101 @@
+{
+  "agent": "Mathematical Skeptic",
+  "analysis": "Out of sample, the recursion agrees with the greedy simulation on all 6,272 tested n (every n in [30000, 36000), 200 random n < 10^6, 12 random n < 2*10^7, 60 numbers F_j + m). It evaluates L(10^7) in 9.3e-5 s against 8.3 s for the simulation. L(n), D(n), L(F_j) and the two rho sequences are not in the OEIS. (phi^2 n - L(n)) / (log_phi n)^2 stays between 0.34 and 0.38 for n = 10^3 ... 10^18.",
+  "assumptions": [
+    "greedy lengths are optimal (Cusenza et al. 2022, Thm 1.2; independently confirmed for n <= 150 in EXP-C19-01)",
+    "random samples drawn with a fixed seed"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C19-04",
+    "file": "experiments/C19/E04_out_of_sample.py",
+    "sha256": "db2b41ba5be1c3dc614170d7037e7c9b01913816d8281a3b484e8bf38c5064df",
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+  },
+  "cycle": "C19",
+  "falsification": "Any tested n with longest_rec(n) != greedy length.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:33:24Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Out of sample, the recursion agrees with the greedy simulation on all 6,272 tested n (every n in [30000, 36000), 200 random n < 10^6, 12 random n < 2*10^7, 60 numbers F_j + m). It evaluates L(10^7) in 9.3e-5 s against 8.3 s for the simulation. L(n), D(n), L(F_j) and the two rho sequences are not in the OEIS. (phi^2 n - L(n)) / (log_phi n)^2 stays between 0.34 and 0.38 for n = 10^3 ... 10^18.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C19-05",
+        "CLM-C19-14"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "hypothesis": "H-C19-R (out of sample): longest_rec(n) = greedy length for every tested n >= 30000.",
+  "id": "EXP-C19-04",
+  "methodology": "Compare longest_rec(n) with the fast greedy simulation for all n in [30000, 36000), 200 random n in [4e4, 1e6), 12 random n in [1e6, 2e7) and 60 numbers F_j + m (j in [20, 30], m < 40); time both methods; OEIS novelty checks of L, D, L(F_j), rho_0, rho_1; tabulate (phi^2 n - L(n)) / (log_phi n)^2.",
+  "question": "Does the recursion D(F_j + m) = floor(j^2/4) + D(m) - rho_(j mod 2)(m), inferred from n < 30000, predict the longest game for n it was not fitted on? How fast is it, and what do L and D look like asymptotically?",
+  "related": [
+    "CLM-C19-05",
+    "CLM-C19-14"
+  ],
+  "results_file": "results/EXP-C19-04.json",
+  "results_sha256": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-04",
+        "file": "experiments/C19/E04_out_of_sample.py",
+        "sha256": "db2b41ba5be1c3dc614170d7037e7c9b01913816d8281a3b484e8bf38c5064df",
+        "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+      },
+      "error": true,
+      "finished": "2026-10-18T17:33:24Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C19-04.json",
+      "results_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "runtime_s": 365.966,
+      "started": "2026-10-18T17:27:18Z",
+      "summary": null
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-04",
+        "file": "experiments/C19/E04_out_of_sample.py",
+        "sha256": "db2b41ba5be1c3dc614170d7037e7c9b01913816d8281a3b484e8bf38c5064df",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:40:15Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C19-04.json",
+      "results_sha256": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
+      "runtime_s": 393.334,
+      "started": "2026-10-18T17:33:42Z",
+      "summary": [
+        "recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches",
+        "speed: n=1e4: greedy 0.0115 s, recursion 7.1e-05 s; n=1e5: greedy 0.102 s, recursion 6.2e-05 s; n=1e6: greedy 0.8548 s, recursion 7.1e-05 s; n=1e7: greedy 8.2811 s, recursion 9.3e-05 s",
+        "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
+        "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
+      ]
+    }
+  ],
+  "summary": [
+    "recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches",
+    "speed: n=1e4: greedy 0.0115 s, recursion 7.1e-05 s; n=1e5: greedy 0.102 s, recursion 6.2e-05 s; n=1e6: greedy 0.8548 s, recursion 7.1e-05 s; n=1e7: greedy 8.2811 s, recursion 9.3e-05 s",
+    "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
+    "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
+  ],
+  "title": "Out-of-sample tests of the conjectured recursion for the longest Zeckendorf game"
+}

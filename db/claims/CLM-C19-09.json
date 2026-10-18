@@ -1,0 +1,22 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-09",
+  "limitations": "Finite range; both statements would follow from CLM-C19-05 only with further work.",
+  "novelty": "NOT ASSESSED",
+  "statement": "For 1 <= n < 30000, the deficit satisfies D(n) <= floor(j^2/4) where j is the top Zeckendorf level of n (equality at the Fibonacci numbers), and L(n+1) > L(n).",
+  "system": "SYS-D",
+  "title": "D(n) <= floor(j^2/4) for top level j, and L is strictly increasing",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

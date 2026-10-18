@@ -1,0 +1,44 @@
+{
+ "2": {
+  "non_associative": 8,
+  "min_detection_probability": 0.125,
+  "argmin": [
+   [
+    0,
+    0
+   ],
+   [
+    1,
+    0
+   ]
+  ],
+  "tables_below_1/8": 0,
+  "associative_tables_ever_rejected": 0
+ },
+ "3": {
+  "non_associative": 19570,
+  "min_detection_probability": 0.125,
+  "argmin": [
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    0,
+    0
+   ],
+   [
+    0,
+    1,
+    0
+   ]
+  ],
+  "tables_below_1/8": 0,
+  "associative_tables_ever_rejected": 0
+ },
+ "4_random_300_min": 0.3671875,
+ "4_Z4_corruptions_min": 0.375,
+ "_seconds": 15.8
+}

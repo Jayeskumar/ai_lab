@@ -1,0 +1,226 @@
+{
+ "EXP-C14-01": {
+  "script": "experiments/C14/E01_classification.py",
+  "stored_sha256": "643a23b0e37d58df",
+  "current_sha256": "643a23b0e37d58df",
+  "match": true,
+  "error": false,
+  "runtime_s": 0.227,
+  "started": "2026-10-18T08:40:47Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-02": {
+  "script": "experiments/C14/E02_iso_vs_strict.py",
+  "stored_sha256": "68f83e75175b0445",
+  "current_sha256": "68f83e75175b0445",
+  "match": true,
+  "error": false,
+  "runtime_s": 1.008,
+  "started": "2026-10-18T08:41:25Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-03": {
+  "script": "experiments/C14/E03_kronecker_characters.py",
+  "stored_sha256": "e344842e394ced25",
+  "current_sha256": "e344842e394ced25",
+  "match": true,
+  "error": false,
+  "runtime_s": 3.872,
+  "started": "2026-10-18T08:42:21Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-04": {
+  "script": "experiments/C14/E04_factorisation_census.py",
+  "stored_sha256": "6ec37cf3b4547e7b",
+  "current_sha256": "6ec37cf3b4547e7b",
+  "match": true,
+  "error": false,
+  "runtime_s": 47.26,
+  "started": "2026-10-18T08:44:02Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-05": {
+  "script": "experiments/C14/E05_two_graph_factorisation.py",
+  "stored_sha256": "d4ecd7834bf10981",
+  "current_sha256": "d4ecd7834bf10981",
+  "match": true,
+  "error": false,
+  "runtime_s": 17.299,
+  "started": "2026-10-18T08:47:41Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-06": {
+  "script": "experiments/C14/E06_skeptic_recheck.py",
+  "stored_sha256": "e58404121143de43",
+  "current_sha256": "e58404121143de43",
+  "match": true,
+  "error": false,
+  "runtime_s": 0.351,
+  "started": "2026-10-18T08:56:01Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C14-07": {
+  "script": "experiments/C14/E07_spectra_benchmark.py",
+  "stored_sha256": "7697119e7d96295a",
+  "current_sha256": "7697119e7d96295a",
+  "match": true,
+  "error": false,
+  "runtime_s": 291.198,
+  "started": "2026-10-18T08:56:32Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C15-01": {
+  "script": "experiments/C15/E01_order2.py",
+  "stored_sha256": "40a9fe94c118d994",
+  "current_sha256": "40a9fe94c118d994",
+  "match": true,
+  "error": false,
+  "runtime_s": 12.939,
+  "started": "2026-10-18T16:47:45Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C15-02": {
+  "script": "experiments/C15/E02_order3_census.py",
+  "stored_sha256": "3df7115d616534f3",
+  "current_sha256": "3df7115d616534f3",
+  "match": true,
+  "error": false,
+  "runtime_s": 79.214,
+  "started": "2026-10-18T16:48:00Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C15-03": {
+  "script": "experiments/C15/E03_algebraic_fast_forward.py",
+  "stored_sha256": "37cf5da0d6b7da3a",
+  "current_sha256": "37cf5da0d6b7da3a",
+  "match": true,
+  "error": false,
+  "runtime_s": 45.725,
+  "started": "2026-10-18T09:30:39Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C15-04": {
+  "script": "experiments/C15/E04_cycle_detection.py",
+  "stored_sha256": "f32b1c249474fd23",
+  "current_sha256": "f32b1c249474fd23",
+  "match": true,
+  "error": false,
+  "runtime_s": 28.086,
+  "started": "2026-10-18T09:32:00Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C15-05": {
+  "script": "experiments/C15/E05_case_studies.py",
+  "stored_sha256": "52d0846d387b3832",
+  "current_sha256": "52d0846d387b3832",
+  "match": true,
+  "error": false,
+  "runtime_s": 7.762,
+  "started": "2026-10-18T16:37:53Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C16-01": {
+  "script": "experiments/C16/E01_small_magmas.py",
+  "stored_sha256": "71869f056d13385a",
+  "current_sha256": "71869f056d13385a",
+  "match": true,
+  "error": false,
+  "runtime_s": 7.899,
+  "started": "2026-10-18T09:27:23Z",
+  "suspicious_volatile_keys_outside_timings": [
+   "/census/2/seconds",
+   "/census/3/seconds",
+   "/census/4/seconds"
+  ]
+ },
+ "EXP-C16-02": {
+  "script": "experiments/C16/E02_quasigroups.py",
+  "stored_sha256": "d4eeddc07928ebc0",
+  "current_sha256": "d4eeddc07928ebc0",
+  "match": true,
+  "error": false,
+  "runtime_s": 31.628,
+  "started": "2026-10-18T16:56:18Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C16-03": {
+  "script": "experiments/C16/E03_structured_families.py",
+  "stored_sha256": "2b6d8036efe04553",
+  "current_sha256": "2b6d8036efe04553",
+  "match": true,
+  "error": false,
+  "runtime_s": 13.649,
+  "started": "2026-10-18T17:03:38Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C16-04": {
+  "script": "experiments/C16/E04_prng_test.py",
+  "stored_sha256": "99636bb26510b5a7",
+  "current_sha256": "99636bb26510b5a7",
+  "match": true,
+  "error": false,
+  "runtime_s": 8.962,
+  "started": "2026-10-18T17:00:28Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C16-05": {
+  "script": "experiments/C16/E05_search_methods.py",
+  "stored_sha256": "fd0ea81ce7fc1ef4",
+  "current_sha256": "fd0ea81ce7fc1ef4",
+  "match": true,
+  "error": false,
+  "runtime_s": 255.67,
+  "started": "2026-10-18T17:05:52Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C18-01": {
+  "script": "experiments/C18/E01_structure.py",
+  "stored_sha256": "1844049a776ac64a",
+  "current_sha256": "1844049a776ac64a",
+  "match": true,
+  "error": false,
+  "runtime_s": 1.366,
+  "started": "2026-10-18T09:31:37Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C18-02": {
+  "script": "experiments/C18/E02_avalanche.py",
+  "stored_sha256": "eb4dd3e4311e79dc",
+  "current_sha256": "eb4dd3e4311e79dc",
+  "match": true,
+  "error": false,
+  "runtime_s": 42.198,
+  "started": "2026-10-18T16:44:10Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C18-03": {
+  "script": "experiments/C18/E03_distribution.py",
+  "stored_sha256": "91418b3d445baead",
+  "current_sha256": "91418b3d445baead",
+  "match": true,
+  "error": false,
+  "runtime_s": 5.737,
+  "started": "2026-10-18T16:51:15Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C18-04": {
+  "script": "experiments/C18/E04_throughput.py",
+  "stored_sha256": "2ee55c7a56946d7b",
+  "current_sha256": "2ee55c7a56946d7b",
+  "match": true,
+  "error": false,
+  "runtime_s": 3.127,
+  "started": "2026-10-18T16:49:08Z",
+  "suspicious_volatile_keys_outside_timings": []
+ },
+ "EXP-C18-05": {
+  "script": "experiments/C18/E05_cascade.py",
+  "stored_sha256": "6ab12459308226a7",
+  "current_sha256": "6ab12459308226a7",
+  "match": true,
+  "error": false,
+  "runtime_s": 35.152,
+  "started": "2026-10-18T16:48:04Z",
+  "suspicious_volatile_keys_outside_timings": []
+ }
+}

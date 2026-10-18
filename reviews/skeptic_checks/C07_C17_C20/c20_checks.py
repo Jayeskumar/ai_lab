@@ -196,7 +196,8 @@ def part_strategies(rule, nmax):
                 argmax.append(w)
         closed = closed_ababa(n) if (l, r) == ("aab", "ababa") else (closed_babaa(n) if (l, r) == ("aab", "babaa") else None)
         res["by_n"][n] = {"D": best, "closed_form": closed, "n_maximisers": len(argmax), "maximisers": argmax[:8],
-                          "elapsed_s": round(time.time() - t0, 1)}
+                          "elapsed_s": round(time.time() - t0, 1),
+                          "cumulative_mismatches": [tot_mism, tot_nf_mism, tot_formula_mism, bound_viol]}
         print(n, res["by_n"][n], flush=True)
     res["strategy_length_mismatches"] = tot_mism
     res["normal_form_mismatches"] = tot_nf_mism

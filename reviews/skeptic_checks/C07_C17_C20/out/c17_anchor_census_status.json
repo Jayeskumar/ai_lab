@@ -1,0 +1,2690 @@
+{
+"x(yz) = x(zy)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+0
+],
+[
+2,
+0,
+0
+],
+[
+0,
+1,
+1
+]
+]
+},
+"x(yz) = y(xz)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+0
+],
+[
+2,
+0,
+0
+],
+[
+0,
+1,
+2
+]
+]
+},
+"x(yz) = y(zx)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+0
+],
+[
+2,
+0,
+0
+],
+[
+0,
+1,
+2
+]
+]
+},
+"x(yz) = z(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yx)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zx)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zy)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x(x(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x(y(xz))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+2
+]
+]
+},
+"x(yz) = x(y(yz))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+0,
+2
+],
+[
+0,
+2,
+1
+]
+]
+},
+"x(yz) = x(y(zx))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+0
+],
+[
+0,
+0,
+1
+]
+]
+},
+"x(yz) = x(y(zy))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+2
+],
+[
+0,
+2,
+1
+]
+]
+},
+"x(yz) = x(y(zz))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+0
+],
+[
+0,
+0,
+1
+]
+]
+},
+"x(yz) = x(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x(z(yx))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+0
+]
+]
+},
+"x(yz) = x(z(yy))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+1
+]
+]
+},
+"x(yz) = x(z(yz))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+2
+]
+]
+},
+"x(yz) = x(z(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(x(xz))": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+0,
+2
+],
+[
+0,
+1,
+2
+]
+]
+},
+"x(yz) = y(x(yz))": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+1,
+2,
+2
+],
+[
+2,
+2,
+2,
+1
+],
+[
+3,
+1,
+2,
+3
+],
+[
+0,
+1,
+2,
+3
+]
+]
+},
+"x(yz) = y(x(zx))": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+1,
+2,
+0
+],
+[
+2,
+2,
+2,
+3
+],
+[
+3,
+0,
+3,
+3
+],
+[
+0,
+1,
+2,
+3
+]
+]
+},
+"x(yz) = y(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(x(zz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(y(xz))": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+1,
+2,
+1
+],
+[
+2,
+2,
+2,
+3
+],
+[
+3,
+1,
+3,
+3
+],
+[
+0,
+1,
+2,
+3
+]
+]
+},
+"x(yz) = y(y(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(z(xx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(z(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(z(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y(z(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(x(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(x(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(x(yy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(x(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(y(xx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(y(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(y(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(y(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(y(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z(z(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((xy)z)": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+1,
+1,
+1
+],
+[
+2,
+2,
+2,
+2
+],
+[
+3,
+3,
+3,
+3
+],
+[
+0,
+1,
+0,
+1
+]
+]
+},
+"x(yz) = x((xz)y)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+0
+],
+[
+2,
+2,
+0
+],
+[
+0,
+2,
+0
+]
+]
+},
+"x(yz) = x((yx)z)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+1
+],
+[
+2,
+0,
+0
+],
+[
+0,
+2,
+2
+]
+]
+},
+"x(yz) = x((yy)z)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+1
+],
+[
+2,
+0,
+0
+],
+[
+0,
+2,
+2
+]
+]
+},
+"x(yz) = x((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((yz)y)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+0
+],
+[
+2,
+0,
+0
+],
+[
+0,
+1,
+1
+]
+]
+},
+"x(yz) = x((yz)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((zx)y)": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+3,
+3,
+1
+],
+[
+2,
+2,
+0,
+0
+],
+[
+3,
+3,
+2,
+2
+],
+[
+0,
+3,
+3,
+0
+]
+]
+},
+"x(yz) = x((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((zy)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((zy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = x((zz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((xx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((xy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((xz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((xz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((xz)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((yx)z)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+2
+],
+[
+2,
+1,
+2
+],
+[
+0,
+1,
+2
+]
+]
+},
+"x(yz) = y((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((zx)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((zx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((zx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = y((zz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((xx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((xy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((xy)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((xy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((xz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((yx)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((yx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((yx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((yy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((zx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = z((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xx)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xx)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xy)(zz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)(yy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (xz)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yx)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yx)(yz)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+2
+],
+[
+2,
+0,
+2
+],
+[
+0,
+1,
+2
+]
+]
+},
+"x(yz) = (yx)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yx)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yx)(zz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yy)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yy)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)(xx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (yz)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zx)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zx)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zx)(yy)": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+0,
+2,
+3
+],
+[
+2,
+0,
+1,
+3
+],
+[
+3,
+0,
+3,
+2
+],
+[
+0,
+3,
+0,
+2
+]
+]
+},
+"x(yz) = (zx)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zx)(zy)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+2
+],
+[
+2,
+0,
+1
+],
+[
+0,
+0,
+0
+]
+]
+},
+"x(yz) = (zy)(xx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zy)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zy)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zy)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zy)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (zz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(yy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(yz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(yz))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(zx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(zy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(zy))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(zy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (x(zz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(xx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(xz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(xz))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(zx))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(zx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(zx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(zy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (y(zz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(xx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(xy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(xy))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(yx))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(yx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(yy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(zx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = (z(zy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xy)x)z": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+3,
+1,
+3
+],
+[
+2,
+2,
+2,
+2
+],
+[
+3,
+1,
+3,
+1
+],
+[
+0,
+0,
+0,
+0
+]
+]
+},
+"x(yz) = ((xy)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xy)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xy)z)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xz)x)y": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+3,
+1,
+3
+],
+[
+2,
+2,
+2,
+2
+],
+[
+3,
+1,
+3,
+1
+],
+[
+0,
+0,
+0,
+0
+]
+]
+},
+"x(yz) = ((xz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xz)y)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xz)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((xz)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yx)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yx)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yx)z)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yy)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yz)x)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yz)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yz)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((yz)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zx)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zx)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zx)y)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zy)x)x": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+2
+],
+[
+2,
+0,
+0
+],
+[
+0,
+2,
+1
+]
+]
+},
+"x(yz) = ((zy)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zy)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zy)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zz)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"x(yz) = ((zz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(xy)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+0
+],
+[
+2,
+1,
+1
+],
+[
+0,
+2,
+1
+]
+]
+},
+"(xy)z = z(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xz)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yx)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)x": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+0,
+3,
+2
+],
+[
+2,
+3,
+0,
+1
+],
+[
+3,
+2,
+0,
+3
+],
+[
+0,
+1,
+1,
+2
+]
+]
+},
+"(xy)z = x(x(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(y(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(y(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(y(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(y(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(y(zz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(z(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(z(yy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(z(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x(z(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(x(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(x(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(x(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(x(zz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(y(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(y(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(z(xx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(z(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(z(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y(z(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(x(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(x(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(x(yy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(x(yz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(x(zy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(y(xx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(y(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(y(xz))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(y(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(y(zx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(z(xy))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z(z(yx))": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((xy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((xz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((yx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((yy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((yz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((yz)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((zx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((zy)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((zy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = x((zz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((xx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((xy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((xz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((xz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((xz)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((yx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((zx)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((zx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((zx)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = y((zz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((xx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((xy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((xy)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((xy)z)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((xz)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((yx)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((yx)y)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((yx)z)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+2
+],
+[
+2,
+1,
+2
+],
+[
+0,
+0,
+1
+]
+]
+},
+"(xy)z = z((yy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((yz)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = z((zx)y)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+0,
+2
+],
+[
+2,
+0,
+1
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = z((zy)x)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xx)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xx)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xy)(xz)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+2,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (xy)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xy)(zx)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (xy)(zy)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+0
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (xy)(zz)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+0
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (xz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xz)(yy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xz)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (xz)(zy)": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+0
+],
+[
+0,
+0,
+1
+]
+]
+},
+"(xy)z = (yx)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yx)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yx)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yx)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yx)(zz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yy)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yy)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)(xx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (yz)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)(yy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)(yz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zx)(zy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)(xx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)(xz)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zy)(zx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zz)(xy)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (zz)(yx)": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(yy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(yz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(yz))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (x(zx))y": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+1
+],
+[
+0,
+0,
+2
+]
+]
+},
+"(xy)z = (x(zy))x": {
+"insufficient": true,
+"first_N_with_counterexample": 4,
+"counterexample": [
+[
+1,
+1,
+2,
+1
+],
+[
+2,
+2,
+2,
+2
+],
+[
+3,
+3,
+3,
+3
+],
+[
+0,
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (x(zy))y": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+1
+],
+[
+0,
+0,
+2
+]
+]
+},
+"(xy)z = (x(zy))z": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+2
+],
+[
+0,
+0,
+2
+]
+]
+},
+"(xy)z = (x(zz))y": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+0
+],
+[
+2,
+2,
+1
+],
+[
+0,
+0,
+2
+]
+]
+},
+"(xy)z = (y(xx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(xz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(xz))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(zx))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(zx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(zx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(zy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (y(zz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(xx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(xy))x": {
+"insufficient": true,
+"first_N_with_counterexample": 3,
+"counterexample": [
+[
+1,
+1,
+2
+],
+[
+2,
+2,
+1
+],
+[
+0,
+0,
+0
+]
+]
+},
+"(xy)z = (z(xy))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(xy))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(xz))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(yx))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(yx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(yx))z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(yy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(yz))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(zx))y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = (z(zy))x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xy)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xy)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xy)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xy)z)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xz)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xz)y)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xz)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((xz)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yx)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yx)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yx)z)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yy)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yz)x)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yz)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yz)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((yz)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zx)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zx)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zx)y)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zx)y)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zx)z)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zy)x)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zy)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zy)x)z": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zy)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zy)z)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zz)x)y": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+},
+"(xy)z = ((zz)y)x": {
+"insufficient": false,
+"first_N_with_counterexample": null,
+"counterexample": null
+}
+}

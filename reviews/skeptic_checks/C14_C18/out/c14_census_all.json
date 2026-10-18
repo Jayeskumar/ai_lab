@@ -1,0 +1,1101 @@
+{
+ "5": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 8,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 20,
+    "composite_classes": 20,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 68,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 340,
+    "composite_classes": 340,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 2088,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 136,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 6,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 21,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 122,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 853,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 8,
+   "5": 34,
+   "6": 148,
+   "7": 1044,
+   "8": 12326,
+   "9": 274658,
+   "10": 12005100,
+   "11": 1018997864,
+   "12": 165091172252,
+   "13": 50502031367952,
+   "14": 29054155657233400,
+   "15": 31426485969804308632
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11111,
+   "9": 261077,
+   "10": 11716550,
+   "11": 1006700565,
+   "12": 164059830354,
+   "13": 50335907869219,
+   "14": 29003487462847208,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true,
+  "connected_primes_equal_A129582_n2_15": true
+ },
+ "13": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 8,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 20,
+    "composite_classes": 20,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 68,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 340,
+    "composite_classes": 340,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 2088,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 136,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 6,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 21,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 122,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 853,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 8,
+   "5": 34,
+   "6": 148,
+   "7": 1044,
+   "8": 12326,
+   "9": 274658,
+   "10": 12005100,
+   "11": 1018997864,
+   "12": 165091172252,
+   "13": 50502031367952,
+   "14": 29054155657233400,
+   "15": 31426485969804308632
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11111,
+   "9": 261077,
+   "10": 11716550,
+   "11": 1006700565,
+   "12": 164059830354,
+   "13": 50335907869219,
+   "14": 29003487462847208,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true,
+  "connected_primes_equal_A129582_n2_15": true
+ },
+ "29": {
+  "all": {
+   "4": {
+    "factorisations": 4,
+    "composite_classes": 4,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 16,
+    "composite_classes": 14,
+    "several_factorisations": 2,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 36,
+    "composite_classes": 36,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 16,
+    "composite_classes": 16,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 136,
+    "composite_classes": 132,
+    "several_factorisations": 4,
+    "several_multisets": 2
+   },
+   "12": {
+    "factorisations": 672,
+    "composite_classes": 664,
+    "several_factorisations": 6,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 4176,
+    "composite_classes": 4168,
+    "several_factorisations": 8,
+    "several_multisets": 6
+   },
+   "15": {
+    "factorisations": 272,
+    "composite_classes": 270,
+    "several_factorisations": 2,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 4,
+    "composite_classes": 3,
+    "several_factorisations": 1,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 11,
+    "composite_classes": 11,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 4,
+    "composite_classes": 4,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 42,
+    "composite_classes": 40,
+    "several_factorisations": 2,
+    "several_multisets": 1
+   },
+   "12": {
+    "factorisations": 244,
+    "composite_classes": 241,
+    "several_factorisations": 2,
+    "several_multisets": 1
+   },
+   "14": {
+    "factorisations": 1706,
+    "composite_classes": 1702,
+    "several_factorisations": 4,
+    "several_multisets": 3
+   },
+   "15": {
+    "factorisations": 84,
+    "composite_classes": 83,
+    "several_factorisations": 1,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 7,
+   "5": 34,
+   "6": 142,
+   "7": 1044,
+   "8": 12310,
+   "9": 274652,
+   "10": 12005036,
+   "11": 1018997864,
+   "12": 165091171928,
+   "13": 50502031367952,
+   "14": 29054155657231320,
+   "15": 31426485969804308498
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 109,
+   "7": 853,
+   "8": 11106,
+   "9": 261076,
+   "10": 11716531,
+   "11": 1006700565,
+   "12": 164059830235,
+   "13": 50335907869219,
+   "14": 29003487462846359,
+   "15": 31397381142761241877
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "77": {
+  "all": {
+   "4": {
+    "factorisations": 4,
+    "composite_classes": 4,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 16,
+    "composite_classes": 14,
+    "several_factorisations": 2,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 36,
+    "composite_classes": 36,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 16,
+    "composite_classes": 16,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 136,
+    "composite_classes": 132,
+    "several_factorisations": 4,
+    "several_multisets": 2
+   },
+   "12": {
+    "factorisations": 672,
+    "composite_classes": 664,
+    "several_factorisations": 6,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 4176,
+    "composite_classes": 4168,
+    "several_factorisations": 8,
+    "several_multisets": 6
+   },
+   "15": {
+    "factorisations": 272,
+    "composite_classes": 270,
+    "several_factorisations": 2,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 4,
+    "composite_classes": 3,
+    "several_factorisations": 1,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 11,
+    "composite_classes": 11,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 4,
+    "composite_classes": 4,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 42,
+    "composite_classes": 40,
+    "several_factorisations": 2,
+    "several_multisets": 1
+   },
+   "12": {
+    "factorisations": 244,
+    "composite_classes": 241,
+    "several_factorisations": 2,
+    "several_multisets": 1
+   },
+   "14": {
+    "factorisations": 1706,
+    "composite_classes": 1702,
+    "several_factorisations": 4,
+    "several_multisets": 3
+   },
+   "15": {
+    "factorisations": 84,
+    "composite_classes": 83,
+    "several_factorisations": 1,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 7,
+   "5": 34,
+   "6": 142,
+   "7": 1044,
+   "8": 12310,
+   "9": 274652,
+   "10": 12005036,
+   "11": 1018997864,
+   "12": 165091171928,
+   "13": 50502031367952,
+   "14": 29054155657231320,
+   "15": 31426485969804308498
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 109,
+   "7": 853,
+   "8": 11106,
+   "9": 261076,
+   "10": 11716531,
+   "11": 1006700565,
+   "12": 164059830235,
+   "13": 50335907869219,
+   "14": 29003487462846359,
+   "15": 31397381142761241877
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "85": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 2,
+    "several_factorisations": 1,
+    "several_multisets": 1
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 6,
+    "several_factorisations": 2,
+    "several_multisets": 2
+   },
+   "8": {
+    "factorisations": 22,
+    "composite_classes": 13,
+    "several_factorisations": 3,
+    "several_multisets": 3
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 41,
+    "several_factorisations": 7,
+    "several_multisets": 7
+   },
+   "12": {
+    "factorisations": 348,
+    "composite_classes": 206,
+    "several_factorisations": 16,
+    "several_multisets": 16
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 1098,
+    "several_factorisations": 54,
+    "several_multisets": 54
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 135,
+    "several_factorisations": 1,
+    "several_multisets": 1
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 3,
+    "several_factorisations": 2,
+    "several_multisets": 2
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 7,
+    "several_factorisations": 6,
+    "several_multisets": 6
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 26,
+    "several_factorisations": 15,
+    "several_multisets": 15
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 54,
+    "several_factorisations": 53,
+    "several_multisets": 53
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 9,
+   "5": 34,
+   "6": 150,
+   "7": 1044,
+   "8": 12333,
+   "9": 274658,
+   "10": 12005127,
+   "11": 1018997864,
+   "12": 165091172386,
+   "13": 50502031367952,
+   "14": 29054155657234390,
+   "15": 31426485969804308633
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11114,
+   "9": 261077,
+   "10": 11716564,
+   "11": 1006700565,
+   "12": 164059830450,
+   "13": 50335907869219,
+   "14": 29003487462848007,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "93": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 8,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 20,
+    "composite_classes": 20,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 68,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 340,
+    "composite_classes": 340,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 2088,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 136,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 6,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 21,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 120,
+    "several_factorisations": 2,
+    "several_multisets": 2
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 853,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 8,
+   "5": 34,
+   "6": 148,
+   "7": 1044,
+   "8": 12326,
+   "9": 274658,
+   "10": 12005100,
+   "11": 1018997864,
+   "12": 165091172252,
+   "13": 50502031367952,
+   "14": 29054155657233400,
+   "15": 31426485969804308632
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11111,
+   "9": 261077,
+   "10": 11716550,
+   "11": 1006700565,
+   "12": 164059830356,
+   "13": 50335907869219,
+   "14": 29003487462847208,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "141": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 2,
+    "several_factorisations": 1,
+    "several_multisets": 1
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 6,
+    "several_factorisations": 2,
+    "several_multisets": 2
+   },
+   "8": {
+    "factorisations": 22,
+    "composite_classes": 13,
+    "several_factorisations": 3,
+    "several_multisets": 3
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 41,
+    "several_factorisations": 7,
+    "several_multisets": 7
+   },
+   "12": {
+    "factorisations": 348,
+    "composite_classes": 206,
+    "several_factorisations": 16,
+    "several_multisets": 16
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 1098,
+    "several_factorisations": 54,
+    "several_multisets": 54
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 135,
+    "several_factorisations": 1,
+    "several_multisets": 1
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 6,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 21,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 122,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 853,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 9,
+   "5": 34,
+   "6": 150,
+   "7": 1044,
+   "8": 12333,
+   "9": 274658,
+   "10": 12005127,
+   "11": 1018997864,
+   "12": 165091172386,
+   "13": 50502031367952,
+   "14": 29054155657234390,
+   "15": 31426485969804308633
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11111,
+   "9": 261077,
+   "10": 11716550,
+   "11": 1006700565,
+   "12": 164059830354,
+   "13": 50335907869219,
+   "14": 29003487462847208,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "221": {
+  "all": {
+   "4": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 8,
+    "composite_classes": 8,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 20,
+    "composite_classes": 20,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 10,
+    "composite_classes": 10,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 68,
+    "composite_classes": 68,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 340,
+    "composite_classes": 340,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "14": {
+    "factorisations": 2088,
+    "composite_classes": 2088,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 136,
+    "composite_classes": 136,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "connected": {
+   "4": {
+    "factorisations": 1,
+    "composite_classes": 1,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "6": {
+    "factorisations": 2,
+    "composite_classes": 2,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "8": {
+    "factorisations": 6,
+    "composite_classes": 6,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "9": {
+    "factorisations": 3,
+    "composite_classes": 3,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "10": {
+    "factorisations": 21,
+    "composite_classes": 21,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "12": {
+    "factorisations": 122,
+    "composite_classes": 120,
+    "several_factorisations": 2,
+    "several_multisets": 2
+   },
+   "14": {
+    "factorisations": 853,
+    "composite_classes": 853,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   },
+   "15": {
+    "factorisations": 42,
+    "composite_classes": 42,
+    "several_factorisations": 0,
+    "several_multisets": 0
+   }
+  },
+  "primes_all_graphs": {
+   "2": 2,
+   "3": 4,
+   "4": 8,
+   "5": 34,
+   "6": 148,
+   "7": 1044,
+   "8": 12326,
+   "9": 274658,
+   "10": 12005100,
+   "11": 1018997864,
+   "12": 165091172252,
+   "13": 50502031367952,
+   "14": 29054155657233400,
+   "15": 31426485969804308632
+  },
+  "primes_connected": {
+   "2": 1,
+   "3": 2,
+   "4": 5,
+   "5": 21,
+   "6": 110,
+   "7": 853,
+   "8": 11111,
+   "9": 261077,
+   "10": 11716550,
+   "11": 1006700565,
+   "12": 164059830356,
+   "13": 50335907869219,
+   "14": 29003487462847208,
+   "15": 31397381142761241918
+  },
+  "agrees_with_lab_all": true,
+  "agrees_with_lab_connected": true,
+  "agrees_with_lab_prime_counts": true
+ },
+ "runtime_s": 36.7
+}

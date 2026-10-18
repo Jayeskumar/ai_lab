@@ -1,0 +1,25 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-01",
+    "EXP-C19-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-04",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The statement is Theorem 1.4 of Cusenza et al., Fib. Quart. 60 (2022), arXiv:2009.09510; the proof via lazy representations is new to us and much shorter.",
+  "proof": "proofs/paper/C19.md#corollary-3-clm-c19-04--a-short-proof-of-c-thm-14",
+  "proof_check": "written proof (proofs/paper/C19.md Corollary 3, from CLM-C19-02 - a split-only game ends at the lazy representation, which equals the Zeckendorf representation exactly for alternating digit strings); consistent with EXP-C19-01 (bound attained exactly at F_k - 1 for n <= 150)",
+  "statement": "The Zeckendorf game on n can be played with split and combine-1 moves only iff n = F_k - 1 for some k >= 2.",
+  "system": "SYS-D",
+  "title": "A short proof that only n = F_k - 1 can be played with split moves alone (Cusenza et al., Thm 1.4)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

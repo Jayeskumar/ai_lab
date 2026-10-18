@@ -1,0 +1,24 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03",
+    "EXP-C19-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-05",
+  "limitations": "Inferred from all n < 30000 (in-sample) and confirmed on 6,272 further n up to 2*10^7 (out of sample); no proof. The data rely on the published optimality of the split-first strategy (confirmed independently only for n <= 150).",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Cheigh et al. (CANT VI, Springer 2025) state that a convenient closed form for the longest game on non-Fibonacci inputs is open; no such formula found in the papers above or the OEIS (L(n) has no OEIS entry, EXP-C19-04).",
+  "statement": "Let h(k) = floor(k^2/4) and define rho_p (p = 0, 1) by rho_p(0) = 0 and, for m = F_{i+1} + t with Zeckendorf top\nlevel i (0 <= t < F_i): rho_p(m) = r_p(i) + [i = p mod 2] * max(0, rho_p(t) - h(i-2)), where r_p(0) = 1,\nr_p(i) = h(i) + 2 for i >= 1, i = p mod 2, and r_p(i) = h(i+1) + 1 otherwise. Then D(0) = 0 and\nD(F_{j+1} + m) = h(j) + D(m) - rho_{j mod 2}(m) for 0 <= m < F_j, and L(n) = B(n) - D(n).",
+  "system": "SYS-D",
+  "title": "A two-sequence recursion for the longest Zeckendorf game on every n",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

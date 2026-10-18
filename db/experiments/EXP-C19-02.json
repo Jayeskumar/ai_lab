@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "The length identity |G| = B(n) - sum_{i>=2} (i-1) MC_i holds for every greedy game n < 1500 and for 1500 uniformly random games; the split phase ends at the lazy Fibonacci representation for every n < 5000, and 300 random firing orders never change its end point or its length; the insertion hypothesis H-C19-4 fails for 288 of the first 300 n (first at n = 3).",
   "assumptions": [
     "random games choose uniformly among legal moves (seeded)",
     "lazy representation computed by the top-down algorithm and checked to have no two consecutive zeros"
@@ -10,6 +11,9 @@
     "sha256": "2966a9706fab4b74e34c0d16ee0db93b3c71c52d9f73a9f2d2b6528f04361f66",
     "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
   },
+  "counterexamples": [
+    "H-C19-4: L(4) = 3 but L(3) + lambda(3) = 2 + 0"
+  ],
   "cycle": "C19",
   "falsification": "A game violating the identity; a split phase ending elsewhere or with a different length; H-C19-4: any m with L(m+1) != L(m) + lambda(m).",
   "history": [
@@ -18,12 +22,59 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T17:20:04Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The length identity |G| = B(n) - sum_{i>=2} (i-1) MC_i holds for every greedy game n < 1500 and for 1500 uniformly random games; the split phase ends at the lazy Fibonacci representation for every n < 5000, and 300 random firing orders never change its end point or its length; the insertion hypothesis H-C19-4 fails for 288 of the first 300 n (first at n = 3).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "H-C19-4: L(4) = 3 but L(3) + lambda(3) = 2 + 0"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C19-01",
+        "CLM-C19-02",
+        "CLM-C19-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
     }
   ],
   "hypothesis": "H-C19-A (derived from a potential): length = B(n) - W for every game. H-C19-B: splits and combine-1s, applied in any order, end at the lazy Fibonacci representation of n after the same number of moves. H-C19-4 (bold): L(n+1) = L(n) + lambda(n), lambda(n) the longest game from the Zeckendorf representation of n plus one extra 1.",
   "id": "EXP-C19-02",
   "methodology": "Greedy games for n < 1500 and 1500 random games (n <= 200): compare length with B(n) - W. Split phase (lowest-first) for n < 5000 against the lazy digits; 300 random firing orders (n <= 600). Exact longest games from Zeck(m) + [1] for m < 300.",
   "question": "Is the length of EVERY game equal to B(n) - sum_{i>=2} (i-1) MC_i (B = Cusenza's bound)? Where does the split phase of the greedy game end? Is L(n+1) = L(n) + (longest game from Zeck(n) + 1)?",
+  "related": [
+    "CLM-C19-01",
+    "CLM-C19-02",
+    "CLM-C19-13"
+  ],
   "results_file": "results/EXP-C19-02.json",
   "results_sha256": "f4aa28e4b7690df527e658c5ef7a0a281dce33a233aacaa53257e1b7da89f10f",
   "runs": [
@@ -53,5 +104,6 @@
     "split phase (splits + combine-1s) ends at the lazy representation for 4999 of 4999 n; random firing orders change the end point or the length in 0 of 300 cases",
     "H-C19-4 (L(m+1) = L(m) + lambda(m)) fails for 288 of 300 m, first: [{'m': 3, 'L(m+1)': 3, 'L(m)': 2, 'lambda': 0}, {'m': 5, 'L(m+1)': 6, 'L(m)': 5, 'lambda': 0}]"
   ],
-  "title": "Anatomy of the longest Zeckendorf game: the identity L = B - W, the lazy split phase, insertion"
+  "title": "Anatomy of the longest Zeckendorf game: the identity L = B - W, the lazy split phase, insertion",
+  "verification": "PROVEN"
 }

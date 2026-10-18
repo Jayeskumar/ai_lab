@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "D(F) = floor(j^2/4) for the Fibonacci input on every level j <= 33; the two-summand law holds for all 276 pairs with j <= 24; the consecutive-pair model fails for 23,680 of the n < 30000 (first n = 12), the top-summand effect is not a function of the two highest levels (87 ambiguous keys, e.g. (4,2)), and the lazy-run linear model is inconsistent already for n < 160 (rank 46 < 47); the recursion with the explicit rho reproduces D(n) for every n < 30000 (in-sample: it was inferred from this range); D(n) <= floor(j^2/4) and L(n+1) > L(n) (n >= 1) hold throughout.",
   "assumptions": [
     "L(n) computed by the split-first greedy strategy, which is optimal by Cusenza et al. (2022, Thm 1.2) and was confirmed independently for n <= 150 (EXP-C19-01)",
     "levels j: F = 1, 2, 3, 5, ... (level j carries FIB[j])"
@@ -10,6 +11,10 @@
     "sha256": "597c110024d78b0f0aa2abfa193a9cf61c29352d6f6b6007efd6632f5694c247",
     "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
   },
+  "counterexamples": [
+    "H-C19-1: n = 12 (levels 4, 2, 0): D = 0, consecutive-pair model 1",
+    "H-C19-3: lazy-run model inconsistent on n < 160"
+  ],
   "cycle": "C19",
   "falsification": "Any n contradicting H-C19-F or H-C19-R; the additive models are refuted by explicit counterexamples or inconsistent linear systems.",
   "history": [
@@ -18,12 +23,59 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T17:27:06Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "analysis",
+      "new": "D(F) = floor(j^2/4) for the Fibonacci input on every level j <= 33; the two-summand law holds for all 276 pairs with j <= 24; the consecutive-pair model fails for 23,680 of the n < 30000 (first n = 12), the top-summand effect is not a function of the two highest levels (87 ambiguous keys, e.g. (4,2)), and the lazy-run linear model is inconsistent already for n < 160 (rank 46 < 47); the recursion with the explicit rho reproduces D(n) for every n < 30000 (in-sample: it was inferred from this range); D(n) <= floor(j^2/4) and L(n+1) > L(n) (n >= 1) hold throughout.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "H-C19-1: n = 12 (levels 4, 2, 0): D = 0, consecutive-pair model 1",
+        "H-C19-3: lazy-run model inconsistent on n < 160"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C19-03",
+        "CLM-C19-05",
+        "CLM-C19-06",
+        "CLM-C19-09",
+        "CLM-C19-10",
+        "CLM-C19-11",
+        "CLM-C19-12"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
     }
   ],
   "hypothesis": "H-C19-F: D(F at level j) = floor(j^2/4). H-C19-1 (bold): D is additive over Zeckendorf summands up to a correction for consecutive pairs only. H-C19-2: the effect of the top summand depends only on the two highest levels. H-C19-3 (bold): D is additive over the runs of the lazy representation. H-C19-R: D(F_j + m) = floor(j^2/4) + D(m) - rho_(j mod 2)(m) with the explicit rho of systems/zeckendorf_game.py (inferred from n < 30000; out-of-sample tests in EXP-C19-04).",
   "id": "EXP-C19-03",
   "methodology": "Greedy lengths for all n < 30000 and for Fibonacci inputs up to level 33; two-summand values for j <= 24; exact rational rank test for the lazy-run model on n < 160; comparison of the recursion with the greedy on n < 30000.",
   "question": "How does D(n) = B(n) - L(n) (B = sum_i a_i delta_i, Cusenza et al.) depend on the Zeckendorf digits of n?",
+  "related": [
+    "CLM-C19-03",
+    "CLM-C19-05",
+    "CLM-C19-06",
+    "CLM-C19-09",
+    "CLM-C19-10",
+    "CLM-C19-11",
+    "CLM-C19-12"
+  ],
   "results_file": "results/EXP-C19-03.json",
   "results_sha256": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
   "runs": [

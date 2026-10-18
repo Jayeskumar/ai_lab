@@ -308,40 +308,51 @@ def part_brute3():
 
 
 def part_census():
+    """SAT spectra n = 1..6 for all 115 identities (sound constraints only, 30 s per instance)."""
     ids = nontrivial_identities()
     lab = {r["identity"]: r for r in json.loads((ROOT / "results/EXP-C05-01.json").read_text())["results"]["rows"]}
-    lab2 = json.loads((ROOT / "results/EXP-C05-02.json").read_text())["results"]
     res, mism, unknown = {}, [], []
     t0 = time.time()
     for t in ids:
         key = show(t) + " = x"
         pat = ""
         for n in range(1, 7):
-            st, _ = solve(t, n, budget_s=60, **sound_kw(t))
+            st, _ = solve(t, n, budget_s=30, **sound_kw(t))
             pat += {"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[st]
             if st == "UNKNOWN":
                 unknown.append([key, n])
         res[key] = pat
         if lab[key]["spectrum_1_6"] != pat:
             mism.append([key, pat, lab[key]["spectrum_1_6"]])
-    full = sum(p == "111111" for p in res.values())
-    only1 = sum(p == "100000" for p in res.values())
-    # n = 7, 8 for the non-full ones
-    ext = {}
-    for t in ids:
-        key = show(t) + " = x"
-        if res[key] == "111111":
-            continue
-        pat = res[key]
-        for n in (7, 8):
-            st, _ = solve(t, n, budget_s=90, **sound_kw(t))
-            pat += {"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[st]
-        ext[key] = pat
+        print(key, pat, lab[key]["spectrum_1_6"], round(time.time() - t0, 1), flush=True)
     from collections import Counter
-    return {"patterns_1_6": dict(Counter(res.values())), "full_1_6": full, "only_n1_on_1_6": only1,
-            "mismatches_vs_EXP-C05-01": mism, "unknown_1_6": unknown,
-            "patterns_1_8_nonfull": dict(Counter(ext.values())), "per_identity_1_8": ext,
-            "lab_EXP-C05-02_keys": list(lab2.keys())[:20], "seconds": round(time.time() - t0, 1)}
+    return {"patterns_1_6": dict(Counter(res.values())), "full_1_6": sum(p == "111111" for p in res.values()),
+            "only_n1_on_1_6": sum(p == "100000" for p in res.values()),
+            "mismatches_vs_EXP-C05-01": mism, "unknown_1_6": unknown, "per_identity": res,
+            "seconds": round(time.time() - t0, 1)}
+
+
+def part_census78():
+    """n = 7, 8 for one identity per non-full pattern of EXP-C05-02 (40 s per instance, 12 min cap)."""
+    lab2 = {r["identity"]: r["spectrum_1_8"] for r in json.loads((ROOT / "results/EXP-C05-02.json").read_text())["results"]["rows"]}
+    reps = {}
+    for key, pat in lab2.items():
+        reps.setdefault(pat, key)
+    out, t0 = {}, time.time()
+    for pat, key in reps.items():
+        t = parse(key.split(" = ")[0])
+        mine = ""
+        for n in (7, 8):
+            if time.time() - t0 > 720:
+                mine += "s"          # skipped for time
+                continue
+            st, _ = solve(t, n, solver="kissat404", budget_s=40, **sound_kw(t))
+            mine += {"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[st]
+        out[key] = {"lab_1_8": pat, "mine_7_8": mine,
+                    "agree_where_both_decided": all(a == b or "?" in (a, b) or b == "s" for a, b in zip(pat[6:], mine))}
+        print(key, pat, mine, round(time.time() - t0, 1), flush=True)
+    return {"rows": out, "disagreements": [k for k, v in out.items() if not v["agree_where_both_decided"]],
+            "seconds": round(time.time() - t0, 1)}
 
 
 def part_affine():
@@ -488,7 +499,7 @@ def part_conj09():
     return res
 
 
-PARTS = {"tables": part_tables, "brute3": part_brute3, "census": part_census, "affine": part_affine,
+PARTS = {"tables": part_tables, "brute3": part_brute3, "census": part_census, "census78": part_census78, "affine": part_affine,
          "frontier": part_frontier, "conj09": part_conj09}
 
 if __name__ == "__main__":

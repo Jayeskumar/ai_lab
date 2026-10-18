@@ -1,0 +1,22 @@
+{
+  "counterexample": "For n < 160 the linear system D(n) = sum phi(run) has coefficient rank 46 and augmented rank 47 (exact rational elimination), so it has no solution (EXP-C19-03).",
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-12",
+  "novelty": "NOT ASSESSED",
+  "statement": "There is a function phi(start, length) with D(n) = sum of phi over the maximal runs of ones of the lazy representation of n.",
+  "system": "SYS-D",
+  "title": "H-C19-3: the deficit is additive over the runs of the lazy representation (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

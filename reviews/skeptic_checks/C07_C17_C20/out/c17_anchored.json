@@ -1,0 +1,17 @@
+{
+ "2": {
+  "tables": 4,
+  "assoc": 1,
+  "instance": 1,
+  "is_x_plus_y_plus_1": 1,
+  "disagree": 0
+ },
+ "3": {
+  "tables": 729,
+  "assoc": 1,
+  "instance": 1,
+  "is_x_plus_y_plus_1": 1,
+  "disagree": 0
+ },
+ "_seconds": 0.0
+}

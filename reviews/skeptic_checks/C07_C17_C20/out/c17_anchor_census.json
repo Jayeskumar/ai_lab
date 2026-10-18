@@ -1,0 +1,50 @@
+{
+ "n_laws": 382,
+ "laws_match_lab_names": true,
+ "decides_N_le_5": 339,
+ "insufficient_N_le_5": 43,
+ "lab_counts_decides_insufficient_undecided": [
+  333,
+  18,
+  31
+ ],
+ "my_decides_equals_lab_decides": false,
+ "lab_insufficient_subset_of_mine": true,
+ "lab_undecided_that_are_insufficient": [
+  "(xy)z = (x(zy))z",
+  "(xy)z = (xy)(xz)",
+  "(xy)z = (xy)(zx)",
+  "(xy)z = (xy)(zy)",
+  "(xy)z = (xy)(zz)",
+  "(xy)z = (z(xy))x",
+  "(xy)z = z(xy)",
+  "x(yz) = (yx)(yz)",
+  "x(yz) = (zx)(yy)",
+  "x(yz) = x((yy)z)",
+  "x(yz) = x((yz)y)",
+  "x(yz) = x(y(xz))",
+  "x(yz) = x(y(yz))",
+  "x(yz) = x(y(zx))",
+  "x(yz) = x(y(zy))",
+  "x(yz) = x(y(zz))",
+  "x(yz) = x(z(yx))",
+  "x(yz) = x(z(yy))",
+  "x(yz) = x(z(yz))",
+  "x(yz) = x(zy)",
+  "x(yz) = y(x(xz))",
+  "x(yz) = y(x(yz))",
+  "x(yz) = y(x(zx))",
+  "x(yz) = y(xz)",
+  "x(yz) = y(zx)"
+ ],
+ "lab_undecided_that_decide_N_le_5": [
+  "(xy)z = (x(xy))z",
+  "(xy)z = (yx)z",
+  "(xy)z = z(yx)",
+  "x(yz) = (yz)x",
+  "x(yz) = (zy)x",
+  "x(yz) = x(x(yz))"
+ ],
+ "seconds": 8.4,
+ "_seconds": 8.4
+}

@@ -1,0 +1,55 @@
+{
+ "16": {
+  "found": 1693,
+  "median_mu": 4.0,
+  "median_lambda": 2.0,
+  "not_found_by_width_class": {
+   "geometric": 37,
+   "other": 4
+  }
+ },
+ "32": {
+  "found": 1590,
+  "median_mu": 5.0,
+  "median_lambda": 2.0,
+  "not_found_by_width_class": {
+   "other": 12,
+   "geometric": 128,
+   "bounded": 4
+  }
+ },
+ "64": {
+  "found": 1561,
+  "median_mu": 6.0,
+  "median_lambda": 2.0,
+  "not_found_by_width_class": {
+   "geometric": 153,
+   "other": 16,
+   "bounded": 4
+  }
+ },
+ "affine_quasigroup_mu_lambda": {
+  "x+y L=32": [
+   1,
+   6560
+  ],
+  "x+y L=64": null,
+  "2x+y L=32": [
+   0,
+   6560
+  ],
+  "2x+y L=64": null,
+  "2x+2y L=32": [
+   1,
+   6560
+  ],
+  "2x+2y L=64": null,
+  "2x+2y+1 L=32": [
+   1,
+   19680
+  ],
+  "2x+2y+1 L=64": null
+ },
+ "runtime_s": 31.7,
+ "runtime_total_s": 31.7
+}

@@ -1,0 +1,108 @@
+{
+ "part": "tables",
+ "result": {
+  "T4": {
+   "n": 4,
+   "law": "x = (yx)(xy)",
+   "satisfies": true,
+   "quasigroup": false,
+   "idempotent": false
+  },
+  "T5": {
+   "n": 5,
+   "law": "x = (yx)(xy)",
+   "satisfies": true,
+   "quasigroup": false,
+   "idempotent": false
+  },
+  "E467_order9": {
+   "n": 9,
+   "law": "x = y(x(x(yy)))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E677_order5": {
+   "n": 5,
+   "law": "x = y(x((yx)y))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": true
+  },
+  "E677_order7": {
+   "n": 7,
+   "law": "x = y(x((yx)y))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E677_order9": {
+   "n": 9,
+   "law": "x = y(x((yx)y))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E883_order10": {
+   "n": 10,
+   "law": "x = y((xy)(yy))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E1286_order9": {
+   "n": 9,
+   "law": "x = y(((xy)x)y)",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": true
+  },
+  "E1313_order9": {
+   "n": 9,
+   "law": "x = y(((yx)x)y)",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E1516_order9": {
+   "n": 9,
+   "law": "x = (yy)(x(xy))",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "E1719_order10": {
+   "n": 10,
+   "law": "x = (yy)((xx)y)",
+   "satisfies": true,
+   "quasigroup": true,
+   "idempotent": false
+  },
+  "nand2": {
+   "n": 2,
+   "law": "x = (yx)(x(yy))",
+   "satisfies": true,
+   "quasigroup": false,
+   "idempotent": false
+  },
+  "T4_row1": [
+   0,
+   2,
+   2,
+   2
+  ],
+  "law167_models_order2": 0,
+  "law167_models_order3": 0,
+  "law66_models_order2": 0,
+  "law66_models_order3": 4,
+  "affine_models_(yx)(x(yy))": {
+   "1": 1,
+   "2": 0,
+   "3": 0,
+   "4": 0,
+   "5": 2,
+   "6": 0
+  }
+ },
+ "wall_seconds": 1.0
+}

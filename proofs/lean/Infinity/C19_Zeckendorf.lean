@@ -1,5 +1,6 @@
 import Mathlib.Data.Nat.Fib.Basic
-import Mathlib.Algebra.BigOperators.Group.List
+import Mathlib.Algebra.BigOperators.Group.List.Basic
+import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Tactic
 
 /-!
@@ -43,20 +44,17 @@ theorem dPsi_split (i : ℕ) : a (i + 1) + a (i + 4) - 2 * a (i + 3) = 1 := by
   unfold a
   have h1 := F_rec (i + 3)   -- F (i+5) = F (i+4) + F (i+3)
   have h2 := F_rec (i + 4)   -- F (i+6) = F (i+5) + F (i+4)
-  have h3 := F_rec (i + 1)   -- F (i+3) = F (i+2) + F (i+1)
-  have h4 := F_rec (i + 2)   -- F (i+4) = F (i+3) + F (i+2)
   simp only [show i + 1 + 2 = i + 3 by ring, show i + 4 + 2 = i + 6 by ring, show i + 3 + 2 = i + 5 by ring,
-    show i + 3 + 1 = i + 4 by ring, show i + 4 + 1 = i + 5 by ring, show i + 2 + 1 = i + 3 by ring,
-    show i + 1 + 1 = i + 2 by ring] at *
+    show i + 3 + 1 = i + 4 by ring] at *
   push_cast
-  linear_combination h2 - h1 - h4 + h3
+  linear_combination h2 - h1
 
 /-- The combine `F (i+1) ∧ F (i+2) → F (i+3)` (the move `C (i+2)`) raises the potential by `i + 2`. -/
 theorem dPsi_combine (i : ℕ) : a (i + 3) - a (i + 2) - a (i + 1) = (i + 2 : ℤ) := by
   unfold a
   have h := F_rec (i + 3)
-  simp only [show i + 3 + 2 = i + 5 by ring, show i + 2 + 2 = i + 4 by ring, show i + 1 + 2 = i + 3 by ring,
-    show i + 3 + 1 = i + 4 by ring] at *
+  simp only [show i + 3 + 2 = i + 5 by ring, show i + 2 + 2 = i + 4 by ring,
+    show i + 1 + 2 = i + 3 by ring] at *
   push_cast
   linear_combination h
 

@@ -23,7 +23,7 @@ import sys
 from functools import lru_cache
 
 FIB = [1, 2]
-while len(FIB) < 95:
+while len(FIB) < 200:
     FIB.append(FIB[-1] + FIB[-2])          # FIB[k] = F_{k+1}: 1, 2, 3, 5, 8, ...
 
 

@@ -1,0 +1,3 @@
+'SkepticC05.M677_law' depends on axioms: [propext]
+'SkepticC05.M1313_law' depends on axioms: [propext]
+exit=0 seconds=8

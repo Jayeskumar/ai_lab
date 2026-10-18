@@ -1,0 +1,1 @@
+{"part": "affine", "result": {"full_spectrum_but_not_all_affine": {"(yx)(x(yy)) = x": [1, 5], "(yx)((xx)y) = x": [1, 2, 5], "(y(xx))(xy) = x": [1, 2, 5], "((yy)x)(xy) = x": [1, 5]}, "affine_model_outside_SAT_spectrum": [], "n_restricted_with_members_without_affine_model": 39}, "wall_seconds": 1.2}

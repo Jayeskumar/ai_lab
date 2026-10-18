@@ -1,0 +1,230 @@
+cycle: C19
+title: "The longest Zeckendorf game"
+branch: C-D
+status: complete
+systems: [SYS-C, SYS-D]
+
+experiments:
+  - id: EXP-C19-01
+    analysis: "Exhaustive dynamic programming (no strategy assumed) gives the longest game L(n) for every n <= 150 (up to 910,775 configurations at n = 150). It reproduces the lab's values (n <= 40), the Skeptic's (n <= 60) and hence the published ones (n <= 49); the split-first strategy of Cusenza et al. attains the optimum for every n <= 150; their bound B(n) is attained exactly for n = 1, 2, 4, 7, 12, 20, 33, 54, 88, 143 = F_k - 1; the reachable positions are exactly the partitions of n into Fibonacci parts (OEIS A003107)."
+    verification: PROVEN
+    related: [CLM-C19-07, CLM-C19-08]
+  - id: EXP-C19-02
+    analysis: "The length identity |G| = B(n) - sum_{i>=2} (i-1) MC_i holds for every greedy game n < 1500 and for 1500 uniformly random games; the split phase ends at the lazy Fibonacci representation for every n < 5000, and 300 random firing orders never change its end point or its length; the insertion hypothesis H-C19-4 fails for 288 of the first 300 n (first at n = 3)."
+    verification: PROVEN
+    counterexamples: ["H-C19-4: L(4) = 3 but L(3) + lambda(3) = 2 + 0"]
+    related: [CLM-C19-01, CLM-C19-02, CLM-C19-13]
+  - id: EXP-C19-03
+    analysis: "D(F) = floor(j^2/4) for the Fibonacci input on every level j <= 33; the two-summand law holds for all 276 pairs with j <= 24; the consecutive-pair model fails for 23,680 of the n < 30000 (first n = 12), the top-summand effect is not a function of the two highest levels (87 ambiguous keys, e.g. (4,2)), and the lazy-run linear model is inconsistent already for n < 160 (rank 46 < 47); the recursion with the explicit rho reproduces D(n) for every n < 30000 (in-sample: it was inferred from this range); D(n) <= floor(j^2/4) and L(n+1) > L(n) (n >= 1) hold throughout."
+    counterexamples: ["H-C19-1: n = 12 (levels 4, 2, 0): D = 0, consecutive-pair model 1", "H-C19-3: lazy-run model inconsistent on n < 160"]
+    related: [CLM-C19-03, CLM-C19-05, CLM-C19-06, CLM-C19-09, CLM-C19-10, CLM-C19-11, CLM-C19-12]
+  - id: EXP-C19-04
+    analysis: "Out of sample, the recursion agrees with the greedy simulation on all 6,272 tested n (every n in [30000, 36000), 200 random n < 10^6, 12 random n < 2*10^7, 60 numbers F_j + m). It evaluates L(10^7) in 9.3e-5 s against 8.3 s for the simulation. L(n), D(n), L(F_j) and the two rho sequences are not in the OEIS. (phi^2 n - L(n)) / (log_phi n)^2 stays between 0.34 and 0.38 for n = 10^3 ... 10^18."
+    related: [CLM-C19-05, CLM-C19-14]
+
+claims:
+  - id: CLM-C19-01
+    type: theorem
+    system: SYS-D
+    title: "Every Zeckendorf game has length B(n) - sum_{i>=2} (i-1) MC_i"
+    statement: |
+      For every game G on n (from n copies of F_1 to the Zeckendorf representation), |G| = B(n) - sum_{i>=2} (i-1) MC_i(G),
+      where B(n) = sum_i (F_{i+2} - i - 2) delta_i is the bound of Cusenza et al. and MC_i counts the combines
+      F_{i-1} + F_i -> F_{i+1}. Hence a game is longest iff it minimises the weighted number of such combines, and
+      L(n) = B(n) - D(n) with D(n) = min_G sum (i-1) MC_i(G).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C19.md Theorem 1; potential Psi(c) = sum c_i a_i); the per-move changes of Psi and their sum over an arbitrary move list are Lean-verified (dPsi_C1, dPsi_S2, dPsi_split, dPsi_combine, length_identity; standard axioms only); checked on all greedy games n < 1500 and 1500 random games (EXP-C19-02)"
+    proof: proofs/paper/C19.md#theorem-1-clm-c19-01--an-exact-length-identity
+    lean: [proofs/lean/Infinity/C19_Zeckendorf.lean]
+    evidence: [EXP-C19-02]
+    novelty: REDISCOVERY
+    novelty_basis: "Implicit in the linear-algebra proof of the upper bound of A. Cusenza et al., Bounds on Zeckendorf games, Fibonacci Quart. 60 (2022), arXiv:2009.09510 (Thm 1.3), and used as an inequality step ('subtract the excess MC2 + 2MC3 + ...') in J. Cheigh et al., Towards the Gaussianity of random Zeckendorf games, CANT VI, Springer 2025, doi 10.1007/978-3-031-65064-2_4. The one-line potential proof is ours."
+  - id: CLM-C19-02
+    type: theorem
+    system: SYS-D
+    title: The split phase of the longest game ends at the lazy Fibonacci representation
+    statement: |
+      From n copies of F_1, every maximal sequence of split moves (F_1 + F_1 -> F_2, F_2 + F_2 -> F_1 + F_3,
+      F_i + F_i -> F_{i-2} + F_{i+1}) has the same length and ends at the lazy representation of n - the unique
+      representation as a sum of distinct F_i (F_1 = 1, F_2 = 2, ...) without two consecutive missing indices below
+      the largest one.
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C19.md Theorem 2 - abelian property, an explicit carry lemma by induction, increment of the lazy representation); verified for every n < 5000 and for 300 random firing orders (EXP-C19-02); awaiting independent skeptic review"
+    proof: proofs/paper/C19.md#theorem-2-clm-c19-02--the-split-phase-ends-at-the-lazy-representation
+    evidence: [EXP-C19-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965)."
+  - id: CLM-C19-03
+    type: theorem
+    system: SYS-D
+    title: "Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((k-1)^2/4)"
+    statement: |
+      With F_1 = 1, F_2 = 2, F_{i+1} = F_i + F_{i-1}, the longest Zeckendorf game on n = F_k has length
+      F_{k+2} - k - 2 - floor((k-1)^2/4) (0, 1, 2, 5, 10, 20, 37, 67, 117, 201, ...), i.e. its deficit to the bound
+      B(F_k) is the quarter-square floor((k-1)^2/4).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C19.md Theorem 4) from CLM-C19-01, CLM-C19-02 and the published optimality of the split-first strategy (Cusenza et al. 2022, Thm 1.2); the weight sums are Lean-verified (weight_even, weight_odd, quarter_square_even, quarter_square_odd); checked for every level j <= 33 (EXP-C19-03) and by exhaustive search for n <= 150 (EXP-C19-01); awaiting independent skeptic review"
+    proof: proofs/paper/C19.md#theorem-4-clm-c19-03--the-longest-game-on-a-fibonacci-number
+    lean: [proofs/lean/Infinity/C19_Zeckendorf.lean]
+    evidence: [EXP-C19-01, EXP-C19-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature."
+  - id: CLM-C19-04
+    type: theorem
+    system: SYS-D
+    title: "A short proof that only n = F_k - 1 can be played with split moves alone (Cusenza et al., Thm 1.4)"
+    statement: The Zeckendorf game on n can be played with split and combine-1 moves only iff n = F_k - 1 for some k >= 2.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C19.md Corollary 3, from CLM-C19-02 - a split-only game ends at the lazy representation, which equals the Zeckendorf representation exactly for alternating digit strings); consistent with EXP-C19-01 (bound attained exactly at F_k - 1 for n <= 150)
+    proof: proofs/paper/C19.md#corollary-3-clm-c19-04--a-short-proof-of-c-thm-14
+    evidence: [EXP-C19-01, EXP-C19-02]
+    novelty: REDISCOVERY
+    novelty_basis: "The statement is Theorem 1.4 of Cusenza et al., Fib. Quart. 60 (2022), arXiv:2009.09510; the proof via lazy representations is new to us and much shorter."
+  - id: CLM-C19-05
+    type: conjecture
+    system: SYS-D
+    title: A two-sequence recursion for the longest Zeckendorf game on every n
+    statement: |
+      Let h(k) = floor(k^2/4) and define rho_p (p = 0, 1) by rho_p(0) = 0 and, for m = F_{i+1} + t with Zeckendorf top
+      level i (0 <= t < F_i): rho_p(m) = r_p(i) + [i = p mod 2] * max(0, rho_p(t) - h(i-2)), where r_p(0) = 1,
+      r_p(i) = h(i) + 2 for i >= 1, i = p mod 2, and r_p(i) = h(i+1) + 1 otherwise. Then D(0) = 0 and
+      D(F_{j+1} + m) = h(j) + D(m) - rho_{j mod 2}(m) for 0 <= m < F_j, and L(n) = B(n) - D(n).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C19-03, EXP-C19-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Cheigh et al. (CANT VI, Springer 2025) state that a convenient closed form for the longest game on non-Fibonacci inputs is open; no such formula found in the papers above or the OEIS (L(n) has no OEIS entry, EXP-C19-04)."
+    limitations: "Inferred from all n < 30000 (in-sample) and confirmed on 6,272 further n up to 2*10^7 (out of sample); no proof. The data rely on the published optimality of the split-first strategy (confirmed independently only for n <= 150)."
+  - id: CLM-C19-06
+    type: conjecture
+    system: SYS-D
+    title: The deficit of a two-summand number depends only on the lower level and the parity of the gap
+    statement: |
+      For levels j >= i + 2, D(F_{j+1} + F_{i+1}) = floor(j^2/4) + floor(i^2/4) - R(j,i) with R(j,0) = 1,
+      R(j,i) = floor((i+1)^2/4) + 1 if j - i is odd and R(j,i) = floor(i^2/4) + 2 if j - i is even (i >= 1).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C19-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Special case of CLM-C19-05; not found in the literature searched.
+    limitations: Checked for all 276 pairs with j <= 24; no proof.
+  - id: CLM-C19-07
+    type: theorem
+    system: SYS-D
+    title: Exact longest games for n <= 150 and independent confirmation of the split-first strategy
+    statement: The longest game lengths L(n) for n <= 150 are those listed in results/EXP-C19-01.json (0, 0, 1, 2, 3, 5, 6, 8, 10, 11, ...); for every n <= 150 the split-first strategy of Cusenza et al. attains them.
+    verification: PROVEN
+    proof_check: computer-assisted - exhaustive longest-path dynamic programming over all reachable configurations (no strategy assumed), cross-checked against two independent greedy implementations and the earlier values n <= 60
+    proof: experiments/C19/E01_exact_longest.py
+    evidence: [EXP-C19-01]
+    novelty: REDISCOVERY
+    novelty_basis: "Values for n <= 49 are published (Baird-Smith et al., arXiv:1809.04881, Fig. 4); optimality of the strategy for all n is Cusenza et al. 2022, Thm 1.2. Our computation is an independent check."
+  - id: CLM-C19-08
+    type: theorem
+    system: SYS-D
+    title: Every multiset of Fibonacci numbers with sum n is a reachable game position
+    statement: The positions reachable from n copies of F_1 are exactly the multisets of Fibonacci numbers F_1, F_2, ... with sum n; their number is the number of partitions of n into Fibonacci parts (OEIS A003107).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C19.md Proposition 6 - undoing combines reaches n copies of F_1; read backwards this is a forward game); state counts equal the partition counts for every n <= 150 (EXP-C19-01)"
+    proof: proofs/paper/C19.md#proposition-6-clm-c19-08--every-fibonacci-partition-of-n-is-a-reachable-position
+    evidence: [EXP-C19-01]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; the reverse-move argument is used for shortest games by Cheigh et al. (2025).
+  - id: CLM-C19-09
+    type: observation
+    system: SYS-D
+    title: "D(n) <= floor(j^2/4) for top level j, and L is strictly increasing"
+    statement: For 1 <= n < 30000, the deficit satisfies D(n) <= floor(j^2/4) where j is the top Zeckendorf level of n (equality at the Fibonacci numbers), and L(n+1) > L(n).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C19-03]
+    novelty: NOT ASSESSED
+    limitations: Finite range; both statements would follow from CLM-C19-05 only with further work.
+  - id: CLM-C19-10
+    type: hypothesis
+    system: SYS-D
+    title: "H-C19-1: the deficit is additive up to consecutive-pair corrections (refuted)"
+    statement: D(n) = sum_t floor(j_t^2/4) - sum_t R(j_t, j_{t+1}) over consecutive Zeckendorf levels j_1 > j_2 > ... of n.
+    verification: REFUTED
+    counterexample: "n = 12 = F_5 + F_3 + F_1 (levels 4, 2, 0): D(12) = 0 but the model gives 1; 23,680 of the n < 30000 violate it (EXP-C19-03)."
+    evidence: [EXP-C19-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C19-11
+    type: hypothesis
+    system: SYS-D
+    title: "H-C19-2: the effect of the top summand depends only on the two highest levels (refuted)"
+    statement: D(n) - D(n - F_top) is a function of the two highest Zeckendorf levels of n.
+    verification: REFUTED
+    counterexample: "Levels (4, 2) occur with D(n) - D(n - F_5) in {0, 1} (n = 12 and n = 11); 87 such ambiguous pairs below 30000 (EXP-C19-03). The dependence is through the parity chain of lower levels, captured by rho in CLM-C19-05."
+    evidence: [EXP-C19-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C19-12
+    type: hypothesis
+    system: SYS-D
+    title: "H-C19-3: the deficit is additive over the runs of the lazy representation (refuted)"
+    statement: There is a function phi(start, length) with D(n) = sum of phi over the maximal runs of ones of the lazy representation of n.
+    verification: REFUTED
+    counterexample: "For n < 160 the linear system D(n) = sum phi(run) has coefficient rank 46 and augmented rank 47 (exact rational elimination), so it has no solution (EXP-C19-03)."
+    evidence: [EXP-C19-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C19-13
+    type: hypothesis
+    system: SYS-D
+    title: "H-C19-4: the longest game is built by inserting one chip at a time (refuted)"
+    statement: L(n + 1) = L(n) + lambda(n), where lambda(n) is the longest game from the Zeckendorf representation of n plus one extra F_1.
+    verification: REFUTED
+    counterexample: "n = 3: L(4) = 3, L(3) = 2, lambda(3) = 0 (Zeckendorf(3) + F_1 is already Zeckendorf); fails for 288 of the first 300 n (EXP-C19-02). Longest games avoid early normalisation, so they do not pass through Zeckendorf(n)."
+    evidence: [EXP-C19-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C19-14
+    type: algorithmic
+    system: SYS-D
+    title: Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves
+    statement: The recursion of CLM-C19-05 evaluates L(n) with O(log^2 n) arithmetic operations; the published method (playing the split-first game) needs L(n) ~ phi^2 n moves. On the tested range both agree.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C19-04]
+    improvement: IMPROVEMENT
+    improvement_detail: "n = 10^7 - simulation 8.28 s, recursion 9.3e-5 s; n = 10^6 - 0.85 s vs 7.1e-5 s (CPython, loaded machine; order of magnitude only). Correctness of the recursion beyond the tested n is conjectural (CLM-C19-05); the simulation remains the reference method."
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: No sublinear method for the longest game was found in the literature listed under CLM-C19-05.
+    limitations: Conditional on CLM-C19-05.
+
+journal:
+  - key: C19-01
+    agent: Historian
+    kind: novelty
+    text: "Literature read before experimenting - Baird-Smith et al. (shortest game n - Z(n), arXiv:1809.04881), Li et al. (deterministic games, bound 3n - 3Z(n) - IZ(n) + 1, arXiv:2006.16457), Cusenza et al. (split-first strategy is longest, bound B(n), equality iff n = F_k - 1; Fib. Quart. 60 (2022), arXiv:2009.09510), Cheigh et al. (every length between shortest and longest occurs; closed form for non-Fibonacci inputs open; CANT VI 2025). The cycle's target became the open closed form."
+    refs: [CLM-C19-05]
+  - key: C19-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "Exact search for all n <= 150 (EXP-C19-01) confirms the published strategy and the equality cases independently; the reachable positions are all Fibonacci partitions of n."
+    refs: [EXP-C19-01, CLM-C19-07, CLM-C19-08]
+  - key: C19-03
+    agent: Formal Verifier
+    kind: proof
+    text: "A potential with weights a_i = F_{i+2} - i - 2 changes by 1 for every split or combine-1 and by i for the combine C_i, giving |G| = B(n) - sum (i-1) MC_i for every game; the longest game minimises a weighted count of combines (Lean-verified arithmetic core)."
+    refs: [CLM-C19-01]
+  - key: C19-04
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "Bold guesses for the deficit D(n) - additivity with consecutive-pair corrections (H-C19-1), dependence on the two top levels (H-C19-2), additivity over lazy runs (H-C19-3), chip-by-chip insertion (H-C19-4). All four were refuted; each failure pointed to longer-range carries."
+    refs: [CLM-C19-10, CLM-C19-11, CLM-C19-12, CLM-C19-13]
+  - key: C19-05
+    agent: Mathematical Explorer
+    kind: result
+    text: "The greedy game splits until every level holds at most one chip and only then combines; the intermediate configuration is the lazy Fibonacci representation (proved, Theorem 2). For a Fibonacci input the combines form a single upward cascade C_j, C_{j-2}, ..., giving D = floor(j^2/4) (proved, Theorem 4)."
+    refs: [CLM-C19-02, CLM-C19-03]
+  - key: C19-06
+    agent: Mathematical Explorer
+    kind: result
+    text: "The saving rho = D(F_j) + D(m) - D(F_j + m) depends only on m and the parity of j (no exception among 17,711 cases), and rho itself is constant on Zeckendorf blocks of the wrong parity and shifted-clipped on the others - an exact recursion for D, inferred from n < 30000."
+    refs: [CLM-C19-05, CLM-C19-06]
+  - key: C19-07
+    agent: Mathematical Skeptic
+    kind: result
+    text: "Out-of-sample test of the recursion on 6,272 n not used to infer it (up to 2*10^7) - 0 mismatches. A first run of EXP-C19-04 crashed at its last step because the Fibonacci table ended near 5*10^19 (n = 10^30 requested); the table was extended to 200 terms and the experiment re-run. A first version of EXP-C19-02 was stopped because it was too slow (quadratic simulation up to n = 20000) and was rescaled."
+    refs: [EXP-C19-04, EXP-C19-02]
+
+next_directions:
+  - "C19: prove the recursion CLM-C19-05 by analysing the normalisation phase from the lazy representation (carries through alternating blocks)"
+  - "C19: prove D(n) <= floor(j^2/4) and the strict monotonicity of L"
+  - "C19: generalise the lazy-phase theorem and the Fibonacci-input formula to the generalised Zeckendorf games of Baird-Smith et al. (other linear recurrences)"
+  - "C19: submit L(n) and L(F_k) to the OEIS (human decision)"

@@ -441,8 +441,38 @@
         "eT_append",
         "eT_tail_factors"
       ]
+    },
+    "proofs/lean/Infinity/C19_Zeckendorf.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T17:45:17Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C19.dPsi_split' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.dPsi_combine' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.length_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.weight_even' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.weight_odd' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.quarter_square_even' depends on axioms: [propext, Quot.sound]\n'Infinity.C19.quarter_square_odd' depends on axioms: [propext, Quot.sound]\n",
+      "seconds": 5.14,
+      "sha256": "5b8176356a94fcd4fa3401f9197c1d21e0a0c00349a574edfe7c459e391dade5",
+      "sorry": false,
+      "theorems": [
+        "F_rec",
+        "a_one",
+        "dPsi_C1",
+        "dPsi_S2",
+        "dPsi_split",
+        "dPsi_combine",
+        "dPsi_eq",
+        "length_identity",
+        "weight_even",
+        "weight_odd",
+        "quarter_square_even",
+        "quarter_square_odd"
+      ]
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T17:12:53Z"
+  "updated": "2026-10-18T17:45:17Z"
 }

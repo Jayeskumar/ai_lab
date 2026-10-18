@@ -1,0 +1,24 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:45:11Z"
+    }
+  ],
+  "id": "CLM-C19-07",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Values for n <= 49 are published (Baird-Smith et al., arXiv:1809.04881, Fig. 4); optimality of the strategy for all n is Cusenza et al. 2022, Thm 1.2. Our computation is an independent check.",
+  "proof": "experiments/C19/E01_exact_longest.py",
+  "proof_check": "computer-assisted - exhaustive longest-path dynamic programming over all reachable configurations (no strategy assumed), cross-checked against two independent greedy implementations and the earlier values n <= 60",
+  "statement": "The longest game lengths L(n) for n <= 150 are those listed in results/EXP-C19-01.json (0, 0, 1, 2, 3, 5, 6, 8, 10, 11, ...); for every n <= 150 the split-first strategy of Cusenza et al. attains them.",
+  "system": "SYS-D",
+  "title": "Exact longest games for n <= 150 and independent confirmation of the split-first strategy",
+  "type": "theorem",
+  "verification": "PROVEN"
+}
