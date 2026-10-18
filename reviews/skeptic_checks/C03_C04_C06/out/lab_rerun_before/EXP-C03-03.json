@@ -1,0 +1,988 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C03-03",
+    "file": "experiments/C03/E03_divisibility.py",
+    "sha256": "327bbc449688ebbd2c66a1c26398cf97b4ae324a66b26654c567e0513a4f5190",
+    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:58:25Z",
+  "id": "EXP-C03-03",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "loop certificates re-checked step by step",
+      "'terminating from u' is certified by a finite reachable set (finitely branching rewriting: finite reachable set + no cycle = no infinite derivation from u)"
+    ],
+    "cycle": "C03",
+    "falsification": "A base rule (1, q, r, k) without a loop although infinite growth is observed; a non-multiple rule with a loop or an infinite reachable set; a multiple without a loop.",
+    "hypothesis": "H-C03-4: 0^p 1^q -> 1^r 0^s is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p, q < r < 2q and p | s, or (c) r >= 2q, p < s < 2p and q | r; otherwise it terminates. Mechanism for (b): every rule (1, q, r, k) with q < r < 2q, k >= 2 loops, and the morphism 0 -> 0^p maps it onto (p, q, r, kp).",
+    "id": "EXP-C03-03",
+    "methodology": "Part A: loops for the base family (1, q, r, k), q <= 5, q < r < 2q, k <= 6. Part B: lift every base loop to (p, q, r, kp), p <= 4, and verify. Part C: for p in {2,3}, q in {2,3,4}, q < r < 2q, 2p <= s <= 3p+2: loop search, reachable sets from every 0^a 1^b (a <= 3p, b <= 3q+2) and from every word of length <= 12 containing the left-hand side (reachable words up to 720 letters). Part D: re-examine the 29 unknown rules of EXP-C03-02 using mirrors and lifts. (Reachable-set probes are run for the non-divisible rules only; for divisible rules the loop certificate is the evidence.)",
+    "question": "Why do (2,2,3,4) and (2,2,3,6) loop while (2,2,3,5) and (2,2,3,7) apparently terminate?",
+    "title": "Divisibility: loops lift along 0 -> 0^p, non-multiples look terminating"
+  },
+  "results": {
+    "H-C03-4_contradictions_on_625": [],
+    "H-C03-4_prediction_for_remaining_unknowns": [
+      "TERMINATING"
+    ],
+    "base_loops_found": 49,
+    "base_missing": [
+      [
+        1,
+        5,
+        6,
+        6
+      ]
+    ],
+    "lift_failures": [],
+    "lifts_verified": 147,
+    "nondivisible_all_evidence_terminating": true,
+    "partC": [
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 46,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          2,
+          3,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 121,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          2,
+          3,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          2,
+          3,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          4,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          3,
+          4,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          4,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          5,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          3,
+          5,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          5,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          3,
+          5,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          5,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          5,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          5,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          5,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          6,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          6,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          6,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          6,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          6,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          7,
+          4
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          7,
+          5
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          7,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          2,
+          4,
+          7,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          2,
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          2,
+          3,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 46,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          2,
+          3,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 46,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          2,
+          3,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          2,
+          3,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 121,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          2,
+          3,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 121,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          2,
+          3,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          3,
+          4,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          4,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          4,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          3,
+          4,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          4,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          4,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          3,
+          5,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          5,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          5,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          3,
+          5,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          5,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          3,
+          5,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          5,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          5,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          5,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          5,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          5,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          6,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          6,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          6,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          6,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          6,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          6,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          7,
+          6
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          7,
+          7
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 22,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          7,
+          8
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "loop_found": true,
+        "p_divides_s": true,
+        "rule": [
+          3,
+          4,
+          7,
+          9
+        ]
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          7,
+          10
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      },
+      {
+        "largest_finite_reachable_set": 40,
+        "loop_found": false,
+        "p_divides_s": false,
+        "rule": [
+          3,
+          4,
+          7,
+          11
+        ],
+        "starts_with_huge_reachable_set": 0,
+        "words_len_le_12_all_finite": true
+      }
+    ],
+    "partC_inconsistent_with_divisibility": [],
+    "summary": [
+      "base family (1,q,r,k), q<=5, q<r<2q, k<=6: 49 loops found, missing: [[1, 5, 6, 6]]",
+      "lifted loops verified (p=2..4, both orientations): 147, failures: 0",
+      "part C: 66 rules; divisibility predicts loop-finding exactly: True (mismatches []); all non-multiples terminate from every tested start: True",
+      "EXP-C03-02 unknowns resolved as looping: 5; remaining 24: [[2, 2, 3, 3], [2, 2, 3, 5], [2, 2, 5, 3], [2, 3, 4, 3], [2, 3, 4, 5], [2, 3, 5, 3], [2, 3, 5, 5], [2, 4, 5, 3], [2, 4, 5, 5], [3, 2, 3, 4], [3, 2, 3, 5], [3, 2, 5, 4], [3, 2, 5, 5], [3, 3, 4, 4], [3, 3, 4, 5], [3, 3, 5, 4], [3, 3, 5, 5], [3, 4, 5, 4], [3, 4, 5, 5], [4, 2, 3, 5], [4, 2, 5, 5], [4, 3, 4, 5], [4, 3, 5, 5], [4, 4, 5, 5]]",
+      "H-C03-4 contradictions on the 625 rules: 0; prediction for remaining unknowns: ['TERMINATING']"
+    ],
+    "unknowns_remaining": [
+      [
+        2,
+        2,
+        3,
+        3
+      ],
+      [
+        2,
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        2,
+        5,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        2,
+        3,
+        5,
+        3
+      ],
+      [
+        2,
+        3,
+        5,
+        5
+      ],
+      [
+        2,
+        4,
+        5,
+        3
+      ],
+      [
+        2,
+        4,
+        5,
+        5
+      ],
+      [
+        3,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        2,
+        3,
+        5
+      ],
+      [
+        3,
+        2,
+        5,
+        4
+      ],
+      [
+        3,
+        2,
+        5,
+        5
+      ],
+      [
+        3,
+        3,
+        4,
+        4
+      ],
+      [
+        3,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        3,
+        5,
+        4
+      ],
+      [
+        3,
+        3,
+        5,
+        5
+      ],
+      [
+        3,
+        4,
+        5,
+        4
+      ],
+      [
+        3,
+        4,
+        5,
+        5
+      ],
+      [
+        4,
+        2,
+        3,
+        5
+      ],
+      [
+        4,
+        2,
+        5,
+        5
+      ],
+      [
+        4,
+        3,
+        4,
+        5
+      ],
+      [
+        4,
+        3,
+        5,
+        5
+      ],
+      [
+        4,
+        4,
+        5,
+        5
+      ]
+    ],
+    "unknowns_resolved_as_looping": {
+      "[4, 1, 2, 5]": "mirror of [1, 4, 5, 2]",
+      "[4, 1, 3, 5]": "mirror of [1, 4, 5, 3]",
+      "[4, 1, 4, 5]": "mirror of [1, 4, 5, 4]",
+      "[4, 1, 5, 5]": "mirror of [1, 4, 5, 5]",
+      "[4, 2, 4, 5]": "mirror of [2, 4, 5, 4]"
+    }
+  },
+  "results_sha256": "1a84189b39cd83c4d8bbe30c63745db97cec23e7f66f21c191529348b54a39f8",
+  "runtime_s": 21.204,
+  "started": "2026-10-18T07:58:04Z"
+}

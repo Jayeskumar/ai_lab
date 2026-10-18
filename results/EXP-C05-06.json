@@ -1,0 +1,532 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-06",
+    "file": "experiments/C05/E06_certified_unsat.py",
+    "sha256": "7ac2e7d0c4602e3fd5330fc9da1a7b4724afeb1621831114b31c5b3fbd33d69d",
+    "systems_sha256": "31d801cc1588e49ca5fcc8cf9b30688b40007123004d8d0518b9032a6f4f7df0"
+  },
+  "env": {
+    "git_head": "3ce9bc84c5f0f6f8ebac21bc99525c2052505587",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:15:21Z",
+  "id": "EXP-C05-06",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "drat-trim (github.com/marijnheule/drat-trim, master; built locally with gcc -O2), located via the DRAT_TRIM environment variable or the scratchpad build path",
+      "the CNF includes two sound additions: 'rows are permutations' for laws x = y*(...) (Lean: left_mul_bijective_of_law) and the relabelling symmetry break 0*0 in {0,1}",
+      "Glucose 4 (pysat) with proof logging, conflict budget 3e6 per instance (exceeded = no certificate)"
+    ],
+    "cycle": "C05",
+    "falsification": "drat-trim rejecting a proof (or Glucose finding a model) would contradict EXP-C05-03.",
+    "hypothesis": "Each such UNSAT instance yields a DRUP refutation that drat-trim verifies.",
+    "id": "EXP-C05-06",
+    "methodology": "Rebuild the exact CNF of EXP-C05-03 for each (law, n) reported UNSAT beyond the notes, solve with Glucose4(with_proof=True), write DIMACS + DRUP files, run drat-trim, record its verdict and the SHA-256 of both files.",
+    "question": "Can the non-memberships found by SAT beyond the ETP notes be certified by an independent proof checker instead of trusting the solver?",
+    "title": "Certified UNSAT: DRUP proofs checked by drat-trim for new spectrum gaps"
+  },
+  "results": {
+    "checker": "/tmp/claude-0/-home-user-ai-lab/5e93bf16-791a-5608-a61f-d865140bf384/scratchpad/drat/drat-trim",
+    "instances": [
+      {
+        "clauses": 87,
+        "cnf_sha256": "8df61e9d870a12bf2899b9be601f81b5f9207f1bceae5fd6dd9630b18271edd6",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 467,
+        "n": 2,
+        "proof_lines": 19,
+        "variables": 36
+      },
+      {
+        "clauses": 424,
+        "cnf_sha256": "647b2b71528eaaf63f5b28fb557948f702b1172b627cc9ce9ba58d6c5dfe7377",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 467,
+        "n": 3,
+        "proof_lines": 70,
+        "variables": 117
+      },
+      {
+        "clauses": 1337,
+        "cnf_sha256": "435d20c736ab714d2fc1f3a9b65dd2567f1fdd719619c3426b8489a81bc16f60",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 467,
+        "n": 4,
+        "proof_lines": 702,
+        "variables": 272
+      },
+      {
+        "clauses": 6823,
+        "cnf_sha256": "bb34bda71f00ac1f309582dd06d61d717f0cd09d31113efb65a630787df85532",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 467,
+        "n": 6,
+        "proof_lines": 14478,
+        "variables": 900
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "cfa43cc9ccb4fbea201047609d28f15f0feb95eee16d9b91a7121f0aee708024",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 501,
+        "n": 2,
+        "proof_lines": 15,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "78f337f541ad42247c842cceb0ae169d83b67f1c2d36a59bb545ac07b42228a2",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 501,
+        "n": 3,
+        "proof_lines": 66,
+        "variables": 135
+      },
+      {
+        "clauses": 7453,
+        "cnf_sha256": "c6a523e6faf6964dde632a6f891acbefa6fb749912b603f0592dfb3ebb0ea8a6",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 501,
+        "n": 6,
+        "proof_lines": 17659,
+        "variables": 1080
+      },
+      {
+        "clauses": 13868,
+        "cnf_sha256": "5764e18bb58919ad6193ca9b5294fa7acea55a3076878f84dc04f02be90fea06",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 501,
+        "n": 7,
+        "proof_lines": 406147,
+        "variables": 1715
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "98e93683d08f11008939d805d6af96bd3ef2df3ee33b34129498245cdbff1de9",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 670,
+        "n": 2,
+        "proof_lines": 15,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "eb8a0ef3921eeb4aeb27e6d4b714f80e195a37b7f83027972f2210b385885ae4",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 670,
+        "n": 3,
+        "proof_lines": 71,
+        "variables": 135
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "4659610f22d0d7e15a46c245c9f8e4c7941ff3538b8e703d2a21fb603df225ac",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 677,
+        "n": 2,
+        "proof_lines": 15,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "d72d80abd0a480d08bc0440f2b7de4d167b52d8dccdfb9eb9ee4a5c8cdc6a7d1",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 677,
+        "n": 3,
+        "proof_lines": 64,
+        "variables": 135
+      },
+      {
+        "clauses": 1457,
+        "cnf_sha256": "6d00cd229f0b98b3ba42f102930a4a39400f08ca82b0634368bd31bc867c2758",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 677,
+        "n": 4,
+        "proof_lines": 441,
+        "variables": 320
+      },
+      {
+        "clauses": 7453,
+        "cnf_sha256": "6f1409359989e4bd5af1356b9a1a4a4aa11b2374b2435e35e3e76bbd8384e430",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 677,
+        "n": 6,
+        "proof_lines": 55205,
+        "variables": 1080
+      },
+      {
+        "clauses": 87,
+        "cnf_sha256": "31ab045570758db7ce73da19d71d2ae22de794a9345c0ef5af0e6d02718b0d33",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 704,
+        "n": 2,
+        "proof_lines": 17,
+        "variables": 36
+      },
+      {
+        "clauses": 424,
+        "cnf_sha256": "3562c360e3c5b8ecebf5b9be7819e361a461a840e0492d5f7498dca842786fac",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 704,
+        "n": 3,
+        "proof_lines": 83,
+        "variables": 117
+      },
+      {
+        "clauses": 1337,
+        "cnf_sha256": "8c11c79e0ebc7db3b68cb51fded42d9ff3fee79937f20c296b19b7bb6b394fe9",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 704,
+        "n": 4,
+        "proof_lines": 323,
+        "variables": 272
+      },
+      {
+        "clauses": 6823,
+        "cnf_sha256": "520f5296a14ff9b636765473a9661f773064fc7523d736fb9a69d3c92f7c3349",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 704,
+        "n": 6,
+        "proof_lines": 17066,
+        "variables": 900
+      },
+      {
+        "clauses": 532,
+        "cnf_sha256": "fd4cc513167f296dac2302b0673bf554e237400a7540cdaa5c685c222dbaca0d",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 883,
+        "n": 3,
+        "proof_lines": 62,
+        "variables": 117
+      },
+      {
+        "clauses": 12223,
+        "cnf_sha256": "e3514450f2a21343484e0ed3b35e46968b93320545d46eab064cca6edd4107b9",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 883,
+        "n": 6,
+        "proof_lines": 21538,
+        "variables": 900
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "3cfc3e02ada9738374a875fb195dc11ce77fb31752594ead5c91e6898f6429e3",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1076,
+        "n": 2,
+        "proof_lines": 15,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "e41a37a357843b2867abaffe145b2f0e042a68a392f6f49c2e77f61f3ab6c3e2",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1076,
+        "n": 3,
+        "proof_lines": 66,
+        "variables": 135
+      },
+      {
+        "clauses": 1457,
+        "cnf_sha256": "8babf504ad6767b694c6ca1d331da4b98d83bcb5ff67b9b97bf995c4d050c54b",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1076,
+        "n": 4,
+        "proof_lines": 573,
+        "variables": 320
+      },
+      {
+        "clauses": 23745,
+        "cnf_sha256": "7f6911158308a30b11f81c4ac614d0dadd8cf59357a883760ac0f02e79fdfaec",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1076,
+        "n": 8,
+        "proof_lines": 1037505,
+        "variables": 2560
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "f804c6aff36007d720d9eb45d58ca31101c6c2c77c0b7250d051050bf83f86df",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1083,
+        "n": 2,
+        "proof_lines": 14,
+        "variables": 40
+      },
+      {
+        "clauses": 3576,
+        "cnf_sha256": "7362834458efba4bc9f587dba7196d6f28e8e47f560ba95f7375c621c228ffa7",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1083,
+        "n": 5,
+        "proof_lines": 3135,
+        "variables": 625
+      },
+      {
+        "clauses": 7453,
+        "cnf_sha256": "50dcb92c9a399806939bc4de50859f223d9d0ce6a94b97c6e0461d0f33385814",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1083,
+        "n": 6,
+        "proof_lines": 32076,
+        "variables": 1080
+      },
+      {
+        "clauses": 87,
+        "cnf_sha256": "ee1c4a7e597bd312c756988cec261c8d2e4d9c37e6cb44580cca123e6b39e7f9",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1110,
+        "n": 2,
+        "proof_lines": 16,
+        "variables": 36
+      },
+      {
+        "clauses": 424,
+        "cnf_sha256": "5dd59ec635afc3dcb2ca9dbb305389f2512297d36ade1dc88a387d03db120417",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1110,
+        "n": 3,
+        "proof_lines": 66,
+        "variables": 117
+      },
+      {
+        "clauses": 6823,
+        "cnf_sha256": "27a71aff8a36e5ec222e13186837f21eef7855dd30b05f326f78579ce8250e90",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1110,
+        "n": 6,
+        "proof_lines": 13768,
+        "variables": 900
+      },
+      {
+        "clauses": 87,
+        "cnf_sha256": "f42a6d21d87692975ff13d0ae0cdcb4012eb08652ecadc715d16b110b640ff7b",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1279,
+        "n": 2,
+        "proof_lines": 17,
+        "variables": 36
+      },
+      {
+        "clauses": 424,
+        "cnf_sha256": "62c150772175466570267715b42648e78c0eb0905b0f3a6279cab6e2dc235c5e",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1279,
+        "n": 3,
+        "proof_lines": 76,
+        "variables": 117
+      },
+      {
+        "clauses": 1337,
+        "cnf_sha256": "ccb50348fea7e409d805df2a5cbf9c40a5c8707998e20c3702173ab269a7bddc",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1279,
+        "n": 4,
+        "proof_lines": 379,
+        "variables": 272
+      },
+      {
+        "clauses": 6823,
+        "cnf_sha256": "9eb7a1e4ce46cc112195624fb5b59152aba826806c3e9cdc7e5ac44e6ab3cec2",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1279,
+        "n": 6,
+        "proof_lines": 14927,
+        "variables": 900
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "d7b1f8410bee01e2ae2c22d9d50feeedc20fe6ace19f3f9177b0edfacb6b79b0",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1286,
+        "n": 2,
+        "proof_lines": 16,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "ad081934bdf01b6b1c501a4654ad078c6c91f5b68e8edefdd23d613a8d5b3a5c",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1286,
+        "n": 3,
+        "proof_lines": 71,
+        "variables": 135
+      },
+      {
+        "clauses": 1457,
+        "cnf_sha256": "1a51c9a7d4d031a74ebe97ff8eb3ba9634395a4de9f5245bfabb600c1444ee07",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1286,
+        "n": 4,
+        "proof_lines": 599,
+        "variables": 320
+      },
+      {
+        "clauses": 3576,
+        "cnf_sha256": "02207fc98316c6c672e3a73bb718cf74543d4ebb248a0d2c2fca518dd27afeb0",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1286,
+        "n": 5,
+        "proof_lines": 2145,
+        "variables": 625
+      },
+      {
+        "clauses": 7453,
+        "cnf_sha256": "cb1abd43d2cb338028caf0acf79c775f44016e33f57fd0760e88b44e2f600af2",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1286,
+        "n": 6,
+        "proof_lines": 27236,
+        "variables": 1080
+      },
+      {
+        "clauses": 93,
+        "cnf_sha256": "7bcf989824fcffd5c5329a3f2c3168ada27e6cd01b132d9ae6a34d38b85f3c5f",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1313,
+        "n": 2,
+        "proof_lines": 14,
+        "variables": 40
+      },
+      {
+        "clauses": 460,
+        "cnf_sha256": "5805f83e04782d2fb6a4ad69a3cd7f0933d087012aea5c953d1a9fda1c2e677c",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1313,
+        "n": 3,
+        "proof_lines": 67,
+        "variables": 135
+      },
+      {
+        "clauses": 1457,
+        "cnf_sha256": "e2cb1fc79a7876028da3e8ac029f4ddd5fd432ebc9bb649953b93cdebd875828",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1313,
+        "n": 4,
+        "proof_lines": 436,
+        "variables": 320
+      },
+      {
+        "clauses": 7453,
+        "cnf_sha256": "01e0ea54b9408fbb8ae65ed5cae5928c7ef5611aa0788d90fc2753ad1759ab8c",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1313,
+        "n": 6,
+        "proof_lines": 30769,
+        "variables": 1080
+      },
+      {
+        "clauses": 87,
+        "cnf_sha256": "f44f081132752580bd0d4aa1d8d497999cc92466f42364a5b460d221aa34d0dd",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1516,
+        "n": 2,
+        "proof_lines": 24,
+        "variables": 36
+      },
+      {
+        "clauses": 496,
+        "cnf_sha256": "0ffe0cf3df9cbf2b26fe07028daf3f4f117e73916669f4529f99c055b4673cc3",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1516,
+        "n": 3,
+        "proof_lines": 134,
+        "variables": 117
+      },
+      {
+        "clauses": 1801,
+        "cnf_sha256": "86c2cdf92adf6acea9b3d977d92208edad59e380d1aa1c5097cc71da5ea1cc86",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1516,
+        "n": 4,
+        "proof_lines": 854,
+        "variables": 272
+      },
+      {
+        "clauses": 11647,
+        "cnf_sha256": "fe246324342ebab14884446e4479b4faf9de5cc3bd9d4e8e126b9f288f302beb",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1516,
+        "n": 6,
+        "proof_lines": 22184,
+        "variables": 900
+      },
+      {
+        "clauses": 81,
+        "cnf_sha256": "e98189ae6e196061e3f65fa26a229c27623ac22a44eae950e2892f35562da2c4",
+        "drat_trim": "VERIFIED",
+        "glucose": "UNSAT",
+        "law": 1719,
+        "n": 2,
+        "proof_lines": 25,
+        "variables": 32
+      }
+    ],
+    "summary": [
+      "48 new UNSAT instances re-solved with proof logging; drat-trim VERIFIED 48: [(467, 2), (467, 3), (467, 4), (467, 6), (501, 2), (501, 3), (501, 6), (501, 7), (670, 2), (670, 3), (677, 2), (677, 3), (677, 4), (677, 6), (704, 2), (704, 3), (704, 4), (704, 6), (883, 3), (883, 6), (1076, 2), (1076, 3), (1076, 4), (1076, 8), (1083, 2), (1083, 5), (1083, 6), (1110, 2), (1110, 3), (1110, 6), (1279, 2), (1279, 3), (1279, 4), (1279, 6), (1286, 2), (1286, 3), (1286, 4), (1286, 5), (1286, 6), (1313, 2), (1313, 3), (1313, 4), (1313, 6), (1516, 2), (1516, 3), (1516, 4), (1516, 6), (1719, 2)]",
+      "not verified / other: []"
+    ],
+    "timings": {
+      "seconds": 218.2
+    }
+  },
+  "results_sha256": "ebeff4aa1d7fb9d4f7a3533ced8ecd2ccd034fbe6f7bf16aefe1fdf957cfdce1",
+  "runtime_s": 218.249,
+  "started": "2026-10-18T09:11:42Z"
+}

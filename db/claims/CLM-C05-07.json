@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-03",
+    "EXP-C05-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-07",
+  "lean": [
+    "proofs/lean/Infinity/C05_Magmas.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Not stated in B. Le Floch's ETP notes (which list 467, 1313, 1516 as 'starting with' sizes up to 8 or 7, 1286 as 'starting with 1, 7', and give no sizes for 677); the ETP paper (arXiv:2512.07087, v2) separates full from non-full spectra and defers detailed spectra to a forthcoming publication. Our reading of that paper was partial (the spectrum section was truncated in retrieval), and ETP model searches may already contain these models; novelty is therefore only relative to the sources read (2026-10-18).",
+  "proof": "proofs/lean/Infinity/C05_Magmas.lean (section Frontier)",
+  "proof_check": "Lean 4 kernel decide on explicit tables (E467_order9_law, E677_order5_law, E677_order7_law, E677_order9_law, E1286_order9_law, E1313_order9_law, E1516_order9_law); only propext",
+  "statement": "Each of the following order-4 laws has a model of the stated order (explicit Cayley tables):\n467 x = y(x(x(yy))) - order 9; 677 x = y(x((yx)y)) - orders 5, 7, 9; 1286 x = y(((xy)x)y) - order 9;\n1313 x = y(((yx)x)y) - order 9; 1516 x = (yy)(x(xy)) - order 9.",
+  "system": "SYS-B",
+  "title": "New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

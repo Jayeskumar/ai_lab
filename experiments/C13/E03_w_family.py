@@ -1,4 +1,4 @@
-"""EXP-C13-04: the W-family (xy)z = x(y W(z)) - polynomial spectra a*P(a) = 1 (test of Theorem 3)."""
+"""EXP-C13-03: the W-family (xy)z = x(y W(z)) - polynomial spectra a*P(a) = 1 (test of Theorem 3)."""
 
 import time
 
@@ -8,7 +8,7 @@ from systems.anchored import (affine_form, affine_roots, affine_spectrum, affine
 from systems.magma import MagmaSAT, fill, shapes, to_str
 
 META = {
-    "id": "EXP-C13-04",
+    "id": "EXP-C13-03",
     "cycle": "C13",
     "title": "Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves",
     "agent": "Formal Verifier",

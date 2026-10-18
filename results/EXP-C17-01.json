@@ -1,0 +1,1655 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C17-01",
+    "file": "experiments/C17/E01_assoc_benchmark.py",
+    "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
+    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+  },
+  "env": {
+    "git_head": "3ce9bc84c5f0f6f8ebac21bc99525c2052505587",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:22:07Z",
+  "id": "EXP-C17-01",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "n in {32, 64, 128, 256, 512}; 3 instances per randomised family",
+      "probes = table look-ups (machine-independent cost); wall times are medians of 3 runs on a shared, loaded machine and are indicative only",
+      "families: cyclic group Z_n, anchored x+y+1, left-zero band x*y = x (needs all n generators), the first two with one corrupted entry, random magmas"
+    ],
+    "cycle": "C17",
+    "falsification": "H-C17-1: a family where Light's test costs more than 10/n of the exhaustive probes. H-C17-3: a wrong verdict of the randomised test.",
+    "hypothesis": "H-C17-1 (bold): Light's test with a greedy generating set beats the exhaustive test by a factor >= n/10 in table probes on every input family. H-C17-3: the Rajagopalan-Schulman test with 40 rounds never errs on the benchmark (one-sided error <= (7/8)^40 per non-associative input).",
+    "id": "EXP-C17-01",
+    "methodology": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.",
+    "question": "How much cheaper than the exhaustive n^3 check are generator-based, anchored and randomised associativity tests, on which inputs, and with which error rates?",
+    "seed": 17,
+    "title": "Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples"
+  },
+  "results": {
+    "h1_failing_families": [
+      "cyclic+1err",
+      "left_zero"
+    ],
+    "naive_over_light_probe_ratio": {
+      "anchored": {
+        "32": 37.7,
+        "64": 76.09,
+        "128": 152.88,
+        "256": 306.48,
+        "512": 613.68
+      },
+      "anchored+1err": {
+        "32": 37.7,
+        "64": 76.09,
+        "128": 76.44,
+        "256": 76.62,
+        "512": 76.67
+      },
+      "cyclic": {
+        "32": 23.17,
+        "64": 47.16,
+        "128": 95.16,
+        "256": 191.16,
+        "512": 383.16
+      },
+      "cyclic+1err": {
+        "32": 23.17,
+        "64": 47.16,
+        "128": 47.58,
+        "256": 47.79,
+        "512": 47.89
+      },
+      "left_zero": {
+        "32": 1.66,
+        "64": 1.69,
+        "128": 1.7,
+        "256": 1.71,
+        "512": 1.71
+      },
+      "random": {
+        "32": 36.76,
+        "64": 81.1,
+        "128": 63.46,
+        "256": 66.18,
+        "512": 73.53
+      }
+    },
+    "rows": [
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "cyclic",
+        "n": 32,
+        "n_gens": 2,
+        "probes": {
+          "light": 4224,
+          "light_incl_gens": 5657,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 163840
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "anchored",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 2048,
+          "light": 2112,
+          "light_incl_gens": 3477,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 163840
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "left_zero",
+        "n": 32,
+        "n_gens": 32,
+        "probes": {
+          "light": 67584,
+          "light_incl_gens": 79024,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 163840
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "cyclic+1err#0",
+        "n": 32,
+        "n_gens": 2,
+        "probes": {
+          "light": 4224,
+          "light_incl_gens": 5657,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 8192
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "anchored+1err#0",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 2048,
+          "light": 2112,
+          "light_incl_gens": 3477,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 4096
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 31721,
+        "family": "random#0",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "light": 2112,
+          "light_incl_gens": 3566,
+          "naive": 131072,
+          "random_triples": 4,
+          "rs40": 4096
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "cyclic+1err#1",
+        "n": 32,
+        "n_gens": 2,
+        "probes": {
+          "light": 4224,
+          "light_incl_gens": 5657,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 8192
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "anchored+1err#1",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 2048,
+          "light": 2112,
+          "light_incl_gens": 3477,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 8192
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 31690,
+        "family": "random#1",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "light": 2112,
+          "light_incl_gens": 3566,
+          "naive": 131072,
+          "random_triples": 4,
+          "rs40": 4096
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "cyclic+1err#2",
+        "n": 32,
+        "n_gens": 2,
+        "probes": {
+          "light": 4224,
+          "light_incl_gens": 5657,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 4096
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 122,
+        "family": "anchored+1err#2",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 2048,
+          "light": 2112,
+          "light_incl_gens": 3477,
+          "naive": 131072,
+          "random_triples": 256,
+          "rs40": 12288
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 31659,
+        "family": "random#2",
+        "n": 32,
+        "n_gens": 1,
+        "probes": {
+          "light": 2112,
+          "light_incl_gens": 3566,
+          "naive": 131072,
+          "random_triples": 4,
+          "rs40": 4096
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "cyclic",
+        "n": 64,
+        "n_gens": 2,
+        "probes": {
+          "light": 16640,
+          "light_incl_gens": 22234,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 655360
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "anchored",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 8192,
+          "light": 8320,
+          "light_incl_gens": 13781,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 655360
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "left_zero",
+        "n": 64,
+        "n_gens": 64,
+        "probes": {
+          "light": 532480,
+          "light_incl_gens": 621920,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 655360
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "cyclic+1err#0",
+        "n": 64,
+        "n_gens": 2,
+        "probes": {
+          "light": 16640,
+          "light_incl_gens": 22234,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "anchored+1err#0",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 8192,
+          "light": 8320,
+          "light_incl_gens": 13781,
+          "naive": 1048576,
+          "random_triples": 912,
+          "rs40": 32768
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 257943,
+        "family": "random#0",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "light": 8320,
+          "light_incl_gens": 12930,
+          "naive": 1048576,
+          "random_triples": 4,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "cyclic+1err#1",
+        "n": 64,
+        "n_gens": 2,
+        "probes": {
+          "light": 16640,
+          "light_incl_gens": 22234,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 32768
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "anchored+1err#1",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 8192,
+          "light": 8320,
+          "light_incl_gens": 13781,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 257928,
+        "family": "random#1",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "light": 8320,
+          "light_incl_gens": 16776,
+          "naive": 1048576,
+          "random_triples": 4,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "cyclic+1err#2",
+        "n": 64,
+        "n_gens": 2,
+        "probes": {
+          "light": 16640,
+          "light_incl_gens": 22234,
+          "naive": 1048576,
+          "random_triples": 1024,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 250,
+        "family": "anchored+1err#2",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 8192,
+          "light": 8320,
+          "light_incl_gens": 13781,
+          "naive": 1048576,
+          "random_triples": 644,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 257833,
+        "family": "random#2",
+        "n": 64,
+        "n_gens": 1,
+        "probes": {
+          "light": 8320,
+          "light_incl_gens": 12930,
+          "naive": 1048576,
+          "random_triples": 8,
+          "rs40": 16384
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "cyclic",
+        "n": 128,
+        "n_gens": 2,
+        "probes": {
+          "light": 66048,
+          "light_incl_gens": 88155,
+          "naive": 8388608,
+          "random_triples": 4096,
+          "rs40": 2621440
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "anchored",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 32768,
+          "light": 33024,
+          "light_incl_gens": 54869,
+          "naive": 8388608,
+          "random_triples": 4096,
+          "rs40": 2621440
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": 0,
+        "family": "left_zero",
+        "n": 128,
+        "n_gens": 128,
+        "probes": {
+          "light": 4227072,
+          "light_incl_gens": 4934336,
+          "naive": 8388608,
+          "random_triples": 4096,
+          "rs40": 2621440
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 506,
+        "family": "cyclic+1err#0",
+        "n": 128,
+        "n_gens": 2,
+        "probes": {
+          "light": 66048,
+          "light_incl_gens": 88155,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 506,
+        "family": "anchored+1err#0",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 32768,
+          "light": 33024,
+          "light_incl_gens": 54869,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 2080435,
+        "family": "random#0",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "light": 33024,
+          "light_incl_gens": 65592,
+          "naive": 4194304,
+          "random_triples": 4,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 506,
+        "family": "cyclic+1err#1",
+        "n": 128,
+        "n_gens": 2,
+        "probes": {
+          "light": 66048,
+          "light_incl_gens": 88155,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 131072
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 504,
+        "family": "anchored+1err#1",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 32768,
+          "light": 33024,
+          "light_incl_gens": 54869,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 2080697,
+        "family": "random#1",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "light": 33024,
+          "light_incl_gens": 65890,
+          "naive": 4194304,
+          "random_triples": 4,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 506,
+        "family": "cyclic+1err#2",
+        "n": 128,
+        "n_gens": 2,
+        "probes": {
+          "light": 66048,
+          "light_incl_gens": 88155,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 506,
+        "family": "anchored+1err#2",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 32768,
+          "light": 33024,
+          "light_incl_gens": 54869,
+          "naive": 4194304,
+          "random_triples": 4096,
+          "rs40": 196608
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": 2080334,
+        "family": "random#2",
+        "n": 128,
+        "n_gens": 1,
+        "probes": {
+          "light": 33024,
+          "light_incl_gens": 66096,
+          "naive": 4194304,
+          "random_triples": 4,
+          "rs40": 65536
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "cyclic",
+        "n": 256,
+        "n_gens": 2,
+        "probes": {
+          "light": 263168,
+          "light_incl_gens": 351068,
+          "naive": 67108864,
+          "random_triples": 16384,
+          "rs40": 10485760
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "anchored",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 131072,
+          "light": 131584,
+          "light_incl_gens": 218965,
+          "naive": 67108864,
+          "random_triples": 16384,
+          "rs40": 10485760
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "left_zero",
+        "n": 256,
+        "n_gens": 256,
+        "probes": {
+          "light": 33685504,
+          "light_incl_gens": 39310720,
+          "naive": 67108864,
+          "random_triples": 16384,
+          "rs40": 10485760
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#0",
+        "n": 256,
+        "n_gens": 2,
+        "probes": {
+          "light": 263168,
+          "light_incl_gens": 351068,
+          "naive": 16777216,
+          "random_triples": 16384,
+          "rs40": 786432
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#0",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 131072,
+          "light": 131584,
+          "light_incl_gens": 218965,
+          "naive": 16777216,
+          "random_triples": 16384,
+          "rs40": 524288
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#0",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "light": 131584,
+          "light_incl_gens": 252015,
+          "naive": 16777216,
+          "random_triples": 4,
+          "rs40": 262144
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#1",
+        "n": 256,
+        "n_gens": 2,
+        "probes": {
+          "light": 263168,
+          "light_incl_gens": 351068,
+          "naive": 16777216,
+          "random_triples": 16384,
+          "rs40": 786432
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#1",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 131072,
+          "light": 131584,
+          "light_incl_gens": 218965,
+          "naive": 16777216,
+          "random_triples": 16384,
+          "rs40": 786432
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#1",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "light": 131584,
+          "light_incl_gens": 254470,
+          "naive": 16777216,
+          "random_triples": 4,
+          "rs40": 262144
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#2",
+        "n": 256,
+        "n_gens": 2,
+        "probes": {
+          "light": 263168,
+          "light_incl_gens": 351068,
+          "naive": 16777216,
+          "random_triples": 4324,
+          "rs40": 524288
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#2",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 131072,
+          "light": 131584,
+          "light_incl_gens": 218965,
+          "naive": 16777216,
+          "random_triples": 16384,
+          "rs40": 262144
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#2",
+        "n": 256,
+        "n_gens": 1,
+        "probes": {
+          "light": 131584,
+          "light_incl_gens": 253522,
+          "naive": 16777216,
+          "random_triples": 4,
+          "rs40": 262144
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "cyclic",
+        "n": 512,
+        "n_gens": 2,
+        "probes": {
+          "light": 1050624,
+          "light_incl_gens": 1401181,
+          "naive": 536870912,
+          "random_triples": 65536,
+          "rs40": 41943040
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "anchored",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 524288,
+          "light": 525312,
+          "light_incl_gens": 874837,
+          "naive": 536870912,
+          "random_triples": 65536,
+          "rs40": 41943040
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": true,
+        "bad_triples": null,
+        "family": "left_zero",
+        "n": 512,
+        "n_gens": 512,
+        "probes": {
+          "light": 268959744,
+          "light_incl_gens": 313830144,
+          "naive": 536870912,
+          "random_triples": 65536,
+          "rs40": 41943040
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#0",
+        "n": 512,
+        "n_gens": 2,
+        "probes": {
+          "light": 1050624,
+          "light_incl_gens": 1401181,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#0",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 524288,
+          "light": 525312,
+          "light_incl_gens": 874837,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 2097152
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#0",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "light": 525312,
+          "light_incl_gens": 931046,
+          "naive": 67108864,
+          "random_triples": 4,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#1",
+        "n": 512,
+        "n_gens": 2,
+        "probes": {
+          "light": 1050624,
+          "light_incl_gens": 1401181,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#1",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 524288,
+          "light": 525312,
+          "light_incl_gens": 874837,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#1",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "light": 525312,
+          "light_incl_gens": 919880,
+          "naive": 67108864,
+          "random_triples": 4,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "cyclic+1err#2",
+        "n": 512,
+        "n_gens": 2,
+        "probes": {
+          "light": 1050624,
+          "light_incl_gens": 1401181,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 2097152
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "anchored+1err#2",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "anchored": 524288,
+          "light": 525312,
+          "light_incl_gens": 875350,
+          "naive": 67108864,
+          "random_triples": 65536,
+          "rs40": 2097152
+        },
+        "verdicts_ok": {
+          "anchored": true,
+          "light": true,
+          "random_triples": false,
+          "rs40": true
+        }
+      },
+      {
+        "associative": false,
+        "bad_triples": null,
+        "family": "random#2",
+        "n": 512,
+        "n_gens": 1,
+        "probes": {
+          "light": 525312,
+          "light_incl_gens": 912671,
+          "naive": 67108864,
+          "random_triples": 4,
+          "rs40": 1048576
+        },
+        "verdicts_ok": {
+          "light": true,
+          "random_triples": true,
+          "rs40": true
+        }
+      }
+    ],
+    "summary": [
+      "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
+      "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
+      "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
+    ],
+    "timings": {
+      "128/anchored+1err#0/anchored": 0.00012152499948570039,
+      "128/anchored+1err#0/gens": 0.0004369269991002511,
+      "128/anchored+1err#0/light": 6.889699943712912e-05,
+      "128/anchored+1err#0/naive": 0.014947288998882868,
+      "128/anchored+1err#0/rs40": 0.00046416300028795376,
+      "128/anchored+1err#1/anchored": 0.00014172400005918462,
+      "128/anchored+1err#1/gens": 0.0002682409995031776,
+      "128/anchored+1err#1/light": 5.5263999456656165e-05,
+      "128/anchored+1err#1/naive": 0.008949320999818156,
+      "128/anchored+1err#1/rs40": 0.0003413129998079967,
+      "128/anchored+1err#2/anchored": 0.00011878300028911326,
+      "128/anchored+1err#2/gens": 0.0002802339986374136,
+      "128/anchored+1err#2/light": 5.891499858989846e-05,
+      "128/anchored+1err#2/naive": 0.010023638000348,
+      "128/anchored+1err#2/rs40": 0.0009550289996695938,
+      "128/anchored/anchored": 0.00013754499923379626,
+      "128/anchored/gens": 0.00026623799931257963,
+      "128/anchored/light": 7.365899909927975e-05,
+      "128/anchored/naive": 0.027693349000401213,
+      "128/anchored/rs40": 0.011491647001093952,
+      "128/cyclic+1err#0/gens": 0.00045961000068928115,
+      "128/cyclic+1err#0/light": 0.0001448580005671829,
+      "128/cyclic+1err#0/naive": 0.018236906000311137,
+      "128/cyclic+1err#0/rs40": 0.0004452009998203721,
+      "128/cyclic+1err#1/gens": 0.0003039820003323257,
+      "128/cyclic+1err#1/light": 0.00014382199879037216,
+      "128/cyclic+1err#1/naive": 0.009883418000754318,
+      "128/cyclic+1err#1/rs40": 0.0005361289986467455,
+      "128/cyclic+1err#2/gens": 0.00028934799956914503,
+      "128/cyclic+1err#2/light": 0.00021184900106163695,
+      "128/cyclic+1err#2/naive": 0.009778814999663155,
+      "128/cyclic+1err#2/rs40": 0.00029337399973883294,
+      "128/cyclic/gens": 0.00040623600034450646,
+      "128/cyclic/light": 0.00017769299847714137,
+      "128/cyclic/naive": 0.02825528199900873,
+      "128/cyclic/rs40": 0.014338666000185185,
+      "128/left_zero/gens": 0.006065221999961068,
+      "128/left_zero/light": 0.008024631000807858,
+      "128/left_zero/naive": 0.017777005999960238,
+      "128/left_zero/rs40": 0.01717549500062887,
+      "128/random#0/gens": 0.0003846239997074008,
+      "128/random#0/light": 5.7744999139686115e-05,
+      "128/random#0/naive": 0.01379119100056414,
+      "128/random#0/rs40": 0.000304580000374699,
+      "128/random#1/gens": 0.0003484410008240957,
+      "128/random#1/light": 6.853200102341361e-05,
+      "128/random#1/naive": 0.009269879999919794,
+      "128/random#1/rs40": 0.00030688000151712913,
+      "128/random#2/gens": 0.0003574090005713515,
+      "128/random#2/light": 7.076700057950802e-05,
+      "128/random#2/naive": 0.009252971000023535,
+      "128/random#2/rs40": 0.0002949580011772923,
+      "256/anchored+1err#0/anchored": 0.0005365670003811829,
+      "256/anchored+1err#0/gens": 0.0006887629988341359,
+      "256/anchored+1err#0/light": 0.0002551220004534116,
+      "256/anchored+1err#0/naive": 0.040106071000991506,
+      "256/anchored+1err#0/rs40": 0.0019120449996989919,
+      "256/anchored+1err#1/anchored": 0.0005621529999189079,
+      "256/anchored+1err#1/gens": 0.0006180729997140588,
+      "256/anchored+1err#1/light": 0.00024650999876030255,
+      "256/anchored+1err#1/naive": 0.04152114699900267,
+      "256/anchored+1err#1/rs40": 0.007342120999965118,
+      "256/anchored+1err#2/anchored": 0.0005181119995540939,
+      "256/anchored+1err#2/gens": 0.0006405950007319916,
+      "256/anchored+1err#2/light": 0.00021043800006737,
+      "256/anchored+1err#2/naive": 0.039289582000492373,
+      "256/anchored+1err#2/rs40": 0.0009210450007230975,
+      "256/anchored/anchored": 0.0004964319996361155,
+      "256/anchored/gens": 0.0007434450017171912,
+      "256/anchored/light": 0.00024817900157358963,
+      "256/anchored/naive": 0.168767500001195,
+      "256/anchored/rs40": 0.03558245000021998,
+      "256/cyclic+1err#0/gens": 0.0006475979989772895,
+      "256/cyclic+1err#0/light": 0.0004902050004602643,
+      "256/cyclic+1err#0/naive": 0.041676713999549975,
+      "256/cyclic+1err#0/rs40": 0.0025553750001563458,
+      "256/cyclic+1err#1/gens": 0.0006932380001671845,
+      "256/cyclic+1err#1/light": 0.0004693850005423883,
+      "256/cyclic+1err#1/naive": 0.04031918200053042,
+      "256/cyclic+1err#1/rs40": 0.003066683000724879,
+      "256/cyclic+1err#2/gens": 0.0011879760004376294,
+      "256/cyclic+1err#2/light": 0.0008258100006059976,
+      "256/cyclic+1err#2/naive": 0.04159781300040777,
+      "256/cyclic+1err#2/rs40": 0.0029810770010954,
+      "256/cyclic/gens": 0.0006358989994623698,
+      "256/cyclic/light": 0.00045905099977971986,
+      "256/cyclic/naive": 0.17761168099968927,
+      "256/cyclic/rs40": 0.03343573500023922,
+      "256/left_zero/gens": 0.033333145000142395,
+      "256/left_zero/light": 0.06017062899991288,
+      "256/left_zero/naive": 0.18911912399926223,
+      "256/left_zero/rs40": 0.0578285980009241,
+      "256/random#0/gens": 0.0008655350011395058,
+      "256/random#0/light": 0.00023635499928786885,
+      "256/random#0/naive": 0.040009804999499465,
+      "256/random#0/rs40": 0.0010662000004231231,
+      "256/random#1/gens": 0.0013882780003768858,
+      "256/random#1/light": 0.00034655600029509515,
+      "256/random#1/naive": 0.056110138000804,
+      "256/random#1/rs40": 0.0013640350007335655,
+      "256/random#2/gens": 0.0009210400003212271,
+      "256/random#2/light": 0.0002457730006426573,
+      "256/random#2/naive": 0.059558298000411014,
+      "256/random#2/rs40": 0.0009627320014260476,
+      "32/anchored+1err#0/anchored": 1.809700006560888e-05,
+      "32/anchored+1err#0/gens": 9.417100045538973e-05,
+      "32/anchored+1err#0/light": 8.181999874068424e-06,
+      "32/anchored+1err#0/naive": 0.00041711599988047965,
+      "32/anchored+1err#0/rs40": 0.0006201209998835111,
+      "32/anchored+1err#1/anchored": 1.738399987516459e-05,
+      "32/anchored+1err#1/gens": 8.099199840216897e-05,
+      "32/anchored+1err#1/light": 7.982000170159154e-06,
+      "32/anchored+1err#1/naive": 0.000400593999074772,
+      "32/anchored+1err#1/rs40": 0.00011211300079594366,
+      "32/anchored+1err#2/anchored": 1.822400008677505e-05,
+      "32/anchored+1err#2/gens": 7.464100053766742e-05,
+      "32/anchored+1err#2/light": 1.2760998288285919e-05,
+      "32/anchored+1err#2/naive": 0.000412145000154851,
+      "32/anchored+1err#2/rs40": 0.00016195100033655763,
+      "32/anchored/anchored": 2.190300074289553e-05,
+      "32/anchored/gens": 9.564100037096068e-05,
+      "32/anchored/light": 8.87100031832233e-06,
+      "32/anchored/naive": 0.00040741299926594365,
+      "32/anchored/rs40": 0.002396484998826054,
+      "32/cyclic+1err#0/gens": 8.696400072949473e-05,
+      "32/cyclic+1err#0/light": 1.464200067857746e-05,
+      "32/cyclic+1err#0/naive": 0.0004028690000268398,
+      "32/cyclic+1err#0/rs40": 0.00011689100028888788,
+      "32/cyclic+1err#1/gens": 9.888400018098764e-05,
+      "32/cyclic+1err#1/light": 1.582100048835855e-05,
+      "32/cyclic+1err#1/naive": 0.0004107730001123855,
+      "32/cyclic+1err#1/rs40": 0.00012535300083982293,
+      "32/cyclic+1err#2/gens": 8.566699943912681e-05,
+      "32/cyclic+1err#2/light": 1.5142000847845338e-05,
+      "32/cyclic+1err#2/naive": 0.0004089110007043928,
+      "32/cyclic+1err#2/rs40": 9.516700083622709e-05,
+      "32/cyclic/gens": 0.0002728359995671781,
+      "32/cyclic/light": 1.6838999727042392e-05,
+      "32/cyclic/naive": 0.0007418079985654913,
+      "32/cyclic/rs40": 0.002299809999385616,
+      "32/left_zero/gens": 0.000789095000072848,
+      "32/left_zero/light": 0.000231012998483493,
+      "32/left_zero/naive": 0.0004131280002184212,
+      "32/left_zero/rs40": 0.002080930000374792,
+      "32/random#0/gens": 7.372400068561547e-05,
+      "32/random#0/light": 7.933000233606435e-06,
+      "32/random#0/naive": 0.00036808999902859796,
+      "32/random#0/rs40": 6.98709991411306e-05,
+      "32/random#1/gens": 6.905800000822637e-05,
+      "32/random#1/light": 7.933000233606435e-06,
+      "32/random#1/naive": 0.00041592699926695786,
+      "32/random#1/rs40": 7.155999992392026e-05,
+      "32/random#2/gens": 7.08700008544838e-05,
+      "32/random#2/light": 8.068998795351945e-06,
+      "32/random#2/naive": 0.00042272199971193913,
+      "32/random#2/rs40": 7.35949997761054e-05,
+      "512/anchored+1err#0/anchored": 0.002732705999733298,
+      "512/anchored+1err#0/gens": 0.0029041249999863794,
+      "512/anchored+1err#0/light": 0.0017894800002977718,
+      "512/anchored+1err#0/naive": 0.17135651399985363,
+      "512/anchored+1err#0/rs40": 0.008054392999838456,
+      "512/anchored+1err#1/anchored": 0.00362024399873917,
+      "512/anchored+1err#1/gens": 0.0050303959997108905,
+      "512/anchored+1err#1/light": 0.0018743620003078831,
+      "512/anchored+1err#1/naive": 0.19495884900061355,
+      "512/anchored+1err#1/rs40": 0.005128413000420551,
+      "512/anchored+1err#2/anchored": 0.0025217940001311945,
+      "512/anchored+1err#2/gens": 0.002647184001034475,
+      "512/anchored+1err#2/light": 0.0016847419992700452,
+      "512/anchored+1err#2/naive": 0.1761609919994953,
+      "512/anchored+1err#2/rs40": 0.00793993200022669,
+      "512/anchored/anchored": 0.003037304999452317,
+      "512/anchored/gens": 0.0032873800009838305,
+      "512/anchored/light": 0.001758700000209501,
+      "512/anchored/naive": 1.7169354659999954,
+      "512/anchored/rs40": 0.19547033499839017,
+      "512/cyclic+1err#0/gens": 0.0042882150009972975,
+      "512/cyclic+1err#0/light": 0.003987236999819288,
+      "512/cyclic+1err#0/naive": 0.18232888100101263,
+      "512/cyclic+1err#0/rs40": 0.005562840000493452,
+      "512/cyclic+1err#1/gens": 0.003154867001285311,
+      "512/cyclic+1err#1/light": 0.00693503000002238,
+      "512/cyclic+1err#1/naive": 0.22897621800075285,
+      "512/cyclic+1err#1/rs40": 0.004165636000834638,
+      "512/cyclic+1err#2/gens": 0.0026851769998756936,
+      "512/cyclic+1err#2/light": 0.0037676789997931337,
+      "512/cyclic+1err#2/naive": 0.1722495659996639,
+      "512/cyclic+1err#2/rs40": 0.009871398000541376,
+      "512/cyclic/gens": 0.0028172419988550246,
+      "512/cyclic/light": 0.0032792179990792647,
+      "512/cyclic/naive": 1.4365260470003705,
+      "512/cyclic/rs40": 0.19597522600088269,
+      "512/left_zero/gens": 0.29989171200031706,
+      "512/left_zero/light": 0.8621867269994254,
+      "512/left_zero/naive": 1.6277472599995235,
+      "512/left_zero/rs40": 0.2784830549990147,
+      "512/random#0/gens": 0.003882558999976027,
+      "512/random#0/light": 0.001929521000420209,
+      "512/random#0/naive": 0.24647571000059543,
+      "512/random#0/rs40": 0.004245591999278986,
+      "512/random#1/gens": 0.002778932001092471,
+      "512/random#1/light": 0.0017845399997895584,
+      "512/random#1/naive": 0.20464478800022334,
+      "512/random#1/rs40": 0.0038914939996175235,
+      "512/random#2/gens": 0.003237090999391512,
+      "512/random#2/light": 0.0017397030005668057,
+      "512/random#2/naive": 0.1937407629993686,
+      "512/random#2/rs40": 0.004186077998383553,
+      "64/anchored+1err#0/anchored": 3.480300074443221e-05,
+      "64/anchored+1err#0/gens": 0.00012295299893594347,
+      "64/anchored+1err#0/light": 1.4471999747911468e-05,
+      "64/anchored+1err#0/naive": 0.0030332170008477988,
+      "64/anchored+1err#0/rs40": 0.00021356900106184185,
+      "64/anchored+1err#1/anchored": 3.409300006751437e-05,
+      "64/anchored+1err#1/gens": 0.00028374800058372784,
+      "64/anchored+1err#1/light": 2.6359999537817203e-05,
+      "64/anchored+1err#1/naive": 0.0037078740006109,
+      "64/anchored+1err#1/rs40": 0.00012122699990868568,
+      "64/anchored+1err#2/anchored": 3.7310001061996445e-05,
+      "64/anchored+1err#2/gens": 0.00013761400077783037,
+      "64/anchored+1err#2/light": 1.4253999324864708e-05,
+      "64/anchored+1err#2/naive": 0.0030761270008952124,
+      "64/anchored+1err#2/rs40": 0.00012060999870300293,
+      "64/anchored/anchored": 4.398900091473479e-05,
+      "64/anchored/gens": 0.0001292510005441727,
+      "64/anchored/light": 1.4663999536423944e-05,
+      "64/anchored/naive": 0.0034088049997080816,
+      "64/anchored/rs40": 0.005752903000029619,
+      "64/cyclic+1err#0/gens": 0.0001380300000164425,
+      "64/cyclic+1err#0/light": 2.6306999643566087e-05,
+      "64/cyclic+1err#0/naive": 0.003170414998749038,
+      "64/cyclic+1err#0/rs40": 0.00012759099990944378,
+      "64/cyclic+1err#1/gens": 0.00013775700062979013,
+      "64/cyclic+1err#1/light": 2.664400017238222e-05,
+      "64/cyclic+1err#1/naive": 0.003177803000653512,
+      "64/cyclic+1err#1/rs40": 0.0002334989985683933,
+      "64/cyclic+1err#2/gens": 0.00013975999900139868,
+      "64/cyclic+1err#2/light": 3.9710999772069044e-05,
+      "64/cyclic+1err#2/naive": 0.003269103999627987,
+      "64/cyclic+1err#2/rs40": 0.0001281669992749812,
+      "64/cyclic/gens": 0.00014263900084188208,
+      "64/cyclic/light": 2.5411000024178065e-05,
+      "64/cyclic/naive": 0.00444656100080465,
+      "64/cyclic/rs40": 0.0059090760005346965,
+      "64/left_zero/gens": 0.001278911000554217,
+      "64/left_zero/light": 0.0007383120009762933,
+      "64/left_zero/naive": 0.0031642049998481525,
+      "64/left_zero/rs40": 0.004541010001048562,
+      "64/random#0/gens": 0.00011345200073265005,
+      "64/random#0/light": 1.4883999028825201e-05,
+      "64/random#0/naive": 0.0035316310004418483,
+      "64/random#0/rs40": 0.00016381400018872228,
+      "64/random#1/gens": 0.0002075199990940746,
+      "64/random#1/light": 1.4139000995783135e-05,
+      "64/random#1/naive": 0.003458663000856177,
+      "64/random#1/rs40": 0.00013660299919138197,
+      "64/random#2/gens": 0.00010666299931472167,
+      "64/random#2/light": 1.4807999832555652e-05,
+      "64/random#2/naive": 0.0031115180008782772,
+      "64/random#2/rs40": 0.0001470059996790951
+    },
+    "wrong_verdicts": {
+      "anchored": [],
+      "light": [],
+      "random_triples": [
+        [
+          32,
+          "cyclic+1err#0"
+        ],
+        [
+          32,
+          "anchored+1err#0"
+        ],
+        [
+          32,
+          "cyclic+1err#1"
+        ],
+        [
+          32,
+          "anchored+1err#1"
+        ],
+        [
+          32,
+          "cyclic+1err#2"
+        ],
+        [
+          32,
+          "anchored+1err#2"
+        ],
+        [
+          64,
+          "cyclic+1err#0"
+        ],
+        [
+          64,
+          "cyclic+1err#1"
+        ],
+        [
+          64,
+          "anchored+1err#1"
+        ],
+        [
+          64,
+          "cyclic+1err#2"
+        ],
+        [
+          128,
+          "cyclic+1err#0"
+        ],
+        [
+          128,
+          "anchored+1err#0"
+        ],
+        [
+          128,
+          "cyclic+1err#1"
+        ],
+        [
+          128,
+          "anchored+1err#1"
+        ],
+        [
+          128,
+          "cyclic+1err#2"
+        ],
+        [
+          128,
+          "anchored+1err#2"
+        ],
+        [
+          256,
+          "cyclic+1err#0"
+        ],
+        [
+          256,
+          "anchored+1err#0"
+        ],
+        [
+          256,
+          "cyclic+1err#1"
+        ],
+        [
+          256,
+          "anchored+1err#1"
+        ],
+        [
+          256,
+          "anchored+1err#2"
+        ],
+        [
+          512,
+          "cyclic+1err#0"
+        ],
+        [
+          512,
+          "anchored+1err#0"
+        ],
+        [
+          512,
+          "cyclic+1err#1"
+        ],
+        [
+          512,
+          "anchored+1err#1"
+        ],
+        [
+          512,
+          "cyclic+1err#2"
+        ],
+        [
+          512,
+          "anchored+1err#2"
+        ]
+      ],
+      "rs40": []
+    }
+  },
+  "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
+  "runtime_s": 31.632,
+  "started": "2026-10-18T09:21:35Z"
+}

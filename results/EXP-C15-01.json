@@ -1,0 +1,2821 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C15-01",
+    "file": "experiments/C15/E01_order2.py",
+    "sha256": "40a9fe94c118d994f9ec586969b9f7daa1366b3b83c0c2408fbeec5f8f10ce20",
+    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+  },
+  "env": {
+    "git_head": "3ce9bc84c5f0f6f8ebac21bc99525c2052505587",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T09:23:04Z",
+  "id": "EXP-C15-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "light cones to t = 18 (tables of 2^19 entries)",
+      "cyclic rows of length L = 1..16",
+      "surjectivity and injectivity on bi-infinite rows by the pair-graph (Garden of Eden) criterion"
+    ],
+    "cycle": "C15",
+    "falsification": "A rule number that is not a multiple of 17, or an XOR light cone that is not 2^popcount(t).",
+    "hypothesis": "H-C15-0 (calibration): the 16 automata are exactly the elementary rules that ignore the left neighbour, i.e. the multiples of 17; XOR (rule 102) has 2^popcount(t) essential cells (Gould's sequence A001316) and bounded streaming width.",
+    "id": "EXP-C15-01",
+    "methodology": "Compute the Wolfram number of each table, the essential variables and the forward/backward ordered-BDD widths of F_t, nilpotency (F_t constant), pair-graph surjectivity/injectivity and the functional graph of the global map on all cyclic rows of each length.",
+    "question": "Which elementary CA rules are the automata c'_i = c_i * c_{i+1} of the 16 two-element magmas, and how do their light cones, streaming widths, surjectivity and cyclic dynamics look?",
+    "title": "Two-element magma automata: elementary rules 17m, light cones, surjectivity and cyclic dynamics"
+  },
+  "results": {
+    "all_multiples_of_17": true,
+    "injective_rules": [
+      51,
+      85,
+      170,
+      204
+    ],
+    "rows": [
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          0,
+          0,
+          0
+        ],
+        "associative": true,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            1,
+            1,
+            false
+          ],
+          "11": [
+            1,
+            1,
+            false
+          ],
+          "12": [
+            1,
+            1,
+            false
+          ],
+          "13": [
+            1,
+            1,
+            false
+          ],
+          "14": [
+            1,
+            1,
+            false
+          ],
+          "15": [
+            1,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            1,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            1,
+            false
+          ],
+          "5": [
+            1,
+            1,
+            false
+          ],
+          "6": [
+            1,
+            1,
+            false
+          ],
+          "7": [
+            1,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            1,
+            false
+          ],
+          "9": [
+            1,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": 1,
+        "row_permutive": false,
+        "rule": 0,
+        "surjective": false,
+        "table": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "width_fw": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "affine": null,
+        "associative": true,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            0,
+            true
+          ],
+          "10": [
+            1,
+            9,
+            false
+          ],
+          "11": [
+            1,
+            10,
+            false
+          ],
+          "12": [
+            1,
+            11,
+            false
+          ],
+          "13": [
+            1,
+            12,
+            false
+          ],
+          "14": [
+            1,
+            13,
+            false
+          ],
+          "15": [
+            1,
+            14,
+            false
+          ],
+          "16": [
+            1,
+            15,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            2,
+            false
+          ],
+          "4": [
+            1,
+            3,
+            false
+          ],
+          "5": [
+            1,
+            4,
+            false
+          ],
+          "6": [
+            1,
+            5,
+            false
+          ],
+          "7": [
+            1,
+            6,
+            false
+          ],
+          "8": [
+            1,
+            7,
+            false
+          ],
+          "9": [
+            1,
+            8,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 136,
+        "surjective": false,
+        "table": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            1,
+            1,
+            false
+          ],
+          "11": [
+            1,
+            1,
+            false
+          ],
+          "12": [
+            1,
+            1,
+            false
+          ],
+          "13": [
+            1,
+            1,
+            false
+          ],
+          "14": [
+            1,
+            1,
+            false
+          ],
+          "15": [
+            1,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            1,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            1,
+            false
+          ],
+          "5": [
+            1,
+            1,
+            false
+          ],
+          "6": [
+            1,
+            1,
+            false
+          ],
+          "7": [
+            1,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            1,
+            false
+          ],
+          "9": [
+            1,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 68,
+        "surjective": false,
+        "table": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          1,
+          0,
+          0
+        ],
+        "associative": true,
+        "col_permutive": true,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            0,
+            true
+          ],
+          "10": [
+            1,
+            0,
+            true
+          ],
+          "11": [
+            1,
+            0,
+            true
+          ],
+          "12": [
+            1,
+            0,
+            true
+          ],
+          "13": [
+            1,
+            0,
+            true
+          ],
+          "14": [
+            1,
+            0,
+            true
+          ],
+          "15": [
+            1,
+            0,
+            true
+          ],
+          "16": [
+            1,
+            0,
+            true
+          ],
+          "2": [
+            1,
+            0,
+            true
+          ],
+          "3": [
+            1,
+            0,
+            true
+          ],
+          "4": [
+            1,
+            0,
+            true
+          ],
+          "5": [
+            1,
+            0,
+            true
+          ],
+          "6": [
+            1,
+            0,
+            true
+          ],
+          "7": [
+            1,
+            0,
+            true
+          ],
+          "8": [
+            1,
+            0,
+            true
+          ],
+          "9": [
+            1,
+            0,
+            true
+          ]
+        },
+        "essential": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "injective": true,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 204,
+        "surjective": true,
+        "table": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            10,
+            1,
+            false
+          ],
+          "11": [
+            11,
+            1,
+            false
+          ],
+          "12": [
+            12,
+            1,
+            false
+          ],
+          "13": [
+            13,
+            1,
+            false
+          ],
+          "14": [
+            14,
+            1,
+            false
+          ],
+          "15": [
+            15,
+            1,
+            false
+          ],
+          "16": [
+            16,
+            1,
+            false
+          ],
+          "2": [
+            2,
+            1,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            4,
+            1,
+            false
+          ],
+          "5": [
+            5,
+            1,
+            false
+          ],
+          "6": [
+            6,
+            1,
+            false
+          ],
+          "7": [
+            7,
+            1,
+            false
+          ],
+          "8": [
+            8,
+            1,
+            false
+          ],
+          "9": [
+            9,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 34,
+        "surjective": false,
+        "table": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          0,
+          1,
+          0
+        ],
+        "associative": true,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            0,
+            true
+          ],
+          "10": [
+            10,
+            0,
+            true
+          ],
+          "11": [
+            11,
+            0,
+            true
+          ],
+          "12": [
+            12,
+            0,
+            true
+          ],
+          "13": [
+            13,
+            0,
+            true
+          ],
+          "14": [
+            14,
+            0,
+            true
+          ],
+          "15": [
+            15,
+            0,
+            true
+          ],
+          "16": [
+            16,
+            0,
+            true
+          ],
+          "2": [
+            2,
+            0,
+            true
+          ],
+          "3": [
+            3,
+            0,
+            true
+          ],
+          "4": [
+            4,
+            0,
+            true
+          ],
+          "5": [
+            5,
+            0,
+            true
+          ],
+          "6": [
+            6,
+            0,
+            true
+          ],
+          "7": [
+            7,
+            0,
+            true
+          ],
+          "8": [
+            8,
+            0,
+            true
+          ],
+          "9": [
+            9,
+            0,
+            true
+          ]
+        },
+        "essential": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "injective": true,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": true,
+        "rule": 170,
+        "surjective": true,
+        "table": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          1,
+          1,
+          0
+        ],
+        "associative": true,
+        "col_permutive": true,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            30,
+            2,
+            false
+          ],
+          "11": [
+            341,
+            1,
+            false
+          ],
+          "12": [
+            12,
+            4,
+            false
+          ],
+          "13": [
+            819,
+            1,
+            false
+          ],
+          "14": [
+            14,
+            2,
+            false
+          ],
+          "15": [
+            15,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            16,
+            false
+          ],
+          "2": [
+            1,
+            2,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            4,
+            false
+          ],
+          "5": [
+            15,
+            1,
+            false
+          ],
+          "6": [
+            6,
+            2,
+            false
+          ],
+          "7": [
+            7,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            8,
+            false
+          ],
+          "9": [
+            63,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          4,
+          2,
+          4,
+          4,
+          8,
+          2,
+          4,
+          4,
+          8,
+          4,
+          8,
+          8,
+          16,
+          2,
+          4,
+          4
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": true,
+        "rule": 102,
+        "surjective": true,
+        "table": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": true,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            0,
+            true
+          ],
+          "10": [
+            1,
+            9,
+            false
+          ],
+          "11": [
+            1,
+            10,
+            false
+          ],
+          "12": [
+            1,
+            11,
+            false
+          ],
+          "13": [
+            1,
+            12,
+            false
+          ],
+          "14": [
+            1,
+            13,
+            false
+          ],
+          "15": [
+            1,
+            14,
+            false
+          ],
+          "16": [
+            1,
+            15,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            2,
+            false
+          ],
+          "4": [
+            1,
+            3,
+            false
+          ],
+          "5": [
+            1,
+            4,
+            false
+          ],
+          "6": [
+            1,
+            5,
+            false
+          ],
+          "7": [
+            1,
+            6,
+            false
+          ],
+          "8": [
+            1,
+            7,
+            false
+          ],
+          "9": [
+            1,
+            8,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 238,
+        "surjective": false,
+        "table": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            2,
+            0,
+            true
+          ],
+          "10": [
+            20,
+            1,
+            false
+          ],
+          "11": [
+            22,
+            1,
+            false
+          ],
+          "12": [
+            24,
+            1,
+            false
+          ],
+          "13": [
+            26,
+            1,
+            false
+          ],
+          "14": [
+            28,
+            1,
+            false
+          ],
+          "15": [
+            30,
+            1,
+            false
+          ],
+          "16": [
+            32,
+            1,
+            false
+          ],
+          "2": [
+            2,
+            1,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            8,
+            1,
+            false
+          ],
+          "5": [
+            10,
+            1,
+            false
+          ],
+          "6": [
+            12,
+            1,
+            false
+          ],
+          "7": [
+            14,
+            1,
+            false
+          ],
+          "8": [
+            16,
+            1,
+            false
+          ],
+          "9": [
+            18,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 17,
+        "surjective": false,
+        "table": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ],
+        "width_fw": [
+          2,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          1,
+          1,
+          1
+        ],
+        "associative": true,
+        "col_permutive": true,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            30,
+            2,
+            false
+          ],
+          "11": [
+            341,
+            1,
+            false
+          ],
+          "12": [
+            12,
+            4,
+            false
+          ],
+          "13": [
+            819,
+            1,
+            false
+          ],
+          "14": [
+            14,
+            2,
+            false
+          ],
+          "15": [
+            15,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            16,
+            false
+          ],
+          "2": [
+            1,
+            2,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            4,
+            false
+          ],
+          "5": [
+            15,
+            1,
+            false
+          ],
+          "6": [
+            6,
+            2,
+            false
+          ],
+          "7": [
+            7,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            8,
+            false
+          ],
+          "9": [
+            63,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          4,
+          2,
+          4,
+          4,
+          8,
+          2,
+          4,
+          4,
+          8,
+          4,
+          8,
+          8,
+          16,
+          2,
+          4,
+          4
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": true,
+        "rule": 153,
+        "surjective": true,
+        "table": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          0,
+          1,
+          1
+        ],
+        "associative": false,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            2,
+            0,
+            true
+          ],
+          "10": [
+            10,
+            0,
+            true
+          ],
+          "11": [
+            22,
+            0,
+            true
+          ],
+          "12": [
+            12,
+            0,
+            true
+          ],
+          "13": [
+            26,
+            0,
+            true
+          ],
+          "14": [
+            14,
+            0,
+            true
+          ],
+          "15": [
+            30,
+            0,
+            true
+          ],
+          "16": [
+            16,
+            0,
+            true
+          ],
+          "2": [
+            2,
+            0,
+            true
+          ],
+          "3": [
+            6,
+            0,
+            true
+          ],
+          "4": [
+            4,
+            0,
+            true
+          ],
+          "5": [
+            10,
+            0,
+            true
+          ],
+          "6": [
+            6,
+            0,
+            true
+          ],
+          "7": [
+            14,
+            0,
+            true
+          ],
+          "8": [
+            8,
+            0,
+            true
+          ],
+          "9": [
+            18,
+            0,
+            true
+          ]
+        },
+        "essential": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "injective": true,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": true,
+        "rule": 85,
+        "surjective": true,
+        "table": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            1,
+            1,
+            false
+          ],
+          "11": [
+            1,
+            1,
+            false
+          ],
+          "12": [
+            1,
+            1,
+            false
+          ],
+          "13": [
+            1,
+            1,
+            false
+          ],
+          "14": [
+            1,
+            1,
+            false
+          ],
+          "15": [
+            1,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            1,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            1,
+            false
+          ],
+          "5": [
+            1,
+            1,
+            false
+          ],
+          "6": [
+            1,
+            1,
+            false
+          ],
+          "7": [
+            1,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            1,
+            false
+          ],
+          "9": [
+            1,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 221,
+        "surjective": false,
+        "table": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          1,
+          0,
+          1
+        ],
+        "associative": false,
+        "col_permutive": true,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            2,
+            0,
+            true
+          ],
+          "10": [
+            2,
+            0,
+            true
+          ],
+          "11": [
+            2,
+            0,
+            true
+          ],
+          "12": [
+            2,
+            0,
+            true
+          ],
+          "13": [
+            2,
+            0,
+            true
+          ],
+          "14": [
+            2,
+            0,
+            true
+          ],
+          "15": [
+            2,
+            0,
+            true
+          ],
+          "16": [
+            2,
+            0,
+            true
+          ],
+          "2": [
+            2,
+            0,
+            true
+          ],
+          "3": [
+            2,
+            0,
+            true
+          ],
+          "4": [
+            2,
+            0,
+            true
+          ],
+          "5": [
+            2,
+            0,
+            true
+          ],
+          "6": [
+            2,
+            0,
+            true
+          ],
+          "7": [
+            2,
+            0,
+            true
+          ],
+          "8": [
+            2,
+            0,
+            true
+          ],
+          "9": [
+            2,
+            0,
+            true
+          ]
+        },
+        "essential": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "injective": true,
+        "medial": true,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 51,
+        "surjective": true,
+        "table": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": false,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            10,
+            1,
+            false
+          ],
+          "11": [
+            11,
+            1,
+            false
+          ],
+          "12": [
+            12,
+            1,
+            false
+          ],
+          "13": [
+            13,
+            1,
+            false
+          ],
+          "14": [
+            14,
+            1,
+            false
+          ],
+          "15": [
+            15,
+            1,
+            false
+          ],
+          "16": [
+            16,
+            1,
+            false
+          ],
+          "2": [
+            2,
+            1,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            4,
+            1,
+            false
+          ],
+          "5": [
+            5,
+            1,
+            false
+          ],
+          "6": [
+            6,
+            1,
+            false
+          ],
+          "7": [
+            7,
+            1,
+            false
+          ],
+          "8": [
+            8,
+            1,
+            false
+          ],
+          "9": [
+            9,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 187,
+        "surjective": false,
+        "table": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "width_fw": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "affine": null,
+        "associative": false,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            2,
+            0,
+            true
+          ],
+          "10": [
+            20,
+            1,
+            false
+          ],
+          "11": [
+            22,
+            1,
+            false
+          ],
+          "12": [
+            24,
+            1,
+            false
+          ],
+          "13": [
+            26,
+            1,
+            false
+          ],
+          "14": [
+            28,
+            1,
+            false
+          ],
+          "15": [
+            30,
+            1,
+            false
+          ],
+          "16": [
+            32,
+            1,
+            false
+          ],
+          "2": [
+            2,
+            1,
+            false
+          ],
+          "3": [
+            3,
+            1,
+            false
+          ],
+          "4": [
+            8,
+            1,
+            false
+          ],
+          "5": [
+            10,
+            1,
+            false
+          ],
+          "6": [
+            12,
+            1,
+            false
+          ],
+          "7": [
+            14,
+            1,
+            false
+          ],
+          "8": [
+            16,
+            1,
+            false
+          ],
+          "9": [
+            18,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ],
+        "injective": false,
+        "medial": false,
+        "nilpotent_at": null,
+        "row_permutive": false,
+        "rule": 119,
+        "surjective": false,
+        "table": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "width_bw": [
+          2,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ],
+        "width_fw": [
+          2,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3,
+          2,
+          3
+        ]
+      },
+      {
+        "affine": [
+          [
+            0,
+            1
+          ],
+          0,
+          0,
+          1
+        ],
+        "associative": true,
+        "col_permutive": false,
+        "commutative": true,
+        "cyclic": {
+          "1": [
+            1,
+            1,
+            false
+          ],
+          "10": [
+            1,
+            1,
+            false
+          ],
+          "11": [
+            1,
+            1,
+            false
+          ],
+          "12": [
+            1,
+            1,
+            false
+          ],
+          "13": [
+            1,
+            1,
+            false
+          ],
+          "14": [
+            1,
+            1,
+            false
+          ],
+          "15": [
+            1,
+            1,
+            false
+          ],
+          "16": [
+            1,
+            1,
+            false
+          ],
+          "2": [
+            1,
+            1,
+            false
+          ],
+          "3": [
+            1,
+            1,
+            false
+          ],
+          "4": [
+            1,
+            1,
+            false
+          ],
+          "5": [
+            1,
+            1,
+            false
+          ],
+          "6": [
+            1,
+            1,
+            false
+          ],
+          "7": [
+            1,
+            1,
+            false
+          ],
+          "8": [
+            1,
+            1,
+            false
+          ],
+          "9": [
+            1,
+            1,
+            false
+          ]
+        },
+        "essential": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "injective": false,
+        "medial": true,
+        "nilpotent_at": 1,
+        "row_permutive": false,
+        "rule": 255,
+        "surjective": false,
+        "table": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "width_bw": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "width_fw": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "rules": [
+      0,
+      17,
+      34,
+      51,
+      68,
+      85,
+      102,
+      119,
+      136,
+      153,
+      170,
+      187,
+      204,
+      221,
+      238,
+      255
+    ],
+    "rules_with_streaming_width_above_4_at_t18": [],
+    "summary": [
+      "rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True)",
+      "XOR (rule 102) essential cells = 2^popcount(t): True",
+      "surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]",
+      "streaming width > 4 at t = 18: []"
+    ],
+    "surjective_rules": [
+      51,
+      85,
+      102,
+      153,
+      170,
+      204
+    ],
+    "xor_essential_is_gould": true
+  },
+  "results_sha256": "a47c3d15ea6d2c6bc7c66182c96b1e59cf9778cf2de038c52d6e23974c5b5857",
+  "runtime_s": 9.743,
+  "started": "2026-10-18T09:22:54Z"
+}

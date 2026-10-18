@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C04-10",
     "file": "experiments/C04/E10_log2_connection.py",
     "sha256": "e0b9788e59481c73501a14b6a85788533c0b3d3c86fee7aa45f6bfe23ecc8729",
-    "systems_sha256": "696678087546308ff2ed1c624202120169f2b9fd4ee66fc604d1008fbe6ba03e"
+    "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
   },
   "cycle": "C04",
   "falsification": "Any n with a mismatch.",
@@ -93,6 +93,25 @@
       "results_sha256": "930951e6e50817a9b54ba3a2b941fef7ac050737bc19f1890b1c119135c0b4ae",
       "runtime_s": 8.439,
       "started": "2026-10-18T08:07:36Z",
+      "summary": [
+        "A247983(n) computed for n = 1..1500 with n+80 bits: mismatches with n - J(n) or D(n+2): 0",
+        "closest decisive comparison is 2^-19.0 away in relative terms (precision n+80 bits)"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-10",
+        "file": "experiments/C04/E10_log2_connection.py",
+        "sha256": "e0b9788e59481c73501a14b6a85788533c0b3d3c86fee7aa45f6bfe23ecc8729",
+        "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:19:22Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C04-10.json",
+      "results_sha256": "930951e6e50817a9b54ba3a2b941fef7ac050737bc19f1890b1c119135c0b4ae",
+      "runtime_s": 6.309,
+      "started": "2026-10-18T09:19:16Z",
       "summary": [
         "A247983(n) computed for n = 1..1500 with n+80 bits: mismatches with n - J(n) or D(n+2): 0",
         "closest decisive comparison is 2^-19.0 away in relative terms (precision n+80 bits)"

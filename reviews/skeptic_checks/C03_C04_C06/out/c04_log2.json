@@ -1,0 +1,14 @@
+{
+ "mismatch": [
+  {
+   "n": 0,
+   "A": 1,
+   "n-J": 0,
+   "D(n+2)": 0
+  }
+ ],
+ "checked": 1201,
+ "oeis_offset": "1,3",
+ "oeis_terms_match_formula": true,
+ "_seconds": 7.8
+}

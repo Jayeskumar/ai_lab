@@ -1,0 +1,24 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-01",
+    "EXP-C05-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-02",
+  "limitations": "Non-memberships in the census are SAT-solver results (CaDiCaL) without proof certificates, except those re-certified in EXP-C05-06; one instance (law 167, n = 6) is UNKNOWN within budget.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The Equational Theories Project classified all 741 classes of laws of order <= 4 and B. Le Floch's notes 'Spectrum of equational laws' (Lean Zulip upload spectrum.pdf) discuss every law with possibly non-full spectrum; our census agrees with every spectrum fragment stated there for the laws concerned.",
+  "statement": "Of the 115 identities t = x (x occurring in t, neither leftmost nor rightmost), 52 have models of every order\n1..6, 2 have none of orders 2..6, and 61 have restricted spectra; the 63 non-full ones fall into 15 patterns\non n = 1..8 listed in research/cycles/C05_magma_spectra/README.md (e.g. 10111011 for 16 identities including\nthe Dupont law, 10110010 = Mendelsohn pattern for law 66 and three equivalents, 1010001? for law 907).",
+  "system": "SYS-B",
+  "title": "Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n <= 6, restricted ones to n <= 8)",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

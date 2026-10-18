@@ -1,0 +1,106 @@
+{
+ "x(yz)=((zx)x)y": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 3.0
+ },
+ "x(yz)=((zx)y)x": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.3
+ },
+ "x(yz)=((zy)x)x": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.6
+ },
+ "(xy)z=y((zx)y)": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.5
+ },
+ "(xy)z=y((zy)x)": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.8
+ },
+ "(xy)z=z((yx)z)": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.7
+ },
+ "(xy)z=z((yz)x)": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.4
+ },
+ "x(yz)=y((yx)z)": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 29.5
+ },
+ "x(yz)=((xx)y)z": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 3.8
+ },
+ "x(yz)=((xx)z)y": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 3.6
+ },
+ "x(yz)=((xy)x)z": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 2.9
+ },
+ "x(yz)=((xy)y)z": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 3.1
+ },
+ "x(yz)=((xy)z)x": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.5
+ },
+ "x(yz)=((xy)z)y": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.9
+ },
+ "x(yz)=((xz)x)y": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 3.4
+ },
+ "x(yz)=((xz)y)x": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.9
+ },
+ "x(yz)=((xz)y)y": {
+  "spectrum": [],
+  "expected_within_range": [],
+  "ok": true,
+  "max_sec": 4.5
+ },
+ "all_ok": true,
+ "_seconds": 227.3
+}

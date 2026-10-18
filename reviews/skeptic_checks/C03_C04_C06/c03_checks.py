@@ -340,9 +340,9 @@ def part_obs11():
             for k in range(2, 7 if q <= 6 else 4):
                 lhs, rhs = rule(1, q, r, k)
                 res = None
-                for b in list(range(q, 8 * q)) + [q * (q + 1)]:
+                for b in [q * (q + 1)] + list(range(q, 8 * q)):
                     for strat in ("rightmost", "leftmost"):
-                        pos, why = strategy_run(lhs, rhs, "0" + "1" * b, strat, 400000 if q == 7 else 60000, 3 * 10 ** 6)
+                        pos, why = strategy_run(lhs, rhs, "0" + "1" * b, strat, 20000, 400000)
                         if pos is not None:
                             res = {"b": b, "strategy": strat, "steps": len(pos)}
                             break

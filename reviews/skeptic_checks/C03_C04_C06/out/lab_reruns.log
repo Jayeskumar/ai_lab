@@ -1,0 +1,18 @@
+[EXP-C03-02] ok in 17.23s (reproduced previous hash)
+    625 rules: 525 terminating (proved or certified), 71 non-terminating (loop certificates: 56 by forward closures, 15 by strategies), 29 unknown
+    contradictions: H-C03-1 0, H-C03-2 35, H-C03-3 0; H-C03-3 predicts ['NON-TERMINATING', 'TERMINATING'] for all unknown rules
+[EXP-C03-03] ok in 15.51s (reproduced previous hash)
+    base family (1,q,r,k), q<=5, q<r<2q, k<=6: 49 loops found, missing: [[1, 5, 6, 6]]
+    lifted loops verified (p=2..4, both orientations): 147, failures: 0
+[EXP-C04-04] ok in 15.95s (reproduced previous hash)
+    max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]
+    formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0
+[EXP-C04-10] ok in 6.31s (reproduced previous hash)
+    A247983(n) computed for n = 1..1500 with n+80 bits: mismatches with n - J(n) or D(n+2): 0
+    closest decisive comparison is 2^-19.0 away in relative terms (precision n+80 bits)
+[EXP-C04-06] ok in 4.65s (reproduced previous hash)
+    constant-step potential verified for 5365 rules on 470927 one-step pairs: 0 violations (largest exponent K needed: 2)
+    length-preserving bordered rules |l| = 4, 5: 770 tested, 94 confluent (all of them length-uniform: True), 220 length-uniform, of which 126 are not confluent
+[EXP-C06-03] ok in 37.07s (RESULT HASH CHANGED)
+    382 laws: all N <= 6: 77, trivial only: 283, restricted: 22
+    restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 

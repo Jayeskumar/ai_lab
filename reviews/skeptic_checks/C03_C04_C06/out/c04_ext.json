@@ -1,0 +1,48 @@
+{
+ "rules": 868,
+ "status_proof_counts": {
+  "TERMINATING / length decreases": 70,
+  "TERMINATING / length-preserving, lexicographically monotone": 70,
+  "NON-TERMINATING / self-embedding": 388,
+  "TERMINATING / linear interpretation": 250,
+  "TERMINATING / factor count decreases": 70,
+  "TERMINATING / linear interpretation (coef <= 7)": 4,
+  "UNKNOWN / None": 8,
+  "TERMINATING / weighted factor count (LP, exact check)": 8
+ },
+ "certificates_failing_own_check": [],
+ "nonterminating_with_l_not_factor_of_r": [
+  "aab->abbaa",
+  "aab->bbaaa",
+  "ab->bbaa",
+  "ab->bbaaa",
+  "ab->bbbaa",
+  "aba->baaab",
+  "aba->baab",
+  "abb->bbaab",
+  "abb->bbbaa",
+  "ba->aaabb",
+  "ba->aabb",
+  "ba->aabbb",
+  "baa->aaabb",
+  "baa->aabba",
+  "bab->abba",
+  "bab->abbba",
+  "bba->aabbb",
+  "bba->baabb"
+ ],
+ "count_nonfactor_nt": 18,
+ "loops_found_in_rules_certified_terminating": [],
+ "rules_hunted": 332,
+ "undecided": [
+  "aab->ababa",
+  "aab->babaa",
+  "abb->babab",
+  "abb->bbaba",
+  "baa->aabab",
+  "baa->ababa",
+  "bba->ababb",
+  "bba->babab"
+ ],
+ "_seconds": 0.2
+}

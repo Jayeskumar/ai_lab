@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C03-02",
     "file": "experiments/C03/E02_extended_survey.py",
     "sha256": "848dca71475955d2234dce75877a7931f473525ee04e6f395c5500cf18808108",
-    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+    "systems_sha256": "c66c709befff55a27925eeaf26ee433f0d89d84b4b21580604922a8e69df384c"
   },
   "cycle": "C03",
   "falsification": "A loop for a rule with r < 2q and s < 2p (or with r <= q or s <= p), or a matrix termination proof for a rule predicted non-terminating.",
@@ -69,6 +69,26 @@
       "results_sha256": "9c3a165b60fd3638a17f0ed237f54a3635091d9737b27dd8f968b3880a370a9d",
       "runtime_s": 15.543,
       "started": "2026-10-18T07:37:16Z",
+      "summary": [
+        "625 rules: 525 terminating (proved or certified), 71 non-terminating (loop certificates: 56 by forward closures, 15 by strategies), 29 unknown",
+        "contradictions: H-C03-1 0, H-C03-2 35, H-C03-3 0; H-C03-3 predicts ['NON-TERMINATING', 'TERMINATING'] for all unknown rules",
+        "matrix-certified growing rules: 0; symmetry violations: 10"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C03-02",
+        "file": "experiments/C03/E02_extended_survey.py",
+        "sha256": "848dca71475955d2234dce75877a7931f473525ee04e6f395c5500cf18808108",
+        "systems_sha256": "c66c709befff55a27925eeaf26ee433f0d89d84b4b21580604922a8e69df384c"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:18:42Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C03-02.json",
+      "results_sha256": "9c3a165b60fd3638a17f0ed237f54a3635091d9737b27dd8f968b3880a370a9d",
+      "runtime_s": 17.226,
+      "started": "2026-10-18T09:18:25Z",
       "summary": [
         "625 rules: 525 terminating (proved or certified), 71 non-terminating (loop certificates: 56 by forward closures, 15 by strategies), 29 unknown",
         "contradictions: H-C03-1 0, H-C03-2 35, H-C03-3 0; H-C03-3 predicts ['NON-TERMINATING', 'TERMINATING'] for all unknown rules",

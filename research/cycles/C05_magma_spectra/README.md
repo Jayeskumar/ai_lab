@@ -1,7 +1,7 @@
 # Cycle C05 — Spectra of single-identity magma varieties
 
 **Branch:** B (invented composition rules) · **Status:** complete
-**Experiments:** EXP-C05-01 … EXP-C05-05 · **Claims:** CLM-C05-01 … CLM-C05-09
+**Experiments:** EXP-C05-01 … EXP-C05-06 · **Claims:** CLM-C05-01 … CLM-C05-09
 **Proofs:** `proofs/lean/Infinity/C05_Magmas.lean`, `proofs/paper/C05.md`
 **Toolkit:** `systems/magma.py` (terms, identities, exact SAT encoding, isomorphism classes, affine models)
 
@@ -53,10 +53,10 @@ built from github.com/marijnheule/drat-trim with `gcc -O2`, path in
 |---|---|---|
 | EXP-C05-01 | all 115 nontrivial two-variable identities t = x (2, 15, 98 with 2, 3, 4 operations); SAT for n = 1..6 (budget 1e6); isomorphism classes for n ≤ 3 | 11 spectrum patterns: 52 full on 1..6, 2 with only n = 1 there, **61 restricted**; 1 UNKNOWN (law 167 at n = 6 — excluded by the Lean theorem); mirror pairs always agree; 18 identities have non-quasigroup models of order ≤ 3 |
 | EXP-C05-02 | the 63 non-full identities: spectra extended to n = 7, 8 (sound row/column-permutation constraints, budget 5e5); all models up to isomorphism for n ≤ 5; a battery of 10 classical laws tested on every model | 15 patterns on 1..8 (table below); 52/63 identities have only quasigroup models for n ≤ 5; reproduces every spectrum fragment stated in the ETP notes for these laws |
-| EXP-C05-03 | 15 laws with *unknown* spectrum in the ETP notes; SAT for n = 2..10 (budget 1e6), every model re-verified; comparison with every size stated in the notes | see "Frontier" below |
-| EXP-C05-04 | Lean `decide` certificates for each new membership of EXP-C05-03 | see "Frontier" below |
+| EXP-C05-03 | 15 laws with *unknown* spectrum in the ETP notes; SAT for n = 2..10 (budget 1e6), every model re-verified; comparison with every size stated in the notes | 0 disagreements with the notes; new facts in the Frontier table |
+| EXP-C05-04 | Lean `decide` certificates for the memberships flagged by EXP-C05-03 | 9 tables re-solved, re-verified and emitted; all 9 checked by Lean's kernel |
 | EXP-C05-05 | affine models x∗y = ax + by + c over ℤ_n, n ≤ 6, for all 115 identities | **H-C05-A refuted**: 4 identities (2 mirror pairs) are full on 1..6 but have affine models only of orders {1, 5} or {1, 2, 5}; 39 restricted identities have spectrum members without affine models; 0 inconsistencies |
-| EXP-C05-06 | DRUP proofs (Glucose 4) checked by drat-trim for each new non-membership of EXP-C05-03 | see "Frontier" below |
+| EXP-C05-06 | DRUP proofs (Glucose 4) checked by drat-trim for the non-memberships flagged by EXP-C05-03 | 48/48 refutations VERIFIED |
 
 **Spectrum patterns on n = 1..8 (EXP-C05-02; 1 = model exists, 0 = none, ? = undecided within budget).**
 
@@ -107,7 +107,7 @@ with **0 disagreements** with any size stated in the notes. Reading the
 notes' phrase "starting with a, b, …" as settling every size up to the last
 one listed, the facts **not stated in the notes** are:
 
-| ETP law | New memberships (Lean-certified table, EXP-C05-04) | New non-memberships (SAT UNSAT; certification in EXP-C05-06) | Still undecided (n ≤ 10) |
+| ETP law | New memberships (Lean-certified table, EXP-C05-04) | New non-memberships (DRUP proof checked by drat-trim, EXP-C05-06) | Still undecided (n ≤ 10) |
 |---|---|---|---|
 | 467 x = y(x(x(yy))) | 9 | — | 10 |
 | 501 x = y(y(x(xy))) | — | 2, 3, 6, 7 | 10 |
@@ -138,9 +138,14 @@ notes (our UNKNOWNs: 670 at 8–10, 704 at 9–10, 907 at 8–10, 1110 at 10,
 * **Written:** Lemma 0 (exact SAT encoding), Lemma 1 (path translations
   bijective), Lemma 4 (soundness of the added constraints)
   (`proofs/paper/C05.md`).
-* **Computer-assisted:** non-memberships are SAT-solver results; those new
-  relative to the notes are re-derived with proof logging and checked by
-  drat-trim in EXP-C05-06.
+* **Computer-assisted, independently checked:** EXP-C05-06 re-solved all 48
+  UNSAT instances flagged by EXP-C05-03 (a superset of the new
+  non-memberships) with Glucose 4 proof logging; **drat-trim verified all 48
+  DRUP refutations**. The trust base for a non-membership is then drat-trim,
+  the CNF generator (Lemma 0, cross-checked against brute force) and the
+  soundness of the added constraints (Lemma 4 / Lean
+  `left_mul_bijective_of_law`). Other UNSAT entries of EXP-C05-01/02
+  (e.g. in the pattern table) are solver-trusted only.
 
 ## Step 9 — Applications (Application Researcher)
 

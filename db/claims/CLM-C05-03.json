@@ -1,0 +1,23 @@
+{
+  "counterexample": "The 4-element model T4 of law 167, x = (y*x)*(x*y), has row 1 = (0, 2, 2, 2) (Lean: T4_law167, T4_not_latin). In the census, 18 of the 115 identities already have non-quasigroup models of order <= 3.",
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-01",
+    "EXP-C05-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-03",
+  "novelty": "NOT ASSESSED",
+  "statement": "If x occurs in t but is neither its leftmost nor its rightmost leaf, every finite model of t = x is a quasigroup.",
+  "system": "SYS-B",
+  "title": "H-C05-Q: nontrivial identities t = x force their finite models to be quasigroups (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

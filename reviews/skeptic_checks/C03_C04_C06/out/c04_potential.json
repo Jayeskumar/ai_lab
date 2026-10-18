@@ -1,0 +1,8 @@
+{
+ "rules": 5365,
+ "steps_checked": 351927,
+ "violations": 0,
+ "max_K": 2,
+ "length_preserving_multi_length_paths": 0,
+ "_seconds": 1.7
+}

@@ -1,0 +1,9930 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C03-02",
+    "file": "experiments/C03/E02_extended_survey.py",
+    "sha256": "848dca71475955d2234dce75877a7931f473525ee04e6f395c5500cf18808108",
+    "systems_sha256": "7aa4209f225bfe14a91b1bb844b2b35397b38d029609400995096cd86b8c6921"
+  },
+  "env": {
+    "git_head": "f8e6b1d73765e92fdb5c6b1dd635c0ae238d198e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T07:37:31Z",
+  "id": "EXP-C03-02",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "count-decreasing (s < p or r < q) and conserving (s = p or r = q) rules are terminating by the theorems of proofs/paper/C03.md and are not re-searched",
+      "both-growing rules: forward closures (<= 40 letters, <= 40000 pairs), then leftmost/rightmost strategies from 0^a 1^b (a <= 3p, b <= max(4q^2, 3q), <= 3000 steps, <= 6000 letters), then matrix interpretations (d = 2 entries 0..4; upper-triangular d = 3 entries 0..3), then bounded evidence from all words of length <= 12"
+    ],
+    "cycle": "C03",
+    "falsification": "A loop for a rule with r < 2q and s < 2p (or with r <= q or s <= p), or a matrix termination proof for a rule predicted non-terminating.",
+    "hypothesis": "H-C03-3: the rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p); equivalently it terminates iff r <= q or s <= p or (r < 2q and s < 2p).",
+    "id": "EXP-C03-02",
+    "methodology": "As in EXP-C03-01 with the additional strategy-based loop finder; every certificate is re-checked independently.",
+    "question": "Does H-C03-3 survive a larger family and a stronger loop finder, and are any growing rules provably terminating by matrix interpretations?",
+    "title": "Extended termination survey of 0^p 1^q -> 1^r 0^s for p, q, r, s <= 5"
+  },
+  "results": {
+    "hypotheses": {
+      "H-C03-1": {
+        "examples": [],
+        "n_contradictions": 0
+      },
+      "H-C03-2": {
+        "examples": [
+          [
+            1,
+            2,
+            3,
+            2
+          ],
+          [
+            1,
+            2,
+            3,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            1,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            3,
+            4,
+            2
+          ],
+          [
+            1,
+            3,
+            4,
+            3
+          ],
+          [
+            1,
+            3,
+            4,
+            4
+          ],
+          [
+            1,
+            3,
+            4,
+            5
+          ],
+          [
+            1,
+            3,
+            5,
+            2
+          ],
+          [
+            1,
+            3,
+            5,
+            3
+          ]
+        ],
+        "n_contradictions": 35
+      },
+      "H-C03-3": {
+        "examples": [],
+        "n_contradictions": 0
+      }
+    },
+    "longest_loop_steps": 157,
+    "loops_by_method": {
+      "forward closures": 56,
+      "strategy": 15
+    },
+    "rows": [
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 7,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            3
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 9,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            4
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 11,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          2,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          2,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 9,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            4
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          3,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 11,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          3,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          3,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 15,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          3,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 11,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          4,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          4,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 15,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 17,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          1,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          5,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 15,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          5,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 17,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 19,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "011",
+          "steps": [
+            0,
+            9
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          1,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          2,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          2,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 14,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            1,
+            5,
+            4,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          3,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 21,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            1,
+            6,
+            5,
+            4,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          3,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 30,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            1,
+            7,
+            6,
+            5,
+            4,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 42,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0111111",
+          "steps": [
+            0,
+            7,
+            14,
+            13,
+            12,
+            11,
+            10
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          3,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 11,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          4,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          4,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 15,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 17,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          2,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 13,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          5,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 15,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          5,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 17,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 19,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "01111",
+          "steps": [
+            0,
+            9
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          2,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          3,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 27,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00111111111",
+          "steps": [
+            1,
+            6,
+            5,
+            13,
+            12,
+            10,
+            9,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          4,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 55,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0111111111111",
+          "steps": [
+            0,
+            6,
+            12,
+            18,
+            17,
+            16,
+            11,
+            17,
+            16,
+            15,
+            10,
+            16,
+            15,
+            14
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          4,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 101,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0111111111111",
+          "steps": [
+            0,
+            7,
+            14,
+            21,
+            20,
+            19,
+            18,
+            13,
+            20,
+            19,
+            18,
+            17,
+            12,
+            19,
+            18,
+            17,
+            16,
+            11,
+            18,
+            17,
+            16,
+            15
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 173,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0111111111111",
+          "steps": [
+            0,
+            8,
+            16,
+            24,
+            23,
+            22,
+            21,
+            20,
+            15,
+            23,
+            22,
+            21,
+            20,
+            19,
+            14,
+            22,
+            21,
+            20,
+            19,
+            18,
+            13,
+            21,
+            20,
+            19,
+            18,
+            17,
+            12,
+            20,
+            19,
+            18,
+            17,
+            16
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          3,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 20,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00111111",
+          "steps": [
+            1,
+            7,
+            6,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          5,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 28,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00111111",
+          "steps": [
+            1,
+            8,
+            7,
+            6,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          5,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 38,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00111111",
+          "steps": [
+            1,
+            9,
+            8,
+            7,
+            6,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 52,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0111111111",
+          "steps": [
+            0,
+            9,
+            18,
+            17,
+            16,
+            15,
+            14
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          3,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          4,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          4,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 53,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "011111111111111111111",
+          "steps": [
+            0,
+            6,
+            12,
+            18,
+            24,
+            23,
+            17,
+            23,
+            22,
+            11,
+            17,
+            23,
+            22,
+            16,
+            22,
+            21
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          4,
+          5,
+          2
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 144,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "011111111111111111111",
+          "steps": [
+            0,
+            7,
+            14,
+            21,
+            28,
+            27,
+            26,
+            20,
+            27,
+            26,
+            25,
+            19,
+            26,
+            25,
+            24,
+            13,
+            20,
+            27,
+            26,
+            25,
+            19,
+            26,
+            25,
+            24,
+            18,
+            25,
+            24,
+            23,
+            12,
+            19,
+            26,
+            25,
+            24,
+            18,
+            25,
+            24,
+            23,
+            17,
+            24,
+            23,
+            22
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          4,
+          5,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 365,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "011111111111111111111",
+          "steps": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            31,
+            30,
+            29,
+            23,
+            31,
+            30,
+            29,
+            28,
+            22,
+            30,
+            29,
+            28,
+            27,
+            21,
+            29,
+            28,
+            27,
+            26,
+            15,
+            23,
+            31,
+            30,
+            29,
+            28,
+            22,
+            30,
+            29,
+            28,
+            27,
+            21,
+            29,
+            28,
+            27,
+            26,
+            20,
+            28,
+            27,
+            26,
+            25,
+            14,
+            22,
+            30,
+            29,
+            28,
+            27,
+            21,
+            29,
+            28,
+            27,
+            26,
+            20,
+            28,
+            27,
+            26,
+            25,
+            19,
+            27,
+            26,
+            25,
+            24,
+            13,
+            21,
+            29,
+            28,
+            27,
+            26,
+            20,
+            28,
+            27,
+            26,
+            25,
+            19,
+            27,
+            26,
+            25,
+            24,
+            18,
+            26,
+            25,
+            24,
+            23
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          4,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 806,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "011111111111111111111",
+          "steps": [
+            0,
+            9,
+            18,
+            27,
+            36,
+            35,
+            34,
+            33,
+            32,
+            26,
+            35,
+            34,
+            33,
+            32,
+            31,
+            25,
+            34,
+            33,
+            32,
+            31,
+            30,
+            24,
+            33,
+            32,
+            31,
+            30,
+            29,
+            23,
+            32,
+            31,
+            30,
+            29,
+            28,
+            17,
+            26,
+            35,
+            34,
+            33,
+            32,
+            31,
+            25,
+            34,
+            33,
+            32,
+            31,
+            30,
+            24,
+            33,
+            32,
+            31,
+            30,
+            29,
+            23,
+            32,
+            31,
+            30,
+            29,
+            28,
+            22,
+            31,
+            30,
+            29,
+            28,
+            27,
+            16,
+            25,
+            34,
+            33,
+            32,
+            31,
+            30,
+            24,
+            33,
+            32,
+            31,
+            30,
+            29,
+            23,
+            32,
+            31,
+            30,
+            29,
+            28,
+            22,
+            31,
+            30,
+            29,
+            28,
+            27,
+            21,
+            30,
+            29,
+            28,
+            27,
+            26,
+            15,
+            24,
+            33,
+            32,
+            31,
+            30,
+            29,
+            23,
+            32,
+            31,
+            30,
+            29,
+            28,
+            22,
+            31,
+            30,
+            29,
+            28,
+            27,
+            21,
+            30,
+            29,
+            28,
+            27,
+            26,
+            20,
+            29,
+            28,
+            27,
+            26,
+            25,
+            14,
+            23,
+            32,
+            31,
+            30,
+            29,
+            28,
+            22,
+            31,
+            30,
+            29,
+            28,
+            27,
+            21,
+            30,
+            29,
+            28,
+            27,
+            26,
+            20,
+            29,
+            28,
+            27,
+            26,
+            25,
+            19,
+            28,
+            27,
+            26,
+            25,
+            24
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          1,
+          4,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          1,
+          5,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          5,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          5,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          5,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          5,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          1,
+          5,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          1,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 14,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001011",
+          "steps": [
+            0,
+            4,
+            2,
+            9
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          2,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 10,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            4
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          2,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 12,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          2,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          1,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 21,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001011",
+          "steps": [
+            0,
+            5,
+            3,
+            7,
+            15
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          3,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 12,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            5
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          3,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 14,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          3,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          1,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 30,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001011",
+          "steps": [
+            0,
+            6,
+            4,
+            9,
+            14,
+            23
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          4,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 14,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 16,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          1,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          1,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 41,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "000011",
+          "steps": [
+            2,
+            8,
+            0,
+            6,
+            12,
+            18,
+            24
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          5,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 16,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 18,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0011",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          1,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 3747,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "4": 1,
+            "5": 1,
+            "6": 2,
+            "7": 3,
+            "8": 3,
+            "9": 6,
+            "10": 7,
+            "11": 7,
+            "12": 12
+          },
+          "too_long_or_limit": 0,
+          "words": 3747
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          3,
+          3
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "end_length": 20,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00001111",
+          "steps": [
+            2,
+            7,
+            5,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          3,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 3746,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "4": 1,
+            "5": 1,
+            "6": 3,
+            "7": 4,
+            "8": 5,
+            "9": 13,
+            "10": 14,
+            "11": 15,
+            "12": 20
+          },
+          "too_long_or_limit": 1,
+          "words": 3747
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          3,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 21,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001101111",
+          "steps": [
+            0,
+            6,
+            4,
+            14
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          4,
+          3
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 14,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            0,
+            6
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 16,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          2,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          2,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 3746,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "4": 1,
+            "5": 1,
+            "6": 3,
+            "7": 4,
+            "8": 5,
+            "9": 13,
+            "10": 14,
+            "11": 15,
+            "12": 20
+          },
+          "too_long_or_limit": 1,
+          "words": 3747
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          5,
+          3
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "end_length": 16,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            0,
+            7
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 18,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "001111",
+          "steps": [
+            0,
+            8
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          2,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 2,
+            "9": 3,
+            "10": 3,
+            "11": 5,
+            "12": 6
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          4,
+          3
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "end_length": 37,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0000111111111",
+          "steps": [
+            2,
+            8,
+            6,
+            17,
+            15,
+            12,
+            10,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 3,
+            "9": 4,
+            "10": 4,
+            "11": 7,
+            "12": 11
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          3,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          3,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 3,
+            "9": 3,
+            "10": 4,
+            "11": 7,
+            "12": 7
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          5,
+          3
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "end_length": 26,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0000111111",
+          "steps": [
+            2,
+            9,
+            7,
+            0
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 4,
+            "9": 4,
+            "10": 5,
+            "11": 14,
+            "12": 14
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          3,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          4,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          4,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          4,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          4,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          4,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          4,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 2,
+            "10": 3,
+            "11": 3,
+            "12": 4
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          4,
+          5,
+          3
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "end_length": 70,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "0011111111111111111111",
+          "steps": [
+            0,
+            7,
+            14,
+            21,
+            28,
+            26,
+            19,
+            26,
+            24,
+            12,
+            19,
+            26,
+            24,
+            17,
+            24,
+            22
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          4,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 2,
+            "10": 3,
+            "11": 4,
+            "12": 4
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          2,
+          4,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          2,
+          5,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          5,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          5,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          5,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          2,
+          5,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 27,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00010011011",
+          "steps": [
+            0,
+            5,
+            2,
+            5,
+            12,
+            9,
+            18,
+            21
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          2,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 20,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00010011",
+          "steps": [
+            0,
+            6,
+            3,
+            13
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          2,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 53,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "00000000011",
+          "steps": [
+            6,
+            3,
+            0,
+            4,
+            8,
+            16,
+            13,
+            17,
+            21,
+            29,
+            26,
+            30,
+            34,
+            46
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          3,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 28,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00010011",
+          "steps": [
+            0,
+            7,
+            4,
+            9,
+            20
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          3,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 99,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "00000000011",
+          "steps": [
+            6,
+            3,
+            0,
+            5,
+            10,
+            15,
+            24,
+            21,
+            26,
+            31,
+            36,
+            45,
+            42,
+            47,
+            52,
+            57,
+            66,
+            63,
+            68,
+            73,
+            78,
+            91
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 38,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00010011",
+          "steps": [
+            0,
+            8,
+            5,
+            11,
+            17,
+            29
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          1,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          1,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 171,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "00000000011",
+          "steps": [
+            6,
+            3,
+            0,
+            6,
+            12,
+            18,
+            24,
+            34,
+            31,
+            37,
+            43,
+            49,
+            55,
+            65,
+            62,
+            68,
+            74,
+            80,
+            86,
+            96,
+            93,
+            99,
+            105,
+            111,
+            117,
+            127,
+            124,
+            130,
+            136,
+            142,
+            148,
+            162
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          5,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 50,
+          "kind": "loop",
+          "method": "strategy",
+          "start": "00000011",
+          "steps": [
+            3,
+            10,
+            0,
+            7,
+            14,
+            21,
+            28
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          1,
+          5,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 2,
+            "9": 3,
+            "10": 3,
+            "11": 5,
+            "12": 6
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          3,
+          4
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 3,
+            "9": 3,
+            "10": 4,
+            "11": 7,
+            "12": 7
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          3,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 40,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "0001100111101111",
+          "steps": [
+            0,
+            7,
+            4,
+            9,
+            18,
+            15,
+            27,
+            32
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          4,
+          4
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "end_length": 27,
+          "kind": "loop",
+          "method": "forward closures",
+          "start": "00011001111",
+          "steps": [
+            0,
+            8,
+            5,
+            18
+          ]
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          4,
+          5
+        ],
+        "status": "NON-TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          2,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          2,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 3,
+            "9": 4,
+            "10": 4,
+            "11": 7,
+            "12": 11
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          5,
+          4
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 1,
+            "7": 2,
+            "8": 4,
+            "9": 4,
+            "10": 5,
+            "11": 14,
+            "12": 14
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          2,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          3,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          3,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          3,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 2,
+            "10": 2,
+            "11": 3,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          3,
+          4,
+          4
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 2,
+            "10": 3,
+            "11": 3,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          3,
+          4,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          3,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          3,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 2,
+            "10": 3,
+            "11": 3,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          3,
+          5,
+          4
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 1,
+            "9": 2,
+            "10": 3,
+            "11": 3,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          3,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          4,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          4,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          4,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          4,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          4,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 321,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 2,
+            "11": 2,
+            "12": 2
+          },
+          "too_long_or_limit": 0,
+          "words": 321
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          4,
+          5,
+          4
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 321,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 2,
+            "11": 2,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 321
+        },
+        "region": "both-growing",
+        "rule": [
+          3,
+          4,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          3,
+          5,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          5,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          5,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          3,
+          5,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 2,
+            "7": 3,
+            "8": 4,
+            "9": 5,
+            "10": 7,
+            "11": 10,
+            "12": 13
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          1,
+          2,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1762,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 2,
+            "7": 3,
+            "8": 4,
+            "9": 5,
+            "10": 9,
+            "11": 13,
+            "12": 18
+          },
+          "too_long_or_limit": 0,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          1,
+          3,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1760,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 2,
+            "7": 3,
+            "8": 4,
+            "9": 6,
+            "10": 11,
+            "11": 16,
+            "12": 21
+          },
+          "too_long_or_limit": 2,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          1,
+          4,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          1,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          1,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 1744,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "5": 1,
+            "6": 2,
+            "7": 3,
+            "8": 4,
+            "9": 7,
+            "10": 13,
+            "11": 14,
+            "12": 15
+          },
+          "too_long_or_limit": 18,
+          "words": 1762
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          1,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          2,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          2,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          2,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 2,
+            "10": 3,
+            "11": 3,
+            "12": 4
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          2,
+          3,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          2,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 2,
+            "10": 3,
+            "11": 4,
+            "12": 6
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          2,
+          4,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          2,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          2,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 768,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "6": 1,
+            "7": 1,
+            "8": 2,
+            "9": 2,
+            "10": 3,
+            "11": 4,
+            "12": 4
+          },
+          "too_long_or_limit": 0,
+          "words": 768
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          2,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          3,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          3,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          3,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 321,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 2,
+            "11": 2,
+            "12": 2
+          },
+          "too_long_or_limit": 0,
+          "words": 321
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          3,
+          4,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          3,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          3,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 321,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "7": 1,
+            "8": 1,
+            "9": 1,
+            "10": 2,
+            "11": 2,
+            "12": 3
+          },
+          "too_long_or_limit": 0,
+          "words": 321
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          3,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          4,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          4,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          4,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "cycle": 0,
+          "finite": 129,
+          "kind": "bounded evidence",
+          "max_derivation": {
+            "8": 1,
+            "9": 1,
+            "10": 1,
+            "11": 1,
+            "12": 2
+          },
+          "too_long_or_limit": 0,
+          "words": 129
+        },
+        "region": "both-growing",
+        "rule": [
+          4,
+          4,
+          5,
+          5
+        ],
+        "status": "UNKNOWN"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          4,
+          5,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          5,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          4,
+          5,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          1,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          1,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          1,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          1,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          1,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          1,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          2,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          2,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          2,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          2,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          2,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          3,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          3,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          3,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          3,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          4,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          4,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          4,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          1,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          1,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          1,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          1,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          2,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          2,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          2,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          2,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          2,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          3,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          3,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          3,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          3,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          3,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          4,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          4,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          4,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          4,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          4,
+          5
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          5,
+          1
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          5,
+          2
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          5,
+          3
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "counting proof"
+        },
+        "region": "count-decreasing",
+        "rule": [
+          5,
+          5,
+          5,
+          4
+        ],
+        "status": "TERMINATING"
+      },
+      {
+        "certificate": {
+          "kind": "conservation proof"
+        },
+        "region": "conserving",
+        "rule": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "status": "TERMINATING"
+      }
+    ],
+    "summary": [
+      "625 rules: 525 terminating (proved or certified), 71 non-terminating (loop certificates: 56 by forward closures, 15 by strategies), 29 unknown",
+      "contradictions: H-C03-1 0, H-C03-2 35, H-C03-3 0; H-C03-3 predicts ['NON-TERMINATING', 'TERMINATING'] for all unknown rules",
+      "matrix-certified growing rules: 0; symmetry violations: 10"
+    ],
+    "symmetry_violations": [
+      [
+        1,
+        4,
+        5,
+        2
+      ],
+      [
+        1,
+        4,
+        5,
+        3
+      ],
+      [
+        1,
+        4,
+        5,
+        4
+      ],
+      [
+        1,
+        4,
+        5,
+        5
+      ],
+      [
+        2,
+        4,
+        5,
+        4
+      ],
+      [
+        4,
+        1,
+        2,
+        5
+      ],
+      [
+        4,
+        1,
+        3,
+        5
+      ],
+      [
+        4,
+        1,
+        4,
+        5
+      ],
+      [
+        4,
+        1,
+        5,
+        5
+      ],
+      [
+        4,
+        2,
+        4,
+        5
+      ]
+    ],
+    "unknown_max_derivation_len12": {
+      "[2, 2, 3, 3]": 12,
+      "[2, 2, 3, 5]": 20,
+      "[2, 2, 5, 3]": 20,
+      "[2, 3, 4, 3]": 6,
+      "[2, 3, 4, 5]": 11,
+      "[2, 3, 5, 3]": 7,
+      "[2, 3, 5, 5]": 14,
+      "[2, 4, 5, 3]": 4,
+      "[2, 4, 5, 5]": 4,
+      "[3, 2, 3, 4]": 6,
+      "[3, 2, 3, 5]": 7,
+      "[3, 2, 5, 4]": 11,
+      "[3, 2, 5, 5]": 14,
+      "[3, 3, 4, 4]": 3,
+      "[3, 3, 4, 5]": 3,
+      "[3, 3, 5, 4]": 3,
+      "[3, 3, 5, 5]": 3,
+      "[3, 4, 5, 4]": 2,
+      "[3, 4, 5, 5]": 3,
+      "[4, 1, 2, 5]": 13,
+      "[4, 1, 3, 5]": 18,
+      "[4, 1, 4, 5]": 21,
+      "[4, 1, 5, 5]": 15,
+      "[4, 2, 3, 5]": 4,
+      "[4, 2, 4, 5]": 6,
+      "[4, 2, 5, 5]": 4,
+      "[4, 3, 4, 5]": 2,
+      "[4, 3, 5, 5]": 3,
+      "[4, 4, 5, 5]": 2
+    },
+    "unknown_predicted_by_H3": [
+      "NON-TERMINATING",
+      "TERMINATING"
+    ],
+    "unknown_rules": [
+      [
+        2,
+        2,
+        3,
+        3
+      ],
+      [
+        2,
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        2,
+        5,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        3
+      ],
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        2,
+        3,
+        5,
+        3
+      ],
+      [
+        2,
+        3,
+        5,
+        5
+      ],
+      [
+        2,
+        4,
+        5,
+        3
+      ],
+      [
+        2,
+        4,
+        5,
+        5
+      ],
+      [
+        3,
+        2,
+        3,
+        4
+      ],
+      [
+        3,
+        2,
+        3,
+        5
+      ],
+      [
+        3,
+        2,
+        5,
+        4
+      ],
+      [
+        3,
+        2,
+        5,
+        5
+      ],
+      [
+        3,
+        3,
+        4,
+        4
+      ],
+      [
+        3,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        3,
+        5,
+        4
+      ],
+      [
+        3,
+        3,
+        5,
+        5
+      ],
+      [
+        3,
+        4,
+        5,
+        4
+      ],
+      [
+        3,
+        4,
+        5,
+        5
+      ],
+      [
+        4,
+        1,
+        2,
+        5
+      ],
+      [
+        4,
+        1,
+        3,
+        5
+      ],
+      [
+        4,
+        1,
+        4,
+        5
+      ],
+      [
+        4,
+        1,
+        5,
+        5
+      ],
+      [
+        4,
+        2,
+        3,
+        5
+      ],
+      [
+        4,
+        2,
+        4,
+        5
+      ],
+      [
+        4,
+        2,
+        5,
+        5
+      ],
+      [
+        4,
+        3,
+        4,
+        5
+      ],
+      [
+        4,
+        3,
+        5,
+        5
+      ],
+      [
+        4,
+        4,
+        5,
+        5
+      ]
+    ]
+  },
+  "results_sha256": "9c3a165b60fd3638a17f0ed237f54a3635091d9737b27dd8f968b3880a370a9d",
+  "runtime_s": 15.543,
+  "started": "2026-10-18T07:37:16Z"
+}

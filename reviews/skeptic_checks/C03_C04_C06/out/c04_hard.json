@@ -1,0 +1,40 @@
+{
+ "aab->ababa": {
+  "matrix_2x2_full_0..5": null,
+  "matrix_3x3_upper_0..3": null,
+  "loop_found": null,
+  "D_max_by_length": [
+   0,
+   0,
+   0,
+   1,
+   3,
+   7,
+   15,
+   31,
+   63,
+   127,
+   255
+  ]
+ },
+ "aab->babaa": {
+  "matrix_2x2_full_0..5": null,
+  "matrix_3x3_upper_0..3": null,
+  "loop_found": null,
+  "D_max_by_length": [
+   0,
+   0,
+   0,
+   1,
+   2,
+   3,
+   6,
+   9,
+   14,
+   21,
+   30,
+   45
+  ]
+ },
+ "_seconds": 37.2
+}

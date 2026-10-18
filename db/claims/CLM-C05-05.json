@@ -1,0 +1,27 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-05",
+  "lean": [
+    "proofs/lean/Infinity/C05_Magmas.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Standard finite-set argument (a surjective self-map of a finite set is bijective), used throughout the ETP notes.",
+  "proof": "proofs/paper/C05.md#lemma-1-clm-c05-05--translations-along-the-path-to-a-unique-occurrence-of-x",
+  "proof_check": "Lean 4 + Mathlib for the x = y*s(x,y) case (left_mul_bijective_of_law); the general path version by written proof",
+  "statement": "If a finite magma satisfies x = y * s(x, y) for some binary term operation s, every left translation a -> y*a\nis a bijection (every row of the Cayley table is a permutation). More generally, in a finite model of t = x\nwith x occurring once in t, every translation on the path from the root of t to x is a bijection.",
+  "system": "SYS-B",
+  "title": "Identities x = y*s(x, y) make every left translation of a finite model bijective",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

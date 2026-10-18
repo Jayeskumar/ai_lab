@@ -1,0 +1,24 @@
+{
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:59Z"
+    }
+  ],
+  "id": "CLM-C17-03",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "S. Rajagopalan, L. J. Schulman, Verification of identities, SIAM J. Comput. 29 (2000) 1155-1168.",
+  "proof": "proofs/paper/C17.md#theorem-3-clm-c17-03--the-rajagopalanschulman-test-is-one-sided",
+  "proof_check": "one-sidedness proved (proofs/paper/C17.md Theorem 3, bilinear extension); the 1/8 detection bound is the cited theorem of Rajagopalan-Schulman, not re-proved; empirically 0 errors in 90 instances with 40 rounds",
+  "statement": "The GF(2) subset-sum test (compare (u*v)*w and u*(v*w) in the magma algebra for random subsets u, v, w) never rejects an associative table, and rejects a non-associative one with probability at least 1/8 per round; each round costs O(n^2) probes.",
+  "system": "SYS-B",
+  "title": "The Rajagopalan-Schulman randomised associativity test is one-sided",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

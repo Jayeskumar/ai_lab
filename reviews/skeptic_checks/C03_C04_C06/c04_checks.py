@@ -257,13 +257,16 @@ def part_ext():
             bad.append([l, r, proof])
         # own loop hunt on rules certified terminating and length-increasing (would expose a wrong certificate)
         if st == "TERMINATING" and len(r) > len(l):
-            hit = own_loop(l, r, seeds[:60], max_steps=400, max_len=3000)
+            sd = [w for w in seeds if l in w][:150]
+            hit = own_loop(l, r, sd, max_steps=600, max_len=4000)
             if hit:
                 loops_in_terminating.append([l, r, hit])
     und = [f"{row['rule'][0]}->{row['rule'][1]}" for row in rows if row["status"] == "UNKNOWN"]
+    hunted = sum(1 for row in rows if row["status"] == "TERMINATING" and len(row["rule"][1]) > len(row["rule"][0]))
     return {"rules": len(rows), "status_proof_counts": stats, "certificates_failing_own_check": bad,
             "nonterminating_with_l_not_factor_of_r": sorted(nonfactor_nt), "count_nonfactor_nt": len(nonfactor_nt),
-            "loops_found_in_rules_certified_terminating": loops_in_terminating, "undecided": und}
+            "loops_found_in_rules_certified_terminating": loops_in_terminating, "rules_hunted": hunted,
+            "undecided": und}
 
 
 # ------------------------------------------------------------ derivational complexity
@@ -347,7 +350,7 @@ def part_complexity(nmax_default=12):
     for l, r in reps:
         key = f"{l}->{r}"
         doubling = key in ("ab->baa",)
-        nmax = 14 if len(r) <= len(l) else nmax_default
+        nmax = 18 if len(r) == len(l) else (16 if len(r) < len(l) else nmax_default)
         if doubling:
             nmax = 15
         D = []

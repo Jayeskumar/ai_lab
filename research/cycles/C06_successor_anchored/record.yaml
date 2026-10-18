@@ -35,8 +35,9 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C06-01, EXP-C06-02]
     lean: [proofs/lean/Infinity/C06_Laver.lean]
+    change_reason: "Wording of the cited theorem corrected - the recursion is imposed for q < N only; EXP-C17-02 shows that with the wrap-around instance there are no anchored solutions at N = 3, 5, 6, 7, 9, 10"
     novelty: REDISCOVERY
-    novelty_basis: "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q*1) = (p*q)*(p*1), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab."
+    novelty_basis: "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab."
   - id: CLM-C06-02
     type: theorem
     system: SYS-B

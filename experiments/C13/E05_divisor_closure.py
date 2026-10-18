@@ -1,4 +1,4 @@
-"""EXP-C13-06: H-C13-1 - is every anchored spectrum closed under divisors? (falsification search)"""
+"""EXP-C13-05: H-C13-1 - is every anchored spectrum closed under divisors? (falsification search)"""
 
 import random
 import time
@@ -7,7 +7,7 @@ from systems.anchored import (affine_roots, affine_system, anchored_status, divi
                               law_str, system_of_laws, zero_modulus)
 
 META = {
-    "id": "EXP-C13-06",
+    "id": "EXP-C13-05",
     "cycle": "C13",
     "title": "Divisor-closure of anchored spectra: all 2-variable laws with <= 4 leaves per side, N <= 10",
     "agent": "Mathematical Skeptic",

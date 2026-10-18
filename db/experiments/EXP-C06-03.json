@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C06-03",
     "file": "experiments/C06/E03_law_family_spectra.py",
     "sha256": "c1f5a8ccfe091c472ac1c2a5da41a5b150646d637fd8f4b0b89dc9044fc6d584",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
   },
   "counterexamples": [
     "(xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8)",
@@ -77,7 +77,7 @@
     "CLM-C06-04"
   ],
   "results_file": "results/EXP-C06-03.json",
-  "results_sha256": "abc56c929f0aa54ad8eed798844e2a422a152de6c815d66f4765f3937f61e395",
+  "results_sha256": "6dabd8b777b2264e8e717684a2543a7c992f31194841095c2d2b90680d7f45cc",
   "runs": [
     {
       "code": {
@@ -93,6 +93,26 @@
       "results_sha256": "abc56c929f0aa54ad8eed798844e2a422a152de6c815d66f4765f3937f61e395",
       "runtime_s": 46.81,
       "started": "2026-10-18T08:24:56Z",
+      "summary": [
+        "382 laws: all N <= 6: 77, trivial only: 283, restricted: 22",
+        "restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)x)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)x)y', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)y)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zy)x)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(y(zz))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(z(yy))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((yz)z)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((zy)y)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zx)y)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zy)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yx)z)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yz)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}]",
+        "UNKNOWN instances: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C06-03",
+        "file": "experiments/C06/E03_law_family_spectra.py",
+        "sha256": "c1f5a8ccfe091c472ac1c2a5da41a5b150646d637fd8f4b0b89dc9044fc6d584",
+        "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:20:06Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C06-03.json",
+      "results_sha256": "6dabd8b777b2264e8e717684a2543a7c992f31194841095c2d2b90680d7f45cc",
+      "runtime_s": 37.067,
+      "started": "2026-10-18T09:19:29Z",
       "summary": [
         "382 laws: all N <= 6: 77, trivial only: 283, restricted: 22",
         "restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)x)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)x)y', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)y)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zy)x)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(y(zz))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(z(yy))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((yz)z)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((zy)y)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zx)y)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zy)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yx)z)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yz)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}]",

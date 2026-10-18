@@ -1,0 +1,60 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "light cones to t = 18 (tables of 2^19 entries)",
+    "cyclic rows of length L = 1..16",
+    "surjectivity and injectivity on bi-infinite rows by the pair-graph (Garden of Eden) criterion"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C15-01",
+    "file": "experiments/C15/E01_order2.py",
+    "sha256": "40a9fe94c118d994f9ec586969b9f7daa1366b3b83c0c2408fbeec5f8f10ce20",
+    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+  },
+  "cycle": "C15",
+  "falsification": "A rule number that is not a multiple of 17, or an XOR light cone that is not 2^popcount(t).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:23:04Z"
+    }
+  ],
+  "hypothesis": "H-C15-0 (calibration): the 16 automata are exactly the elementary rules that ignore the left neighbour, i.e. the multiples of 17; XOR (rule 102) has 2^popcount(t) essential cells (Gould's sequence A001316) and bounded streaming width.",
+  "id": "EXP-C15-01",
+  "methodology": "Compute the Wolfram number of each table, the essential variables and the forward/backward ordered-BDD widths of F_t, nilpotency (F_t constant), pair-graph surjectivity/injectivity and the functional graph of the global map on all cyclic rows of each length.",
+  "question": "Which elementary CA rules are the automata c'_i = c_i * c_{i+1} of the 16 two-element magmas, and how do their light cones, streaming widths, surjectivity and cyclic dynamics look?",
+  "results_file": "results/EXP-C15-01.json",
+  "results_sha256": "a47c3d15ea6d2c6bc7c66182c96b1e59cf9778cf2de038c52d6e23974c5b5857",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C15-01",
+        "file": "experiments/C15/E01_order2.py",
+        "sha256": "40a9fe94c118d994f9ec586969b9f7daa1366b3b83c0c2408fbeec5f8f10ce20",
+        "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:23:04Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C15-01.json",
+      "results_sha256": "a47c3d15ea6d2c6bc7c66182c96b1e59cf9778cf2de038c52d6e23974c5b5857",
+      "runtime_s": 9.743,
+      "started": "2026-10-18T09:22:54Z",
+      "summary": [
+        "rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True)",
+        "XOR (rule 102) essential cells = 2^popcount(t): True",
+        "surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]",
+        "streaming width > 4 at t = 18: []"
+      ]
+    }
+  ],
+  "summary": [
+    "rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True)",
+    "XOR (rule 102) essential cells = 2^popcount(t): True",
+    "surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]",
+    "streaming width > 4 at t = 18: []"
+  ],
+  "title": "Two-element magma automata: elementary rules 17m, light cones, surjectivity and cyclic dynamics"
+}

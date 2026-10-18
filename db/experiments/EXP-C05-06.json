@@ -1,0 +1,90 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "All 48 UNSAT instances flagged by EXP-C05-03 were re-solved with Glucose 4 proof logging and every DRUP refutation was VERIFIED by drat-trim.",
+  "assumptions": [
+    "drat-trim (github.com/marijnheule/drat-trim, master; built locally with gcc -O2), located via the DRAT_TRIM environment variable or the scratchpad build path",
+    "the CNF includes two sound additions: 'rows are permutations' for laws x = y*(...) (Lean: left_mul_bijective_of_law) and the relabelling symmetry break 0*0 in {0,1}",
+    "Glucose 4 (pysat) with proof logging, conflict budget 3e6 per instance (exceeded = no certificate)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-06",
+    "file": "experiments/C05/E06_certified_unsat.py",
+    "sha256": "7ac2e7d0c4602e3fd5330fc9da1a7b4724afeb1621831114b31c5b3fbd33d69d",
+    "systems_sha256": "31d801cc1588e49ca5fcc8cf9b30688b40007123004d8d0518b9032a6f4f7df0"
+  },
+  "cycle": "C05",
+  "falsification": "drat-trim rejecting a proof (or Glucose finding a model) would contradict EXP-C05-03.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T09:15:21Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 48 UNSAT instances flagged by EXP-C05-03 were re-solved with Glucose 4 proof logging and every DRUP refutation was VERIFIED by drat-trim.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:59Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:59Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:59Z"
+    }
+  ],
+  "hypothesis": "Each such UNSAT instance yields a DRUP refutation that drat-trim verifies.",
+  "id": "EXP-C05-06",
+  "methodology": "Rebuild the exact CNF of EXP-C05-03 for each (law, n) reported UNSAT beyond the notes, solve with Glucose4(with_proof=True), write DIMACS + DRUP files, run drat-trim, record its verdict and the SHA-256 of both files.",
+  "question": "Can the non-memberships found by SAT beyond the ETP notes be certified by an independent proof checker instead of trusting the solver?",
+  "related": [
+    "CLM-C05-08"
+  ],
+  "results_file": "results/EXP-C05-06.json",
+  "results_sha256": "ebeff4aa1d7fb9d4f7a3533ced8ecd2ccd034fbe6f7bf16aefe1fdf957cfdce1",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-06",
+        "file": "experiments/C05/E06_certified_unsat.py",
+        "sha256": "7ac2e7d0c4602e3fd5330fc9da1a7b4724afeb1621831114b31c5b3fbd33d69d",
+        "systems_sha256": "31d801cc1588e49ca5fcc8cf9b30688b40007123004d8d0518b9032a6f4f7df0"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:15:21Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-06.json",
+      "results_sha256": "ebeff4aa1d7fb9d4f7a3533ced8ecd2ccd034fbe6f7bf16aefe1fdf957cfdce1",
+      "runtime_s": 218.249,
+      "started": "2026-10-18T09:11:42Z",
+      "summary": [
+        "48 new UNSAT instances re-solved with proof logging; drat-trim VERIFIED 48: [(467, 2), (467, 3), (467, 4), (467, 6), (501, 2), (501, 3), (501, 6), (501, 7), (670, 2), (670, 3), (677, 2), (677, 3), (677, 4), (677, 6), (704, 2), (704, 3), (704, 4), (704, 6), (883, 3), (883, 6), (1076, 2), (1076, 3), (1076, 4), (1076, 8), (1083, 2), (1083, 5), (1083, 6), (1110, 2), (1110, 3), (1110, 6), (1279, 2), (1279, 3), (1279, 4), (1279, 6), (1286, 2), (1286, 3), (1286, 4), (1286, 5), (1286, 6), (1313, 2), (1313, 3), (1313, 4), (1313, 6), (1516, 2), (1516, 3), (1516, 4), (1516, 6), (1719, 2)]",
+        "not verified / other: []"
+      ]
+    }
+  ],
+  "summary": [
+    "48 new UNSAT instances re-solved with proof logging; drat-trim VERIFIED 48: [(467, 2), (467, 3), (467, 4), (467, 6), (501, 2), (501, 3), (501, 6), (501, 7), (670, 2), (670, 3), (677, 2), (677, 3), (677, 4), (677, 6), (704, 2), (704, 3), (704, 4), (704, 6), (883, 3), (883, 6), (1076, 2), (1076, 3), (1076, 4), (1076, 8), (1083, 2), (1083, 5), (1083, 6), (1110, 2), (1110, 3), (1110, 6), (1279, 2), (1279, 3), (1279, 4), (1279, 6), (1286, 2), (1286, 3), (1286, 4), (1286, 5), (1286, 6), (1313, 2), (1313, 3), (1313, 4), (1313, 6), (1516, 2), (1516, 3), (1516, 4), (1516, 6), (1719, 2)]",
+    "not verified / other: []"
+  ],
+  "title": "Certified UNSAT: DRUP proofs checked by drat-trim for new spectrum gaps",
+  "verification": "PROVEN"
+}

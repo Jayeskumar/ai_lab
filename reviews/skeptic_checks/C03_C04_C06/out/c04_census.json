@@ -1,0 +1,16 @@
+{
+ "rules": 196,
+ "certificate_kinds": {
+  "length decreasing": 70,
+  "length preserving (lex monotone)": 70,
+  "l factor of r (self-embedding l -> r)": 34,
+  "2x2 matrix interpretation": 20,
+  "factor count (aa)": 1,
+  "factor count (bb)": 1
+ },
+ "nonterminating": 34,
+ "unknown": [],
+ "lex_direction_inconsistencies": 0,
+ "nonterminating_all_l_factor_of_r": true,
+ "_seconds": 0.2
+}

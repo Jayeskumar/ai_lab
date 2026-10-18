@@ -1,0 +1,23 @@
+{
+  "counterexample": "x = (y*x)*(x*(y*y)) has models of every order 1..6 (EXP-C05-01); of order 2 it is satisfied by NAND (Lean: nand2_law), yet no affine operation over Z_2 satisfies it (Lean: no_affine_model_mod2); its affine models exist only for n in {1, 5}. Three further identities behave alike (EXP-C05-05).",
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-05",
+    "EXP-C05-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "A nontrivial identity t = x has models of all orders 1..6 iff it has an affine model x*y = a x + b y + c over Z_n for every n <= 6.",
+  "system": "SYS-B",
+  "title": "H-C05-A: full spectrum iff affine models over every Z_n (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

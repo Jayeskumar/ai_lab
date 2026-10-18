@@ -1,0 +1,23 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-03",
+    "EXP-C05-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-09",
+  "limitations": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.",
+  "novelty": "NOT ASSESSED",
+  "statement": "The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.",
+  "system": "SYS-B",
+  "title": "Laws 677 and 1313 have spectrum {1} together with all odd n >= 5",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "ETP law 167, x = (y*x)*(x*y): Lean-certified models of orders 4 and 5 (T4_law167, T5_law167) and no model of order 2, 3, 6 or 7 (law167_card_mod_four: every finite model has order 0 or 1 mod 4). The census EXP-C05-01 finds 61 of 115 nontrivial two-variable identities with spectra on n <= 6 that are neither {1} nor everything.",
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:58Z"
+    }
+  ],
+  "id": "CLM-C05-01",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every identity t = x has spectrum {1} or the set of all positive integers.",
+  "system": "SYS-B",
+  "title": "H-C05-1: a single identity t = x cannot restrict the orders of its finite models (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

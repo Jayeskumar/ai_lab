@@ -1,4 +1,4 @@
-"""EXP-C13-05: the finite spectra {1,2} and {1,3} of CLM-C06-10 - all models affine up to N = 12?"""
+"""EXP-C13-04: the finite spectra {1,2} and {1,3} of CLM-C06-10 - all models affine up to N = 12?"""
 
 import time
 
@@ -6,7 +6,7 @@ from systems.anchored import affine_roots, affine_system, anchored_status
 from systems.magma import parse
 
 META = {
-    "id": "EXP-C13-05",
+    "id": "EXP-C13-04",
     "cycle": "C13",
     "title": "Non-affine models of the 17 finite-spectrum laws of CLM-C06-10, N <= 12",
     "agent": "Mathematical Skeptic",

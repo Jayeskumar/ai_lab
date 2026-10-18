@@ -1,0 +1,46 @@
+{
+ "census_162": {
+  "unbordered": {
+   "total": 84,
+   "RD": 84
+  },
+  "bordered": {
+   "total": 78,
+   "RD": 18,
+   "confluent": 18,
+   "length_uniform": 18
+  }
+ },
+ "bordered_RD_rules": [
+  "aa->",
+  "aa->a",
+  "aa->aba",
+  "bb->",
+  "bb->b",
+  "bb->bab",
+  "aaa->",
+  "aaa->a",
+  "aaa->aa",
+  "aba->a",
+  "aba->aa",
+  "aba->aaa",
+  "bab->b",
+  "bab->bb",
+  "bab->bbb",
+  "bbb->",
+  "bbb->b",
+  "bbb->bb"
+ ],
+ "length_uniform_not_confluent_in_162": [],
+ "critical_peak_criterion_disagreements": [],
+ "family_l4_5_bordered_length_preserving": {
+  "rules": 770,
+  "confluent_on_words_le_10": 94,
+  "length_uniform_not_confluent": 126
+ },
+ "aaaba->baabb_on_aaabaaaba": [
+  "aaabbaabb",
+  "baabbaaba"
+ ],
+ "_seconds": 5.4
+}

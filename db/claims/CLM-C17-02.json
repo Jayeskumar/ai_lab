@@ -1,0 +1,25 @@
+{
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-01",
+    "EXP-C17-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T09:23:59Z"
+    }
+  ],
+  "id": "CLM-C17-02",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Immediate from Light's test and the lab's C06 Theorem 1; small.",
+  "proof": "proofs/paper/C17.md#corollary-2-clm-c17-02--anchored-magmas-one-generator-and-an-on-criterion",
+  "proof_check": "written proof (proofs/paper/C17.md Corollary 2) from C06 Theorem 1 (Lean anchored_assoc_unique); 0 wrong verdicts on 30 anchored instances (EXP-C17-01)",
+  "statement": "If x*0 = x + 1 (mod n), then * is associative iff x*(y + 1) = (x*y) + 1 for all x, y (2n^2 probes); equivalently Light's test with the single generator 0.",
+  "system": "SYS-B",
+  "title": "Associativity of an anchored magma is decided by one O(n^2) identity",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

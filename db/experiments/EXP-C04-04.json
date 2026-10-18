@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C04-04",
     "file": "experiments/C04/E04_aab_ba_formula.py",
     "sha256": "49a06927f2d302851f94bd6d7ad76b73632a899d9a8d21e42283278a8d18a517",
-    "systems_sha256": "c0768498685120eb1811be4689b7ee2bff01498fa076e438c858607f73e95038"
+    "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
   },
   "cycle": "C04",
   "falsification": "Any n <= 21 where the maximum over words differs from the formula, or any word whose derivation length differs from the configuration formula.",
@@ -94,6 +94,27 @@
       "results_sha256": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
       "runtime_s": 27.493,
       "started": "2026-10-18T07:52:08Z",
+      "summary": [
+        "max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]",
+        "formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0",
+        "n where D(n) = D(n-1) (n >= 3, n < 60): [4, 7, 12, 21, 38]",
+        "closed form D(n) = n - 1 - min{k : 2^k + k >= n} (n <= 20000): True; stalls exactly at n = 2^k + k + 1: True"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C04-04",
+        "file": "experiments/C04/E04_aab_ba_formula.py",
+        "sha256": "49a06927f2d302851f94bd6d7ad76b73632a899d9a8d21e42283278a8d18a517",
+        "systems_sha256": "91a053bc98b5cd1dea9b8194fd02f6254e234dc0575c230d515b376927c7be10"
+      },
+      "error": false,
+      "finished": "2026-10-18T09:19:15Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C04-04.json",
+      "results_sha256": "be51ed9422ae3039bece86b698d67138b7ecb90fcff201f978be20b54a2c091a",
+      "runtime_s": 15.951,
+      "started": "2026-10-18T09:18:59Z",
       "summary": [
         "max derivation length over all 2^n words, n <= 21: [0, 0, 0, 1, 1, 2, 3, 3, 4, 5, 6, 7, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]",
         "formula agrees for all n <= 21: True; per-word configuration formula mismatches: graph (n <= 14) 0, simulation (n <= 21) 0",
