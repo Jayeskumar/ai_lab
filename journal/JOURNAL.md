@@ -542,3 +542,60 @@ Checked the Skeptic's Appendix A line by line (monotone minorant F(x) >= Ax - b,
 
 *Evidence:* proofs/paper/C02.md, EXP-C02-03, CLM-C02-05
 
+
+## C06
+
+### [2026-10-18T08:45:16Z] Mathematical Inventor — hypothesis (`C06-01`)
+
+Anchor a single invented operation to the successor (x*0 = x+1) and impose one composition law. H-C06-1 - left-distributivity then has exactly one model for N in {1, 2, 4, 8} (Laver tables). H-C06-2 (bold) - such restricted spectra are special to left-distributivity.
+
+*Evidence:* EXP-C06-01, EXP-C06-02
+
+### [2026-10-18T08:45:16Z] Mathematical Explorer — result (`C06-02`)
+
+EXP-C06-02 confirmed H-C06-1 with an independent SAT encoding (LD only at 1, 2, 4, 8 for N <= 10) and produced exact model counts - one for associativity and right-distributivity at every N, N^(N-1) for right-permutability, 1, 2, 9, 94, 1486 for left-permutability.
+
+*Evidence:* EXP-C06-02
+
+### [2026-10-18T08:45:16Z] Formal Verifier — decision (`C06-03`)
+
+Stopped the first EXP-C06-02 run after 27 minutes - it computed an unused isomorphism-class count with 8! permutations per table. Anchored structures have only the identity as anchored isomorphism, so tables are counted directly (53 s).
+
+*Evidence:* EXP-C06-02
+
+### [2026-10-18T08:45:16Z] Mathematical Skeptic — result (`C06-04`)
+
+EXP-C06-03 refuted H-C06-2 - of 382 laws, 22 have restricted anchored spectra and only one is LD. Spectra {1,2}, {1,3}, {1,5}, odd numbers.
+
+*Evidence:* EXP-C06-03, CLM-C06-04
+
+### [2026-10-18T08:45:16Z] Formal Verifier — proof (`C06-05`)
+
+Hand analysis of the restricted laws - substituting z = 0 in (xy)z = x((yz)z) gives x*(y+2) = x*y + 1, forcing odd N and x*y = x + 1 + y/2; in (xy)z = x(y(zz)) it gives x*(y*1) = x*y + 1, which forces x*y = x + 1 + kappa(y) and then kappa linear with a^2 + a = 1 - a golden-ratio spectrum. Both now proved (odd law also in Lean).
+
+*Evidence:* CLM-C06-06, CLM-C06-07, proofs/paper/C06.md
+
+### [2026-10-18T08:45:16Z] Mathematical Explorer — result (`C06-06`)
+
+EXP-C06-04 tested the predictions - golden law model counts 1, 1, 2 at N = 1, 5, 11 and 0 otherwise for N <= 12, exactly the root counts; odd law one model at each odd N <= 11. The broader H-C06-3 (all spectra are affine spectra) is refuted by six laws with non-affine models.
+
+*Evidence:* EXP-C06-04, CLM-C06-09
+
+### [2026-10-18T08:45:16Z] Historian — novelty (`C06-07`)
+
+OEIS - left-permutable counts 1, 2, 9, 94, 1486 match A058156 (commutative monoids with fixed identity), explained by Theorem 7 (centraliser argument); golden spectrum = A089270, golden counts = A087781. Literature - the LD case is Laver's theorem (Drapal's elementary proof; Dehornoy's book); no prior statement of the odd, golden or left-permutable correspondences found.
+
+*Evidence:* CLM-C06-01, CLM-C06-07, CLM-C06-08
+
+### [2026-10-18T08:45:16Z] Formal Verifier — proof (`C06-08`)
+
+Lean file C06_Laver.lean extended - anchored_rd_unique, the odd law (no even sizes, unique formula, existence) and the left-permutable structure theorem (a pairwise commuting family that reaches every point from e exactly once is closed under composition and contains the identity); all with standard axioms only.
+
+*Evidence:* proofs/lean/Infinity/C06_Laver.lean, CLM-C06-03, CLM-C06-06, CLM-C06-08
+
+### [2026-10-18T08:46:39Z] Mathematical Inventor — result (`C06-09`)
+
+Answered the cycle's own question 'can a spectrum be the primes?' - no, since direct products transported along the Chinese remainder isomorphism keep the anchor, every anchored spectrum is closed under coprime products (Theorem 8). Divisor-closure is observed in all examples but unproved.
+
+*Evidence:* CLM-C06-12
+

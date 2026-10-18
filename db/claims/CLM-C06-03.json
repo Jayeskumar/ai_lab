@@ -1,0 +1,27 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-03",
+  "lean": [
+    "proofs/lean/Infinity/C06_Laver.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary; explains why the anchor singles out left- and not right-distributivity.",
+  "proof": "proofs/paper/C06.md#theorem-2-clm-c06-03--anchored-right-distributivity-gives-exactly-one-model-for-every-n",
+  "proof_check": "Lean 4 + Mathlib (anchored_rd_unique; standard axioms only); written proof proofs/paper/C06.md Theorem 2",
+  "statement": "If (xy)z = (xz)(yz) on Z/N and x*0 = x + 1, then x*y = x + 1 for all x, y; conversely this operation is right-distributive and anchored.",
+  "system": "SYS-B",
+  "title": "Anchored right-distributivity forces x*y = x + 1, for every N",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

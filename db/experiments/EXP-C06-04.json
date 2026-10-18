@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Affine anchored models x*y = x + a*y + 1 explain 20 of the 22 restricted spectra - all their models for N <= 9 are affine - but not all spectra - 6 laws (LD, x(yz) = y((yx)z) and four laws with models for every N, e.g. x(yz) = y(x(yz))) have non-affine models, refuting H-C06-3. The hand-derived predictions hold exactly - (xy)z = x(y(zz)) has 1, 1, 2 models at N = 1, 5, 11 and none for other N <= 12 (roots of a^2 + a = 1 mod N); (xy)z = x((yz)z) has exactly one model for odd N <= 11 and none for even N.",
   "assumptions": [
     "affine spectrum computed for N <= 40 by direct evaluation",
     "SAT spectra for N <= 6 for all laws; model enumeration (limit 1000) for N <= 9 for the restricted laws; N = 10..12 solved for selected laws",
@@ -11,6 +12,10 @@
     "sha256": "51342141842f409b203f3b2a245296e20511259d3540cce7fac729a7f954c361",
     "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
   },
+  "counterexamples": [
+    "x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1",
+    "x(yz) = y((yx)z) has a non-affine anchored model at N = 2"
+  ],
   "cycle": "C06",
   "falsification": "A law (other than LD) whose SAT spectrum differs from its affine spectrum; a non-affine model of (xy)z = x(y(zz)) or (xy)z = x((yz)z); a model count different from the predicted root count.",
   "history": [
@@ -19,12 +24,64 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:33:19Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Affine anchored models x*y = x + a*y + 1 explain 20 of the 22 restricted spectra - all their models for N <= 9 are affine - but not all spectra - 6 laws (LD, x(yz) = y((yx)z) and four laws with models for every N, e.g. x(yz) = y(x(yz))) have non-affine models, refuting H-C06-3. The hand-derived predictions hold exactly - (xy)z = x(y(zz)) has 1, 1, 2 models at N = 1, 5, 11 and none for other N <= 12 (roots of a^2 + a = 1 mod N); (xy)z = x((yz)z) has exactly one model for odd N <= 11 and none for even N.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1",
+        "x(yz) = y((yx)z) has a non-affine anchored model at N = 2"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C06-06",
+        "CLM-C06-07",
+        "CLM-C06-09",
+        "CLM-C06-10",
+        "CLM-C06-11"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
     }
   ],
   "hypothesis": "H-C06-3 (bold): apart from left-distributivity, every law of the family has anchored spectrum equal to its affine spectrum for N <= 6. H-C06-4 (derived by hand): the anchored models of (xy)z = x(y(zz)) are exactly x*y = x + a*y + 1 with a^2 + a = 1 (mod N); predicted counts 1 (N=1), 1 (N=5), 2 (N=11), 0 for other N <= 12. H-C06-5 (derived by hand): (xy)z = x((yz)z) has exactly one anchored model for odd N and none for even N.",
   "id": "EXP-C06-04",
   "methodology": "Evaluate every affine table for every a in Z_N; compare with SAT; enumerate all anchored models of restricted laws and test each for affinity (T[x][y] - x - 1 = a*y for a single a).",
   "question": "For the 382 laws of EXP-C06-03, does the anchored spectrum coincide with the set of N for which some affine table x*y = x + a*y + 1 (mod N) satisfies the law? Are all anchored models of the restricted-spectrum laws affine?",
+  "related": [
+    "CLM-C06-06",
+    "CLM-C06-07",
+    "CLM-C06-09",
+    "CLM-C06-10",
+    "CLM-C06-11"
+  ],
   "results_file": "results/EXP-C06-04.json",
   "results_sha256": "8a8aca5cd93cd72ec42e12e9c20861e9a27a5cce9730ddeac7c504e3d4508f82",
   "runs": [
@@ -56,5 +113,6 @@
     "golden law counts predicted {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0} observed {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0}",
     "odd law counts {1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1, 10: 0, 11: 1, 12: 0}"
   ],
-  "title": "Affine anchored models and the arithmetic of anchored spectra"
+  "title": "Affine anchored models and the arithmetic of anchored spectra",
+  "verification": "PROVEN"
 }

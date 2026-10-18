@@ -1,0 +1,80 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "characters solved exactly over C with sympy (independent of the hand case analysis)",
+    "numerical confirmation on 30 seeded random pairs of graphs with 1-5 vertices per product"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C14-03",
+    "file": "experiments/C14/E03_kronecker_characters.py",
+    "sha256": "e344842e394ced2537d2f8017e406ead69cfd368c6944ee9ef63d81c6833ee74",
+    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+  },
+  "cycle": "C14",
+  "falsification": "A product outside the predicted lists with a solution, a predicted product without one, or a numerical failure of M_c(G*H) = M_c(G) (x) M_c(H).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:42:13Z"
+    }
+  ],
+  "hypothesis": "H-C14-5 (derived by hand, Theorem 4/5 of proofs/paper/C14.md): exactly six products have a multiplicative character - direct (c=(0,1,0)), strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), EA AE AA NN (1,1,-1) and the complement-dual of the direct product (0,0,1); exactly two have an additive character - Cartesian (0,1,0) and its complement-dual (0,0,1). H-C14-6 (bold): every commutative associative local product except the empty and complete products has a character of one of the two kinds.",
+  "id": "EXP-C14-03",
+  "methodology": "Cell decomposition: A(G*H) = sum over cells in S of R_r1(G) (x) R_r2(H), R_E = I, R_A = A, R_N = J - I - A, with disjoint supports, all realised by P3 x P3; the functional equations reduce to polynomial equations in (c_E, c_A, c_N), solved by sympy for each of the 256 codes.",
+  "question": "For which local products is there a matrix functor M_c(G) = c_E I + c_A A + c_N (J - I - A) (c_A != c_N) with M_c(G*H) = M_c(G) (x) M_c(H) (multiplicative character) or M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) (additive character) for all graphs?",
+  "results_file": "results/EXP-C14-03.json",
+  "results_sha256": "08e6e8f9b788c831fccb21a5b3185a3a4210750edd10584854843530c5e159a6",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-03",
+        "file": "experiments/C14/E03_kronecker_characters.py",
+        "sha256": "7f15c0e3337d055b11bceaddf82a856613c4a9eceac6651e2a131105f2d71749",
+        "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:42:13Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C14-03.json",
+      "results_sha256": "ea9a952b007016925f2c17d1573da807cb326da2ab1476c0ab52ab214f0c6201",
+      "runtime_s": 3.803,
+      "started": "2026-10-18T08:42:09Z",
+      "summary": [
+        "multiplicative characters: {direct: [(0, 1, 0)], strong: [(1, 1, 0)], symmetric difference: [(1, -1, 1)], co-normal: [(1, 0, 1)], EA EN AE AA AN NE NA: [(0, 0, 1)], EA AE AA NN: [(1, 1, -1)]}",
+        "additive characters: {cartesian: [('0', 'cA', '0')], EA AE AA AN NA NN: [('0', '0', 'cN')]}",
+        "commutative associative products without a character: ['empty', 'complete']",
+        "sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-03",
+        "file": "experiments/C14/E03_kronecker_characters.py",
+        "sha256": "e344842e394ced2537d2f8017e406ead69cfd368c6944ee9ef63d81c6833ee74",
+        "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:42:25Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C14-03.json",
+      "results_sha256": "08e6e8f9b788c831fccb21a5b3185a3a4210750edd10584854843530c5e159a6",
+      "runtime_s": 3.872,
+      "started": "2026-10-18T08:42:21Z",
+      "summary": [
+        "multiplicative characters: {direct: [(0, 1, 0)], strong: [(1, 1, 0)], symmetric difference: [(1, -1, 1)], co-normal: [(1, 0, 1)], EA EN AE AA AN NE NA: [(0, 0, 1)], EA AE AA NN: [(1, 1, -1)]}",
+        "additive characters: {cartesian: [(0, 1, 0, 'scalable')], EA AE AA AN NA NN: [(0, 0, 1, 'scalable')]}",
+        "commutative associative products without a character: ['empty', 'complete']",
+        "sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30"
+      ]
+    }
+  ],
+  "summary": [
+    "multiplicative characters: {direct: [(0, 1, 0)], strong: [(1, 1, 0)], symmetric difference: [(1, -1, 1)], co-normal: [(1, 0, 1)], EA EN AE AA AN NE NA: [(0, 0, 1)], EA AE AA NN: [(1, 1, -1)]}",
+    "additive characters: {cartesian: [(0, 1, 0, 'scalable')], EA AE AA AN NA NN: [(0, 0, 1, 'scalable')]}",
+    "commutative associative products without a character: ['empty', 'complete']",
+    "sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30"
+  ],
+  "title": "Multiplicative and additive Kronecker characters of local graph products"
+}

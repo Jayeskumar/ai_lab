@@ -1,0 +1,60 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "switching classes of order n <= 8 obtained from all graphs with <= 7 vertices (order 8: a 7-vertex graph plus an isolated vertex represents every class)",
+    "switching equivalence decided exactly: same Seidel spectrum, then isomorphism of descendants",
+    "class counts validated against OEIS A002854"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C14-05",
+    "file": "experiments/C14/E05_two_graph_factorisation.py",
+    "sha256": "d4ecd7834bf1098192c0c36d0e645cc8b1fbbed01517a0ff2ed832b18083af83",
+    "systems_sha256": "0e3cdebc2fc10d491a03ce47222f48a283e26c444ac4b31099144a2acd71a4cd"
+  },
+  "cycle": "C14",
+  "falsification": "Two different multisets of prime two-graphs with switching-equivalent XOR products.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:47:59Z"
+    }
+  ],
+  "hypothesis": "H-C14-4 (bold): every two-graph of order <= 16 has exactly one factorisation into prime two-graphs under XOR. H-C14-8: K2 xor X and K2 xor Y are isomorphic graphs iff X and Y are switching equivalent (the 'if' part is proved in Theorem 7; 'only if' is tested here for orders <= 7).",
+  "id": "EXP-C14-05",
+  "methodology": "Classify switching classes by order, find composite classes (orders 4, 6, 8), enumerate all multisets of prime classes with product order n in {4,6,8,9,10,12,14,15,16}, classify the XOR products up to switching, record collisions; count primes per order.",
+  "question": "The symmetric difference (XOR) product respects Seidel switching (Theorem 6). On switching classes (two-graphs), is factorisation into primes unique?",
+  "results_file": "results/EXP-C14-05.json",
+  "results_sha256": "5e7aa69637739d580bd6acd4989e1880a9e9b3835474759019724edf0882e6af",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-05",
+        "file": "experiments/C14/E05_two_graph_factorisation.py",
+        "sha256": "d4ecd7834bf1098192c0c36d0e645cc8b1fbbed01517a0ff2ed832b18083af83",
+        "systems_sha256": "0e3cdebc2fc10d491a03ce47222f48a283e26c444ac4b31099144a2acd71a4cd"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:47:59Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C14-05.json",
+      "results_sha256": "5e7aa69637739d580bd6acd4989e1880a9e9b3835474759019724edf0882e6af",
+      "runtime_s": 17.299,
+      "started": "2026-10-18T08:47:41Z",
+      "summary": [
+        "switching classes n=1..8: [1, 1, 2, 3, 7, 16, 54, 243] (A002854 match: True)",
+        "non-unique factorisations by order: {4: 0, 6: 0, 8: 0, 9: 0, 10: 0, 12: 0, 14: 0, 15: 0, 16: 0}",
+        "prime two-graphs n=2..16: [1, 2, 2, 7, 14, 54, 240, 2035, 33113, 1182004, 87723276, 12886193064, 3633057074530, 1944000150734306, 1967881448329407250]; OEIS: NO MATCH",
+        "K2 xor X = K2 xor Y  <=>  X ~ Y: 0 violations in 12713 pairs (orders <= 6)"
+      ]
+    }
+  ],
+  "summary": [
+    "switching classes n=1..8: [1, 1, 2, 3, 7, 16, 54, 243] (A002854 match: True)",
+    "non-unique factorisations by order: {4: 0, 6: 0, 8: 0, 9: 0, 10: 0, 12: 0, 14: 0, 15: 0, 16: 0}",
+    "prime two-graphs n=2..16: [1, 2, 2, 7, 14, 54, 240, 2035, 33113, 1182004, 87723276, 12886193064, 3633057074530, 1944000150734306, 1967881448329407250]; OEIS: NO MATCH",
+    "K2 xor X = K2 xor Y  <=>  X ~ Y: 0 violations in 12713 pairs (orders <= 6)"
+  ],
+  "title": "Prime factorisation of two-graphs under the symmetric-difference product"
+}

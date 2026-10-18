@@ -1,0 +1,28 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-03",
+    "EXP-C06-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-06",
+  "lean": [
+    "proofs/lean/Infinity/C06_Laver.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Searches for anchored/successor-anchored magmas (2026-10-18) found only the Laver-table literature; no statement for this law. Small result.",
+  "proof": "proofs/paper/C06.md#theorem-5-clm-c06-06--an-odd-law-x--y--z--x--y--z--z",
+  "proof_check": "Lean 4 + Mathlib (odd_law_even_impossible, odd_law_formula, odd_law_model; standard axioms only); written proof proofs/paper/C06.md Theorem 5",
+  "statement": "An anchored magma of size N satisfying (xy)z = x((yz)z) exists iff N is odd, and then x*y = x + 1 + y/2 (the inverse of 2 modulo N).",
+  "system": "SYS-B",
+  "title": "An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

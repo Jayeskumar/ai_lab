@@ -1,0 +1,24 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-07",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables).",
+  "proof": "proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z",
+  "proof_check": "written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review",
+  "statement": "The anchored magmas of size N satisfying (xy)z = x(y(zz)) are exactly x*y = x + 1 + a*y (mod N) with\na^2 + a = 1 (mod N); distinct roots give distinct models. Hence the spectrum is the set of N = 5^e m with\ne in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)\nand the number of models is the number of roots (OEIS A087781).",
+  "system": "SYS-B",
+  "title": "A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mod N",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

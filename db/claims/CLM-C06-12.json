@@ -1,0 +1,25 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-03",
+    "EXP-C06-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:46:39Z"
+    }
+  ],
+  "id": "CLM-C06-12",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.",
+  "proof": "proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products",
+  "proof_check": "written proof (proofs/paper/C06.md Theorem 8); consistent with every spectrum observed in EXP-C06-02..04; awaiting independent skeptic review",
+  "statement": "For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no law has the set of primes as its anchored spectrum.",
+  "system": "SYS-B",
+  "title": "Anchored spectra are closed under coprime products",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "x(yz) = y(x(yz)), x(yz) = y(x(xz)), x(yz) = y(y(xz)) and x(yz) = (yx)(yz) have anchored models for every N <= 6 but no affine model for N > 1; x(yz) = y((yx)z) has a non-affine model at N = 2 (EXP-C06-04).",
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-09",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every law of EXP-C06-03 other than left-distributivity, the anchored spectrum for N <= 6 equals the set of N for which some affine table x*y = x + a*y + 1 satisfies the law.",
+  "system": "SYS-B",
+  "title": "H-C06-3: anchored spectra are affine spectra (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

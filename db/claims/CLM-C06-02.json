@@ -1,0 +1,27 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-02",
+  "lean": [
+    "proofs/lean/Infinity/C06_Laver.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Elementary (the anchor is a right translation by a generator); folklore.",
+  "proof": "proofs/paper/C06.md#theorem-1-clm-c06-02--anchored-associativity-gives-exactly-one-model-for-every-n",
+  "proof_check": "Lean 4 + Mathlib (anchored_assoc_unique; standard axioms only)",
+  "statement": "If * on Z/N is associative and x*0 = x + 1 for all x, then x*y = x + y + 1; conversely this operation is associative and anchored. So every N has exactly one anchored associative magma (a cyclic group).",
+  "system": "SYS-B",
+  "title": "Anchored associativity forces x*y = x + y + 1, for every N",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

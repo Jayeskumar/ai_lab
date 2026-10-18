@@ -9,8 +9,8 @@
   "code": {
     "command": "python -m lab run EXP-C11-04",
     "file": "experiments/C11/E04_data_benchmarks.py",
-    "sha256": "4713c2998197a2d39c673c17e29215e690e77689020a6aa8fb47a6025d976ab1",
-    "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
+    "sha256": "61e3afa34f1e53df71da20c8ca47a6df4475827763d0a1752904c946e07f8f79",
+    "systems_sha256": "a768faac3797e48dc2b663107e98e70002e9a8959f2949657c037970ca2d51ad"
   },
   "cycle": "C11",
   "falsification": "Pattern codes never best among universal codes on these data.",
@@ -43,6 +43,27 @@
       "results_sha256": "06e9eae27066d241322154dc4bcafcd1dfdb048d186503fbc1a0edc6bcb856b5",
       "runtime_s": 0.209,
       "started": "2026-10-18T08:26:18Z",
+      "summary": [
+        "prime gaps <= 1e7 (raw) (n=664578, H0=4.1709): best classical ['Exp-Golomb(4)', 5.7208], best fixed ['Exp-Golomb(4)', 5.7208], best overall ['tuned Golomb(M=10)', 5.2713]",
+        "prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]",
+        "posting list geometric(0.001) (n=100000, H0=11.3626): best classical ['Fibonacci C1', 14.3563], best fixed ['T_0111', 13.1548], best overall ['tuned Golomb(M=693)', 11.446]",
+        "bursty posting list (mixture) (n=100000, H0=10.7142): best classical ['Fibonacci C1', 12.1459], best fixed ['T_101', 11.4728], best overall ['T_101', 11.4728]"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C11-04",
+        "file": "experiments/C11/E04_data_benchmarks.py",
+        "sha256": "61e3afa34f1e53df71da20c8ca47a6df4475827763d0a1752904c946e07f8f79",
+        "systems_sha256": "a768faac3797e48dc2b663107e98e70002e9a8959f2949657c037970ca2d51ad"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:42:58Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C11-04.json",
+      "results_sha256": "06e9eae27066d241322154dc4bcafcd1dfdb048d186503fbc1a0edc6bcb856b5",
+      "runtime_s": 0.224,
+      "started": "2026-10-18T08:42:58Z",
       "summary": [
         "prime gaps <= 1e7 (raw) (n=664578, H0=4.1709): best classical ['Exp-Golomb(4)', 5.7208], best fixed ['Exp-Golomb(4)', 5.7208], best overall ['tuned Golomb(M=10)', 5.2713]",
         "prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]",

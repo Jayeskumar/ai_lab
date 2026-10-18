@@ -1,0 +1,79 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "witness search over the 7 graphs with 1-3 vertices (all triples / pairs, ordered by total order), escalating to graphs with <= 4 vertices if needed",
+    "isomorphism decided exactly (invariants, then networkx VF2)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C14-02",
+    "file": "experiments/C14/E02_iso_vs_strict.py",
+    "sha256": "68f83e75175b0445640d7d1eb40413590bfa73dec3af654a148a347493dddc5e",
+    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+  },
+  "cycle": "C14",
+  "falsification": "A non-strict code without any witness (then it would be associative/commutative only up to isomorphism, refuting H-C14-1, and would be examined by hand).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T08:41:12Z"
+    }
+  ],
+  "hypothesis": "H-C14-1 (bold): no - for local products, associativity and commutativity up to isomorphism are equivalent to their strict versions; for every one of the 236 non-associative (224 non-commutative) products a witness exists among graphs with at most 3 vertices.",
+  "id": "EXP-C14-02",
+  "methodology": "For each non-strict code, search the smallest triple (G,H,K) with (G*H)*K not isomorphic to G*(H*K), and the smallest pair with G*H not isomorphic to H*G.",
+  "question": "Can a local product satisfy (G*H)*K = G*(H*K) (or G*H = H*G) up to isomorphism for all graphs although the canonical map is not an isomorphism?",
+  "results_file": "results/EXP-C14-02.json",
+  "results_sha256": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-02",
+        "file": "experiments/C14/E02_iso_vs_strict.py",
+        "sha256": "675a956f5ea9bd75a34702ebad7f9b3d9b6f1ba2716756d2fd9b6672da5df00a",
+        "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:41:12Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C14-02.json",
+      "results_sha256": "8c6bcac02412765b7473ebb7fd6697cd66338a0cff2d4bd33e3fb5ebc5fefc4f",
+      "runtime_s": 0.853,
+      "started": "2026-10-18T08:41:11Z",
+      "summary": [
+        "associativity witnesses among graphs <= 3 vertices: 236/236; without: []",
+        "commutativity witnesses: 224/224; without: []",
+        "witness product orders: {2: 144, 4: 84, 8: 8}"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-02",
+        "file": "experiments/C14/E02_iso_vs_strict.py",
+        "sha256": "68f83e75175b0445640d7d1eb40413590bfa73dec3af654a148a347493dddc5e",
+        "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+      },
+      "error": false,
+      "finished": "2026-10-18T08:41:26Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C14-02.json",
+      "results_sha256": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
+      "runtime_s": 1.008,
+      "started": "2026-10-18T08:41:25Z",
+      "summary": [
+        "associativity witnesses among graphs <= 3 vertices: 236/236; without: []",
+        "commutativity witnesses: 224/224; without: []",
+        "witness product orders: {2: 144, 4: 84, 8: 8}",
+        "witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224"
+      ]
+    }
+  ],
+  "summary": [
+    "associativity witnesses among graphs <= 3 vertices: 236/236; without: []",
+    "commutativity witnesses: 224/224; without: []",
+    "witness product orders: {2: 144, 4: 84, 8: 8}",
+    "witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224"
+  ],
+  "title": "Isomorphism-level versus strict associativity and commutativity of local products"
+}

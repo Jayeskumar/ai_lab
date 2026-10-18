@@ -1,0 +1,24 @@
+{
+  "cycle": "C06",
+  "evidence": [
+    "EXP-C06-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C06",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    }
+  ],
+  "id": "CLM-C06-05",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.",
+  "proof": "proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models",
+  "proof_check": "written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review",
+  "statement": "If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.",
+  "system": "SYS-B",
+  "title": "Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T08:39:48Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T08:46:39Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 42 |
-| COMPUTATIONALLY SUPPORTED | 13 |
+| PROVEN | 49 |
+| COMPUTATIONALLY SUPPORTED | 16 |
 | CONJECTURE | 2 |
-| REFUTED | 12 |
+| REFUTED | 14 |
 | INCONCLUSIVE | 1 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 36 |
-| POTENTIALLY NOVEL | 9 |
-| NOT ASSESSED | 25 |
+| REDISCOVERY | 38 |
+| POTENTIALLY NOVEL | 12 |
+| NOT ASSESSED | 32 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -56,6 +56,13 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C04-10 | Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -… | written proof (proofs/paper/C04.md Theorem 8, Jensen's ineq… | POTENTIALLY NOVEL | EXP-C04-09, EXP-C04-10 |
 | CLM-C04-13 | Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> … | written proof (proofs/paper/C04.md Theorem 10); word games … | REDISCOVERY | EXP-C04-07, EXP-C04-08 |
 | CLM-C04-15 | The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53 | computer-assisted - octal recursion to n = 3000 and the Guy… | REDISCOVERY | EXP-C04-08 |
+| CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
+| CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | NOT ASSESSED | EXP-C06-02 |
+| CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | written proof (proofs/paper/C06.md Theorem 4); counts 1, 2,… | NOT ASSESSED | EXP-C06-02 |
+| CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | Lean 4 + Mathlib (odd_law_even_impossible, odd_law_formula,… | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
+| CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | written proof (proofs/paper/C06.md Theorem 6); model counts… | POTENTIALLY NOVEL | EXP-C06-04 |
+| CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | Lean 4 + Mathlib for the structural core (centralizer_eq, c… | POTENTIALLY NOVEL | EXP-C06-02 |
+| CLM-C06-12 | Anchored spectra are closed under coprime products | written proof (proofs/paper/C06.md Theorem 8); consistent w… | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
 | CLM-C08-01 | Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative… | Lean 4 + Mathlib (Infinity.C08.circ_assoc, circ_comm, key, … | REDISCOVERY | EXP-C08-01, EXP-C08-03, EXP-C08-05 |
 | CLM-C09-01 | Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images | written proof (proofs/paper/C09.md Theorem 1) relying on CL… | REDISCOVERY | EXP-C09-03 |
 | CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | written proof (proofs/paper/C09.md Theorem 3; Weyl equidist… | POTENTIALLY NOVEL | EXP-C09-04 |
@@ -80,6 +87,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C03-11 | Loop lengths in the base family grow like k^q | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C03-04 |
 | CLM-C04-03 | The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C04-02 |
 | CLM-C04-12 | Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3 | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C04-03 |
+| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
+| CLM-C06-10 | Laws with finite anchored spectra {1, 2} and {1, 3} | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C06-03, EXP-C06-04 |
+| CLM-C06-11 | Mirror twins of the golden and odd laws | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C06-04 |
 | CLM-C08-02 | Circle products over non-Pisot base sequences are never associative | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C08-02 |
 | CLM-C08-03 | Pisot base sequences give associative circle products for all sufficiently large shifts | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03 |
 | CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03 |
@@ -100,6 +110,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C02-11 | Termination classification of carry rules: terminating from every unary start iff sum b <… | PROVEN | POTENTIALLY NOVEL | EXP-C02-03, EXP-C02-07 |
 | CLM-C04-09 | The rule aab -> ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k >= n} (non-… | PROVEN | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
 | CLM-C04-10 | Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -… | PROVEN | POTENTIALLY NOVEL | EXP-C04-09, EXP-C04-10 |
+| CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | PROVEN | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
+| CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | PROVEN | POTENTIALLY NOVEL | EXP-C06-04 |
+| CLM-C06-08 | Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058… | PROVEN | POTENTIALLY NOVEL | EXP-C06-02 |
 | CLM-C08-04 | Non-monotone associative-shift sets require a negative conjugate root | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C08-04, EXP-C08-03 |
 | CLM-C09-03 | Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
 
@@ -137,6 +150,8 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C04-13 | Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> … | PROVEN | REDISCOVERY | EXP-C04-07, EXP-C04-08 |
 | CLM-C04-15 | The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53 | PROVEN | REDISCOVERY | EXP-C04-08 |
 | CLM-C04-16 | Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.0… | CONJECTURE | REDISCOVERY | EXP-C04-08, EXP-C04-09 |
+| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
+| CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C08-01 | Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative… | PROVEN | REDISCOVERY | EXP-C08-01, EXP-C08-03, EXP-C08-05 |
 | CLM-C08-03 | Pisot base sequences give associative circle products for all sufficiently large shifts | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C08-02, EXP-C08-03 |
 | CLM-C09-01 | Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images | PROVEN | REDISCOVERY | EXP-C09-03 |
@@ -160,6 +175,8 @@ _None yet._
 | CLM-C04-07 | H-C04-1: random descent iff the left-hand side is unbordered (refuted) | REFUTED | NOT ASSESSED | EXP-C04-05 |
 | CLM-C04-11 | H-C04-G (second part): every terminating rule has a rational complexity generating functi… | REFUTED | NOT ASSESSED | EXP-C04-03, EXP-C04-04 |
 | CLM-C04-14 | H-C04-6: Grundy values of rewriting games never exceed 3 (refuted) | REFUTED | NOT ASSESSED | EXP-C04-08 |
+| CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | NOT ASSESSED | EXP-C06-03 |
+| CLM-C06-09 | H-C06-3: anchored spectra are affine spectra (refuted) | REFUTED | NOT ASSESSED | EXP-C06-04 |
 | CLM-C08-06 | H-C08-1: Knuth's associative circle product is an isolated case (refuted) | REFUTED | NOT ASSESSED | EXP-C08-01, EXP-C08-02 |
 | CLM-C09-02 | H-C09-2: factorisation into circle irreducibles is unique (refuted) | REFUTED | NOT ASSESSED | EXP-C09-02 |
 | CLM-C09-04 | H-C09-1: circle irreducibles have density 0 like primes (refuted) | REFUTED | NOT ASSESSED | EXP-C09-01, EXP-C09-04 |

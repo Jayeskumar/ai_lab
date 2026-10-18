@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Skeptic",
+  "analysis": "All 382 laws x(yz) = t or (xy)z = t with t a term of 3-4 leaves using exactly x, y, z - 77 have anchored models for every N <= 6, 283 only for N = 1, and 22 have a restricted spectrum. Only one of the 22 is left-distributivity, so the bold hypothesis H-C06-2 is refuted. The restricted spectra (extended to N = 8) are {1,2} (10 laws), {1,3} (7 laws), {1,5} (2 laws), the odd numbers {1,3,5,7} (2 laws) and {1,2,4,8} (LD). No UNKNOWN instance.",
   "assumptions": [
     "sizes N = 1..6; laws with a restricted spectrum are re-run for N = 7, 8",
     "SAT conflict budget 2,000,000 per instance; UNKNOWN is recorded, never guessed",
@@ -11,6 +12,11 @@
     "sha256": "c1f5a8ccfe091c472ac1c2a5da41a5b150646d637fd8f4b0b89dc9044fc6d584",
     "systems_sha256": "85177e12baa359b2ba56ba658a16d218d249a5a3e4dfc663d932e92fa4d2f02d"
   },
+  "counterexamples": [
+    "(xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8)",
+    "(xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8)",
+    "x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)"
+  ],
   "cycle": "C06",
   "falsification": "Any law other than x(yz) = (xy)(xz) with a spectrum strictly between {1} and {1..6}.",
   "history": [
@@ -19,12 +25,57 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:25:43Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 382 laws x(yz) = t or (xy)z = t with t a term of 3-4 leaves using exactly x, y, z - 77 have anchored models for every N <= 6, 283 only for N = 1, and 22 have a restricted spectrum. Only one of the 22 is left-distributivity, so the bold hypothesis H-C06-2 is refuted. The restricted spectra (extended to N = 8) are {1,2} (10 laws), {1,3} (7 laws), {1,5} (2 laws), the odd numbers {1,3,5,7} (2 laws) and {1,2,4,8} (LD). No UNKNOWN instance.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "(xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8)",
+        "(xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8)",
+        "x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C06-04"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
     }
   ],
   "hypothesis": "H-C06-2 (bold): every such law other than left-distributivity has anchored spectrum {1} or {1,...,6}; a restricted non-trivial spectrum is special to LD.",
   "id": "EXP-C06-03",
   "methodology": "Enumerate right sides (2 shapes x 6 labelings for 3 leaves, 5 shapes x 36 surjective labelings for 4 leaves), drop t equal to the left side, solve MagmaSAT(N, law, anchor) for N = 1..6, classify spectra, extend restricted ones to N = 8.",
   "question": "Among all laws whose left side is x(yz) or (xy)z and whose right side is any term with 3 or 4 leaves using exactly the variables x, y, z, which admit a successor-anchored model (x*0 = x+1 mod N) for which N <= 6?",
+  "related": [
+    "CLM-C06-04"
+  ],
   "results_file": "results/EXP-C06-03.json",
   "results_sha256": "abc56c929f0aa54ad8eed798844e2a422a152de6c815d66f4765f3937f61e395",
   "runs": [
@@ -54,5 +105,6 @@
     "restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)x)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)x', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xz)y)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)x)y', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zx)y)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((zy)x)x', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(y(zz))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x(z(yy))', 'sat_le6': [1, 5], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((yz)z)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = x((zy)y)', 'sat_le6': [1, 3, 5], 'N7_8': {7: 'SAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zx)y)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = y((zy)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yx)z)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': '(xy)z = z((yz)x)', 'sat_le6': [1, 3], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}]",
     "UNKNOWN instances: 0"
   ],
-  "title": "Anchored spectra of all laws x(yz) = t and (xy)z = t with t of 3-4 leaves over {x,y,z}"
+  "title": "Anchored spectra of all laws x(yz) = t and (xy)z = t with t of 3-4 leaves over {x,y,z}",
+  "verification": "REFUTED"
 }

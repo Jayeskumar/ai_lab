@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Laver's recursion produces a left-distributive table exactly for N in {1, 2, 4, ..., 64} among N <= 64; the tables A_n are left-distributive for n <= 12 (exhaustively up to N = 256, 2e5 random triples beyond); the row-0 periods 1, 1, 2, 4, 4, 8, 8, 8, 8, 16, ... match OEIS A098820.",
   "assumptions": [
     "N <= 4096; exhaustive LD check for N <= 256, 2e5 random triples for N = 512..4096"
   ],
@@ -17,12 +18,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T07:55:32Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Laver's recursion produces a left-distributive table exactly for N in {1, 2, 4, ..., 64} among N <= 64; the tables A_n are left-distributive for n <= 12 (exhaustively up to N = 256, 2e5 random triples beyond); the row-0 periods 1, 1, 2, 4, 4, 8, 8, 8, 8, 16, ... match OEIS A098820.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C06-01"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
     }
   ],
   "hypothesis": "Laver's recursion yields a left-distributive table exactly when N is a power of 2 (the Laver tables A_n); the period of row 0 (Laver's row 1) follows OEIS A098820.",
   "id": "EXP-C06-01",
   "methodology": "Run Laver's recursion for every N <= 64 and for N = 2^n up to 4096; test left-distributivity; compute periods of row 0 and of all rows; OEIS check of the period sequence.",
   "question": "What does a single composition law (left self-distributivity x(yz) = (xy)(xz)) produce when the operation is anchored to a successor (x * 0 = x + 1 mod N)?",
+  "related": [
+    "CLM-C06-01"
+  ],
   "results_file": "results/EXP-C06-01.json",
   "results_sha256": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
   "runs": [
@@ -52,5 +85,6 @@
     "A_n LD-verified for n <= 12 (exhaustive up to N = 256): True",
     "row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']"
   ],
-  "title": "Laver tables: construction, left-distributivity and periods"
+  "title": "Laver tables: construction, left-distributivity and periods",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

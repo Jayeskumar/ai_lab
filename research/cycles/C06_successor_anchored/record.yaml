@@ -1,0 +1,222 @@
+cycle: C06
+title: "Successor-anchored magmas: spectra of composition laws"
+branch: B
+status: complete
+systems: [SYS-B]
+
+experiments:
+  - id: EXP-C06-01
+    analysis: Laver's recursion produces a left-distributive table exactly for N in {1, 2, 4, ..., 64} among N <= 64; the tables A_n are left-distributive for n <= 12 (exhaustively up to N = 256, 2e5 random triples beyond); the row-0 periods 1, 1, 2, 4, 4, 8, 8, 8, 8, 16, ... match OEIS A098820.
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C06-01]
+  - id: EXP-C06-02
+    analysis: "Complete SAT enumeration of successor-anchored models (x*0 = x+1 mod N) for 12 laws. Left-distributivity - exactly one model for N = 1, 2, 4, 8 and none for the other N <= 10 (H-C06-1 confirmed, independently of Laver's recursion). Right-distributivity, associativity, (xy)z = (xy)(xz) and x(yx) = xy - exactly one model for every N. Right-permutable - 1, 2, 9, 64, 625 = N^(N-1). Left-permutable - 1, 2, 9, 94, 1486 (OEIS A058156, commutative monoids with fixed identity). x(xy) = xy - 1, 2, 24, >= 2000. Four laws only N = 1. The first run was stopped and fixed - an unused isomorphism reduction (8! permutations per table) made it run for 30 minutes; anchored structures have no non-trivial anchored isomorphisms, so tables are counted directly."
+    related: [CLM-C06-01, CLM-C06-02, CLM-C06-03, CLM-C06-05, CLM-C06-08]
+  - id: EXP-C06-03
+    analysis: "All 382 laws x(yz) = t or (xy)z = t with t a term of 3-4 leaves using exactly x, y, z - 77 have anchored models for every N <= 6, 283 only for N = 1, and 22 have a restricted spectrum. Only one of the 22 is left-distributivity, so the bold hypothesis H-C06-2 is refuted. The restricted spectra (extended to N = 8) are {1,2} (10 laws), {1,3} (7 laws), {1,5} (2 laws), the odd numbers {1,3,5,7} (2 laws) and {1,2,4,8} (LD). No UNKNOWN instance."
+    verification: REFUTED
+    counterexamples: ["(xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8)", "(xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8)", "x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)"]
+    related: [CLM-C06-04]
+  - id: EXP-C06-04
+    analysis: "Affine anchored models x*y = x + a*y + 1 explain 20 of the 22 restricted spectra - all their models for N <= 9 are affine - but not all spectra - 6 laws (LD, x(yz) = y((yx)z) and four laws with models for every N, e.g. x(yz) = y(x(yz))) have non-affine models, refuting H-C06-3. The hand-derived predictions hold exactly - (xy)z = x(y(zz)) has 1, 1, 2 models at N = 1, 5, 11 and none for other N <= 12 (roots of a^2 + a = 1 mod N); (xy)z = x((yz)z) has exactly one model for odd N <= 11 and none for even N."
+    verification: PROVEN
+    counterexamples: ["x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1", "x(yz) = y((yx)z) has a non-affine anchored model at N = 2"]
+    related: [CLM-C06-06, CLM-C06-07, CLM-C06-09, CLM-C06-10, CLM-C06-11]
+
+claims:
+  - id: CLM-C06-01
+    type: theorem
+    system: SYS-B
+    title: "Left-distributivity with a successor anchor: the Laver tables (rediscovery)"
+    statement: |
+      An anchored left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N exists exactly for
+      N = 1, 2, 4, 8 among N <= 10 and is then unique (the Laver table A_n); Laver's recursion yields
+      left-distributive tables exactly at the powers of 2 up to N = 64 (verified to N = 256 exhaustively).
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C06-01, EXP-C06-02]
+    lean: [proofs/lean/Infinity/C06_Laver.lean]
+    novelty: REDISCOVERY
+    novelty_basis: "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q*1) = (p*q)*(p*1), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab."
+  - id: CLM-C06-02
+    type: theorem
+    system: SYS-B
+    title: Anchored associativity forces x*y = x + y + 1, for every N
+    statement: If * on Z/N is associative and x*0 = x + 1 for all x, then x*y = x + y + 1; conversely this operation is associative and anchored. So every N has exactly one anchored associative magma (a cyclic group).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (anchored_assoc_unique; standard axioms only)
+    proof: proofs/paper/C06.md#theorem-1-clm-c06-02--anchored-associativity-gives-exactly-one-model-for-every-n
+    lean: [proofs/lean/Infinity/C06_Laver.lean]
+    evidence: [EXP-C06-02]
+    novelty: REDISCOVERY
+    novelty_basis: Elementary (the anchor is a right translation by a generator); folklore.
+  - id: CLM-C06-03
+    type: theorem
+    system: SYS-B
+    title: Anchored right-distributivity forces x*y = x + 1, for every N
+    statement: If (xy)z = (xz)(yz) on Z/N and x*0 = x + 1, then x*y = x + 1 for all x, y; conversely this operation is right-distributive and anchored.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (anchored_rd_unique; standard axioms only); written proof proofs/paper/C06.md Theorem 2
+    proof: proofs/paper/C06.md#theorem-2-clm-c06-03--anchored-right-distributivity-gives-exactly-one-model-for-every-n
+    lean: [proofs/lean/Infinity/C06_Laver.lean]
+    evidence: [EXP-C06-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; explains why the anchor singles out left- and not right-distributivity.
+  - id: CLM-C06-04
+    type: hypothesis
+    system: SYS-B
+    title: "H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted)"
+    statement: Among the laws x(yz) = t and (xy)z = t with t a term of 3-4 leaves over exactly {x, y, z}, every law other than left-distributivity has anchored spectrum {1} or {1, ..., 6}.
+    verification: REFUTED
+    counterexample: "21 other laws have restricted spectra (EXP-C06-03): (xy)z = x((yz)z) - odd N; (xy)z = x(y(zz)) - N = 1, 5 (and 11, 19, ... by Theorem 6 of proofs/paper/C06.md); x(yz) = ((zx)x)y - N = 1, 3; x(yz) = ((xx)y)z - N = 1, 2."
+    evidence: [EXP-C06-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C06-05
+    type: theorem
+    system: SYS-B
+    title: Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them
+    statement: If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review
+    proof: proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models
+    evidence: [EXP-C06-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.
+  - id: CLM-C06-06
+    type: theorem
+    system: SYS-B
+    title: "An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique"
+    statement: An anchored magma of size N satisfying (xy)z = x((yz)z) exists iff N is odd, and then x*y = x + 1 + y/2 (the inverse of 2 modulo N).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (odd_law_even_impossible, odd_law_formula, odd_law_model; standard axioms only); written proof proofs/paper/C06.md Theorem 5
+    proof: proofs/paper/C06.md#theorem-5-clm-c06-06--an-odd-law-x--y--z--x--y--z--z
+    lean: [proofs/lean/Infinity/C06_Laver.lean]
+    evidence: [EXP-C06-03, EXP-C06-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searches for anchored/successor-anchored magmas (2026-10-18) found only the Laver-table literature; no statement for this law. Small result."
+  - id: CLM-C06-07
+    type: theorem
+    system: SYS-B
+    title: "A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mod N"
+    statement: |
+      The anchored magmas of size N satisfying (xy)z = x(y(zz)) are exactly x*y = x + 1 + a*y (mod N) with
+      a^2 + a = 1 (mod N); distinct roots give distinct models. Hence the spectrum is the set of N = 5^e m with
+      e in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)
+      and the number of models is the number of roots (OEIS A087781).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review
+    proof: proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z
+    evidence: [EXP-C06-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables)."
+  - id: CLM-C06-08
+    type: theorem
+    system: SYS-B
+    title: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156)
+    statement: |
+      On Z/N, a.b := (a - 1)*b and x*y := (x + 1).y are inverse bijections between anchored magmas satisfying
+      x(yz) = y(xz) and commutative monoid structures with identity 0. Hence the number of anchored left-permutable
+      magmas of size N is the number of labelled commutative monoids of order N with a fixed identity (OEIS A058156:
+      1, 2, 9, 94, 1486, ...).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib for the structural core (centralizer_eq, comp_eq, id_eq, leftPerm_assoc, leftPerm_comm, leftPerm_one_mul, leftPerm_mul_one; standard axioms only); the inverse construction is immediate (written proof proofs/paper/C06.md Theorem 7); counts agree for N <= 5 (EXP-C06-02)
+    proof: proofs/paper/C06.md#theorem-7-clm-c06-08--anchored-left-permutable-magmas-are-commutative-monoids-in-disguise
+    lean: [proofs/lean/Infinity/C06_Laver.lean]
+    evidence: [EXP-C06-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Left-permutable groupoids are studied (e.g. Stanovsky's surveys; Weber 2009 on commutativity identities), and the argument is the regular-representation idea (Cayley); no statement about anchored left-permutable magmas or their enumeration was found in one search (2026-10-18). Likely folklore in spirit; small."
+  - id: CLM-C06-09
+    type: hypothesis
+    system: SYS-B
+    title: "H-C06-3: anchored spectra are affine spectra (refuted)"
+    statement: For every law of EXP-C06-03 other than left-distributivity, the anchored spectrum for N <= 6 equals the set of N for which some affine table x*y = x + a*y + 1 satisfies the law.
+    verification: REFUTED
+    counterexample: "x(yz) = y(x(yz)), x(yz) = y(x(xz)), x(yz) = y(y(xz)) and x(yz) = (yx)(yz) have anchored models for every N <= 6 but no affine model for N > 1; x(yz) = y((yx)z) has a non-affine model at N = 2 (EXP-C06-04)."
+    evidence: [EXP-C06-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C06-10
+    type: conjecture
+    system: SYS-B
+    title: Laws with finite anchored spectra {1, 2} and {1, 3}
+    statement: |
+      The seven laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z = y((zx)y), (xy)z = y((zy)x),
+      (xy)z = z((yx)z), (xy)z = z((yz)x) have anchored models exactly for N in {1, 3}; the ten laws x(yz) = y((yx)z),
+      x(yz) = ((xx)y)z, x(yz) = ((xx)z)y, x(yz) = ((xy)x)z, x(yz) = ((xy)y)z, x(yz) = ((xy)z)x, x(yz) = ((xy)z)y,
+      x(yz) = ((xz)x)y, x(yz) = ((xz)y)x, x(yz) = ((xz)y)y have anchored models exactly for N in {1, 2}.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C06-03, EXP-C06-04]
+    novelty: NOT ASSESSED
+    limitations: Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.
+  - id: CLM-C06-11
+    type: observation
+    system: SYS-B
+    title: Mirror twins of the golden and odd laws
+    statement: (xy)z = x(z(yy)) has the same anchored model counts as the golden law (xy)z = x(y(zz)), and (xy)z = x((zy)y) the same as the odd law (xy)z = x((yz)z), for N <= 9; their affine spectra coincide for N <= 40.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C06-04]
+    novelty: NOT ASSESSED
+    limitations: No proof that all their models are affine; the arguments of Theorems 5-6 do not transfer directly because the z = 0 substitution produces 0*(yy) and 0*y terms.
+
+  - id: CLM-C06-12
+    type: theorem
+    system: SYS-B
+    title: Anchored spectra are closed under coprime products
+    statement: For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no law has the set of primes as its anchored spectrum.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C06.md Theorem 8); consistent with every spectrum observed in EXP-C06-02..04; awaiting independent skeptic review
+    proof: proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products
+    evidence: [EXP-C06-03, EXP-C06-04]
+    novelty: NOT ASSESSED
+    novelty_basis: Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
+
+journal:
+  - key: C06-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "Anchor a single invented operation to the successor (x*0 = x+1) and impose one composition law. H-C06-1 - left-distributivity then has exactly one model for N in {1, 2, 4, 8} (Laver tables). H-C06-2 (bold) - such restricted spectra are special to left-distributivity."
+    refs: [EXP-C06-01, EXP-C06-02]
+  - key: C06-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C06-02 confirmed H-C06-1 with an independent SAT encoding (LD only at 1, 2, 4, 8 for N <= 10) and produced exact model counts - one for associativity and right-distributivity at every N, N^(N-1) for right-permutability, 1, 2, 9, 94, 1486 for left-permutability."
+    refs: [EXP-C06-02]
+  - key: C06-03
+    agent: Formal Verifier
+    kind: decision
+    text: Stopped the first EXP-C06-02 run after 27 minutes - it computed an unused isomorphism-class count with 8! permutations per table. Anchored structures have only the identity as anchored isomorphism, so tables are counted directly (53 s).
+    refs: [EXP-C06-02]
+  - key: C06-04
+    agent: Mathematical Skeptic
+    kind: result
+    text: "EXP-C06-03 refuted H-C06-2 - of 382 laws, 22 have restricted anchored spectra and only one is LD. Spectra {1,2}, {1,3}, {1,5}, odd numbers."
+    refs: [EXP-C06-03, CLM-C06-04]
+  - key: C06-05
+    agent: Formal Verifier
+    kind: proof
+    text: "Hand analysis of the restricted laws - substituting z = 0 in (xy)z = x((yz)z) gives x*(y+2) = x*y + 1, forcing odd N and x*y = x + 1 + y/2; in (xy)z = x(y(zz)) it gives x*(y*1) = x*y + 1, which forces x*y = x + 1 + kappa(y) and then kappa linear with a^2 + a = 1 - a golden-ratio spectrum. Both now proved (odd law also in Lean)."
+    refs: [CLM-C06-06, CLM-C06-07, proofs/paper/C06.md]
+  - key: C06-06
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C06-04 tested the predictions - golden law model counts 1, 1, 2 at N = 1, 5, 11 and 0 otherwise for N <= 12, exactly the root counts; odd law one model at each odd N <= 11. The broader H-C06-3 (all spectra are affine spectra) is refuted by six laws with non-affine models."
+    refs: [EXP-C06-04, CLM-C06-09]
+  - key: C06-07
+    agent: Historian
+    kind: novelty
+    text: "OEIS - left-permutable counts 1, 2, 9, 94, 1486 match A058156 (commutative monoids with fixed identity), explained by Theorem 7 (centraliser argument); golden spectrum = A089270, golden counts = A087781. Literature - the LD case is Laver's theorem (Drapal's elementary proof; Dehornoy's book); no prior statement of the odd, golden or left-permutable correspondences found."
+    refs: [CLM-C06-01, CLM-C06-07, CLM-C06-08]
+  - key: C06-09
+    agent: Mathematical Inventor
+    kind: result
+    text: "Answered the cycle's own question 'can a spectrum be the primes?' - no, since direct products transported along the Chinese remainder isomorphism keep the anchor, every anchored spectrum is closed under coprime products (Theorem 8). Divisor-closure is observed in all examples but unproved."
+    refs: [CLM-C06-12]
+  - key: C06-08
+    agent: Formal Verifier
+    kind: proof
+    text: Lean file C06_Laver.lean extended - anchored_rd_unique, the odd law (no even sizes, unique formula, existence) and the left-permutable structure theorem (a pairwise commuting family that reaches every point from e exactly once is closed under composition and contains the identity); all with standard axioms only.
+    refs: [proofs/lean/Infinity/C06_Laver.lean, CLM-C06-03, CLM-C06-06, CLM-C06-08]
+
+next_directions:
+  - "C06: prove the finite spectra {1,2} and {1,3} (CLM-C06-10) by showing every anchored model of those laws is affine"
+  - "C06: which subsets of N arise as anchored spectra? They are closed under coprime products (CLM-C06-12), so never the primes; are they always closed under divisors? (bold)"
+  - "C06: larger terms - are there non-LD laws with power-of-two (Laver-like, non-affine) spectra?"
+  - "C06: Lean formalisation of the golden-law correspondence (Theorem 6)"

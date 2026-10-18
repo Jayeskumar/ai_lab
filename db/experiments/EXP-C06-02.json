@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Inventor",
+  "analysis": "Complete SAT enumeration of successor-anchored models (x*0 = x+1 mod N) for 12 laws. Left-distributivity - exactly one model for N = 1, 2, 4, 8 and none for the other N <= 10 (H-C06-1 confirmed, independently of Laver's recursion). Right-distributivity, associativity, (xy)z = (xy)(xz) and x(yx) = xy - exactly one model for every N. Right-permutable - 1, 2, 9, 64, 625 = N^(N-1). Left-permutable - 1, 2, 9, 94, 1486 (OEIS A058156, commutative monoids with fixed identity). x(xy) = xy - 1, 2, 24, >= 2000. Four laws only N = 1. The first run was stopped and fixed - an unused isomorphism reduction (8! permutations per table) made it run for 30 minutes; anchored structures have no non-trivial anchored isomorphisms, so tables are counted directly.",
   "assumptions": [
     "sizes N = 1..10 (LD, RD up to 10; others up to 8)",
     "complete enumeration with blocking clauses (limit 2000 models)",
@@ -19,12 +20,43 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:23:38Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Complete SAT enumeration of successor-anchored models (x*0 = x+1 mod N) for 12 laws. Left-distributivity - exactly one model for N = 1, 2, 4, 8 and none for the other N <= 10 (H-C06-1 confirmed, independently of Laver's recursion). Right-distributivity, associativity, (xy)z = (xy)(xz) and x(yx) = xy - exactly one model for every N. Right-permutable - 1, 2, 9, 64, 625 = N^(N-1). Left-permutable - 1, 2, 9, 94, 1486 (OEIS A058156, commutative monoids with fixed identity). x(xy) = xy - 1, 2, 24, >= 2000. Four laws only N = 1. The first run was stopped and fixed - an unused isomorphism reduction (8! permutations per table) made it run for 30 minutes; anchored structures have no non-trivial anchored isomorphisms, so tables are counted directly.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C06-01",
+        "CLM-C06-02",
+        "CLM-C06-03",
+        "CLM-C06-05",
+        "CLM-C06-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T08:45:16Z"
     }
   ],
   "hypothesis": "H-C06-1: LD + anchor has exactly one model for N in {1,2,4,8} and none otherwise (N <= 10). H-C06-2 (bold, inventor): restricted 'power-of-two' spectra are special to left-distributivity; other balanced 3-variable laws give either every N or no N > 1.",
   "id": "EXP-C06-02",
   "methodology": "MagmaSAT (exact encoding from C05) with unit clauses v[x,0,x+1]; count all models (anchored structures have no non-trivial anchored isomorphisms, so tables = classes); record spectrum and counts; independent of Laver's recursion.",
   "question": "If left-distributivity is replaced by another composition law, which sizes N admit a magma with x * 0 = x + 1 (mod N), and how many are there?",
+  "related": [
+    "CLM-C06-01",
+    "CLM-C06-02",
+    "CLM-C06-03",
+    "CLM-C06-05",
+    "CLM-C06-08"
+  ],
   "results_file": "results/EXP-C06-02.json",
   "results_sha256": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
   "runs": [

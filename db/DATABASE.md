@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T08:46:39Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -947,6 +947,213 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
 
   Equivalent to the open periodicity problems for Officers (0.6), Treblecross (0.007, OEIS A395248) and 0.06 (Guy's conjecture that finite octal games are ultimately periodic). Our computation (n <= 3000) finds no period <= 300; the 0.06 Grundy sequence is not in the OEIS.
 
+
+### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  An anchored left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N exists exactly for
+  N = 1, 2, 4, 8 among N <= 10 and is then unique (the Laver table A_n); Laver's recursion yields
+  left-distributive tables exactly at the powers of 2 up to N = 64 (verified to N = 256 exhaustively).
+
+- **lean:** proofs/lean/Infinity/C06_Laver.lean
+- **evidence:** EXP-C06-01; EXP-C06-02
+- **novelty_basis:**
+
+  Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q*1) = (p*q)*(p*1), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.
+
+
+### CLM-C06-02: Anchored associativity forces x*y = x + y + 1, for every N
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (anchored_assoc_unique; standard axioms only)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If * on Z/N is associative and x*0 = x + 1 for all x, then x*y = x + y + 1; conversely this operation is associative and anchored. So every N has exactly one anchored associative magma (a cyclic group).
+
+- **proof:** proofs/paper/C06.md#theorem-1-clm-c06-02--anchored-associativity-gives-exactly-one-model-for-every-n
+- **lean:** proofs/lean/Infinity/C06_Laver.lean
+- **evidence:** EXP-C06-02
+- **novelty_basis:** Elementary (the anchor is a right translation by a generator); folklore.
+
+### CLM-C06-03: Anchored right-distributivity forces x*y = x + 1, for every N
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (anchored_rd_unique; standard axioms only); written proof proofs/paper/C06.md Theorem 2
+- **novelty:** NOT ASSESSED
+- **statement:** If (xy)z = (xz)(yz) on Z/N and x*0 = x + 1, then x*y = x + 1 for all x, y; conversely this operation is right-distributive and anchored.
+- **proof:** proofs/paper/C06.md#theorem-2-clm-c06-03--anchored-right-distributivity-gives-exactly-one-model-for-every-n
+- **lean:** proofs/lean/Infinity/C06_Laver.lean
+- **evidence:** EXP-C06-02
+- **novelty_basis:** Elementary; explains why the anchor singles out left- and not right-distributivity.
+
+### CLM-C06-04: H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted)
+
+- **cycle:** C06
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Among the laws x(yz) = t and (xy)z = t with t a term of 3-4 leaves over exactly {x, y, z}, every law other than left-distributivity has anchored spectrum {1} or {1, ..., 6}.
+- **evidence:** EXP-C06-03
+- **counterexample:**
+
+  21 other laws have restricted spectra (EXP-C06-03): (xy)z = x((yz)z) - odd N; (xy)z = x(y(zz)) - N = 1, 5 (and 11, 19, ... by Theorem 6 of proofs/paper/C06.md); x(yz) = ((zx)x)y - N = 1, 3; x(yz) = ((xx)y)z - N = 1, 2.
+
+
+### CLM-C06-05: Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.
+
+- **proof:** proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models
+- **evidence:** EXP-C06-02
+- **novelty_basis:** Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.
+
+### CLM-C06-06: An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (odd_law_even_impossible, odd_law_formula, odd_law_model; standard axioms only); written proof proofs/paper/C06.md Theorem 5
+- **novelty:** POTENTIALLY NOVEL
+- **statement:** An anchored magma of size N satisfying (xy)z = x((yz)z) exists iff N is odd, and then x*y = x + 1 + y/2 (the inverse of 2 modulo N).
+- **proof:** proofs/paper/C06.md#theorem-5-clm-c06-06--an-odd-law-x--y--z--x--y--z--z
+- **lean:** proofs/lean/Infinity/C06_Laver.lean
+- **evidence:** EXP-C06-03; EXP-C06-04
+- **novelty_basis:** Searches for anchored/successor-anchored magmas (2026-10-18) found only the Laver-table literature; no statement for this law. Small result.
+
+### CLM-C06-07: A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mod N
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  The anchored magmas of size N satisfying (xy)z = x(y(zz)) are exactly x*y = x + 1 + a*y (mod N) with
+  a^2 + a = 1 (mod N); distinct roots give distinct models. Hence the spectrum is the set of N = 5^e m with
+  e in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)
+  and the number of models is the number of roots (OEIS A087781).
+
+- **proof:** proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z
+- **evidence:** EXP-C06-04
+- **novelty_basis:**
+
+  The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables).
+
+
+### CLM-C06-08: Anchored left-permutable magmas are commutative monoids in disguise (counted by OEIS A058156)
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 + Mathlib for the structural core (centralizer_eq, comp_eq, id_eq, leftPerm_assoc, leftPerm_comm, leftPerm_one_mul, leftPerm_mul_one; standard axioms only); the inverse construction is immediate (written proof proofs/paper/C06.md Theorem 7); counts agree for N <= 5 (EXP-C06-02)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  On Z/N, a.b := (a - 1)*b and x*y := (x + 1).y are inverse bijections between anchored magmas satisfying
+  x(yz) = y(xz) and commutative monoid structures with identity 0. Hence the number of anchored left-permutable
+  magmas of size N is the number of labelled commutative monoids of order N with a fixed identity (OEIS A058156:
+  1, 2, 9, 94, 1486, ...).
+
+- **proof:** proofs/paper/C06.md#theorem-7-clm-c06-08--anchored-left-permutable-magmas-are-commutative-monoids-in-disguise
+- **lean:** proofs/lean/Infinity/C06_Laver.lean
+- **evidence:** EXP-C06-02
+- **novelty_basis:**
+
+  Left-permutable groupoids are studied (e.g. Stanovsky's surveys; Weber 2009 on commutativity identities), and the argument is the regular-representation idea (Cayley); no statement about anchored left-permutable magmas or their enumeration was found in one search (2026-10-18). Likely folklore in spirit; small.
+
+
+### CLM-C06-09: H-C06-3: anchored spectra are affine spectra (refuted)
+
+- **cycle:** C06
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every law of EXP-C06-03 other than left-distributivity, the anchored spectrum for N <= 6 equals the set of N for which some affine table x*y = x + a*y + 1 satisfies the law.
+- **evidence:** EXP-C06-04
+- **counterexample:**
+
+  x(yz) = y(x(yz)), x(yz) = y(x(xz)), x(yz) = y(y(xz)) and x(yz) = (yx)(yz) have anchored models for every N <= 6 but no affine model for N > 1; x(yz) = y((yx)z) has a non-affine model at N = 2 (EXP-C06-04).
+
+
+### CLM-C06-10: Laws with finite anchored spectra {1, 2} and {1, 3}
+
+- **cycle:** C06
+- **type:** conjecture
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The seven laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z = y((zx)y), (xy)z = y((zy)x),
+  (xy)z = z((yx)z), (xy)z = z((yz)x) have anchored models exactly for N in {1, 3}; the ten laws x(yz) = y((yx)z),
+  x(yz) = ((xx)y)z, x(yz) = ((xx)z)y, x(yz) = ((xy)x)z, x(yz) = ((xy)y)z, x(yz) = ((xy)z)x, x(yz) = ((xy)z)y,
+  x(yz) = ((xz)x)y, x(yz) = ((xz)y)x, x(yz) = ((xz)y)y have anchored models exactly for N in {1, 2}.
+
+- **evidence:** EXP-C06-03; EXP-C06-04
+- **limitations:**
+
+  Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.
+
+
+### CLM-C06-11: Mirror twins of the golden and odd laws
+
+- **cycle:** C06
+- **type:** observation
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  (xy)z = x(z(yy)) has the same anchored model counts as the golden law (xy)z = x(y(zz)), and (xy)z = x((zy)y) the same as the odd law (xy)z = x((yz)z), for N <= 9; their affine spectra coincide for N <= 40.
+
+- **evidence:** EXP-C06-04
+- **limitations:** No proof that all their models are affine; the arguments of Theorems 5-6 do not transfer directly because the z = 0 substitution produces 0*(yy) and 0*y terms.
+
+### CLM-C06-12: Anchored spectra are closed under coprime products
+
+- **cycle:** C06
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C06.md Theorem 8); consistent with every spectrum observed in EXP-C06-02..04; awaiting independent skeptic review
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no law has the set of primes as its anchored spectrum.
+
+- **proof:** proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products
+- **evidence:** EXP-C06-03; EXP-C06-04
+- **novelty_basis:** Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
 
 ### CLM-C08-01: Every shifted Knuth product a o_t b = sum F(k+l+t) over Zeckendorf indices is associative (t >= 0)
 
@@ -1945,6 +2152,12 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Run Laver's recursion for every N <= 64 and for N = 2^n up to 4096; test left-distributivity; compute periods of row 0 and of all rows; OEIS check of the period sequence.
 - **falsification:** An LD table from the recursion for N not a power of 2, a power of 2 failing LD, or a period sequence differing from A098820.
 - **summary:** Laver's recursion gives an LD table exactly for N in [1, 2, 4, 8, 16, 32, 64] (N <= 64); A_n LD-verified for n <= 12 (exhaustive up to N = 256): True; row-0 periods n = 0..12: [1, 1, 2, 4, 4, 8, 8, 8, 8, 16, 16, 16, 16]; OEIS MATCH ['A098820']
+- **analysis:**
+
+  Laver's recursion produces a left-distributive table exactly for N in {1, 2, 4, ..., 64} among N <= 64; the tables A_n are left-distributive for n <= 12 (exhaustively up to N = 256, 2e5 random triples beyond); the row-0 periods 1, 1, 2, 4, 4, 8, 8, 8, 8, 16, ... match OEIS A098820.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C06-01
 - **runs:** 1; last 2026-10-18T07:55:31Z (23.624 s), results sha256 `9a343d0263e25062…`, code `experiments/C06/E01_laver_tables.py`
 
 ### EXP-C06-02: Spectra and model counts of successor-anchored magmas for invented identities
@@ -1976,6 +2189,11 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
   - x(xy)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 2, '3': 24, '4': 2000, '5': 2000, '6': 2000, '7': 2000, '8': 2000}
   - x(yx)=xy: spectrum [1, 2, 3, 4, 5, 6, 7, 8] counts {'1': 1, '2': 1, '3': 1, '4': 1, '5': 1, '6': 1, '7': 1, '8': 1}
   - (xy)y=xy: spectrum [1] counts {'1': 1, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0}
+- **analysis:**
+
+  Complete SAT enumeration of successor-anchored models (x*0 = x+1 mod N) for 12 laws. Left-distributivity - exactly one model for N = 1, 2, 4, 8 and none for the other N <= 10 (H-C06-1 confirmed, independently of Laver's recursion). Right-distributivity, associativity, (xy)z = (xy)(xz) and x(yx) = xy - exactly one model for every N. Right-permutable - 1, 2, 9, 64, 625 = N^(N-1). Left-permutable - 1, 2, 9, 94, 1486 (OEIS A058156, commutative monoids with fixed identity). x(xy) = xy - 1, 2, 24, >= 2000. Four laws only N = 1. The first run was stopped and fixed - an unused isomorphism reduction (8! permutations per table) made it run for 30 minutes; anchored structures have no non-trivial anchored isomorphisms, so tables are counted directly.
+
+- **related:** CLM-C06-01; CLM-C06-02; CLM-C06-03; CLM-C06-05; CLM-C06-08
 - **runs:** 1; last 2026-10-18T08:23:38Z (53.475 s), results sha256 `b78c9dca41e89a8e…`, code `experiments/C06/E02_anchored_spectra.py`
 
 ### EXP-C06-03: Anchored spectra of all laws x(yz) = t and (xy)z = t with t of 3-4 leaves over {x,y,z}
@@ -1997,6 +2215,13 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
   - 382 laws: all N <= 6: 77, trivial only: 283, restricted: 22
   - restricted spectra: [{'law': 'x(yz) = y((yx)z)', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = (xy)(xz)', 'sat_le6': [1, 2, 4], 'N7_8': {7: 'UNSAT', 8: 'SAT'}}, {'law': 'x(yz) = ((xx)y)z', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xx)z)y', 'sat_le6': [1, 2], 'N7_8': {7: 'UNSAT', 8: 'UNSAT'}}, {'law': 'x(yz) = ((xy)x)z', 'sat_le6': [1, 2], 'N…
   - UNKNOWN instances: 0
+- **analysis:**
+
+  All 382 laws x(yz) = t or (xy)z = t with t a term of 3-4 leaves using exactly x, y, z - 77 have anchored models for every N <= 6, 283 only for N = 1, and 22 have a restricted spectrum. Only one of the 22 is left-distributivity, so the bold hypothesis H-C06-2 is refuted. The restricted spectra (extended to N = 8) are {1,2} (10 laws), {1,3} (7 laws), {1,5} (2 laws), the odd numbers {1,3,5,7} (2 laws) and {1,2,4,8} (LD). No UNKNOWN instance.
+
+- **counterexamples:** (xy)z = x((yz)z): anchored models exactly for N = 1, 3, 5, 7 (N <= 8); (xy)z = x(y(zz)): anchored models exactly for N = 1, 5 (N <= 8); x(yz) = ((zx)x)y: anchored models exactly for N = 1, 3 (N <= 8)
+- **verification:** REFUTED
+- **related:** CLM-C06-04
 - **runs:** 1; last 2026-10-18T08:25:42Z (46.81 s), results sha256 `abc56c929f0aa54a…`, code `experiments/C06/E03_law_family_spectra.py`
 
 ### EXP-C06-04: Affine anchored models and the arithmetic of anchored spectra
@@ -2019,6 +2244,13 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
   - restricted laws: 22; laws with non-affine anchored models (N<=9): {'x(yz) = y((yx)z)': {2: 1}, 'x(yz) = (xy)(xz)': {2: 1, 4: 1, 8: 1}}
   - golden law counts predicted {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0} observed {1: 1, 2: 0, 3: 0, 4: 0, 5: 1, 6: 0, 7: 0, 8: 0, 9: 0, 10: 0, 11: 2, 12: 0}
   - odd law counts {1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1, 10: 0, 11: 1, 12: 0}
+- **analysis:**
+
+  Affine anchored models x*y = x + a*y + 1 explain 20 of the 22 restricted spectra - all their models for N <= 9 are affine - but not all spectra - 6 laws (LD, x(yz) = y((yx)z) and four laws with models for every N, e.g. x(yz) = y(x(yz))) have non-affine models, refuting H-C06-3. The hand-derived predictions hold exactly - (xy)z = x(y(zz)) has 1, 1, 2 models at N = 1, 5, 11 and none for other N <= 12 (roots of a^2 + a = 1 mod N); (xy)z = x((yz)z) has exactly one model for odd N <= 11 and none for even N.
+
+- **counterexamples:** x(yz) = y(x(yz)) has anchored models for every N <= 6 but no affine one for N > 1; x(yz) = y((yx)z) has a non-affine anchored model at N = 2
+- **verification:** PROVEN
+- **related:** CLM-C06-06; CLM-C06-07; CLM-C06-09; CLM-C06-10; CLM-C06-11
 - **runs:** 1; last 2026-10-18T08:33:18Z (318.236 s), results sha256 `8a8aca5cd93cd72e…`, code `experiments/C06/E04_affine_spectra.py`
 
 ### EXP-C08-01: Associativity atlas of circle products a o b = sum d_i(a) d_j(b) G_(i+j+s)
@@ -2323,7 +2555,7 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
   - prime gaps <= 1e7 (halved) (n=664577, H0=4.1708): best classical ['Exp-Golomb(2)', 4.5787], best fixed ['Exp-Golomb(2)', 4.5787], best overall ['tuned Golomb(M=5)', 4.2713]
   - posting list geometric(0.001) (n=100000, H0=11.3626): best classical ['Fibonacci C1', 14.3563], best fixed ['T_0111', 13.1548], best overall ['tuned Golomb(M=693)', 11.446]
   - bursty posting list (mixture) (n=100000, H0=10.7142): best classical ['Fibonacci C1', 12.1459], best fixed ['T_101', 11.4728], best overall ['T_101', 11.4728]
-- **runs:** 1; last 2026-10-18T08:26:18Z (0.209 s), results sha256 `06e9eae27066d241…`, code `experiments/C11/E04_data_benchmarks.py`
+- **runs:** 2; last 2026-10-18T08:42:58Z (0.224 s), results sha256 `06e9eae27066d241…`, code `experiments/C11/E04_data_benchmarks.py`
 
 ### EXP-C11-05: Throughput of the reference implementations (Python, string-based)
 
@@ -2390,6 +2622,36 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
 - **falsification:** Values at large L not approaching the two constants.
 - **summary:** 011: liminf pred 1.0 vs [1.0, 1.0, 1.0]; limsup pred 1.0 vs [1.0, 1.0, 1.0]; 0111: liminf pred 0.228155 vs [0.228155, 0.228155, 0.228155]; limsup pred 0.352201 vs [0.352201, 0.352201, 0.352201]; 01111: liminf pred 0.084194 vs [0.084194, 0.084194, 0.084194]; limsup pred 0.150533 vs [0.150533, 0.150533, 0.150533]; 011111: liminf pred 0.036495 vs [0.036495, 0.036495, 0.036495]; limsup pred 0.069304 vs [0.069304, 0.069304, 0.069304]; 0111111: liminf pred 0.01697 vs [0.01697, 0.01697, 0.01697]; limsup pred 0.033108 vs [0.033108, 0.033108, 0.033108]
 - **runs:** 1; last 2026-10-18T08:30:03Z (0.169 s), results sha256 `627c7f71c24cf0bc…`, code `experiments/C11/E08_gain_oscillation.py`
+
+### EXP-C11-09: Fraenkel-Klein C3 as a baseline: counts, exact length comparison with T_011 and C1, benchmarks
+
+- **cycle:** C11
+- **agent:** Mathematical Skeptic
+- **question:**
+
+  Fraenkel and Klein (1996) already improved the Fibonacci code C1 with C3, a uniquely decipherable but non-prefix code that is also decoded by searching for the pattern 011. Does T_011 still improve on the strongest code of that family?
+
+- **hypothesis:**
+
+  H-C11-5: C3 has 2F_L - 2 codewords of length <= L (Fraenkel-Klein Prop. 5), so T_011 (F_(L+2) - L - 1) is never longer than C3 except for a few small n, cum_011/cum_C3 -> phi^2/2, and T_011 has the smaller expected length on the heavy-tailed sources.
+
+- **assumptions:**
+  - C3 implemented from the paper's construction; its decoder reads one bit past each codeword (input virtually followed by '1'), so C3 is compared as a uniquely decipherable code
+  - exact length comparison for n <= 2e6 and count inequalities for L <= 300 (big integers)
+  - sources and data sets exactly as in EXP-C11-03 and EXP-C11-04
+- **methodology:**
+
+  Check the first 12 codewords against the list printed in the paper, the length counts against 2F_(r-2) and the construction, round trips of concatenated streams, length(n) == len(encode(n)); compare length functions exactly; expected lengths on 12 sources and 4 data sets.
+
+- **falsification:** C3 shorter than T_011 for some n > 8; a round-trip failure; C3 better than T_011 on Zipf 1.1, log-uniform or the bursty posting list.
+- **summary:**
+  - C3 implementation: problems = 0; first 12 codewords match the paper: True; not prefix-free (5033 prefix pairs among the first codewords); Kraft partial sum 1.0
+  - n <= 2e6: C3 longer than C1 only for n in [1]; T_011 longer than C3 only for n in [2, 4, 8]; (C3 - T_011) histogram {-1: 3, 0: 832439, 1: 1167558}
+  - cum inequalities fail only at L = [3, 4, 5] (T_011 vs C3) and L = [2] (C3 vs C1)
+  - ratios {'cum_011/cum_C3 at L=300': 1.309016994, 'phi^2/2': 1.309016994, 'cum_C3/cum_C1 at L=299': 1.236067977, '2/phi': 1.236067977}
+  - average length difference (bits) {'2^40': {'C1 - C3': 0.462228, 'C3 - T_011': 0.537772}, '2^80': {'C1 - C3': 0.399663, 'C3 - T_011': 0.600337}, '2^120': {'C1 - C3': 0.480593, 'C3 - T_011': 0.519407}}
+  - C3 beats T_011 on: ['Zipf(s=1.5, N=1e6)', 'Zipf(s=2.0, N=1e6)', 'Zipf(s=3.0, N=1e6)', 'geometric(p=0.5)', 'geometric(p=0.1)', 'prime gaps <= 1e7 (raw)', 'prime gaps <= 1e7 (halved)']
+- **runs:** 1; last 2026-10-18T08:44:31Z (0.991 s), results sha256 `30d4d6e2b7a623f5…`, code `experiments/C11/E09_c3_baseline.py`
 
 ### EXP-C12-01: Grundy census of 19 relational one-heap games
 
@@ -2476,4 +2738,113 @@ _Generated 2026-10-18T08:39:48Z from `db/`. The JSON records are authoritative; 
 - **falsification:** Two numbers with the same signature and different Grundy values.
 - **summary:** G01 subtract a divisor d<n: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 0}; G02 subtract any divisor: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 2, 'g2': 1}; G03 subtract a nontrivial proper divisor: signature-only = False {'n1': 4, 'n2': 9, 'signature': [2], 'g1': 1, 'g2': 0}; G04 move to a proper divisor: signature-only = True ; G05 move to a smaller coprime: signature-only = False {'n1': 2, 'n2': 3, 'signature': [1], 'g1': 1, 'g2': 2}; G06 move to a smaller non-coprime: signature-only = False {'n1': 6, 'n2': 10, 'signature': [1, 1], 'g1': 2, 'g2': 4}
 - **runs:** 1; last 2026-10-18T08:18:41Z (0.249 s), results sha256 `d4ca22ecc3ae95f4…`, code `experiments/C12/E05_signature_hypothesis.py`
+
+### EXP-C12-06: Grundy values of the deleting-divisors game G03: v2(n) except for odd parts <= 15
+
+- **cycle:** C12
+- **agent:** Mathematical Explorer
+- **question:** The P-positions of G03 are known (CLM-C12-03), but its Grundy sequence matches nothing in the OEIS (EXP-C12-04). What is the Grundy function?
+- **hypothesis:**
+
+  H-C12-3: g(n) = v2(n) whenever the odd part m of n is at least 17; for m <= 15, g(2^a m) = a + c_m for all a >= a_m with (m: a_m, c_m) = (3: 6, -2), (5: 6, +2), (7, 9, 11, 15: 3, +1), (13: 4, +1); g(2^a) = 0 for odd a and a - 1 for even a (except g(16) = 2); ten sporadic values in between.
+
+- **assumptions:** exact Grundy values recomputed for n <= 1e5; closed form F from the table in proofs/paper/C12.md Theorem 8; inductive-step certificate: odd parts m <= 15, exponents 13 <= a <= 100; random spot checks of the mex equation for F: 3000 even n = 2^a m (17 <= m < 1e6, a <= 40) and 1000 odd n < 1e8; seed 1206
+- **methodology:** Compare g with F on [0, 1e5]; check F(n) = mex{F(n - d)} on the certificate range and on random large n by enumerating divisors exactly.
+- **falsification:** Any n with g(n) != F(n), or any n where F violates the mex equation.
+- **summary:**
+  - g = F on [0, 100000]: mismatches 0; positions with g != v2: 96 (by odd part {'1': 16, '3': 15, '5': 13, '7': 11, '9': 11, '11': 11, '15': 10, '13': 9})
+  - max |g - v2| off the P-positions 2^(2j+1): 2; records (n, g): [[0, 0], [4, 1], [6, 2], [12, 3], [24, 4], [64, 5], [96, 6], [256, 7], [320, 8], [640, 9], [1280, 10], [2560, 11], [5120, 12], [10240, 13], [20480, 14], [40960, 15], [81920, 16]]
+  - certificate m <= 15, 13 <= a <= 100: mismatches 0
+  - random mex checks: even n 0/3000 failures, odd n 0/1000 failures
+- **runs:** 1; last 2026-10-18T08:40:45Z (0.837 s), results sha256 `fe0eff630e328833…`, code `experiments/C12/E06_deleting_divisors.py`
+
+### EXP-C14-01: Exhaustive classification of the 256 local graph products
+
+- **cycle:** C14
+- **agent:** Mathematical Explorer
+- **question:** Which of the 256 local products of simple graphs are (strictly) associative, commutative, unital and distributive over disjoint union?
+- **hypothesis:**
+
+  H-C14-2 (from the Historian's recollection of Imrich-Izbicki 1975): exactly 20 local products are associative, 10 of them commutative. H-C14-R (reduction lemma, to be proved): the canonical map ((g,h),k) -> (g,(h,k)) is an isomorphism for all G, H, K iff the relation-level identity phi(phi(r1,r2),r3) = phi(r1,phi(r2,r3)) holds on the 26 triples != (E,E,E), and P3*P3*P3 already detects every failure.
+
+- **assumptions:** simple graphs (no loops); a product is a subset of the 8 cells (r1,r2) != (E,E); strict notions (identity-like canonical maps); isomorphism-level notions in EXP-C14-02; random test graphs: 40 seeded triples of orders 1..4 per product
+- **methodology:**
+
+  Relation-level check of the 26 triples for every code; independent brute-force check on actual graphs (P3^3 and random triples: adjacency matrices of (G*H)*K and G*(H*K) compared entrywise, the canonical map being the identity on the index g|H||K| + h|K| + k); orbits under transposition and complement-conjugation.
+
+- **falsification:** A code where the relation-level verdict and the graph-level verdict disagree, or a count different from 20/10.
+- **summary:**
+  - 20 associative products, 10 of them commutative (32 commutative in total)
+  - two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']
+  - relation-level vs graph-level disagreements: 0
+  - 76 orbits under <transpose, conjugate>; associativity orbit-invariant: True
+- **runs:** 2; last 2026-10-18T08:40:47Z (0.227 s), results sha256 `98a25916b494a20d…`, code `experiments/C14/E01_classification.py`
+
+### EXP-C14-02: Isomorphism-level versus strict associativity and commutativity of local products
+
+- **cycle:** C14
+- **agent:** Mathematical Inventor
+- **question:** Can a local product satisfy (G*H)*K = G*(H*K) (or G*H = H*G) up to isomorphism for all graphs although the canonical map is not an isomorphism?
+- **hypothesis:**
+
+  H-C14-1 (bold): no - for local products, associativity and commutativity up to isomorphism are equivalent to their strict versions; for every one of the 236 non-associative (224 non-commutative) products a witness exists among graphs with at most 3 vertices.
+
+- **assumptions:**
+  - witness search over the 7 graphs with 1-3 vertices (all triples / pairs, ordered by total order), escalating to graphs with <= 4 vertices if needed
+  - isomorphism decided exactly (invariants, then networkx VF2)
+- **methodology:** For each non-strict code, search the smallest triple (G,H,K) with (G*H)*K not isomorphic to G*(H*K), and the smallest pair with G*H not isomorphic to H*G.
+- **falsification:** A non-strict code without any witness (then it would be associative/commutative only up to isomorphism, refuting H-C14-1, and would be examined by hand).
+- **summary:** associativity witnesses among graphs <= 3 vertices: 236/236; without: []; commutativity witnesses: 224/224; without: []; witness product orders: {2: 144, 4: 84, 8: 8}; witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224
+- **runs:** 2; last 2026-10-18T08:41:26Z (1.008 s), results sha256 `9bbb02dc8486fdf1…`, code `experiments/C14/E02_iso_vs_strict.py`
+
+### EXP-C14-03: Multiplicative and additive Kronecker characters of local graph products
+
+- **cycle:** C14
+- **agent:** Formal Verifier
+- **question:**
+
+  For which local products is there a matrix functor M_c(G) = c_E I + c_A A + c_N (J - I - A) (c_A != c_N) with M_c(G*H) = M_c(G) (x) M_c(H) (multiplicative character) or M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) (additive character) for all graphs?
+
+- **hypothesis:**
+
+  H-C14-5 (derived by hand, Theorem 4/5 of proofs/paper/C14.md): exactly six products have a multiplicative character - direct (c=(0,1,0)), strong (1,1,0), co-normal (1,0,1), symmetric difference (1,-1,1), EA AE AA NN (1,1,-1) and the complement-dual of the direct product (0,0,1); exactly two have an additive character - Cartesian (0,1,0) and its complement-dual (0,0,1). H-C14-6 (bold): every commutative associative local product except the empty and complete products has a character of one of the two kinds.
+
+- **assumptions:** characters solved exactly over C with sympy (independent of the hand case analysis); numerical confirmation on 30 seeded random pairs of graphs with 1-5 vertices per product
+- **methodology:**
+
+  Cell decomposition: A(G*H) = sum over cells in S of R_r1(G) (x) R_r2(H), R_E = I, R_A = A, R_N = J - I - A, with disjoint supports, all realised by P3 x P3; the functional equations reduce to polynomial equations in (c_E, c_A, c_N), solved by sympy for each of the 256 codes.
+
+- **falsification:** A product outside the predicted lists with a solution, a predicted product without one, or a numerical failure of M_c(G*H) = M_c(G) (x) M_c(H).
+- **summary:**
+  - multiplicative characters: {direct: [(0, 1, 0)], strong: [(1, 1, 0)], symmetric difference: [(1, -1, 1)], co-normal: [(1, 0, 1)], EA EN AE AA AN NE NA: [(0, 0, 1)], EA AE AA NN: [(1, 1, -1)]}
+  - additive characters: {cartesian: [(0, 1, 0, 'scalable')], EA AE AA AN NA NN: [(0, 0, 1, 'scalable')]}
+  - commutative associative products without a character: ['empty', 'complete']
+  - sympy/enumeration mismatches 0, numeric failures 0, XOR Seidel-spectrum failures 0/30
+- **runs:** 2; last 2026-10-18T08:42:25Z (3.872 s), results sha256 `08e6e8f9b788c831…`, code `experiments/C14/E03_kronecker_characters.py`
+
+### EXP-C14-04: Prime factorisation census for the eight associative local products with unit K1 (orders <= 15)
+
+- **cycle:** C14
+- **agent:** Mathematical Explorer
+- **question:** For each associative local product with two-sided unit K1, which graphs of order <= 15 are composite, how many primes are there of each order, and where does unique factorisation fail?
+- **hypothesis:**
+
+  H-C14-3 (bold, Inventor): each of the six commutative unital associative products has unique prime factorisation on connected graphs (Cartesian: Sabidussi-Vizing; strong: Doerfler-Imrich/McKenzie) or, for the complement-duals, on co-connected graphs. H-C14-7: Cartesian-prime and strong-prime connected graphs are equinumerous in every order (forced by unique factorisation and the common count of connected graphs).
+
+- **assumptions:**
+  - all graphs with <= 7 vertices (networkx atlas) as candidate factors; composites of order n <= 15 are exactly the products of primes of orders whose product is n (n in 4,6,8,9,10,12,14,15)
+  - graph counts A000088 / A001349 taken from the OEIS (cached) to turn composite counts into prime counts
+  - isomorphism decided exactly (invariants + VF2)
+- **methodology:**
+
+  For each product: find the composite graphs of orders 4 and 6 among the atlas graphs, take the rest as primes, enumerate all prime factorisations (multisets for commutative products, sequences otherwise) of every order <= 15, classify the products up to isomorphism, and record classes with more than one factorisation; repeat inside the class of connected graphs; verify the classical 63-vertex Cartesian counterexample (K1+K2+Q2)(K1+Q3) = (K1+Q2+Q4)(K1+K2).
+
+- **falsification:** A connected (resp. co-connected) graph with two different factorisations into connected (resp. co-connected) primes for one of the six commutative unital products.
+- **summary:**
+  - orders with non-unique factorisation (multisets of primes, all graphs): {'cartesian': {}, 'strong': {}, 'lexicographic': {10: 2, 14: 6}, 'EA AE AA NA': {10: 2, 14: 6}, 'symmetric difference': {4: 1, 6: 2, 8: 3, 10: 7, 12: 16, 14: 54, 15: 1}, 'co-normal': {}, 'EA AE AA NN': {4: 1, 6: 2, 8: 3, 10: 7, 12: 16, 14: 54, 15: 1}, 'EA AE AA AN NA NN': {}}
+  - ... inside connected graphs: {'cartesian': {}, 'strong': {}, 'lexicographic': {10: 1, 12: 1, 14: 3}, 'EA AE AA NA': {10: 1, 12: 1, 14: 3}, 'symmetric difference': {8: 2, 10: 6, 12: 15, 14: 53}, 'co-normal': {12: 2}, 'EA AE AA NN': {}, 'EA AE AA AN NA NN': {12: 2}}
+  - Cartesian connected primes n=2..15: [1, 2, 5, 21, 110, 853, 11111, 261077, 11716550, 1006700565, 164059830354, 50335907869219, 29003487462847208, 31397381142761241918]; equal to strong: True
+  - 63-vertex counterexample verified: {'cartesian': {'order': 63, 'isomorphic': True}, 'strong': {'order': 63, 'isomorphic': True}}
+  - OEIS: cartesian connected primes n=2..15: MATCH; strong connected primes n=2..15: MATCH; cartesian primes (all graphs) n=2..11: NO MATCH; strong primes (all graphs) n=2..11: NO MATCH; lexicographic primes (all graphs) n=2..11: NO MATCH; EA AE AA NA primes (all graphs) n=2..11: NO MATCH; symmetric difference primes (all graphs) n=2..11: NO MATCH; co-normal primes (all graphs) n=2..11: NO MATCH; EA…
+- **runs:** 2; last 2026-10-18T08:44:49Z (47.26 s), results sha256 `c44f6486f55aff86…`, code `experiments/C14/E04_factorisation_census.py`
 
