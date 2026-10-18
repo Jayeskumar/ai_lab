@@ -1,0 +1,22 @@
+{
+  "counterexample": "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).",
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-11",
+  "novelty": "NOT ASSESSED",
+  "statement": "For at least half of the order-3 classes a random cyclic row of length 32 repeats within 5000 steps, and only classes with geometric streaming width have rows that do not.",
+  "system": "SYS-E",
+  "title": "H-C15-5: cycle detection fast-forwards most automata, and long cycles mean geometric width (refuted in part)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

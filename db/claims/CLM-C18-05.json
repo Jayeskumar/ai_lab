@@ -1,0 +1,25 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-01",
+    "EXP-C18-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-05",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Folklore (affine maps compose to affine maps; the same property makes CRCs unsuitable as hash-table mixers).",
+  "proof": "proofs/paper/C18.md#theorem-5-clm-c18-05--gf2-affine-quasigroups-give-affine-hashes",
+  "proof_check": "written proof (proofs/paper/C18.md Theorem 5); one distinct output difference over 2000 keys (EXP-C18-01); mean bias 0.5 for QG-XOR and for CRC32 (EXP-C18-02)",
+  "statement": "If x*y = A(x) XOR B(y) XOR c with A, B linear over GF(2) (for example x XOR y), every QG hash satisfies H(M XOR D) = H(M) XOR L(D) for a fixed linear L; every avalanche cell is 0 or 1.",
+  "system": "SYS-B",
+  "title": "GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

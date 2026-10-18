@@ -78,25 +78,29 @@ def classify(maxl, maxr):
                     rows.append((l, r))
     return rows
 
-for maxr in (3, 5):
-    rows = classify(3, maxr)
-    uncovered = []; counts = {}
-    for l, r in rows:
-        tags = []
-        if l in r: tags.append("L")
-        if crit_E(l, r): tags.append("E")
-        if crit_A(l, r): tags.append("A")
-        if crit_D(l, r): tags.append("D")
-        if barren(l, r): tags.append("B")
-        z = zg(l, r)
-        if z is True: tags.append("Z")
-        if z is False: tags.append("Znt")
-        key = "+".join(tags) if tags else "none"
-        if not tags: uncovered.append((l, r))
-        counts[key] = counts.get(key, 0) + 1
-    print("|l|<=3, |r|<=%d: %d rules" % (maxr, len(rows)))
-    nonterm_known = sum(1 for l, r in rows if l in r or zg(l, r) is False)
-    print("  decided by L (loop of length 1) or ZG-nonterminating:", nonterm_known)
-    term_known = sum(1 for l, r in rows if (l not in r) and (crit_E(l,r) or crit_A(l,r) or crit_D(l,r) or barren(l,r) or zg(l,r) is True))
-    print("  covered by a published termination criterion (E/A/D/B/Z):", term_known)
-    print("  rules with no published criterion applying:", len(uncovered), uncovered[:40])
+def _main():
+      for maxr in (3, 5):
+        rows = classify(3, maxr)
+        uncovered = []; counts = {}
+        for l, r in rows:
+            tags = []
+            if l in r: tags.append("L")
+            if crit_E(l, r): tags.append("E")
+            if crit_A(l, r): tags.append("A")
+            if crit_D(l, r): tags.append("D")
+            if barren(l, r): tags.append("B")
+            z = zg(l, r)
+            if z is True: tags.append("Z")
+            if z is False: tags.append("Znt")
+            key = "+".join(tags) if tags else "none"
+            if not tags: uncovered.append((l, r))
+            counts[key] = counts.get(key, 0) + 1
+        print("|l|<=3, |r|<=%d: %d rules" % (maxr, len(rows)))
+        nonterm_known = sum(1 for l, r in rows if l in r or zg(l, r) is False)
+        print("  decided by L (loop of length 1) or ZG-nonterminating:", nonterm_known)
+        term_known = sum(1 for l, r in rows if (l not in r) and (crit_E(l,r) or crit_A(l,r) or crit_D(l,r) or barren(l,r) or zg(l,r) is True))
+        print("  covered by a published termination criterion (E/A/D/B/Z):", term_known)
+        print("  rules with no published criterion applying:", len(uncovered), uncovered[:40])
+
+if __name__ == '__main__':
+    _main()

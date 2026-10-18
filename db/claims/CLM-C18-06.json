@@ -1,0 +1,26 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-01",
+    "EXP-C18-02",
+    "EXP-C18-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-06",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary; shows that an anchored quasigroup of C06 (Theorem 4 there) is a poor mixing primitive.",
+  "proof": "proofs/paper/C18.md#theorem-6-clm-c18-06--the-anchored-quasigroup-x--cy-keeps-additive-differences",
+  "proof_check": "written proof (proofs/paper/C18.md Theorem 6); 2000/2000 one-pass hashes unchanged under prefix permutations (EXP-C18-01); bit independence 1.0 with ideal per-bit flip rates for QG-ARP p2+rev (EXP-C18-02); 36,720 full collisions for QG-ARP p1 on near-duplicates (EXP-C18-03)",
+  "statement": "For x*y = x + c(y) mod 256, two runs over the same inputs from states b, b' differ by the constant b' - b at every position, and one pass computes prefix sums l + sum c(a_i). Hence the one-pass tail hash is unchanged by permutations of the message bytes before the tail, and with a reverse pass all 8 output bytes change by one common additive constant when a message byte at position >= 8 changes (perfectly correlated bit changes).",
+  "system": "SYS-B",
+  "title": "The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is anagram-blind",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

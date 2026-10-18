@@ -1,0 +1,28 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-03",
+    "EXP-C18-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-03",
+  "lean": [
+    "proofs/lean/Infinity/C18_Quasigroups.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "An elementary narrow-pipe property of byte-level e-transformations. Quasigroup hash designs submitted to the SHA-3 competition used huge quasigroups in wide-pipe constructions (Edon-R, orders 2^256-2^512, https://ehash.isec.tugraz.at/uploads/7/74/Edon.pdf; NaSHA, https://eprint.iacr.org/2008/519), which avoids it; two searches found no explicit statement of the bound for byte-level e-transformation hashes.",
+  "proof": "proofs/paper/C18.md#theorem-3-clm-c18-03--the-tail-information-bound",
+  "proof_check": "Lean 4 + Mathlib for the factorisation of the tail through one state (eT_append, eT_tail_factors) and injectivity (eT_injective); the counting consequences by written proof (proofs/paper/C18.md Theorem 3); the bound is attained exactly (256 values) in 100 families of 4096 keys (EXP-C18-05) and explains the 32,624 full collisions of EXP-C18-03 exactly",
+  "statement": "The last k outputs of an e-transformation are a bijective function of the state before them and the last k\ninputs. Hence a hash outputting the last 8 bytes after p forward e-transformations takes at most 256^p values on\nmessages sharing their last 7 bytes, and with a final reversed e-transformation it takes at most 256 values on\nmessages sharing their first 7 bytes, for every p and every quasigroup of order 256.",
+  "system": "SYS-B",
+  "title": "The tail-information bound: an e-transformation tail carries one byte of state",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

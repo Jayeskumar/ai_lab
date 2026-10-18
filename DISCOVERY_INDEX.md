@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T16:49:49Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T16:55:13Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 87 |
-| COMPUTATIONALLY SUPPORTED | 23 |
-| CONJECTURE | 4 |
-| REFUTED | 28 |
-| INCONCLUSIVE | 3 |
+| PROVEN | 100 |
+| COMPUTATIONALLY SUPPORTED | 31 |
+| CONJECTURE | 5 |
+| REFUTED | 36 |
+| INCONCLUSIVE | 4 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 60 |
-| POTENTIALLY NOVEL | 27 |
-| NOT ASSESSED | 58 |
+| REDISCOVERY | 69 |
+| POTENTIALLY NOVEL | 30 |
+| NOT ASSESSED | 77 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -105,9 +105,22 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | written proof (proofs/paper/C14.md Theorem 9) relying on th… | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | computer-assisted exact census (all prime factorisations of… | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | by hand (both sides are two disjoint 4-cycles plus two isol… | REDISCOVERY | EXP-C14-04 |
+| CLM-C15-01 | Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width | Lean 4 + Mathlib for the commutative formula (ca_comm_binom… | REDISCOVERY | EXP-C15-02, EXP-C15-03 |
+| CLM-C15-02 | Affine magmas - binomial light cone and an O(L log L log t) fast-forward | written proof (proofs/paper/C15.md Theorem 2); implementati… | REDISCOVERY | EXP-C15-03 |
+| CLM-C15-03 | Commutative semigroups - fast-forward by exponent arithmetic | written proof (proofs/paper/C15.md Theorem 3); implementati… | NOT ASSESSED | EXP-C15-03 |
+| CLM-C15-04 | The fuse magma: linear streaming width, yet an O(L) fast-forward for every t | written proof (proofs/paper/C15.md Theorem 4); fast-forward… | POTENTIALLY NOVEL | EXP-C15-02, EXP-C15-03, EXP-C15-05 |
+| CLM-C15-05 | Surjective iff permutive for magmas of order at most 3; false at order 4 | computer-assisted - exact pair-graph (Garden-of-Eden) decis… | REDISCOVERY | EXP-C15-01, EXP-C15-02, EXP-C15-05 |
+| CLM-C15-06 | The two-element magma automata are the elementary rules 17m | written one-line proof (proofs/paper/C15.md Theorem 6) and … | REDISCOVERY | EXP-C15-01 |
 | CLM-C17-01 | Light's test: generators suffice for associativity | written proof (proofs/paper/C17.md Theorem 1, four-line clo… | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-02 | Associativity of an anchored magma is decided by one O(n^2) identity | written proof (proofs/paper/C17.md Corollary 2) from C06 Th… | NOT ASSESSED | EXP-C17-01, EXP-C17-02 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | one-sidedness proved (proofs/paper/C17.md Theorem 3, biline… | REDISCOVERY | EXP-C17-01 |
+| CLM-C18-01 | e-transformations are bijections of strings of fixed length | Lean 4 + Mathlib (eT_injective, eT_length; standard axioms … | REDISCOVERY | EXP-C18-01 |
+| CLM-C18-02 | Differences propagate forward only; forward-only tail hashes fail the strict avalanche cr… | Lean 4 + Mathlib for the persistence of differences (eT_ne_… | NOT ASSESSED | EXP-C18-01, EXP-C18-02 |
+| CLM-C18-03 | The tail-information bound: an e-transformation tail carries one byte of state | Lean 4 + Mathlib for the factorisation of the tail through … | NOT ASSESSED | EXP-C18-03, EXP-C18-05 |
+| CLM-C18-04 | T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits in… | written proof (proofs/paper/C18.md Theorem 4, induction alo… | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
+| CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | written proof (proofs/paper/C18.md Theorem 5); one distinct… | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
+| CLM-C18-06 | The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is … | written proof (proofs/paper/C18.md Theorem 6); 2000/2000 on… | NOT ASSESSED | EXP-C18-01, EXP-C18-02, EXP-C18-03 |
+| CLM-C18-07 | The 8-pass cascade has a bijective 64-bit state update | written proof (proofs/paper/C18.md Theorem 7, triangular co… | NOT ASSESSED | EXP-C18-05 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | written proof (proofs/paper/C20.md Theorem 1 - run encoding… | REDISCOVERY | EXP-C20-01 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | written proof (proofs/paper/C20.md Theorem 2 - a pair of a'… | POTENTIALLY NOVEL | EXP-C20-01 |
 | CLM-C20-03 | The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r|… | computer-assisted certificates for 860 rules (EXP-C04-02, C… | NOT ASSESSED | EXP-C04-02, EXP-C20-01 |
@@ -120,6 +133,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-09 | Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 | CONJECTURE | NOT ASSESSED | EXP-C05-03, EXP-C05-02 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | NOT ASSESSED | EXP-C09-04, EXP-C09-01 |
 | CLM-C12-13 | Subtract-a-Fibonacci-number has bounded Grundy values | CONJECTURE | NOT ASSESSED | EXP-C12-03, EXP-C12-01 |
+| CLM-C15-18 | Bounded streaming width implies a fast-forward | CONJECTURE | NOT ASSESSED | EXP-C15-02, EXP-C15-03 |
 | CLM-C01-08 | Common-border conjecture: one-relation class counts depend only on common borders | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C01-05, EXP-C01-06, EXP-C01-07 |
 | CLM-C01-10 | Common-border formula with exactly one common border (derivation sketch from Gray-Steinbe… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C01-06, EXP-C01-07, EXP-C01-08 |
 | CLM-C01-11 | Converse of border containment: u -> v (|u| = |v|) is confluent iff Borders(u) is contain… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C01-08 |
@@ -141,8 +155,16 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
 | CLM-C14-12 | Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmet… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
+| CLM-C15-07 | Census of order-3 magma automata by streaming width | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-02 |
+| CLM-C15-13 | Affine fast-forward by operator powers | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C15-03 |
+| CLM-C15-14 | Commutative-semigroup fast-forward by exponent arithmetic | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C15-03 |
+| CLM-C15-15 | Fuse fast-forward by burn times | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-03 |
+| CLM-C15-16 | Cycle detection as a generic fast-forward | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C15-04 |
+| CLM-C15-17 | Earlier structures of the lab as automata | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C15-05 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (N <= 10) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-02 |
+| CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
+| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 
 ## 3. Potentially novel ideas
 
@@ -176,6 +198,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
+| CLM-C15-04 | The fuse magma: linear streaming width, yet an O(L) fast-forward for every t | PROVEN | POTENTIALLY NOVEL | EXP-C15-02, EXP-C15-03, EXP-C15-05 |
+| CLM-C15-07 | Census of order-3 magma automata by streaming width | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-02 |
+| CLM-C15-15 | Fuse fast-forward by burn times | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-03 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | PROVEN | POTENTIALLY NOVEL | EXP-C20-01 |
 
 ## 4. Rediscovered existing mathematics
@@ -238,9 +263,18 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | PROVEN | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | PROVEN | REDISCOVERY | EXP-C14-04 |
+| CLM-C15-01 | Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width | PROVEN | REDISCOVERY | EXP-C15-02, EXP-C15-03 |
+| CLM-C15-02 | Affine magmas - binomial light cone and an O(L log L log t) fast-forward | PROVEN | REDISCOVERY | EXP-C15-03 |
+| CLM-C15-05 | Surjective iff permutive for magmas of order at most 3; false at order 4 | PROVEN | REDISCOVERY | EXP-C15-01, EXP-C15-02, EXP-C15-05 |
+| CLM-C15-06 | The two-element magma automata are the elementary rules 17m | PROVEN | REDISCOVERY | EXP-C15-01 |
+| CLM-C15-13 | Affine fast-forward by operator powers | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C15-03 |
+| CLM-C15-16 | Cycle detection as a generic fast-forward | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C15-04 |
 | CLM-C17-01 | Light's test: generators suffice for associativity | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
+| CLM-C18-01 | e-transformations are bijections of strings of fixed length | PROVEN | REDISCOVERY | EXP-C18-01 |
+| CLM-C18-04 | T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits in… | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
+| CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | PROVEN | REDISCOVERY | EXP-C20-01 |
 
 ## 5. Practical algorithmic results
@@ -248,7 +282,12 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | Claim | Title | Outcome | Verification | Evidence |
 |---|---|---|---|---|
 | CLM-C11-08 | Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-ra… | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09 |
+| CLM-C15-13 | Affine fast-forward by operator powers | IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C15-03 |
+| CLM-C15-14 | Commutative-semigroup fast-forward by exponent arithmetic | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C15-03 |
+| CLM-C15-15 | Fuse fast-forward by burn times | IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C15-03 |
+| CLM-C15-16 | Cycle detection as a generic fast-forward | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C15-04 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C17-01 |
+| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 
 ## 6. Refuted hypotheses
 
@@ -280,8 +319,16 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C12-10 | H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signatu… | REFUTED | NOT ASSESSED | EXP-C12-05 |
 | CLM-C12-11 | H-C12-2: sparse move sets keep a positive density of P-positions (refuted) | REFUTED | NOT ASSESSED | EXP-C12-03 |
 | CLM-C14-08 | H-C14-3: the six commutative unital associative products factor uniquely on connected (or… | REFUTED | NOT ASSESSED | EXP-C14-04, EXP-C14-06 |
+| CLM-C15-08 | H-C15-1: streaming width is either bounded or geometric (refuted) | REFUTED | NOT ASSESSED | EXP-C15-02, EXP-C15-05 |
+| CLM-C15-09 | H-C15-2: bounded width exactly for semigroups, affine magmas and bounded light cones (ref… | REFUTED | NOT ASSESSED | EXP-C15-02 |
+| CLM-C15-10 | H-C15-4: an automaton can be fast-forwarded iff its light-cone complexity is bounded (ref… | REFUTED | NOT ASSESSED | EXP-C15-03, EXP-C15-05 |
+| CLM-C15-11 | H-C15-5: cycle detection fast-forwards most automata, and long cycles mean geometric widt… | REFUTED | NOT ASSESSED | EXP-C15-04 |
+| CLM-C15-12 | H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^… | REFUTED | NOT ASSESSED | EXP-C15-03 |
 | CLM-C17-06 | H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (ref… | REFUTED | NOT ASSESSED | EXP-C17-01 |
 | CLM-C17-07 | H-C17-2: for anchored magmas the z = 0 instance of a law decides the law (refuted) | REFUTED | NOT ASSESSED | EXP-C17-02 |
+| CLM-C18-10 | H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted) | REFUTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03 |
+| CLM-C18-11 | H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted) | REFUTED | NOT ASSESSED | EXP-C18-05 |
+| CLM-C18-12 | H-C18-9: the cascade over x + c(y) still fails bit independence (refuted) | REFUTED | NOT ASSESSED | EXP-C18-05 |
 
 ## 7. Inconclusive
 
@@ -289,5 +336,6 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 |---|---|---|---|---|
 | CLM-C03-09 | H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evi… | INCONCLUSIVE | NOT ASSESSED | EXP-C03-02, EXP-C03-03 |
 | CLM-C12-09 | H-C12-0: every relational game is periodic, arithmetic-periodic or has a closed form (inc… | INCONCLUSIVE | NOT ASSESSED | EXP-C12-01, EXP-C12-02, EXP-C12-06, EXP-C12-03 |
+| CLM-C18-09 | H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal aval… | INCONCLUSIVE | NOT ASSESSED | EXP-C18-02 |
 | CLM-C20-04 | C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text ina… | INCONCLUSIVE | NOT ASSESSED | EXP-C03-01 |
 

@@ -1,0 +1,24 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-03",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "A direct combination of Theorem 1(b) with the index/period structure of cyclic semigroups; likely folklore.",
+  "proof": "proofs/paper/C15.md#theorem-3-clm-c15-03--commutative-semigroups-exponent-arithmetic",
+  "proof_check": "written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); awaiting independent skeptic review",
+  "statement": "For a finite commutative semigroup and t >= 2L + iota + 1 (iota the largest index of an element), cell i of a cyclic row at time t is prod_j r_(i+j)^(N_j), where N_j are the coefficients of (1 + S)^t mod S^L - 1, and only N_j modulo the lcm of the element periods is needed.",
+  "system": "SYS-E",
+  "title": "Commutative semigroups - fast-forward by exponent arithmetic",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

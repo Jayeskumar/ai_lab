@@ -1,0 +1,22 @@
+{
+  "counterexample": "QC-ARP d8 has maximal correlation 0.176 (noise level about 0.11) - the cascade removes the perfect correlation of QG-ARP p2+rev, although 5 avalanche cells still exceed bias 0.1 (EXP-C18-05).",
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-12",
+  "novelty": "NOT ASSESSED",
+  "statement": "The cascade QC-ARP d8 has a maximal bit-independence correlation of at least 0.5.",
+  "system": "SYS-B",
+  "title": "H-C18-9: the cascade over x + c(y) still fails bit independence (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

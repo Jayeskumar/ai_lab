@@ -1,0 +1,23 @@
+{
+  "counterexample": "The fuse magma has unbounded (linear) streaming width but its row at any time t is computable in O(L) operations (Theorem 4). The converse direction is open (CLM-C15-18).",
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03",
+    "EXP-C15-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-10",
+  "novelty": "NOT ASSESSED",
+  "statement": "A magma automaton admits a fast-forward (rows at time t computable in time polynomial in L and log t) if and only if its streaming width is bounded.",
+  "system": "SYS-E",
+  "title": "H-C15-4: an automaton can be fast-forwarded iff its light-cone complexity is bounded (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

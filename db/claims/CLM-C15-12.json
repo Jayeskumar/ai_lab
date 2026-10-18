@@ -1,0 +1,22 @@
+{
+  "counterexample": "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).",
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-12",
+  "novelty": "NOT ASSESSED",
+  "statement": "Each of the affine, commutative-semigroup and fuse fast-forwards is exact, beats direct numpy simulation by more than 100x at L = 1024, t = 10^5, and loses for t below a few hundred steps.",
+  "system": "SYS-E",
+  "title": "H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^5 and loses for small t (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -65,30 +65,31 @@ def circ(a, b, s):
     da, db = zdigits(a), zdigits(b)
     return sum(G[i + j + s] for i in da for j in db)
 
-# admissible digit strings of length <= L (no 111), as beta-integers x = sum d_k b^k
-L = int(sys.argv[1]) if len(sys.argv) > 1 else 9
-words = []
-for n in range(1, G[L]):
-    words.append(n)
-best = 0; ex = None
-for a in words:
-    for b in words:
-        if b < a: continue
-        prod = mul(nu(a), nu(b))
-        e = greedy(prod)
-        fl = -min(e) if min(e) < 0 else 0
-        if fl > best:
-            best, ex = fl, (a, b, sorted(e, reverse=True))
-print("max fractional length of x*y over beta-integers with < %d digits: %d, example a,b=%s" % (L, best, ex[:2]))
-print("  expansion exponents:", ex[2])
-a, b = ex[0], ex[1]
-for s in (3, 4, 5):
-    lhs_ok = (nu(circ(a, b, s)) == mul(bpow(s), mul(nu(a), nu(b))))
-    bad = None
-    for c in range(1, 400):
-        if circ(circ(a, b, s), c, s) != circ(a, circ(b, c, s), s):
-            bad = c; break
-    print("s=%d: nu(a o b)==b^s nu(a)nu(b)? %s; associativity counterexample c=%s" % (s, lhs_ok, bad))
-    if bad:
-        c = bad
-        print("    (%d o %d) o %d = %d  vs  %d o (%d o %d) = %d" % (a, b, c, circ(circ(a, b, s), c, s), a, b, c, circ(a, circ(b, c, s), s)))
+if __name__ == '__main__':
+    # admissible digit strings of length <= L (no 111), as beta-integers x = sum d_k b^k
+    L = int(sys.argv[1]) if len(sys.argv) > 1 else 9
+    words = []
+    for n in range(1, G[L]):
+        words.append(n)
+    best = 0; ex = None
+    for a in words:
+        for b in words:
+            if b < a: continue
+            prod = mul(nu(a), nu(b))
+            e = greedy(prod)
+            fl = -min(e) if min(e) < 0 else 0
+            if fl > best:
+                best, ex = fl, (a, b, sorted(e, reverse=True))
+    print("max fractional length of x*y over beta-integers with < %d digits: %d, example a,b=%s" % (L, best, ex[:2]))
+    print("  expansion exponents:", ex[2])
+    a, b = ex[0], ex[1]
+    for s in (3, 4, 5):
+        lhs_ok = (nu(circ(a, b, s)) == mul(bpow(s), mul(nu(a), nu(b))))
+        bad = None
+        for c in range(1, 400):
+            if circ(circ(a, b, s), c, s) != circ(a, circ(b, c, s), s):
+                bad = c; break
+        print("s=%d: nu(a o b)==b^s nu(a)nu(b)? %s; associativity counterexample c=%s" % (s, lhs_ok, bad))
+        if bad:
+            c = bad
+            print("    (%d o %d) o %d = %d  vs  %d o (%d o %d) = %d" % (a, b, c, circ(circ(a, b, s), c, s), a, b, c, circ(a, circ(b, c, s), s)))

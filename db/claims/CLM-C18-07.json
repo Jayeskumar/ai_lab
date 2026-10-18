@@ -1,0 +1,23 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-07",
+  "novelty": "NOT ASSESSED",
+  "proof": "proofs/paper/C18.md#theorem-7-clm-c18-07--the-cascade-keeps-a-full-8-byte-state",
+  "proof_check": "written proof (proofs/paper/C18.md Theorem 7, triangular composition of row and column bijections); quality of the cascades measured separately (EXP-C18-05)",
+  "statement": "In the cascade QC(T, d) (d e-transformations run in parallel, output = the final state of every pass), the update of the state (s_1, ..., s_d) by one input byte is a bijection of Q^d; so states are never merged and the tail-information bound does not apply to the output.",
+  "system": "SYS-B",
+  "title": "The 8-pass cascade has a bijective 64-bit state update",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

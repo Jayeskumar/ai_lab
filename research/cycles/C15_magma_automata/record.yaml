@@ -1,0 +1,269 @@
+cycle: C15
+title: "Magma cellular automata: light cones, streaming width and fast-forwarding"
+branch: E
+status: complete
+systems: [SYS-E, SYS-B]
+
+experiments:
+  - id: EXP-C15-01
+    analysis: "The 16 two-element magma automata c'_i = c_i * c_{i+1} are exactly the elementary rules 17m (rules ignoring the left neighbour). XOR (rule 102) has 2^popcount(t) essential cells (Gould's sequence). All 16 have streaming width <= 3 up to t = 18; NAND (rule 119) depends on at most 3 cells. Surjective - rules 51, 85, 102, 153, 170, 204; injective - 51, 85, 170, 204."
+    verification: PROVEN
+    related: [CLM-C15-06]
+  - id: EXP-C15-02
+    analysis: "1734 order-3 classes (3330 up to isomorphism; 19683 tables). Streaming-width classes on t <= 9 - bounded 808, linear 104, geometric 300, other 522. All 18 semigroup and 8 affine classes are bounded (width <= 3), but 685 bounded-width classes lie outside semigroups, affine magmas and bounded dependence (only 163 of the 808 are explained by these or by an associative/affine eventual image). 43 classes (420 tables) are surjective, exactly the permutive ones; 7 are injective (reversible), including two whose light cones use all t+1 cells; 34 are nilpotent by t = 9."
+    verification: REFUTED
+    counterexamples: ["linear width growth, e.g. the fuse magma [[0,0,0],[0,0,1],[1,2,2]] with lambda(t) = t + 2 (H-C15-1)", "bounded width outside the predicted classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] (full light cone, width 3, neither associative nor affine) (H-C15-2)"]
+    related: [CLM-C15-05, CLM-C15-07, CLM-C15-08, CLM-C15-09]
+  - id: EXP-C15-03
+    analysis: "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5). Indicative speedups at L = 1024 - affine magmas x3-4 at t = 100, x22-29 at 10^3, x138-215 at 10^4, x1800-2500 at 10^5, t = 10^9 in 1.5-8 ms (L <= 4096); fuse x2.5 at t = 100 and about x4000 at 10^5; commutative semigroups only x62-100 at 10^5 and slower than simulation (x0.5-0.9) around t = 10^3 for L >= 1024, because of the O(L^2) product step."
+    verification: COMPUTATIONALLY SUPPORTED
+    counterexamples: ["H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100"]
+    related: [CLM-C15-02, CLM-C15-03, CLM-C15-04, CLM-C15-12, CLM-C15-13, CLM-C15-14, CLM-C15-15]
+  - id: EXP-C15-04
+    analysis: "Cycle detection on one random cyclic row per order-3 class - L = 16 1693/1734, L = 32 1590/1734, L = 64 1561/1734 rows repeat within 5000 steps (median transient 4-6, median period 2). All bounded- and linear-width classes repeat quickly except the four affine Z_3 quasigroups (x + y and relatives), which have bounded width but long cycles; geometric-width classes often do not repeat (172/300 at L = 32)."
+    verification: REFUTED
+    counterexamples: ["H-C15-5: the bounded-width affine quasigroup x*y = x + y (mod 3) does not repeat within 5000 steps at L = 32 and 64"]
+    related: [CLM-C15-11, CLM-C15-16]
+  - id: EXP-C15-05
+    analysis: "The fuse magma has lambda(t) = t + 2 for t = 1..12 and the residual family of the lower-bound proof separates as predicted. Laver tables A_2, A_3 - bounded dependence (3 resp. 4 cells) and widths 4 resp. 8, not surjective. GF(4) multiplication and XOR on [0,4) - widths 4. Anchored affine models of C06 (golden law N = 5, 11; odd law N = 5) - permutive, hence surjective, and affine-fast-forwardable. The order-4 rectangular band is surjective and injective but not permutive. OEIS - essential cells of x + y mod 3 = A006047; the count 1, 6, 420 of surjective tables matches only the unrelated A273820 (lcm of 2^n..2^(n+1)-1, a three-term coincidence); the geometric width sequence 3, 3, 6, 9, 19, 42, 88, ... has no match."
+    verification: PROVEN
+    related: [CLM-C15-04, CLM-C15-05, CLM-C15-17]
+
+claims:
+  - id: CLM-C15-01
+    type: theorem
+    system: SYS-E
+    title: Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width
+    statement: |
+      For an associative magma the t-step local map is the ordered product F_t(x_0..x_t) = prod_{j < 2^t} x_{s(j)},
+      s(j) the binary digit sum of j; for a commutative semigroup F_t = prod_k x_k^C(t,k), and the forward and
+      backward streaming widths of F_t are at most |S|.
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review"
+    proof: proofs/paper/C15.md#theorem-1-clm-c15-01--light-cones-of-semigroups
+    lean: [proofs/lean/Infinity/C15_MagmaCA.lean]
+    evidence: [EXP-C15-02, EXP-C15-03]
+    novelty: REDISCOVERY
+    novelty_basis: "Pascal's triangle for additive CA is classical (Martin, Odlyzko, Wolfram, Comm. Math. Phys. 93 (1984)); automata of the form c'_i = c_i * c_{i+1} over groupoids, groups and quasigroups were studied by J. Pedersen (Complex Systems 6 (1992) 237-250) and C. Moore (Moore-Drisko 1995/96; Moore-Pnin, arXiv:patt-sol/9701008), where the word structure of semigroup and group rules is used. The width bound is immediate."
+  - id: CLM-C15-02
+    type: theorem
+    system: SYS-E
+    title: Affine magmas - binomial light cone and an O(L log L log t) fast-forward
+    statement: |
+      For x*y = phi(x) + psi(y) + c on an abelian group A with commuting endomorphisms phi, psi:
+      F_t = sum_k C(t,k) phi^(t-k) psi^k (x_k) + sum_(s<t) (phi + psi)^s (c); on cyclic rows the row at time t is
+      P^t r + (sum_(s<t) q^s) c with P = phi + psi S in End(A)[S]/(S^L - 1), computable by binary exponentiation
+      (for A = Z_n with FFT products, O(L log L log t)); streaming width <= |A|.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review
+    proof: proofs/paper/C15.md#theorem-2-clm-c15-02--affine-magmas-and-their-fast-forward
+    evidence: [EXP-C15-03]
+    novelty: REDISCOVERY
+    novelty_basis: Linear and affine cellular automata (O. Martin, A. M. Odlyzko, S. Wolfram, Algebraic properties of cellular automata, Comm. Math. Phys. 93 (1984) 219-258; M. Ito, N. Osato, M. Nasu 1983); the operator-power form is standard.
+  - id: CLM-C15-03
+    type: theorem
+    system: SYS-E
+    title: Commutative semigroups - fast-forward by exponent arithmetic
+    statement: For a finite commutative semigroup and t >= 2L + iota + 1 (iota the largest index of an element), cell i of a cyclic row at time t is prod_j r_(i+j)^(N_j), where N_j are the coefficients of (1 + S)^t mod S^L - 1, and only N_j modulo the lcm of the element periods is needed.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); awaiting independent skeptic review
+    proof: proofs/paper/C15.md#theorem-3-clm-c15-03--commutative-semigroups-exponent-arithmetic
+    evidence: [EXP-C15-03]
+    novelty: NOT ASSESSED
+    novelty_basis: A direct combination of Theorem 1(b) with the index/period structure of cyclic semigroups; likely folklore.
+  - id: CLM-C15-04
+    type: theorem
+    system: SYS-E
+    title: "The fuse magma: linear streaming width, yet an O(L) fast-forward for every t"
+    statement: |
+      For the fuse magma [[0,0,0],[0,0,1],[1,2,2]] (0 burnt, 1 burning, 2 intact): burn times satisfy tau_i = 0 (x_i = 0),
+      tau_(i+1) + 2 (x_i = 2), tau_(i+1) (x_i = 1, x_(i+1) = 2), 1 (x_i = 1, x_(i+1) != 2); the row at any time t is
+      obtained from them in O(L) operations; and floor((m+1)/2) <= lambda(t) <= 3t + 3 with m = floor(t/2), so the
+      streaming width grows linearly (computed lambda(t) = t + 2 for t <= 12).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review
+    proof: proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward
+    evidence: [EXP-C15-02, EXP-C15-03, EXP-C15-05]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small."
+  - id: CLM-C15-05
+    type: theorem
+    system: SYS-E
+    title: Surjective iff permutive for magmas of order at most 3; false at order 4
+    statement: For |M| <= 3 the automaton c'_i = c_i * c_{i+1} is surjective on bi-infinite rows iff all rows or all columns of the table are permutations (1, 6, 420 surjective tables of orders 1, 2, 3 = 2(n!)^n - Lat(n)); for |M| = 4 the rectangular band (b,c)*(b',c') = (b,c') is surjective and injective but not permutive.
+    verification: PROVEN
+    proof_check: "computer-assisted - exact pair-graph (Garden-of-Eden) decision for all 16 tables of order 2 and all 1734 classes of order 3 (invariant under isomorphism and mirror image), Hedlund's theorem for permutive => surjective; the order-4 example by a two-line argument (identity x shift) and the same decision procedure (EXP-C15-05)"
+    proof: proofs/paper/C15.md#theorem-5-clm-c15-05--surjective-iff-permutive-for-m--3
+    evidence: [EXP-C15-01, EXP-C15-02, EXP-C15-05]
+    novelty: REDISCOVERY
+    novelty_basis: "J. Kari, V. Salo, I. Torma, Surjective two-neighbor cellular automata on prime alphabets (2013) - surjective two-neighbour CA over prime alphabets are permutive in some coordinate (https://research.utu.fi/converis/portal/detail/Publication/3119276; notes https://villesalo.com/notes/STNCAoPANotes.html); G. A. Hedlund, Math. Systems Theory 3 (1969). Our exhaustive check is an independent confirmation for n = 2, 3; the order-4 band illustrates why primality is needed."
+  - id: CLM-C15-06
+    type: theorem
+    system: SYS-E
+    title: The two-element magma automata are the elementary rules 17m
+    statement: The 16 automata of two-element magmas are exactly the elementary cellular automata whose rule ignores the left neighbour, the Wolfram numbers 0, 17, 34, ..., 255.
+    verification: PROVEN
+    proof_check: written one-line proof (proofs/paper/C15.md Theorem 6) and exhaustive computation (EXP-C15-01)
+    proof: proofs/paper/C15.md#theorem-6-clm-c15-06--order-2
+    evidence: [EXP-C15-01]
+    novelty: REDISCOVERY
+    novelty_basis: Elementary-rule numbering (S. Wolfram, Rev. Mod. Phys. 55 (1983)); rules independent of one neighbour are a standard subfamily.
+  - id: CLM-C15-07
+    type: observation
+    system: SYS-E
+    title: Census of order-3 magma automata by streaming width
+    statement: Of the 1734 order-3 magma automata (up to isomorphism and mirror image), on t <= 9 the streaming width is bounded for 808 classes, grows linearly for 104, geometrically for 300 (largest lambda(9) = 649) and irregularly for 522; 43 are surjective, 7 injective and 34 nilpotent by t = 9.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C15-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.
+    limitations: Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).
+  - id: CLM-C15-08
+    type: hypothesis
+    system: SYS-E
+    title: "H-C15-1: streaming width is either bounded or geometric (refuted)"
+    statement: For every magma automaton of order <= 3 the streaming width lambda(t) is either bounded or grows geometrically; there is no intermediate growth.
+    verification: REFUTED
+    counterexample: "The fuse magma [[0,0,0],[0,0,1],[1,2,2]] has floor((floor(t/2)+1)/2) <= lambda(t) <= 3t + 3 (Theorem 4; lambda(t) = t + 2 for t <= 12); 104 order-3 classes show linear growth on t <= 9 (EXP-C15-02)."
+    evidence: [EXP-C15-02, EXP-C15-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-09
+    type: hypothesis
+    system: SYS-E
+    title: "H-C15-2: bounded width exactly for semigroups, affine magmas and bounded light cones (refuted)"
+    statement: An order-3 magma automaton has bounded streaming width iff the magma is a semigroup, is affine over Z_3, or its light cone depends on at most two cells.
+    verification: REFUTED
+    counterexample: "The 'if' direction holds for all 18 semigroup and 8 affine classes, but 685 bounded-width classes lie outside the three classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] whose light cone uses all t + 1 cells and whose width stays 3 (EXP-C15-02)."
+    evidence: [EXP-C15-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-10
+    type: hypothesis
+    system: SYS-E
+    title: "H-C15-4: an automaton can be fast-forwarded iff its light-cone complexity is bounded (refuted)"
+    statement: A magma automaton admits a fast-forward (rows at time t computable in time polynomial in L and log t) if and only if its streaming width is bounded.
+    verification: REFUTED
+    counterexample: "The fuse magma has unbounded (linear) streaming width but its row at any time t is computable in O(L) operations (Theorem 4). The converse direction is open (CLM-C15-18)."
+    evidence: [EXP-C15-03, EXP-C15-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-11
+    type: hypothesis
+    system: SYS-E
+    title: "H-C15-5: cycle detection fast-forwards most automata, and long cycles mean geometric width (refuted in part)"
+    statement: For at least half of the order-3 classes a random cyclic row of length 32 repeats within 5000 steps, and only classes with geometric streaming width have rows that do not.
+    verification: REFUTED
+    counterexample: "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04)."
+    evidence: [EXP-C15-04]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-12
+    type: hypothesis
+    system: SYS-E
+    title: "H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^5 and loses for small t (refuted)"
+    statement: Each of the affine, commutative-semigroup and fuse fast-forwards is exact, beats direct numpy simulation by more than 100x at L = 1024, t = 10^5, and loses for t below a few hundred steps.
+    verification: REFUTED
+    counterexample: "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings)."
+    evidence: [EXP-C15-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-13
+    type: algorithmic
+    system: SYS-E
+    title: Affine fast-forward by operator powers
+    statement: "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: IMPROVEMENT
+    improvement_detail: "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); indicative timings on a shared machine"
+    evidence: [EXP-C15-03]
+    novelty: REDISCOVERY
+    novelty_basis: Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.
+  - id: CLM-C15-14
+    type: algorithmic
+    system: SYS-E
+    title: Commutative-semigroup fast-forward by exponent arithmetic
+    statement: "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation)."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: MIXED
+    improvement_detail: "wins only for t much larger than L; the O(L^2) product step dominates for moderate t"
+    evidence: [EXP-C15-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C15-15
+    type: algorithmic
+    system: SYS-E
+    title: Fuse fast-forward by burn times
+    statement: "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024)."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: IMPROVEMENT
+    improvement_detail: "O(L) per query independent of t vs O(L t) simulation; indicative timings"
+    evidence: [EXP-C15-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: As CLM-C15-04.
+  - id: CLM-C15-16
+    type: algorithmic
+    system: SYS-E
+    title: Cycle detection as a generic fast-forward
+    statement: "Storing visited rows answers a query t in mu + lambda simulated steps; for random rows of length 32 this is at most 5000 steps for 1590 of 1734 order-3 classes (median transient 5, median period 2), but it fails for the affine quasigroups and for 128 of 300 geometric-width classes."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: MIXED
+    improvement_detail: "exact and generic; useless when transients or periods are long (affine quasigroups, many geometric-width rules); memory grows with mu + lambda"
+    evidence: [EXP-C15-04]
+    novelty: REDISCOVERY
+    novelty_basis: Cycle detection (Floyd, Brent) is classical.
+  - id: CLM-C15-17
+    type: observation
+    system: SYS-E
+    title: Earlier structures of the lab as automata
+    statement: The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with widths 4 and 8; GF(4) multiplication and XOR on [0,4) have width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C15-05]
+    novelty: NOT ASSESSED
+    limitations: Laver tables only for t <= 8 (A_2) and t <= 5 (A_3).
+  - id: CLM-C15-18
+    type: conjecture
+    system: SYS-E
+    title: Bounded streaming width implies a fast-forward
+    statement: Every magma automaton with bounded streaming width admits an algorithm computing a cyclic row of length L at time t in time polynomial in L and log t.
+    verification: CONJECTURE
+    evidence: [EXP-C15-02, EXP-C15-03]
+    novelty: NOT ASSESSED
+    limitations: True for affine magmas and commutative semigroups (Theorems 2-3); no algorithm is known for the 685 bounded-width order-3 classes outside the structured classes, and bounded width does not give short cycles (the affine quasigroups have long ones).
+
+journal:
+  - key: C15-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "A binary operation is also a cellular automaton - c'_i = c_i * c_{i+1}. Measure how hard its t-step map is by the streaming width (ordered-BDD width) of F_t. Bold guesses - H-C15-1, widths are bounded or geometric; H-C15-2, bounded width exactly for semigroups, affine magmas and bounded light cones; H-C15-4, fast-forwardable iff bounded width."
+    refs: [EXP-C15-02]
+  - key: C15-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "Order 2 calibrates - the 16 automata are the elementary rules 17m and all have width <= 3. Order 3 (1734 classes) - bounded 808, linear 104, geometric 300, irregular 522 on t <= 9; surjective exactly when permutive (43 classes); 7 reversible automata."
+    refs: [EXP-C15-01, EXP-C15-02]
+  - key: C15-03
+    agent: Formal Verifier
+    kind: proof
+    text: "The simplest linear-width magma is a burning fuse - 0 burnt, 1 burning, 2 intact. Burn times satisfy tau_i = tau_(i+1) + 2 along runs of 2s, so F_t compares t with a counter - width between ~t/4 and 3t + 3 (proved), t + 2 computed. The same burn times give an O(L) fast-forward, refuting both the width dichotomy and 'fast-forwardable iff bounded width'."
+    refs: [CLM-C15-04, CLM-C15-08, CLM-C15-10, proofs/paper/C15.md]
+  - key: C15-04
+    agent: Mathematical Skeptic
+    kind: result
+    text: "Bounded width is far more common than structure - 685 bounded-width classes are neither semigroups, affine magmas nor bounded light cones (e.g. a reversible automaton with a full light cone), so H-C15-2 is refuted. Bounded width also does not mean short cycles - the affine quasigroups mod 3 have long ones."
+    refs: [CLM-C15-09, CLM-C15-11]
+  - key: C15-05
+    agent: Application Researcher
+    kind: result
+    text: "Fast-forwards against direct simulation - affine operator powers and fuse burn times are exact and up to ~2500x / ~4000x faster at t = 10^5 (L = 1024); exponent arithmetic for commutative semigroups wins only for t >> L and loses near t = 10^3; cycle detection is generic but fails exactly where cycles are long. Timings indicative (shared machine)."
+    refs: [EXP-C15-03, EXP-C15-04, CLM-C15-13, CLM-C15-14, CLM-C15-15, CLM-C15-16]
+  - key: C15-06
+    agent: Historian
+    kind: novelty
+    text: "The magma-automaton framework is Pedersen's (Complex Systems 1992) and Moore's (Moore-Drisko 1995/96, Moore-Pnin 1997); linear CA theory is Martin-Odlyzko-Wolfram (1984); surjective two-neighbour automata over prime alphabets are permutive (Kari-Salo-Torma 2013), which our exhaustive order-3 check confirms independently. No prior notion of streaming width or analysis of the fuse rule was found."
+    refs: [CLM-C15-01, CLM-C15-02, CLM-C15-05, CLM-C15-07]
+  - key: C15-07
+    agent: Formal Verifier
+    kind: proof
+    text: Lean file C15_MagmaCA.lean - ca_comm_binomial (Pascal exponents in commutative monoids) and ca_step_shift (local maps compose like the global map), standard axioms only.
+    refs: [proofs/lean/Infinity/C15_MagmaCA.lean, CLM-C15-01]
+
+next_directions:
+  - "C15: characterise bounded streaming width - what do the 685 unexplained bounded-width order-3 classes have in common?"
+  - "C15: prove or refute CLM-C15-18 (bounded width => polylog-time fast-forward); find fast-forwards for non-commutative semigroups via the popcount word"
+  - "C15: are the 'geometric' widths really exponential? Lower-bound proofs for one chaotic order-3 magma"
+  - "C15: light cones of Laver tables - is the dependence always bounded by the order's 2-adic size?"

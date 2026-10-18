@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "The tail-information bound holds exactly on data - 256 distinct hash values in each of 50 families of 4096 keys sharing a 7-byte prefix (reverse-pass hash) or the last 7 message bytes (one-pass forward hash). The 8-pass cascade QC (output = final state of every pass) over the random Latin square and over the Z/256 isotope is at the BLAKE2b noise floor on avalanche and bit independence and passes all distribution and collision tests; over the nimber inversion quasigroup it shows a real bias (max 0.0845) and one marginal chi-square flag (z = -3.21 on words); over x + c(y) the bit-independence defect drops from 1.0 to 0.176 but 5 avalanche cells exceed 0.1. Cascade throughput about 10-13 MB/s versus MX64 165 MB/s and BLAKE2b 41 MB/s in the same run.",
   "assumptions": [
     "same keys as EXP-C18-02 (avalanche, seed 1802) and EXP-C18-03 (key sets, seed 1803)",
     "throughput (batch of 16384 keys of 64 bytes, median of 3, shared machine) is stored under timings only"
@@ -10,6 +11,10 @@
     "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
     "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
+  "counterexamples": [
+    "QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted)",
+    "QC-ARP d8: bit-independence maximum 0.176 < 0.5 (H-C18-9 refuted)"
+  ],
   "cycle": "C18",
   "falsification": "H-C18-7: more than 256 (resp. 256^p) distinct values. H-C18-8: any flag for QC-LS, QC-ISO or QC-NIMINV. H-C18-9: QC-ARP with BIC max < 0.5.",
   "history": [
@@ -18,12 +23,64 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T16:48:40Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "analysis",
+      "new": "The tail-information bound holds exactly on data - 256 distinct hash values in each of 50 families of 4096 keys sharing a 7-byte prefix (reverse-pass hash) or the last 7 message bytes (one-pass forward hash). The 8-pass cascade QC (output = final state of every pass) over the random Latin square and over the Z/256 isotope is at the BLAKE2b noise floor on avalanche and bit independence and passes all distribution and collision tests; over the nimber inversion quasigroup it shows a real bias (max 0.0845) and one marginal chi-square flag (z = -3.21 on words); over x + c(y) the bit-independence defect drops from 1.0 to 0.176 but 5 avalanche cells exceed 0.1. Cascade throughput about 10-13 MB/s versus MX64 165 MB/s and BLAKE2b 41 MB/s in the same run.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted)",
+        "QC-ARP d8: bit-independence maximum 0.176 < 0.5 (H-C18-9 refuted)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C18-03",
+        "CLM-C18-07",
+        "CLM-C18-11",
+        "CLM-C18-12",
+        "CLM-C18-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C18-7: for the reverse-pass hash, keys sharing their first 7 bytes receive at most 256 distinct hash values; for the p-pass forward hash, keys sharing the last 7 message bytes receive at most 256^p values (Theorem 6, checked on data). H-C18-8 (bold): the cascade QC (8 passes, final state output, 8 zero bytes of finalisation) over the random Latin square, the group isotope and the nimber inversion quasigroup has avalanche at the BLAKE2b noise floor, |z| <= 3 and collision ratio within 2% on all four key sets, and no full 64-bit collisions. H-C18-9: the cascade over x + c(y) (ARP) still fails bit independence.",
   "id": "EXP-C18-05",
   "methodology": "(a) For 50 random 7-byte prefixes, hash 4096 keys with that prefix (random 9-byte suffixes) with QG-LS p2+rev and count distinct values; for 50 random 7-byte suffixes do the same with the forward 1-pass hash (bound 256). (b) Avalanche, bit independence, chi-square and collisions for the four cascades, exactly as in EXP-C18-02/03.",
   "question": "EXP-C18-03 showed massive collisions of the tail-output hashes on structured keys. Does the tail-information bound (Theorem 6) account for them exactly, and does a cascade whose output is the final state of 8 parallel passes behave like the good baselines?",
+  "related": [
+    "CLM-C18-03",
+    "CLM-C18-07",
+    "CLM-C18-11",
+    "CLM-C18-12",
+    "CLM-C18-13"
+  ],
   "results_file": "results/EXP-C18-05.json",
   "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
   "runs": [
@@ -63,5 +120,6 @@
     "BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none",
     "H-C18-8 False; H-C18-9 False"
   ],
-  "title": "Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state"
+  "title": "Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state",
+  "verification": "REFUTED"
 }

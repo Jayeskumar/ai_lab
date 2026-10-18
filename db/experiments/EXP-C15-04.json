@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "Cycle detection on one random cyclic row per order-3 class - L = 16 1693/1734, L = 32 1590/1734, L = 64 1561/1734 rows repeat within 5000 steps (median transient 4-6, median period 2). All bounded- and linear-width classes repeat quickly except the four affine Z_3 quasigroups (x + y and relatives), which have bounded width but long cycles; geometric-width classes often do not repeat (172/300 at L = 32).",
   "assumptions": [
     "one seeded random row per class and length",
     "cap 5000 simulated steps (rows that do not repeat within the cap are reported as 'not found')",
@@ -11,6 +12,9 @@
     "sha256": "f32b1c249474fd2374ae0022572730200f9a7c4108aeaa5961ed890753b1926a",
     "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
   },
+  "counterexamples": [
+    "H-C15-5: the bounded-width affine quasigroup x*y = x + y (mod 3) does not repeat within 5000 steps at L = 32 and 64"
+  ],
   "cycle": "C15",
   "falsification": "Fewer than half of the classes repeat within the cap at L = 32, or a bounded/linear-width class that does not repeat within the cap.",
   "history": [
@@ -19,12 +23,57 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:32:28Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Cycle detection on one random cyclic row per order-3 class - L = 16 1693/1734, L = 32 1590/1734, L = 64 1561/1734 rows repeat within 5000 steps (median transient 4-6, median period 2). All bounded- and linear-width classes repeat quickly except the four affine Z_3 quasigroups (x + y and relatives), which have bounded width but long cycles; geometric-width classes often do not repeat (172/300 at L = 32).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "H-C15-5: the bounded-width affine quasigroup x*y = x + y (mod 3) does not repeat within 5000 steps at L = 32 and 64"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C15-11",
+        "CLM-C15-16"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C15-5 (bold): for most classes (at least half), a random cyclic row of length 32 repeats within 5000 steps, so cycle detection fast-forwards most magma automata; long cycles occur only for classes with geometric streaming width.",
   "id": "EXP-C15-04",
   "methodology": "cycle_fast_forward with a dictionary of visited rows; record mu, lambda or 'not found'; group by the width class of EXP-C15-02.",
   "question": "For each of the 1734 order-3 magma automata, after how many steps (transient mu plus period lambda) does a random cyclic row of length L = 16, 32, 64 repeat? Cycle detection answers any query t in mu + lambda simulated steps.",
+  "related": [
+    "CLM-C15-11",
+    "CLM-C15-16"
+  ],
   "results_file": "results/EXP-C15-04.json",
   "results_sha256": "e2a0d442418ecca98be790f3b18e52a9f8e7b61c5cb6585a3b0a816e7aa8c226",
   "runs": [
@@ -54,5 +103,6 @@
     "L=32: 1590/1734 repeat within 5000 steps; median mu 5.0, median lambda 2.0; bounded/linear-width classes not repeating: 4",
     "L=64: 1561/1734 repeat within 5000 steps; median mu 6.0, median lambda 2.0; bounded/linear-width classes not repeating: 4"
   ],
-  "title": "Cycle detection as a universal fast-forward: transient plus period of random cyclic rows"
+  "title": "Cycle detection as a universal fast-forward: transient plus period of random cyclic rows",
+  "verification": "REFUTED"
 }

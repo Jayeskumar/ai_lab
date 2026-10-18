@@ -1,0 +1,22 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-08",
+  "limitations": "Holds (0.0089 / 0.041 versus 0.0089 / 0.045, also with one forward pass), but the same hash fails every structured distribution test (CLM-C18-03) - single-bit avalanche statistics cannot see the tail-information bound.",
+  "novelty": "NOT ASSESSED",
+  "statement": "QG-LS p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on 2000 random 16-byte keys.",
+  "system": "SYS-B",
+  "title": "H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche",
+  "type": "hypothesis",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

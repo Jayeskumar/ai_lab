@@ -1,0 +1,26 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-02",
+    "EXP-C15-03",
+    "EXP-C15-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-04",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.",
+  "proof": "proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward",
+  "proof_check": "written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review",
+  "statement": "For the fuse magma [[0,0,0],[0,0,1],[1,2,2]] (0 burnt, 1 burning, 2 intact): burn times satisfy tau_i = 0 (x_i = 0),\ntau_(i+1) + 2 (x_i = 2), tau_(i+1) (x_i = 1, x_(i+1) = 2), 1 (x_i = 1, x_(i+1) != 2); the row at any time t is\nobtained from them in O(L) operations; and floor((m+1)/2) <= lambda(t) <= 3t + 3 with m = floor(t/2), so the\nstreaming width grows linearly (computed lambda(t) = t + 2 for t <= 12).",
+  "system": "SYS-E",
+  "title": "The fuse magma: linear streaming width, yet an O(L) fast-forward for every t",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

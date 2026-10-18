@@ -30,6 +30,7 @@ chapters:
   - vol06.md
   - generated/v06_results.md
   - vol07.md
+  - 17_magma_automata.md
   - 19_law_testing.md
   - vol09.md
   - generated/v09_failures.md

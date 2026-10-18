@@ -1,0 +1,23 @@
+{
+  "counterexample": "Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03).",
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-02",
+    "EXP-C18-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-10",
+  "novelty": "NOT ASSESSED",
+  "statement": "QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.",
+  "system": "SYS-B",
+  "title": "H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,28 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-01",
+    "EXP-C18-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-02",
+  "lean": [
+    "proofs/lean/Infinity/C18_Quasigroups.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary; implicit in the quasigroup-string-processing literature.",
+  "proof": "proofs/paper/C18.md#theorem-2-clm-c18-02--a-difference-propagates-forward-and-only-forward",
+  "proof_check": "Lean 4 + Mathlib for the persistence of differences (eT_ne_of_ne; standard axioms only); agreement before i and the corollary by written proof (proofs/paper/C18.md Theorem 2); 0 violations on 7 x 2000 random strings (EXP-C18-01); max bias 0.5 for all three forward-only variants (EXP-C18-02)",
+  "statement": "If u and v differ exactly at position i, then e_l(u) and e_l(v) agree at positions < i and differ at every position >= i. Consequently, in a hash that outputs the last 8 bytes of forward e-transformations only, changing a message byte at position i >= n - 8 leaves the earlier tail bytes unchanged, so some output bits never flip and the maximal avalanche bias is 1/2.",
+  "system": "SYS-B",
+  "title": "Differences propagate forward only; forward-only tail hashes fail the strict avalanche criterion",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "The 'if' direction holds for all 18 semigroup and 8 affine classes, but 685 bounded-width classes lie outside the three classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] whose light cone uses all t + 1 cells and whose width stays 3 (EXP-C15-02).",
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-09",
+  "novelty": "NOT ASSESSED",
+  "statement": "An order-3 magma automaton has bounded streaming width iff the magma is a semigroup, is affine over Z_3, or its light cone depends on at most two cells.",
+  "system": "SYS-E",
+  "title": "H-C15-2: bounded width exactly for semigroups, affine magmas and bounded light cones (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

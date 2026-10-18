@@ -1,0 +1,22 @@
+{
+  "counterexample": "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).",
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-11",
+  "novelty": "NOT ASSESSED",
+  "statement": "The cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of finalisation) have avalanche within 0.01 of BLAKE2b-64, |z| <= 3, collision ratios within 2% and no full collisions on all four key sets.",
+  "system": "SYS-B",
+  "title": "H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

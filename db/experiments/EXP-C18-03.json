@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "Distribution on four key sets of about 65,536 keys (random strings, decimal 0..65535, near-duplicates, synthetic words). Every reverse-pass QG variant fails on the three structured sets (chi-square z up to 26,000 with 1024 buckets, 2.4-2.7 times the expected bucket collisions, 32,624 full 64-bit collisions on near-duplicates) - exactly as the tail-information bound predicts; the 2-pass forward hash passes the chi-square tests but has 723 full collisions on near-duplicates. MX64 and BLAKE2b pass everything; FNV-1a and CRC32 fail mildly on sequential and near-duplicate keys (z = -9.8 and -20.5 for sequential keys). A first run failed (synthetic words passed as str instead of bytes) and was fixed; the corrected META key count (65,280 near-duplicates) reproduced the same result hash.",
   "assumptions": [
     "key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65280 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)",
     "z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits"
@@ -10,6 +11,9 @@
     "sha256": "91418b3d445baead7ba69ab0ce4957dab5b36976a63c8e0d716eec399ce954f6",
     "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
+  "counterexamples": [
+    "QG-NIMINV p2+rev: z = 1084 (1024 buckets) on the decimal strings 0..65535 and 32,624 full 64-bit collisions on near-duplicate keys (H-C18-3 refuted)"
+  ],
   "cycle": "C18",
   "falsification": "H-C18-3b: |z| > 3 or a collision ratio outside [0.98, 1.02] for NIMINV. H-C18-6: QG-ARP p1 within bounds on near-duplicates.",
   "history": [
@@ -33,12 +37,61 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T16:51:21Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Distribution on four key sets of about 65,536 keys (random strings, decimal 0..65535, near-duplicates, synthetic words). Every reverse-pass QG variant fails on the three structured sets (chi-square z up to 26,000 with 1024 buckets, 2.4-2.7 times the expected bucket collisions, 32,624 full 64-bit collisions on near-duplicates) - exactly as the tail-information bound predicts; the 2-pass forward hash passes the chi-square tests but has 723 full collisions on near-duplicates. MX64 and BLAKE2b pass everything; FNV-1a and CRC32 fail mildly on sequential and near-duplicate keys (z = -9.8 and -20.5 for sequential keys). A first run failed (synthetic words passed as str instead of bytes) and was fixed; the corrected META key count (65,280 near-duplicates) reproduced the same result hash.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "QG-NIMINV p2+rev: z = 1084 (1024 buckets) on the decimal strings 0..65535 and 32,624 full 64-bit collisions on near-duplicate keys (H-C18-3 refuted)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C18-03",
+        "CLM-C18-06",
+        "CLM-C18-10",
+        "CLM-C18-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C18-3b (bold): the nimber inversion hash (QG-NIMINV p2+rev) has |chi-square z| <= 3 on every key set and bucket-collision ratio within 2% of the uniform expectation, like FNV-1a-64. H-C18-6: the 1-pass x + c(y) hash (QG-ARP p1) fails on near-duplicate keys.",
   "id": "EXP-C18-03",
   "methodology": "Hash every key set with every variant; compute z-scores for 1024 buckets (low 10 bits) and 1021 buckets (h mod 1021); count keys landing in an occupied bucket among 2^16 (low 16 bits) and full 64-bit collisions.",
   "question": "Do quasigroup hashes distribute realistic key sets as evenly as standard hashes?",
+  "related": [
+    "CLM-C18-03",
+    "CLM-C18-06",
+    "CLM-C18-10",
+    "CLM-C18-13"
+  ],
   "results_file": "results/EXP-C18-03.json",
   "results_sha256": "4f66fa5fac9a7cff31d92b5518c0d2018539f5d7c48fee97c6712d1280ac7613",
   "runs": [
@@ -149,5 +202,6 @@
     "CRC32: flagged on ['sequential', 'near_duplicates']",
     "QG-ARP p1 near-duplicates: {'z_mask1024': np.float64(4308.32), 'z_mod1021': np.float64(138.79), 'bucket_collisions': 65024, 'expected': 23947.5, 'ratio': 2.7153, 'full_64bit_collisions': 36720}"
   ],
-  "title": "Hash-table behaviour: chi-square of bucket counts (1024 buckets by mask, 1021 by modulus) and collisions in 2^16 buckets on random, sequential, near-duplicate and word-like keys"
+  "title": "Hash-table behaviour: chi-square of bucket counts (1024 buckets by mask, 1021 by modulus) and collisions in 2^16 buckets on random, sequential, near-duplicate and word-like keys",
+  "verification": "REFUTED"
 }

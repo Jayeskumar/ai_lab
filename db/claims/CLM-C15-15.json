@@ -1,0 +1,24 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-15",
+  "improvement": "IMPROVEMENT",
+  "improvement_detail": "O(L) per query independent of t vs O(L t) simulation; indicative timings",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "As CLM-C15-04.",
+  "statement": "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024).",
+  "system": "SYS-E",
+  "title": "Fuse fast-forward by burn times",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

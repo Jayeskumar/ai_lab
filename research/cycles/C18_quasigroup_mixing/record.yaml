@@ -1,0 +1,218 @@
+cycle: C18
+title: "Invented operations as mixing primitives: quasigroup string transformations versus standard hashes"
+branch: B-applications
+status: complete
+systems: [SYS-B]
+
+experiments:
+  - id: EXP-C18-01
+    analysis: "Seven tables of order 256 are quasigroups - a random Latin square (row-by-row random matchings, not uniform), a random isotope of Z/256, the nimber inversion quasigroup (x XOR y)^-1, affine 77x + 141y + 5, XOR, and the anchored x + c(y) and (x + 1) XOR y of C06. AFF, XOR and ALP are T-functions; only XOR is GF(2)-affine. The nim-product is not a quasigroup on [0,256) (row 0 is zero); its nonzero part is a group; nim_mul agrees with the C07 mex table on [0,64). All predictions of Theorems 1, 2, 4, 5, 6 hold on random inputs: d(e(X)) = X, 0 single-difference violations, 0 low-bit changes for the T-function quasigroups, one key-independent output difference for XOR, 2000 of 2000 one-pass x + c(y) hashes unchanged under prefix permutations."
+    verification: PROVEN
+    related: [CLM-C18-01, CLM-C18-02, CLM-C18-04, CLM-C18-05, CLM-C18-06]
+  - id: EXP-C18-02
+    analysis: "Avalanche and bit independence on 2000 random 16-byte keys. At the BLAKE2b-64 noise floor (mean bias 0.0089, max 0.045, BIC 0.11) - QG-LS with a reverse pass (1, 2 or 4 forward passes), QG-ISO p2+rev, QG-NIMINV p1/p2+rev, MX64. QG-ARP p2+rev also has ideal per-bit flip rates (max bias 0.043) but perfectly correlated bit changes (BIC 1.0). Failing - every forward-only variant (max bias 0.5, mean 0.09-0.10), FNV-1a-64 (mean 0.098, max 0.5, 1688 cells above 0.1), the T-function quasigroups AFF and ALP (mean 0.39 and 0.34) and the GF(2)-affine XOR and CRC32 (mean 0.5)."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C18-02, CLM-C18-04, CLM-C18-05, CLM-C18-06, CLM-C18-08, CLM-C18-09]
+  - id: EXP-C18-03
+    analysis: "Distribution on four key sets of about 65,536 keys (random strings, decimal 0..65535, near-duplicates, synthetic words). Every reverse-pass QG variant fails on the three structured sets (chi-square z up to 26,000 with 1024 buckets, 2.4-2.7 times the expected bucket collisions, 32,624 full 64-bit collisions on near-duplicates) - exactly as the tail-information bound predicts; the 2-pass forward hash passes the chi-square tests but has 723 full collisions on near-duplicates. MX64 and BLAKE2b pass everything; FNV-1a and CRC32 fail mildly on sequential and near-duplicate keys (z = -9.8 and -20.5 for sequential keys). A first run failed (synthetic words passed as str instead of bytes) and was fixed; the corrected META key count (65,280 near-duplicates) reproduced the same result hash."
+    verification: REFUTED
+    counterexamples: ["QG-NIMINV p2+rev: z = 1084 (1024 buckets) on the decimal strings 0..65535 and 32,624 full 64-bit collisions on near-duplicate keys (H-C18-3 refuted)"]
+    related: [CLM-C18-03, CLM-C18-06, CLM-C18-10, CLM-C18-13]
+  - id: EXP-C18-04
+    analysis: "Throughput for 16,384 keys of 64 bytes (indicative, shared machine at load 5-6) - FNV-1a 640 MB/s and MX64 428 MB/s (numpy, vectorised over keys), CRC32 127 MB/s and BLAKE2b 74 MB/s (C library, one call per key), quasigroup variants 11-52 MB/s. Every reverse-pass quasigroup variant was slower than FNV-1a on 8- and 64-byte keys (H-C18-4)."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C18-13]
+  - id: EXP-C18-05
+    analysis: "The tail-information bound holds exactly on data - 256 distinct hash values in each of 50 families of 4096 keys sharing a 7-byte prefix (reverse-pass hash) or the last 7 message bytes (one-pass forward hash). The 8-pass cascade QC (output = final state of every pass) over the random Latin square and over the Z/256 isotope is at the BLAKE2b noise floor on avalanche and bit independence and passes all distribution and collision tests; over the nimber inversion quasigroup it shows a real bias (max 0.0845) and one marginal chi-square flag (z = -3.21 on words); over x + c(y) the bit-independence defect drops from 1.0 to 0.176 but 5 avalanche cells exceed 0.1. Cascade throughput about 10-13 MB/s versus MX64 165 MB/s and BLAKE2b 41 MB/s in the same run."
+    verification: REFUTED
+    counterexamples: ["QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted)", "QC-ARP d8: bit-independence maximum 0.176 < 0.5 (H-C18-9 refuted)"]
+    related: [CLM-C18-03, CLM-C18-07, CLM-C18-11, CLM-C18-12, CLM-C18-13]
+
+claims:
+  - id: CLM-C18-01
+    type: theorem
+    system: SYS-B
+    title: e-transformations are bijections of strings of fixed length
+    statement: For every quasigroup Q, leader l and length n, the e-transformation e_l is a bijection of Q^n, inverted by the d-transformation a_i = b_(i-1) \ b_i; hence every composition of forward and reversed e-transformations is a bijection of Q^n.
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib (eT_injective, eT_length; standard axioms only) plus the finite-cardinality step (written proof, proofs/paper/C18.md Theorem 1); d(e(X)) = X for all seven quasigroups (EXP-C18-01)"
+    proof: proofs/paper/C18.md#theorem-1-clm-c18-01--e-transformations-are-bijections
+    lean: [proofs/lean/Infinity/C18_Quasigroups.lean]
+    evidence: [EXP-C18-01]
+    novelty: REDISCOVERY
+    novelty_basis: "S. Markovski, D. Gligoroski, V. Bakeva, Quasigroup string processing, Part 1, Contributions, Sec. Math. Tech. Sci., MANU (1999) - the E- and D-transformations with the same leader are mutually inverse permutations of strings (as cited in US patent 8041031, https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8041031, and in Markovski-Bakeva, Quasigroup String Processing Part 4, https://www.academia.edu/115482463/Quasigroup_String_Processing_Part_4)."
+  - id: CLM-C18-02
+    type: theorem
+    system: SYS-B
+    title: Differences propagate forward only; forward-only tail hashes fail the strict avalanche criterion
+    statement: If u and v differ exactly at position i, then e_l(u) and e_l(v) agree at positions < i and differ at every position >= i. Consequently, in a hash that outputs the last 8 bytes of forward e-transformations only, changing a message byte at position i >= n - 8 leaves the earlier tail bytes unchanged, so some output bits never flip and the maximal avalanche bias is 1/2.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib for the persistence of differences (eT_ne_of_ne; standard axioms only); agreement before i and the corollary by written proof (proofs/paper/C18.md Theorem 2); 0 violations on 7 x 2000 random strings (EXP-C18-01); max bias 0.5 for all three forward-only variants (EXP-C18-02)
+    proof: proofs/paper/C18.md#theorem-2-clm-c18-02--a-difference-propagates-forward-and-only-forward
+    lean: [proofs/lean/Infinity/C18_Quasigroups.lean]
+    evidence: [EXP-C18-01, EXP-C18-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; implicit in the quasigroup-string-processing literature.
+  - id: CLM-C18-03
+    type: theorem
+    system: SYS-B
+    title: "The tail-information bound: an e-transformation tail carries one byte of state"
+    statement: |
+      The last k outputs of an e-transformation are a bijective function of the state before them and the last k
+      inputs. Hence a hash outputting the last 8 bytes after p forward e-transformations takes at most 256^p values on
+      messages sharing their last 7 bytes, and with a final reversed e-transformation it takes at most 256 values on
+      messages sharing their first 7 bytes, for every p and every quasigroup of order 256.
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib for the factorisation of the tail through one state (eT_append, eT_tail_factors) and injectivity (eT_injective); the counting consequences by written proof (proofs/paper/C18.md Theorem 3); the bound is attained exactly (256 values) in 100 families of 4096 keys (EXP-C18-05) and explains the 32,624 full collisions of EXP-C18-03 exactly"
+    proof: proofs/paper/C18.md#theorem-3-clm-c18-03--the-tail-information-bound
+    lean: [proofs/lean/Infinity/C18_Quasigroups.lean]
+    evidence: [EXP-C18-03, EXP-C18-05]
+    novelty: NOT ASSESSED
+    novelty_basis: "An elementary narrow-pipe property of byte-level e-transformations. Quasigroup hash designs submitted to the SHA-3 competition used huge quasigroups in wide-pipe constructions (Edon-R, orders 2^256-2^512, https://ehash.isec.tugraz.at/uploads/7/74/Edon.pdf; NaSHA, https://eprint.iacr.org/2008/519), which avoids it; two searches found no explicit statement of the bound for byte-level e-transformation hashes."
+  - id: CLM-C18-04
+    type: theorem
+    system: SYS-B
+    title: "T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits into low output bits"
+    statement: If x*y is a T-function on Z/2^8, then in every QG hash (any number of forward and reversed e-transformations) bit j of every output byte depends only on bits 0..j of the message bytes; flipping an input bit at position r never changes an output bit at a position < r, and the maximal avalanche bias is 1/2.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C18.md Theorem 4, induction along the chains using x = x' and y = y' mod 2^r => x*y = x'*y' mod 2^r); 0 low-bit changes for AFF, XOR, ALP in EXP-C18-01; max bias 0.5 in EXP-C18-02
+    proof: proofs/paper/C18.md#theorem-4-clm-c18-04--the-t-function-obstruction
+    evidence: [EXP-C18-01, EXP-C18-02]
+    novelty: REDISCOVERY
+    novelty_basis: "Closure of T-functions under composition - A. Klimov, A. Shamir, A new class of invertible mappings, CHES 2002; see https://en.wikipedia.org/wiki/T-function and https://www.iacr.org/archive/fse2004/30170001/30170001.pdf."
+  - id: CLM-C18-05
+    type: theorem
+    system: SYS-B
+    title: GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences
+    statement: If x*y = A(x) XOR B(y) XOR c with A, B linear over GF(2) (for example x XOR y), every QG hash satisfies H(M XOR D) = H(M) XOR L(D) for a fixed linear L; every avalanche cell is 0 or 1.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C18.md Theorem 5); one distinct output difference over 2000 keys (EXP-C18-01); mean bias 0.5 for QG-XOR and for CRC32 (EXP-C18-02)
+    proof: proofs/paper/C18.md#theorem-5-clm-c18-05--gf2-affine-quasigroups-give-affine-hashes
+    evidence: [EXP-C18-01, EXP-C18-02]
+    novelty: REDISCOVERY
+    novelty_basis: Folklore (affine maps compose to affine maps; the same property makes CRCs unsuitable as hash-table mixers).
+  - id: CLM-C18-06
+    type: theorem
+    system: SYS-B
+    title: "The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is anagram-blind"
+    statement: For x*y = x + c(y) mod 256, two runs over the same inputs from states b, b' differ by the constant b' - b at every position, and one pass computes prefix sums l + sum c(a_i). Hence the one-pass tail hash is unchanged by permutations of the message bytes before the tail, and with a reverse pass all 8 output bytes change by one common additive constant when a message byte at position >= 8 changes (perfectly correlated bit changes).
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C18.md Theorem 6); 2000/2000 one-pass hashes unchanged under prefix permutations (EXP-C18-01); bit independence 1.0 with ideal per-bit flip rates for QG-ARP p2+rev (EXP-C18-02); 36,720 full collisions for QG-ARP p1 on near-duplicates (EXP-C18-03)
+    proof: proofs/paper/C18.md#theorem-6-clm-c18-06--the-anchored-quasigroup-x--cy-keeps-additive-differences
+    evidence: [EXP-C18-01, EXP-C18-02, EXP-C18-03]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; shows that an anchored quasigroup of C06 (Theorem 4 there) is a poor mixing primitive.
+  - id: CLM-C18-07
+    type: theorem
+    system: SYS-B
+    title: The 8-pass cascade has a bijective 64-bit state update
+    statement: In the cascade QC(T, d) (d e-transformations run in parallel, output = the final state of every pass), the update of the state (s_1, ..., s_d) by one input byte is a bijection of Q^d; so states are never merged and the tail-information bound does not apply to the output.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C18.md Theorem 7, triangular composition of row and column bijections); quality of the cascades measured separately (EXP-C18-05)
+    proof: proofs/paper/C18.md#theorem-7-clm-c18-07--the-cascade-keeps-a-full-8-byte-state
+    evidence: [EXP-C18-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C18-08
+    type: hypothesis
+    system: SYS-B
+    title: "H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche"
+    statement: QG-LS p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on 2000 random 16-byte keys.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C18-02]
+    novelty: NOT ASSESSED
+    limitations: "Holds (0.0089 / 0.041 versus 0.0089 / 0.045, also with one forward pass), but the same hash fails every structured distribution test (CLM-C18-03) - single-bit avalanche statistics cannot see the tail-information bound."
+  - id: CLM-C18-09
+    type: hypothesis
+    system: SYS-B
+    title: "H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal avalanche bias)"
+    statement: Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.
+    verification: INCONCLUSIVE
+    evidence: [EXP-C18-02]
+    novelty: NOT ASSESSED
+    limitations: "Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure."
+  - id: CLM-C18-10
+    type: hypothesis
+    system: SYS-B
+    title: "H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted)"
+    statement: QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.
+    verification: REFUTED
+    counterexample: "Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03)."
+    evidence: [EXP-C18-02, EXP-C18-03]
+    novelty: NOT ASSESSED
+  - id: CLM-C18-11
+    type: hypothesis
+    system: SYS-B
+    title: "H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted)"
+    statement: The cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of finalisation) have avalanche within 0.01 of BLAKE2b-64, |z| <= 3, collision ratios within 2% and no full collisions on all four key sets.
+    verification: REFUTED
+    counterexample: "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05)."
+    evidence: [EXP-C18-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C18-12
+    type: hypothesis
+    system: SYS-B
+    title: "H-C18-9: the cascade over x + c(y) still fails bit independence (refuted)"
+    statement: The cascade QC-ARP d8 has a maximal bit-independence correlation of at least 0.5.
+    verification: REFUTED
+    counterexample: "QC-ARP d8 has maximal correlation 0.176 (noise level about 0.11) - the cascade removes the perfect correlation of QG-ARP p2+rev, although 5 avalanche cells still exceed bias 0.1 (EXP-C18-05)."
+    evidence: [EXP-C18-05]
+    novelty: NOT ASSESSED
+  - id: CLM-C18-13
+    type: algorithmic
+    system: SYS-B
+    title: Quasigroup hashes against non-cryptographic baselines - no improvement
+    statement: "Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves on the best baseline in any measured dimension."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: NO IMPROVEMENT
+    improvement_detail: "Every tail-output variant fails at least one quality test (forward-only - avalanche; reverse-pass - distribution, 2.4-2.7x bucket collisions and 32,624 full collisions on near-duplicates). The cascades over the random Latin square and the Z/256 isotope match MX64 and BLAKE2b-64 on every quality test run, but at 10-13 MB/s they were about 3x slower than BLAKE2b (one C call per key) and over 10x slower than numpy-vectorised MX64 in the same run (EXP-C18-05; EXP-C18-04 under different load - FNV-1a 640, MX64 428, BLAKE2b 74 MB/s, quasigroup variants 11-52 MB/s). MX64 is at least as good on every axis. Against FNV-1a alone, the good cascades have better avalanche (FNV-1a max bias 0.5) and better distribution on sequential keys (FNV-1a z = -9.8), at a large speed cost. This is not a security evaluation."
+    evidence: [EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05]
+    novelty: NOT ASSESSED
+    novelty_basis: "Quasigroup string processing for cryptographic primitives and pseudo-random generators is established (Markovski et al.; Gligoroski, Candidate one-way functions and one-way permutations based on quasigroup string transformations, https://ia.cr/2005/352; Edon-R); the benchmark against these baselines is ours."
+    limitations: Python/numpy implementations on a shared machine (times indicative); a small subset of SMHasher-style tests; one random Latin square (not uniformly sampled); 16-byte keys for avalanche.
+
+journal:
+  - key: C18-01
+    agent: Application Researcher
+    kind: hypothesis
+    text: "Phase-5 cycle - can invented operations (Latin squares, the nimber field of C07, the anchored quasigroups of C06) serve as non-cryptographic hash mixers? Baselines FNV-1a-64, MX64, BLAKE2b-64, CRC32. Bold hypotheses - H-C18-1 (random Latin square, 2 passes + reverse, BLAKE2b-level avalanche), H-C18-2 (structured quasigroups worse), H-C18-3 (the nimber hash competitive with FNV-1a). Explicitly not a security evaluation."
+    refs: [EXP-C18-02, EXP-C18-03]
+  - key: C18-02
+    agent: Formal Verifier
+    kind: proof
+    text: "Before measuring - proved bijectivity of e-transformations (Lean), forward-only propagation of differences (Lean) and its consequence for forward-only tail hashes, the T-function obstruction (affine mod 256, XOR, (x + 1) XOR y) and the GF(2)-affinity of XOR hashes; EXP-C18-01 confirmed every prediction on random inputs."
+    refs: [EXP-C18-01, CLM-C18-01, CLM-C18-02, CLM-C18-04, CLM-C18-05]
+  - key: C18-03
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C18-02 - the random-Latin-square, group-isotope and nimber-inversion hashes with a reverse pass reach BLAKE2b's avalanche noise floor (H-C18-1 holds), FNV-1a does not (max bias 0.5); x + c(y) has ideal flip rates but bit independence 1.0."
+    refs: [EXP-C18-02, CLM-C18-08, CLM-C18-06]
+  - key: C18-04
+    agent: Mathematical Skeptic
+    kind: result
+    text: "EXP-C18-03 overturned the picture - every reverse-pass variant, including those with perfect avalanche, collides massively on structured keys (32,624 full collisions on near-duplicates). Diagnosed as a theorem rather than a bug - the 8-byte tail of an e-transformation is a function of one state byte and 7 input bytes, so with a reverse pass all keys sharing a 7-byte prefix get at most 256 hash values; the observed collision count is exactly the lower bound 16 x (2295 - 256)."
+    refs: [EXP-C18-03, CLM-C18-03, CLM-C18-10]
+  - key: C18-05
+    agent: Application Researcher
+    kind: decision
+    text: "Redesign guided by the theorem - output the final state of 8 parallel passes (a bijectively updated 64-bit state) instead of the tail of one string. EXP-C18-05 - the bound holds exactly on data; QC-LS and QC-ISO pass every quality test; QC-NIMINV keeps a small real bias and QC-ARP improves but does not reach the noise floor (H-C18-8, H-C18-9 refuted)."
+    refs: [EXP-C18-05, CLM-C18-07, CLM-C18-11, CLM-C18-12]
+  - key: C18-06
+    agent: Application Researcher
+    kind: result
+    text: "No improvement over the baselines - the good cascades only match MX64 and BLAKE2b in quality and are several times slower; MX64 dominates on every measured axis. Recorded as NO IMPROVEMENT (CLM-C18-13)."
+    refs: [EXP-C18-04, EXP-C18-05, CLM-C18-13]
+  - key: C18-07
+    agent: Historian
+    kind: novelty
+    text: "e/d bijectivity is Markovski-Gligoroski-Bakeva (1999); the T-function obstruction is Klimov-Shamir's T-function closure; quasigroup hash designs in the SHA-3 competition (Edon-R, NaSHA) used huge quasigroups in wide-pipe constructions and were attacked (Khovratovich-Nikolic-Weinmann; Ji-Xu-Guan, ePrint 2008/519). No explicit statement of the byte-level tail-information bound was found."
+    refs: [CLM-C18-01, CLM-C18-03, CLM-C18-04]
+  - key: C18-08
+    agent: Formal Verifier
+    kind: decision
+    text: "Housekeeping - the first EXP-C18-03 run failed (synthetic words passed as str instead of bytes) and was fixed; a container restart interrupted the cycle after EXP-C18-01, and EXP-C18-02..05 were run afterwards from the committed scripts; the corrected near-duplicate count in the EXP-C18-03 META (65,280) reproduced the result hash."
+    refs: [EXP-C18-03]
+
+next_directions:
+  - "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness"
+  - "C18: explain the residual bias of the nimber-inversion cascade (x*x = 0 and commutativity) - which quasigroup properties hurt cascades?"
+  - "C18: a probabilistic model of the cascade over a random Latin square - how does the avalanche bias decay with the depth?"

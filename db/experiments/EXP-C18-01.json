@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Seven tables of order 256 are quasigroups - a random Latin square (row-by-row random matchings, not uniform), a random isotope of Z/256, the nimber inversion quasigroup (x XOR y)^-1, affine 77x + 141y + 5, XOR, and the anchored x + c(y) and (x + 1) XOR y of C06. AFF, XOR and ALP are T-functions; only XOR is GF(2)-affine. The nim-product is not a quasigroup on [0,256) (row 0 is zero); its nonzero part is a group; nim_mul agrees with the C07 mex table on [0,64). All predictions of Theorems 1, 2, 4, 5, 6 hold on random inputs: d(e(X)) = X, 0 single-difference violations, 0 low-bit changes for the T-function quasigroups, one key-independent output difference for XOR, 2000 of 2000 one-pass x + c(y) hashes unchanged under prefix permutations.",
   "assumptions": [
     "random inputs: 2000 strings of 24 bytes (seeded)",
     "the random Latin square is built row by row with randomly relabelled maximum matchings and is not uniformly distributed"
@@ -18,12 +19,52 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:31:39Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Seven tables of order 256 are quasigroups - a random Latin square (row-by-row random matchings, not uniform), a random isotope of Z/256, the nimber inversion quasigroup (x XOR y)^-1, affine 77x + 141y + 5, XOR, and the anchored x + c(y) and (x + 1) XOR y of C06. AFF, XOR and ALP are T-functions; only XOR is GF(2)-affine. The nim-product is not a quasigroup on [0,256) (row 0 is zero); its nonzero part is a group; nim_mul agrees with the C07 mex table on [0,64). All predictions of Theorems 1, 2, 4, 5, 6 hold on random inputs: d(e(X)) = X, 0 single-difference violations, 0 low-bit changes for the T-function quasigroups, one key-independent output difference for XOR, 2000 of 2000 one-pass x + c(y) hashes unchanged under prefix permutations.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C18-01",
+        "CLM-C18-02",
+        "CLM-C18-04",
+        "CLM-C18-05",
+        "CLM-C18-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "Theorems 1-5 of proofs/paper/C18.md: e-transformations are bijections with the d-transformation as inverse; a single-position input difference at i changes exactly the output positions >= i; for T-function quasigroups output bits below the flipped bit position never change; for XOR every output difference is independent of the key; the 1-pass x + c(y) hash is blind to permutations of the message prefix.",
   "id": "EXP-C18-01",
   "methodology": "Direct checks on all 256 x 256 tables; e/d round trips; single-byte differences at random positions; bit flips at every bit position r for the T-function quasigroups; output differences for XOR across keys; 1-pass ARP hashes of keys and of permutations of their prefixes.",
   "question": "Are the constructed tables quasigroups, which of them are T-functions or GF(2)-affine, and do the predictions of Theorems 1-5 (bijectivity, forward-only difference propagation, the T-function obstruction, linearity, anagram blindness) hold on random inputs?",
+  "related": [
+    "CLM-C18-01",
+    "CLM-C18-02",
+    "CLM-C18-04",
+    "CLM-C18-05",
+    "CLM-C18-06"
+  ],
   "results_file": "results/EXP-C18-01.json",
   "results_sha256": "393d97c570b911b4e0a4a2aeea76f427b8cab604a5419cfcbe8cfb2f3ceb503b",
   "runs": [
@@ -57,5 +98,6 @@
     "T-function obstruction violations (AFF, XOR, ALP): {'AFF': 0, 'XOR': 0, 'ALP': 0}; XOR: 1 distinct output difference(s) over 2000 keys",
     "ARP 1-pass: 2000/2000 hashes unchanged under prefix permutation (2000 keys changed); QG-LS p2+rev unchanged: 0"
   ],
-  "title": "Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems"
+  "title": "Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems",
+  "verification": "PROVEN"
 }

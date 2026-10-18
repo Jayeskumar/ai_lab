@@ -1,0 +1,27 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-01",
+  "lean": [
+    "proofs/lean/Infinity/C18_Quasigroups.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "S. Markovski, D. Gligoroski, V. Bakeva, Quasigroup string processing, Part 1, Contributions, Sec. Math. Tech. Sci., MANU (1999) - the E- and D-transformations with the same leader are mutually inverse permutations of strings (as cited in US patent 8041031, https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8041031, and in Markovski-Bakeva, Quasigroup String Processing Part 4, https://www.academia.edu/115482463/Quasigroup_String_Processing_Part_4).",
+  "proof": "proofs/paper/C18.md#theorem-1-clm-c18-01--e-transformations-are-bijections",
+  "proof_check": "Lean 4 + Mathlib (eT_injective, eT_length; standard axioms only) plus the finite-cardinality step (written proof, proofs/paper/C18.md Theorem 1); d(e(X)) = X for all seven quasigroups (EXP-C18-01)",
+  "statement": "For every quasigroup Q, leader l and length n, the e-transformation e_l is a bijection of Q^n, inverted by the d-transformation a_i = b_(i-1) \\ b_i; hence every composition of forward and reversed e-transformations is a bijection of Q^n.",
+  "system": "SYS-B",
+  "title": "e-transformations are bijections of strings of fixed length",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

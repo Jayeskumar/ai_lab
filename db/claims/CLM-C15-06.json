@@ -1,0 +1,24 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-06",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Elementary-rule numbering (S. Wolfram, Rev. Mod. Phys. 55 (1983)); rules independent of one neighbour are a standard subfamily.",
+  "proof": "proofs/paper/C15.md#theorem-6-clm-c15-06--order-2",
+  "proof_check": "written one-line proof (proofs/paper/C15.md Theorem 6) and exhaustive computation (EXP-C15-01)",
+  "statement": "The 16 automata of two-element magmas are exactly the elementary cellular automata whose rule ignores the left neighbour, the Wolfram numbers 0, 17, 34, ..., 255.",
+  "system": "SYS-E",
+  "title": "The two-element magma automata are the elementary rules 17m",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

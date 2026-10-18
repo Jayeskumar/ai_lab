@@ -1,0 +1,26 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-01",
+    "EXP-C15-02",
+    "EXP-C15-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-05",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "J. Kari, V. Salo, I. Torma, Surjective two-neighbor cellular automata on prime alphabets (2013) - surjective two-neighbour CA over prime alphabets are permutive in some coordinate (https://research.utu.fi/converis/portal/detail/Publication/3119276; notes https://villesalo.com/notes/STNCAoPANotes.html); G. A. Hedlund, Math. Systems Theory 3 (1969). Our exhaustive check is an independent confirmation for n = 2, 3; the order-4 band illustrates why primality is needed.",
+  "proof": "proofs/paper/C15.md#theorem-5-clm-c15-05--surjective-iff-permutive-for-m--3",
+  "proof_check": "computer-assisted - exact pair-graph (Garden-of-Eden) decision for all 16 tables of order 2 and all 1734 classes of order 3 (invariant under isomorphism and mirror image), Hedlund's theorem for permutive => surjective; the order-4 example by a two-line argument (identity x shift) and the same decision procedure (EXP-C15-05)",
+  "statement": "For |M| <= 3 the automaton c'_i = c_i * c_{i+1} is surjective on bi-infinite rows iff all rows or all columns of the table are permutations (1, 6, 420 surjective tables of orders 1, 2, 3 = 2(n!)^n - Lat(n)); for |M| = 4 the rectangular band (b,c)*(b',c') = (b,c') is surjective and injective but not permutive.",
+  "system": "SYS-E",
+  "title": "Surjective iff permutive for magmas of order at most 3; false at order 4",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

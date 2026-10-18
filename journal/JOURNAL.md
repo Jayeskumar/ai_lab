@@ -1066,3 +1066,117 @@ Both rules are right barren (McNaughton; Geser, ICASE 2002-33, Thm 3.2-3.3), so 
 
 *Evidence:* EXP-C06-03, EXP-C06-04
 
+
+## C03
+
+### [2026-10-18T16:55:13Z] Formal Verifier — revision (`C03-14#rev2`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T16:55:13Z] Formal Verifier — revision (`C06-11#rev2`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C15
+
+### [2026-10-18T16:55:13Z] Mathematical Inventor — hypothesis (`C15-01`)
+
+A binary operation is also a cellular automaton - c'_i = c_i * c_{i+1}. Measure how hard its t-step map is by the streaming width (ordered-BDD width) of F_t. Bold guesses - H-C15-1, widths are bounded or geometric; H-C15-2, bounded width exactly for semigroups, affine magmas and bounded light cones; H-C15-4, fast-forwardable iff bounded width.
+
+*Evidence:* EXP-C15-02
+
+### [2026-10-18T16:55:13Z] Mathematical Explorer — result (`C15-02`)
+
+Order 2 calibrates - the 16 automata are the elementary rules 17m and all have width <= 3. Order 3 (1734 classes) - bounded 808, linear 104, geometric 300, irregular 522 on t <= 9; surjective exactly when permutive (43 classes); 7 reversible automata.
+
+*Evidence:* EXP-C15-01, EXP-C15-02
+
+### [2026-10-18T16:55:13Z] Formal Verifier — proof (`C15-03`)
+
+The simplest linear-width magma is a burning fuse - 0 burnt, 1 burning, 2 intact. Burn times satisfy tau_i = tau_(i+1) + 2 along runs of 2s, so F_t compares t with a counter - width between ~t/4 and 3t + 3 (proved), t + 2 computed. The same burn times give an O(L) fast-forward, refuting both the width dichotomy and 'fast-forwardable iff bounded width'.
+
+*Evidence:* CLM-C15-04, CLM-C15-08, CLM-C15-10, proofs/paper/C15.md
+
+### [2026-10-18T16:55:13Z] Mathematical Skeptic — result (`C15-04`)
+
+Bounded width is far more common than structure - 685 bounded-width classes are neither semigroups, affine magmas nor bounded light cones (e.g. a reversible automaton with a full light cone), so H-C15-2 is refuted. Bounded width also does not mean short cycles - the affine quasigroups mod 3 have long ones.
+
+*Evidence:* CLM-C15-09, CLM-C15-11
+
+### [2026-10-18T16:55:13Z] Application Researcher — result (`C15-05`)
+
+Fast-forwards against direct simulation - affine operator powers and fuse burn times are exact and up to ~2500x / ~4000x faster at t = 10^5 (L = 1024); exponent arithmetic for commutative semigroups wins only for t >> L and loses near t = 10^3; cycle detection is generic but fails exactly where cycles are long. Timings indicative (shared machine).
+
+*Evidence:* EXP-C15-03, EXP-C15-04, CLM-C15-13, CLM-C15-14, CLM-C15-15, CLM-C15-16
+
+### [2026-10-18T16:55:13Z] Historian — novelty (`C15-06`)
+
+The magma-automaton framework is Pedersen's (Complex Systems 1992) and Moore's (Moore-Drisko 1995/96, Moore-Pnin 1997); linear CA theory is Martin-Odlyzko-Wolfram (1984); surjective two-neighbour automata over prime alphabets are permutive (Kari-Salo-Torma 2013), which our exhaustive order-3 check confirms independently. No prior notion of streaming width or analysis of the fuse rule was found.
+
+*Evidence:* CLM-C15-01, CLM-C15-02, CLM-C15-05, CLM-C15-07
+
+### [2026-10-18T16:55:13Z] Formal Verifier — proof (`C15-07`)
+
+Lean file C15_MagmaCA.lean - ca_comm_binomial (Pascal exponents in commutative monoids) and ca_step_shift (local maps compose like the global map), standard axioms only.
+
+*Evidence:* proofs/lean/Infinity/C15_MagmaCA.lean, CLM-C15-01
+
+
+## C18
+
+### [2026-10-18T16:55:13Z] Application Researcher — hypothesis (`C18-01`)
+
+Phase-5 cycle - can invented operations (Latin squares, the nimber field of C07, the anchored quasigroups of C06) serve as non-cryptographic hash mixers? Baselines FNV-1a-64, MX64, BLAKE2b-64, CRC32. Bold hypotheses - H-C18-1 (random Latin square, 2 passes + reverse, BLAKE2b-level avalanche), H-C18-2 (structured quasigroups worse), H-C18-3 (the nimber hash competitive with FNV-1a). Explicitly not a security evaluation.
+
+*Evidence:* EXP-C18-02, EXP-C18-03
+
+### [2026-10-18T16:55:13Z] Formal Verifier — proof (`C18-02`)
+
+Before measuring - proved bijectivity of e-transformations (Lean), forward-only propagation of differences (Lean) and its consequence for forward-only tail hashes, the T-function obstruction (affine mod 256, XOR, (x + 1) XOR y) and the GF(2)-affinity of XOR hashes; EXP-C18-01 confirmed every prediction on random inputs.
+
+*Evidence:* EXP-C18-01, CLM-C18-01, CLM-C18-02, CLM-C18-04, CLM-C18-05
+
+### [2026-10-18T16:55:13Z] Mathematical Explorer — result (`C18-03`)
+
+EXP-C18-02 - the random-Latin-square, group-isotope and nimber-inversion hashes with a reverse pass reach BLAKE2b's avalanche noise floor (H-C18-1 holds), FNV-1a does not (max bias 0.5); x + c(y) has ideal flip rates but bit independence 1.0.
+
+*Evidence:* EXP-C18-02, CLM-C18-08, CLM-C18-06
+
+### [2026-10-18T16:55:13Z] Mathematical Skeptic — result (`C18-04`)
+
+EXP-C18-03 overturned the picture - every reverse-pass variant, including those with perfect avalanche, collides massively on structured keys (32,624 full collisions on near-duplicates). Diagnosed as a theorem rather than a bug - the 8-byte tail of an e-transformation is a function of one state byte and 7 input bytes, so with a reverse pass all keys sharing a 7-byte prefix get at most 256 hash values; the observed collision count is exactly the lower bound 16 x (2295 - 256).
+
+*Evidence:* EXP-C18-03, CLM-C18-03, CLM-C18-10
+
+### [2026-10-18T16:55:13Z] Application Researcher — decision (`C18-05`)
+
+Redesign guided by the theorem - output the final state of 8 parallel passes (a bijectively updated 64-bit state) instead of the tail of one string. EXP-C18-05 - the bound holds exactly on data; QC-LS and QC-ISO pass every quality test; QC-NIMINV keeps a small real bias and QC-ARP improves but does not reach the noise floor (H-C18-8, H-C18-9 refuted).
+
+*Evidence:* EXP-C18-05, CLM-C18-07, CLM-C18-11, CLM-C18-12
+
+### [2026-10-18T16:55:13Z] Application Researcher — result (`C18-06`)
+
+No improvement over the baselines - the good cascades only match MX64 and BLAKE2b in quality and are several times slower; MX64 dominates on every measured axis. Recorded as NO IMPROVEMENT (CLM-C18-13).
+
+*Evidence:* EXP-C18-04, EXP-C18-05, CLM-C18-13
+
+### [2026-10-18T16:55:13Z] Historian — novelty (`C18-07`)
+
+e/d bijectivity is Markovski-Gligoroski-Bakeva (1999); the T-function obstruction is Klimov-Shamir's T-function closure; quasigroup hash designs in the SHA-3 competition (Edon-R, NaSHA) used huge quasigroups in wide-pipe constructions and were attacked (Khovratovich-Nikolic-Weinmann; Ji-Xu-Guan, ePrint 2008/519). No explicit statement of the byte-level tail-information bound was found.
+
+*Evidence:* CLM-C18-01, CLM-C18-03, CLM-C18-04
+
+### [2026-10-18T16:55:13Z] Formal Verifier — decision (`C18-08`)
+
+Housekeeping - the first EXP-C18-03 run failed (synthetic words passed as str instead of bytes) and was fixed; a container restart interrupted the cycle after EXP-C18-01, and EXP-C18-02..05 were run afterwards from the committed scripts; the corrected near-duplicate count in the EXP-C18-03 META (65,280) reproduced the result hash.
+
+*Evidence:* EXP-C18-03
+

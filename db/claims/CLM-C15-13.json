@@ -1,0 +1,24 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-13",
+  "improvement": "IMPROVEMENT",
+  "improvement_detail": "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); indicative timings on a shared machine",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.",
+  "statement": "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096.",
+  "system": "SYS-E",
+  "title": "Affine fast-forward by operator powers",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

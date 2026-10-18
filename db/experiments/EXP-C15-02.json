@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "1734 order-3 classes (3330 up to isomorphism; 19683 tables). Streaming-width classes on t <= 9 - bounded 808, linear 104, geometric 300, other 522. All 18 semigroup and 8 affine classes are bounded (width <= 3), but 685 bounded-width classes lie outside semigroups, affine magmas and bounded dependence (only 163 of the 808 are explained by these or by an associative/affine eventual image). 43 classes (420 tables) are surjective, exactly the permutive ones; 7 are injective (reversible), including two whose light cones use all t+1 cells; 34 are nilpotent by t = 9.",
   "assumptions": [
     "light cones to t = 9 (tables of 3^10 entries)",
     "cyclic rows of length L = 1..7",
@@ -12,6 +13,10 @@
     "sha256": "3df7115d616534f3cdd52e6a363f86df188cf426bab97a4a50fee44ac1cd5e78",
     "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
+  "counterexamples": [
+    "linear width growth, e.g. the fuse magma [[0,0,0],[0,0,1],[1,2,2]] with lambda(t) = t + 2 (H-C15-1)",
+    "bounded width outside the predicted classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] (full light cone, width 3, neither associative nor affine) (H-C15-2)"
+  ],
   "cycle": "C15",
   "falsification": "H-C15-1: a magma with growing but sub-geometric width. H-C15-2: a bounded-width magma outside the three classes or a semigroup/affine magma with unbounded width. H-C15-3: a surjective non-permutive table or a non-surjective permutive one.",
   "history": [
@@ -48,12 +53,62 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T09:29:35Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "analysis",
+      "new": "1734 order-3 classes (3330 up to isomorphism; 19683 tables). Streaming-width classes on t <= 9 - bounded 808, linear 104, geometric 300, other 522. All 18 semigroup and 8 affine classes are bounded (width <= 3), but 685 bounded-width classes lie outside semigroups, affine magmas and bounded dependence (only 163 of the 808 are explained by these or by an associative/affine eventual image). 43 classes (420 tables) are surjective, exactly the permutive ones; 7 are injective (reversible), including two whose light cones use all t+1 cells; 34 are nilpotent by t = 9.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "linear width growth, e.g. the fuse magma [[0,0,0],[0,0,1],[1,2,2]] with lambda(t) = t + 2 (H-C15-1)",
+        "bounded width outside the predicted classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] (full light cone, width 3, neither associative nor affine) (H-C15-2)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C15-05",
+        "CLM-C15-07",
+        "CLM-C15-08",
+        "CLM-C15-09"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C15-1 (bold, inventor): no intermediate growth - the streaming width lambda(t) (the smaller of the forward and backward ordered-BDD widths of F_t) is either bounded or grows geometrically. H-C15-2 (bold, inventor): bounded streaming width holds exactly for semigroups, affine magmas x*y = ax + by + c over Z_3, and magmas whose light cone depends on at most two cells. H-C15-3 (explorer): the automaton is surjective on bi-infinite rows iff the table has all rows or all columns permutations (permutive).",
   "id": "EXP-C15-02",
   "methodology": "Canonical representatives by minimum code over the 12 (anti-)relabellings; for each: algebraic properties, essential variables and widths of F_t (t <= 9), nilpotency, pair-graph surjectivity and injectivity, functional-graph statistics of the global map on cyclic rows.",
   "question": "For all 1734 magmas of order 3 up to isomorphism and anti-isomorphism: how complex are the t-step local maps of c'_i = c_i * c_{i+1}, which automata are surjective, and how do they behave on cyclic rows?",
+  "related": [
+    "CLM-C15-05",
+    "CLM-C15-07",
+    "CLM-C15-08",
+    "CLM-C15-09"
+  ],
   "results_file": "results/EXP-C15-02.json",
   "results_sha256": "d818189ec799ef736b59ccb087865b0d50057f16d355a13d5540e1918999bb8b",
   "runs": [
@@ -134,5 +189,6 @@
     "H-C15-2: bounded outside the three classes 685; semigroup/affine not bounded 0",
     "H-C15-3 counterexamples (surjective != permutive): 0"
   ],
-  "title": "Order-3 magma automata: light cones, streaming widths, surjectivity and cyclic dynamics"
+  "title": "Order-3 magma automata: light cones, streaming widths, surjectivity and cyclic dynamics",
+  "verification": "REFUTED"
 }

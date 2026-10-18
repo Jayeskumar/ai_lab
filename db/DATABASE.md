@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T16:55:13Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -2578,6 +2578,295 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).
 
 
+### CLM-C15-01: Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For an associative magma the t-step local map is the ordered product F_t(x_0..x_t) = prod_{j < 2^t} x_{s(j)},
+  s(j) the binary digit sum of j; for a commutative semigroup F_t = prod_k x_k^C(t,k), and the forward and
+  backward streaming widths of F_t are at most |S|.
+
+- **proof:** proofs/paper/C15.md#theorem-1-clm-c15-01--light-cones-of-semigroups
+- **lean:** proofs/lean/Infinity/C15_MagmaCA.lean
+- **evidence:** EXP-C15-02; EXP-C15-03
+- **novelty_basis:**
+
+  Pascal's triangle for additive CA is classical (Martin, Odlyzko, Wolfram, Comm. Math. Phys. 93 (1984)); automata of the form c'_i = c_i * c_{i+1} over groupoids, groups and quasigroups were studied by J. Pedersen (Complex Systems 6 (1992) 237-250) and C. Moore (Moore-Drisko 1995/96; Moore-Pnin, arXiv:patt-sol/9701008), where the word structure of semigroup and group rules is used. The width bound is immediate.
+
+
+### CLM-C15-02: Affine magmas - binomial light cone and an O(L log L log t) fast-forward
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For x*y = phi(x) + psi(y) + c on an abelian group A with commuting endomorphisms phi, psi:
+  F_t = sum_k C(t,k) phi^(t-k) psi^k (x_k) + sum_(s<t) (phi + psi)^s (c); on cyclic rows the row at time t is
+  P^t r + (sum_(s<t) q^s) c with P = phi + psi S in End(A)[S]/(S^L - 1), computable by binary exponentiation
+  (for A = Z_n with FFT products, O(L log L log t)); streaming width <= |A|.
+
+- **proof:** proofs/paper/C15.md#theorem-2-clm-c15-02--affine-magmas-and-their-fast-forward
+- **evidence:** EXP-C15-03
+- **novelty_basis:**
+
+  Linear and affine cellular automata (O. Martin, A. M. Odlyzko, S. Wolfram, Algebraic properties of cellular automata, Comm. Math. Phys. 93 (1984) 219-258; M. Ito, N. Osato, M. Nasu 1983); the operator-power form is standard.
+
+
+### CLM-C15-03: Commutative semigroups - fast-forward by exponent arithmetic
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); awaiting independent skeptic review
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For a finite commutative semigroup and t >= 2L + iota + 1 (iota the largest index of an element), cell i of a cyclic row at time t is prod_j r_(i+j)^(N_j), where N_j are the coefficients of (1 + S)^t mod S^L - 1, and only N_j modulo the lcm of the element periods is needed.
+
+- **proof:** proofs/paper/C15.md#theorem-3-clm-c15-03--commutative-semigroups-exponent-arithmetic
+- **evidence:** EXP-C15-03
+- **novelty_basis:** A direct combination of Theorem 1(b) with the index/period structure of cyclic semigroups; likely folklore.
+
+### CLM-C15-04: The fuse magma: linear streaming width, yet an O(L) fast-forward for every t
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For the fuse magma [[0,0,0],[0,0,1],[1,2,2]] (0 burnt, 1 burning, 2 intact): burn times satisfy tau_i = 0 (x_i = 0),
+  tau_(i+1) + 2 (x_i = 2), tau_(i+1) (x_i = 1, x_(i+1) = 2), 1 (x_i = 1, x_(i+1) != 2); the row at any time t is
+  obtained from them in O(L) operations; and floor((m+1)/2) <= lambda(t) <= 3t + 3 with m = floor(t/2), so the
+  streaming width grows linearly (computed lambda(t) = t + 2 for t <= 12).
+
+- **proof:** proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward
+- **evidence:** EXP-C15-02; EXP-C15-03; EXP-C15-05
+- **novelty_basis:**
+
+  Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.
+
+
+### CLM-C15-05: Surjective iff permutive for magmas of order at most 3; false at order 4
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - exact pair-graph (Garden-of-Eden) decision for all 16 tables of order 2 and all 1734 classes of order 3 (invariant under isomorphism and mirror image), Hedlund's theorem for permutive => surjective; the order-4 example by a two-line argument (identity x shift) and the same decision procedure (EXP-C15-05)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For |M| <= 3 the automaton c'_i = c_i * c_{i+1} is surjective on bi-infinite rows iff all rows or all columns of the table are permutations (1, 6, 420 surjective tables of orders 1, 2, 3 = 2(n!)^n - Lat(n)); for |M| = 4 the rectangular band (b,c)*(b',c') = (b,c') is surjective and injective but not permutive.
+
+- **proof:** proofs/paper/C15.md#theorem-5-clm-c15-05--surjective-iff-permutive-for-m--3
+- **evidence:** EXP-C15-01; EXP-C15-02; EXP-C15-05
+- **novelty_basis:**
+
+  J. Kari, V. Salo, I. Torma, Surjective two-neighbor cellular automata on prime alphabets (2013) - surjective two-neighbour CA over prime alphabets are permutive in some coordinate (https://research.utu.fi/converis/portal/detail/Publication/3119276; notes https://villesalo.com/notes/STNCAoPANotes.html); G. A. Hedlund, Math. Systems Theory 3 (1969). Our exhaustive check is an independent confirmation for n = 2, 3; the order-4 band illustrates why primality is needed.
+
+
+### CLM-C15-06: The two-element magma automata are the elementary rules 17m
+
+- **cycle:** C15
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written one-line proof (proofs/paper/C15.md Theorem 6) and exhaustive computation (EXP-C15-01)
+- **novelty:** REDISCOVERY
+- **statement:** The 16 automata of two-element magmas are exactly the elementary cellular automata whose rule ignores the left neighbour, the Wolfram numbers 0, 17, 34, ..., 255.
+- **proof:** proofs/paper/C15.md#theorem-6-clm-c15-06--order-2
+- **evidence:** EXP-C15-01
+- **novelty_basis:** Elementary-rule numbering (S. Wolfram, Rev. Mod. Phys. 55 (1983)); rules independent of one neighbour are a standard subfamily.
+
+### CLM-C15-07: Census of order-3 magma automata by streaming width
+
+- **cycle:** C15
+- **type:** observation
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Of the 1734 order-3 magma automata (up to isomorphism and mirror image), on t <= 9 the streaming width is bounded for 808 classes, grows linearly for 104, geometrically for 300 (largest lambda(9) = 649) and irregularly for 522; 43 are surjective, 7 injective and 34 nilpotent by t = 9.
+
+- **evidence:** EXP-C15-02
+- **novelty_basis:** Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.
+- **limitations:** Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).
+
+### CLM-C15-08: H-C15-1: streaming width is either bounded or geometric (refuted)
+
+- **cycle:** C15
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every magma automaton of order <= 3 the streaming width lambda(t) is either bounded or grows geometrically; there is no intermediate growth.
+- **evidence:** EXP-C15-02; EXP-C15-05
+- **counterexample:** The fuse magma [[0,0,0],[0,0,1],[1,2,2]] has floor((floor(t/2)+1)/2) <= lambda(t) <= 3t + 3 (Theorem 4; lambda(t) = t + 2 for t <= 12); 104 order-3 classes show linear growth on t <= 9 (EXP-C15-02).
+
+### CLM-C15-09: H-C15-2: bounded width exactly for semigroups, affine magmas and bounded light cones (refuted)
+
+- **cycle:** C15
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** An order-3 magma automaton has bounded streaming width iff the magma is a semigroup, is affine over Z_3, or its light cone depends on at most two cells.
+- **evidence:** EXP-C15-02
+- **counterexample:**
+
+  The 'if' direction holds for all 18 semigroup and 8 affine classes, but 685 bounded-width classes lie outside the three classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] whose light cone uses all t + 1 cells and whose width stays 3 (EXP-C15-02).
+
+
+### CLM-C15-10: H-C15-4: an automaton can be fast-forwarded iff its light-cone complexity is bounded (refuted)
+
+- **cycle:** C15
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** A magma automaton admits a fast-forward (rows at time t computable in time polynomial in L and log t) if and only if its streaming width is bounded.
+- **evidence:** EXP-C15-03; EXP-C15-05
+- **counterexample:** The fuse magma has unbounded (linear) streaming width but its row at any time t is computable in O(L) operations (Theorem 4). The converse direction is open (CLM-C15-18).
+
+### CLM-C15-11: H-C15-5: cycle detection fast-forwards most automata, and long cycles mean geometric width (refuted in part)
+
+- **cycle:** C15
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For at least half of the order-3 classes a random cyclic row of length 32 repeats within 5000 steps, and only classes with geometric streaming width have rows that do not.
+- **evidence:** EXP-C15-04
+- **counterexample:**
+
+  The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).
+
+
+### CLM-C15-12: H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^5 and loses for small t (refuted)
+
+- **cycle:** C15
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Each of the affine, commutative-semigroup and fuse fast-forwards is exact, beats direct numpy simulation by more than 100x at L = 1024, t = 10^5, and loses for t below a few hundred steps.
+- **evidence:** EXP-C15-03
+- **counterexample:**
+
+  Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).
+
+
+### CLM-C15-13: Affine fast-forward by operator powers
+
+- **cycle:** C15
+- **type:** algorithmic
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **improvement:** IMPROVEMENT
+- **statement:**
+
+  Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096.
+
+- **evidence:** EXP-C15-03
+- **novelty_basis:** Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.
+
+### CLM-C15-14: Commutative-semigroup fast-forward by exponent arithmetic
+
+- **cycle:** C15
+- **type:** algorithmic
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **improvement:** MIXED
+- **statement:**
+
+  The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation).
+
+- **evidence:** EXP-C15-03
+
+### CLM-C15-15: Fuse fast-forward by burn times
+
+- **cycle:** C15
+- **type:** algorithmic
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** POTENTIALLY NOVEL
+- **improvement:** IMPROVEMENT
+- **statement:**
+
+  The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024).
+
+- **evidence:** EXP-C15-03
+- **novelty_basis:** As CLM-C15-04.
+
+### CLM-C15-16: Cycle detection as a generic fast-forward
+
+- **cycle:** C15
+- **type:** algorithmic
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **improvement:** MIXED
+- **statement:**
+
+  Storing visited rows answers a query t in mu + lambda simulated steps; for random rows of length 32 this is at most 5000 steps for 1590 of 1734 order-3 classes (median transient 5, median period 2), but it fails for the affine quasigroups and for 128 of 300 geometric-width classes.
+
+- **evidence:** EXP-C15-04
+- **novelty_basis:** Cycle detection (Floyd, Brent) is classical.
+
+### CLM-C15-17: Earlier structures of the lab as automata
+
+- **cycle:** C15
+- **type:** observation
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with widths 4 and 8; GF(4) multiplication and XOR on [0,4) have width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.
+
+- **evidence:** EXP-C15-05
+- **limitations:** Laver tables only for t <= 8 (A_2) and t <= 5 (A_3).
+
+### CLM-C15-18: Bounded streaming width implies a fast-forward
+
+- **cycle:** C15
+- **type:** conjecture
+- **system:** SYS-E
+- **verification:** CONJECTURE
+- **novelty:** NOT ASSESSED
+- **statement:** Every magma automaton with bounded streaming width admits an algorithm computing a cyclic row of length L at time t in time polynomial in L and log t.
+- **evidence:** EXP-C15-02; EXP-C15-03
+- **limitations:**
+
+  True for affine magmas and commutative semigroups (Theorems 2-3); no algorithm is known for the 685 bounded-width order-3 classes outside the structured classes, and bounded width does not give short cycles (the affine quasigroups have long ones).
+
+
 ### CLM-C17-01: Light's test: generators suffice for associativity
 
 - **cycle:** C17
@@ -2682,6 +2971,233 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
 
   18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.
 
+
+### CLM-C18-01: e-transformations are bijections of strings of fixed length
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (eT_injective, eT_length; standard axioms only) plus the finite-cardinality step (written proof, proofs/paper/C18.md Theorem 1); d(e(X)) = X for all seven quasigroups (EXP-C18-01)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For every quasigroup Q, leader l and length n, the e-transformation e_l is a bijection of Q^n, inverted by the d-transformation a_i = b_(i-1) \ b_i; hence every composition of forward and reversed e-transformations is a bijection of Q^n.
+
+- **proof:** proofs/paper/C18.md#theorem-1-clm-c18-01--e-transformations-are-bijections
+- **lean:** proofs/lean/Infinity/C18_Quasigroups.lean
+- **evidence:** EXP-C18-01
+- **novelty_basis:**
+
+  S. Markovski, D. Gligoroski, V. Bakeva, Quasigroup string processing, Part 1, Contributions, Sec. Math. Tech. Sci., MANU (1999) - the E- and D-transformations with the same leader are mutually inverse permutations of strings (as cited in US patent 8041031, https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/8041031, and in Markovski-Bakeva, Quasigroup String Processing Part 4, https://www.academia.edu/115482463/Quasigroup_String_Processing_Part_4).
+
+
+### CLM-C18-02: Differences propagate forward only; forward-only tail hashes fail the strict avalanche criterion
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 + Mathlib for the persistence of differences (eT_ne_of_ne; standard axioms only); agreement before i and the corollary by written proof (proofs/paper/C18.md Theorem 2); 0 violations on 7 x 2000 random strings (EXP-C18-01); max bias 0.5 for all three forward-only variants (EXP-C18-02)
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  If u and v differ exactly at position i, then e_l(u) and e_l(v) agree at positions < i and differ at every position >= i. Consequently, in a hash that outputs the last 8 bytes of forward e-transformations only, changing a message byte at position i >= n - 8 leaves the earlier tail bytes unchanged, so some output bits never flip and the maximal avalanche bias is 1/2.
+
+- **proof:** proofs/paper/C18.md#theorem-2-clm-c18-02--a-difference-propagates-forward-and-only-forward
+- **lean:** proofs/lean/Infinity/C18_Quasigroups.lean
+- **evidence:** EXP-C18-01; EXP-C18-02
+- **novelty_basis:** Elementary; implicit in the quasigroup-string-processing literature.
+
+### CLM-C18-03: The tail-information bound: an e-transformation tail carries one byte of state
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 + Mathlib for the factorisation of the tail through one state (eT_append, eT_tail_factors) and injectivity (eT_injective); the counting consequences by written proof (proofs/paper/C18.md Theorem 3); the bound is attained exactly (256 values) in 100 families of 4096 keys (EXP-C18-05) and explains the 32,624 full collisions of EXP-C18-03 exactly
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The last k outputs of an e-transformation are a bijective function of the state before them and the last k
+  inputs. Hence a hash outputting the last 8 bytes after p forward e-transformations takes at most 256^p values on
+  messages sharing their last 7 bytes, and with a final reversed e-transformation it takes at most 256 values on
+  messages sharing their first 7 bytes, for every p and every quasigroup of order 256.
+
+- **proof:** proofs/paper/C18.md#theorem-3-clm-c18-03--the-tail-information-bound
+- **lean:** proofs/lean/Infinity/C18_Quasigroups.lean
+- **evidence:** EXP-C18-03; EXP-C18-05
+- **novelty_basis:**
+
+  An elementary narrow-pipe property of byte-level e-transformations. Quasigroup hash designs submitted to the SHA-3 competition used huge quasigroups in wide-pipe constructions (Edon-R, orders 2^256-2^512, https://ehash.isec.tugraz.at/uploads/7/74/Edon.pdf; NaSHA, https://eprint.iacr.org/2008/519), which avoids it; two searches found no explicit statement of the bound for byte-level e-transformation hashes.
+
+
+### CLM-C18-04: T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits into low output bits
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C18.md Theorem 4, induction along the chains using x = x' and y = y' mod 2^r => x*y = x'*y' mod 2^r); 0 low-bit changes for AFF, XOR, ALP in EXP-C18-01; max bias 0.5 in EXP-C18-02
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  If x*y is a T-function on Z/2^8, then in every QG hash (any number of forward and reversed e-transformations) bit j of every output byte depends only on bits 0..j of the message bytes; flipping an input bit at position r never changes an output bit at a position < r, and the maximal avalanche bias is 1/2.
+
+- **proof:** proofs/paper/C18.md#theorem-4-clm-c18-04--the-t-function-obstruction
+- **evidence:** EXP-C18-01; EXP-C18-02
+- **novelty_basis:**
+
+  Closure of T-functions under composition - A. Klimov, A. Shamir, A new class of invertible mappings, CHES 2002; see https://en.wikipedia.org/wiki/T-function and https://www.iacr.org/archive/fse2004/30170001/30170001.pdf.
+
+
+### CLM-C18-05: GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C18.md Theorem 5); one distinct output difference over 2000 keys (EXP-C18-01); mean bias 0.5 for QG-XOR and for CRC32 (EXP-C18-02)
+- **novelty:** REDISCOVERY
+- **statement:** If x*y = A(x) XOR B(y) XOR c with A, B linear over GF(2) (for example x XOR y), every QG hash satisfies H(M XOR D) = H(M) XOR L(D) for a fixed linear L; every avalanche cell is 0 or 1.
+- **proof:** proofs/paper/C18.md#theorem-5-clm-c18-05--gf2-affine-quasigroups-give-affine-hashes
+- **evidence:** EXP-C18-01; EXP-C18-02
+- **novelty_basis:** Folklore (affine maps compose to affine maps; the same property makes CRCs unsuitable as hash-table mixers).
+
+### CLM-C18-06: The anchored quasigroup x + c(y): additive differences persist, and the one-pass hash is anagram-blind
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C18.md Theorem 6); 2000/2000 one-pass hashes unchanged under prefix permutations (EXP-C18-01); bit independence 1.0 with ideal per-bit flip rates for QG-ARP p2+rev (EXP-C18-02); 36,720 full collisions for QG-ARP p1 on near-duplicates (EXP-C18-03)
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  For x*y = x + c(y) mod 256, two runs over the same inputs from states b, b' differ by the constant b' - b at every position, and one pass computes prefix sums l + sum c(a_i). Hence the one-pass tail hash is unchanged by permutations of the message bytes before the tail, and with a reverse pass all 8 output bytes change by one common additive constant when a message byte at position >= 8 changes (perfectly correlated bit changes).
+
+- **proof:** proofs/paper/C18.md#theorem-6-clm-c18-06--the-anchored-quasigroup-x--cy-keeps-additive-differences
+- **evidence:** EXP-C18-01; EXP-C18-02; EXP-C18-03
+- **novelty_basis:** Elementary; shows that an anchored quasigroup of C06 (Theorem 4 there) is a poor mixing primitive.
+
+### CLM-C18-07: The 8-pass cascade has a bijective 64-bit state update
+
+- **cycle:** C18
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C18.md Theorem 7, triangular composition of row and column bijections); quality of the cascades measured separately (EXP-C18-05)
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  In the cascade QC(T, d) (d e-transformations run in parallel, output = the final state of every pass), the update of the state (s_1, ..., s_d) by one input byte is a bijection of Q^d; so states are never merged and the tail-information bound does not apply to the output.
+
+- **proof:** proofs/paper/C18.md#theorem-7-clm-c18-07--the-cascade-keeps-a-full-8-byte-state
+- **evidence:** EXP-C18-05
+
+### CLM-C18-08: H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche
+
+- **cycle:** C18
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** QG-LS p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on 2000 random 16-byte keys.
+- **evidence:** EXP-C18-02
+- **limitations:**
+
+  Holds (0.0089 / 0.041 versus 0.0089 / 0.045, also with one forward pass), but the same hash fails every structured distribution test (CLM-C18-03) - single-bit avalanche statistics cannot see the tail-information bound.
+
+
+### CLM-C18-09: H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal avalanche bias)
+
+- **cycle:** C18
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** INCONCLUSIVE
+- **novelty:** NOT ASSESSED
+- **statement:** Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.
+- **evidence:** EXP-C18-02
+- **limitations:**
+
+  Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure.
+
+
+### CLM-C18-10: H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted)
+
+- **cycle:** C18
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.
+
+- **evidence:** EXP-C18-02; EXP-C18-03
+- **counterexample:**
+
+  Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03).
+
+
+### CLM-C18-11: H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted)
+
+- **cycle:** C18
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of finalisation) have avalanche within 0.01 of BLAKE2b-64, |z| <= 3, collision ratios within 2% and no full collisions on all four key sets.
+
+- **evidence:** EXP-C18-05
+- **counterexample:**
+
+  QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).
+
+
+### CLM-C18-12: H-C18-9: the cascade over x + c(y) still fails bit independence (refuted)
+
+- **cycle:** C18
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** The cascade QC-ARP d8 has a maximal bit-independence correlation of at least 0.5.
+- **evidence:** EXP-C18-05
+- **counterexample:** QC-ARP d8 has maximal correlation 0.176 (noise level about 0.11) - the cascade removes the perfect correlation of QG-ARP p2+rev, although 5 avalanche cells still exceed bias 0.1 (EXP-C18-05).
+
+### CLM-C18-13: Quasigroup hashes against non-cryptographic baselines - no improvement
+
+- **cycle:** C18
+- **type:** algorithmic
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **improvement:** NO IMPROVEMENT
+- **statement:**
+
+  Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves on the best baseline in any measured dimension.
+
+- **evidence:** EXP-C18-02; EXP-C18-03; EXP-C18-04; EXP-C18-05
+- **novelty_basis:**
+
+  Quasigroup string processing for cryptographic primitives and pseudo-random generators is established (Markovski et al.; Gligoroski, Candidate one-way functions and one-way permutations based on quasigroup string transformations, https://ia.cr/2005/352; Edon-R); the benchmark against these baselines is ours.
+
+- **limitations:** Python/numpy implementations on a shared machine (times indicative); a small subset of SMHasher-style tests; one random Latin square (not uniformly sampled); 16-byte keys for avalanche.
 
 ### CLM-C20-01: aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1
 
@@ -4668,6 +5184,12 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** A rule number that is not a multiple of 17, or an XOR light cone that is not 2^popcount(t).
 - **summary:** rules: [0, 17, 34, 51, 68, 85, 102, 119, 136, 153, 170, 187, 204, 221, 238, 255] (all multiples of 17: True); XOR (rule 102) essential cells = 2^popcount(t): True; surjective: [51, 85, 102, 153, 170, 204]; injective: [51, 85, 170, 204]; streaming width > 4 at t = 18: []
+- **analysis:**
+
+  The 16 two-element magma automata c'_i = c_i * c_{i+1} are exactly the elementary rules 17m (rules ignoring the left neighbour). XOR (rule 102) has 2^popcount(t) essential cells (Gould's sequence). All 16 have streaming width <= 3 up to t = 18; NAND (rule 119) depends on at most 3 cells. Surjective - rules 51, 85, 102, 153, 170, 204; injective - 51, 85, 170, 204.
+
+- **verification:** PROVEN
+- **related:** CLM-C15-06
 - **runs:** 2; last 2026-10-18T16:47:58Z (12.939 s), results sha256 `a47c3d15ea6d2c6b…`, code `experiments/C15/E01_order2.py`
 
 ### EXP-C15-02: Order-3 magma automata: light cones, streaming widths, surjectivity and cyclic dynamics
@@ -4696,6 +5218,15 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   H-C15-1: a magma with growing but sub-geometric width. H-C15-2: a bounded-width magma outside the three classes or a semigroup/affine magma with unbounded width. H-C15-3: a surjective non-permutive table or a non-surjective permutive one.
 
 - **summary:** 1734 classes; width classes {'bounded': 808, 'linear': 104, 'other': 522, 'geometric': 300}; nilpotent by t=9: 34; associative 18, commutative 129, medial 48, affine 8, surjective 43, injective 7, bounded dependence 106; H-C15-1 non-bounded, non-geometric magmas: 626 (linear: 104); bounded-width magmas explained by semigroup/affine/bounded dependence/eventual image: 163 of 808; H-C15-2: bounded outside the three classes 685; semigroup/affine not bounded 0; H-C15-3 counterexamples (surjective != permutive): 0
+- **analysis:**
+
+  1734 order-3 classes (3330 up to isomorphism; 19683 tables). Streaming-width classes on t <= 9 - bounded 808, linear 104, geometric 300, other 522. All 18 semigroup and 8 affine classes are bounded (width <= 3), but 685 bounded-width classes lie outside semigroups, affine magmas and bounded dependence (only 163 of the 808 are explained by these or by an associative/affine eventual image). 43 classes (420 tables) are surjective, exactly the permutive ones; 7 are injective (reversible), including two whose light cones use all t+1 cells; 34 are nilpotent by t = 9.
+
+- **counterexamples:**
+  - linear width growth, e.g. the fuse magma [[0,0,0],[0,0,1],[1,2,2]] with lambda(t) = t + 2 (H-C15-1)
+  - bounded width outside the predicted classes, e.g. the reversible automaton [[0,0,2],[2,2,0],[1,1,1]] (full light cone, width 3, neither associative nor affine) (H-C15-2)
+- **verification:** REFUTED
+- **related:** CLM-C15-05; CLM-C15-07; CLM-C15-08; CLM-C15-09
 - **runs:** 3; last 2026-10-18T16:49:19Z (79.214 s), results sha256 `d818189ec799ef73…`, code `experiments/C15/E02_order3_census.py`
 
 ### EXP-C15-03: Fast-forwarding magma automata: polynomial powers, exponent arithmetic and burn times vs simulation
@@ -4717,6 +5248,14 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Any disagreement with direct simulation; a speedup below 100x at L = 1024, t = 10^5.
 - **summary:** 99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)
+- **analysis:**
+
+  99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5). Indicative speedups at L = 1024 - affine magmas x3-4 at t = 100, x22-29 at 10^3, x138-215 at 10^4, x1800-2500 at 10^5, t = 10^9 in 1.5-8 ms (L <= 4096); fuse x2.5 at t = 100 and about x4000 at 10^5; commutative semigroups only x62-100 at 10^5 and slower than simulation (x0.5-0.9) around t = 10^3 for L >= 1024, because of the O(L^2) product step.
+
+- **counterexamples:**
+  - H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C15-02; CLM-C15-03; CLM-C15-04; CLM-C15-12; CLM-C15-13; CLM-C15-14; CLM-C15-15
 - **runs:** 1; last 2026-10-18T09:31:25Z (45.725 s), results sha256 `60337b19e325b458…`, code `experiments/C15/E03_algebraic_fast_forward.py`
 
 ### EXP-C15-04: Cycle detection as a universal fast-forward: transient plus period of random cyclic rows
@@ -4735,6 +5274,13 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
 - **methodology:** cycle_fast_forward with a dictionary of visited rows; record mu, lambda or 'not found'; group by the width class of EXP-C15-02.
 - **falsification:** Fewer than half of the classes repeat within the cap at L = 32, or a bounded/linear-width class that does not repeat within the cap.
 - **summary:** L=16: 1693/1734 repeat within 5000 steps; median mu 4.0, median lambda 2.0; bounded/linear-width classes not repeating: 0; L=32: 1590/1734 repeat within 5000 steps; median mu 5.0, median lambda 2.0; bounded/linear-width classes not repeating: 4; L=64: 1561/1734 repeat within 5000 steps; median mu 6.0, median lambda 2.0; bounded/linear-width classes not repeating: 4
+- **analysis:**
+
+  Cycle detection on one random cyclic row per order-3 class - L = 16 1693/1734, L = 32 1590/1734, L = 64 1561/1734 rows repeat within 5000 steps (median transient 4-6, median period 2). All bounded- and linear-width classes repeat quickly except the four affine Z_3 quasigroups (x + y and relatives), which have bounded width but long cycles; geometric-width classes often do not repeat (172/300 at L = 32).
+
+- **counterexamples:** H-C15-5: the bounded-width affine quasigroup x*y = x + y (mod 3) does not repeat within 5000 steps at L = 32 and 64
+- **verification:** REFUTED
+- **related:** CLM-C15-11; CLM-C15-16
 - **runs:** 1; last 2026-10-18T09:32:28Z (28.086 s), results sha256 `e2a0d442418ecca9…`, code `experiments/C15/E04_cycle_detection.py`
 
 ### EXP-C15-05: Case studies: fuse widths to t = 12, Laver tables, GF(4), anchored affine models, an order-4 band
@@ -4758,6 +5304,12 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   - GF(4) mult lambda bounded: 4; XOR[0,4) widths 4
   - rectangular band order 4: surjective True, injective True, permutive False
   - OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []
+- **analysis:**
+
+  The fuse magma has lambda(t) = t + 2 for t = 1..12 and the residual family of the lower-bound proof separates as predicted. Laver tables A_2, A_3 - bounded dependence (3 resp. 4 cells) and widths 4 resp. 8, not surjective. GF(4) multiplication and XOR on [0,4) - widths 4. Anchored affine models of C06 (golden law N = 5, 11; odd law N = 5) - permutive, hence surjective, and affine-fast-forwardable. The order-4 rectangular band is surjective and injective but not permutive. OEIS - essential cells of x + y mod 3 = A006047; the count 1, 6, 420 of surjective tables matches only the unrelated A273820 (lcm of 2^n..2^(n+1)-1, a three-term coincidence); the geometric width sequence 3, 3, 6, 9, 19, 42, 88, ... has no match.
+
+- **verification:** PROVEN
+- **related:** CLM-C15-04; CLM-C15-05; CLM-C15-17
 - **runs:** 1; last 2026-10-18T16:38:01Z (7.762 s), results sha256 `e298d006e6541e19…`, code `experiments/C15/E05_case_studies.py`
 
 ### EXP-C16-01: Cycle structure of the Fibonacci pair map (a, b) -> (b, b*a) for all small magmas
@@ -4872,6 +5424,12 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   - d(e(X)) = X for all: True; single-difference violations: 0
   - T-function obstruction violations (AFF, XOR, ALP): {'AFF': 0, 'XOR': 0, 'ALP': 0}; XOR: 1 distinct output difference(s) over 2000 keys
   - ARP 1-pass: 2000/2000 hashes unchanged under prefix permutation (2000 keys changed); QG-LS p2+rev unchanged: 0
+- **analysis:**
+
+  Seven tables of order 256 are quasigroups - a random Latin square (row-by-row random matchings, not uniform), a random isotope of Z/256, the nimber inversion quasigroup (x XOR y)^-1, affine 77x + 141y + 5, XOR, and the anchored x + c(y) and (x + 1) XOR y of C06. AFF, XOR and ALP are T-functions; only XOR is GF(2)-affine. The nim-product is not a quasigroup on [0,256) (row 0 is zero); its nonzero part is a group; nim_mul agrees with the C07 mex table on [0,64). All predictions of Theorems 1, 2, 4, 5, 6 hold on random inputs: d(e(X)) = X, 0 single-difference violations, 0 low-bit changes for the T-function quasigroups, one key-independent output difference for XOR, 2000 of 2000 one-pass x + c(y) hashes unchanged under prefix permutations.
+
+- **verification:** PROVEN
+- **related:** CLM-C18-01; CLM-C18-02; CLM-C18-04; CLM-C18-05; CLM-C18-06
 - **runs:** 1; last 2026-10-18T09:31:39Z (1.366 s), results sha256 `393d97c570b911b4…`, code `experiments/C18/E01_structure.py`
 
 ### EXP-C18-02: Strict avalanche and bit independence: 13 quasigroup hash variants against FNV-1a, MX64, BLAKE2b and CRC32
@@ -4896,6 +5454,12 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   H-C18-1: a difference > 0.01 in mean or maximal bias. H-C18-2: a structured quasigroup with maximal bias <= that of QG-LS p2+rev. H-C18-3a: NIMINV mean bias above FNV-1a's. H-C18-5: a forward-only variant with maximal bias < 0.5.
 
 - **summary:** QG-LS p2+rev: mean bias 0.0089, max bias 0.041, cells>0.1 0/8192, BIC max 0.111; QG-NIMINV p2+rev: mean bias 0.009, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1065; QG-NIMINV p1+rev: mean bias 0.0091, max bias 0.0415, cells>0.1 0/8192, BIC max 0.1082; QG-LS p1+rev: mean bias 0.0088, max bias 0.043, cells>0.1 0/8192, BIC max 0.1227; QG-ARP p2+rev: mean bias 0.0091, max bias 0.043, cells>0.1 0/8192, BIC max 1.0; QG-ISO p2+rev: mean bias 0.009, max bias 0.044, cells>0.1 0/8192, BIC max 0.1039; MX64: mean bias 0.009, max bias 0.0445, cells>0.1 0/8192, BIC max 0.1129; BLAKE2b-64: mean bias 0.0089, max bias 0.045, cells>0.1 0/8192, BIC max 0.1124; QG-LS p4+rev: mean bias 0.0089, max bias 0.0505, cells>0.1 0/8192, BIC max 0.1163; QG-LS p2: mean bias 0.0895, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0; QG-LS p1: mean bias 0.0897, max bias 0.5, cells>0.1 1344/8192, BIC max 1.0; FNV-1a-64: mean bias 0.098, max bias 0.5, cells>0.1 1688/8192, BIC max 1.0; QG-ARP p1: mean bias 0.1031, max bias 0.5, cells>0.1 1378/8192, BIC max 1.0; QG-ALP p2+rev: mean bias 0.3438, max bias 0.5, cells>0.1 6441/8192, BIC max 1.0; QG-AFF p2+rev: mean bias 0.3862, max bias 0.5, cells>0.1 7181/8192, BIC max 1.0; QG-XOR p2+rev: mean bias 0.5, max bias 0.5, cells>0.1 8192/8192, BIC max 1.0; CRC32: mean bias 0.5, max bias 0.5, cells>0.1 4096/4096, BIC max 1.0; H-C18-1 True; H-C18-2 True; H-C18-3a True; H-C18-5 True
+- **analysis:**
+
+  Avalanche and bit independence on 2000 random 16-byte keys. At the BLAKE2b-64 noise floor (mean bias 0.0089, max 0.045, BIC 0.11) - QG-LS with a reverse pass (1, 2 or 4 forward passes), QG-ISO p2+rev, QG-NIMINV p1/p2+rev, MX64. QG-ARP p2+rev also has ideal per-bit flip rates (max bias 0.043) but perfectly correlated bit changes (BIC 1.0). Failing - every forward-only variant (max bias 0.5, mean 0.09-0.10), FNV-1a-64 (mean 0.098, max 0.5, 1688 cells above 0.1), the T-function quasigroups AFF and ALP (mean 0.39 and 0.34) and the GF(2)-affine XOR and CRC32 (mean 0.5).
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C18-02; CLM-C18-04; CLM-C18-05; CLM-C18-06; CLM-C18-08; CLM-C18-09
 - **runs:** 1; last 2026-10-18T16:44:52Z (42.198 s), results sha256 `f07d330c4df32579…`, code `experiments/C18/E02_avalanche.py`
 
 ### EXP-C18-03: Hash-table behaviour: chi-square of bucket counts (1024 buckets by mask, 1021 by modulus) and collisions in 2^16 buckets on random, sequential, near-duplicate and word-like keys
@@ -4908,7 +5472,7 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   H-C18-3b (bold): the nimber inversion hash (QG-NIMINV p2+rev) has |chi-square z| <= 3 on every key set and bucket-collision ratio within 2% of the uniform expectation, like FNV-1a-64. H-C18-6: the 1-pass x + c(y) hash (QG-ARP p1) fails on near-duplicate keys.
 
 - **assumptions:**
-  - key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65296 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)
+  - key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65280 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)
   - z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits
 - **methodology:**
 
@@ -4934,7 +5498,15 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   - BLAKE2b-64: flagged on none
   - CRC32: flagged on ['sequential', 'near_duplicates']
   - QG-ARP p1 near-duplicates: {'z_mask1024': np.float64(4308.32), 'z_mod1021': np.float64(138.79), 'bucket_collisions': 65024, 'expected': 23947.5, 'ratio': 2.7153, 'full_64bit_collisions': 36720}
-- **runs:** 2; last 2026-10-18T16:45:41Z (5.253 s), results sha256 `4f66fa5fac9a7cff…`, code `experiments/C18/E03_distribution.py`
+- **analysis:**
+
+  Distribution on four key sets of about 65,536 keys (random strings, decimal 0..65535, near-duplicates, synthetic words). Every reverse-pass QG variant fails on the three structured sets (chi-square z up to 26,000 with 1024 buckets, 2.4-2.7 times the expected bucket collisions, 32,624 full 64-bit collisions on near-duplicates) - exactly as the tail-information bound predicts; the 2-pass forward hash passes the chi-square tests but has 723 full collisions on near-duplicates. MX64 and BLAKE2b pass everything; FNV-1a and CRC32 fail mildly on sequential and near-duplicate keys (z = -9.8 and -20.5 for sequential keys). A first run failed (synthetic words passed as str instead of bytes) and was fixed; the corrected META key count (65,280 near-duplicates) reproduced the same result hash.
+
+- **counterexamples:**
+  - QG-NIMINV p2+rev: z = 1084 (1024 buckets) on the decimal strings 0..65535 and 32,624 full 64-bit collisions on near-duplicate keys (H-C18-3 refuted)
+- **verification:** REFUTED
+- **related:** CLM-C18-03; CLM-C18-06; CLM-C18-10; CLM-C18-13
+- **runs:** 3; last 2026-10-18T16:51:20Z (5.737 s), results sha256 `4f66fa5fac9a7cff…`, code `experiments/C18/E03_distribution.py`
 
 ### EXP-C18-04: Throughput in bytes per second for batches of equal-length keys
 
@@ -4949,6 +5521,12 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Time hash_fixed on each batch; report MB/s; record an XOR checksum of all outputs.
 - **falsification:** H-C18-4: a reverse-pass quasigroup variant at least as fast as FNV-1a-64 on both batches.
 - **summary:** checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings
+- **analysis:**
+
+  Throughput for 16,384 keys of 64 bytes (indicative, shared machine at load 5-6) - FNV-1a 640 MB/s and MX64 428 MB/s (numpy, vectorised over keys), CRC32 127 MB/s and BLAKE2b 74 MB/s (C library, one call per key), quasigroup variants 11-52 MB/s. Every reverse-pass quasigroup variant was slower than FNV-1a on 8- and 64-byte keys (H-C18-4).
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C18-13
 - **runs:** 1; last 2026-10-18T16:49:11Z (3.127 s), results sha256 `fc4153a514764663…`, code `experiments/C18/E04_throughput.py`
 
 ### EXP-C18-05: Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state
@@ -4978,6 +5556,13 @@ _Generated 2026-10-18T16:49:49Z from `db/`. The JSON records are authoritative; 
   - MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none
   - BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none
   - H-C18-8 False; H-C18-9 False
+- **analysis:**
+
+  The tail-information bound holds exactly on data - 256 distinct hash values in each of 50 families of 4096 keys sharing a 7-byte prefix (reverse-pass hash) or the last 7 message bytes (one-pass forward hash). The 8-pass cascade QC (output = final state of every pass) over the random Latin square and over the Z/256 isotope is at the BLAKE2b noise floor on avalanche and bit independence and passes all distribution and collision tests; over the nimber inversion quasigroup it shows a real bias (max 0.0845) and one marginal chi-square flag (z = -3.21 on words); over x + c(y) the bit-independence defect drops from 1.0 to 0.176 but 5 avalanche cells exceed 0.1. Cascade throughput about 10-13 MB/s versus MX64 165 MB/s and BLAKE2b 41 MB/s in the same run.
+
+- **counterexamples:** QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted); QC-ARP d8: bit-independence maximum 0.176 < 0.5 (H-C18-9 refuted)
+- **verification:** REFUTED
+- **related:** CLM-C18-03; CLM-C18-07; CLM-C18-11; CLM-C18-12; CLM-C18-13
 - **runs:** 1; last 2026-10-18T16:48:40Z (35.152 s), results sha256 `b65260e9bb0972c2…`, code `experiments/C18/E05_cascade.py`
 
 ### EXP-C20-01: Termination and exact derivational complexity of aab -> ababa and aab -> babaa

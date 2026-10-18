@@ -1,0 +1,28 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-02",
+    "EXP-C18-03",
+    "EXP-C18-04",
+    "EXP-C18-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-13",
+  "improvement": "NO IMPROVEMENT",
+  "improvement_detail": "Every tail-output variant fails at least one quality test (forward-only - avalanche; reverse-pass - distribution, 2.4-2.7x bucket collisions and 32,624 full collisions on near-duplicates). The cascades over the random Latin square and the Z/256 isotope match MX64 and BLAKE2b-64 on every quality test run, but at 10-13 MB/s they were about 3x slower than BLAKE2b (one C call per key) and over 10x slower than numpy-vectorised MX64 in the same run (EXP-C18-05; EXP-C18-04 under different load - FNV-1a 640, MX64 428, BLAKE2b 74 MB/s, quasigroup variants 11-52 MB/s). MX64 is at least as good on every axis. Against FNV-1a alone, the good cascades have better avalanche (FNV-1a max bias 0.5) and better distribution on sequential keys (FNV-1a z = -9.8), at a large speed cost. This is not a security evaluation.",
+  "limitations": "Python/numpy implementations on a shared machine (times indicative); a small subset of SMHasher-style tests; one random Latin square (not uniformly sampled); 16-byte keys for avalanche.",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Quasigroup string processing for cryptographic primitives and pseudo-random generators is established (Markovski et al.; Gligoroski, Candidate one-way functions and one-way permutations based on quasigroup string transformations, https://ia.cr/2005/352; Edon-R); the benchmark against these baselines is ours.",
+  "statement": "Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves on the best baseline in any measured dimension.",
+  "system": "SYS-B",
+  "title": "Quasigroup hashes against non-cryptographic baselines - no improvement",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

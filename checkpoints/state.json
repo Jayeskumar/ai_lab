@@ -536,6 +536,78 @@
       "COMPUTATIONALLY SUPPORTED",
       "POTENTIALLY NOVEL"
     ],
+    "CLM-C15-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-02": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-03": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-04": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C15-05": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-06": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-07": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C15-08": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-09": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-10": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-11": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-12": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-13": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-14": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-15": [
+      "COMPUTATIONALLY SUPPORTED",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C15-16": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
+    "CLM-C15-17": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C15-18": [
+      "CONJECTURE",
+      "NOT ASSESSED"
+    ],
     "CLM-C17-01": [
       "PROVEN",
       "REDISCOVERY"
@@ -562,6 +634,58 @@
     ],
     "CLM-C17-07": [
       "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C18-02": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-03": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-04": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C18-05": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C18-06": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-07": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-08": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-09": [
+      "INCONCLUSIVE",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-10": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-11": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-12": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C18-13": [
+      "COMPUTATIONALLY SUPPORTED",
       "NOT ASSESSED"
     ],
     "CLM-C20-01": [
@@ -595,7 +719,9 @@
     "C11",
     "C12",
     "C14",
+    "C15",
     "C17",
+    "C18",
     "C20"
   ],
   "cycles_in_progress": [],
@@ -711,13 +837,6 @@
     "proofs/lean/Infinity/C14_GraphProducts.lean": true
   },
   "next_priorities": [
-    "C07: rows a >= 3 of D[x^y] - an exploratory look suggested row 3 is injective and rows 4-6 are not; is there a recursive block structure?",
-    "C07: prove (or refute) that the 33 remaining specs equal their associative formulas for all a, b",
-    "C07: submit the Jacobsthal row and selected census sequences to the OEIS (human decision)",
-    "C07: which mex operations are automatic sequences (2-automatic tables)? A Walnut-style decision procedure would turn observations into proofs",
-    "C08: complete the Lean proof of the shifted Knuth theorem",
-    "C08: prove non-Pisot never-associativity (CLM-C08-02)",
-    "C08: compute greedy windows to prove the sign-of-beta conjecture (CLM-C08-04)",
     "C09: arithmetic of the circle semigroup - irreducibles and factorisation",
     "C09: prove the density-1/phi^2 conjecture",
     "C09: characterise circle irreducibles via prime factorisation in Z[phi] plus a unit-window condition",
@@ -735,12 +854,19 @@
     "C14: unique factorisation of product 141 on connected graphs (no collision to order 15)",
     "C14: classify the graphs G that absorb switching (G xor X = G xor X^Z for all X); K_{a,a} do",
     "C14: characters for directed graphs and for products of graphs with loops",
+    "C15: characterise bounded streaming width - what do the 685 unexplained bounded-width order-3 classes have in common?",
+    "C15: prove or refute CLM-C15-18 (bounded width => polylog-time fast-forward); find fast-forwards for non-commutative semigroups via the popcount word",
+    "C15: are the 'geometric' widths really exponential? Lower-bound proofs for one chaotic order-3 magma",
+    "C15: light cones of Laver tables - is the dependence always bounded by the order's 2-adic size?",
     "C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance => Laver table, N a power of 2)",
     "C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?",
     "C17: benchmark against optimised C implementations and against SAT-based model checkers",
+    "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness",
+    "C18: explain the residual bias of the nimber-inversion cascade (x*x = 0 and commutativity) - which quasigroup properties hurt cascades?",
+    "C18: a probabilistic model of the cascade over a random Latin square - how does the avalanche bias decay with the depth?",
     "C20: obtain the Zantema-Geser (2000) theorem and compare with C03 Conjecture 4.6 (human with library access)",
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T16:49:50Z"
+  "updated": "2026-10-18T16:55:13Z"
 }

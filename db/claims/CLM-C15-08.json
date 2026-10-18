@@ -1,0 +1,23 @@
+{
+  "counterexample": "The fuse magma [[0,0,0],[0,0,1],[1,2,2]] has floor((floor(t/2)+1)/2) <= lambda(t) <= 3t + 3 (Theorem 4; lambda(t) = t + 2 for t <= 12); 104 order-3 classes show linear growth on t <= 9 (EXP-C15-02).",
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-02",
+    "EXP-C15-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-08",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every magma automaton of order <= 3 the streaming width lambda(t) is either bounded or grows geometrically; there is no intermediate growth.",
+  "system": "SYS-E",
+  "title": "H-C15-1: streaming width is either bounded or geometric (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

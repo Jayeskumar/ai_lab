@@ -244,3 +244,154 @@ def matrix_order_mod(M, N: int, limit: int = 10 ** 7) -> int | None:
 def de_bruijn_count(n: int) -> int:
     """Number of de Bruijn cycles of order 2 over n symbols: (n!)^n / n^2 (van Aardenne-Ehrenfest--de Bruijn)."""
     return factorial(n) ** n // (n * n)
+
+
+# ------------------------------------------------------------------ full-period quasigroups (universal cycles)
+def table_from_cycle(seq) -> np.ndarray:
+    """Magma whose pair map follows the cyclic sequence: T[b, a] = symbol after the consecutive pair (a, b)."""
+    L = len(seq)
+    n = int(round(L ** 0.5))
+    T = -np.ones((n, n), dtype=np.int64)
+    for i in range(L):
+        a, b, c = seq[i - 1], seq[i], seq[(i + 1) % L]
+        if T[b, a] not in (-1, c):
+            raise ValueError("pair occurs twice with different successors")
+        T[b, a] = c
+    return T
+
+
+def is_latin_table(T) -> bool:
+    T = np.asarray(T)
+    n = T.shape[0]
+    r = np.arange(n)
+    return bool((np.sort(T, axis=1) == r).all() and (np.sort(T, axis=0) == r[:, None]).all())
+
+
+def _uc_dfs(n: int, count: bool, node_budget: int):
+    """DFS over cyclic sequences of length n^2 starting with 0, 0 in which all ordered pairs at distance 1 and at
+    distance 2 are distinct.  Every such cycle contains the pair (0, 0) exactly once, so rotating it to the front
+    gives a bijection with full-period quasigroups (Theorem 4 of proofs/paper/C16.md).
+    Returns (count or first sequence, nodes used, complete flag)."""
+    import sys
+    sys.setrecursionlimit(max(10000, 4 * n * n))
+    L = n * n
+    seq = [0, 0]
+    u1 = [[False] * n for _ in range(n)]
+    u2 = [[False] * n for _ in range(n)]
+    u1[0][0] = True
+    state = {"nodes": 0, "count": 0, "first": None, "stopped": False}
+
+    def rec():
+        state["nodes"] += 1
+        if state["nodes"] > node_budget:
+            state["stopped"] = True
+            return True
+        if len(seq) == L:
+            a, b = seq[-2], seq[-1]
+            x0, x1 = seq[0], seq[1]
+            if not u1[b][x0] and not u2[a][x0] and not u2[b][x1] and (a, x0) != (b, x1):
+                state["count"] += 1
+                if state["first"] is None:
+                    state["first"] = list(seq)
+                return not count
+            return False
+        a, b = seq[-2], seq[-1]
+        for v in range(n):
+            if u1[b][v] or u2[a][v]:
+                continue
+            seq.append(v)
+            u1[b][v] = True
+            u2[a][v] = True
+            stop = rec()
+            seq.pop()
+            u1[b][v] = False
+            u2[a][v] = False
+            if stop:
+                return True
+        return False
+
+    rec()
+    complete = not state["stopped"]
+    return (state["count"] if count else state["first"]), state["nodes"], complete
+
+
+def count_universal_cycles(n: int, node_budget: int = 10 ** 8):
+    return _uc_dfs(n, True, node_budget)
+
+
+def first_universal_cycle(n: int, node_budget: int = 10 ** 7):
+    return _uc_dfs(n, False, node_budget)
+
+
+def universal_cycle_sat(n: int, conf_budget: int | None = None):
+    """SAT encoding (CaDiCaL via pysat): a cyclic sequence of length n^2 with every ordered pair exactly once at
+    distance 1 and exactly once at distance 2, normalised to start with 0, 0.  Returns (status, sequence)."""
+    from pysat.card import CardEnc, EncType
+    from pysat.formula import IDPool
+    from pysat.solvers import Cadical153
+    L = n * n
+    P = IDPool()
+
+    def s(i, v):
+        return P.id(("s", i % L, v))
+
+    cl = []
+    for i in range(L):
+        cl += CardEnc.equals([s(i, v) for v in range(n)], 1, vpool=P, encoding=EncType.pairwise).clauses
+    cl += [[s(0, 0)], [s(1, 0)]]
+    for d in (1, 2):
+        for u in range(n):
+            for v in range(n):
+                lits = []
+                for i in range(L):
+                    t = P.id(("t", d, i, u, v))
+                    cl += [[-t, s(i, u)], [-t, s(i + d, v)], [t, -s(i, u), -s(i + d, v)]]
+                    lits.append(t)
+                cl += CardEnc.equals(lits, 1, vpool=P, encoding=EncType.seqcounter).clauses
+    with Cadical153(bootstrap_with=cl) as S:
+        if conf_budget is None:
+            ok = S.solve()
+        else:
+            S.conf_budget(conf_budget)
+            ok = S.solve_limited()
+        if ok is None:
+            return "UNKNOWN", None
+        if not ok:
+            return "UNSAT", None
+        m = set(x for x in S.get_model() if x > 0)
+        return "SAT", [next(v for v in range(n) if s(i, v) in m) for i in range(L)]
+
+
+def product_table(A: np.ndarray, B: np.ndarray) -> np.ndarray:
+    """Direct product of two magmas, elements (i, j) encoded as i * |B| + j."""
+    n1, n2 = A.shape[0], B.shape[0]
+    i = np.repeat(np.arange(n1), n2)
+    j = np.tile(np.arange(n2), n1)
+    return (A[i[:, None], i[None, :]] * n2 + B[j[:, None], j[None, :]]).astype(np.int64)
+
+
+def left_division_table(T: np.ndarray) -> np.ndarray:
+    """D[b, c] = the a with b * a = c (defined when every row is a permutation)."""
+    n = T.shape[0]
+    D = np.zeros_like(T)
+    for b in range(n):
+        D[b, T[b]] = np.arange(n)
+    return D
+
+
+def row_sign_product(T: np.ndarray) -> int:
+    """Product over b of the signs of the left translations a -> b * a (each must be a permutation)."""
+    sgn = 1
+    for row in np.asarray(T):
+        seen = np.zeros(len(row), dtype=bool)
+        for s0 in range(len(row)):
+            if seen[s0]:
+                continue
+            length, v = 0, s0
+            while not seen[v]:
+                seen[v] = True
+                v = row[v]
+                length += 1
+            if length % 2 == 0:
+                sgn = -sgn
+    return sgn

@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "Throughput for 16,384 keys of 64 bytes (indicative, shared machine at load 5-6) - FNV-1a 640 MB/s and MX64 428 MB/s (numpy, vectorised over keys), CRC32 127 MB/s and BLAKE2b 74 MB/s (C library, one call per key), quasigroup variants 11-52 MB/s. Every reverse-pass quasigroup variant was slower than FNV-1a on 8- and 64-byte keys (H-C18-4).",
   "assumptions": [
     "batches of 16384 keys of 8 and of 64 bytes (seeded)",
     "QG, FNV-1a and MX64 are numpy-vectorised over keys (Python loop over byte positions); BLAKE2b and CRC32 are C library calls, one per key (per-call overhead included)",
@@ -19,12 +20,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T16:49:12Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Throughput for 16,384 keys of 64 bytes (indicative, shared machine at load 5-6) - FNV-1a 640 MB/s and MX64 428 MB/s (numpy, vectorised over keys), CRC32 127 MB/s and BLAKE2b 74 MB/s (C library, one call per key), quasigroup variants 11-52 MB/s. Every reverse-pass quasigroup variant was slower than FNV-1a on 8- and 64-byte keys (H-C18-4).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C18-13"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C18-4: every quasigroup variant with a reverse pass is slower than FNV-1a-64 when both are implemented in the same numpy batch style.",
   "id": "EXP-C18-04",
   "methodology": "Time hash_fixed on each batch; report MB/s; record an XOR checksum of all outputs.",
   "question": "What does the mixing quality of quasigroup hashes cost in speed, compared with the baselines in comparable implementations?",
+  "related": [
+    "CLM-C18-13"
+  ],
   "results_file": "results/EXP-C18-04.json",
   "results_sha256": "fc4153a514764663d28ec7baef28b3fa87cda971c671636eb44c2af1b68a6494",
   "runs": [
@@ -50,5 +83,6 @@
   "summary": [
     "checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings"
   ],
-  "title": "Throughput in bytes per second for batches of equal-length keys"
+  "title": "Throughput in bytes per second for batches of equal-length keys",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

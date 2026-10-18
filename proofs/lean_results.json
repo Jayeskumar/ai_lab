@@ -300,6 +300,49 @@
         "g03_P_positions"
       ]
     },
+    "proofs/lean/Infinity/C13_Spectra.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T16:55:21Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "/home/user/ai_lab/proofs/lean/Infinity/C13_Spectra.lean:397:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n'Infinity.C13.law13_size_dvd_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law13_model_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_size_dvd_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_model_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.translation_form' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.linear_of_shift' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.w_family_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.w_family_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.right_normed_translation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cube_law_no_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cubeOp_model' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 7.17,
+      "sha256": "cbe119e1a05e1acd866cc5fb182092915bb6ae0ab287b87a9870c0e45beeb205",
+      "sorry": false,
+      "theorems": [
+        "law13_rr",
+        "law13_key",
+        "law13_shift",
+        "law13_iter",
+        "law13_not_even",
+        "law13_size_dvd_three",
+        "law13_model_three",
+        "law12_ii",
+        "law12_iii",
+        "law12_row0_nat",
+        "law12_row0",
+        "law12_v",
+        "law12_size_dvd_two",
+        "law12_model_two",
+        "translation_form",
+        "right_normed_translation",
+        "linear_of_shift",
+        "golden_law_models",
+        "golden_law_model_of_root",
+        "eval_affine",
+        "cpoly_eq",
+        "w_family_models",
+        "w_family_model_of_root",
+        "cube_law_no_two",
+        "cubeOp_model"
+      ]
+    },
     "proofs/lean/Infinity/C14_GraphProducts.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -331,8 +374,51 @@
         "character_codes",
         "xor_character"
       ]
+    },
+    "proofs/lean/Infinity/C15_MagmaCA.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T16:55:25Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C15.ca_step_shift' does not depend on any axioms\n'Infinity.C15.ca_comm_binomial' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 4.21,
+      "sha256": "a68e910b29754d64783c303bc4f72fe411f77464c262769a0392d00ad5aee0b3",
+      "sorry": false,
+      "theorems": [
+        "ca_step_shift",
+        "ca_comm_binomial"
+      ]
+    },
+    "proofs/lean/Infinity/C18_Quasigroups.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T16:55:29Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C18.eT_length' depends on axioms: [propext]\n'Infinity.C18.eT_injective' depends on axioms: [propext]\n'Infinity.C18.eT_ne_of_ne' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C18.eT_append' depends on axioms: [propext]\n'Infinity.C18.eT_tail_factors' depends on axioms: [propext]\n",
+      "seconds": 4.11,
+      "sha256": "6492c4410a992b6d7495db0b48c01235816d328ee2f93289895b860a67b2c1f7",
+      "sorry": false,
+      "theorems": [
+        "eT_length",
+        "eT_injective",
+        "eT_ne_of_ne",
+        "eT_append",
+        "eT_tail_factors"
+      ]
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T09:14:23Z"
+  "updated": "2026-10-18T16:55:29Z"
 }

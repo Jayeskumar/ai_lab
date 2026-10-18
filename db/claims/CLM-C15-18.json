@@ -1,0 +1,23 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-02",
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-18",
+  "limitations": "True for affine magmas and commutative semigroups (Theorems 2-3); no algorithm is known for the 685 bounded-width order-3 classes outside the structured classes, and bounded width does not give short cycles (the affine quasigroups have long ones).",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every magma automaton with bounded streaming width admits an algorithm computing a cyclic row of length L at time t in time polynomial in L and log t.",
+  "system": "SYS-E",
+  "title": "Bounded streaming width implies a fast-forward",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

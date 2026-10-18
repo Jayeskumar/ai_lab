@@ -1,0 +1,23 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-07",
+  "limitations": "Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.",
+  "statement": "Of the 1734 order-3 magma automata (up to isomorphism and mirror image), on t <= 9 the streaming width is bounded for 808 classes, grows linearly for 104, geometrically for 300 (largest lambda(9) = 649) and irregularly for 522; 43 are surjective, 7 injective and 34 nilpotent by t = 9.",
+  "system": "SYS-E",
+  "title": "Census of order-3 magma automata by streaming width",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

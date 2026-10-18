@@ -1,0 +1,25 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-01",
+    "EXP-C18-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-04",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Closure of T-functions under composition - A. Klimov, A. Shamir, A new class of invertible mappings, CHES 2002; see https://en.wikipedia.org/wiki/T-function and https://www.iacr.org/archive/fse2004/30170001/30170001.pdf.",
+  "proof": "proofs/paper/C18.md#theorem-4-clm-c18-04--the-t-function-obstruction",
+  "proof_check": "written proof (proofs/paper/C18.md Theorem 4, induction along the chains using x = x' and y = y' mod 2^r => x*y = x'*y' mod 2^r); 0 low-bit changes for AFF, XOR, ALP in EXP-C18-01; max bias 0.5 in EXP-C18-02",
+  "statement": "If x*y is a T-function on Z/2^8, then in every QG hash (any number of forward and reversed e-transformations) bit j of every output byte depends only on bits 0..j of the message bytes; flipping an input bit at position r never changes an output bit at a position < r, and the maximal avalanche bias is 1/2.",
+  "system": "SYS-B",
+  "title": "T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits into low output bits",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

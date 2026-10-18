@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5). Indicative speedups at L = 1024 - affine magmas x3-4 at t = 100, x22-29 at 10^3, x138-215 at 10^4, x1800-2500 at 10^5, t = 10^9 in 1.5-8 ms (L <= 4096); fuse x2.5 at t = 100 and about x4000 at 10^5; commutative semigroups only x62-100 at 10^5 and slower than simulation (x0.5-0.9) around t = 10^3 for L >= 1024, because of the O(L^2) product step.",
   "assumptions": [
     "cyclic rows; seeded random initial rows",
     "direct simulation measured up to t = 10^5 (L <= 1024) and t = 10^4 (L = 4096); larger t only for the fast-forward algorithms",
@@ -11,6 +12,9 @@
     "sha256": "37cf5da0d6b7da3ad559f5b7e114a20dce35ef8caf3a4c1548da779a751d04c7",
     "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
   },
+  "counterexamples": [
+    "H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100"
+  ],
   "cycle": "C15",
   "falsification": "Any disagreement with direct simulation; a speedup below 100x at L = 1024, t = 10^5.",
   "history": [
@@ -19,12 +23,67 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:31:26Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "analysis",
+      "new": "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5). Indicative speedups at L = 1024 - affine magmas x3-4 at t = 100, x22-29 at 10^3, x138-215 at 10^4, x1800-2500 at 10^5, t = 10^9 in 1.5-8 ms (L <= 4096); fuse x2.5 at t = 100 and about x4000 at 10^5; commutative semigroups only x62-100 at 10^5 and slower than simulation (x0.5-0.9) around t = 10^3 for L >= 1024, because of the O(L^2) product step.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C15-02",
+        "CLM-C15-03",
+        "CLM-C15-04",
+        "CLM-C15-12",
+        "CLM-C15-13",
+        "CLM-C15-14",
+        "CLM-C15-15"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C15-6: each fast-forward is exact, and for cyclic rows of length L = 1024 it beats direct numpy simulation by more than 100x at t = 10^5, while losing for t below a few hundred steps.",
   "id": "EXP-C15-03",
   "methodology": "For each magma and (L, t), compute the row at time t by the fast-forward algorithm and, where measured, by direct simulation; record agreement and wall-clock times (best of 3 for the fast-forward, 1 run for direct).",
   "question": "How much faster than direct simulation are the exact fast-forward algorithms for affine magmas (operator powers modulo S^L - 1), commutative semigroups (binomial exponents) and the fuse magma (burn times), and where do they not pay off?",
+  "related": [
+    "CLM-C15-02",
+    "CLM-C15-03",
+    "CLM-C15-04",
+    "CLM-C15-12",
+    "CLM-C15-13",
+    "CLM-C15-14",
+    "CLM-C15-15"
+  ],
   "results_file": "results/EXP-C15-03.json",
   "results_sha256": "60337b19e325b45873eb1c0fb43195ffbe656fe4152d00e73965517f0d3a8bbb",
   "runs": [
@@ -50,5 +109,6 @@
   "summary": [
     "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)"
   ],
-  "title": "Fast-forwarding magma automata: polynomial powers, exponent arithmetic and burn times vs simulation"
+  "title": "Fast-forwarding magma automata: polynomial powers, exponent arithmetic and burn times vs simulation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "Avalanche and bit independence on 2000 random 16-byte keys. At the BLAKE2b-64 noise floor (mean bias 0.0089, max 0.045, BIC 0.11) - QG-LS with a reverse pass (1, 2 or 4 forward passes), QG-ISO p2+rev, QG-NIMINV p1/p2+rev, MX64. QG-ARP p2+rev also has ideal per-bit flip rates (max bias 0.043) but perfectly correlated bit changes (BIC 1.0). Failing - every forward-only variant (max bias 0.5, mean 0.09-0.10), FNV-1a-64 (mean 0.098, max 0.5, 1688 cells above 0.1), the T-function quasigroups AFF and ALP (mean 0.39 and 0.34) and the GF(2)-affine XOR and CRC32 (mean 0.5).",
   "assumptions": [
     "2000 random 16-byte keys (seeded); all 128 input bits flipped",
     "bias = |P(output bit flips) - 1/2|; with 2000 keys the sampling standard deviation per cell is about 0.011, so BLAKE2b's values estimate the noise floor",
@@ -19,12 +20,54 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T16:44:53Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Avalanche and bit independence on 2000 random 16-byte keys. At the BLAKE2b-64 noise floor (mean bias 0.0089, max 0.045, BIC 0.11) - QG-LS with a reverse pass (1, 2 or 4 forward passes), QG-ISO p2+rev, QG-NIMINV p1/p2+rev, MX64. QG-ARP p2+rev also has ideal per-bit flip rates (max bias 0.043) but perfectly correlated bit changes (BIC 1.0). Failing - every forward-only variant (max bias 0.5, mean 0.09-0.10), FNV-1a-64 (mean 0.098, max 0.5, 1688 cells above 0.1), the T-function quasigroups AFF and ALP (mean 0.39 and 0.34) and the GF(2)-affine XOR and CRC32 (mean 0.5).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C18-02",
+        "CLM-C18-04",
+        "CLM-C18-05",
+        "CLM-C18-06",
+        "CLM-C18-08",
+        "CLM-C18-09"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
     }
   ],
   "hypothesis": "H-C18-1 (bold): QG-LS with 2 passes and a reverse pass has mean and maximal avalanche bias within 0.01 of BLAKE2b-64. H-C18-2: every structured quasigroup (AFF, XOR, ARP, ALP) is worse than the random Latin square on maximal avalanche bias. H-C18-3a (bold): the nimber inversion quasigroup (NIMINV, 2 passes + reverse) has avalanche at least as good as FNV-1a-64. H-C18-5 (from Theorem 2): every forward-only variant has maximal bias 0.5.",
   "id": "EXP-C18-02",
   "methodology": "For each hash and input bit, flip the bit in all keys and record which output bits change; report mean flip rate, mean and maximal bias, cells with bias > 0.1, deterministic cells, and the maximal/mean absolute correlation between output-bit changes (bit independence).",
   "question": "How close to an ideal 64-bit mixer are e-transformation hashes over the seven quasigroups, with 1, 2 or 4 passes and with or without a reverse pass?",
+  "related": [
+    "CLM-C18-02",
+    "CLM-C18-04",
+    "CLM-C18-05",
+    "CLM-C18-06",
+    "CLM-C18-08",
+    "CLM-C18-09"
+  ],
   "results_file": "results/EXP-C18-02.json",
   "results_sha256": "f07d330c4df32579c093196809e5cbe1833f819367ad265c2a09e5e2c289a4ed",
   "runs": [
@@ -84,5 +127,6 @@
     "CRC32: mean bias 0.5, max bias 0.5, cells>0.1 4096/4096, BIC max 1.0",
     "H-C18-1 True; H-C18-2 True; H-C18-3a True; H-C18-5 True"
   ],
-  "title": "Strict avalanche and bit independence: 13 quasigroup hash variants against FNV-1a, MX64, BLAKE2b and CRC32"
+  "title": "Strict avalanche and bit independence: 13 quasigroup hash variants against FNV-1a, MX64, BLAKE2b and CRC32",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

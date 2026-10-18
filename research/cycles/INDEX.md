@@ -15,5 +15,7 @@
 | [C11](C11_integer_codes/README.md) | Pattern-terminated universal integer codes | C-A | complete | 9 | 9 |
 | [C12](C12_relational_games/README.md) | Relational one-heap games | D | complete | 6 | 13 |
 | [C14](C14_graph_products/README.md) | Graphs as quantities: the 256 local graph products | D | complete | 7 | 13 |
+| [C15](C15_magma_automata/README.md) | Magma cellular automata: light cones, streaming width and fast-forwarding | E | complete | 5 | 18 |
 | [C17](C17_law_testing/README.md) | Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check | B-algorithms | complete | 2 | 7 |
+| [C18](C18_quasigroup_mixing/README.md) | Invented operations as mixing primitives: quasigroup string transformations versus standard hashes | B-applications | complete | 5 | 13 |
 | [C20](C20_open_problems/README.md) | Open problems revisited: the last one-rule systems of C04, and a literature check for C03 | A | complete | 1 | 4 |

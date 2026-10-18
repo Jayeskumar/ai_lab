@@ -1,0 +1,23 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-14",
+  "improvement": "MIXED",
+  "improvement_detail": "wins only for t much larger than L; the O(L^2) product step dominates for moderate t",
+  "novelty": "NOT ASSESSED",
+  "statement": "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation).",
+  "system": "SYS-E",
+  "title": "Commutative-semigroup fast-forward by exponent arithmetic",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

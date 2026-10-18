@@ -1,0 +1,22 @@
+{
+  "cycle": "C18",
+  "evidence": [
+    "EXP-C18-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C18",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C18-09",
+  "limitations": "Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.",
+  "system": "SYS-B",
+  "title": "H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal avalanche bias)",
+  "type": "hypothesis",
+  "verification": "INCONCLUSIVE"
+}

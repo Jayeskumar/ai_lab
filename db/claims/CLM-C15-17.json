@@ -1,0 +1,22 @@
+{
+  "cycle": "C15",
+  "evidence": [
+    "EXP-C15-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C15",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T16:55:13Z"
+    }
+  ],
+  "id": "CLM-C15-17",
+  "limitations": "Laver tables only for t <= 8 (A_2) and t <= 5 (A_3).",
+  "novelty": "NOT ASSESSED",
+  "statement": "The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with widths 4 and 8; GF(4) multiplication and XOR on [0,4) have width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.",
+  "system": "SYS-E",
+  "title": "Earlier structures of the lab as automata",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}
