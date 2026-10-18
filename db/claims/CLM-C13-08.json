@@ -1,0 +1,22 @@
+{
+  "counterexample": "198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8).",
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-08",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.",
+  "system": "SYS-B",
+  "title": "H-C13-2: laws with an infinite non-trivial affine spectrum are affinely rigid (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

@@ -1,0 +1,140 @@
+{
+ "aab->ababa": {
+  "A=OVL(r,l)": [
+   "a"
+  ],
+  "B=OVL(l,r)": [
+   "ab"
+  ],
+  "l_alpha": {
+   "a": "ab"
+  },
+  "r_alpha": {
+   "a": "abab"
+  },
+  "l_beta": {
+   "ab": "a"
+  },
+  "r_beta": {
+   "ab": "aba"
+  },
+  "l_factor_of_r": false,
+  "left_barren": false,
+  "right_barren": true,
+  "non_overlapping": true,
+  "one_pair_of_overlaps": true,
+  "images_left_or_right_barren": {
+   "aab->ababa": [
+    false,
+    true
+   ],
+   "abb->babab": [
+    true,
+    false
+   ],
+   "baa->ababa": [
+    true,
+    false
+   ],
+   "bba->babab": [
+    false,
+    true
+   ]
+  }
+ },
+ "aab->babaa": {
+  "A=OVL(r,l)": [
+   "a",
+   "aa"
+  ],
+  "B=OVL(l,r)": [
+   "b"
+  ],
+  "l_alpha": {
+   "a": "ab",
+   "aa": "b"
+  },
+  "r_alpha": {
+   "a": "baba",
+   "aa": "bab"
+  },
+  "l_beta": {
+   "b": "aa"
+  },
+  "r_beta": {
+   "b": "abaa"
+  },
+  "l_factor_of_r": false,
+  "left_barren": false,
+  "right_barren": true,
+  "non_overlapping": true,
+  "one_pair_of_overlaps": false,
+  "images_left_or_right_barren": {
+   "aab->babaa": [
+    false,
+    true
+   ],
+   "abb->bbaba": [
+    true,
+    false
+   ],
+   "baa->aabab": [
+    true,
+    false
+   ],
+   "bba->ababb": [
+    false,
+    true
+   ]
+  }
+ },
+ "ab->bba": {
+  "A=OVL(r,l)": [
+   "a"
+  ],
+  "B=OVL(l,r)": [
+   "b"
+  ],
+  "l_alpha": {
+   "a": "b"
+  },
+  "r_alpha": {
+   "a": "bb"
+  },
+  "l_beta": {
+   "b": "a"
+  },
+  "r_beta": {
+   "b": "ba"
+  },
+  "l_factor_of_r": false,
+  "left_barren": false,
+  "right_barren": true,
+  "non_overlapping": true,
+  "one_pair_of_overlaps": true,
+  "images_left_or_right_barren": {
+   "ab->baa": [
+    true,
+    false
+   ],
+   "ab->bba": [
+    false,
+    true
+   ],
+   "ba->aab": [
+    false,
+    true
+   ],
+   "ba->abb": [
+    true,
+    false
+   ]
+  }
+ },
+ "_selftest": {
+  "prefix_of_concat('abab', ['ab'])": true,
+  "prefix_of_concat('aba', ['ab'])": true,
+  "prefix_of_concat('ba', ['ab'])": false
+ },
+ "_seconds": 0.0
+}

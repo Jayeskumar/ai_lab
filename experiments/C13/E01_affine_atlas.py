@@ -140,4 +140,4 @@ def run():
                                      for v in lookups.values()))
     return {"families": out, "oeis": lookups, "finite_spectra_are_divisor_sets": finite_ok,
             "finite_counterexamples": finite_bad, "mixed_kind_spectra": mixed, "finite_without_bound": no_bound[0],
-            "runtime_s": round(time.perf_counter() - t0, 1), "summary": summ}
+            "timings": {"total_s": round(time.perf_counter() - t0, 1)}, "summary": summ}

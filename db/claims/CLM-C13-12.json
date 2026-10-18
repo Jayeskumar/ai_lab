@@ -1,0 +1,24 @@
+{
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-02",
+    "EXP-C13-05",
+    "EXP-C13-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-12",
+  "limitations": "Sizes N <= 8-9 only; a sparse infinite spectrum cannot be recognised from so few sizes. Question 3 of the cycle remains open.",
+  "novelty": "NOT ASSESSED",
+  "statement": "Among the 198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N = 6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.",
+  "system": "SYS-B",
+  "title": "Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

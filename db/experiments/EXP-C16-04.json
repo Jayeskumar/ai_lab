@@ -1,5 +1,6 @@
 {
   "agent": "Application Researcher",
+  "analysis": "Simple test battery on 2^20 outputs - PCG64 passes everything; the anchored Fibonacci generator x + y + 1 on Z/2^32 and the affine magma x + beta y + 1 fail low-byte uniformity (p = 0; Fibonacci-type sequences are not uniformly distributed modulo 2^k) and their lowest bit has period 3; the LCG fails the low-bit tests (period 2, low byte too regular); the de Bruijn byte magma, whose period 65536 is the maximum possible for an order-2 byte recurrence, is too regular in every frequency test. No magma generator is competitive.",
   "assumptions": [
     "2^20 outputs per generator",
     "tests: chi-square of the top byte and of the low byte, serial chi-square of consecutive top-byte pairs, lowest-bit period (searched up to 2^16), lag-1 correlation; p-values from scipy.stats",
@@ -19,12 +20,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T17:00:38Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Simple test battery on 2^20 outputs - PCG64 passes everything; the anchored Fibonacci generator x + y + 1 on Z/2^32 and the affine magma x + beta y + 1 fail low-byte uniformity (p = 0; Fibonacci-type sequences are not uniformly distributed modulo 2^k) and their lowest bit has period 3; the LCG fails the low-bit tests (period 2, low byte too regular); the de Bruijn byte magma, whose period 65536 is the maximum possible for an order-2 byte recurrence, is too regular in every frequency test. No magma generator is competitive.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C16-17"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C16-10 (Application Researcher): none of the magma generators passes the simple test battery as well as PCG64; the anchored Fibonacci generator fails low-bit tests (Fibonacci numbers are not uniformly distributed modulo 2^k) and the de Bruijn byte generator is too regular.",
   "id": "EXP-C16-04",
   "methodology": "Generators: G1 anchored associative magma on Z/2^32, x_{k+1} = x_k + x_{k-1} + 1; G2 affine magma x_{k+1} = x_k + beta x_{k-1} + 1 (beta = 0x9E3779B9); G3 the de Bruijn byte magma (full period 65536 = the maximum for an order-2 byte recurrence; FKM construction); baselines PCG64 and the LCG 1664525 x + 1013904223 mod 2^32.",
   "question": "The longest pair-map periods found are n^2 (de Bruijn tables) and, for affine magmas on Z/2^32, the order of a matrix. Do such generators give usable pseudo-random numbers compared with standard generators?",
+  "related": [
+    "CLM-C16-17"
+  ],
   "results_file": "results/EXP-C16-04.json",
   "results_sha256": "815066cf04de7b6de4ac7271dc5386fe9f4e010076e92d8c8404525bf1f5d4eb",
   "runs": [
@@ -58,5 +91,6 @@
     "B2 LCG 1664525x + 1013904223: low byte: too regular (p_lower = 0); lowest bit periodic with period 2",
     "G3 de Bruijn byte magma (period 65536): top byte: too regular (p_lower = 0); low byte: too regular (p_lower = 0); serial pairs: too regular (p_lower = 0); lowest bit periodic with period 65536"
   ],
-  "title": "Magma Fibonacci generators versus PCG64 and an LCG on simple statistical tests"
+  "title": "Magma Fibonacci generators versus PCG64 and an LCG on simple statistical tests",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

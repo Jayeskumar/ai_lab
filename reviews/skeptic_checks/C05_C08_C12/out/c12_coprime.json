@@ -1,0 +1,12 @@
+{
+ "N": 6000,
+ "G05_vs_prime_index_bad": [],
+ "G07_vs_G05_bad": [],
+ "G06_even_bad": [],
+ "G06_odd_bound_bad": [],
+ "G06_P_symmetric_difference": [],
+ "G06_max_ratio_odd": 0.2498748122183275,
+ "G06_IL_n_3_mod_6_check_bad": [],
+ "seconds": 5.1,
+ "wall_seconds": 5.1
+}

@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -2457,6 +2457,223 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
 - **limitations:** Weak support - the maximum rose from 13 to 14 between n = 2.5e4 and 5e4 and is unchanged up to 2e5.
 - **notes:** The P-density is at most 1/5 by Pond and Howells (1965), as cited in OEIS A001581; measured 0.180 at n <= 2e5.
 
+### CLM-C13-01: Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed, finite ones are divisor sets
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C13.md Theorem 1; Chinese remainder theorem, Bezout in Q[a], Gauss's lemma, Schur's theorem); consistent with all 152 spectra of EXP-C13-01 (every finite one is Div(L)); awaiting independent skeptic review
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For any finite set E of laws, the anchored affine tables are exactly x*y = x + a*y + 1, and the affine spectrum
+  Aff(E) is the set of N for which the affine system of E (polynomials in Z[a]) has a common root mod N. Aff(E) is
+  closed under divisors and under coprime products; if the system has no common factor over Q it is finite and
+  equal to the set of divisors of its maximum L (which divides a resultant of the system), and otherwise it is
+  infinite.
+
+- **proof:** proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
+- **evidence:** EXP-C13-01
+- **novelty_basis:**
+
+  Elementary consequences of the CRT and of classical facts on polynomial congruences; the reduction of identities to conditions on affine (linear) representations is standard for quasigroups and medial magmas (Toyoda-Bruck). Recorded as the lab's tool, not as new mathematics.
+
+
+### CLM-C13-02: Right-normed laws (xy)z = x V(y,z) have only translation models
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (translation_form, right_normed_translation; standard axioms only); written proof proofs/paper/C13.md Theorem 2
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For every term V(y, z) not containing x, every anchored model of (x*y)*z = x*V(y, z) is a translation table x*y = x + 1 + k(y) with k a permutation of Z/N fixing 0, and k satisfies k(V(y,z)) = k(y) + k(z) + 1.
+
+- **proof:** proofs/paper/C13.md#theorem-2-clm-c13-02--right-normed-laws-have-only-translation-models
+- **lean:** proofs/lean/Infinity/C13_Spectra.lean
+- **evidence:** EXP-C13-03
+- **novelty_basis:** Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.
+
+### CLM-C13-03: The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv)); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For every one-variable term W(z), the anchored models of (x*y)*z = x*(y*W(z)) are exactly the affine tables
+  x*y = x + 1 + a*y with a*c_W(a) = 1 (mod N), c_W(a) the sum over the leaves of W of a^(number of right steps);
+  distinct roots give distinct models. The occurring polynomials c_W are exactly those with non-negative integer
+  coefficients, constant term 1 and no gaps. In particular the right comb with n leaves gives the spectrum of the
+  n-bonacci polynomial (golden law for n = 2, tribonacci law for n = 3) and the left comb with k + 1 leaves the
+  condition k*a^2 + a - 1 = 0.
+
+- **proof:** proofs/paper/C13.md#theorem-3-clm-c13-03--the-w-family-polynomial-spectra-apa--1
+- **lean:** proofs/lean/Infinity/C13_Spectra.lean
+- **evidence:** EXP-C13-03
+- **novelty_basis:**
+
+  Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical.
+
+
+### CLM-C13-04: Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, law12_size_dvd_two, law12_model_two; standard axioms only); written proof proofs/paper/C13.md Theorem 4
+- **novelty:** POTENTIALLY NOVEL
+- **statement:** The law x(yz) = ((zx)x)y has anchored models exactly for N in {1, 3} (unique model x*y = x + 1 + 2y at N = 3), and x(yz) = ((xy)z)x exactly for N in {1, 2} (unique model x*y = x + 1 at N = 2).
+- **proof:** proofs/paper/C13.md#theorem-4-clm-c13-04--two-of-the-finite-spectra-of-clm-c06-10
+- **lean:** proofs/lean/Infinity/C13_Spectra.lean
+- **evidence:** EXP-C13-04
+- **novelty_basis:** Settles two cases of the lab's own conjecture CLM-C06-10; no prior statement expected or found. Small.
+
+### CLM-C13-05: The law x = x(x(xx)) has anchored models of every size except 2
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The one-variable law x = x*(x*(x*x)) has an anchored model of every size N != 2 and none of size 2; in particular its spectrum contains 4 but not 2, so anchored spectra need not be closed under divisors.
+
+- **proof:** proofs/paper/C13.md#theorem-5-clm-c13-05--a-spectrum-that-is-not-closed-under-divisors
+- **lean:** proofs/lean/Infinity/C13_Spectra.lean
+- **evidence:** EXP-C13-07
+- **novelty_basis:** Elementary; its interest is as the counterexample to the lab's hypothesis H-C13-1.
+
+### CLM-C13-06: Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of the 17 laws of CLM-C06-10
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written soundness proof (proofs/paper/C13.md Theorem 6); applications computer-assisted (Python, EXP-C13-08) - trust base is the closure code, cross-checked against SAT/affine models on 603 laws (235 with a bound, 1,245 sizes) with 0 contradictions; awaiting independent skeptic review
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  The procedure offset_closure_bound (systems/anchored.py) returns g >= 0 such that N | g for every anchored model of
+  size N. If g > 0 and every divisor of g admits an affine model, the anchored spectrum is exactly Div(g). This proves
+  the conjectured spectra {1,3} resp. {1,2} of CLM-C06-10 for all its laws except x(yz) = y((yx)z), and the exact
+  finite spectrum Div(g) for 6,912 of the 18,581 laws over {x,y,z} with <= 4 leaves per side (6,045 of them have
+  only the trivial model).
+
+- **proof:** proofs/paper/C13.md#theorem-6-clm-c13-06--soundness-of-offset-congruence-closure
+- **evidence:** EXP-C13-08; EXP-C13-04
+- **novelty_basis:** Congruence closure with integer offsets is a standard decision-procedure idea (difference/offset equalities, Nelson-Oppen style); its use as a spectrum prover for anchored magmas is the lab's.
+
+### CLM-C13-07: H-C13-1: every anchored spectrum is closed under divisors (refuted)
+
+- **cycle:** C13
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** If a set of laws has an anchored model of size N, it has one of every size d dividing N.
+- **evidence:** EXP-C13-05; EXP-C13-06; EXP-C13-07
+- **counterexample:**
+
+  x = x(x(xx)) has models of every size except 2 (CLM-C13-05, Lean). Violations are common - 24 of 253 one-variable laws (N <= 12), 81 of 300 random 2-variable laws (N <= 9), 29 of 150 random 3-variable laws and 17 of 80 random pairs of laws (N <= 8); e.g. ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at N = 2, 3, 4, 5.
+
+
+### CLM-C13-08: H-C13-2: laws with an infinite non-trivial affine spectrum are affinely rigid (refuted)
+
+- **cycle:** C13
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.
+- **evidence:** EXP-C13-02
+- **counterexample:** 198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8).
+
+### CLM-C13-09: H-C13-5: a one-variable law has spectrum {1} or a cofinite spectrum (refuted)
+
+- **cycle:** C13
+- **type:** hypothesis
+- **system:** SYS-B
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** Every law t1(x) = t2(x) in one variable has anchored spectrum {1} or contains all sufficiently large N.
+- **evidence:** EXP-C13-07
+- **counterexample:**
+
+  x = (xx)x has spectrum exactly {1, 2}: at x = 0 the anchor gives 0 = 2, and x*y = x + 1 is a model of size 2; likewise x = ((xx)x)x has spectrum {1, 3} and x = (((xx)x)x)x has {1, 2, 4} (proofs/paper/C13.md, remark after Theorem 5).
+
+
+### CLM-C13-10: Spectra of one-variable laws are finite or cofinite
+
+- **cycle:** C13
+- **type:** conjecture
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** Every one-variable law t1(x) = t2(x) has an anchored spectrum that is either finite or contains all sufficiently large N.
+- **evidence:** EXP-C13-07
+- **limitations:** Supported only by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}.
+
+### CLM-C13-11: Single laws whose affine spectra are classical arithmetic sets
+
+- **cycle:** C13
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  affine systems computed mechanically (EXP-C13-01) and Theorem 1 (written); the identification of each root set with the stated arithmetic condition is elementary (e.g. a^2 - 2a - 1 = 0 iff (a - 1)^2 = 2); terms <= 200 agree with the OEIS entries A005408, A001651, A008784, A057126, A057125, A034017, A089270, A004613, A058529, A192453, A354467
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  The affine anchored spectrum of a law is {N : the gcd of its affine system has a root mod N} (up to the finitely many
+  exceptional primes of Theorem 1). Among laws with at most 4 leaves (3 variables) or 5 leaves (2 variables) this
+  realises - via the polynomials 2a + 1, 3a + 1, a^2 + 1, a^2 - 2a - 1, a^2 + 2a - 2, a^2 + a + 1, a^2 - a - 1,
+  2a^2 + 2a + 1, 2a^2 - 1, a^4 + 1, a^4 - a^2 + 1 - the odd numbers, the numbers prime to 3, and the numbers N
+  modulo which -1, 2, 3 are squares, x^2 + x + 1 has a root, the golden ratio exists, all prime factors are 1 mod 4,
+  +-1 mod 8 or 1 mod 12, and -1 is a fourth power (e.g. x(xx) = y(xy) for -1 a square, (xx)(xy) = (yy)(yx) for 2
+  a square).
+
+- **proof:** proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
+- **evidence:** EXP-C13-01
+- **novelty_basis:**
+
+  The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03).
+
+
+### CLM-C13-12: Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found
+
+- **cycle:** C13
+- **type:** observation
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  Among the 198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N = 6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.
+
+- **evidence:** EXP-C13-02; EXP-C13-05; EXP-C13-06
+- **limitations:** Sizes N <= 8-9 only; a sparse infinite spectrum cannot be recognised from so few sizes. Question 3 of the cycle remains open.
+
 ### CLM-C14-01: Associativity of a local graph product is a finite identity on relations, detected by P3 x P3 x P3 (Lean)
 
 - **cycle:** C14
@@ -3207,11 +3424,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **novelty:** NOT ASSESSED
 - **statement:** For every n >= 5 there is a quasigroup of order n whose Fibonacci pair map is a single cycle through all n^2 pairs.
-- **evidence:** EXP-C16-02
+- **evidence:** EXP-C16-02; EXP-C16-05
 - **limitations:**
 
-  Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (about 1/n^2 per random Latin square of the right parity) suggest the number of full-period quasigroups grows like L(n)/n^2, but there is no proof. Plain depth-first search and a SAT encoding stall at n = 9, so random sampling was the only method that scaled.
+  Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).
 
+- **status history:**
 
 ### CLM-C16-11: Fixed points of the pair map are idempotents
 
@@ -3338,6 +3556,36 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5).
 
 - **limitations:** A sanity battery, not TestU01 or PractRand.
+
+### CLM-C16-18: Maximal Fibonacci periods of small groups
+
+- **cycle:** C16
+- **type:** observation
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** computer-assisted - exhaustive functional-graph analysis of the pair maps (EXP-C16-03)
+- **novelty:** NOT ASSESSED
+- **statement:** Over all pairs of elements, the maximal period of x_{k+1} = x_k x_{k-1} is 8 in S3, 6 in D4, 6 in Q8, 16 in A4 and 18 in S4.
+- **proof:** proofs/paper/C16.md#computation-12-clm-c16-18--maximal-periods-of-small-groups
+- **evidence:** EXP-C16-03
+- **novelty_basis:**
+
+  The literature studies the Fibonacci length for generating pairs (Knox, Fibonacci Quart. 30 (1992): period 6 for dihedral groups, consistent with D4 here); the maximum over all pairs was not compared in detail.
+
+
+### CLM-C16-19: Random sampling finds full-period quasigroups where exact search fails
+
+- **cycle:** C16
+- **type:** observation
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  With fixed budgets, lexicographic DFS (3e6 nodes) and a SAT encoding (3e5 conflicts) find full-period quasigroups only up to n = 8, while seeded sampling of random Latin squares finds them for every n = 5..16 at rates close to 1/n^2 (H-C16-11).
+
+- **evidence:** EXP-C16-05; EXP-C16-02
+- **limitations:** Budgets are arbitrary; a better SAT encoding or symmetry breaking may scale further.
 
 ### CLM-C17-01: Light's test: generators suffice for associativity
 
@@ -5403,6 +5651,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - 2var_le5 infinite: 0/2*a**2 + a/2*a**2 + a - 1 x24999; a**2 + 3*a + 1/a**2 + a - 1/a**2 - 3*a + 1 x647; a**2 + a + 1/a**2 - a + 1/a**4 + a**2 + 1 x520; 2*a + 1/2*a - 1/2*a - 3 x439; a**2 + 1 x339; a**3 + 2*a**2 + a + 1/a**3 + a**2 + 2*a + 1/a**3 + a**2 - 1 x190; a**2 + 2*a - 1/a**2 - 2/a**2 - 2*a - 1 x164; a**3 + 2*a**2 + a - 1/a**3 + a + 1/a**3 + a - 1 x160; a**3 + a**2 + a - 1/a**3 + a**2 - a +…
   - every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 2
   - OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a…
+- **analysis:**
+
+  Affine atlas. The 18,581 laws over {x,y,z} with <= 4 leaves per side fall into 2,400 affine systems and 27 distinct affine spectra; the 75,625 laws over {x,y} with <= 5 leaves per side into 3,631 systems and 125 spectra. Every finite affine spectrum is a divisor set Div(L) (80 values of L up to 328). The infinite ones are classical number-theoretic sets, identified by OEIS - odd numbers (A005408), 3 does not divide N (A001651), -1 is a square (A008784), 2 is a square (A057126), 3 is a square (A057125), x^2+xy+y^2 (A034017), golden (A089270), prime factors 1 mod 4 (A004613), prime factors +-1 mod 8 (A058529), -1 a fourth power (A192453), prime factors 1 mod 12 (A354467), forms of discriminant -7, -11, 13 (A244779, A244780, A243656) and -8-type (A225771); about thirty cubic and quartic conditions (plastic number x^3 - x - 1, tribonacci, tetranacci, 5th cyclotomic polynomial, ...) give sequences with no OEIS match.
+
+- **verification:** PROVEN
+- **related:** CLM-C13-01; CLM-C13-11
 - **runs:** 2; last 2026-10-18T08:59:02Z (25.828 s), results sha256 `ba2746d029908a44…`, code `experiments/C13/E01_affine_atlas.py`
 
 ### EXP-C13-02: Affine rigidity of laws with infinite non-trivial affine spectra
@@ -5425,6 +5679,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - rigid (no non-affine model, no UNKNOWN): 1
   - non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]
   - UNKNOWN instances: 12
+- **analysis:**
+
+  Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.
+
+- **counterexamples:** x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8
+- **verification:** REFUTED
+- **related:** CLM-C13-08
 - **runs:** 1; last 2026-10-18T09:22:43Z (339.574 s), results sha256 `b7e03113813b1b93…`, code `experiments/C13/E02_rigidity_infinite.py`
 
 ### EXP-C13-03: Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves
@@ -5443,7 +5704,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - 23 terms W; N = 1..9; mismatches with Theorem 3: 0
   - 16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1
   - OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 …
-- **runs:** 1; last 2026-10-18T09:25:48Z (88.84 s), results sha256 `706180c29321176d…`, code `experiments/C13/E03_w_family.py`
+- **analysis:**
+
+  Theorem 3 (W-family) tested before it was proved - for all 23 one-variable terms W with <= 5 leaves and N = 1..9, the anchored models of (xy)z = x(y W(z)) are exactly the affine tables with a*c_W(a) = 1: 0 mismatches. 16 distinct polynomials c_W occur; the golden law gives A089270, c_W = 1 + 3a gives A243656, c_W = 1 + a + 2a^2 gives the odd numbers, and the tribonacci and tetranacci laws give spectra not in the OEIS.
+
+- **verification:** PROVEN
+- **related:** CLM-C13-03
+- **runs:** 2; last 2026-10-18T17:12:21Z (74.198 s), results sha256 `674131101d9ae87a…`, code `experiments/C13/E03_w_family.py`
 
 ### EXP-C13-04: Non-affine models of the 17 finite-spectrum laws of CLM-C06-10, N <= 12
 
@@ -5456,7 +5723,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
 - **methodology:** Spectrum(N) = (affine roots exist) or (SAT finds a non-affine model).
 - **falsification:** A model at N outside {1,3} resp. {1,2}, or a non-affine model other than the known one.
 - **summary:** 17 laws; spectrum (N <= 12) equals the conjectured set for 17; non-affine models: x(yz)=y((yx)z) at [2]; UNKNOWN instances: 0
-- **runs:** 1; last 2026-10-18T09:27:41Z (66.864 s), results sha256 `e2dc4a04980df47f…`, code `experiments/C13/E04_finite_spectra.py`
+- **analysis:**
+
+  The 17 laws of CLM-C06-10, N = 2..12, one SAT call per size with all affine tables blocked - every spectrum agrees with the conjectured set {1,3} or {1,2}; the only non-affine model is the known one of x(yz) = y((yx)z) at N = 2; 0 UNKNOWN.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C13-04; CLM-C13-06
+- **runs:** 2; last 2026-10-18T17:11:06Z (67.593 s), results sha256 `eb599e52ab7cf005…`, code `experiments/C13/E04_finite_spectra.py`
 
 ### EXP-C13-05: Divisor-closure of anchored spectra: 300 random 2-variable laws with <= 4 leaves per side, N <= 9
 
@@ -5474,6 +5747,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - 300 sampled laws; 251 have a model of some size 2..9
   - divisor-closure violations: 81 ['(xx)(xy) = y(y(yy))', '(x(xx))y = y((xy)x)', '((xx)y)y = (xy)(xx)', 'x(xy) = y(y(xx))', '((xx)y)y = x(x(xy))']
   - UNKNOWN: 9; decisions {'zero': 38, 'affine': 515, 'sat': 918, 'skipped': 551}
+- **analysis:**
+
+  Divisor-closure, 300 random 2-variable laws (<= 4 leaves per side), N <= 9 with pruning - 251 laws have a model of some size 2..9 and 81 violate divisor-closure; violating pairs (N, d) - (8,2) 48, (6,3) 48, (6,2) 47, (9,3) 44, (4,2) 36, (8,4) 12; 9 laws with UNKNOWN instances. Example - ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at 2, 3, 4, 5. A first run (600 laws, N <= 10, budget 2,000,000) was stopped after 22 CPU-minutes.
+
+- **counterexamples:** (xx)(xy) = y(y(yy)): models at N = 4, 6, 8 but not at N = 2; x(xy) = y(y(xx)): models at N = 5, 6, 8, 9 but not at 2, 3, 4
+- **verification:** REFUTED
+- **related:** CLM-C13-07
 - **runs:** 1; last 2026-10-18T17:06:03Z (241.215 s), results sha256 `56ef2f83731cf61c…`, code `experiments/C13/E05_divisor_closure.py`
 
 ### EXP-C13-06: Divisor-closure of anchored spectra: 150 random 3-variable laws and 80 random pairs of 2-variable laws
@@ -5492,6 +5772,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - 3-var: 150 of 14223 candidate laws; 62 with a model of size 2..8; violations 29 ['(x(xy))x = x((zz)y)', 'x(yx) = z((xz)y)', '(x(yy))x = y(y(xy))', '((xx)x)x = (y(xx))y']; UNKNOWN 0
   - pairs: 80; 34 with a model of size 2..8; violations 17 ['(x(yx))y = y((xy)y) & ((xy)y)x = (y(xx))x', 'xx = (y(xx))y & (x(xx))x = x((yx)y)', '((xx)y)x = x(y(yx)) & x(xy) = x(x(yx))']; UNKNOWN 0
   - decisions {'zero': 14, 'affine': 73, 'sat': 1206, 'skipped': 87}
+- **analysis:**
+
+  Divisor-closure, 150 random 3-variable laws (among the 14,223 whose affine spectrum is not all N and which survive the zero filter) and 80 random pairs of 2-variable laws, N <= 8 - 29 of the 62 laws with a model of size 2..8 violate divisor-closure, and 17 of the 34 pairs with a model; 0 UNKNOWN.
+
+- **counterexamples:** (x(xy))x = x((zz)y); ((xx)x)x = (y(xx))y
+- **verification:** REFUTED
+- **related:** CLM-C13-07
 - **runs:** 1; last 2026-10-18T17:07:31Z (77.799 s), results sha256 `1a47462732140956…`, code `experiments/C13/E06_divisor_closure_3var.py`
 
 ### EXP-C13-07: Spectra of one-variable laws and the failure of divisor-closure
@@ -5511,6 +5798,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]
   - missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]
   - UNKNOWN: 0
+- **analysis:**
+
+  All 253 one-variable laws with <= 5 leaves per side, N <= 12, complete SAT - 213 have models of every size, 9 only N = 1, 24 violate divisor-closure (spectra missing exactly {2}, {3} or {2,3}), and the left combs x = (xx)x, x = ((xx)x)x, x = (((xx)x)x)x have spectra exactly Div(2), Div(3), Div(4); 0 UNKNOWN. H-C13-5 refuted.
+
+- **counterexamples:** x = (xx)x has spectrum exactly {1, 2} (neither {1} nor cofinite); x = x(x(xx)) has spectrum missing exactly 2 (N <= 12)
+- **verification:** REFUTED
+- **related:** CLM-C13-05; CLM-C13-07; CLM-C13-09; CLM-C13-10
 - **runs:** 2; last 2026-10-18T17:09:57Z (6.008 s), results sha256 `bb8a7a8453a3f473…`, code `experiments/C13/E07_one_variable_laws.py`
 
 ### EXP-C13-08: Finite spectra proved by offset congruence closure (and a soundness test against SAT)
@@ -5535,6 +5829,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']
   - 3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}
   - soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0
+- **analysis:**
+
+  Offset congruence closure - proves N | 3 resp. N | 2 for 16 of the 17 laws of CLM-C06-10 (not x(yz) = y((yx)z)), which with the affine models gives their exact spectra; on the whole 3-variable family it finds a bound for 7,238 of 18,581 laws (6,045 with g = 1) and proves the exact finite spectrum Div(g) for 6,912 of them (g = 1 - 6,045; 2 - 769; 3 - 84; 4 - 13; 5 - 1). Soundness test - 603 laws, 235 with a bound, 1,245 sizes not dividing the bound checked by SAT or affine models - 0 contradictions.
+
+- **verification:** PROVEN
+- **related:** CLM-C13-06
 - **runs:** 2; last 2026-10-18T17:09:43Z (62.111 s), results sha256 `1602429fe21d9d7b…`, code `experiments/C13/E08_closure_proofs.py`
 
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
@@ -5901,6 +6201,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - max period among quasigroups: n=2: 3, n=3: 8, n=4: 15
   - order 3: 3330 isomorphism classes, max-period distribution {1: 4563, 2: 4581, 3: 5316, 4: 2877, 5: 1458, 6: 540, 7: 216, 8: 108, 9: 24}
   - mirror dynamics = forward dynamics of the transpose (order 3): True
+- **analysis:**
+
+  All 16 magmas of order 2, all 19683 of order 3 (3330 isomorphism classes, as in OEIS A001329) and all 331776 row-permutation magmas of order 4. The maximal period of the pair map (a, b) -> (b, b*a) is n^2 for n = 2, 3, 4 (x*y = 1 - y already has period 4), refuting H-C16-1. Permutation pair maps number exactly (n!)^n (4, 216, 331776; 0 violations of the row criterion) and full-period tables exactly (n!)^n / n^2 (1, 24, 20736 - the de Bruijn counts). None of the full-period tables of order <= 4 is a quasigroup; the quasigroup maximum is n^2 - 1 (3, 8, 15). The mirror recurrence equals the forward recurrence of the transpose. The order-3 max-period distribution (4563, 4581, 5316, 2877, 1458, 540, 216, 108, 24) is not in the OEIS; the lookup of the zero counts 0, 0, 0 is vacuous.
+
+- **counterexamples:** x*y = 1 - y on {0,1}: period 4 = n^2, not a quasigroup (H-C16-1 refuted)
+- **verification:** PROVEN
+- **related:** CLM-C16-01; CLM-C16-02; CLM-C16-03
 - **runs:** 1; last 2026-10-18T09:27:31Z (7.899 s), results sha256 `0550e32b9f950756…`, code `experiments/C16/E01_small_magmas.py`
 
 ### EXP-C16-02: Quasigroups whose Fibonacci pair map is a single cycle through all n^2 pairs
@@ -5929,6 +6236,13 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - examples found and verified for n = 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16; all satisfy the parity condition: True
   - coprime products full-period: 5x6: True, 5x7: True, 5x8: True, 6x7: True, 7x8: True, 5x9: True, 7x9: True, 8x9: True
   - even-order group isotopes: Z4: signs [1] (needed -1), full 0, Z2xZ2: signs [1] (needed -1), full 0, Z6: signs [-1] (needed 1), full 0, S3: signs [-1] (needed 1), full 0, Z8: signs [1] (needed -1), full 0, Z2xZ4: signs [1] (needed -1), full 0, Z2^3: signs [1] (needed -1), full 0, D4: signs [1] (needed -1), full 0, Q8: signs [1] (needed -1), full 0
+- **analysis:**
+
+  Exhaustive over all Latin squares of orders 2-5: no full-period quasigroup of order 2, 3, 4, exactly 3360 of order 5 (28 isomorphism classes; their left-division parastrophes are again full-period), refuting H-C16-5; an independent depth-first count of cyclic sequences with all pairs distinct at distances 1 and 2 gives the same numbers 0, 0, 0, 3360. Seeded sampling found and re-verified full-period quasigroups of every order 6-16 (isotopes of Z_n for odd n, random Latin squares for all n; hit rates roughly 1/n^2); direct products 5x6, 5x7, 5x8, 6x7, 7x8, 5x9, 7x9, 8x9 are full-period. All examples satisfy the parity condition; 2000 random isotopes of each group of order 4, 6, 8 have row-sign product (-1)^(n/2) and none is full-period, as Theorem 7 predicts.
+
+- **counterexamples:** 3360 full-period quasigroups of order 5, e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3 (H-C16-5 refuted)
+- **verification:** PROVEN
+- **related:** CLM-C16-04; CLM-C16-05; CLM-C16-06; CLM-C16-07; CLM-C16-08; CLM-C16-09; CLM-C16-10
 - **runs:** 1; last 2026-10-18T16:56:50Z (31.628 s), results sha256 `054116983d846545…`, code `experiments/C16/E02_quasigroups.py`
 
 ### EXP-C16-03: Fibonacci dynamics in structured families: Laver tables, affine and anchored magmas, nimbers, groups
@@ -5962,6 +6276,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)
   - groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6
   - OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH
+- **analysis:**
+
+  Laver tables A_0..A_10: the pair map has exactly one fixed point and N - 1 two-cycles (maximal period 2 for n >= 1), Laver's facts used in the proof hold for every n <= 10, and the longest transient is 5 for 4 <= n <= 10. The anchored associative magma x + y + 1 has exactly the cycle structure of the Fibonacci numbers mod N (N <= 60, maximal period = Pisano period); odd-law and golden-law magmas have maximal period equal to the order of their companion matrices in every case (odd N <= 61; 51 pairs (N, a), N <= 200); 300 random affine magmas reach the order of their 3x3 affine matrix; nim-multiplication on [0,16) and [0,256) has maximal period 40 = pi(15) and 360 = pi(255). Groups: S3 8, D4 6, Q8 6, A4 16, S4 18. The odd- and golden-law period sequences are not in the OEIS (the Laver lookup 1, 2, 2, ... is a trivial match).
+
+- **verification:** PROVEN
+- **related:** CLM-C16-12; CLM-C16-13; CLM-C16-14; CLM-C16-15; CLM-C16-16; CLM-C16-18
 - **runs:** 2; last 2026-10-18T17:03:52Z (13.649 s), results sha256 `dc9afab6824db2ab…`, code `experiments/C16/E03_structured_families.py`
 
 ### EXP-C16-04: Magma Fibonacci generators versus PCG64 and an LCG on simple statistical tests
@@ -5991,6 +6311,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
   - B1 PCG64 (numpy): passes all
   - B2 LCG 1664525x + 1013904223: low byte: too regular (p_lower = 0); lowest bit periodic with period 2
   - G3 de Bruijn byte magma (period 65536): top byte: too regular (p_lower = 0); low byte: too regular (p_lower = 0); serial pairs: too regular (p_lower = 0); lowest bit periodic with period 65536
+- **analysis:**
+
+  Simple test battery on 2^20 outputs - PCG64 passes everything; the anchored Fibonacci generator x + y + 1 on Z/2^32 and the affine magma x + beta y + 1 fail low-byte uniformity (p = 0; Fibonacci-type sequences are not uniformly distributed modulo 2^k) and their lowest bit has period 3; the LCG fails the low-bit tests (period 2, low byte too regular); the de Bruijn byte magma, whose period 65536 is the maximum possible for an order-2 byte recurrence, is too regular in every frequency test. No magma generator is competitive.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C16-17
 - **runs:** 1; last 2026-10-18T17:00:37Z (8.962 s), results sha256 `815066cf04de7b6d…`, code `experiments/C16/E04_prng_test.py`
 
 ### EXP-C16-05: Search methods for full-period quasigroups: depth-first search, SAT and random sampling
@@ -6008,6 +6334,12 @@ _Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** Exact search succeeding for every n where sampling succeeds, within the same budget.
 - **summary:** n=5: DFS found (731 nodes), SAT SAT, sampling 30/1500; n=6: DFS found (2219 nodes), SAT SAT, sampling 22/1500; n=7: DFS found (68179 nodes), SAT SAT, sampling 21/1500; n=8: DFS found (222753 nodes), SAT SAT, sampling 22/1500; n=9: DFS none (3000001 nodes), SAT UNKNOWN, sampling 14/1500; n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500; n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)
+- **analysis:**
+
+  Search methods for full-period quasigroups with fixed budgets - lexicographic DFS finds a first solution for n = 5..8 (731 to 222,753 nodes) but none for n = 9, 10 within 3,000,000 nodes; the SAT encoding (CaDiCaL) solves n = 5..8 and returns UNKNOWN for n = 9, 10 after 300,000 conflicts; seeded random sampling of Latin squares succeeds for every n = 5..10 (30, 22, 21, 22, 14, 9 hits per 1500, rates close to 1/n^2). A partial DFS enumeration for n = 6 finds 1136 normalised cycles within 20,000,000 nodes without finishing.
+
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **related:** CLM-C16-10; CLM-C16-19
 - **runs:** 1; last 2026-10-18T17:10:08Z (255.67 s), results sha256 `ab2230f26a5d73bf…`, code `experiments/C16/E05_search_methods.py`
 
 ### EXP-C17-01: Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples

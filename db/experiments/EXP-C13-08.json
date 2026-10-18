@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Offset congruence closure - proves N | 3 resp. N | 2 for 16 of the 17 laws of CLM-C06-10 (not x(yz) = y((yx)z)), which with the affine models gives their exact spectra; on the whole 3-variable family it finds a bound for 7,238 of 18,581 laws (6,045 with g = 1) and proves the exact finite spectrum Div(g) for 6,912 of them (g = 1 - 6,045; 2 - 769; 3 - 84; 4 - 13; 5 - 1). Soundness test - 603 laws, 235 with a bound, 1,245 sizes not dividing the bound checked by SAT or affine models - 0 contradictions.",
   "assumptions": [
     "C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries",
     "family: values 0..3, -1, 4 rounds, constants only (cheap setting)",
@@ -36,12 +37,44 @@
       ],
       "reason": "experiment META changed in script",
       "ts": "2026-10-18T17:09:43Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Offset congruence closure - proves N | 3 resp. N | 2 for 16 of the 17 laws of CLM-C06-10 (not x(yz) = y((yx)z)), which with the affine models gives their exact spectra; on the whole 3-variable family it finds a bound for 7,238 of 18,581 laws (6,045 with g = 1) and proves the exact finite spectrum Div(g) for 6,912 of them (g = 1 - 6,045; 2 - 769; 3 - 84; 4 - 13; 5 - 1). Soundness test - 603 laws, 235 with a bound, 1,245 sizes not dividing the bound checked by SAT or affine models - 0 contradictions.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C13-06"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C13-6: for 16 of the 17 laws of CLM-C06-10 the closure proves N | 3 resp. N | 2 (with the affine models this gives the exact spectra {1,3}, {1,2}); a sizeable part of the 18,581-law family gets an exact finite spectrum Div(g); no bound is ever contradicted by a SAT model.",
   "id": "EXP-C13-08",
   "methodology": "offset_closure_bound(); a law whose bound g > 0 has affine models for every divisor of g has spectrum exactly Div(g) (upper bound from the closure, lower bound from the affine tables).",
   "question": "Can the sound closure procedure of systems/anchored.py (law instances at small elements, the anchor, functionality of the table, union-find with integer offsets) prove N | g for the finite-spectrum laws of CLM-C06-10 and for the laws of the 3-variable family? Is it ever contradicted by SAT data?",
+  "related": [
+    "CLM-C13-06"
+  ],
   "results_file": "results/EXP-C13-08.json",
   "results_sha256": "1602429fe21d9d7b858585326f97e1044110ccd1eeca9d9aede2f1f40cb7d50c",
   "runs": [
@@ -91,5 +124,6 @@
     "3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}",
     "soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0"
   ],
-  "title": "Finite spectra proved by offset congruence closure (and a soundness test against SAT)"
+  "title": "Finite spectra proved by offset congruence closure (and a soundness test against SAT)",
+  "verification": "PROVEN"
 }

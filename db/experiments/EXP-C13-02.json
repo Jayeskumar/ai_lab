@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Skeptic",
+  "analysis": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
   "assumptions": [
     "the 3 shortest laws of every such affine class (3var<=4 and 2var<=5 families of EXP-C13-01)",
     "N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded",
@@ -11,6 +12,9 @@
     "sha256": "5a3d3e1039e3733ec61c0c66ea1ca0fb3d0dac1bcfcd9c402d39599692df2991",
     "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
   },
+  "counterexamples": [
+    "x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8"
+  ],
   "cycle": "C13",
   "falsification": "A non-affine anchored model of any selected law.",
   "history": [
@@ -19,12 +23,55 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:22:44Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C13-08"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C13-2 (bold): for every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.",
   "id": "EXP-C13-02",
   "methodology": "For each selected law and N, add one blocking clause per affine table x + a*y + 1 to the anchored SAT encoding; SAT means a non-affine model exists (the table is recorded for N <= 5), UNSAT means every model is affine.",
   "question": "For laws whose affine spectrum is infinite but not all N (golden, x^2+x+1, -1 square, 2 square, odd, plastic, tribonacci, ...), does every anchored model of size N <= 8 come from an affine table x*y = x + a*y + 1? If so, the true spectrum agrees with the arithmetic set for N <= 8.",
+  "related": [
+    "CLM-C13-08"
+  ],
   "results_file": "results/EXP-C13-02.json",
   "results_sha256": "b7e03113813b1b93f957c467f4b6b0ca7d3005b6e2642f929ad803aee6974735",
   "runs": [
@@ -56,5 +103,6 @@
     "non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
     "UNKNOWN instances: 12"
   ],
-  "title": "Affine rigidity of laws with infinite non-trivial affine spectra"
+  "title": "Affine rigidity of laws with infinite non-trivial affine spectra",
+  "verification": "REFUTED"
 }

@@ -1,0 +1,23 @@
+{
+ "by_status": {
+  "TERMINATING": 472,
+  "NON-TERMINATING": 388,
+  "UNKNOWN": 8
+ },
+ "unknown": [
+  "aab->ababa",
+  "aab->babaa",
+  "abb->babab",
+  "abb->bbaba",
+  "baa->aabab",
+  "baa->ababa",
+  "bba->ababb",
+  "bba->babab"
+ ],
+ "unknown_equals_8_images": true,
+ "n_rules_expected": 868,
+ "stored_equals_expected_set": true,
+ "terminating_after_C20": 480,
+ "nonterminating": 388,
+ "_seconds": 0.0
+}

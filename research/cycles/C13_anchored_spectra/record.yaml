@@ -1,0 +1,243 @@
+cycle: C13
+title: "Anchored spectra II: which sets of integers are spectra?"
+branch: B
+status: complete
+systems: [SYS-B]
+
+experiments:
+  - id: EXP-C13-01
+    analysis: "Affine atlas. The 18,581 laws over {x,y,z} with <= 4 leaves per side fall into 2,400 affine systems and 27 distinct affine spectra; the 75,625 laws over {x,y} with <= 5 leaves per side into 3,631 systems and 125 spectra. Every finite affine spectrum is a divisor set Div(L) (80 values of L up to 328). The infinite ones are classical number-theoretic sets, identified by OEIS - odd numbers (A005408), 3 does not divide N (A001651), -1 is a square (A008784), 2 is a square (A057126), 3 is a square (A057125), x^2+xy+y^2 (A034017), golden (A089270), prime factors 1 mod 4 (A004613), prime factors +-1 mod 8 (A058529), -1 a fourth power (A192453), prime factors 1 mod 12 (A354467), forms of discriminant -7, -11, 13 (A244779, A244780, A243656) and -8-type (A225771); about thirty cubic and quartic conditions (plastic number x^3 - x - 1, tribonacci, tetranacci, 5th cyclotomic polynomial, ...) give sequences with no OEIS match."
+    verification: PROVEN
+    related: [CLM-C13-01, CLM-C13-11]
+  - id: EXP-C13-02
+    analysis: "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes."
+    verification: REFUTED
+    counterexamples: ["x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8"]
+    related: [CLM-C13-08]
+  - id: EXP-C13-03
+    analysis: "Theorem 3 (W-family) tested before it was proved - for all 23 one-variable terms W with <= 5 leaves and N = 1..9, the anchored models of (xy)z = x(y W(z)) are exactly the affine tables with a*c_W(a) = 1: 0 mismatches. 16 distinct polynomials c_W occur; the golden law gives A089270, c_W = 1 + 3a gives A243656, c_W = 1 + a + 2a^2 gives the odd numbers, and the tribonacci and tetranacci laws give spectra not in the OEIS."
+    verification: PROVEN
+    related: [CLM-C13-03]
+  - id: EXP-C13-04
+    analysis: "The 17 laws of CLM-C06-10, N = 2..12, one SAT call per size with all affine tables blocked - every spectrum agrees with the conjectured set {1,3} or {1,2}; the only non-affine model is the known one of x(yz) = y((yx)z) at N = 2; 0 UNKNOWN."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C13-04, CLM-C13-06]
+  - id: EXP-C13-05
+    analysis: "Divisor-closure, 300 random 2-variable laws (<= 4 leaves per side), N <= 9 with pruning - 251 laws have a model of some size 2..9 and 81 violate divisor-closure; violating pairs (N, d) - (8,2) 48, (6,3) 48, (6,2) 47, (9,3) 44, (4,2) 36, (8,4) 12; 9 laws with UNKNOWN instances. Example - ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at 2, 3, 4, 5. A first run (600 laws, N <= 10, budget 2,000,000) was stopped after 22 CPU-minutes."
+    verification: REFUTED
+    counterexamples: ["(xx)(xy) = y(y(yy)): models at N = 4, 6, 8 but not at N = 2", "x(xy) = y(y(xx)): models at N = 5, 6, 8, 9 but not at 2, 3, 4"]
+    related: [CLM-C13-07]
+  - id: EXP-C13-06
+    analysis: "Divisor-closure, 150 random 3-variable laws (among the 14,223 whose affine spectrum is not all N and which survive the zero filter) and 80 random pairs of 2-variable laws, N <= 8 - 29 of the 62 laws with a model of size 2..8 violate divisor-closure, and 17 of the 34 pairs with a model; 0 UNKNOWN."
+    verification: REFUTED
+    counterexamples: ["(x(xy))x = x((zz)y)", "((xx)x)x = (y(xx))y"]
+    related: [CLM-C13-07]
+  - id: EXP-C13-07
+    analysis: "All 253 one-variable laws with <= 5 leaves per side, N <= 12, complete SAT - 213 have models of every size, 9 only N = 1, 24 violate divisor-closure (spectra missing exactly {2}, {3} or {2,3}), and the left combs x = (xx)x, x = ((xx)x)x, x = (((xx)x)x)x have spectra exactly Div(2), Div(3), Div(4); 0 UNKNOWN. H-C13-5 refuted."
+    verification: REFUTED
+    counterexamples: ["x = (xx)x has spectrum exactly {1, 2} (neither {1} nor cofinite)", "x = x(x(xx)) has spectrum missing exactly 2 (N <= 12)"]
+    related: [CLM-C13-05, CLM-C13-07, CLM-C13-09, CLM-C13-10]
+  - id: EXP-C13-08
+    analysis: "Offset congruence closure - proves N | 3 resp. N | 2 for 16 of the 17 laws of CLM-C06-10 (not x(yz) = y((yx)z)), which with the affine models gives their exact spectra; on the whole 3-variable family it finds a bound for 7,238 of 18,581 laws (6,045 with g = 1) and proves the exact finite spectrum Div(g) for 6,912 of them (g = 1 - 6,045; 2 - 769; 3 - 84; 4 - 13; 5 - 1). Soundness test - 603 laws, 235 with a bound, 1,245 sizes not dividing the bound checked by SAT or affine models - 0 contradictions."
+    verification: PROVEN
+    related: [CLM-C13-06]
+
+claims:
+  - id: CLM-C13-01
+    type: theorem
+    system: SYS-B
+    title: Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed, finite ones are divisor sets
+    statement: |
+      For any finite set E of laws, the anchored affine tables are exactly x*y = x + a*y + 1, and the affine spectrum
+      Aff(E) is the set of N for which the affine system of E (polynomials in Z[a]) has a common root mod N. Aff(E) is
+      closed under divisors and under coprime products; if the system has no common factor over Q it is finite and
+      equal to the set of divisors of its maximum L (which divides a resultant of the system), and otherwise it is
+      infinite.
+    verification: PROVEN
+    proof_check: written proof (proofs/paper/C13.md Theorem 1; Chinese remainder theorem, Bezout in Q[a], Gauss's lemma, Schur's theorem); consistent with all 152 spectra of EXP-C13-01 (every finite one is Div(L)); awaiting independent skeptic review
+    proof: proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
+    evidence: [EXP-C13-01]
+    novelty: REDISCOVERY
+    novelty_basis: Elementary consequences of the CRT and of classical facts on polynomial congruences; the reduction of identities to conditions on affine (linear) representations is standard for quasigroups and medial magmas (Toyoda-Bruck). Recorded as the lab's tool, not as new mathematics.
+  - id: CLM-C13-02
+    type: theorem
+    system: SYS-B
+    title: "Right-normed laws (xy)z = x V(y,z) have only translation models"
+    statement: For every term V(y, z) not containing x, every anchored model of (x*y)*z = x*V(y, z) is a translation table x*y = x + 1 + k(y) with k a permutation of Z/N fixing 0, and k satisfies k(V(y,z)) = k(y) + k(z) + 1.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (translation_form, right_normed_translation; standard axioms only); written proof proofs/paper/C13.md Theorem 2
+    proof: proofs/paper/C13.md#theorem-2-clm-c13-02--right-normed-laws-have-only-translation-models
+    lean: [proofs/lean/Infinity/C13_Spectra.lean]
+    evidence: [EXP-C13-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.
+  - id: CLM-C13-03
+    type: theorem
+    system: SYS-B
+    title: "The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1"
+    statement: |
+      For every one-variable term W(z), the anchored models of (x*y)*z = x*(y*W(z)) are exactly the affine tables
+      x*y = x + 1 + a*y with a*c_W(a) = 1 (mod N), c_W(a) the sum over the leaves of W of a^(number of right steps);
+      distinct roots give distinct models. The occurring polynomials c_W are exactly those with non-negative integer
+      coefficients, constant term 1 and no gaps. In particular the right comb with n leaves gives the spectrum of the
+      n-bonacci polynomial (golden law for n = 2, tribonacci law for n = 3) and the left comb with k + 1 leaves the
+      condition k*a^2 + a - 1 = 0.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv)); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)
+    proof: proofs/paper/C13.md#theorem-3-clm-c13-03--the-w-family-polynomial-spectra-apa--1
+    lean: [proofs/lean/Infinity/C13_Spectra.lean]
+    evidence: [EXP-C13-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical."
+  - id: CLM-C13-04
+    type: theorem
+    system: SYS-B
+    title: "Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x"
+    statement: The law x(yz) = ((zx)x)y has anchored models exactly for N in {1, 3} (unique model x*y = x + 1 + 2y at N = 3), and x(yz) = ((xy)z)x exactly for N in {1, 2} (unique model x*y = x + 1 at N = 2).
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, law12_size_dvd_two, law12_model_two; standard axioms only); written proof proofs/paper/C13.md Theorem 4
+    proof: proofs/paper/C13.md#theorem-4-clm-c13-04--two-of-the-finite-spectra-of-clm-c06-10
+    lean: [proofs/lean/Infinity/C13_Spectra.lean]
+    evidence: [EXP-C13-04]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Settles two cases of the lab's own conjecture CLM-C06-10; no prior statement expected or found. Small.
+  - id: CLM-C13-05
+    type: theorem
+    system: SYS-B
+    title: "The law x = x(x(xx)) has anchored models of every size except 2"
+    statement: The one-variable law x = x*(x*(x*x)) has an anchored model of every size N != 2 and none of size 2; in particular its spectrum contains 4 but not 2, so anchored spectra need not be closed under divisors.
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5
+    proof: proofs/paper/C13.md#theorem-5-clm-c13-05--a-spectrum-that-is-not-closed-under-divisors
+    lean: [proofs/lean/Infinity/C13_Spectra.lean]
+    evidence: [EXP-C13-07]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; its interest is as the counterexample to the lab's hypothesis H-C13-1.
+  - id: CLM-C13-06
+    type: theorem
+    system: SYS-B
+    title: Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of the 17 laws of CLM-C06-10
+    statement: |
+      The procedure offset_closure_bound (systems/anchored.py) returns g >= 0 such that N | g for every anchored model of
+      size N. If g > 0 and every divisor of g admits an affine model, the anchored spectrum is exactly Div(g). This proves
+      the conjectured spectra {1,3} resp. {1,2} of CLM-C06-10 for all its laws except x(yz) = y((yx)z), and the exact
+      finite spectrum Div(g) for 6,912 of the 18,581 laws over {x,y,z} with <= 4 leaves per side (6,045 of them have
+      only the trivial model).
+    verification: PROVEN
+    proof_check: "written soundness proof (proofs/paper/C13.md Theorem 6); applications computer-assisted (Python, EXP-C13-08) - trust base is the closure code, cross-checked against SAT/affine models on 603 laws (235 with a bound, 1,245 sizes) with 0 contradictions; awaiting independent skeptic review"
+    proof: proofs/paper/C13.md#theorem-6-clm-c13-06--soundness-of-offset-congruence-closure
+    evidence: [EXP-C13-08, EXP-C13-04]
+    novelty: NOT ASSESSED
+    novelty_basis: Congruence closure with integer offsets is a standard decision-procedure idea (difference/offset equalities, Nelson-Oppen style); its use as a spectrum prover for anchored magmas is the lab's.
+  - id: CLM-C13-07
+    type: hypothesis
+    system: SYS-B
+    title: "H-C13-1: every anchored spectrum is closed under divisors (refuted)"
+    statement: If a set of laws has an anchored model of size N, it has one of every size d dividing N.
+    verification: REFUTED
+    counterexample: "x = x(x(xx)) has models of every size except 2 (CLM-C13-05, Lean). Violations are common - 24 of 253 one-variable laws (N <= 12), 81 of 300 random 2-variable laws (N <= 9), 29 of 150 random 3-variable laws and 17 of 80 random pairs of laws (N <= 8); e.g. ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at N = 2, 3, 4, 5."
+    evidence: [EXP-C13-05, EXP-C13-06, EXP-C13-07]
+    novelty: NOT ASSESSED
+  - id: CLM-C13-08
+    type: hypothesis
+    system: SYS-B
+    title: "H-C13-2: laws with an infinite non-trivial affine spectrum are affinely rigid (refuted)"
+    statement: For every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.
+    verification: REFUTED
+    counterexample: "198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8)."
+    evidence: [EXP-C13-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C13-09
+    type: hypothesis
+    system: SYS-B
+    title: "H-C13-5: a one-variable law has spectrum {1} or a cofinite spectrum (refuted)"
+    statement: Every law t1(x) = t2(x) in one variable has anchored spectrum {1} or contains all sufficiently large N.
+    verification: REFUTED
+    counterexample: "x = (xx)x has spectrum exactly {1, 2}: at x = 0 the anchor gives 0 = 2, and x*y = x + 1 is a model of size 2; likewise x = ((xx)x)x has spectrum {1, 3} and x = (((xx)x)x)x has {1, 2, 4} (proofs/paper/C13.md, remark after Theorem 5)."
+    evidence: [EXP-C13-07]
+    novelty: NOT ASSESSED
+  - id: CLM-C13-10
+    type: conjecture
+    system: SYS-B
+    title: Spectra of one-variable laws are finite or cofinite
+    statement: Every one-variable law t1(x) = t2(x) has an anchored spectrum that is either finite or contains all sufficiently large N.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C13-07]
+    novelty: NOT ASSESSED
+    limitations: "Supported only by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}."
+  - id: CLM-C13-11
+    type: theorem
+    system: SYS-B
+    title: Single laws whose affine spectra are classical arithmetic sets
+    statement: |
+      The affine anchored spectrum of a law is {N : the gcd of its affine system has a root mod N} (up to the finitely many
+      exceptional primes of Theorem 1). Among laws with at most 4 leaves (3 variables) or 5 leaves (2 variables) this
+      realises - via the polynomials 2a + 1, 3a + 1, a^2 + 1, a^2 - 2a - 1, a^2 + 2a - 2, a^2 + a + 1, a^2 - a - 1,
+      2a^2 + 2a + 1, 2a^2 - 1, a^4 + 1, a^4 - a^2 + 1 - the odd numbers, the numbers prime to 3, and the numbers N
+      modulo which -1, 2, 3 are squares, x^2 + x + 1 has a root, the golden ratio exists, all prime factors are 1 mod 4,
+      +-1 mod 8 or 1 mod 12, and -1 is a fourth power (e.g. x(xx) = y(xy) for -1 a square, (xx)(xy) = (yy)(yx) for 2
+      a square).
+    verification: PROVEN
+    proof_check: "affine systems computed mechanically (EXP-C13-01) and Theorem 1 (written); the identification of each root set with the stated arithmetic condition is elementary (e.g. a^2 - 2a - 1 = 0 iff (a - 1)^2 = 2); terms <= 200 agree with the OEIS entries A005408, A001651, A008784, A057126, A057125, A034017, A089270, A004613, A058529, A192453, A354467"
+    proof: proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
+    evidence: [EXP-C13-01]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03)."
+  - id: CLM-C13-12
+    type: observation
+    system: SYS-B
+    title: Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found
+    statement: Among the 198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N = 6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C13-02, EXP-C13-05, EXP-C13-06]
+    novelty: NOT ASSESSED
+    limitations: Sizes N <= 8-9 only; a sparse infinite spectrum cannot be recognised from so few sizes. Question 3 of the cycle remains open.
+
+journal:
+  - key: C13-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "Continue C06 - which sets of integers are anchored spectra? Bold hypotheses - H-C13-1 every spectrum is divisor-closed (all C06 examples are); H-C13-2 laws with infinite non-trivial affine spectra are affinely rigid; H-C13-5 one-variable laws have spectrum {1} or cofinite."
+    refs: [CLM-C13-07, CLM-C13-08, CLM-C13-09]
+  - key: C13-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C13-01 - 94,206 laws, 152 distinct affine spectra; every finite one is Div(L); the infinite ones are classical sets (-1, 2, 3 squares; x^2+x+1; golden; cyclotomic conditions), and ~30 cubic/quartic sets are absent from the OEIS."
+    refs: [EXP-C13-01, CLM-C13-01, CLM-C13-11]
+  - key: C13-03
+    agent: Mathematical Skeptic
+    kind: result
+    text: "EXP-C13-02 refuted H-C13-2 - 198 of 199 laws have non-affine models. In the same data x = x(x(xx)) has models at N = 4 but none at N = 2 - H-C13-1 refuted as well; a hand proof and a Lean proof (cube_law_no_two, cubeOp_model) followed."
+    refs: [EXP-C13-02, CLM-C13-05, CLM-C13-07, CLM-C13-08]
+  - key: C13-04
+    agent: Formal Verifier
+    kind: proof
+    text: "Generalised C06's golden-law argument - substituting z = 0 in (xy)z = x V(y,z) gives x*sigma(y) = x*y + 1, which forces a translation table; for V = y W(z) the shift equation forces linearity, giving the W-family theorem. Formalised in Lean for every one-variable term W (inductive type T1), together with C06 Theorem 6 (golden law), which C06 had left as a Lean target."
+    refs: [CLM-C13-02, CLM-C13-03, proofs/lean/Infinity/C13_Spectra.lean]
+  - key: C13-05
+    agent: Formal Verifier
+    kind: proof
+    text: "Two laws of CLM-C06-10 proved in Lean (spectra exactly {1,3} and {1,2}). The hand proofs share a pattern - law instances at small elements, the anchor, functionality of the table - which was automated as offset congruence closure (sound, incomplete); it settles 16 of the 17 laws and 6,912 laws of the 3-variable family, with 0 contradictions in 1,245 SAT checks."
+    refs: [CLM-C13-04, CLM-C13-06, EXP-C13-08]
+  - key: C13-06
+    agent: Mathematical Skeptic
+    kind: result
+    text: "Divisor-closure fails often - 24/253 one-variable laws, 81/300 two-variable laws, 29/150 three-variable laws and 17/80 pairs. H-C13-5 also fails - x = (xx)x has spectrum {1, 2}. Two first runs were stopped for exceeding the time budget (hard UNSAT instances near the conflict limit) and replaced by smaller, documented ones."
+    refs: [EXP-C13-05, EXP-C13-06, EXP-C13-07, CLM-C13-09]
+  - key: C13-07
+    agent: Historian
+    kind: novelty
+    text: "The arithmetic sets are classical (OEIS entries read; quadratic ones are represented-by-a-form sets; roots of the tribonacci polynomial mod p studied by Klaska-Skula and Moree-Noubissie). Spectra of varieties (sets of sizes of finite algebras) are studied in universal algebra (Taylor 1980, 'Maltsev conditions and spectra'; Kearnes); there spectra are closed under all products, whereas anchored spectra are only closed under coprime products. No source realising these sets by single anchored magma laws was found."
+    refs: [CLM-C13-03, CLM-C13-11]
+  - key: C13-08
+    agent: Application Researcher
+    kind: result
+    text: No application found. The offset closure is a reusable tool for bounding the sizes of finite models of identities with a successor-type constant; it was not benchmarked against general finite-model provers (Mace4, Paradox), so no improvement is claimed.
+    refs: [CLM-C13-06]
+
+next_directions:
+  - "C13: prove the last case of CLM-C06-10, x(yz) = y((yx)z) (spectrum {1,2}, with a non-affine model at N = 2)"
+  - "C13: which arithmetic sets are TRUE spectra of rigid laws? Find a rigid law realising '-1 is a square mod N' (A008784)"
+  - "C13: prove that spectra of one-variable laws are finite or cofinite (CLM-C13-10)"
+  - "C13: search larger laws for a non-affine sparse (Laver-like) spectrum other than left-distributivity"
+  - "C13: submit the tribonacci-law and plastic-number spectra to the OEIS (human decision)"

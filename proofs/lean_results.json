@@ -306,14 +306,14 @@
         "Quot.sound",
         "propext"
       ],
-      "checked": "2026-10-18T16:55:21Z",
+      "checked": "2026-10-18T17:12:47Z",
       "exit_code": 0,
       "native_decide": false,
       "nonstandard_axioms": [],
       "ok": true,
-      "output_tail": "/home/user/ai_lab/proofs/lean/Infinity/C13_Spectra.lean:397:2: warning: Try this: \n  haveI̵\n\nThe goal is a proposition, so `have` is preferred over `haveI`.\nThe difference between `have` and `haveI` is that `haveI` inlines the value.\nBut this is not relevant for proofs because of proof irrelevance.\n\nNote: This linter can be disabled with `set_option linter.style.haveILetI false`\n'Infinity.C13.law13_size_dvd_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law13_model_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_size_dvd_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_model_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.translation_form' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.linear_of_shift' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.w_family_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.w_family_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.right_normed_translation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cube_law_no_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cubeOp_model' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
-      "seconds": 7.17,
-      "sha256": "cbe119e1a05e1acd866cc5fb182092915bb6ae0ab287b87a9870c0e45beeb205",
+      "output_tail": "'Infinity.C13.law13_size_dvd_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law13_model_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_size_dvd_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law12_model_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.translation_form' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.linear_of_shift' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.golden_law_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.w_family_models' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.w_family_model_of_root' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.right_normed_translation' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cube_law_no_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.cubeOp_model' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 7.05,
+      "sha256": "abc8f19c80572912019b83e588f6c1213abda0d186d820b5a539c3002acf5fbb",
       "sorry": false,
       "theorems": [
         "law13_rr",
@@ -395,6 +395,30 @@
         "ca_comm_binomial"
       ]
     },
+    "proofs/lean/Infinity/C16_Dynamics.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-18T17:12:53Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C16.pairMap_injective_iff' depends on axioms: [propext]\n'Infinity.C16.pairMap_bijective_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C16.mirrorMap_eq' depends on axioms: [Quot.sound]\n'Infinity.C16.pairMap_fixed_iff' depends on axioms: [propext]\n'Infinity.C16.top_two_cycle' depends on axioms: [propext]\n'Infinity.C16.anchored_fibonacci' depends on axioms: [propext, Quot.sound]\n",
+      "seconds": 6.07,
+      "sha256": "af1aa415bb17630241a0acf1aea70243efbeb9215fd65779998a7018b4bb985b",
+      "sorry": false,
+      "theorems": [
+        "pairMap_injective_iff",
+        "pairMap_bijective_iff",
+        "mirrorMap_eq",
+        "pairMap_fixed_iff",
+        "top_two_cycle",
+        "anchored_fibonacci"
+      ]
+    },
     "proofs/lean/Infinity/C18_Quasigroups.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -420,5 +444,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-18T16:55:29Z"
+  "updated": "2026-10-18T17:12:53Z"
 }

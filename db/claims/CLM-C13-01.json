@@ -1,0 +1,24 @@
+{
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-01",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Elementary consequences of the CRT and of classical facts on polynomial congruences; the reduction of identities to conditions on affine (linear) representations is standard for quasigroups and medial magmas (Toyoda-Bruck). Recorded as the lab's tool, not as new mathematics.",
+  "proof": "proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra",
+  "proof_check": "written proof (proofs/paper/C13.md Theorem 1; Chinese remainder theorem, Bezout in Q[a], Gauss's lemma, Schur's theorem); consistent with all 152 spectra of EXP-C13-01 (every finite one is Div(L)); awaiting independent skeptic review",
+  "statement": "For any finite set E of laws, the anchored affine tables are exactly x*y = x + a*y + 1, and the affine spectrum\nAff(E) is the set of N for which the affine system of E (polynomials in Z[a]) has a common root mod N. Aff(E) is\nclosed under divisors and under coprime products; if the system has no common factor over Q it is finite and\nequal to the set of divisors of its maximum L (which divides a resultant of the system), and otherwise it is\ninfinite.",
+  "system": "SYS-B",
+  "title": "Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed, finite ones are divisor sets",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

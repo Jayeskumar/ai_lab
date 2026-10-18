@@ -1,0 +1,22 @@
+{
+  "counterexample": "x = (xx)x has spectrum exactly {1, 2}: at x = 0 the anchor gives 0 = 2, and x*y = x + 1 is a model of size 2; likewise x = ((xx)x)x has spectrum {1, 3} and x = (((xx)x)x)x has {1, 2, 4} (proofs/paper/C13.md, remark after Theorem 5).",
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-09",
+  "novelty": "NOT ASSESSED",
+  "statement": "Every law t1(x) = t2(x) in one variable has anchored spectrum {1} or contains all sufficiently large N.",
+  "system": "SYS-B",
+  "title": "H-C13-5: a one-variable law has spectrum {1} or a cofinite spectrum (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

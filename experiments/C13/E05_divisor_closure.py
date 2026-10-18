@@ -66,7 +66,7 @@ def run():
         if any(st.get(n) == "SAT" for n in ORDER):
             rows.append({"law": law_str(k), "status": st})
     return {"n_laws": len(keys), "n_with_nontrivial_models": len(rows), "violations": violations,
-            "unknown": unknown, "calls": calls, "rows": rows, "runtime_s": round(time.perf_counter() - t0, 1),
+            "unknown": unknown, "calls": calls, "rows": rows, "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"{len(keys)} sampled laws; {len(rows)} have a model of some size 2..9",
                         f"divisor-closure violations: {len(violations)} {[v['law'] for v in violations[:5]]}",
                         f"UNKNOWN: {len(unknown)}; decisions {calls}"]}

@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Search methods for full-period quasigroups with fixed budgets - lexicographic DFS finds a first solution for n = 5..8 (731 to 222,753 nodes) but none for n = 9, 10 within 3,000,000 nodes; the SAT encoding (CaDiCaL) solves n = 5..8 and returns UNKNOWN for n = 9, 10 after 300,000 conflicts; seeded random sampling of Latin squares succeeds for every n = 5..10 (30, 22, 21, 22, 14, 9 hits per 1500, rates close to 1/n^2). A partial DFS enumeration for n = 6 finds 1136 normalised cycles within 20,000,000 nodes without finishing.",
   "assumptions": [
     "deterministic budgets - DFS: 3,000,000 nodes per n (first solution) and 20,000,000 nodes for the partial count at n = 6; SAT (CaDiCaL via pysat): 300,000 conflicts per n; sampling: seeded",
     "every solution is re-verified by an independent cycle analysis"
@@ -18,12 +19,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T17:10:08Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Search methods for full-period quasigroups with fixed budgets - lexicographic DFS finds a first solution for n = 5..8 (731 to 222,753 nodes) but none for n = 9, 10 within 3,000,000 nodes; the SAT encoding (CaDiCaL) solves n = 5..8 and returns UNKNOWN for n = 9, 10 after 300,000 conflicts; seeded random sampling of Latin squares succeeds for every n = 5..10 (30, 22, 21, 22, 14, 9 hits per 1500, rates close to 1/n^2). A partial DFS enumeration for n = 6 finds 1136 normalised cycles within 20,000,000 nodes without finishing.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "verification",
+      "new": "COMPUTATIONALLY SUPPORTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C16-10",
+        "CLM-C16-19"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C16-11 (Explorer): exact search (lexicographic DFS, SAT) scales worse than random sampling of Latin squares, whose success rate is about 1/n^2 per sample.",
   "id": "EXP-C16-05",
   "methodology": "For n = 5..10 run the lexicographic DFS and the SAT encoding with the budgets above; count the solutions the DFS enumerates for n = 6 within its budget (a lower bound, normalised cycles); sample 1500 random Latin squares per n and record the success rate.",
   "question": "Which method finds full-period quasigroups (cycles with all pairs distinct at distances 1 and 2) for growing n, and what does a partial count for n = 6 show?",
+  "related": [
+    "CLM-C16-10",
+    "CLM-C16-19"
+  ],
   "results_file": "results/EXP-C16-05.json",
   "results_sha256": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
   "runs": [
@@ -61,5 +96,6 @@
     "n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500",
     "n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)"
   ],
-  "title": "Search methods for full-period quasigroups: depth-first search, SAT and random sampling"
+  "title": "Search methods for full-period quasigroups: depth-first search, SAT and random sampling",
+  "verification": "COMPUTATIONALLY SUPPORTED"
 }

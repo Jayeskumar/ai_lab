@@ -1,0 +1,24 @@
+{
+  "counterexample": "x = x(x(xx)) has models of every size except 2 (CLM-C13-05, Lean). Violations are common - 24 of 253 one-variable laws (N <= 12), 81 of 300 random 2-variable laws (N <= 9), 29 of 150 random 3-variable laws and 17 of 80 random pairs of laws (N <= 8); e.g. ((xy)x)y = (y(xx))x has models at N = 6 and 8 but none at N = 2, 3, 4, 5.",
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-05",
+    "EXP-C13-06",
+    "EXP-C13-07"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-07",
+  "novelty": "NOT ASSESSED",
+  "statement": "If a set of laws has an anchored model of size N, it has one of every size d dividing N.",
+  "system": "SYS-B",
+  "title": "H-C13-1: every anchored spectrum is closed under divisors (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

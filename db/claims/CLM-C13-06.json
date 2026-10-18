@@ -1,0 +1,25 @@
+{
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-08",
+    "EXP-C13-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-06",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Congruence closure with integer offsets is a standard decision-procedure idea (difference/offset equalities, Nelson-Oppen style); its use as a spectrum prover for anchored magmas is the lab's.",
+  "proof": "proofs/paper/C13.md#theorem-6-clm-c13-06--soundness-of-offset-congruence-closure",
+  "proof_check": "written soundness proof (proofs/paper/C13.md Theorem 6); applications computer-assisted (Python, EXP-C13-08) - trust base is the closure code, cross-checked against SAT/affine models on 603 laws (235 with a bound, 1,245 sizes) with 0 contradictions; awaiting independent skeptic review",
+  "statement": "The procedure offset_closure_bound (systems/anchored.py) returns g >= 0 such that N | g for every anchored model of\nsize N. If g > 0 and every divisor of g admits an affine model, the anchored spectrum is exactly Div(g). This proves\nthe conjectured spectra {1,3} resp. {1,2} of CLM-C06-10 for all its laws except x(yz) = y((yx)z), and the exact\nfinite spectrum Div(g) for 6,912 of the 18,581 laws over {x,y,z} with <= 4 leaves per side (6,045 of them have\nonly the trivial model).",
+  "system": "SYS-B",
+  "title": "Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of the 17 laws of CLM-C06-10",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

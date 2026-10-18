@@ -69,7 +69,7 @@ def run():
     return {"n_laws": len(rows), "rows": rows, "violations": violations, "unknown": unknown,
             "trivial_only": trivial, "models_for_all_7_to_12": cofinite_like, "other": other,
             "missing_patterns": [{"count": c, "missing_le12": m, "examples": e} for c, m, e in pat],
-            "runtime_s": round(time.perf_counter() - t0, 1),
+            "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"{len(rows)} one-variable laws; spectrum {{1}}: {len(trivial)}; models for every N in 7..12: "
                         f"{len(cofinite_like)}; other: {len(other)} {other[:4]}",
                         f"divisor-closure violations: {len(violations)} e.g. "

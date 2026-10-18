@@ -1,0 +1,23 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-05",
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C16-19",
+  "limitations": "Budgets are arbitrary; a better SAT encoding or symmetry breaking may scale further.",
+  "novelty": "NOT ASSESSED",
+  "statement": "With fixed budgets, lexicographic DFS (3e6 nodes) and a SAT encoding (3e5 conflicts) find full-period quasigroups only up to n = 8, while seeded sampling of random Latin squares finds them for every n = 5..16 at rates close to 1/n^2 (H-C16-11).",
+  "system": "SYS-E",
+  "title": "Random sampling finds full-period quasigroups where exact search fails",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

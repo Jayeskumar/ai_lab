@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "Affine atlas. The 18,581 laws over {x,y,z} with <= 4 leaves per side fall into 2,400 affine systems and 27 distinct affine spectra; the 75,625 laws over {x,y} with <= 5 leaves per side into 3,631 systems and 125 spectra. Every finite affine spectrum is a divisor set Div(L) (80 values of L up to 328). The infinite ones are classical number-theoretic sets, identified by OEIS - odd numbers (A005408), 3 does not divide N (A001651), -1 is a square (A008784), 2 is a square (A057126), 3 is a square (A057125), x^2+xy+y^2 (A034017), golden (A089270), prime factors 1 mod 4 (A004613), prime factors +-1 mod 8 (A058529), -1 a fourth power (A192453), prime factors 1 mod 12 (A354467), forms of discriminant -7, -11, 13 (A244779, A244780, A243656) and -8-type (A225771); about thirty cubic and quartic conditions (plastic number x^3 - x - 1, tribonacci, tetranacci, 5th cyclotomic polynomial, ...) give sequences with no OEIS match.",
   "assumptions": [
     "laws up to renaming of variables and exchange of sides; s != t",
     "affine spectra computed through prime powers <= 200 (CRT); finite spectra computed exactly from a resultant bound",
@@ -19,12 +20,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T08:57:45Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Affine atlas. The 18,581 laws over {x,y,z} with <= 4 leaves per side fall into 2,400 affine systems and 27 distinct affine spectra; the 75,625 laws over {x,y} with <= 5 leaves per side into 3,631 systems and 125 spectra. Every finite affine spectrum is a divisor set Div(L) (80 values of L up to 328). The infinite ones are classical number-theoretic sets, identified by OEIS - odd numbers (A005408), 3 does not divide N (A001651), -1 is a square (A008784), 2 is a square (A057126), 3 is a square (A057125), x^2+xy+y^2 (A034017), golden (A089270), prime factors 1 mod 4 (A004613), prime factors +-1 mod 8 (A058529), -1 a fourth power (A192453), prime factors 1 mod 12 (A354467), forms of discriminant -7, -11, 13 (A244779, A244780, A243656) and -8-type (A225771); about thirty cubic and quartic conditions (plastic number x^3 - x - 1, tribonacci, tetranacci, 5th cyclotomic polynomial, ...) give sequences with no OEIS match.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C13-01",
+        "CLM-C13-11"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C13-3: affine spectra are exactly the sets {N : a fixed polynomial system has a root mod N}; they are divisor-closed and closed under coprime products, every finite one is the set of divisors of a single integer, and the infinite ones are governed by the Q-gcd of the system (a classical quadratic/cubic residue condition plus finitely many exceptional primes).",
   "id": "EXP-C13-01",
   "methodology": "Evaluate both sides as linear forms with coefficients in Z[a]; the law's affine system is the set of coefficient differences. Group laws by system, then systems by spectrum. For each system compute the gcd over Q[a]; if it is constant, bound the spectrum by the gcd of the pairwise resultants R and find the largest prime powers dividing R that admit a common root; otherwise record the gcd polynomial. Look up every infinite spectrum in the OEIS and record the hits.",
   "question": "For every law s = t over {x,y,z} with at most 4 leaves per side (up to renaming and exchange of sides), and every law over {x,y} with at most 5 leaves per side, which sets of N admit an affine anchored model x*y = x + a*y + 1 (mod N)? Which arithmetic sets occur?",
+  "related": [
+    "CLM-C13-01",
+    "CLM-C13-11"
+  ],
   "results_file": "results/EXP-C13-01.json",
   "results_sha256": "ba2746d029908a443047ead6bef68e44e7795bb54f23e0477e6446a7ac27b94a",
   "runs": [
@@ -89,5 +124,6 @@
     "every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 2",
     "OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a + 1] MATCH ['A244779']; [2*a**2 - 1] MATCH ['A058529', 'A253408']; [3*a + 1] MATCH ['A001651', 'A224999']; [a**2 + a - 3] MATCH ['A243656']; [a**2 + 2*a - 2] MATCH ['A057125']; [a**3 + 2*a**2 + 1] NO MATCH []; [a**3 - 2*a**2 - a - 1] NO MATCH []; [a**3 + 2*a**2 - a - 1] NO MATCH []; [2*a**2 + 2*a + 1] MATCH ['A004613']; [2*a**2 - 2*a - 1] NO MATCH []; [a**3 + a**2 + a - 2] NO MATCH []; [2*a**2 + a - 2] NO MATCH []; [a**4 + a**3 + 1] NO MATCH []; [a**4 - a**3 - 1] NO MATCH []; [a**4 + 1] MATCH ['A192453']; [a**4 + a**3 + a**2 + 1] NO MATCH []; [a**4 - a**2 - 1] NO MATCH []; [a**4 - a**3 - a**2 - a - 1] NO MATCH []; [a**4 + a**3 - a**2 - a - 1] NO MATCH []; [2*a**3 + 1] NO MATCH []; [a**4 + a**3 + a**2 + a + 1] NO MATCH []; [a**4 - a**3 - a - 1] NO MATCH []; [a**4 - a**3 + a + 1] NO MATCH []; [a**4 - a**3 + a**2 + a + 1] NO MATCH []; [a**4 - a**2 + 1] MATCH ['A354467']; [a**4 + a**3 - a**2 + a + 1] NO MATCH []; [a**4 - a**3 - a**2 + a + 1] NO MATCH []; [2*a**3 + a + 1] NO MATCH []; [2*a**3 + a**2 + a + 1] NO MATCH []; [2*a**3 - a**2 - a - 1] NO MATCH []; [2*a**3 - a**2 + 1] NO MATCH []; [2*a**3 + a**2 - a - 1] NO MATCH []; [3*a**2 + a + 1] MATCH ['A244780']; [3*a**2 + 1] NO MATCH []; [3*a**2 - 1] NO MATCH []"
   ],
-  "title": "Atlas of affine anchored spectra for all laws with at most 4 leaves per side (and 2-variable laws with at most 5)"
+  "title": "Atlas of affine anchored spectra for all laws with at most 4 leaves per side (and 2-variable laws with at most 5)",
+  "verification": "PROVEN"
 }

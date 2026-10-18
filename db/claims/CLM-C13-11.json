@@ -1,0 +1,24 @@
+{
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-11",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03).",
+  "proof": "proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra",
+  "proof_check": "affine systems computed mechanically (EXP-C13-01) and Theorem 1 (written); the identification of each root set with the stated arithmetic condition is elementary (e.g. a^2 - 2a - 1 = 0 iff (a - 1)^2 = 2); terms <= 200 agree with the OEIS entries A005408, A001651, A008784, A057126, A057125, A034017, A089270, A004613, A058529, A192453, A354467",
+  "statement": "The affine anchored spectrum of a law is {N : the gcd of its affine system has a root mod N} (up to the finitely many\nexceptional primes of Theorem 1). Among laws with at most 4 leaves (3 variables) or 5 leaves (2 variables) this\nrealises - via the polynomials 2a + 1, 3a + 1, a^2 + 1, a^2 - 2a - 1, a^2 + 2a - 2, a^2 + a + 1, a^2 - a - 1,\n2a^2 + 2a + 1, 2a^2 - 1, a^4 + 1, a^4 - a^2 + 1 - the odd numbers, the numbers prime to 3, and the numbers N\nmodulo which -1, 2, 3 are squares, x^2 + x + 1 has a root, the golden ratio exists, all prime factors are 1 mod 4,\n+-1 mod 8 or 1 mod 12, and -1 is a fourth power (e.g. x(xx) = y(xy) for -1 a square, (xx)(xy) = (yy)(yx) for 2\na square).",
+  "system": "SYS-B",
+  "title": "Single laws whose affine spectra are classical arithmetic sets",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

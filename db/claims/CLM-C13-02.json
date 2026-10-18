@@ -1,0 +1,27 @@
+{
+  "cycle": "C13",
+  "evidence": [
+    "EXP-C13-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C13",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C13-02",
+  "lean": [
+    "proofs/lean/Infinity/C13_Spectra.lean"
+  ],
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.",
+  "proof": "proofs/paper/C13.md#theorem-2-clm-c13-02--right-normed-laws-have-only-translation-models",
+  "proof_check": "Lean 4 + Mathlib (translation_form, right_normed_translation; standard axioms only); written proof proofs/paper/C13.md Theorem 2",
+  "statement": "For every term V(y, z) not containing x, every anchored model of (x*y)*z = x*V(y, z) is a translation table x*y = x + 1 + k(y) with k a permutation of Z/N fixing 0, and k satisfies k(V(y,z)) = k(y) + k(z) + 1.",
+  "system": "SYS-B",
+  "title": "Right-normed laws (xy)z = x V(y,z) have only translation models",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

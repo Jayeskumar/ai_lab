@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Theorem 3 (W-family) tested before it was proved - for all 23 one-variable terms W with <= 5 leaves and N = 1..9, the anchored models of (xy)z = x(y W(z)) are exactly the affine tables with a*c_W(a) = 1: 0 mismatches. 16 distinct polynomials c_W occur; the golden law gives A089270, c_W = 1 + 3a gives A243656, c_W = 1 + a + 2a^2 gives the odd numbers, and the tribonacci and tetranacci laws give spectra not in the OEIS.",
   "assumptions": [
     "complete SAT enumeration of anchored models (limit 100) for N = 1..9",
     "spectra up to 200 from the root condition; OEIS lookups for the distinct polynomials"
@@ -8,7 +9,7 @@
     "command": "python -m lab run EXP-C13-03",
     "file": "experiments/C13/E03_w_family.py",
     "sha256": "8fc32967625979e6ca724f4c11ce279fb9b25c95884feb3d1f65fe3fb1bf8926",
-    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "cycle": "C13",
   "falsification": "A model count differing from the root count, or a non-affine model.",
@@ -18,14 +19,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:25:49Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Theorem 3 (W-family) tested before it was proved - for all 23 one-variable terms W with <= 5 leaves and N = 1..9, the anchored models of (xy)z = x(y W(z)) are exactly the affine tables with a*c_W(a) = 1: 0 mismatches. 16 distinct polynomials c_W occur; the golden law gives A089270, c_W = 1 + 3a gives A243656, c_W = 1 + a + 2a^2 gives the odd numbers, and the tribonacci and tetranacci laws give spectra not in the OEIS.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C13-03"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C13-4 (derived): for all 23 terms W with <= 5 leaves and all N <= 9 the number of anchored models equals the number of roots of a*c_W(a) - 1 modulo N, and every model is affine.",
   "id": "EXP-C13-03",
   "methodology": "For each W: build the law, compute c_W and the root counts; enumerate all anchored models with MagmaSAT and test each for affinity and for the root condition; compare counts.",
   "question": "Are the anchored models of (xy)z = x(y W(z)) exactly the affine tables x + a*y + 1 with a*c_W(a) = 1 (mod N), c_W(a) = sum over leaves of a^(right depth), as Theorem 3 of proofs/paper/C13.md asserts? Which arithmetic sets do these laws realise?",
+  "related": [
+    "CLM-C13-03"
+  ],
   "results_file": "results/EXP-C13-03.json",
-  "results_sha256": "706180c29321176d7d2cc11e22b92c0dbf51e78035f0fa663f77a53f9061610f",
+  "results_sha256": "674131101d9ae87aee0f8d3faaf49734de122afe3dca69f44d9eb05308ac8f8b",
   "runs": [
     {
       "code": {
@@ -46,6 +79,26 @@
         "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
         "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
       ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-03",
+        "file": "experiments/C13/E03_w_family.py",
+        "sha256": "8fc32967625979e6ca724f4c11ce279fb9b25c95884feb3d1f65fe3fb1bf8926",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:12:21Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-03.json",
+      "results_sha256": "674131101d9ae87aee0f8d3faaf49734de122afe3dca69f44d9eb05308ac8f8b",
+      "runtime_s": 74.198,
+      "started": "2026-10-18T17:11:07Z",
+      "summary": [
+        "23 terms W; N = 1..9; mismatches with Theorem 3: 0",
+        "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
+        "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
+      ]
     }
   ],
   "summary": [
@@ -53,5 +106,6 @@
     "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
     "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
   ],
-  "title": "Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves"
+  "title": "Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves",
+  "verification": "PROVEN"
 }

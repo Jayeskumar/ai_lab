@@ -106,7 +106,7 @@ def run():
             resp.append({"laws": name, "status": st})
     return {"pool_size": len(pool), "sample": [law_str(k) for k in sample], "violations_3var": viol3,
             "violations_pairs": violp, "unknown_3var": unk3, "unknown_pairs": unkp, "with_models_3var": res3,
-            "with_models_pairs": resp, "calls": tot, "runtime_s": round(time.perf_counter() - t0, 1),
+            "with_models_pairs": resp, "calls": tot, "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"3-var: {len(sample)} of {len(pool)} candidate laws; {len(res3)} with a model of size 2..8; "
                         f"violations {len(viol3)} {[v['law'] for v in viol3[:4]]}; UNKNOWN {len(unk3)}",
                         f"pairs: 80; {len(resp)} with a model of size 2..8; violations {len(violp)} "

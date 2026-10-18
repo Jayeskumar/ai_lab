@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    }
+  ],
+  "id": "CLM-C16-18",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "The literature studies the Fibonacci length for generating pairs (Knox, Fibonacci Quart. 30 (1992): period 6 for dihedral groups, consistent with D4 here); the maximum over all pairs was not compared in detail.",
+  "proof": "proofs/paper/C16.md#computation-12-clm-c16-18--maximal-periods-of-small-groups",
+  "proof_check": "computer-assisted - exhaustive functional-graph analysis of the pair maps (EXP-C16-03)",
+  "statement": "Over all pairs of elements, the maximal period of x_{k+1} = x_k x_{k-1} is 8 in S3, 6 in D4, 6 in Q8, 16 in A4 and 18 in S4.",
+  "system": "SYS-E",
+  "title": "Maximal Fibonacci periods of small groups",
+  "type": "observation",
+  "verification": "PROVEN"
+}

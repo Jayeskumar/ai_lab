@@ -46,7 +46,7 @@ def run():
                          "unknown_N": [N for N, p in prof.items() if p["non_affine"] == "UNKNOWN"],
                          "profile": prof})
     agree = [r["law"] for r in rows if str(set(r["spectrum_le12"])).replace(" ", "") == r["conjectured"]]
-    return {"rows": rows, "agree": agree, "runtime_s": round(time.perf_counter() - t0, 1),
+    return {"rows": rows, "agree": agree, "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"{len(rows)} laws; spectrum (N <= 12) equals the conjectured set for {len(agree)}",
                         "non-affine models: " + "; ".join(f"{r['law']} at {r['non_affine_N']}" for r in rows
                                                           if r["non_affine_N"]),

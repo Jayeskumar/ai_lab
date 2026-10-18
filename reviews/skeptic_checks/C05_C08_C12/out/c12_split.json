@@ -1,0 +1,14 @@
+{
+ "random_relations": 60,
+ "random_relation_failures": [],
+ "G16_parity_bad": [],
+ "G17_parity_bad": [],
+ "G18_grundys_game_parity_bad": [
+  2,
+  3,
+  4,
+  5,
+  8
+ ],
+ "wall_seconds": 0.3
+}

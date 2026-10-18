@@ -1,0 +1,9 @@
+{
+ "G13_popcount_bad": [],
+ "G19_formula_bad": [],
+ "G19_formula_vs_threshold_form_bad": [],
+ "G20_bad": [],
+ "powers_of_k_bad": [],
+ "seconds": 2.8,
+ "wall_seconds": 2.8
+}

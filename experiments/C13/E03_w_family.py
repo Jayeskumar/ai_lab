@@ -74,7 +74,7 @@ def run():
                                                                        for h in r.get("hits", [])[:3]],
                                   "spectrum_head": spec[:16]}
     return {"rows": rows, "mismatches": mismatches, "distinct_P": list(seen_P.values()), "oeis": lookups,
-            "runtime_s": round(time.perf_counter() - t0, 1),
+            "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"{len(rows)} terms W; N = 1..9; mismatches with Theorem 3: {len(mismatches)}",
                         f"{len(seen_P)} distinct polynomials P = c_W: " + ", ".join(v["P"] for v in seen_P.values()),
                         "OEIS: " + "; ".join(f"[{k}] {v['status']} {v['hits'][:1]}" for k, v in lookups.items())]}

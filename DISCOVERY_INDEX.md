@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T17:10:29Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T17:12:39Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 113 |
-| COMPUTATIONALLY SUPPORTED | 34 |
+| PROVEN | 121 |
+| COMPUTATIONALLY SUPPORTED | 37 |
 | CONJECTURE | 5 |
-| REFUTED | 40 |
+| REFUTED | 43 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 97 |
-| POTENTIALLY NOVEL | 44 |
-| NOT ASSESSED | 53 |
+| REDISCOVERY | 98 |
+| POTENTIALLY NOVEL | 48 |
+| NOT ASSESSED | 62 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -96,6 +96,13 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C12-06 | Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, … | (a) machine-checked in Lean (Infinity.C12.residue_grundy, I… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | written proof (proofs/paper/C12.md Theorem 7) from the Furs… | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | written proof (proofs/paper/C13.md Theorem 1; Chinese remai… | REDISCOVERY | EXP-C13-01 |
+| CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | Lean 4 + Mathlib (translation_form, right_normed_translatio… | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | Lean 4 + Mathlib for the model correspondence for every W (… | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, … | POTENTIALLY NOVEL | EXP-C13-04 |
+| CLM-C13-05 | The law x = x(x(xx)) has anchored models of every size except 2 | Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an exp… | NOT ASSESSED | EXP-C13-07 |
+| CLM-C13-06 | Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of … | written soundness proof (proofs/paper/C13.md Theorem 6); ap… | NOT ASSESSED | EXP-C13-08, EXP-C13-04 |
+| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | affine systems computed mechanically (EXP-C13-01) and Theor… | POTENTIALLY NOVEL | EXP-C13-01 |
 | CLM-C14-01 | Associativity of a local graph product is a finite identity on relations, detected by P3 … | Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty,… | NOT ASSESSED | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | Lean 4 kernel computation (assoc_codes, comm_assoc_codes by… | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-03 | For local graph products, associativity and commutativity up to isomorphism are no weaker… | computer-assisted - explicit witnesses for all 236 + 224 co… | NOT ASSESSED | EXP-C14-02, EXP-C14-06 |
@@ -123,6 +130,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C16-12 | Affine magmas: periods are orders of companion matrices; the anchored magma x + y + 1 is … | written proof (proofs/paper/C16.md Theorem 9, conjugation t… | REDISCOVERY | EXP-C16-03 |
 | CLM-C16-14 | Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1) | written proof (proofs/paper/C16.md Theorem 10, discrete log… | REDISCOVERY | EXP-C16-03 |
 | CLM-C16-15 | Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycle… | written proof (proofs/paper/C16.md Theorem 11) from Laver's… | POTENTIALLY NOVEL | EXP-C16-03 |
+| CLM-C16-18 | Maximal Fibonacci periods of small groups | computer-assisted - exhaustive functional-graph analysis of… | NOT ASSESSED | EXP-C16-03 |
 | CLM-C17-01 | Light's test: generators suffice for associativity | written proof (proofs/paper/C17.md Theorem 1, four-line clo… | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-02 | Associativity of an anchored magma is decided by one O(n^2) identity | written proof (proofs/paper/C17.md Corollary 2) from C06 Th… | NOT ASSESSED | EXP-C17-01, EXP-C17-02 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | one-sidedness proved (proofs/paper/C17.md Theorem 3, biline… | REDISCOVERY | EXP-C17-01 |
@@ -165,6 +173,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C10-01 |
 | CLM-C11-08 | Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-ra… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C11-03, EXP-C11-04, EXP-C11-05, EXP-C11-09 |
 | CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C13-10 | Spectra of one-variable laws are finite or cofinite | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C13-07 |
+| CLM-C13-12 | Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like s… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C13-02, EXP-C13-05, EXP-C13-06 |
 | CLM-C14-12 | Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmet… | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
 | CLM-C15-07 | Census of order-3 magma automata by streaming width | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-02 |
@@ -173,10 +183,11 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C15-15 | Fuse fast-forward by burn times | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C15-03 |
 | CLM-C15-16 | Cycle detection as a generic fast-forward | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C15-04 |
 | CLM-C15-17 | Earlier structures of the lab as automata | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C15-05 |
-| CLM-C16-10 | Full-period quasigroups exist for every order n >= 5 | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-02 |
+| CLM-C16-10 | Full-period quasigroups exist for every order n >= 5 | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-02, EXP-C16-05 |
 | CLM-C16-13 | For affine magmas the maximal period equals the order of the 3x3 affine matrix | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-03 |
 | CLM-C16-16 | Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-03 |
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C16-04 |
+| CLM-C16-19 | Random sampling finds full-period quasigroups where exact search fails | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-05, EXP-C16-02 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (N <= 10) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-02 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
@@ -218,6 +229,10 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | PROVEN | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
 | CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | PROVEN | POTENTIALLY NOVEL | EXP-C11-09 |
 | CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
+| CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | PROVEN | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | PROVEN | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | PROVEN | POTENTIALLY NOVEL | EXP-C13-04 |
+| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | PROVEN | POTENTIALLY NOVEL | EXP-C13-01 |
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |
@@ -312,6 +327,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | PROVEN | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
 | CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
+| CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | PROVEN | REDISCOVERY | EXP-C13-01 |
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | PROVEN | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | PROVEN | REDISCOVERY | EXP-C14-04 |
@@ -379,6 +395,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C11-06 | Average gain of an unbordered terminator over 1^k: log_lambda(1/(lambda-1)), then converg… | REFUTED | NOT ASSESSED | EXP-C11-06, EXP-C11-07 |
 | CLM-C12-10 | H-C12-1: Grundy values of divisibility/coprimality games depend only on the prime signatu… | REFUTED | NOT ASSESSED | EXP-C12-05 |
 | CLM-C12-11 | H-C12-2: sparse move sets keep a positive density of P-positions (refuted) | REFUTED | NOT ASSESSED | EXP-C12-03 |
+| CLM-C13-07 | H-C13-1: every anchored spectrum is closed under divisors (refuted) | REFUTED | NOT ASSESSED | EXP-C13-05, EXP-C13-06, EXP-C13-07 |
+| CLM-C13-08 | H-C13-2: laws with an infinite non-trivial affine spectrum are affinely rigid (refuted) | REFUTED | NOT ASSESSED | EXP-C13-02 |
+| CLM-C13-09 | H-C13-5: a one-variable law has spectrum {1} or a cofinite spectrum (refuted) | REFUTED | NOT ASSESSED | EXP-C13-07 |
 | CLM-C14-08 | H-C14-3: the six commutative unital associative products factor uniquely on connected (or… | REFUTED | NOT ASSESSED | EXP-C14-04, EXP-C14-06 |
 | CLM-C15-08 | H-C15-1: streaming width is either bounded or geometric (refuted) | REFUTED | NOT ASSESSED | EXP-C15-02, EXP-C15-05 |
 | CLM-C15-09 | H-C15-2: bounded width exactly for semigroups, affine magmas and bounded light cones (ref… | REFUTED | NOT ASSESSED | EXP-C15-02 |

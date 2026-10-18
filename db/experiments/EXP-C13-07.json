@@ -1,5 +1,6 @@
 {
   "agent": "Mathematical Explorer",
+  "analysis": "All 253 one-variable laws with <= 5 leaves per side, N <= 12, complete SAT - 213 have models of every size, 9 only N = 1, 24 violate divisor-closure (spectra missing exactly {2}, {3} or {2,3}), and the left combs x = (xx)x, x = ((xx)x)x, x = (((xx)x)x)x have spectra exactly Div(2), Div(3), Div(4); 0 UNKNOWN. H-C13-5 refuted.",
   "assumptions": [
     "253 laws (23 terms with <= 5 leaves; unordered pairs)",
     "N = 1..12, complete SAT (conflict budget 2,000,000; UNKNOWN recorded)",
@@ -11,6 +12,10 @@
     "sha256": "bcf2caf38606ef27dd668f8d2dade818adc3e3c08257b9ed9ef2629821b3018f",
     "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
+  "counterexamples": [
+    "x = (xx)x has spectrum exactly {1, 2} (neither {1} nor cofinite)",
+    "x = x(x(xx)) has spectrum missing exactly 2 (N <= 12)"
+  ],
   "cycle": "C13",
   "falsification": "A law whose spectrum up to 12 is neither {1} nor of the form 'all N >= n0 plus a set of small N' (e.g. a law with models exactly at the even sizes).",
   "history": [
@@ -19,12 +24,62 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-18T09:26:15Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All 253 one-variable laws with <= 5 leaves per side, N <= 12, complete SAT - 213 have models of every size, 9 only N = 1, 24 violate divisor-closure (spectra missing exactly {2}, {3} or {2,3}), and the left combs x = (xx)x, x = ((xx)x)x, x = (((xx)x)x)x have spectra exactly Div(2), Div(3), Div(4); 0 UNKNOWN. H-C13-5 refuted.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "counterexamples",
+      "new": [
+        "x = (xx)x has spectrum exactly {1, 2} (neither {1} nor cofinite)",
+        "x = x(x(xx)) has spectrum missing exactly 2 (N <= 12)"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C13-05",
+        "CLM-C13-07",
+        "CLM-C13-09",
+        "CLM-C13-10"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:12:39Z"
     }
   ],
   "hypothesis": "H-C13-5 (bold): every one-variable law has anchored spectrum {1} or a cofinite set (all N beyond some bound), because such a law only constrains the orbit of each element under its own diagonal maps.",
   "id": "EXP-C13-07",
   "methodology": "MagmaSAT with the anchor for every law and N; divisor-closure violations (N, d); spectra patterns; affine roots for comparison.",
   "question": "For every law t1(x) = t2(x) with t1 != t2 one-variable terms of at most 5 leaves, which N <= 12 admit an anchored model? Which spectra violate divisor-closure, and is every spectrum either {1} or cofinite?",
+  "related": [
+    "CLM-C13-05",
+    "CLM-C13-07",
+    "CLM-C13-09",
+    "CLM-C13-10"
+  ],
   "results_file": "results/EXP-C13-07.json",
   "results_sha256": "bb8a7a8453a3f4736336204550b4910525f46aba3aefafd2743c18d8f0c691cc",
   "runs": [
@@ -77,5 +132,6 @@
     "missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]",
     "UNKNOWN: 0"
   ],
-  "title": "Spectra of one-variable laws and the failure of divisor-closure"
+  "title": "Spectra of one-variable laws and the failure of divisor-closure",
+  "verification": "REFUTED"
 }

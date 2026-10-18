@@ -31,6 +31,7 @@ chapters:
   - generated/v06_results.md
   - vol07.md
   - 17_magma_automata.md
+  - 18_magma_dynamics.md
   - 19_law_testing.md
   - vol08.md
   - 20_quasigroup_mixing.md

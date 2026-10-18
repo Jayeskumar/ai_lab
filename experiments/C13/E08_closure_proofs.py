@@ -109,7 +109,7 @@ def run():
             "family_size": len(fam),
             "soundness": {"laws": len(laws_soundness), "with_bound": nontrivial_bounds, "checks": tested,
                           "violations": viol},
-            "runtime_s": round(time.perf_counter() - t0, 1),
+            "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"CLM-C06-10: exact spectrum proved for {len(proved)} of 17 laws; not proved: "
                         f"{[r['law'] for r in c06 if r['law'] not in proved]}",
                         f"3-variable family ({len(fam)} laws): bound found for {sum(v for k, v in bounds.items() if k)} "

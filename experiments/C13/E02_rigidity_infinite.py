@@ -45,7 +45,7 @@ def run():
     rigid = [r["law"] for r in rows if not r["non_affine_N"] and not r["unknown_N"]]
     nonrigid = [(r["law"], r["non_affine_N"]) for r in rows if r["non_affine_N"]]
     return {"n_laws": len(rows), "rows": rows, "rigid": rigid, "non_rigid": nonrigid,
-            "runtime_s": round(time.perf_counter() - t0, 1),
+            "timings": {"total_s": round(time.perf_counter() - t0, 1)},
             "summary": [f"{len(rows)} laws from infinite non-trivial affine classes tested for N = 2..8",
                         f"rigid (no non-affine model, no UNKNOWN): {len(rigid)}",
                         f"non-rigid: {len(nonrigid)} e.g. {nonrigid[:6]}",

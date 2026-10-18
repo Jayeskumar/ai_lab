@@ -1294,3 +1294,123 @@ Audit - missed source: Berthe-Frougny-Rigo-Sakarovitch (Adv. Appl. Math. 2020) o
 
 *Evidence:* EXP-C06-03, EXP-C06-04
 
+
+## C03
+
+### [2026-10-18T17:12:39Z] Formal Verifier — revision (`C03-14#rev6`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T17:12:39Z] Formal Verifier — revision (`C06-11#rev6`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C13
+
+### [2026-10-18T17:12:39Z] Mathematical Inventor — hypothesis (`C13-01`)
+
+Continue C06 - which sets of integers are anchored spectra? Bold hypotheses - H-C13-1 every spectrum is divisor-closed (all C06 examples are); H-C13-2 laws with infinite non-trivial affine spectra are affinely rigid; H-C13-5 one-variable laws have spectrum {1} or cofinite.
+
+*Evidence:* CLM-C13-07, CLM-C13-08, CLM-C13-09
+
+### [2026-10-18T17:12:39Z] Mathematical Explorer — result (`C13-02`)
+
+EXP-C13-01 - 94,206 laws, 152 distinct affine spectra; every finite one is Div(L); the infinite ones are classical sets (-1, 2, 3 squares; x^2+x+1; golden; cyclotomic conditions), and ~30 cubic/quartic sets are absent from the OEIS.
+
+*Evidence:* EXP-C13-01, CLM-C13-01, CLM-C13-11
+
+### [2026-10-18T17:12:39Z] Mathematical Skeptic — result (`C13-03`)
+
+EXP-C13-02 refuted H-C13-2 - 198 of 199 laws have non-affine models. In the same data x = x(x(xx)) has models at N = 4 but none at N = 2 - H-C13-1 refuted as well; a hand proof and a Lean proof (cube_law_no_two, cubeOp_model) followed.
+
+*Evidence:* EXP-C13-02, CLM-C13-05, CLM-C13-07, CLM-C13-08
+
+### [2026-10-18T17:12:39Z] Formal Verifier — proof (`C13-04`)
+
+Generalised C06's golden-law argument - substituting z = 0 in (xy)z = x V(y,z) gives x*sigma(y) = x*y + 1, which forces a translation table; for V = y W(z) the shift equation forces linearity, giving the W-family theorem. Formalised in Lean for every one-variable term W (inductive type T1), together with C06 Theorem 6 (golden law), which C06 had left as a Lean target.
+
+*Evidence:* CLM-C13-02, CLM-C13-03, proofs/lean/Infinity/C13_Spectra.lean
+
+### [2026-10-18T17:12:39Z] Formal Verifier — proof (`C13-05`)
+
+Two laws of CLM-C06-10 proved in Lean (spectra exactly {1,3} and {1,2}). The hand proofs share a pattern - law instances at small elements, the anchor, functionality of the table - which was automated as offset congruence closure (sound, incomplete); it settles 16 of the 17 laws and 6,912 laws of the 3-variable family, with 0 contradictions in 1,245 SAT checks.
+
+*Evidence:* CLM-C13-04, CLM-C13-06, EXP-C13-08
+
+### [2026-10-18T17:12:39Z] Mathematical Skeptic — result (`C13-06`)
+
+Divisor-closure fails often - 24/253 one-variable laws, 81/300 two-variable laws, 29/150 three-variable laws and 17/80 pairs. H-C13-5 also fails - x = (xx)x has spectrum {1, 2}. Two first runs were stopped for exceeding the time budget (hard UNSAT instances near the conflict limit) and replaced by smaller, documented ones.
+
+*Evidence:* EXP-C13-05, EXP-C13-06, EXP-C13-07, CLM-C13-09
+
+### [2026-10-18T17:12:39Z] Historian — novelty (`C13-07`)
+
+The arithmetic sets are classical (OEIS entries read; quadratic ones are represented-by-a-form sets; roots of the tribonacci polynomial mod p studied by Klaska-Skula and Moree-Noubissie). Spectra of varieties (sets of sizes of finite algebras) are studied in universal algebra (Taylor 1980, 'Maltsev conditions and spectra'; Kearnes); there spectra are closed under all products, whereas anchored spectra are only closed under coprime products. No source realising these sets by single anchored magma laws was found.
+
+*Evidence:* CLM-C13-03, CLM-C13-11
+
+### [2026-10-18T17:12:39Z] Application Researcher — result (`C13-08`)
+
+No application found. The offset closure is a reusable tool for bounding the sizes of finite models of identities with a successor-type constant; it was not benchmarked against general finite-model provers (Mace4, Paradox), so no improvement is claimed.
+
+*Evidence:* CLM-C13-06
+
+
+## C16
+
+### [2026-10-18T17:12:39Z] Mathematical Inventor — hypothesis (`C16-01`)
+
+In any finite magma the pair (x_{k-1}, x_k) determines x_{k+1} = x_k * x_{k-1}, so every magma carries a Fibonacci dynamics on n^2 states. H-C16-1 (bold) - as for Pisano periods the maximum is at most n^2 - 1 and is reached only by quasigroups. H-C16-4 (bold) - for Laver tables the maximal period is a power of 2.
+
+*Evidence:* EXP-C16-01, EXP-C16-03
+
+### [2026-10-18T17:12:39Z] Mathematical Explorer — result (`C16-02`)
+
+EXP-C16-01 - the maximum is n^2 for n = 2, 3, 4 (x*y = 1 - y has period 4), refuting H-C16-1; the full-period tables number 1, 24, 20736, which identified them as de Bruijn cycles ((n!)^n / n^2). Since every function M x M -> M is a feedback, magma pair maps are exactly order-2 feedback shift registers - much of the general theory is classical.
+
+*Evidence:* EXP-C16-01, CLM-C16-02, CLM-C16-03
+
+### [2026-10-18T17:12:39Z] Mathematical Inventor — hypothesis (`C16-03`)
+
+No full-period table of order <= 4 is a quasigroup, and the quasigroup maximum is n^2 - 1. H-C16-5 (bold) - this holds for all n.
+
+*Evidence:* EXP-C16-01
+
+### [2026-10-18T17:12:39Z] Mathematical Skeptic — result (`C16-04`)
+
+H-C16-5 refuted - exactly 3360 full-period quasigroups of order 5 (two independent methods agree), and examples of every order 6-16. Lexicographic DFS and a SAT encoding fail from n = 9 on within their budgets (EXP-C16-05); seeded random sampling of Latin squares finds examples at rates near 1/n^2.
+
+*Evidence:* EXP-C16-02, EXP-C16-05, CLM-C16-06, CLM-C16-07
+
+### [2026-10-18T17:12:39Z] Formal Verifier — proof (`C16-05`)
+
+A parity obstruction - the pair map factors as a swap of coordinates after fibrewise left translations, so a full period forces prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2). For isotopes of groups of even order this product is always (-1)^(n/2) (Burnside's normal 2-complement), the wrong sign; this explains why sampled isotopes of Z_n were full-period for every odd n and never for even n.
+
+*Evidence:* CLM-C16-04, CLM-C16-09, proofs/paper/C16.md
+
+### [2026-10-18T17:12:39Z] Formal Verifier — proof (`C16-06`)
+
+Laver tables - by Laver's monotonicity x*y > x below the top element, Fibonacci sequences climb to the top and then alternate; the pair map has exactly one fixed point and N - 1 two-cycles. Affine magmas reduce to companion matrices; the anchored associative magma of C06 is the Fibonacci sequence mod N in disguise; nim-multiplication gives Pisano periods of 2^(2^k) - 1.
+
+*Evidence:* CLM-C16-12, CLM-C16-14, CLM-C16-15
+
+### [2026-10-18T17:12:39Z] Application Researcher — result (`C16-07`)
+
+EXP-C16-04 - no magma generator is a usable PRNG compared with PCG64; the maximal period available to any order-2 recurrence on bytes is 65536, and affine generators mod 2^32 have lowest-bit period 3.
+
+*Evidence:* EXP-C16-04, CLM-C16-17
+
+### [2026-10-18T17:12:39Z] Historian — novelty (`C16-08`)
+
+Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aardenne-Ehrenfest--de Bruijn), periods of linear recurrences mod N (Ward, Wall), Fibonacci lengths of groups (Knox; Campbell et al.). Not found - the characterisation of full-period quasigroups as distance-1/2 de Bruijn cycles, the counts 0, 0, 0, 3360, the even-order group-isotope obstruction, and Fibonacci dynamics in Laver tables.
+
+*Evidence:* CLM-C16-05, CLM-C16-07, CLM-C16-09, CLM-C16-15
+

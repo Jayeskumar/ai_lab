@@ -1,0 +1,11 @@
+{
+ "ababa": {
+  "largest_reachable_set_len_le_8": 1828,
+  "word": "aaaaaaab"
+ },
+ "babaa": {
+  "largest_reachable_set_len_le_8": 35,
+  "word": "aaaaaabb"
+ },
+ "_seconds": 0.0
+}
