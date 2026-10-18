@@ -15,7 +15,7 @@ META = {
                   "set and bucket-collision ratio within 2% of the uniform expectation, like FNV-1a-64. H-C18-6: the "
                   "1-pass x + c(y) hash (QG-ARP p1) fails on near-duplicate keys.",
     "assumptions": ["key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; "
-                    "near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65296 "
+                    "near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65280 "
                     "keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)",
                     "z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits"],
     "methodology": "Hash every key set with every variant; compute z-scores for 1024 buckets (low 10 bits) and 1021 "

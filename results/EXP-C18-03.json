@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C18-03",
     "file": "experiments/C18/E03_distribution.py",
-    "sha256": "e91ca5b63b09f036fed6229f919b811634446505a521a91bda76ee043203d26b",
-    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+    "sha256": "91418b3d445baead7ba69ab0ce4957dab5b36976a63c8e0d716eec399ce954f6",
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
   },
   "env": {
-    "git_head": "8c7b7fa755aa4874448f22daf5a151a733a5a29a",
+    "git_head": "2183641d11261b9ab4f738cc611f51b5a71a5d93",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,12 +17,12 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T16:45:41Z",
+  "finished": "2026-10-18T16:51:20Z",
   "id": "EXP-C18-03",
   "meta": {
     "agent": "Application Researcher",
     "assumptions": [
-      "key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65296 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)",
+      "key sets (seeded): 65536 random byte strings of length 4-32; the decimal strings of 0..65535; near-duplicates = 16 random 16-byte bases with all 4080 single-byte substitutions each (65280 keys); 65536 distinct synthetic pronounceable words (no dictionary file is available offline)",
       "z = (chi2 - df)/sqrt(2 df); |z| > 3 is flagged; collisions counted among the low 16 bits"
     ],
     "cycle": "C18",
@@ -720,6 +720,6 @@
     ]
   },
   "results_sha256": "4f66fa5fac9a7cff31d92b5518c0d2018539f5d7c48fee97c6712d1280ac7613",
-  "runtime_s": 5.253,
-  "started": "2026-10-18T16:45:36Z"
+  "runtime_s": 5.737,
+  "started": "2026-10-18T16:51:15Z"
 }
