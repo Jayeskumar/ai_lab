@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C13-01",
     "file": "experiments/C13/E01_affine_atlas.py",
-    "sha256": "b89717a758fbfdc2f96f758034fbc17706c1901efd74b965b090d623589fd93a",
-    "systems_sha256": "c430bc0faea458f096fe4cbe910408d3647e0ea4b18d01ea1139163bf04cf316"
+    "sha256": "a472719264510b4f3b07a7094fe5287aa26bc83076e5c38e9c9dd7025af34787",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "env": {
-    "git_head": "ae5fe2fb582ec6090c903ae48502f0dab497f2d6",
+    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T08:59:02Z",
+  "finished": "2026-10-18T17:17:50Z",
   "id": "EXP-C13-01",
   "meta": {
     "agent": "Mathematical Explorer",
@@ -282,6 +282,7 @@
           },
           {
             "L": 1,
+            "R_found": true,
             "bound_R": 1,
             "example": "x = y",
             "examples": [
@@ -310,6 +311,7 @@
           },
           {
             "L": 2,
+            "R_found": true,
             "bound_R": 2,
             "example": "x = y(xy)",
             "examples": [
@@ -341,6 +343,7 @@
           },
           {
             "L": 3,
+            "R_found": true,
             "bound_R": 3,
             "example": "x = y(x(yy))",
             "examples": [
@@ -372,6 +375,7 @@
           },
           {
             "L": 4,
+            "R_found": true,
             "bound_R": 4,
             "example": "x = (xx)(xy)",
             "examples": [
@@ -404,6 +408,7 @@
           },
           {
             "L": 5,
+            "R_found": true,
             "bound_R": 5,
             "example": "x = y((xx)y)",
             "examples": [
@@ -435,6 +440,7 @@
           },
           {
             "L": 7,
+            "R_found": true,
             "bound_R": 7,
             "example": "x = y(((yx)x)y)",
             "examples": [
@@ -464,6 +470,7 @@
           },
           {
             "L": 9,
+            "R_found": true,
             "bound_R": 9,
             "example": "x = y((xy)(yx))",
             "examples": [
@@ -493,6 +500,7 @@
           },
           {
             "L": 6,
+            "R_found": true,
             "bound_R": 6,
             "example": "x = ((xx)x)(yy)",
             "examples": [
@@ -582,6 +590,7 @@
           },
           {
             "L": 10,
+            "R_found": true,
             "bound_R": 10,
             "example": "x = y(((xx)x)y)",
             "examples": [
@@ -613,6 +622,7 @@
           },
           {
             "L": 8,
+            "R_found": true,
             "bound_R": 8,
             "example": "x = y(y((xy)y))",
             "examples": [
@@ -839,6 +849,7 @@
           },
           {
             "L": 11,
+            "R_found": true,
             "bound_R": 11,
             "example": "x = y(x((xy)y))",
             "examples": [
@@ -866,6 +877,7 @@
           },
           {
             "L": 14,
+            "R_found": true,
             "bound_R": 14,
             "example": "x = y(x((xx)y))",
             "examples": [
@@ -965,6 +977,7 @@
           },
           {
             "L": 13,
+            "R_found": true,
             "bound_R": 13,
             "example": "xy = y(x((yx)y))",
             "examples": [
@@ -1072,6 +1085,7 @@
           },
           {
             "L": 17,
+            "R_found": true,
             "bound_R": 17,
             "example": "(xx)x = x(y(y(xy)))",
             "examples": [
@@ -1250,6 +1264,7 @@
           },
           {
             "L": 27,
+            "R_found": true,
             "bound_R": 27,
             "example": "x(x(xy)) = (((xx)x)x)x",
             "examples": [
@@ -1283,6 +1298,7 @@
           },
           {
             "L": 15,
+            "R_found": true,
             "bound_R": 15,
             "example": "x(x(xx)) = y(((yy)y)y)",
             "examples": [
@@ -1312,6 +1328,7 @@
           },
           {
             "L": 26,
+            "R_found": true,
             "bound_R": 26,
             "example": "((xx)x)x = x(y((yx)y))",
             "examples": [
@@ -1344,6 +1361,7 @@
           },
           {
             "L": 22,
+            "R_found": true,
             "bound_R": 22,
             "example": "(xx)x = y(y(y(xy)))",
             "examples": [
@@ -1460,6 +1478,7 @@
           },
           {
             "L": 19,
+            "R_found": true,
             "bound_R": 19,
             "example": "x((xx)x) = y(y(y(xy)))",
             "examples": [
@@ -1487,6 +1506,7 @@
           },
           {
             "L": 21,
+            "R_found": true,
             "bound_R": 63,
             "example": "x(((yx)x)x) = y(y(y(xy)))",
             "examples": [
@@ -1517,6 +1537,7 @@
           },
           {
             "L": 23,
+            "R_found": true,
             "bound_R": 23,
             "example": "(xx)x = y((yx)(xy))",
             "examples": [
@@ -1545,6 +1566,7 @@
           },
           {
             "L": 34,
+            "R_found": true,
             "bound_R": 34,
             "example": "((xx)x)x = x(y((xx)y))",
             "examples": [
@@ -1627,6 +1649,7 @@
           },
           {
             "L": 16,
+            "R_found": true,
             "bound_R": 16,
             "example": "((xx)x)x = x(x(x(xy)))",
             "examples": [
@@ -1661,6 +1684,7 @@
           },
           {
             "L": 18,
+            "R_found": true,
             "bound_R": 72,
             "example": "((xx)x)x = x(y(x(xy)))",
             "examples": [
@@ -1693,6 +1717,7 @@
           },
           {
             "L": 20,
+            "R_found": true,
             "bound_R": 20,
             "example": "((xx)x)x = y(y(yy))",
             "examples": [
@@ -1809,6 +1834,7 @@
           },
           {
             "L": 36,
+            "R_found": true,
             "bound_R": 36,
             "example": "(((xx)y)y)y = x(x(x(xy)))",
             "examples": [
@@ -1847,6 +1873,7 @@
           },
           {
             "L": 51,
+            "R_found": true,
             "bound_R": 51,
             "example": "x(x(xx)) = (((yy)y)y)y",
             "examples": [
@@ -1876,6 +1903,7 @@
           },
           {
             "L": 33,
+            "R_found": true,
             "bound_R": 33,
             "example": "((xx)x)x = y((xy)(yx))",
             "examples": [
@@ -2130,6 +2158,7 @@
           },
           {
             "L": 25,
+            "R_found": true,
             "bound_R": 25,
             "example": "((xy)x)(xy) = y(y(x(yx)))",
             "examples": [
@@ -2162,6 +2191,7 @@
           },
           {
             "L": 12,
+            "R_found": true,
             "bound_R": 12,
             "example": "x(xx) = (((xy)y)y)y",
             "examples": [
@@ -2194,6 +2224,7 @@
           },
           {
             "L": 29,
+            "R_found": true,
             "bound_R": 29,
             "example": "x(x(xx)) = (((yx)y)y)y",
             "examples": [
@@ -2225,6 +2256,7 @@
           },
           {
             "L": 39,
+            "R_found": true,
             "bound_R": 39,
             "example": "x(y(xy)) = (((yx)x)x)x",
             "examples": [
@@ -2320,6 +2352,7 @@
           },
           {
             "L": 32,
+            "R_found": true,
             "bound_R": 32,
             "example": "(xy)((yx)x) = y(y(y(xy)))",
             "examples": [
@@ -2355,6 +2388,7 @@
           },
           {
             "L": 44,
+            "R_found": true,
             "bound_R": 44,
             "example": "(((xy)y)x)x = y((yy)(yx))",
             "examples": [
@@ -2390,6 +2424,7 @@
           },
           {
             "L": 52,
+            "R_found": true,
             "bound_R": 52,
             "example": "x(((yx)x)x) = y(y(y(yy)))",
             "examples": [
@@ -2422,6 +2457,7 @@
           },
           {
             "L": 28,
+            "R_found": true,
             "bound_R": 28,
             "example": "x(((xy)x)x) = y(y(y(yy)))",
             "examples": [
@@ -2456,6 +2492,7 @@
           },
           {
             "L": 81,
+            "R_found": true,
             "bound_R": 81,
             "example": "(((xx)x)x)x = x(x(x(xy)))",
             "examples": [
@@ -2490,6 +2527,7 @@
           },
           {
             "L": 76,
+            "R_found": true,
             "bound_R": 76,
             "example": "x(((xx)x)x) = y(y(y(xy)))",
             "examples": [
@@ -2596,6 +2634,7 @@
           },
           {
             "L": 57,
+            "R_found": true,
             "bound_R": 57,
             "example": "((xy)y)y = y(x(x(yx)))",
             "examples": [
@@ -2724,6 +2763,7 @@
           },
           {
             "L": 41,
+            "R_found": true,
             "bound_R": 41,
             "example": "((xx)x)x = y(x(x(xy)))",
             "examples": [
@@ -2754,6 +2794,7 @@
           },
           {
             "L": 43,
+            "R_found": true,
             "bound_R": 43,
             "example": "x(y(yy)) = (((yx)x)x)x",
             "examples": [
@@ -2781,6 +2822,7 @@
           },
           {
             "L": 37,
+            "R_found": true,
             "bound_R": 37,
             "example": "((xx)x)x = y(x(y(yx)))",
             "examples": [
@@ -2811,6 +2853,7 @@
           },
           {
             "L": 38,
+            "R_found": true,
             "bound_R": 38,
             "example": "((xx)x)x = x(y((xy)y))",
             "examples": [
@@ -3084,6 +3127,7 @@
           },
           {
             "L": 67,
+            "R_found": true,
             "bound_R": 67,
             "example": "(((xy)y)y)x = y(y(y(yx)))",
             "examples": [
@@ -3115,6 +3159,7 @@
           },
           {
             "L": 78,
+            "R_found": true,
             "bound_R": 78,
             "example": "((xy)y)(yy) = x(x(x(yx)))",
             "examples": [
@@ -3152,6 +3197,7 @@
           },
           {
             "L": 108,
+            "R_found": true,
             "bound_R": 108,
             "example": "(((xx)x)x)x = x(x(x(yy)))",
             "examples": [
@@ -3193,6 +3239,7 @@
           },
           {
             "L": 54,
+            "R_found": true,
             "bound_R": 54,
             "example": "(((xx)x)x)x = x(x((xy)y))",
             "examples": [
@@ -3230,6 +3277,7 @@
           },
           {
             "L": 47,
+            "R_found": true,
             "bound_R": 47,
             "example": "((xx)x)x = y(x(x(yy)))",
             "examples": [
@@ -3260,6 +3308,7 @@
           },
           {
             "L": 50,
+            "R_found": true,
             "bound_R": 50,
             "example": "((xx)x)(xy) = y(y(x(xy)))",
             "examples": [
@@ -3407,6 +3456,7 @@
           },
           {
             "L": 24,
+            "R_found": true,
             "bound_R": 24,
             "example": "((xx)x)x = x(x(x(yy)))",
             "examples": [
@@ -3664,6 +3714,7 @@
           },
           {
             "L": 68,
+            "R_found": true,
             "bound_R": 68,
             "example": "((xx)x)(xx) = y(y(y(xy)))",
             "examples": [
@@ -3697,6 +3748,7 @@
           },
           {
             "L": 31,
+            "R_found": true,
             "bound_R": 31,
             "example": "(((xy)y)y)y = y(y((yx)x))",
             "examples": [
@@ -3728,6 +3780,7 @@
           },
           {
             "L": 74,
+            "R_found": true,
             "bound_R": 74,
             "example": "((xx)x)x = x(y(x(yy)))",
             "examples": [
@@ -3758,6 +3811,7 @@
           },
           {
             "L": 88,
+            "R_found": true,
             "bound_R": 88,
             "example": "(((xy)x)x)x = y(y(y(yy)))",
             "examples": [
@@ -3795,6 +3849,7 @@
           },
           {
             "L": 45,
+            "R_found": true,
             "bound_R": 45,
             "example": "x(((xy)x)x) = y(y(y(xy)))",
             "examples": [
@@ -3829,6 +3884,7 @@
           },
           {
             "L": 59,
+            "R_found": true,
             "bound_R": 59,
             "example": "(((xy)y)y)y = y(y(y(xx)))",
             "examples": [
@@ -3860,6 +3916,7 @@
           },
           {
             "L": 87,
+            "R_found": true,
             "bound_R": 87,
             "example": "((xx)x)(xy) = y(y(x(yy)))",
             "examples": [
@@ -3891,6 +3948,7 @@
           },
           {
             "L": 153,
+            "R_found": true,
             "bound_R": 153,
             "example": "(((xy)x)x)x = y(y(x(yy)))",
             "examples": [
@@ -3926,6 +3984,7 @@
           },
           {
             "L": 58,
+            "R_found": true,
             "bound_R": 58,
             "example": "((xx)x)(xy) = y(y(x(yx)))",
             "examples": [
@@ -3957,6 +4016,7 @@
           },
           {
             "L": 89,
+            "R_found": true,
             "bound_R": 89,
             "example": "(((xy)y)y)y = y(y(x(yx)))",
             "examples": [
@@ -3988,6 +4048,7 @@
           },
           {
             "L": 69,
+            "R_found": true,
             "bound_R": 69,
             "example": "(((xy)x)x)x = y(y((xy)y))",
             "examples": [
@@ -4411,6 +4472,7 @@
           },
           {
             "L": 30,
+            "R_found": true,
             "bound_R": 60,
             "example": "(((xy)y)y)y = x((xy)(yx))",
             "examples": [
@@ -4447,6 +4509,7 @@
           },
           {
             "L": 55,
+            "R_found": true,
             "bound_R": 55,
             "example": "x(((xx)x)x) = y(y(y(yy)))",
             "examples": [
@@ -4476,6 +4539,7 @@
           },
           {
             "L": 99,
+            "R_found": true,
             "bound_R": 297,
             "example": "(((xy)y)y)y = x(x(x(yx)))",
             "examples": [
@@ -4508,6 +4572,7 @@
           },
           {
             "L": 61,
+            "R_found": true,
             "bound_R": 61,
             "example": "x(x(yx)) = (((yy)y)y)y",
             "examples": [
@@ -4535,6 +4600,7 @@
           },
           {
             "L": 94,
+            "R_found": true,
             "bound_R": 94,
             "example": "((xx)x)x = x(y(y(xy)))",
             "examples": [
@@ -4922,6 +4988,7 @@
           },
           {
             "L": 228,
+            "R_found": true,
             "bound_R": 228,
             "example": "(((xy)y)y)y = x(x(y(yx)))",
             "examples": [
@@ -5253,6 +5320,7 @@
           },
           {
             "L": 93,
+            "R_found": true,
             "bound_R": 93,
             "example": "(((xx)x)x)x = y(y((xy)x))",
             "examples": [
@@ -5341,6 +5409,7 @@
           },
           {
             "L": 64,
+            "R_found": true,
             "bound_R": 64,
             "example": "(((xx)x)x)x = y((yy)(yx))",
             "examples": [
@@ -5442,6 +5511,7 @@
           },
           {
             "L": 35,
+            "R_found": true,
             "bound_R": 35,
             "example": "(((xx)x)x)x = (yy)(y(yy))",
             "examples": [
@@ -5472,6 +5542,7 @@
           },
           {
             "L": 107,
+            "R_found": true,
             "bound_R": 107,
             "example": "((xx)x)x = y(y(x(xy)))",
             "examples": [
@@ -5499,6 +5570,7 @@
           },
           {
             "L": 109,
+            "R_found": true,
             "bound_R": 109,
             "example": "((xx)x)x = y(y(y(xy)))",
             "examples": [
@@ -5526,6 +5598,7 @@
           },
           {
             "L": 205,
+            "R_found": true,
             "bound_R": 205,
             "example": "(((xx)x)x)x = y(y(y(yy)))",
             "examples": [
@@ -5554,6 +5627,7 @@
           },
           {
             "L": 328,
+            "R_found": true,
             "bound_R": 328,
             "example": "(((xx)x)x)x = y(y(y(xy)))",
             "examples": [
@@ -5586,6 +5660,7 @@
           },
           {
             "L": 297,
+            "R_found": true,
             "bound_R": 297,
             "example": "(((xx)x)x)x = y(y(x(xy)))",
             "examples": [
@@ -5618,6 +5693,7 @@
           },
           {
             "L": 131,
+            "R_found": true,
             "bound_R": 131,
             "example": "(((xy)y)y)y = y(x(y(yx)))",
             "examples": [
@@ -5645,6 +5721,7 @@
           },
           {
             "L": 46,
+            "R_found": true,
             "bound_R": 46,
             "example": "x(((yx)x)x) = y(x(y(xy)))",
             "examples": [
@@ -5674,6 +5751,7 @@
           },
           {
             "L": 236,
+            "R_found": true,
             "bound_R": 236,
             "example": "(((xy)y)y)y = y(x(x(yx)))",
             "examples": [
@@ -5704,6 +5782,7 @@
           },
           {
             "L": 171,
+            "R_found": true,
             "bound_R": 171,
             "example": "(((xy)y)y)y = y(x(x(xx)))",
             "examples": [
@@ -5735,6 +5814,7 @@
           },
           {
             "L": 116,
+            "R_found": true,
             "bound_R": 116,
             "example": "(((xx)x)x)x = y(y((xy)y))",
             "examples": [
@@ -5901,6 +5981,7 @@
         "rows": [
           {
             "L": 1,
+            "R_found": true,
             "bound_R": 1,
             "example": "x = y",
             "examples": [
@@ -6168,6 +6249,7 @@
           },
           {
             "L": 2,
+            "R_found": true,
             "bound_R": 2,
             "example": "x = y(xy)",
             "examples": [
@@ -6199,6 +6281,7 @@
           },
           {
             "L": 3,
+            "R_found": true,
             "bound_R": 3,
             "example": "x = y(x(yy))",
             "examples": [
@@ -6226,6 +6309,7 @@
           },
           {
             "L": 4,
+            "R_found": true,
             "bound_R": 4,
             "example": "x = (xx)(xy)",
             "examples": [
@@ -6258,6 +6342,7 @@
           },
           {
             "L": 5,
+            "R_found": true,
             "bound_R": 5,
             "example": "x = y((xx)y)",
             "examples": [
@@ -6595,6 +6680,7 @@
           },
           {
             "L": 8,
+            "R_found": true,
             "bound_R": 8,
             "example": "((xx)x)x = x(x(xy))",
             "examples": [
@@ -6628,6 +6714,7 @@
           },
           {
             "L": 7,
+            "R_found": true,
             "bound_R": 7,
             "example": "x(xx) = ((yy)y)y",
             "examples": [
@@ -6655,6 +6742,7 @@
           },
           {
             "L": 10,
+            "R_found": true,
             "bound_R": 10,
             "example": "((xy)x)x = y(y(yx))",
             "examples": [
@@ -6688,6 +6776,7 @@
           },
           {
             "L": 6,
+            "R_found": true,
             "bound_R": 6,
             "example": "x(xx) = ((xy)y)y",
             "examples": [
@@ -6868,6 +6957,7 @@
           },
           {
             "L": 14,
+            "R_found": true,
             "bound_R": 14,
             "example": "((xy)x)x = y(y(xy))",
             "examples": [
@@ -6901,6 +6991,7 @@
           },
           {
             "L": 9,
+            "R_found": true,
             "bound_R": 9,
             "example": "((xy)x)x = y(y(yy))",
             "examples": [
@@ -7417,6 +7508,7 @@
           },
           {
             "L": 20,
+            "R_found": true,
             "bound_R": 20,
             "example": "((xx)x)x = y(y(yy))",
             "examples": [
@@ -7448,6 +7540,7 @@
           },
           {
             "L": 27,
+            "R_found": true,
             "bound_R": 27,
             "example": "((xx)x)x = y(y(xy))",
             "examples": [
@@ -7477,6 +7570,7 @@
           },
           {
             "L": 11,
+            "R_found": true,
             "bound_R": 11,
             "example": "((xy)y)y = y(x(yx))",
             "examples": [
@@ -7507,10 +7601,8 @@
     },
     "finite_counterexamples": [],
     "finite_spectra_are_divisor_sets": true,
-    "mixed_kind_spectra": [
-      "x = x(xx)",
-      "x = x(xx)"
-    ],
+    "finite_without_bound": 0,
+    "mixed_kind_spectra": [],
     "oeis": {
       "1,11,13,17,23,31,37,43,47,59,61,67": {
         "example": "x(x((yy)y)) = y(y((xx)x))",
@@ -7895,7 +7987,6 @@
         "status": "MATCH"
       }
     },
-    "runtime_s": 25.8,
     "summary": [
       "3var_le4: 18581 laws, 2400 affine systems, 27 distinct spectra",
       "3var_le4 finite spectra: Div(1) x11658; Div(2) x2182; Div(3) x407; Div(4) x128; Div(5) x70; Div(8) x22; Div(7) x15; Div(10) x11; Div(6) x9; Div(14) x8; Div(9) x7; Div(20) x1; Div(27) x1; Div(11) x1",
@@ -7903,11 +7994,15 @@
       "2var_le5: 75625 laws, 3631 affine systems, 125 distinct spectra",
       "2var_le5 finite spectra: Div(1) x23743; Div(2) x9718; Div(3) x4889; Div(4) x1806; Div(5) x1375; Div(7) x964; Div(9) x662; Div(6) x648; Div(10) x539; Div(8) x536; Div(11) x382; Div(14) x343; Div(13) x266; Div(17) x182; Div(27) x159; Div(15) x136; Div(26) x113; Div(22) x99; Div(19) x84; Div(21) x80; Div(23) x74; Div(34) x70; Div(16) x64; Div(18) x64; Div(20) x61; Div(36) x54; Div(51) x52; Div(33) x50; Div(25) x38; Div(12) x30; Div(29) x29; Div(39) x25; Div(32) x22; Div(44) x22; Div(52) x20; Div(28) x17; Div(81) x17; Div(76) x17; Div(57) x16; Div(41) x14; Div(43) x13; Div(37) x12; Div(38) x12; Div(67) x10; Div(78) x10; Div(108) x10; Div(54) x10; Div(47) x9; Div(50) x9; Div(24) x8; Div(68) x8; Div(31) x7; Div(74) x6; Div(88) x5; Div(45) x5; Div(59) x5; Div(87) x5; Div(153) x5; Div(58) x5; Div(89) x5; Div(69) x5; Div(30) x4; Div(55) x3; Div(99) x3; Div(61) x2; Div(94) x2; Div(228) x2; Div(93) x2; Div(64) x2; Div(35) x2; Div(107) x1; Div(109) x1; Div(205) x1; Div(328) x1; Div(297) x1; Div(131) x1; Div(46) x1; Div(236) x1; Div(171) x1; Div(116) x1",
       "2var_le5 infinite: 0/2*a**2 + a/2*a**2 + a - 1 x24999; a**2 + 3*a + 1/a**2 + a - 1/a**2 - 3*a + 1 x647; a**2 + a + 1/a**2 - a + 1/a**4 + a**2 + 1 x520; 2*a + 1/2*a - 1/2*a - 3 x439; a**2 + 1 x339; a**3 + 2*a**2 + a + 1/a**3 + a**2 + 2*a + 1/a**3 + a**2 - 1 x190; a**2 + 2*a - 1/a**2 - 2/a**2 - 2*a - 1 x164; a**3 + 2*a**2 + a - 1/a**3 + a + 1/a**3 + a - 1 x160; a**3 + a**2 + a - 1/a**3 + a**2 - a + 1/a**3 - a**2 + a + 1 x87; 2*a**2 - 1 x69; 2*a**2 + a + 1/2*a**2 - a + 1/a**2 + a + 2 x58; 2*a**2 + 1 x45; 3*a + 1/3*a - 1/3*a - 2 x44; 3*a**2 + a - 1/3*a**2 - a - 1/a**2 + 3*a - 1 x24; a**2 + 2*a - 2 x16; a**3 + 2*a + 1/a**3 + 2*a - 1/a**3 + 2*a**2 + 1 x16; a**3 + 2*a**2 - a + 1/a**3 + a**2 + 2*a - 1/a**3 - 2*a**2 - a - 1 x12; a**3 + 2*a**2 - a - 1/a**3 + a**2 - 2*a - 1/a**3 - 2*a**2 - a + 1 x12; 2*a**2 + 2*a + 1/2*a**2 - 2*a + 1 x12; 2*a**2 + 2*a - 1/2*a**2 - 2*a - 1 x12; a**3 + a**2 + a - 2 x8; 2*a**2 + a - 2 x8; a**4 + a + 1/a**4 + a**3 + 1/a**4 - a + 1 x8; a**4 + a - 1/a**4 + a**3 - 1/a**4 - a - 1 x8; a**4 + 1 x4; a**4 + a**2 + a + 1/a**4 + a**2 - a + 1/a**4 + a**3 + a**2 + 1 x4; a**4 + a**2 - 1/a**4 - a**2 - 1 x4; a**4 + a**3 + a**2 + a - 1/a**4 + a**3 - a**2 + a - 1/a**4 - a**3 + a**2 - a - 1 x4; a**4 + a**3 + a**2 - a - 1/a**4 + a**3 - a**2 - a - 1/a**4 - a**3 + a**2 + a - 1 x4; 2*a**3 + 1/2*a**3 - 1 x4; a**4 + a**3 + a**2 + a + 1/a**4 - a**3 + a**2 - a + 1 x2; a**4 + a**3 + a - 1/a**4 - a**3 - a - 1 x2; a**4 + a**3 - a + 1/a**4 - a**3 + a + 1 x2; a**4 + a**3 + a**2 - a + 1/a**4 - a**3 + a**2 + a + 1 x2; a**4 - a**2 + 1 x2; a**4 + a**3 - a**2 + a + 1/a**4 - a**3 - a**2 - a + 1 x2; a**4 + a**3 - a**2 - a + 1/a**4 - a**3 - a**2 + a + 1 x2; 2*a**3 + a + 1/2*a**3 + a - 1 x2; 2*a**3 + a**2 + a + 1/2*a**3 - a**2 + a - 1 x2; 2*a**3 + a**2 - a + 1/2*a**3 - a**2 - a - 1 x2; 2*a**3 + a**2 - 1/2*a**3 - a**2 + 1 x2; 2*a**3 + a**2 - a - 1/2*a**3 - a**2 - a + 1 x2; 3*a**2 + a + 1/3*a**2 - a + 1 x2; 3*a**2 + 1 x1; 3*a**2 - 1 x1",
-      "every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 2",
+      "finite systems without an integer bound R (should be 0): 0",
+      "every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 0",
       "OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a + 1] MATCH ['A244779']; [2*a**2 - 1] MATCH ['A058529', 'A253408']; [3*a + 1] MATCH ['A001651', 'A224999']; [a**2 + a - 3] MATCH ['A243656']; [a**2 + 2*a - 2] MATCH ['A057125']; [a**3 + 2*a**2 + 1] NO MATCH []; [a**3 - 2*a**2 - a - 1] NO MATCH []; [a**3 + 2*a**2 - a - 1] NO MATCH []; [2*a**2 + 2*a + 1] MATCH ['A004613']; [2*a**2 - 2*a - 1] NO MATCH []; [a**3 + a**2 + a - 2] NO MATCH []; [2*a**2 + a - 2] NO MATCH []; [a**4 + a**3 + 1] NO MATCH []; [a**4 - a**3 - 1] NO MATCH []; [a**4 + 1] MATCH ['A192453']; [a**4 + a**3 + a**2 + 1] NO MATCH []; [a**4 - a**2 - 1] NO MATCH []; [a**4 - a**3 - a**2 - a - 1] NO MATCH []; [a**4 + a**3 - a**2 - a - 1] NO MATCH []; [2*a**3 + 1] NO MATCH []; [a**4 + a**3 + a**2 + a + 1] NO MATCH []; [a**4 - a**3 - a - 1] NO MATCH []; [a**4 - a**3 + a + 1] NO MATCH []; [a**4 - a**3 + a**2 + a + 1] NO MATCH []; [a**4 - a**2 + 1] MATCH ['A354467']; [a**4 + a**3 - a**2 + a + 1] NO MATCH []; [a**4 - a**3 - a**2 + a + 1] NO MATCH []; [2*a**3 + a + 1] NO MATCH []; [2*a**3 + a**2 + a + 1] NO MATCH []; [2*a**3 - a**2 - a - 1] NO MATCH []; [2*a**3 - a**2 + 1] NO MATCH []; [2*a**3 + a**2 - a - 1] NO MATCH []; [3*a**2 + a + 1] MATCH ['A244780']; [3*a**2 + 1] NO MATCH []; [3*a**2 - 1] NO MATCH []"
-    ]
+    ],
+    "timings": {
+      "total_s": 24.9
+    }
   },
-  "results_sha256": "ba2746d029908a443047ead6bef68e44e7795bb54f23e0477e6446a7ac27b94a",
-  "runtime_s": 25.828,
-  "started": "2026-10-18T08:58:36Z"
+  "results_sha256": "93aaee29be3051517812a179b8ffcb00e5e5ad230cc35041580ffa12a471e610",
+  "runtime_s": 24.886,
+  "started": "2026-10-18T17:17:25Z"
 }

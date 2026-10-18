@@ -42,6 +42,11 @@ experiments:
     verification: PROVEN
     related: [CLM-C13-06]
 
+  - id: EXP-C13-09
+    analysis: "Skeptic cross-checks by independent code paths - the explicit models of Theorem 5 satisfy x = x(x(xx)) for every N = 3..60 and no anchored table of size 2 does (exhaustive); Theorem 3 holds for all 42 six-leaf terms W for N <= 6 (0 mismatches); the affine spectra of six atlas laws equal their direct arithmetic definitions (-1 square, 2 square, odd, 3 does not divide N, golden root, prime factors +-1 mod 8) for every N <= 1000."
+    verification: PROVEN
+    related: [CLM-C13-03, CLM-C13-05, CLM-C13-11]
+
 claims:
   - id: CLM-C13-01
     type: theorem
@@ -86,7 +91,7 @@ claims:
     proof_check: Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv)); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)
     proof: proofs/paper/C13.md#theorem-3-clm-c13-03--the-w-family-polynomial-spectra-apa--1
     lean: [proofs/lean/Infinity/C13_Spectra.lean]
-    evidence: [EXP-C13-03]
+    evidence: [EXP-C13-03, EXP-C13-09]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical."
   - id: CLM-C13-04
@@ -107,10 +112,10 @@ claims:
     title: "The law x = x(x(xx)) has anchored models of every size except 2"
     statement: The one-variable law x = x*(x*(x*x)) has an anchored model of every size N != 2 and none of size 2; in particular its spectrum contains 4 but not 2, so anchored spectra need not be closed under divisors.
     verification: PROVEN
-    proof_check: Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5
+    proof_check: Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5; explicit models re-checked numerically for N = 3..60 (EXP-C13-09)
     proof: proofs/paper/C13.md#theorem-5-clm-c13-05--a-spectrum-that-is-not-closed-under-divisors
     lean: [proofs/lean/Infinity/C13_Spectra.lean]
-    evidence: [EXP-C13-07]
+    evidence: [EXP-C13-07, EXP-C13-09]
     novelty: NOT ASSESSED
     novelty_basis: Elementary; its interest is as the counterexample to the lab's hypothesis H-C13-1.
   - id: CLM-C13-06
@@ -180,7 +185,7 @@ claims:
     verification: PROVEN
     proof_check: "affine systems computed mechanically (EXP-C13-01) and Theorem 1 (written); the identification of each root set with the stated arithmetic condition is elementary (e.g. a^2 - 2a - 1 = 0 iff (a - 1)^2 = 2); terms <= 200 agree with the OEIS entries A005408, A001651, A008784, A057126, A057125, A034017, A089270, A004613, A058529, A192453, A354467"
     proof: proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
-    evidence: [EXP-C13-01]
+    evidence: [EXP-C13-01, EXP-C13-09]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03)."
   - id: CLM-C13-12
@@ -224,6 +229,11 @@ journal:
     kind: result
     text: "Divisor-closure fails often - 24/253 one-variable laws, 81/300 two-variable laws, 29/150 three-variable laws and 17/80 pairs. H-C13-5 also fails - x = (xx)x has spectrum {1, 2}. Two first runs were stopped for exceeding the time budget (hard UNSAT instances near the conflict limit) and replaced by smaller, documented ones."
     refs: [EXP-C13-05, EXP-C13-06, EXP-C13-07, CLM-C13-09]
+  - key: C13-09
+    agent: Mathematical Skeptic
+    kind: review
+    text: "EXP-C13-09 cross-checked the main results by independent code paths - explicit cube-law models for N = 3..60, the W-family theorem on all 42 six-leaf terms (N <= 6), and six atlas identifications against their direct arithmetic definitions up to N = 1000; no discrepancy. Remaining weak points - Theorem 1, Theorem 3 (iv) and Theorem 6 are written proofs not yet reviewed by an independent Skeptic; CLM-C13-11 rests on mechanical affine systems."
+    refs: [EXP-C13-09, CLM-C13-03, CLM-C13-05, CLM-C13-11]
   - key: C13-07
     agent: Historian
     kind: novelty

@@ -1,0 +1,90 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C13-09",
+    "file": "experiments/C13/E09_skeptic_checks.py",
+    "sha256": "d0719e8369a40402bf29df78d08bdf9d541571aecd69ad8b43e60c83fd66557c",
+    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+  },
+  "env": {
+    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:26:45Z",
+  "id": "EXP-C13-09",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "(a) direct numpy evaluation, no SAT; N = 2 exhaustively over all 4 free entries",
+      "(b) SAT enumeration (limit 100) for N = 1..6",
+      "(c) direct definitions: existence of t with t^2 = -1, 2, 3 or t^4 = -1 (mod N); prime-factor conditions; compared with the affine spectrum of the example law"
+    ],
+    "cycle": "C13",
+    "falsification": "Any discrepancy.",
+    "hypothesis": "All three checks pass with 0 discrepancies.",
+    "id": "EXP-C13-09",
+    "methodology": "Independent code paths from those of EXP-C13-01..08 wherever possible.",
+    "question": "Do the explicit models of Theorem 5 really satisfy the law for N = 3..60? Does Theorem 3 hold for the 42 six-leaf terms W? Are the affine spectra of CLM-C13-11 equal to the stated arithmetic sets beyond the OEIS window (N <= 1000), checked against their direct definitions?",
+    "title": "Skeptic cross-checks: cube-law models, six-leaf W-family, arithmetic identifications to N = 1000"
+  },
+  "results": {
+    "all_ok": true,
+    "cube": {
+      "N2_model_exists": false,
+      "bad_N_3_60": []
+    },
+    "identifications": {
+      "((xx)x)x = ((yy)y)y": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      },
+      "(xx)(xy) = (yy)(yx)": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      },
+      "x = x((xx)x)": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      },
+      "x((xy)y) = y((xx)x)": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      },
+      "x(xx) = y(xy)": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      },
+      "x(xy) = y(yx)": {
+        "agree": true,
+        "only_affine": [],
+        "only_direct": []
+      }
+    },
+    "summary": [
+      "cube law: model at N=2: False; failing explicit models N=3..60: []",
+      "W-family, 42 six-leaf terms, N <= 6: mismatches 0",
+      "identifications to N=1000: x(xx) = y(xy): True, (xx)(xy) = (yy)(yx): True, x = x((xx)x): True, ((xx)x)x = ((yy)y)y: True, x(xy) = y(yx): True, x((xy)y) = y((xx)x): True",
+      "all checks passed: True"
+    ],
+    "timings": {
+      "total_s": 4.7
+    },
+    "w6_mismatches": [],
+    "w6_terms": 42
+  },
+  "results_sha256": "db7a343520692535c5c00d2c1d53b9ad6406c6647cf4f46b574c042e6d67e825",
+  "runtime_s": 4.713,
+  "started": "2026-10-18T17:26:40Z"
+}

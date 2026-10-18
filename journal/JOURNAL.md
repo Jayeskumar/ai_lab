@@ -1414,3 +1414,30 @@ Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aarde
 
 *Evidence:* CLM-C16-05, CLM-C16-07, CLM-C16-09, CLM-C16-15
 
+
+## C03
+
+### [2026-10-18T17:27:51Z] Formal Verifier — revision (`C03-14#rev7`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T17:27:51Z] Formal Verifier — revision (`C06-11#rev7`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C13
+
+### [2026-10-18T17:27:51Z] Mathematical Skeptic — review (`C13-09`)
+
+EXP-C13-09 cross-checked the main results by independent code paths - explicit cube-law models for N = 3..60, the W-family theorem on all 42 six-leaf terms (N <= 6), and six atlas identifications against their direct arithmetic definitions up to N = 1000; no discrepancy. Remaining weak points - Theorem 1, Theorem 3 (iv) and Theorem 6 are written proofs not yet reviewed by an independent Skeptic; CLM-C13-11 rests on mechanical affine systems.
+
+*Evidence:* EXP-C13-09, CLM-C13-03, CLM-C13-05, CLM-C13-11
+

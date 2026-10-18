@@ -1,7 +1,8 @@
 {
   "cycle": "C13",
   "evidence": [
-    "EXP-C13-01"
+    "EXP-C13-01",
+    "EXP-C13-09"
   ],
   "history": [
     {
@@ -9,6 +10,20 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C13-01",
+        "EXP-C13-09"
+      ],
+      "old": [
+        "EXP-C13-01"
+      ],
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:27:51Z"
     }
   ],
   "id": "CLM-C13-11",

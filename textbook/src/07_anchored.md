@@ -80,7 +80,8 @@ iff $N$ is odd, and then exactly one: $x \star y = x + 1 + y/2$.
 around an even cycle would give $x \star y = x \star y + N/2$; for odd $N$
 every $y$ is $2k$ and $x \star y = x + 1 + k$. ∎
 
-**Theorem 7.5** *[PROVEN — written; POTENTIALLY NOVEL (small)]*. The anchored
+**Theorem 7.5** *[PROVEN — written, Skeptic-reviewed; Lean (Chapter 8):
+`golden_law_models`; POTENTIALLY NOVEL (small)]*. The anchored
 models of $(x \star y) \star z = x \star (y \star (z \star z))$ are exactly the
 tables $x \star y = x + 1 + a y$ with
 $$a^2 + a \equiv 1 \pmod N .$$
@@ -170,8 +171,9 @@ the right and sizes up to 8–12; spectra of larger laws are unexplored.
 
 ## Open questions
 
-1. Prove that the laws with spectra $\{1, 2\}$ and $\{1, 3\}$ have no other
-   models (all models affine?).
+1. ~~Prove that the laws with spectra $\{1, 2\}$ and $\{1, 3\}$ have no other
+   models.~~ Chapter 8 proves it for 16 of the 17 laws (two of them in Lean);
+   only $x(yz) = y((yx)z)$ remains.
 2. Which sets of integers are anchored spectra of a single law? They are
    closed under coprime products (Theorem 7.8); are they closed under divisors?
 3. Are there laws other than left-distributivity with non-affine,

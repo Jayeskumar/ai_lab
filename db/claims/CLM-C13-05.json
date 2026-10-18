@@ -1,7 +1,8 @@
 {
   "cycle": "C13",
   "evidence": [
-    "EXP-C13-07"
+    "EXP-C13-07",
+    "EXP-C13-09"
   ],
   "history": [
     {
@@ -9,6 +10,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C13-07",
+        "EXP-C13-09"
+      ],
+      "old": [
+        "EXP-C13-07"
+      ],
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:27:51Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5; explicit models re-checked numerically for N = 3..60 (EXP-C13-09)",
+      "old": "Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:27:51Z"
     }
   ],
   "id": "CLM-C13-05",
@@ -18,7 +42,7 @@
   "novelty": "NOT ASSESSED",
   "novelty_basis": "Elementary; its interest is as the counterexample to the lab's hypothesis H-C13-1.",
   "proof": "proofs/paper/C13.md#theorem-5-clm-c13-05--a-spectrum-that-is-not-closed-under-divisors",
-  "proof_check": "Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5",
+  "proof_check": "Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5; explicit models re-checked numerically for N = 3..60 (EXP-C13-09)",
   "statement": "The one-variable law x = x*(x*(x*x)) has an anchored model of every size N != 2 and none of size 2; in particular its spectrum contains 4 but not 2, so anchored spectra need not be closed under divisors.",
   "system": "SYS-B",
   "title": "The law x = x(x(xx)) has anchored models of every size except 2",

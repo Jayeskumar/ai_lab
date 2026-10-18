@@ -1,0 +1,189 @@
+{
+ "rule": "aab -> babaa",
+ "nmax": 15,
+ "by_n": {
+  "0": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    ""
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 1,
+   "elapsed_s": 0.0
+  },
+  "1": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    "a",
+    "b"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 3,
+   "elapsed_s": 0.0
+  },
+  "2": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    "aa",
+    "ab",
+    "ba",
+    "bb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 7,
+   "elapsed_s": 0.0
+  },
+  "3": {
+   "D": 1,
+   "closed_form": 1,
+   "argmax": [
+    "aab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 16,
+   "elapsed_s": 0.0
+  },
+  "4": {
+   "D": 2,
+   "closed_form": 2,
+   "argmax": [
+    "aabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 37,
+   "elapsed_s": 0.0
+  },
+  "5": {
+   "D": 3,
+   "closed_form": 3,
+   "argmax": [
+    "aaaab",
+    "aabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 88,
+   "elapsed_s": 0.0
+  },
+  "6": {
+   "D": 6,
+   "closed_form": 6,
+   "argmax": [
+    "aaaabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 217,
+   "elapsed_s": 0.0
+  },
+  "7": {
+   "D": 9,
+   "closed_form": 9,
+   "argmax": [
+    "aaaabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 558,
+   "elapsed_s": 0.0
+  },
+  "8": {
+   "D": 14,
+   "closed_form": 14,
+   "argmax": [
+    "aaaaaabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 1498,
+   "elapsed_s": 0.0
+  },
+  "9": {
+   "D": 21,
+   "closed_form": 21,
+   "argmax": [
+    "aaaaaabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 4207,
+   "elapsed_s": 0.0
+  },
+  "10": {
+   "D": 30,
+   "closed_form": 30,
+   "argmax": [
+    "aaaaaaaabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 12392,
+   "elapsed_s": 0.0
+  },
+  "11": {
+   "D": 45,
+   "closed_form": 45,
+   "argmax": [
+    "aaaaaaaabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 38411,
+   "elapsed_s": 0.1
+  },
+  "12": {
+   "D": 62,
+   "closed_form": 62,
+   "argmax": [
+    "aaaaaaaaaabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 125975,
+   "elapsed_s": 0.4
+  },
+  "13": {
+   "D": 93,
+   "closed_form": 93,
+   "argmax": [
+    "aaaaaaaaaabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 439837,
+   "elapsed_s": 1.7
+  },
+  "14": {
+   "D": 126,
+   "closed_form": 126,
+   "argmax": [
+    "aaaaaaaaaaaabb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 1650197,
+   "elapsed_s": 7.8
+  },
+  "15": {
+   "D": 189,
+   "closed_form": 189,
+   "argmax": [
+    "aaaaaaaaaaaabbb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 6717582,
+   "elapsed_s": 36.3
+  }
+ },
+ "stopped_after_n": 15,
+ "_seconds": 36.6
+}

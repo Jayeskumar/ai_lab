@@ -9,8 +9,8 @@
   "code": {
     "command": "python -m lab run EXP-C13-02",
     "file": "experiments/C13/E02_rigidity_infinite.py",
-    "sha256": "5a3d3e1039e3733ec61c0c66ea1ca0fb3d0dac1bcfcd9c402d39599692df2991",
-    "systems_sha256": "920b03de6989e64c0a31bf3c54b944f3a1fdf40edf40d7ecd6f17bc7f265ea22"
+    "sha256": "f7a45b3bcc0d2cf20149849ca89e93310a1f1e519d5ea3a2b06069a1db2f1b42",
+    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
   },
   "counterexamples": [
     "x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8"
@@ -73,7 +73,7 @@
     "CLM-C13-08"
   ],
   "results_file": "results/EXP-C13-02.json",
-  "results_sha256": "b7e03113813b1b93f957c467f4b6b0ca7d3005b6e2642f929ad803aee6974735",
+  "results_sha256": "303383d15aaff0e966920ca7d7432fd2f68f371a6b16eb01aeb3316b8b5ce34e",
   "runs": [
     {
       "code": {
@@ -89,6 +89,27 @@
       "results_sha256": "b7e03113813b1b93f957c467f4b6b0ca7d3005b6e2642f929ad803aee6974735",
       "runtime_s": 339.574,
       "started": "2026-10-18T09:17:04Z",
+      "summary": [
+        "199 laws from infinite non-trivial affine classes tested for N = 2..8",
+        "rigid (no non-affine model, no UNKNOWN): 1",
+        "non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
+        "UNKNOWN instances: 12"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-02",
+        "file": "experiments/C13/E02_rigidity_infinite.py",
+        "sha256": "f7a45b3bcc0d2cf20149849ca89e93310a1f1e519d5ea3a2b06069a1db2f1b42",
+        "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:26:30Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-02.json",
+      "results_sha256": "303383d15aaff0e966920ca7d7432fd2f68f371a6b16eb01aeb3316b8b5ce34e",
+      "runtime_s": 317.353,
+      "started": "2026-10-18T17:21:13Z",
       "summary": [
         "199 laws from infinite non-trivial affine classes tested for N = 2..8",
         "rigid (no non-affine model, no UNKNOWN): 1",

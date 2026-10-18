@@ -28,10 +28,19 @@
       "old": null,
       "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Complete SAT enumeration for N <= 9 (Skeptic N <= 16). In cycle C13 16 of the 17 laws were PROVED to have exactly the stated finite spectra - x(yz) = ((zx)x)y and x(yz) = ((xy)z)x in Lean (CLM-C13-04), the rest by the sound offset-closure prover (CLM-C13-06). Only x(yz) = y((yx)z) remains open (spectrum {1,2} supported up to N = 12).",
+      "old": "Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.",
+      "reason": "Cycle C13 proved 16 of the 17 finite spectra (CLM-C13-04, CLM-C13-06); one law remains",
+      "ts": "2026-10-18T17:27:51Z"
     }
   ],
   "id": "CLM-C06-10",
-  "limitations": "Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.",
+  "limitations": "Complete SAT enumeration for N <= 9 (Skeptic N <= 16). In cycle C13 16 of the 17 laws were PROVED to have exactly the stated finite spectra - x(yz) = ((zx)x)y and x(yz) = ((xy)z)x in Lean (CLM-C13-04), the rest by the sound offset-closure prover (CLM-C13-06). Only x(yz) = y((yx)z) remains open (spectrum {1,2} supported up to N = 12).",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "The seven laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z = y((zx)y), (xy)z = y((zy)x),\n(xy)z = z((yx)z), (xy)z = z((yz)x) have anchored models exactly for N in {1, 3}; the ten laws x(yz) = y((yx)z),\nx(yz) = ((xx)y)z, x(yz) = ((xx)z)y, x(yz) = ((xy)x)z, x(yz) = ((xy)y)z, x(yz) = ((xy)z)x, x(yz) = ((xy)z)y,\nx(yz) = ((xz)x)y, x(yz) = ((xz)y)x, x(yz) = ((xz)y)y have anchored models exactly for N in {1, 2}.",

@@ -108,12 +108,13 @@ claims:
       e in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)
       and the number of models is the number of roots (OEIS A087781).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19"
+    proof_check: "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); formalised in Lean in cycle C13 (C13_Spectra.lean: golden_law_models, golden_law_model_of_root; standard axioms only); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19"
     proof: proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z
     evidence: [EXP-C06-04]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables)."
-    change_reason: Independent skeptic review 2026-10-18 - proof upheld; enumeration extended to N <= 17 and N = 19
+    change_reason: "Lean formalisation added in cycle C13"
+    lean: [proofs/lean/Infinity/C13_Spectra.lean]
   - id: CLM-C06-08
     type: theorem
     system: SYS-B
@@ -154,9 +155,9 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C06-03, EXP-C06-04]
     novelty: "POTENTIALLY NOVEL"
-    limitations: Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.
+    limitations: "Complete SAT enumeration for N <= 9 (Skeptic N <= 16). In cycle C13 16 of the 17 laws were PROVED to have exactly the stated finite spectra - x(yz) = ((zx)x)y and x(yz) = ((xy)z)x in Lean (CLM-C13-04), the rest by the sound offset-closure prover (CLM-C13-06). Only x(yz) = y((yx)z) remains open (spectrum {1,2} supported up to N = 12)."
     novelty_basis: "As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
-    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
+    change_reason: "Cycle C13 proved 16 of the 17 finite spectra (CLM-C13-04, CLM-C13-06); one law remains"
   - id: CLM-C06-11
     type: observation
     system: SYS-B

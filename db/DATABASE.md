@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T17:27:51Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1314,7 +1314,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19
+  written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); formalised in Lean in cycle C13 (C13_Spectra.lean: golden_law_models, golden_law_model_of_root; standard axioms only); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1325,6 +1325,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
   and the number of models is the number of roots (OEIS A087781).
 
 - **proof:** proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z
+- **lean:** proofs/lean/Infinity/C13_Spectra.lean
 - **evidence:** EXP-C06-04
 - **novelty_basis:**
 
@@ -1395,7 +1396,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **novelty_basis:** As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:**
 
-  Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.
+  Complete SAT enumeration for N <= 9 (Skeptic N <= 16). In cycle C13 16 of the 17 laws were PROVED to have exactly the stated finite spectra - x(yz) = ((zx)x)y and x(yz) = ((xy)z)x in Lean (CLM-C13-04), the rest by the sound offset-closure prover (CLM-C13-06). Only x(yz) = y((yx)z) remains open (spectrum {1,2} supported up to N = 12).
 
 - **status history:**
   - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
@@ -2522,11 +2523,12 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C13.md#theorem-3-clm-c13-03--the-w-family-polynomial-spectra-apa--1
 - **lean:** proofs/lean/Infinity/C13_Spectra.lean
-- **evidence:** EXP-C13-03
+- **evidence:** EXP-C13-03; EXP-C13-09
 - **novelty_basis:**
 
   Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical.
 
+- **status history:**
 
 ### CLM-C13-04: Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x
 
@@ -2548,7 +2550,10 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5
+- **proof_check:**
+
+  Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an explicit model for every N >= 3; standard axioms only); written proof proofs/paper/C13.md Theorem 5; explicit models re-checked numerically for N = 3..60 (EXP-C13-09)
+
 - **novelty:** NOT ASSESSED
 - **statement:**
 
@@ -2556,8 +2561,9 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C13.md#theorem-5-clm-c13-05--a-spectrum-that-is-not-closed-under-divisors
 - **lean:** proofs/lean/Infinity/C13_Spectra.lean
-- **evidence:** EXP-C13-07
+- **evidence:** EXP-C13-07; EXP-C13-09
 - **novelty_basis:** Elementary; its interest is as the counterexample to the lab's hypothesis H-C13-1.
+- **status history:**
 
 ### CLM-C13-06: Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of the 17 laws of CLM-C06-10
 
@@ -2654,11 +2660,12 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
   a square).
 
 - **proof:** proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
-- **evidence:** EXP-C13-01
+- **evidence:** EXP-C13-01; EXP-C13-09
 - **novelty_basis:**
 
   The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03).
 
+- **status history:**
 
 ### CLM-C13-12: Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found
 
@@ -5649,7 +5656,8 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
   - 2var_le5: 75625 laws, 3631 affine systems, 125 distinct spectra
   - 2var_le5 finite spectra: Div(1) x23743; Div(2) x9718; Div(3) x4889; Div(4) x1806; Div(5) x1375; Div(7) x964; Div(9) x662; Div(6) x648; Div(10) x539; Div(8) x536; Div(11) x382; Div(14) x343; Div(13) x266; Div(17) x182; Div(27) x159; Div(15) x136; Div(26) x113; Div(22) x99; Div(19) x84; Div(21) x80; Div(23) x74; Div(34) x70; Div(16) x64; Div(18) x64; Div(20) x61; Div(36) x54; Div(51) x52; Div(33) x…
   - 2var_le5 infinite: 0/2*a**2 + a/2*a**2 + a - 1 x24999; a**2 + 3*a + 1/a**2 + a - 1/a**2 - 3*a + 1 x647; a**2 + a + 1/a**2 - a + 1/a**4 + a**2 + 1 x520; 2*a + 1/2*a - 1/2*a - 3 x439; a**2 + 1 x339; a**3 + 2*a**2 + a + 1/a**3 + a**2 + 2*a + 1/a**3 + a**2 - 1 x190; a**2 + 2*a - 1/a**2 - 2/a**2 - 2*a - 1 x164; a**3 + 2*a**2 + a - 1/a**3 + a + 1/a**3 + a - 1 x160; a**3 + a**2 + a - 1/a**3 + a**2 - a +…
-  - every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 2
+  - finite systems without an integer bound R (should be 0): 0
+  - every finite spectrum is Div(L) for L = lcm: True []; spectra mixing finite and infinite systems: 0
   - OEIS: [a + 1] MATCH ['A000027', 'A001477', 'A028310', 'A296882']; [a**2 - a - 1] MATCH ['A089270']; [a**2 + a + 1] MATCH ['A034017']; [a**2 + 1] MATCH ['A008784']; [2*a + 1] MATCH ['A005408', 'A060747', 'A004273', 'A176271']; [a**3 + a**2 + 1] NO MATCH []; [a**3 - a - 1] NO MATCH []; [a**2 - 2*a - 1] MATCH ['A057126']; [a**3 - a**2 - a - 1] NO MATCH []; [2*a**2 + 1] MATCH ['A225771']; [2*a**2 + a…
 - **analysis:**
 
@@ -5657,7 +5665,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C13-01; CLM-C13-11
-- **runs:** 2; last 2026-10-18T08:59:02Z (25.828 s), results sha256 `ba2746d029908a44…`, code `experiments/C13/E01_affine_atlas.py`
+- **runs:** 3; last 2026-10-18T17:17:50Z (24.886 s), results sha256 `93aaee29be305151…`, code `experiments/C13/E01_affine_atlas.py`
 
 ### EXP-C13-02: Affine rigidity of laws with infinite non-trivial affine spectra
 
@@ -5686,7 +5694,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8
 - **verification:** REFUTED
 - **related:** CLM-C13-08
-- **runs:** 1; last 2026-10-18T09:22:43Z (339.574 s), results sha256 `b7e03113813b1b93…`, code `experiments/C13/E02_rigidity_infinite.py`
+- **runs:** 2; last 2026-10-18T17:26:30Z (317.353 s), results sha256 `303383d15aaff0e9…`, code `experiments/C13/E02_rigidity_infinite.py`
 
 ### EXP-C13-03: Anchored models of (xy)z = x(y W(z)) for every one-variable term W with at most 5 leaves
 
@@ -5710,7 +5718,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C13-03
-- **runs:** 2; last 2026-10-18T17:12:21Z (74.198 s), results sha256 `674131101d9ae87a…`, code `experiments/C13/E03_w_family.py`
+- **runs:** 3; last 2026-10-18T17:15:14Z (70.113 s), results sha256 `4917f21f9941f345…`, code `experiments/C13/E03_w_family.py`
 
 ### EXP-C13-04: Non-affine models of the 17 finite-spectrum laws of CLM-C06-10, N <= 12
 
@@ -5729,7 +5737,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **related:** CLM-C13-04; CLM-C13-06
-- **runs:** 2; last 2026-10-18T17:11:06Z (67.593 s), results sha256 `eb599e52ab7cf005…`, code `experiments/C13/E04_finite_spectra.py`
+- **runs:** 3; last 2026-10-18T17:14:03Z (67.195 s), results sha256 `82a801beab96886d…`, code `experiments/C13/E04_finite_spectra.py`
 
 ### EXP-C13-05: Divisor-closure of anchored spectra: 300 random 2-variable laws with <= 4 leaves per side, N <= 9
 
@@ -5754,7 +5762,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** (xx)(xy) = y(y(yy)): models at N = 4, 6, 8 but not at N = 2; x(xy) = y(y(xx)): models at N = 5, 6, 8, 9 but not at 2, 3, 4
 - **verification:** REFUTED
 - **related:** CLM-C13-07
-- **runs:** 1; last 2026-10-18T17:06:03Z (241.215 s), results sha256 `56ef2f83731cf61c…`, code `experiments/C13/E05_divisor_closure.py`
+- **runs:** 2; last 2026-10-18T17:21:12Z (201.047 s), results sha256 `fec75de37c1c0144…`, code `experiments/C13/E05_divisor_closure.py`
 
 ### EXP-C13-06: Divisor-closure of anchored spectra: 150 random 3-variable laws and 80 random pairs of 2-variable laws
 
@@ -5779,7 +5787,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** (x(xy))x = x((zz)y); ((xx)x)x = (y(xx))y
 - **verification:** REFUTED
 - **related:** CLM-C13-07
-- **runs:** 1; last 2026-10-18T17:07:31Z (77.799 s), results sha256 `1a47462732140956…`, code `experiments/C13/E06_divisor_closure_3var.py`
+- **runs:** 2; last 2026-10-18T17:17:24Z (71.581 s), results sha256 `72ac7b6d242f3fe1…`, code `experiments/C13/E06_divisor_closure_3var.py`
 
 ### EXP-C13-07: Spectra of one-variable laws and the failure of divisor-closure
 
@@ -5805,7 +5813,7 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x = (xx)x has spectrum exactly {1, 2} (neither {1} nor cofinite); x = x(x(xx)) has spectrum missing exactly 2 (N <= 12)
 - **verification:** REFUTED
 - **related:** CLM-C13-05; CLM-C13-07; CLM-C13-09; CLM-C13-10
-- **runs:** 2; last 2026-10-18T17:09:57Z (6.008 s), results sha256 `bb8a7a8453a3f473…`, code `experiments/C13/E07_one_variable_laws.py`
+- **runs:** 3; last 2026-10-18T17:12:55Z (6.862 s), results sha256 `6a8330d423af9d37…`, code `experiments/C13/E07_one_variable_laws.py`
 
 ### EXP-C13-08: Finite spectra proved by offset congruence closure (and a soundness test against SAT)
 
@@ -5835,7 +5843,35 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C13-06
-- **runs:** 2; last 2026-10-18T17:09:43Z (62.111 s), results sha256 `1602429fe21d9d7b…`, code `experiments/C13/E08_closure_proofs.py`
+- **runs:** 3; last 2026-10-18T17:16:12Z (57.012 s), results sha256 `9ef05e77351e2591…`, code `experiments/C13/E08_closure_proofs.py`
+
+### EXP-C13-09: Skeptic cross-checks: cube-law models, six-leaf W-family, arithmetic identifications to N = 1000
+
+- **cycle:** C13
+- **agent:** Mathematical Skeptic
+- **question:**
+
+  Do the explicit models of Theorem 5 really satisfy the law for N = 3..60? Does Theorem 3 hold for the 42 six-leaf terms W? Are the affine spectra of CLM-C13-11 equal to the stated arithmetic sets beyond the OEIS window (N <= 1000), checked against their direct definitions?
+
+- **hypothesis:** All three checks pass with 0 discrepancies.
+- **assumptions:**
+  - (a) direct numpy evaluation, no SAT; N = 2 exhaustively over all 4 free entries
+  - (b) SAT enumeration (limit 100) for N = 1..6
+  - (c) direct definitions: existence of t with t^2 = -1, 2, 3 or t^4 = -1 (mod N); prime-factor conditions; compared with the affine spectrum of the example law
+- **methodology:** Independent code paths from those of EXP-C13-01..08 wherever possible.
+- **falsification:** Any discrepancy.
+- **summary:**
+  - cube law: model at N=2: False; failing explicit models N=3..60: []
+  - W-family, 42 six-leaf terms, N <= 6: mismatches 0
+  - identifications to N=1000: x(xx) = y(xy): True, (xx)(xy) = (yy)(yx): True, x = x((xx)x): True, ((xx)x)x = ((yy)y)y: True, x(xy) = y(yx): True, x((xy)y) = y((xx)x): True
+  - all checks passed: True
+- **analysis:**
+
+  Skeptic cross-checks by independent code paths - the explicit models of Theorem 5 satisfy x = x(x(xx)) for every N = 3..60 and no anchored table of size 2 does (exhaustive); Theorem 3 holds for all 42 six-leaf terms W for N <= 6 (0 mismatches); the affine spectra of six atlas laws equal their direct arithmetic definitions (-1 square, 2 square, odd, 3 does not divide N, golden root, prime factors +-1 mod 8) for every N <= 1000.
+
+- **verification:** PROVEN
+- **related:** CLM-C13-03; CLM-C13-05; CLM-C13-11
+- **runs:** 1; last 2026-10-18T17:26:45Z (4.713 s), results sha256 `db7a343520692535…`, code `experiments/C13/E09_skeptic_checks.py`
 
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
 
@@ -6582,6 +6618,47 @@ _Generated 2026-10-18T17:12:39Z from `db/`. The JSON records are authoritative; 
 - **falsification:** Any n where the greedy is shorter than the exact optimum, a mismatch with earlier values, or bound equality at some n != F_k - 1.
 - **summary:** exact longest games for n <= 150 (max 910775 states at n = 150); known values n <= 60 reproduced: True; split-first greedy = exact optimum for all n <= 150: True (fast implementation: True); Cusenza bound attained exactly at n in [1, 2, 4, 7, 12, 20, 33, 54, 88, 143] - i.e. iff n = F_k - 1: True; reachable configurations = partitions of n into Fibonacci parts for every n <= 150: True
 - **runs:** 1; last 2026-10-18T17:08:43Z (394.275 s), results sha256 `786fcf3863714493…`, code `experiments/C19/E01_exact_longest.py`
+
+### EXP-C19-02: Anatomy of the longest Zeckendorf game: the identity L = B - W, the lazy split phase, insertion
+
+- **cycle:** C19
+- **agent:** Formal Verifier
+- **question:** Is the length of EVERY game equal to B(n) - sum_{i>=2} (i-1) MC_i (B = Cusenza's bound)? Where does the split phase of the greedy game end? Is L(n+1) = L(n) + (longest game from Zeck(n) + 1)?
+- **hypothesis:**
+
+  H-C19-A (derived from a potential): length = B(n) - W for every game. H-C19-B: splits and combine-1s, applied in any order, end at the lazy Fibonacci representation of n after the same number of moves. H-C19-4 (bold): L(n+1) = L(n) + lambda(n), lambda(n) the longest game from the Zeckendorf representation of n plus one extra 1.
+
+- **assumptions:** random games choose uniformly among legal moves (seeded); lazy representation computed by the top-down algorithm and checked to have no two consecutive zeros
+- **methodology:**
+
+  Greedy games for n < 1500 and 1500 random games (n <= 200): compare length with B(n) - W. Split phase (lowest-first) for n < 5000 against the lazy digits; 300 random firing orders (n <= 600). Exact longest games from Zeck(m) + [1] for m < 300.
+
+- **falsification:** A game violating the identity; a split phase ending elsewhere or with a different length; H-C19-4: any m with L(m+1) != L(m) + lambda(m).
+- **summary:**
+  - identity length = B(n) - sum (i-1) MC_i: violations on greedy games n < 1500: 0; on 1500 random games: 0
+  - split phase (splits + combine-1s) ends at the lazy representation for 4999 of 4999 n; random firing orders change the end point or the length in 0 of 300 cases
+  - H-C19-4 (L(m+1) = L(m) + lambda(m)) fails for 288 of 300 m, first: [{'m': 3, 'L(m+1)': 3, 'L(m)': 2, 'lambda': 0}, {'m': 5, 'L(m+1)': 6, 'L(m)': 5, 'lambda': 0}]
+- **runs:** 1; last 2026-10-18T17:20:04Z (12.526 s), results sha256 `f4aa28e4b7690df5…`, code `experiments/C19/E02_anatomy.py`
+
+### EXP-C19-03: Structure of the deficit D(n) = B(n) - L(n) of the longest Zeckendorf game
+
+- **cycle:** C19
+- **agent:** Mathematical Inventor
+- **question:** How does D(n) = B(n) - L(n) (B = sum_i a_i delta_i, Cusenza et al.) depend on the Zeckendorf digits of n?
+- **hypothesis:**
+
+  H-C19-F: D(F at level j) = floor(j^2/4). H-C19-1 (bold): D is additive over Zeckendorf summands up to a correction for consecutive pairs only. H-C19-2: the effect of the top summand depends only on the two highest levels. H-C19-3 (bold): D is additive over the runs of the lazy representation. H-C19-R: D(F_j + m) = floor(j^2/4) + D(m) - rho_(j mod 2)(m) with the explicit rho of systems/zeckendorf_game.py (inferred from n < 30000; out-of-sample tests in EXP-C19-04).
+
+- **assumptions:**
+  - L(n) computed by the split-first greedy strategy, which is optimal by Cusenza et al. (2022, Thm 1.2) and was confirmed independently for n <= 150 (EXP-C19-01)
+  - levels j: F = 1, 2, 3, 5, ... (level j carries FIB[j])
+- **methodology:**
+
+  Greedy lengths for all n < 30000 and for Fibonacci inputs up to level 33; two-summand values for j <= 24; exact rational rank test for the lazy-run model on n < 160; comparison of the recursion with the greedy on n < 30000.
+
+- **falsification:** Any n contradicting H-C19-F or H-C19-R; the additive models are refuted by explicit counterexamples or inconsistent linear systems.
+- **summary:** D(F) = floor(j^2/4) for the Fibonacci input at level j, j <= 33: violations []; two-summand law D(F_j + F_i) = h(j) + h(i) - R(j,i): 276 pairs (j <= 24), violations 0; H-C19-1 (consecutive-pair additivity) refuted: 23680 mismatches for n < 30000, first n = 12; H-C19-2 refuted: 87 (top, next) keys with several values, e.g. (4, 2) -> [0, 1]; H-C19-3 (lazy-run additivity) on n < 160: rank 46 vs augmented 47 -> inconsistent (refuted); recursion H-C19-R reproduces D for all n < 30000 (in-sample): mismatches 0; D(n) <= floor(j^2/4) (j top level): violations 0; L strictly increasing for n >= 1: violations 0
+- **runs:** 1; last 2026-10-18T17:27:06Z (376.807 s), results sha256 `d5da7b0e3e1522a9…`, code `experiments/C19/E03_deficit_structure.py`
 
 ### EXP-C20-01: Termination and exact derivational complexity of aab -> ababa and aab -> babaa
 

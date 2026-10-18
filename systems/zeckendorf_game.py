@@ -335,3 +335,28 @@ def fib_partitions(N: int) -> list[int]:
         for v in range(f, N):
             p[v] += p[v - f]
     return p
+
+
+def split_phase_fast(n: int):
+    """Lowest-first split phase with a moving pointer (same result as split_phase(n))."""
+    c = [0] * 100
+    c[0] = n
+    steps = 0
+    k = 0
+    top = len(c) - 3
+    while k < top:
+        if c[k] >= 2:
+            c[k] -= 2
+            if k == 0:
+                c[1] += 1
+            elif k == 1:
+                c[2] += 1
+                c[0] += 1
+            else:
+                c[k + 1] += 1
+                c[k - 2] += 1
+            steps += 1
+            k = max(0, k - 2)
+        else:
+            k += 1
+    return _trim(c), steps

@@ -24,6 +24,7 @@ OUT = os.path.join(HERE, "out")
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 
 RULES = {"ababa": ("aab", "ababa"), "babaa": ("aab", "babaa")}
+MEMO_CAP = int(os.environ.get("MEMO_CAP", "4000000"))
 
 
 def parse_rule(s):
@@ -99,6 +100,11 @@ def part_exhaustive(rule, nmax):
                           "words_with_min_ne_max": words_min_ne_max, "words_with_several_normal_forms": words_multi_nf,
                           "memo_size": len(memo), "elapsed_s": round(time.time() - t0, 1)}
         print(n, res["by_n"][n], flush=True)
+        with open(os.path.join(OUT, f"c20_exhaustive_{rule}_partial.json"), "w") as fh:
+            json.dump(res, fh, indent=1, default=str)
+        if len(memo) > MEMO_CAP // 25:            # growth is roughly x20 per length: stop before running out of memory
+            res["stopped_after_n"] = n
+            break
     return res
 
 

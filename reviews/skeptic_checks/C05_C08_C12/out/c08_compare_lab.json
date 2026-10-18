@@ -1,0 +1,790 @@
+{
+ "false_positives_in_EXP-C08-04": [
+  {
+   "p": 4,
+   "q": -2,
+   "g1": 2,
+   "lab_shifts": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    3
+   ]
+  },
+  {
+   "p": 4,
+   "q": -2,
+   "g1": 3,
+   "lab_shifts": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    3
+   ]
+  },
+  {
+   "p": 4,
+   "q": -2,
+   "g1": 6,
+   "lab_shifts": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4
+   ]
+  },
+  {
+   "p": 5,
+   "q": -3,
+   "g1": 2,
+   "lab_shifts": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5
+   ]
+  },
+  {
+   "p": 5,
+   "q": -3,
+   "g1": 3,
+   "lab_shifts": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    7
+   ]
+  },
+  {
+   "p": 5,
+   "q": -3,
+   "g1": 4,
+   "lab_shifts": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    6
+   ]
+  },
+  {
+   "p": 5,
+   "q": -3,
+   "g1": 5,
+   "lab_shifts": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    7
+   ]
+  },
+  {
+   "p": 5,
+   "q": -3,
+   "g1": 6,
+   "lab_shifts": [
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    7
+   ]
+  },
+  {
+   "p": 2,
+   "q": 2,
+   "g1": 2,
+   "lab_shifts": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "p": 2,
+   "q": 2,
+   "g1": 4,
+   "lab_shifts": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    6,
+    7
+   ]
+  },
+  {
+   "p": 2,
+   "q": 2,
+   "g1": 5,
+   "lab_shifts": [
+    6,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    6
+   ]
+  },
+  {
+   "p": 2,
+   "q": 2,
+   "g1": 6,
+   "lab_shifts": [
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    9
+   ]
+  },
+  {
+   "p": 3,
+   "q": 2,
+   "g1": 2,
+   "lab_shifts": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    3
+   ]
+  },
+  {
+   "p": 3,
+   "q": 2,
+   "g1": 5,
+   "lab_shifts": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5
+   ]
+  },
+  {
+   "p": 3,
+   "q": 2,
+   "g1": 6,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4
+   ]
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 2,
+   "lab_shifts": [
+    7,
+    9,
+    10
+   ],
+   "certified_failing": [
+    7,
+    9,
+    10
+   ]
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 3,
+   "lab_shifts": [
+    9,
+    10
+   ],
+   "certified_failing": [
+    9,
+    10
+   ]
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 4,
+   "lab_shifts": [
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    8,
+    9,
+    10
+   ]
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 5,
+   "lab_shifts": [
+    10
+   ],
+   "certified_failing": [
+    10
+   ]
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 6,
+   "lab_shifts": [
+    10
+   ],
+   "certified_failing": [
+    10
+   ]
+  },
+  {
+   "p": 4,
+   "q": 2,
+   "g1": 2,
+   "lab_shifts": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    2
+   ]
+  },
+  {
+   "p": 4,
+   "q": 2,
+   "g1": 4,
+   "lab_shifts": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    2
+   ]
+  },
+  {
+   "p": 4,
+   "q": 2,
+   "g1": 5,
+   "lab_shifts": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    2,
+    3
+   ]
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 2,
+   "lab_shifts": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5,
+    6
+   ]
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 3,
+   "lab_shifts": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5
+   ]
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 4,
+   "lab_shifts": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5
+   ]
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 5,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4
+   ]
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 6,
+   "lab_shifts": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    6,
+    7
+   ]
+  },
+  {
+   "p": 5,
+   "q": 3,
+   "g1": 3,
+   "lab_shifts": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4
+   ]
+  },
+  {
+   "p": 5,
+   "q": 3,
+   "g1": 5,
+   "lab_shifts": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    4,
+    5
+   ]
+  },
+  {
+   "p": 5,
+   "q": 3,
+   "g1": 6,
+   "lab_shifts": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "certified_failing": [
+    5
+   ]
+  }
+ ],
+ "lab_non_monotone": [
+  {
+   "p": 1,
+   "q": 1,
+   "g1": 3,
+   "lab_shifts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    3
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 1,
+   "q": 1,
+   "g1": 4,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 1,
+   "q": 1,
+   "g1": 5,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    5
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 1,
+   "q": 1,
+   "g1": 6,
+   "lab_shifts": [
+    4,
+    6,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    4,
+    6,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    7
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 2,
+   "q": 1,
+   "g1": 5,
+   "lab_shifts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    3
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 2,
+   "q": 1,
+   "g1": 6,
+   "lab_shifts": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    3
+   ],
+   "still_non_monotone_on_0_10": true
+  },
+  {
+   "p": 2,
+   "q": 2,
+   "g1": 5,
+   "lab_shifts": [
+    6,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "still_non_monotone_on_0_10": false
+  },
+  {
+   "p": 3,
+   "q": 2,
+   "g1": 6,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "still_non_monotone_on_0_10": false
+  },
+  {
+   "p": 3,
+   "q": 3,
+   "g1": 2,
+   "lab_shifts": [
+    7,
+    9,
+    10
+   ],
+   "targeted_no_failure": [],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "still_non_monotone_on_0_10": false
+  },
+  {
+   "p": 4,
+   "q": 3,
+   "g1": 5,
+   "lab_shifts": [
+    4,
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_no_failure": [
+    6,
+    7,
+    8,
+    9,
+    10
+   ],
+   "targeted_certified_failures": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "still_non_monotone_on_0_10": false
+  }
+ ],
+ "n_lab_rows": 90
+}

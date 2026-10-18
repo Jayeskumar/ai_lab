@@ -1,0 +1,65 @@
+{
+  "agent": "Mathematical Inventor",
+  "assumptions": [
+    "L(n) computed by the split-first greedy strategy, which is optimal by Cusenza et al. (2022, Thm 1.2) and was confirmed independently for n <= 150 (EXP-C19-01)",
+    "levels j: F = 1, 2, 3, 5, ... (level j carries FIB[j])"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C19-03",
+    "file": "experiments/C19/E03_deficit_structure.py",
+    "sha256": "597c110024d78b0f0aa2abfa193a9cf61c29352d6f6b6007efd6632f5694c247",
+    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+  },
+  "cycle": "C19",
+  "falsification": "Any n contradicting H-C19-F or H-C19-R; the additive models are refuted by explicit counterexamples or inconsistent linear systems.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:27:06Z"
+    }
+  ],
+  "hypothesis": "H-C19-F: D(F at level j) = floor(j^2/4). H-C19-1 (bold): D is additive over Zeckendorf summands up to a correction for consecutive pairs only. H-C19-2: the effect of the top summand depends only on the two highest levels. H-C19-3 (bold): D is additive over the runs of the lazy representation. H-C19-R: D(F_j + m) = floor(j^2/4) + D(m) - rho_(j mod 2)(m) with the explicit rho of systems/zeckendorf_game.py (inferred from n < 30000; out-of-sample tests in EXP-C19-04).",
+  "id": "EXP-C19-03",
+  "methodology": "Greedy lengths for all n < 30000 and for Fibonacci inputs up to level 33; two-summand values for j <= 24; exact rational rank test for the lazy-run model on n < 160; comparison of the recursion with the greedy on n < 30000.",
+  "question": "How does D(n) = B(n) - L(n) (B = sum_i a_i delta_i, Cusenza et al.) depend on the Zeckendorf digits of n?",
+  "results_file": "results/EXP-C19-03.json",
+  "results_sha256": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-03",
+        "file": "experiments/C19/E03_deficit_structure.py",
+        "sha256": "597c110024d78b0f0aa2abfa193a9cf61c29352d6f6b6007efd6632f5694c247",
+        "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:27:06Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C19-03.json",
+      "results_sha256": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
+      "runtime_s": 376.807,
+      "started": "2026-10-18T17:20:49Z",
+      "summary": [
+        "D(F) = floor(j^2/4) for the Fibonacci input at level j, j <= 33: violations []",
+        "two-summand law D(F_j + F_i) = h(j) + h(i) - R(j,i): 276 pairs (j <= 24), violations 0",
+        "H-C19-1 (consecutive-pair additivity) refuted: 23680 mismatches for n < 30000, first n = 12",
+        "H-C19-2 refuted: 87 (top, next) keys with several values, e.g. (4, 2) -> [0, 1]",
+        "H-C19-3 (lazy-run additivity) on n < 160: rank 46 vs augmented 47 -> inconsistent (refuted)",
+        "recursion H-C19-R reproduces D for all n < 30000 (in-sample): mismatches 0",
+        "D(n) <= floor(j^2/4) (j top level): violations 0; L strictly increasing for n >= 1: violations 0"
+      ]
+    }
+  ],
+  "summary": [
+    "D(F) = floor(j^2/4) for the Fibonacci input at level j, j <= 33: violations []",
+    "two-summand law D(F_j + F_i) = h(j) + h(i) - R(j,i): 276 pairs (j <= 24), violations 0",
+    "H-C19-1 (consecutive-pair additivity) refuted: 23680 mismatches for n < 30000, first n = 12",
+    "H-C19-2 refuted: 87 (top, next) keys with several values, e.g. (4, 2) -> [0, 1]",
+    "H-C19-3 (lazy-run additivity) on n < 160: rank 46 vs augmented 47 -> inconsistent (refuted)",
+    "recursion H-C19-R reproduces D for all n < 30000 (in-sample): mismatches 0",
+    "D(n) <= floor(j^2/4) (j top level): violations 0; L strictly increasing for n >= 1: violations 0"
+  ],
+  "title": "Structure of the deficit D(n) = B(n) - L(n) of the longest Zeckendorf game"
+}

@@ -1,8 +1,8 @@
 # Cycle C13 — Anchored spectra II: which sets of integers are spectra?
 
 **Branch:** B (invented operations; continues C06) · **Status:** complete
-**Experiments:** EXP-C13-01 … EXP-C13-08 · **Claims:** CLM-C13-01 … CLM-C13-12
-**Proofs:** `proofs/lean/Infinity/C13_Spectra.lean` (13 theorems, standard axioms only, no `sorry`),
+**Experiments:** EXP-C13-01 … EXP-C13-09 · **Claims:** CLM-C13-01 … CLM-C13-12
+**Proofs:** `proofs/lean/Infinity/C13_Spectra.lean` (25 theorems incl. 13 main results, standard axioms only, no `sorry`),
 `proofs/paper/C13.md` (Theorems 1–6) · **Module:** `systems/anchored.py`
 
 ## Step 1 — Hypotheses
@@ -52,11 +52,12 @@ divisors already have models (no violation is then possible).
 | EXP-C13-06 | 150 random 3-variable laws: 29 violations (of 62 with models); 80 random pairs of laws: 17 violations (of 34 with models); 0 UNKNOWN |
 | EXP-C13-07 | all 253 one-variable laws (≤ 5 leaves), N ≤ 12: 213 all N, 9 trivial, **24 divisor-closure violations** (missing {2}, {3} or {2,3}), left combs with spectra Div(2), Div(3), Div(4) |
 | EXP-C13-08 | offset closure: exact spectra for **16 of 17** laws of CLM-C06-10; exact finite spectrum Div(g) for **6,912** of the 18,581 3-variable laws (6,045 trivial); soundness: 1,245 SAT/affine checks, 0 contradictions |
+| EXP-C13-09 | Skeptic cross-checks: cube-law models N = 3..60, W-family on 42 six-leaf terms (N ≤ 6), six atlas identifications vs. direct definitions to N = 1000 — all pass |
 
 Two runs were stopped for exceeding the 15-minute budget (EXP-C13-02 first
 version: 4 laws per class, N ≤ 9, 2·10⁶ conflicts; EXP-C13-05 first version:
 600 laws, N ≤ 10) and replaced by the documented smaller runs. After a
-container restart all eight experiments were re-run on the final code, with
+container restart experiments 01–08 were re-run on the final code, with
 run times moved to the volatile `timings` field so that result hashes are
 reproducible.
 
@@ -132,7 +133,7 @@ finite-model finders, so no improvement over existing tools is claimed.
 
 ## Step 10 — Documentation
 
-`record.yaml` (12 claims, 8 journal entries). Textbook: Chapter 8, "Which sets
+`record.yaml` (12 claims, 9 experiments, 9 journal entries). Textbook: Chapter 8, "Which sets
 of integers are spectra?" (Volume 3). The status of CLM-C06-10 changes: 16 of
 its 17 laws are now proved (CLM-C13-04, CLM-C13-06).
 

@@ -7,7 +7,7 @@
   "code": {
     "command": "python -m lab run EXP-C13-04",
     "file": "experiments/C13/E04_finite_spectra.py",
-    "sha256": "031dd70a2814fbfca1d5908cea48faffce9a44647860903975b29e621c4eedde",
+    "sha256": "d3f4224b7bc39b419e4227c385ba87ad0fce472f4fa59b70a8cdd0e4e04986e4",
     "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "cycle": "C13",
@@ -59,7 +59,7 @@
     "CLM-C13-06"
   ],
   "results_file": "results/EXP-C13-04.json",
-  "results_sha256": "eb599e52ab7cf00520b976f87a78d48ef9ad8ab6300db8afe5b9e0ed3cb8a00b",
+  "results_sha256": "82a801beab96886d2771e80fefe78aaad834da387cb4d1e8488d2b43008f935d",
   "runs": [
     {
       "code": {
@@ -95,6 +95,26 @@
       "results_sha256": "eb599e52ab7cf00520b976f87a78d48ef9ad8ab6300db8afe5b9e0ed3cb8a00b",
       "runtime_s": 67.593,
       "started": "2026-10-18T17:09:58Z",
+      "summary": [
+        "17 laws; spectrum (N <= 12) equals the conjectured set for 17",
+        "non-affine models: x(yz)=y((yx)z) at [2]",
+        "UNKNOWN instances: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-04",
+        "file": "experiments/C13/E04_finite_spectra.py",
+        "sha256": "d3f4224b7bc39b419e4227c385ba87ad0fce472f4fa59b70a8cdd0e4e04986e4",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:14:03Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-04.json",
+      "results_sha256": "82a801beab96886d2771e80fefe78aaad834da387cb4d1e8488d2b43008f935d",
+      "runtime_s": 67.195,
+      "started": "2026-10-18T17:12:56Z",
       "summary": [
         "17 laws; spectrum (N <= 12) equals the conjectured set for 17",
         "non-affine models: x(yz)=y((yx)z) at [2]",

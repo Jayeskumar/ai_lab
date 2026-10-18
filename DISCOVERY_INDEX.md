@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T17:12:39Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-18T17:27:51Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -98,11 +98,11 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | written proof (proofs/paper/C12.md Theorem 7) from the Furs… | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
 | CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | written proof (proofs/paper/C13.md Theorem 1; Chinese remai… | REDISCOVERY | EXP-C13-01 |
 | CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | Lean 4 + Mathlib (translation_form, right_normed_translatio… | POTENTIALLY NOVEL | EXP-C13-03 |
-| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | Lean 4 + Mathlib for the model correspondence for every W (… | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | Lean 4 + Mathlib for the model correspondence for every W (… | POTENTIALLY NOVEL | EXP-C13-03, EXP-C13-09 |
 | CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, … | POTENTIALLY NOVEL | EXP-C13-04 |
-| CLM-C13-05 | The law x = x(x(xx)) has anchored models of every size except 2 | Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an exp… | NOT ASSESSED | EXP-C13-07 |
+| CLM-C13-05 | The law x = x(x(xx)) has anchored models of every size except 2 | Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an exp… | NOT ASSESSED | EXP-C13-07, EXP-C13-09 |
 | CLM-C13-06 | Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of … | written soundness proof (proofs/paper/C13.md Theorem 6); ap… | NOT ASSESSED | EXP-C13-08, EXP-C13-04 |
-| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | affine systems computed mechanically (EXP-C13-01) and Theor… | POTENTIALLY NOVEL | EXP-C13-01 |
+| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | affine systems computed mechanically (EXP-C13-01) and Theor… | POTENTIALLY NOVEL | EXP-C13-01, EXP-C13-09 |
 | CLM-C14-01 | Associativity of a local graph product is a finite identity on relations, detected by P3 … | Lean 4 + Mathlib (rel_lprod, assoc_iso, assoc_iso_nonempty,… | NOT ASSESSED | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | Lean 4 kernel computation (assoc_codes, comm_assoc_codes by… | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-03 | For local graph products, associativity and commutativity up to isomorphism are no weaker… | computer-assisted - explicit witnesses for all 236 + 224 co… | NOT ASSESSED | EXP-C14-02, EXP-C14-06 |
@@ -230,9 +230,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | PROVEN | POTENTIALLY NOVEL | EXP-C11-09 |
 | CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
 | CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | PROVEN | POTENTIALLY NOVEL | EXP-C13-03 |
-| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | PROVEN | POTENTIALLY NOVEL | EXP-C13-03 |
+| CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | PROVEN | POTENTIALLY NOVEL | EXP-C13-03, EXP-C13-09 |
 | CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | PROVEN | POTENTIALLY NOVEL | EXP-C13-04 |
-| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | PROVEN | POTENTIALLY NOVEL | EXP-C13-01 |
+| CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | PROVEN | POTENTIALLY NOVEL | EXP-C13-01, EXP-C13-09 |
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |

@@ -18,13 +18,36 @@
       "old": "written proof (proofs/paper/C06.md Theorem 6); model counts equal the root counts for every N <= 12 (EXP-C06-04); awaiting independent skeptic review",
       "reason": "Independent skeptic review 2026-10-18 - proof upheld; enumeration extended to N <= 17 and N = 19",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "lean",
+      "new": [
+        "proofs/lean/Infinity/C13_Spectra.lean"
+      ],
+      "old": null,
+      "reason": "Lean formalisation added in cycle C13",
+      "ts": "2026-10-18T17:27:51Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); formalised in Lean in cycle C13 (C13_Spectra.lean: golden_law_models, golden_law_model_of_root; standard axioms only); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19",
+      "old": "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19",
+      "reason": "Lean formalisation added in cycle C13",
+      "ts": "2026-10-18T17:27:51Z"
     }
   ],
   "id": "CLM-C06-07",
+  "lean": [
+    "proofs/lean/Infinity/C13_Spectra.lean"
+  ],
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "The number theory is classical (quadratic reciprocity and Hensel; OEIS A089270 and A087781 describe the moduli for which x^2 = x + 1 is solvable and count the roots, https://oeis.org/A089270, https://oeis.org/A087781). The correspondence between this magma law and the golden congruence was not found in the searches made (anchored-magma searches return only Laver tables).",
   "proof": "proofs/paper/C06.md#theorem-6-clm-c06-07--a-golden-law-x--y--z--x--y--z--z",
-  "proof_check": "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19",
+  "proof_check": "written proof (proofs/paper/C06.md Theorem 6), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); formalised in Lean in cycle C13 (C13_Spectra.lean: golden_law_models, golden_law_model_of_root; standard axioms only); model counts equal the root counts for every N <= 12 (EXP-C06-04) and, by the Skeptic's complete enumeration, for N <= 17 and N = 19",
   "statement": "The anchored magmas of size N satisfying (xy)z = x(y(zz)) are exactly x*y = x + 1 + a*y (mod N) with\na^2 + a = 1 (mod N); distinct roots give distinct models. Hence the spectrum is the set of N = 5^e m with\ne in {0, 1} and every prime factor of m congruent to +-1 mod 5 (OEIS A089270: 1, 5, 11, 19, 29, 31, 41, 55, ...)\nand the number of models is the number of roots (OEIS A087781).",
   "system": "SYS-B",
   "title": "A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mod N",

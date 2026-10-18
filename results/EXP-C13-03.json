@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C13-03",
     "file": "experiments/C13/E03_w_family.py",
-    "sha256": "8fc32967625979e6ca724f4c11ce279fb9b25c95884feb3d1f65fe3fb1bf8926",
+    "sha256": "8ec68f54d84c29df12e662d94e5b70bdd8e7dbe40e26524ffd3f0378a0c40f9a",
     "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "env": {
-    "git_head": "b1222d3f0e0cf27f448852fadc4317cafe74ecbf",
+    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T17:12:21Z",
+  "finished": "2026-10-18T17:15:14Z",
   "id": "EXP-C13-03",
   "meta": {
     "agent": "Formal Verifier",
@@ -2310,14 +2310,16 @@
         ]
       }
     ],
-    "runtime_s": 74.2,
     "summary": [
       "23 terms W; N = 1..9; mismatches with Theorem 3: 0",
       "16 distinct polynomials P = c_W: 1, a + 1, a^2 + a + 1, 2a + 1, a^3 + a^2 + a + 1, 2a^2 + a + 1, a^2 + 2a + 1, 3a + 1, a^4 + a^3 + a^2 + a + 1, 2a^3 + a^2 + a + 1, a^3 + 2a^2 + a + 1, 3a^2 + a + 1, a^3 + a^2 + 2a + 1, 2a^2 + 2a + 1, a^2 + 3a + 1, 4a + 1",
       "OEIS: [a + 1] MATCH ['A089270 Positive numbers represented by the integer binary quadratic form x^2 + x*y - y^']; [a^2 + a + 1] NO MATCH []; [a^3 + a^2 + a + 1] NO MATCH []; [2a^2 + a + 1] MATCH ['A005408 The odd numbers: a(n) = 2*n + 1.']; [a^2 + 2a + 1] NO MATCH []; [3a + 1] MATCH ['A243656 Positive integers primitively represented by x^2+3xy-y^2.']; [a^4 + a^3 + a^2 + a + 1] NO MATCH []; [a^3 + 2a^2 + a + 1] NO MATCH []; [3a^2 + a + 1] NO MATCH []; [2a^2 + 2a + 1] NO MATCH []; [4a + 1] NO MATCH []"
-    ]
+    ],
+    "timings": {
+      "total_s": 70.1
+    }
   },
-  "results_sha256": "674131101d9ae87aee0f8d3faaf49734de122afe3dca69f44d9eb05308ac8f8b",
-  "runtime_s": 74.198,
-  "started": "2026-10-18T17:11:07Z"
+  "results_sha256": "4917f21f9941f34504d71df99ab98cf0aca0466af21f416de351a0e8993adced",
+  "runtime_s": 70.113,
+  "started": "2026-10-18T17:14:04Z"
 }

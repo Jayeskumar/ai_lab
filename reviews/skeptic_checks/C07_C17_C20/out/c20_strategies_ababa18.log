@@ -1,0 +1,196 @@
+1 {'D': 0, 'closed_form': 0, 'n_maximisers': 2, 'maximisers': ['a', 'b'], 'elapsed_s': 0.0}
+2 {'D': 0, 'closed_form': 0, 'n_maximisers': 4, 'maximisers': ['aa', 'ab', 'ba', 'bb'], 'elapsed_s': 0.0}
+3 {'D': 1, 'closed_form': 1, 'n_maximisers': 1, 'maximisers': ['aab'], 'elapsed_s': 0.0}
+4 {'D': 3, 'closed_form': 3, 'n_maximisers': 1, 'maximisers': ['aaab'], 'elapsed_s': 0.0}
+5 {'D': 7, 'closed_form': 7, 'n_maximisers': 1, 'maximisers': ['aaaab'], 'elapsed_s': 0.0}
+6 {'D': 15, 'closed_form': 15, 'n_maximisers': 1, 'maximisers': ['aaaaab'], 'elapsed_s': 0.0}
+7 {'D': 31, 'closed_form': 31, 'n_maximisers': 1, 'maximisers': ['aaaaaab'], 'elapsed_s': 0.0}
+8 {'D': 63, 'closed_form': 63, 'n_maximisers': 1, 'maximisers': ['aaaaaaab'], 'elapsed_s': 0.0}
+9 {'D': 127, 'closed_form': 127, 'n_maximisers': 1, 'maximisers': ['aaaaaaaab'], 'elapsed_s': 0.0}
+10 {'D': 255, 'closed_form': 255, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaab'], 'elapsed_s': 0.0}
+11 {'D': 511, 'closed_form': 511, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaab'], 'elapsed_s': 0.1}
+12 {'D': 1023, 'closed_form': 1023, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaab'], 'elapsed_s': 0.2}
+13 {'D': 2047, 'closed_form': 2047, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaab'], 'elapsed_s': 0.5}
+14 {'D': 4095, 'closed_form': 4095, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaab'], 'elapsed_s': 1.7}
+15 {'D': 8191, 'closed_form': 8191, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaab'], 'elapsed_s': 4.4}
+16 {'D': 16383, 'closed_form': 16383, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaab'], 'elapsed_s': 14.3}
+17 {'D': 32767, 'closed_form': 32767, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaab'], 'elapsed_s': 49.3}
+18 {'D': 65535, 'closed_form': 65535, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaaab'], 'elapsed_s': 177.2}
+{
+ "rule": "aab -> ababa",
+ "nmax": 18,
+ "by_n": {
+  "1": {
+   "D": 0,
+   "closed_form": 0,
+   "n_maximisers": 2,
+   "maximisers": [
+    "a",
+    "b"
+   ],
+   "elapsed_s": 0.0
+  },
+  "2": {
+   "D": 0,
+   "closed_form": 0,
+   "n_maximisers": 4,
+   "maximisers": [
+    "aa",
+    "ab",
+    "ba",
+    "bb"
+   ],
+   "elapsed_s": 0.0
+  },
+  "3": {
+   "D": 1,
+   "closed_form": 1,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "4": {
+   "D": 3,
+   "closed_form": 3,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "5": {
+   "D": 7,
+   "closed_form": 7,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "6": {
+   "D": 15,
+   "closed_form": 15,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "7": {
+   "D": 31,
+   "closed_form": 31,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "8": {
+   "D": 63,
+   "closed_form": 63,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "9": {
+   "D": 127,
+   "closed_form": 127,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "10": {
+   "D": 255,
+   "closed_form": 255,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaab"
+   ],
+   "elapsed_s": 0.0
+  },
+  "11": {
+   "D": 511,
+   "closed_form": 511,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaab"
+   ],
+   "elapsed_s": 0.1
+  },
+  "12": {
+   "D": 1023,
+   "closed_form": 1023,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaab"
+   ],
+   "elapsed_s": 0.2
+  },
+  "13": {
+   "D": 2047,
+   "closed_form": 2047,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaab"
+   ],
+   "elapsed_s": 0.5
+  },
+  "14": {
+   "D": 4095,
+   "closed_form": 4095,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaaab"
+   ],
+   "elapsed_s": 1.7
+  },
+  "15": {
+   "D": 8191,
+   "closed_form": 8191,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaaaab"
+   ],
+   "elapsed_s": 4.4
+  },
+  "16": {
+   "D": 16383,
+   "closed_form": 16383,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaaaaab"
+   ],
+   "elapsed_s": 14.3
+  },
+  "17": {
+   "D": 32767,
+   "closed_form": 32767,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaaaaaab"
+   ],
+   "elapsed_s": 49.3
+  },
+  "18": {
+   "D": 65535,
+   "closed_form": 65535,
+   "n_maximisers": 1,
+   "maximisers": [
+    "aaaaaaaaaaaaaaaaab"
+   ],
+   "elapsed_s": 177.2
+  }
+ },
+ "strategy_length_mismatches": 0,
+ "normal_form_mismatches": 0,
+ "per_word_formula_mismatches": null,
+ "bound_B0(2^u-1)_violations": 0,
+ "closed_form_all_n": true,
+ "_seconds": 177.2
+}

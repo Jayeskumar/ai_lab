@@ -1,0 +1,20 @@
+1 {'D': 0, 'closed_form': 0, 'n_maximisers': 2, 'maximisers': ['a', 'b'], 'elapsed_s': 0.0}
+2 {'D': 0, 'closed_form': 0, 'n_maximisers': 4, 'maximisers': ['aa', 'ab', 'ba', 'bb'], 'elapsed_s': 0.0}
+3 {'D': 1, 'closed_form': 1, 'n_maximisers': 1, 'maximisers': ['aab'], 'elapsed_s': 0.0}
+4 {'D': 2, 'closed_form': 2, 'n_maximisers': 1, 'maximisers': ['aabb'], 'elapsed_s': 0.0}
+5 {'D': 3, 'closed_form': 3, 'n_maximisers': 2, 'maximisers': ['aaaab', 'aabbb'], 'elapsed_s': 0.0}
+6 {'D': 6, 'closed_form': 6, 'n_maximisers': 1, 'maximisers': ['aaaabb'], 'elapsed_s': 0.0}
+7 {'D': 9, 'closed_form': 9, 'n_maximisers': 1, 'maximisers': ['aaaabbb'], 'elapsed_s': 0.0}
+8 {'D': 14, 'closed_form': 14, 'n_maximisers': 1, 'maximisers': ['aaaaaabb'], 'elapsed_s': 0.0}
+9 {'D': 21, 'closed_form': 21, 'n_maximisers': 1, 'maximisers': ['aaaaaabbb'], 'elapsed_s': 0.0}
+10 {'D': 30, 'closed_form': 30, 'n_maximisers': 1, 'maximisers': ['aaaaaaaabb'], 'elapsed_s': 0.0}
+11 {'D': 45, 'closed_form': 45, 'n_maximisers': 1, 'maximisers': ['aaaaaaaabbb'], 'elapsed_s': 0.0}
+12 {'D': 62, 'closed_form': 62, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaabb'], 'elapsed_s': 0.1}
+13 {'D': 93, 'closed_form': 93, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaabbb'], 'elapsed_s': 0.3}
+14 {'D': 126, 'closed_form': 126, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaabb'], 'elapsed_s': 0.7}
+15 {'D': 189, 'closed_form': 189, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaabbb'], 'elapsed_s': 1.6}
+16 {'D': 254, 'closed_form': 254, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaabb'], 'elapsed_s': 3.5}
+17 {'D': 381, 'closed_form': 381, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaabbb'], 'elapsed_s': 8.5}
+18 {'D': 510, 'closed_form': 510, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaabb'], 'elapsed_s': 19.4}
+19 {'D': 765, 'closed_form': 765, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaabbb'], 'elapsed_s': 46.6}
+20 {'D': 1022, 'closed_form': 1022, 'n_maximisers': 1, 'maximisers': ['aaaaaaaaaaaaaaaaaabb'], 'elapsed_s': 114.7}

@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C13-08",
     "file": "experiments/C13/E08_closure_proofs.py",
-    "sha256": "986fd1e51f815d9c3828cff714517a3fe6f9641701a32e9e3f5d66bde56ca6df",
+    "sha256": "b74fe65427b1e4b3ed7c95bd3bdf45b61f625b8e6e7877ed584530d9ede28a9a",
     "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "env": {
-    "git_head": "5ec4c37c014dbbbfc1730f3ef1efd04348372b51",
+    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T17:09:43Z",
+  "finished": "2026-10-18T17:16:12Z",
   "id": "EXP-C13-08",
   "meta": {
     "agent": "Formal Verifier",
@@ -176,7 +176,6 @@
       "5": 1
     },
     "family_size": 18581,
-    "runtime_s": 62.1,
     "soundness": {
       "checks": 1245,
       "laws": 603,
@@ -187,9 +186,12 @@
       "CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']",
       "3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}",
       "soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0"
-    ]
+    ],
+    "timings": {
+      "total_s": 57.0
+    }
   },
-  "results_sha256": "1602429fe21d9d7b858585326f97e1044110ccd1eeca9d9aede2f1f40cb7d50c",
-  "runtime_s": 62.111,
-  "started": "2026-10-18T17:08:40Z"
+  "results_sha256": "9ef05e77351e2591d495f7bb3980b4c29303ce087103d2babaf3f1d140b1bf7d",
+  "runtime_s": 57.012,
+  "started": "2026-10-18T17:15:15Z"
 }

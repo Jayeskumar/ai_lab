@@ -10,8 +10,8 @@ sizes: the powers of two (Laver), the odd numbers, the moduli in which the
 golden ratio exists. Every such *spectrum* is closed under products of coprime
 sizes (Theorem 7.8). This chapter asks the converse question: **which sets of
 integers are spectra?** Two answers emerge. Through the *affine* models a
-single law can encode a remarkable range of classical number theory — squares,
-cubes and cyclotomic conditions modulo $N$. But spectra in general are wilder
+single law can encode a remarkable range of classical number theory — quadratic,
+cubic and cyclotomic conditions modulo $N$. But spectra in general are wilder
 than the examples suggested: they need not even be closed under divisors.
 
 ## Definitions
@@ -50,13 +50,16 @@ contents of elementary number theory:
 | $a^2 + a + 1 = 0$ | $x^2 + xy + y^2$ represents $N$ primitively | A034017 | $x = x(x(xx))$ |
 | $a^2 - a - 1 = 0$ | golden ratio exists mod $N$ | A089270 | $x(xy) = y(yx)$ |
 | $2a^2 + 2a + 1 = 0$ | all prime factors $\equiv 1 \bmod 4$ | A004613 | (5 leaves) |
-| $2a^2 - 1 = 0$ | all prime factors $\equiv \pm 1 \bmod 8$ | A058529 | (4 leaves) |
+| $2a^2 - 1 = 0$ | all prime factors $\equiv \pm 1 \bmod 8$ | A058529 | $x((xy)y) = y((xx)x)$ |
 | $a^4 + 1 = 0$ | $-1$ is a fourth power mod $N$ | A192453 | (5 leaves) |
 | $a^4 - a^2 + 1 = 0$ | all prime factors $\equiv 1 \bmod 12$ | A354467 | (5 leaves) |
 
-Some cubic and quartic conditions — the plastic number ($a^3 - a - 1$), the
-tribonacci and tetranacci polynomials, the fifth cyclotomic polynomial — give
-sets that are **not in the OEIS** at all.
+Of the 45 infinite affine spectra found, 29 have **no match in the OEIS** at
+all; most come from cubic and quartic conditions — the plastic number
+($a^3 - a - 1$), the tribonacci and tetranacci polynomials, the fifth
+cyclotomic polynomial. Spot checks against the direct definitions up to
+$N = 1000$ (for example "$-1$ is a square modulo $N$") found no discrepancy
+(EXP-C13-09).
 
 ## …but most laws are not rigid
 
@@ -129,7 +132,11 @@ derives $N \mid g$, every anchored model has size dividing $g$.
 Combined with the affine models, it proves the exact spectrum of **16 of the 17
 laws** of the conjecture in milliseconds each (EXP-C13-08); the seventeenth,
 $x(yz) = y((yx)z)$, is the one law with a non-affine model (at $N = 2$), and
-it remains supported only up to $N = 12$.
+it remains supported only up to $N = 12$. Run over all 18,581 laws with at most
+four leaves per side, the procedure proves an exact finite spectrum
+$\mathrm{Div}(g)$ for 6,912 of them (6,045 have only the trivial model). Its
+trust base is the closure code; checked against the SAT solver on 1,245 sizes
+of 235 laws, it was never contradicted.
 
 ## A bold hypothesis fails: spectra are not closed under divisors
 
@@ -146,8 +153,11 @@ $0 \star 1 = 2$, $0 \star 2 = 0$ and $x \star x = x$ for $x \ne 0$. ∎
 
 Divisor-closure fails often. Among all 253 one-variable laws with at most five
 leaves per side, 24 violate it for $N \le 12$, with spectra missing exactly
-$\{2\}$, $\{3\}$ or $\{2, 3\}$ (EXP-C13-07); the searches over two- and
-three-variable laws find many more (EXP-C13-05, EXP-C13-06). The same survey
+$\{2\}$, $\{3\}$ or $\{2, 3\}$ (EXP-C13-07). In random samples the
+proportion is higher: 81 of 300 two-variable laws (sizes up to 9), 29 of 150
+three-variable laws and 17 of 80 pairs of laws (sizes up to 8) violate it
+(EXP-C13-05, EXP-C13-06). The law $((xy)x)y = (y(xx))x$, for instance, has
+models of sizes 6 and 8 but none of sizes 2, 3, 4 or 5. The same survey
 refutes a second guess, that one-variable laws have either only the trivial
 model or models of all large sizes: $x = (xx)x$ has spectrum exactly
 $\{1, 2\}$.
@@ -163,10 +173,11 @@ products (Theorem 7.8), and divisor-closed whenever the law is affinely rigid.
 | EXP-C13-02 | are infinite affine classes rigid? | 198 of 199 laws have non-affine models (H-C13-2 refuted) |
 | EXP-C13-03 | the W-family | 23 terms, $N \le 9$: model counts = root counts |
 | EXP-C13-04 | the 17 laws of CLM-C06-10 | spectra agree for $N \le 12$ |
-| EXP-C13-05 | divisor-closure, 2-variable laws | see the cycle record |
-| EXP-C13-06 | divisor-closure, 3-variable laws and pairs | see the cycle record |
+| EXP-C13-05 | divisor-closure, 300 random 2-variable laws | 81 violations |
+| EXP-C13-06 | divisor-closure, 3-variable laws and pairs | 29 of 150 laws, 17 of 80 pairs violate |
 | EXP-C13-07 | one-variable laws | 24 of 253 violate divisor-closure |
-| EXP-C13-08 | offset-closure proofs | 16 of 17 conjectured spectra proved |
+| EXP-C13-08 | offset-closure proofs | 16 of 17 conjectured spectra; 6,912 exact finite spectra; 0 contradictions in 1,245 checks |
+| EXP-C13-09 | Skeptic cross-checks | cube-law models to $N = 60$, six-leaf W-family, identifications to $N = 1000$ |
 
 ## Comparison with existing mathematics
 

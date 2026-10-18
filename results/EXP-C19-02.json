@@ -1,0 +1,90 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C19-02",
+    "file": "experiments/C19/E02_anatomy.py",
+    "sha256": "2966a9706fab4b74e34c0d16ee0db93b3c71c52d9f73a9f2d2b6528f04361f66",
+    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+  },
+  "env": {
+    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:20:04Z",
+  "id": "EXP-C19-02",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "random games choose uniformly among legal moves (seeded)",
+      "lazy representation computed by the top-down algorithm and checked to have no two consecutive zeros"
+    ],
+    "cycle": "C19",
+    "falsification": "A game violating the identity; a split phase ending elsewhere or with a different length; H-C19-4: any m with L(m+1) != L(m) + lambda(m).",
+    "hypothesis": "H-C19-A (derived from a potential): length = B(n) - W for every game. H-C19-B: splits and combine-1s, applied in any order, end at the lazy Fibonacci representation of n after the same number of moves. H-C19-4 (bold): L(n+1) = L(n) + lambda(n), lambda(n) the longest game from the Zeckendorf representation of n plus one extra 1.",
+    "id": "EXP-C19-02",
+    "methodology": "Greedy games for n < 1500 and 1500 random games (n <= 200): compare length with B(n) - W. Split phase (lowest-first) for n < 5000 against the lazy digits; 300 random firing orders (n <= 600). Exact longest games from Zeck(m) + [1] for m < 300.",
+    "question": "Is the length of EVERY game equal to B(n) - sum_{i>=2} (i-1) MC_i (B = Cusenza's bound)? Where does the split phase of the greedy game end? Is L(n+1) = L(n) + (longest game from Zeck(n) + 1)?",
+    "seed": 19,
+    "title": "Anatomy of the longest Zeckendorf game: the identity L = B - W, the lazy split phase, insertion"
+  },
+  "results": {
+    "identity_greedy_violations_n_lt_5000": [],
+    "identity_random_game_violations": [],
+    "insertion_counterexamples": [
+      {
+        "L(m)": 2,
+        "L(m+1)": 3,
+        "lambda": 0,
+        "m": 3
+      },
+      {
+        "L(m)": 5,
+        "L(m+1)": 6,
+        "lambda": 0,
+        "m": 5
+      },
+      {
+        "L(m)": 6,
+        "L(m+1)": 8,
+        "lambda": 1,
+        "m": 6
+      },
+      {
+        "L(m)": 10,
+        "L(m+1)": 11,
+        "lambda": 0,
+        "m": 8
+      },
+      {
+        "L(m)": 11,
+        "L(m+1)": 13,
+        "lambda": 1,
+        "m": 9
+      }
+    ],
+    "insertion_failures_m_lt_300": 288,
+    "random_games": 1500,
+    "random_length_range": [
+      0,
+      251
+    ],
+    "random_order_mismatches": [],
+    "split_phase_equals_lazy": 4999,
+    "split_phase_not_lazy": [],
+    "summary": [
+      "identity length = B(n) - sum (i-1) MC_i: violations on greedy games n < 1500: 0; on 1500 random games: 0",
+      "split phase (splits + combine-1s) ends at the lazy representation for 4999 of 4999 n; random firing orders change the end point or the length in 0 of 300 cases",
+      "H-C19-4 (L(m+1) = L(m) + lambda(m)) fails for 288 of 300 m, first: [{'m': 3, 'L(m+1)': 3, 'L(m)': 2, 'lambda': 0}, {'m': 5, 'L(m+1)': 6, 'L(m)': 5, 'lambda': 0}]"
+    ]
+  },
+  "results_sha256": "f4aa28e4b7690df527e658c5ef7a0a281dce33a233aacaa53257e1b7da89f10f",
+  "runtime_s": 12.526,
+  "started": "2026-10-18T17:19:51Z"
+}

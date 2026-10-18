@@ -1,0 +1,131 @@
+{
+ "rule": "aab -> ababa",
+ "nmax": 12,
+ "by_n": {
+  "0": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    ""
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 1,
+   "elapsed_s": 0.0
+  },
+  "1": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    "a",
+    "b"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 3,
+   "elapsed_s": 0.0
+  },
+  "2": {
+   "D": 0,
+   "closed_form": 0,
+   "argmax": [
+    "aa",
+    "ab",
+    "ba",
+    "bb"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 7,
+   "elapsed_s": 0.0
+  },
+  "3": {
+   "D": 1,
+   "closed_form": 1,
+   "argmax": [
+    "aab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 16,
+   "elapsed_s": 0.0
+  },
+  "4": {
+   "D": 3,
+   "closed_form": 3,
+   "argmax": [
+    "aaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 38,
+   "elapsed_s": 0.0
+  },
+  "5": {
+   "D": 7,
+   "closed_form": 7,
+   "argmax": [
+    "aaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 96,
+   "elapsed_s": 0.0
+  },
+  "6": {
+   "D": 15,
+   "closed_form": 15,
+   "argmax": [
+    "aaaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 274,
+   "elapsed_s": 0.0
+  },
+  "7": {
+   "D": 31,
+   "closed_form": 31,
+   "argmax": [
+    "aaaaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 986,
+   "elapsed_s": 0.0
+  },
+  "8": {
+   "D": 63,
+   "closed_form": 63,
+   "argmax": [
+    "aaaaaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 5373,
+   "elapsed_s": 0.1
+  },
+  "9": {
+   "D": 127,
+   "closed_form": 127,
+   "argmax": [
+    "aaaaaaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 53940,
+   "elapsed_s": 0.4
+  },
+  "10": {
+   "D": 255,
+   "closed_form": 255,
+   "argmax": [
+    "aaaaaaaaab"
+   ],
+   "words_with_min_ne_max": 0,
+   "words_with_several_normal_forms": 0,
+   "memo_size": 1069592,
+   "elapsed_s": 9.4
+  }
+ }
+}
