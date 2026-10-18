@@ -1,0 +1,5490 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C13-05",
+    "file": "experiments/C13/E05_divisor_closure.py",
+    "sha256": "c904ed3883e3da6b696eb497ca3a00de13cdef26ed4b589bbf78597abeaa1f8c",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "env": {
+    "git_head": "5ec4c37c014dbbbfc1730f3ef1efd04348372b51",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:06:03Z",
+  "id": "EXP-C13-05",
+  "meta": {
+    "agent": "Mathematical Skeptic",
+    "assumptions": [
+      "300 laws sampled (seed 5) from the 2601 laws over {x,y} with at most 4 leaves per side (up to renaming and exchange of sides); a run with 600 laws, N <= 10 and budget 2,000,000 was stopped after 22 CPU-minutes (hard UNSAT instances at N = 9, 10)",
+      "sizes 2, 3, 5 always decided; a composite N in {4, 6, 8, 9} is decided only when one of its proper divisors is UNSAT (otherwise no violation is possible at N)",
+      "affine models decide SAT without a solver; conflict budget 200,000; UNKNOWN recorded"
+    ],
+    "cycle": "C13",
+    "falsification": "Any such pair.",
+    "hypothesis": "H-C13-1 (bold): every anchored spectrum is closed under divisors.",
+    "id": "EXP-C13-05",
+    "methodology": "For each law: zero-substitution filter (N | m); affine roots; otherwise MagmaSAT with the anchor. Report every pair (N, d) with N SAT and d | N UNSAT.",
+    "question": "Is there a law with an anchored model of some size N <= 9 but none of some size d | N?",
+    "seed": 5,
+    "title": "Divisor-closure of anchored spectra: 300 random 2-variable laws with <= 4 leaves per side, N <= 9"
+  },
+  "results": {
+    "calls": {
+      "affine": 515,
+      "sat": 918,
+      "skipped": 551,
+      "zero": 38
+    },
+    "n_laws": 300,
+    "n_with_nontrivial_models": 251,
+    "rows": [
+      {
+        "law": "((xx)x)x = ((yy)y)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(xy) = y(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xx) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = (xx)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((yx)x) = x(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)x) = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(xx)) = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = (xy)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(xy) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(xx))x = (x(yy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)y) = x(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x = (xx)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = x(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yy) = x((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = ((xy)x)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "xy = ((yy)x)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "((xy)x)y = (y(xx))x",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "((xy)y)y = (y(xx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "x((yx)x) = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yx) = x((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yx) = (yy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x = x(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(xx) = x(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)y = (y(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = (xy)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = (yx)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)y = (x(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)y = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "((xy)y)y = x(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "x = ((xx)y)y",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(xx) = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)y = y((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(xy)) = x(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xy = (x(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = y(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(yy)) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = (x(yx))x",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = (y(yy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x = (xx)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "((xx)x)x = (x(xy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((xy)y) = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)y) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xy)y) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = y((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = x(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = y((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(yy) = x((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = (x(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xy = x((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(xx) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yx) = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x = (x(yx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = (xy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = x((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = (y(yy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x = x((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = y((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "xx = ((xy)y)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "((xx)x)y = ((xy)x)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yx) = y(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(xx)) = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = x((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yx) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = (yy)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)y) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = (xx)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((yx)x) = y(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = (y(yx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = y(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = y((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xx) = x((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xx)y) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = (yy)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = (x(yy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = x((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)x) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = x(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)y = (yx)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(xx) = ((xx)x)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yy))x = x(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)y = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xy)x) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = (x(yy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(xx) = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)x = ((xy)x)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(yx) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xx) = x((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = ((yy)x)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = ((yy)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "x(xx) = x((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = (y(xx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)x = (xx)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(yx) = y((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)y = (x(xy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = (x(yx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xx) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)y) = y(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = y((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(xx) = y((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xy = y(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = y((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)y = y(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)y = (yx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(yx) = (yy)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = ((yx)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = y((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)x = x((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xy) = y((yx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xx)y) = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xy = x((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xy) = y((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = x(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)x = x((yx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "((xx)x)x = ((xy)x)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = x((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = (yy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)y = x((yx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = x((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)x = x((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yx) = y(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "(xy)(yy) = y(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)x) = x((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(xx) = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(xx) = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = (yy)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = (y(yy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)x = ((xy)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = (xx)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)y) = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = x((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)x = (yy)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = (xy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)y = (xx)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "xy = (yx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)y) = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = (x(yx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = x((yx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)x) = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yx))y = (yx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = y(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(xy)) = x(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = x(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "(xx)x = (y(xy))y",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = (x(yx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(xy) = y((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(xy) = (xy)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yx)y) = y(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(yx) = x(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(xy))y = x((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xx)x) = y(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = (yy)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xy)y) = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)x = (xx)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = x((yx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = y(x(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yx) = (yx)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)y = y(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "(xx)(yy) = (yy)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = y((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(yx)) = x(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(xx) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xy)x) = y((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = y((yy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = (x(yy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = (x(yx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)y = (yy)(yx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(xx) = y((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(x(yy)) = y(x(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = (xy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((xx)x) = y(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = ((xy)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)x = (y(yy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = x((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)y = ((xy)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = (y(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = ((yy)x)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = (x(xy))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = x((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)y = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xy = x(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = y(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((yy)y) = y((xx)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)y = (xx)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xy)x) = x((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = y((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = y(x(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)y = (x(xy))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = (xy)y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)y = (x(yx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yx) = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = x(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(yy) = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = y(y(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = y((yy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(xy) = ((xx)y)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(xy) = (xy)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "xx = y((xy)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = (xy)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = (y(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(xx) = ((yy)x)x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = y(y(xy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)x = (yx)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((yy)x) = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = y(x(yx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "x(yx) = (xx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(xx) = x((xy)x)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = x((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)y)x = (yx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(xx) = (yx)(xy)",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xx)x) = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = x((yx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = y(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = (y(yx))x",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yy))x = y((xx)y)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)y = (x(yx))y",
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = x(y(yy))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "UNSAT",
+          "9": "UNSAT"
+        }
+      },
+      {
+        "law": "(xy)(yy) = x(y(xx))",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))x = (xy)(yy)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)x = (y(xx))y",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(xx))y = (xy)(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y(xx)",
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "SAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "not needed",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      }
+    ],
+    "runtime_s": 241.2,
+    "summary": [
+      "300 sampled laws; 251 have a model of some size 2..9",
+      "divisor-closure violations: 81 ['(xx)(xy) = y(y(yy))', '(x(xx))y = y((xy)x)', '((xx)y)y = (xy)(xx)', 'x(xy) = y(y(xx))', '((xx)y)y = x(x(xy))']",
+      "UNKNOWN: 9; decisions {'zero': 38, 'affine': 515, 'sat': 918, 'skipped': 551}"
+    ],
+    "unknown": [
+      "x(yy) = ((xy)x)x",
+      "((xy)x)y = (y(xx))x",
+      "((xy)y)y = (y(xx))x",
+      "((xy)y)y = y(x(xx))",
+      "((xy)y)y = x(x(yx))",
+      "(xy)x = y(y(xy))",
+      "(x(xy))y = x(x(yx))",
+      "((xy)y)x = y(x(yy))",
+      "((xy)x)x = y(x(yx))"
+    ],
+    "violations": [
+      {
+        "law": "(xx)(xy) = y(y(yy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = y((xy)x)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = (xy)(xx)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(xy) = y(y(xx))",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = x(x(xy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)x)y = (y(xx))x",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "((xy)y)y = (y(xx))x",
+        "pairs": [
+          [
+            6,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "x((yx)x) = y((xy)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yx) = (yy)(xy)",
+        "pairs": [
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "UNSAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x = x(x(xx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = x(y(yy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = y(x(xy))",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yx))x = y(y(xx))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)y = x(x(yx))",
+        "pairs": [
+          [
+            6,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "UNKNOWN",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "(x(xx))x = y(x(yy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = (x(yx))x",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = (y(yy))x",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)x = (x(xy))y",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)x)x = y((xx)y)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)x = (y(yy))y",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x = x((xx)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))y = y((xy)y)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(xx))x = x((yx)y)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yx) = y(x(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = (xx)(yx)",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "xx = y((yy)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x((xx)y) = y(x(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xx))x = (yy)(yx)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(xx) = ((xx)x)y",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(yy) = y((xx)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)x = (xx)(yy)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((yy)y) = y(y(yy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = y((xy)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "xy = y(x(yy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)y = y((xx)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)x = y(x(xx))",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)y = (yx)(xy)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)x)y = y((yy)x)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)x = x((xy)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = y((xy)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = x(x(yx))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)x = x((yx)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = (yy)(xy)",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))x = x((yy)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)x = x((yy)x)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(xx) = x((xx)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)y = x((yy)y)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((yy)y) = y(x(xy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yy))y = y(x(xy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)x = y(y(yx))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y((xx)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = x(x(yx))",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "UNSAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "(xx)x = (y(xy))y",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x = y((xy)x)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)(xy) = y((xx)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xy)(yx) = x(y(xx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)(yy) = y(y(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yx))x = y(x(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))x = x(y(xy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)x)x = x(y(xy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xx)x = y(x(xx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(xx)x = y((yy)y)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xx)x)y = (yy)(yx)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)x)x = (xy)(xy)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x((xx)x) = y(y(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "x(yy) = ((xy)y)x",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)x = (y(xx))y",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)y = x(y(xy))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(xy))y = y(x(xx))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(xx))x = y(y(yx))",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "(x(yx))y = y((yy)x)",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "x(xy) = ((xx)y)x",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(x(yy))x = y(y(xy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)x = (yx)(yy)",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)x)x = y(x(yx))",
+        "pairs": [
+          [
+            6,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "UNKNOWN"
+        }
+      },
+      {
+        "law": "x(yx) = (xx)(xy)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)y)x = (yx)(xy)",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "(xy)(xx) = (yx)(xy)",
+        "pairs": [
+          [
+            4,
+            2
+          ],
+          [
+            6,
+            2
+          ],
+          [
+            8,
+            2
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "SAT",
+          "4": "SAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "not needed"
+        }
+      },
+      {
+        "law": "((xy)y)x = x(y(yy))",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xy)y)y = (x(yx))y",
+        "pairs": [
+          [
+            6,
+            2
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "UNSAT",
+          "3": "UNSAT",
+          "4": "UNSAT",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      },
+      {
+        "law": "((xx)x)x = (y(xx))y",
+        "pairs": [
+          [
+            6,
+            3
+          ],
+          [
+            9,
+            3
+          ]
+        ],
+        "status": {
+          "1": "SAT",
+          "2": "SAT",
+          "3": "UNSAT",
+          "4": "not needed",
+          "5": "SAT",
+          "6": "SAT",
+          "8": "SAT",
+          "9": "SAT"
+        }
+      }
+    ]
+  },
+  "results_sha256": "56ef2f83731cf61cd14368f784fed013af4fe9ce8ab9c774586aba9eb8912452",
+  "runtime_s": 241.215,
+  "started": "2026-10-18T17:02:02Z"
+}

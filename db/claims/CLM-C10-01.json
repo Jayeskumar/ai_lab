@@ -9,11 +9,30 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Classical (Cormen et al., ch. 17); see V. Berthe, C. Frougny, M. Rigo, J. Sakarovitch, On the cost and complexity of the successor function, Adv. Appl. Math. 2020 (BFRS) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "Standard amortised analysis of counters; frequency argument is folklore.",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "notes",
+      "new": "Cost measure here: the number of digit positions that change between the representations of n and n+1 (Hamming distance). BFRS use carry propagation, under which the Zeckendorf value is phi^2 instead of 2.",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C10-01",
+  "notes": "Cost measure here: the number of digit positions that change between the representations of n and n+1 (Hamming distance). BFRS use carry propagation, under which the Zeckendorf value is phi^2 instead of 2.",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Standard amortised analysis of counters; frequency argument is folklore.",
+  "novelty_basis": "Classical (Cormen et al., ch. 17); see V. Berthe, C. Frougny, M. Rigo, J. Sakarovitch, On the cost and complexity of the successor function, Adv. Appl. Math. 2020 (BFRS) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C10.md#theorem-1-clm-c10-01--classical-constants",
   "proof_check": "written proof (proofs/paper/C10.md Theorem 1); confirmed to 6 digits for n < 1e6",
   "statement": "The average number of digit changes per increment is b/(b-1) in base b, 2 in negabinary, 3/2 in balanced\nternary, e - 1 in the factorial base and exactly 1 in the binary-reflected Gray code.",

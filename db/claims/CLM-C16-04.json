@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-04",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary; likely known in the shift-register literature in other forms (Golomb's cycle-parity results for binary registers); no search for the q-ary order-2 statement beyond two web searches.",
+  "proof": "proofs/paper/C16.md#theorem-3-clm-c16-04--a-parity-condition",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); awaiting independent skeptic review",
+  "statement": "If every left translation L_b is a bijection, sign(P) = (-1)^(n(n-1)/2) prod_b sgn(L_b); hence a full-period table satisfies prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2).",
+  "system": "SYS-E",
+  "title": "A parity condition for full periods",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

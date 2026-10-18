@@ -33,8 +33,9 @@ claims:
     proof_check: written proof (proofs/paper/C09.md Theorem 1) relying on CLM-C08-01; formulas checked on 89,401 pairs; awaiting independent skeptic review
     proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
     evidence: [EXP-C09-03]
-    novelty: REDISCOVERY
-    novelty_basis: The embedding is Arnoux's (1989) proof idea for Knuth's theorem; units of Z[phi] are classical.
+    novelty: "REDISCOVERY"
+    novelty_basis: "Arnoux 1989; the product formula is Lunnon's formula in OEIS A101330 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-02
     type: hypothesis
     system: SYS-C
@@ -43,7 +44,9 @@ claims:
     verification: REFUTED
     counterexample: "8 = 1 o 1 o 1 = 2 o 2 with 1, 2 irreducible (every product is >= 3); the factorisations even differ in length."
     evidence: [EXP-C09-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "Trivial from F_j o F_k = F_(j+k) (Knuth 1988) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-03
     type: theorem
     system: SYS-C
@@ -66,7 +69,9 @@ claims:
     verification: REFUTED
     counterexample: "By CLM-C09-03 the irreducibles contain a set of natural density 1/phi^2 = 0.3819...; observed density is 0.539 at 1e6."
     evidence: [EXP-C09-01, EXP-C09-04]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
+    novelty_basis: "As CLM-C09-03 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-05
     type: conjecture
     system: SYS-C
@@ -74,8 +79,10 @@ claims:
     statement: Almost every n whose conjugate lies in the product zone is a circle product, so the circle irreducibles have natural density 1/phi^2.
     verification: CONJECTURE
     evidence: [EXP-C09-04, EXP-C09-01]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
     limitations: The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.
+    novelty_basis: "As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-06
     type: theorem
     system: SYS-C
@@ -85,7 +92,9 @@ claims:
     proof_check: written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review
     proof: proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations
     evidence: [EXP-C09-04]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
+    novelty_basis: "Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-07
     type: theorem
     system: SYS-C
@@ -95,7 +104,9 @@ claims:
     proof_check: written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
     proof: proofs/paper/C09.md#theorem-1-clm-c09-01--structure
     evidence: [EXP-C09-03]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "In substance - the norm of Q(sqrt 5) combined with Arnoux's embedding (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C09-08
     type: observation
     system: SYS-C
@@ -108,7 +119,9 @@ claims:
     proof_check: computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)
     proof: results/EXP-C09-01.json and results/EXP-C09-02.json
     evidence: [EXP-C09-01, EXP-C09-02]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
+    novelty_basis: "As data; not in the OEIS (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
 
 journal:
   - key: C09-01
@@ -146,6 +159,12 @@ journal:
     kind: direction
     text: Conjecture 5 - the irreducible density is exactly 1/phi^2; supported only by a slowly decreasing trend inside the product zone.
     refs: [CLM-C09-05]
+
+  - key: C09-08
+    agent: Historian
+    kind: novelty
+    text: "Audit - the product formula is Lunnon's formula in OEIS A101330 and the norm statement follows from Q(sqrt 5); the window-obstruction density 1/phi^2 and its corollaries remain potentially novel."
+    refs: [CLM-C09-01, CLM-C09-03, CLM-C09-07, reviews/historian_C03_C10.md]
 
 next_directions:
   - "C09: prove the density-1/phi^2 conjecture"

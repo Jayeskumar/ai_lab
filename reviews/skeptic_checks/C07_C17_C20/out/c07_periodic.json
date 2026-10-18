@@ -1,0 +1,18 @@
+{
+ "operations": 134,
+ "rows": 670,
+ "rows_periodic": 222,
+ "all_five_periodic": 22,
+ "no_row_periodic": 40,
+ "groups_whose_6x1500_rectangles_differ": [],
+ "groups_with_representative_dependent_periodicity": [],
+ "differences_from_lab_per_operation": [],
+ "D[x^y]_rows_periodic": [
+  true,
+  false,
+  false,
+  false,
+  false
+ ],
+ "_seconds": 5.3
+}

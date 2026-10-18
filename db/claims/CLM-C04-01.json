@@ -9,11 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:20:07Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C04",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "In substance - Kurth's criteria A and D (W. Kurth, dissertation, TU Clausthal 1990, who treated all length-increasing one-rule systems with |r| <= 6), McNaughton's barren criterion and Zantema-Geser Thm 1.1, as stated in A. Geser, J. Waldmann, M. Wenzel, Symbolic enumeration of one-rule string rewriting systems, WST 2016, section 4; the census itself was not found as a statement (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz \"Open. Closed. Open.\", RTA 2005) and this observation is likely folklore.",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C04-01",
-  "novelty": "NOT ASSESSED",
-  "novelty_basis": "A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz \"Open. Closed. Open.\", RTA 2005) and this observation is likely folklore.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "In substance - Kurth's criteria A and D (W. Kurth, dissertation, TU Clausthal 1990, who treated all length-increasing one-rule systems with |r| <= 6), McNaughton's barren criterion and Zantema-Geser Thm 1.1, as stated in A. Geser, J. Waldmann, M. Wenzel, Symbolic enumeration of one-rule string rewriting systems, WST 2016, section 4; the census itself was not found as a statement (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3",
   "proof_check": "computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently",
   "statement": "Among the 196 rules l -> r over {a,b} with 1 <= |l| <= 3, 0 <= |r| <= 3, l != r, exactly the 34 rules in\nwhich l is a factor of r are non-terminating; the other 162 terminate.",

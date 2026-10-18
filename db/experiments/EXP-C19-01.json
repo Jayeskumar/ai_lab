@@ -1,0 +1,59 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "levels 0, 1, 2, ... carry F_1 = 1, F_2 = 2, F_3 = 3, ...",
+    "exact DP over all configurations reachable from n ones (memoised longest path; the move graph is acyclic because the game terminates)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C19-01",
+    "file": "experiments/C19/E01_exact_longest.py",
+    "sha256": "d08bc079395e95aceb89d9d4ce0492d0bc6cf02bf31ed21c814b046f12d7839f",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C19",
+  "falsification": "Any n where the greedy is shorter than the exact optimum, a mismatch with earlier values, or bound equality at some n != F_k - 1.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:08:44Z"
+    }
+  ],
+  "hypothesis": "H-C19-0: the greedy strategy attains L(n) for every n <= 150; the published values (n <= 49) and the lab's earlier values (n <= 60) are reproduced; Cusenza's bound sum a_i delta_i is attained exactly for n = F_k - 1 (their Thm 1.4).",
+  "id": "EXP-C19-01",
+  "methodology": "For each n <= 150: memoised longest path over all reachable configurations; compare with C02 values (results/EXP-C02-02.json, n <= 40), the Skeptic's values (n = 41..60), the simple and the fast greedy implementations, and Cusenza's bound; record the state counts and compare them with the number of partitions of n into Fibonacci parts.",
+  "question": "What is the longest game L(n) for n <= 150, computed without assuming any strategy, and does the split-first greedy strategy of Cusenza et al. (2022, Thm 1.2) attain it?",
+  "results_file": "results/EXP-C19-01.json",
+  "results_sha256": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-01",
+        "file": "experiments/C19/E01_exact_longest.py",
+        "sha256": "d08bc079395e95aceb89d9d4ce0492d0bc6cf02bf31ed21c814b046f12d7839f",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:08:43Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C19-01.json",
+      "results_sha256": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
+      "runtime_s": 394.275,
+      "started": "2026-10-18T17:02:09Z",
+      "summary": [
+        "exact longest games for n <= 150 (max 910775 states at n = 150); known values n <= 60 reproduced: True",
+        "split-first greedy = exact optimum for all n <= 150: True (fast implementation: True)",
+        "Cusenza bound attained exactly at n in [1, 2, 4, 7, 12, 20, 33, 54, 88, 143] - i.e. iff n = F_k - 1: True",
+        "reachable configurations = partitions of n into Fibonacci parts for every n <= 150: True"
+      ]
+    }
+  ],
+  "summary": [
+    "exact longest games for n <= 150 (max 910775 states at n = 150); known values n <= 60 reproduced: True",
+    "split-first greedy = exact optimum for all n <= 150: True (fast implementation: True)",
+    "Cusenza bound attained exactly at n in [1, 2, 4, 7, 12, 20, 33, 54, 88, 143] - i.e. iff n = F_k - 1: True",
+    "reachable configurations = partitions of n into Fibonacci parts for every n <= 150: True"
+  ],
+  "title": "Exact longest Zeckendorf games for n <= 150 and independent check of the published strategy"
+}

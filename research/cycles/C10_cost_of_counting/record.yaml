@@ -31,7 +31,9 @@ claims:
     proof: proofs/paper/C10.md#theorem-1-clm-c10-01--classical-constants
     evidence: [EXP-C10-01]
     novelty: REDISCOVERY
-    novelty_basis: Standard amortised analysis of counters; frequency argument is folklore.
+    novelty_basis: "Classical (Cormen et al., ch. 17); see V. Berthe, C. Frougny, M. Rigo, J. Sakarovitch, On the cost and complexity of the successor function, Adv. Appl. Math. 2020 (BFRS) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    notes: "Cost measure here: the number of digit positions that change between the representations of n and n+1 (Hamming distance). BFRS use carry propagation, under which the Zeckendorf value is phi^2 instead of 2."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-02
     type: theorem
     system: SYS-C
@@ -44,8 +46,10 @@ claims:
     proof_check: written proof (proofs/paper/C10.md Theorem 2); recurrence equals brute force for m <= 24
     proof: proofs/paper/C10.md#theorem-2-clm-c10-02--zeckendorf-counting
     evidence: [EXP-C10-02, EXP-C10-04]
-    novelty: REDISCOVERY
-    novelty_basis: The sequence T_m is OEIS A215005 (same recurrence); the counting-cost interpretation is elementary.
+    novelty: "REDISCOVERY"
+    novelty_basis: "In substance - the closed form of T_m is OEIS A215005 (Kotesovec); potential method; see BFRS 2020 for the carry-propagation measure (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    notes: "Cost measure: Hamming distance between consecutive representations (not BFRS's carry propagation)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-03
     type: hypothesis
     system: SYS-C
@@ -54,7 +58,9 @@ claims:
     verification: REFUTED
     counterexample: "Both averages tend to exactly 2 (Theorem 2 and the binary case of Theorem 1); at n < 1e6 the Zeckendorf average is 1.999992 vs binary 1.999988."
     evidence: [EXP-C10-01, EXP-C10-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "As CLM-C10-02; BFRS obtain phi^2 with their measure (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-04
     type: theorem
     system: SYS-C
@@ -64,7 +70,9 @@ claims:
     proof_check: written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules
     proof: proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems
     evidence: [EXP-C10-03]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "In substance - token conservation; b-ary counter (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-05
     type: theorem
     system: SYS-C
@@ -74,7 +82,9 @@ claims:
     proof_check: written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules
     proof: proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules
     evidence: [EXP-C10-03]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "Partial - BFRS 2020 Thm 3.23 (p/(p-q), Akiyama-Frougny-Sakarovitch normalisation) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-06
     type: conjecture
     system: SYS-C
@@ -86,8 +96,10 @@ claims:
       the digit process.
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C10-03]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
     limitations: Averages over 2e5 increments only; no formula.
+    novelty_basis: "As a conjecture, low confidence; BFRS section 5 (ergodic method) is the natural tool (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C10-07
     type: observation
     system: SYS-C
@@ -129,6 +141,12 @@ journal:
     kind: novelty
     text: Zeckendorf block totals are OEIS A215005; classical constants are folklore; skew binary is Myers/Okasaki.
     refs: [EXP-C10-04]
+
+  - key: C10-07
+    agent: Historian
+    kind: novelty
+    text: "Audit - missed source: Berthe-Frougny-Rigo-Sakarovitch (Adv. Appl. Math. 2020) on the cost of the successor; under their carry-propagation measure Zeckendorf costs phi^2, under the lab's Hamming measure 2. Claims now state the measure; T_m is OEIS A215005."
+    refs: [CLM-C10-01, CLM-C10-02, CLM-C10-05, reviews/historian_C03_C10.md]
 
 next_directions:
   - "C10: exact multi-offset counting constants via the invariant measure of the digit process"

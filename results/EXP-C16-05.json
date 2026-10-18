@@ -1,0 +1,193 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C16-05",
+    "file": "experiments/C16/E05_search_methods.py",
+    "sha256": "fd0ea81ce7fc1ef4b772b19c7b27124ab1317ce89eb4e7b228a7b6aeb2737336",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "env": {
+    "git_head": "5ec4c37c014dbbbfc1730f3ef1efd04348372b51",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:10:08Z",
+  "id": "EXP-C16-05",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "deterministic budgets - DFS: 3,000,000 nodes per n (first solution) and 20,000,000 nodes for the partial count at n = 6; SAT (CaDiCaL via pysat): 300,000 conflicts per n; sampling: seeded",
+      "every solution is re-verified by an independent cycle analysis"
+    ],
+    "cycle": "C16",
+    "falsification": "Exact search succeeding for every n where sampling succeeds, within the same budget.",
+    "hypothesis": "H-C16-11 (Explorer): exact search (lexicographic DFS, SAT) scales worse than random sampling of Latin squares, whose success rate is about 1/n^2 per sample.",
+    "id": "EXP-C16-05",
+    "methodology": "For n = 5..10 run the lexicographic DFS and the SAT encoding with the budgets above; count the solutions the DFS enumerates for n = 6 within its budget (a lower bound, normalised cycles); sample 1500 random Latin squares per n and record the success rate.",
+    "question": "Which method finds full-period quasigroups (cycles with all pairs distinct at distances 1 and 2) for growing n, and what does a partial count for n = 6 show?",
+    "seed": 160505,
+    "title": "Search methods for full-period quasigroups: depth-first search, SAT and random sampling"
+  },
+  "results": {
+    "partial_count_n6": {
+      "complete": false,
+      "nodes": 20000001,
+      "solutions_found": 1136
+    },
+    "rows": {
+      "10": {
+        "dfs": {
+          "found": false,
+          "nodes": 3000001,
+          "verified": null
+        },
+        "sampling": {
+          "hits": 9,
+          "one_over_n_squared": 0.01,
+          "rate": 0.006,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "UNKNOWN",
+          "verified": null
+        }
+      },
+      "5": {
+        "dfs": {
+          "found": true,
+          "nodes": 731,
+          "verified": true
+        },
+        "sampling": {
+          "hits": 30,
+          "one_over_n_squared": 0.04,
+          "rate": 0.02,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "SAT",
+          "verified": true
+        }
+      },
+      "6": {
+        "dfs": {
+          "found": true,
+          "nodes": 2219,
+          "verified": true
+        },
+        "sampling": {
+          "hits": 22,
+          "one_over_n_squared": 0.0278,
+          "rate": 0.0147,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "SAT",
+          "verified": true
+        }
+      },
+      "7": {
+        "dfs": {
+          "found": true,
+          "nodes": 68179,
+          "verified": true
+        },
+        "sampling": {
+          "hits": 21,
+          "one_over_n_squared": 0.0204,
+          "rate": 0.014,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "SAT",
+          "verified": true
+        }
+      },
+      "8": {
+        "dfs": {
+          "found": true,
+          "nodes": 222753,
+          "verified": true
+        },
+        "sampling": {
+          "hits": 22,
+          "one_over_n_squared": 0.0156,
+          "rate": 0.0147,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "SAT",
+          "verified": true
+        }
+      },
+      "9": {
+        "dfs": {
+          "found": false,
+          "nodes": 3000001,
+          "verified": null
+        },
+        "sampling": {
+          "hits": 14,
+          "one_over_n_squared": 0.0123,
+          "rate": 0.0093,
+          "samples": 1500
+        },
+        "sat": {
+          "status": "UNKNOWN",
+          "verified": null
+        }
+      }
+    },
+    "summary": [
+      "n=5: DFS found (731 nodes), SAT SAT, sampling 30/1500",
+      "n=6: DFS found (2219 nodes), SAT SAT, sampling 22/1500",
+      "n=7: DFS found (68179 nodes), SAT SAT, sampling 21/1500",
+      "n=8: DFS found (222753 nodes), SAT SAT, sampling 22/1500",
+      "n=9: DFS none (3000001 nodes), SAT UNKNOWN, sampling 14/1500",
+      "n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500",
+      "n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)"
+    ],
+    "timings": {
+      "10": {
+        "dfs": 2.49,
+        "sampling": 0.68,
+        "sat": 99.9
+      },
+      "5": {
+        "dfs": 0.0,
+        "sampling": 0.39,
+        "sat": 0.15
+      },
+      "6": {
+        "dfs": 0.0,
+        "sampling": 0.3,
+        "sat": 2.22
+      },
+      "7": {
+        "dfs": 0.11,
+        "sampling": 0.28,
+        "sat": 47.06
+      },
+      "8": {
+        "dfs": 0.14,
+        "sampling": 0.39,
+        "sat": 10.34
+      },
+      "9": {
+        "dfs": 2.74,
+        "sampling": 0.5,
+        "sat": 74.96
+      },
+      "count6": 12.96
+    }
+  },
+  "results_sha256": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
+  "runtime_s": 255.67,
+  "started": "2026-10-18T17:05:52Z"
+}

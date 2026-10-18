@@ -64,14 +64,15 @@ rediscovery. Geser's report proves linear derivation lengths for its
 non-barren rules; for barren rules, as these examples show, the lengths can
 be exponential — and here they are known exactly.
 
-## A literature question we could not settle
+## A literature question, settled by the Historian
 
 Chapter 4 conjectured a divisibility criterion for when
 $0^p 1^q \to 1^r 0^s$ does not terminate. Zantema and Geser published a
-complete characterisation of these rules in 2000. Every attempt to obtain the
-full text from this environment failed (HTTP 403, a bot challenge, HTTP 500),
-so the comparison remains open; if the two differ, the published theorem
-wins.
+complete characterisation of these rules (tech. report 1994, journal 2000).
+The Director's attempts to obtain the full text failed (HTTP 403, a bot
+challenge, HTTP 500); the Historian then found the scanned report on an older
+archive host. Their Theorem 1.1 is our conjecture, verbatim — now
+Theorem 4.6. The 24 rules we had left open all terminate.
 
 ## The open problems of batch 1
 
@@ -90,4 +91,6 @@ database. The most interesting ones, in the laboratory's judgement:
    Jacobsthal row.
 5. **Octal games** (Chapter 5): the periodicity of 0.06 and Officers
    (famous and hard).
-6. **Zantema–Geser vs. Chapter 4** (above).
+6. **Circle-product thresholds** (Chapter 9): the exact associativity
+   thresholds, e.g. whether tribonacci is associative at shift 4 or 5 — the
+   first version of the book got four of them wrong.

@@ -59,12 +59,12 @@ cited results — short, unrefereed, for the Skeptic to check; **[COMPUTED]** my
    - **Tribonacci ∘₃ is not associative.** Arnoux's conjecture (∘₃ associative) was refuted by
      Ambrož–Frougny–Masáková–Pelantová (2003). [COMPUTED with the lab's own `systems/circle.py`]
      (10016 ∘₃ 10016) ∘₃ 1 = 3414681926 ≠ 3414681924 = 10016 ∘₃ (10016 ∘₃ 1). The lab's threshold "3"
-     (CLM-C08-05, README, textbook) is wrong; random testing up to 10⁶ cannot see this failure.
+     (CLM-C08-05, README, textbook) is wrong; the lab's random tests up to 10⁶ missed this failure.
    - [COMPUTED] Also wrong: G(k+1) = G(k) + G(k−2) "from s = 10" ((78 ∘ 248) ∘ 1 differs at s = 10),
      and two of the ten "non-monotone" sequences behind CLM-C08-04 ((4,3; 1,5) at s = 4 and
      (3,3; 1,2) at s = 7 are not associative).
-   - [DERIVED] For canonical (Parry) base sequences the associative shifts are always upward-closed,
-     whatever the sign of the conjugate; CLM-C08-04 is substantive only for non-canonical initial
+   - [DERIVED] For canonical base sequences (Messaoudi's G/H classes) the associative shifts are
+     always upward-closed, whatever the sign of the conjugate; CLM-C08-04 is substantive only for non-canonical initial
      values (all eight surviving examples are non-canonical).
 3. **C04-06 (constant-step potential) is a rediscovery in substance:** M. Latteux and Y. Roos,
    RAIRO-ITA 48 (2014) 149–171, Lemma 3.7: in a length-preserving one-rule system all derivations
@@ -460,25 +460,32 @@ cyclic permutation". Searches for the specific laws found nothing (§8).
   - Not read; known through Messaoudi and the OEIS: recurrences with a₁ ≥ … ≥ a_d ≥ 1 and canonical
     initial values; ∃ s₀ such that ∘_s is associative for s > s₀; tribonacci for s > 9.
 - **A. Messaoudi, *Généralisation de la multiplication de Fibonacci*, Math. Slovaca 50 (2000)
-  135–148, http://dml.cz/dmlcz/136773 (read in full).** Its shift s is the lab's shift (G_s = 1 in
-  his indexing).
+  135–148, http://dml.cz/dmlcz/136773 (read in full).**
+  - Index dictionary [DERIVED]: for his G-class (G_s = 1, G_{s+1} = a₁ + 1) and for his H-class
+    with a₁ = 1 (Fibonacci, tribonacci) his s is the lab's shift; for the U-class with U_s = k ≥ 2
+    (e.g. Pell 1, 2, 5) the lab's shift is s − 1.
   - Prop 1: s < d ⇒ not associative.
   - Thm 2: ∘ associative ⇔ every digit convolution normalises without fractional digits.
   - Thm 3 / Cor 1: ∘ associative ⇔ the (closure of the) conjugate image set is stable under
     multiplication — **the lab's window mechanism**.
   - Thm 1 / Cor 2: U-class (G₁ = k) at lab shift 1 is associative iff p = 1, k ∈ {1, 2}.
-  - Thm 4, Cor 3: p = 1, k ≥ 3 ⇒ s_m = 3. Thm 5: negative p. Thm 6: G-class, p = 1 ⇒ s_m = 2.
-  - Tribonacci: ∘₆ is associative (Thm 7); Arnoux conjectures ∘₃.
-  - Tetranacci: associative for s ≥ 10. He explicitly leaves s_m for p ≠ 1 open.
+  - Thm 4, Cor 3: U-class, p = 1, k ≥ 3: threshold at lab shift 2. Thm 5: negative p.
+    Thm 6: G-class, p = 1 ⇒ s_m = 2.
+  - Tribonacci: ∘₉ is associative (Thm 7, re-proving GPTW's s = 9 "d'une autre manière"); Arnoux
+    conjectures ∘₃.
+  - Tetranacci: associative for s ≥ 10 (Remark 2). He explicitly leaves s_m for p ≠ 1 open.
 - A. Messaoudi, *Tribonacci multiplication*, Appl. Math. Lett. 15 (2002) 981–985,
-  https://doi.org/10.1016/S0893-9659(02)00073-3 (not read; secondary sources: associativity for
-  s ≥ 5).
+  https://doi.org/10.1016/S0893-9659(02)00073-3 (not read). According to Ambrož–Masáková–Pelantová
+  (2007, below) it improves the bound on fractional digits to L⊗ ≤ 6.
 - **P. Ambrož, C. Frougny, Z. Masáková, E. Pelantová (AFMP), *Arithmetics on number systems with
   irrational bases*, Bull. Belg. Math. Soc. Simon Stevin 10 (2003) 641–659,
   https://doi.org/10.36045/bbms/1074791323 (read from the authors' PostScript,
   https://www.irif.fr/~cf/publications/belgian2.ps).**
   - Tribonacci: 4 ≤ L⊗ ≤ 5. Example (110100100101101)_β² = 110010001000100001001001011011.0011,
     "refut[ing] the conjecture of Arnoux that 3 is the maximal number of fractional digits".
+  - L⊗ = max number of fractional digits of x·y over β-integers x, y. [DERIVED] By Messaoudi's
+    Thm 2, ∘_s is associative iff β^s·x·y is a β-integer for all β-integers x, y, i.e. iff s ≥ L⊗.
+    Arnoux's conjecture "∘₃ associative" is therefore the conjecture L⊗ = 3, which AFMP refuted.
   - See also Ambrož–Masáková–Pelantová, DMTCS 9(2) (2007) 73–88, https://doi.org/10.46298/dmtcs.394;
     L⊗ < ∞ for Pisot numbers: Guimond–Masáková–Pelantová, Acta Arith. 112 (2004) 23–40,
     https://doi.org/10.4064/aa112-1-2.
@@ -526,7 +533,7 @@ cyclic permutation". Searches for the specific laws found nothing (§8).
 | Fibonacci 1,2 | 2 | 2 (Knuth; Messaoudi) |
 | Pell 1,2,5 | 1 | 1 (Messaoudi Thm 1: U-class, p = 1, k = 2) |
 | (2,2) 1,2 | 5 | open in Messaoudi (p ≠ 1); [COMPUTED] s = 4 fails, s = 5 no failure found |
-| tribonacci 1,2,4 | 3 | **wrong**: s = 3 fails (AFMP 2003); [COMPUTED] (10016 ∘₃ 10016) ∘₃ 1 = 3414681926 ≠ 3414681924; s ≥ 5 associative (Messaoudi 2002; L⊗ ≤ 5); s = 4 open in the sources read |
+| tribonacci 1,2,4 | 3 | **wrong**: s = 3 fails (AFMP 2003); [COMPUTED] (10016 ∘₃ 10016) ∘₃ 1 = 3414681926 ≠ 3414681924. Known bounds: s ≥ 9 (GPTW; Messaoudi 2000 Thm 7), s ≥ 6 (Messaoudi 2002), and [DERIVED] s ≥ 5 from AFMP's L⊗ ≤ 5 with Messaoudi's Thm 2. s = 4 holds iff L⊗ = 4, open in the sources read |
 | 4-bonacci 1,2,4,8 | 7 | Messaoudi: s ≥ 10 proved; [COMPUTED] s = 6 fails, 7–10 no failure found |
 | G(k+1) = G(k) + G(k−2) 1,2,3 | 10 | **wrong**: [COMPUTED] (78 ∘₁₀ 248) ∘₁₀ 1 = 31037057 ≠ 31037038; s = 11 no failure found |
 | (3,3) 1,5 | 10 | [COMPUTED] s = 9 fails, 10–11 no failure found |

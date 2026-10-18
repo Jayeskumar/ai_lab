@@ -1,0 +1,27 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-11",
+  "lean": [
+    "proofs/lean/Infinity/C16_Dynamics.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Elementary.",
+  "proof": "proofs/paper/C16.md#theorem-8-clm-c16-11--fixed-points-are-idempotents",
+  "proof_check": "Lean 4 + Mathlib (pairMap_fixed_iff; standard axioms only)",
+  "statement": "P(a, b) = (a, b) iff a = b and a*a = a; an idempotent magma has n fixed points and maximal period at most n^2 - n, so no idempotent quasigroup is full-period.",
+  "system": "SYS-E",
+  "title": "Fixed points of the pair map are idempotents",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

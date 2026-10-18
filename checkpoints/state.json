@@ -114,31 +114,31 @@
     ],
     "CLM-C03-07": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C03-08": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C03-09": [
-      "INCONCLUSIVE",
-      "NOT ASSESSED"
+      "REFUTED",
+      "REDISCOVERY"
     ],
     "CLM-C03-10": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "REDISCOVERY"
     ],
     "CLM-C03-11": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-01": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-02": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-03": [
       "PROVEN",
@@ -154,11 +154,11 @@
     ],
     "CLM-C04-06": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-07": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-08": [
       "PROVEN",
@@ -174,11 +174,11 @@
     ],
     "CLM-C04-11": [
       "REFUTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C04-12": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-13": [
       "PROVEN",
@@ -186,7 +186,7 @@
     ],
     "CLM-C04-14": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C04-15": [
       "PROVEN",
@@ -242,15 +242,15 @@
     ],
     "CLM-C06-03": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C06-04": [
       "REFUTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C06-05": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C06-06": [
       "PROVEN",
@@ -262,23 +262,23 @@
     ],
     "CLM-C06-08": [
       "PROVEN",
-      "POTENTIALLY NOVEL"
+      "REDISCOVERY"
     ],
     "CLM-C06-09": [
       "REFUTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C06-10": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C06-11": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C06-12": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C07-01": [
       "PROVEN",
@@ -318,7 +318,7 @@
     ],
     "CLM-C08-02": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C08-03": [
       "COMPUTATIONALLY SUPPORTED",
@@ -329,12 +329,16 @@
       "POTENTIALLY NOVEL"
     ],
     "CLM-C08-05": [
-      "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "REFUTED",
+      "REDISCOVERY"
     ],
     "CLM-C08-06": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
+    ],
+    "CLM-C08-07": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
     ],
     "CLM-C09-01": [
       "PROVEN",
@@ -342,7 +346,7 @@
     ],
     "CLM-C09-02": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C09-03": [
       "PROVEN",
@@ -350,23 +354,23 @@
     ],
     "CLM-C09-04": [
       "REFUTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C09-05": [
       "CONJECTURE",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C09-06": [
       "PROVEN",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C09-07": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C09-08": [
       "PROVEN",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C10-01": [
       "PROVEN",
@@ -378,19 +382,19 @@
     ],
     "CLM-C10-03": [
       "REFUTED",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C10-04": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C10-05": [
       "PROVEN",
-      "NOT ASSESSED"
+      "REDISCOVERY"
     ],
     "CLM-C10-06": [
       "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "POTENTIALLY NOVEL"
     ],
     "CLM-C10-07": [
       "COMPUTATIONALLY SUPPORTED",
@@ -608,6 +612,74 @@
       "CONJECTURE",
       "NOT ASSESSED"
     ],
+    "CLM-C16-01": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C16-02": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-03": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C16-04": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-05": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C16-06": [
+      "REFUTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-07": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C16-08": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-09": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C16-10": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-11": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-12": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C16-13": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-14": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C16-15": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C16-16": [
+      "COMPUTATIONALLY SUPPORTED",
+      "NOT ASSESSED"
+    ],
+    "CLM-C16-17": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
+    ],
     "CLM-C17-01": [
       "PROVEN",
       "REDISCOVERY"
@@ -701,8 +773,8 @@
       "NOT ASSESSED"
     ],
     "CLM-C20-04": [
-      "INCONCLUSIVE",
-      "NOT ASSESSED"
+      "PROVEN",
+      "REDISCOVERY"
     ]
   },
   "cycles_complete": [
@@ -720,6 +792,7 @@
     "C12",
     "C14",
     "C15",
+    "C16",
     "C17",
     "C18",
     "C20"
@@ -773,6 +846,7 @@
     "EXP-C08-03": "d941931eb126e5fc09da9382a88e5756a1efa494e0333461abd3ffd0c36cbba1",
     "EXP-C08-04": "2fb9f1f2a26da1f36322175061f7ad4c543c91f16f45298cc76a1a75bc3f2eb7",
     "EXP-C08-05": "48d8359d8fead52d5917875106f2efbbcd6f4c63e04a4f227124fd63842164fe",
+    "EXP-C08-06": "f34b3a55127266bebe9794ebadfb45b948d68289590667fed8f302c1c0348dcf",
     "EXP-C09-01": "ca2b42230966f6548f4d252d8c221e8cc0cceee6312362473bf70f0eaf961e27",
     "EXP-C09-02": "dfffff33d3a7943072fc56c04352f39fa2292e554eb7dde77d334fb52863a741",
     "EXP-C09-03": "06fdb3356c7705b31fec007aefb6c0ced4bbb4f10cfc0a456bd5d5306d0c046f",
@@ -800,7 +874,10 @@
     "EXP-C13-02": "b7e03113813b1b93f957c467f4b6b0ca7d3005b6e2642f929ad803aee6974735",
     "EXP-C13-03": "706180c29321176d7d2cc11e22b92c0dbf51e78035f0fa663f77a53f9061610f",
     "EXP-C13-04": "e2dc4a04980df47f66bd431777a7929fbc448abd078217f69e1ae65abe48c5cf",
-    "EXP-C13-07": "fc82fdab5cb9183e1fc1dd290e0a4f0b9fb69b3303e882096b55052689db2668",
+    "EXP-C13-05": "56ef2f83731cf61cd14368f784fed013af4fe9ce8ab9c774586aba9eb8912452",
+    "EXP-C13-06": "1a47462732140956ed422bdcf7e1a99d43d9ddee3dea6d0bc61596daaa6c3fff",
+    "EXP-C13-07": "bb8a7a8453a3f4736336204550b4910525f46aba3aefafd2743c18d8f0c691cc",
+    "EXP-C13-08": "1602429fe21d9d7b858585326f97e1044110ccd1eeca9d9aede2f1f40cb7d50c",
     "EXP-C14-01": "98a25916b494a20da66a9944723ced4d164d1a6ca57036625c2513c27e1587f8",
     "EXP-C14-02": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
     "EXP-C14-03": "08e6e8f9b788c831fccb21a5b3185a3a4210750edd10584854843530c5e159a6",
@@ -814,6 +891,10 @@
     "EXP-C15-04": "e2a0d442418ecca98be790f3b18e52a9f8e7b61c5cb6585a3b0a816e7aa8c226",
     "EXP-C15-05": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
     "EXP-C16-01": "0550e32b9f950756b68842e6de36f42d31787ea2a035853b59136abb6bb96001",
+    "EXP-C16-02": "054116983d84654527486cd1e8225025cd05677598cb95aadee9db15d48098af",
+    "EXP-C16-03": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
+    "EXP-C16-04": "815066cf04de7b6de4ac7271dc5386fe9f4e010076e92d8c8404525bf1f5d4eb",
+    "EXP-C16-05": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
     "EXP-C17-01": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
     "EXP-C17-02": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
     "EXP-C18-01": "393d97c570b911b4e0a4a2aeea76f427b8cab604a5419cfcbe8cfb2f3ceb503b",
@@ -821,6 +902,7 @@
     "EXP-C18-03": "4f66fa5fac9a7cff31d92b5518c0d2018539f5d7c48fee97c6712d1280ac7613",
     "EXP-C18-04": "fc4153a514764663d28ec7baef28b3fa87cda971c671636eb44c2af1b68a6494",
     "EXP-C18-05": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
+    "EXP-C19-01": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
     "EXP-C20-01": "ca16de94a06cb31d7f07d1e82454245eb60b32d2fda85fae228a717ac9d2b2a3"
   },
   "lean": {
@@ -840,10 +922,6 @@
     "proofs/lean/Infinity/C18_Quasigroups.lean": true
   },
   "next_priorities": [
-    "C09: arithmetic of the circle semigroup - irreducibles and factorisation",
-    "C09: prove the density-1/phi^2 conjecture",
-    "C09: characterise circle irreducibles via prime factorisation in Z[phi] plus a unit-window condition",
-    "C09: arithmetic of other associative circle products (Pell, tribonacci)",
     "C10: exact multi-offset counting constants via the invariant measure of the digit process",
     "C11: table-driven (byte-wise) decoders for T_p and a fair speed comparison with optimised Elias and Fibonacci decoders",
     "C11: multi-pattern terminators (sets of delimiters, as in multi-delimiter codes) and the best set per source",
@@ -861,6 +939,10 @@
     "C15: prove or refute CLM-C15-18 (bounded width => polylog-time fast-forward); find fast-forwards for non-commutative semigroups via the popcount word",
     "C15: are the 'geometric' widths really exponential? Lower-bound proofs for one chaotic order-3 magma",
     "C15: light cones of Laver tables - is the dependence always bounded by the order's 2-adic size?",
+    "C16: prove that full-period quasigroups exist for every n >= 5 (CLM-C16-10) - a recursive or algebraic construction for even n is needed, since isotopes of groups of even order are excluded",
+    "C16: count full-period quasigroups of order 6 (the DFS found more than 11000 in five minutes without finishing) and compare with L(n)/n^2",
+    "C16: prove CLM-C16-13 (affine maximal period = order of the 3x3 matrix) and explain the Laver transient bound 5",
+    "C16: which laws force short periods? (idempotency gives n fixed points; left-distributivity with an anchor forces period <= 2)",
     "C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance => Laver table, N a power of 2)",
     "C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?",
     "C17: benchmark against optimised C implementations and against SAT-based model checkers",
@@ -871,5 +953,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T16:55:43Z"
+  "updated": "2026-10-18T17:10:30Z"
 }

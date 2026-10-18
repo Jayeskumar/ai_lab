@@ -1,0 +1,22 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-13",
+  "limitations": "300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every affine magma x*y = alpha x + beta y + gamma on Z/N with beta a unit, the maximal period of the pair map equals the order of [[0,1,0],[beta,alpha,gamma],[0,0,1]] mod N.",
+  "system": "SYS-E",
+  "title": "For affine magmas the maximal period equals the order of the 3x3 affine matrix",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -2,7 +2,8 @@
   "cycle": "C08",
   "evidence": [
     "EXP-C08-04",
-    "EXP-C08-03"
+    "EXP-C08-03",
+    "EXP-C08-06"
   ],
   "history": [
     {
@@ -10,12 +11,46 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md).",
+      "old": "One web search (2026-10-18) and the abstracts of Knuth 1988, Arnoux 1989, Grabner et al. 1994, Math. Slovaca 50 (2000) did not mention non-monotone shift thresholds; low-confidence novelty pending the Historian audit.",
+      "reason": "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-04",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "old": [
+        "EXP-C08-04",
+        "EXP-C08-03"
+      ],
+      "reason": "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.",
+      "old": "90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).",
+      "reason": "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C08-04",
-  "limitations": "90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).",
+  "limitations": "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "One web search (2026-10-18) and the abstracts of Knuth 1988, Arnoux 1989, Grabner et al. 1994, Math. Slovaca 50 (2000) did not mention non-monotone shift thresholds; low-confidence novelty pending the Historian audit.",
+  "novelty_basis": "Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md).",
   "statement": "For quadratic Pisot base sequences with real conjugate root beta > 0, the set of shifts s for which o_s is\nassociative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)\noccur only when beta < 0.",
   "system": "SYS-C",
   "title": "Non-monotone associative-shift sets require a negative conjugate root",

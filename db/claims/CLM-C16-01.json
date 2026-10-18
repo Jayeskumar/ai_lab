@@ -1,0 +1,27 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-01",
+  "lean": [
+    "proofs/lean/Infinity/C16_Dynamics.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Every function M x M -> M is the feedback of a unique magma, so pair maps are exactly the order-2 feedback shift registers over n letters, and the criterion is the q-ary form of Golomb's nonsingularity condition (S. W. Golomb, Shift Register Sequences, 1967; see e.g. arXiv:1911.06670 for the binary statement and the correspondence of nonsingular registers with factors of the de Bruijn graph).",
+  "proof": "proofs/paper/C16.md#theorem-1-clm-c16-01--when-the-pair-map-is-a-permutation",
+  "proof_check": "Lean 4 + Mathlib (pairMap_injective_iff, pairMap_bijective_iff, mirrorMap_eq; standard axioms only); count by written proof (proofs/paper/C16.md Theorem 1) and exhaustive check n <= 4 (EXP-C16-01)",
+  "statement": "For a finite magma (M, *), the pair map P(a, b) = (b, b*a) of the recurrence x_{k+1} = x_k * x_{k-1} is a\nbijection iff every left translation a -> b*a is a bijection; hence exactly (n!)^n of the n^(n^2) tables of\norder n give permutations. The mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the\nopposite magma.",
+  "system": "SYS-E",
+  "title": "The Fibonacci pair map of a magma is a permutation iff every left translation is a bijection",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

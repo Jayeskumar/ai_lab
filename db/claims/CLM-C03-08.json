@@ -20,10 +20,29 @@
       "old": "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 35 counterexamples with parameters <= 5 (EXP-C03-02).",
       "reason": "Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 and Lemma 4.3 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-08",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 and Lemma 4.3 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.",
   "system": "SYS-A",
   "title": "H-C03-2: terminates iff r < 2q or s < 2p (refuted)",

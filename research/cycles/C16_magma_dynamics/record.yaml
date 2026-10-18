@@ -1,0 +1,302 @@
+cycle: C16
+title: "Fibonacci dynamics in invented finite algebras"
+branch: E
+status: complete
+systems: [SYS-E, SYS-B]
+
+experiments:
+  - id: EXP-C16-01
+    analysis: "All 16 magmas of order 2, all 19683 of order 3 (3330 isomorphism classes, as in OEIS A001329) and all 331776 row-permutation magmas of order 4. The maximal period of the pair map (a, b) -> (b, b*a) is n^2 for n = 2, 3, 4 (x*y = 1 - y already has period 4), refuting H-C16-1. Permutation pair maps number exactly (n!)^n (4, 216, 331776; 0 violations of the row criterion) and full-period tables exactly (n!)^n / n^2 (1, 24, 20736 - the de Bruijn counts). None of the full-period tables of order <= 4 is a quasigroup; the quasigroup maximum is n^2 - 1 (3, 8, 15). The mirror recurrence equals the forward recurrence of the transpose. The order-3 max-period distribution (4563, 4581, 5316, 2877, 1458, 540, 216, 108, 24) is not in the OEIS; the lookup of the zero counts 0, 0, 0 is vacuous."
+    verification: PROVEN
+    counterexamples: ["x*y = 1 - y on {0,1}: period 4 = n^2, not a quasigroup (H-C16-1 refuted)"]
+    related: [CLM-C16-01, CLM-C16-02, CLM-C16-03]
+  - id: EXP-C16-02
+    analysis: "Exhaustive over all Latin squares of orders 2-5: no full-period quasigroup of order 2, 3, 4, exactly 3360 of order 5 (28 isomorphism classes; their left-division parastrophes are again full-period), refuting H-C16-5; an independent depth-first count of cyclic sequences with all pairs distinct at distances 1 and 2 gives the same numbers 0, 0, 0, 3360. Seeded sampling found and re-verified full-period quasigroups of every order 6-16 (isotopes of Z_n for odd n, random Latin squares for all n; hit rates roughly 1/n^2); direct products 5x6, 5x7, 5x8, 6x7, 7x8, 5x9, 7x9, 8x9 are full-period. All examples satisfy the parity condition; 2000 random isotopes of each group of order 4, 6, 8 have row-sign product (-1)^(n/2) and none is full-period, as Theorem 7 predicts."
+    verification: PROVEN
+    counterexamples: ["3360 full-period quasigroups of order 5, e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3 (H-C16-5 refuted)"]
+    related: [CLM-C16-04, CLM-C16-05, CLM-C16-06, CLM-C16-07, CLM-C16-08, CLM-C16-09, CLM-C16-10]
+  - id: EXP-C16-03
+    analysis: "Laver tables A_0..A_10: the pair map has exactly one fixed point and N - 1 two-cycles (maximal period 2 for n >= 1), Laver's facts used in the proof hold for every n <= 10, and the longest transient is 5 for 4 <= n <= 10. The anchored associative magma x + y + 1 has exactly the cycle structure of the Fibonacci numbers mod N (N <= 60, maximal period = Pisano period); odd-law and golden-law magmas have maximal period equal to the order of their companion matrices in every case (odd N <= 61; 51 pairs (N, a), N <= 200); 300 random affine magmas reach the order of their 3x3 affine matrix; nim-multiplication on [0,16) and [0,256) has maximal period 40 = pi(15) and 360 = pi(255). Groups: S3 8, D4 6, Q8 6, A4 16, S4 18. The odd- and golden-law period sequences are not in the OEIS (the Laver lookup 1, 2, 2, ... is a trivial match)."
+    verification: PROVEN
+    related: [CLM-C16-12, CLM-C16-13, CLM-C16-14, CLM-C16-15, CLM-C16-16, CLM-C16-18]
+  - id: EXP-C16-04
+    analysis: "Simple test battery on 2^20 outputs - PCG64 passes everything; the anchored Fibonacci generator x + y + 1 on Z/2^32 and the affine magma x + beta y + 1 fail low-byte uniformity (p = 0; Fibonacci-type sequences are not uniformly distributed modulo 2^k) and their lowest bit has period 3; the LCG fails the low-bit tests (period 2, low byte too regular); the de Bruijn byte magma, whose period 65536 is the maximum possible for an order-2 byte recurrence, is too regular in every frequency test. No magma generator is competitive."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C16-17]
+  - id: EXP-C16-05
+    analysis: "Search methods for full-period quasigroups with fixed budgets - lexicographic DFS finds a first solution for n = 5..8 (731 to 222,753 nodes) but none for n = 9, 10 within 3,000,000 nodes; the SAT encoding (CaDiCaL) solves n = 5..8 and returns UNKNOWN for n = 9, 10 after 300,000 conflicts; seeded random sampling of Latin squares succeeds for every n = 5..10 (30, 22, 21, 22, 14, 9 hits per 1500, rates close to 1/n^2). A partial DFS enumeration for n = 6 finds 1136 normalised cycles within 20,000,000 nodes without finishing."
+    verification: COMPUTATIONALLY SUPPORTED
+    related: [CLM-C16-10, CLM-C16-19]
+
+claims:
+  - id: CLM-C16-01
+    type: theorem
+    system: SYS-E
+    title: "The Fibonacci pair map of a magma is a permutation iff every left translation is a bijection"
+    statement: |
+      For a finite magma (M, *), the pair map P(a, b) = (b, b*a) of the recurrence x_{k+1} = x_k * x_{k-1} is a
+      bijection iff every left translation a -> b*a is a bijection; hence exactly (n!)^n of the n^(n^2) tables of
+      order n give permutations. The mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the
+      opposite magma.
+    verification: PROVEN
+    proof_check: "Lean 4 + Mathlib (pairMap_injective_iff, pairMap_bijective_iff, mirrorMap_eq; standard axioms only); count by written proof (proofs/paper/C16.md Theorem 1) and exhaustive check n <= 4 (EXP-C16-01)"
+    proof: proofs/paper/C16.md#theorem-1-clm-c16-01--when-the-pair-map-is-a-permutation
+    lean: [proofs/lean/Infinity/C16_Dynamics.lean]
+    evidence: [EXP-C16-01]
+    novelty: REDISCOVERY
+    novelty_basis: "Every function M x M -> M is the feedback of a unique magma, so pair maps are exactly the order-2 feedback shift registers over n letters, and the criterion is the q-ary form of Golomb's nonsingularity condition (S. W. Golomb, Shift Register Sequences, 1967; see e.g. arXiv:1911.06670 for the binary statement and the correspondence of nonsingular registers with factors of the de Bruijn graph)."
+  - id: CLM-C16-02
+    type: hypothesis
+    system: SYS-E
+    title: "H-C16-1: maximal period at most n^2 - 1, attained only by quasigroups (refuted)"
+    statement: As for Pisano periods (where (0, 0) is fixed), the maximal period of the pair map on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups.
+    verification: REFUTED
+    counterexample: "x*y = 1 - y on {0,1} has the single cycle (0,0) -> (0,1) -> (1,1) -> (1,0) of length 4 = n^2 and is not a quasigroup; every n has full-period tables (Theorem 2); for n <= 4 none of them is a quasigroup (EXP-C16-01)."
+    evidence: [EXP-C16-01]
+    novelty: NOT ASSESSED
+  - id: CLM-C16-03
+    type: theorem
+    system: SYS-E
+    title: "Full-period magmas are de Bruijn cycles: there are (n!)^n / n^2 of them"
+    statement: |
+      A table of order n is full-period (its pair map is one cycle through all n^2 states) iff the symbol sequence
+      along that cycle is a de Bruijn cycle of order 2 over n symbols, and this is a bijection; hence there are exactly
+      (n!)^n / n^2 full-period tables of order n (1, 24, 20736, ...) and the maximal period over n-element magmas is
+      n^2 for every n >= 1.
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review"
+    proof: proofs/paper/C16.md#theorem-2-clm-c16-03--full-period-is-the-same-thing-as-a-de-bruijn-cycle
+    evidence: [EXP-C16-01]
+    novelty: REDISCOVERY
+    novelty_basis: "Translation of a classical fact - the number of de Bruijn sequences B(k, m) is (k!)^(k^(m-1)) / k^m (T. van Aardenne-Ehrenfest, N. G. de Bruijn, Simon Stevin 28 (1951); BEST theorem; https://en.wikipedia.org/wiki/De_Bruijn_sequence)."
+  - id: CLM-C16-04
+    type: theorem
+    system: SYS-E
+    title: A parity condition for full periods
+    statement: "If every left translation L_b is a bijection, sign(P) = (-1)^(n(n-1)/2) prod_b sgn(L_b); hence a full-period table satisfies prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2)."
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); awaiting independent skeptic review"
+    proof: proofs/paper/C16.md#theorem-3-clm-c16-04--a-parity-condition
+    evidence: [EXP-C16-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; likely known in the shift-register literature in other forms (Golomb's cycle-parity results for binary registers); no search for the q-ary order-2 statement beyond two web searches.
+  - id: CLM-C16-05
+    type: theorem
+    system: SYS-E
+    title: Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2
+    statement: |
+      A full-period table is a quasigroup iff in its cycle x_0 ... x_{n^2-1} every ordered pair also occurs exactly once
+      as (x_i, x_{i+2}); equivalently the windows (x_{i-1}, x_i, x_{i+1}) run once through the n^2 triples
+      (a, b, b*a) of the Latin square (a universal cycle of the quasigroup).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review"
+    proof: proofs/paper/C16.md#theorem-4-clm-c16-05--full-period-quasigroups-are-distance-2-de-bruijn-cycles
+    evidence: [EXP-C16-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small."
+  - id: CLM-C16-06
+    type: hypothesis
+    system: SYS-E
+    title: "H-C16-5: no quasigroup has a full-period pair map (refuted)"
+    statement: For every n, no quasigroup of order n has a full-period pair map; the maximal period of a quasigroup of order n is n^2 - 1.
+    verification: REFUTED
+    counterexample: "True for n = 2, 3, 4, false for n = 5 - exactly 3360 of the 161280 Latin squares of order 5 are full-period (e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3); examples exist for every order 6-16 (EXP-C16-02)."
+    evidence: [EXP-C16-02]
+    novelty: NOT ASSESSED
+  - id: CLM-C16-07
+    type: theorem
+    system: SYS-E
+    title: "Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16"
+    statement: |
+      There is no full-period quasigroup of order 2, 3 or 4; there are exactly 3360 of order 5, forming 28 isomorphism
+      classes; full-period quasigroups of every order 6, ..., 16 and of orders 30, 35, 40, 42, 45, 56, 63, 72 exist.
+    verification: PROVEN
+    proof_check: "computer-assisted - exhaustive analysis of all Latin squares of orders 2-5, confirmed by an independent depth-first enumeration (0, 0, 0, 3360); explicit certificates for orders 6-16 re-verified by an independent cycle analysis; products by Theorem 6 (EXP-C16-02)"
+    proof: proofs/paper/C16.md#theorem-5-clm-c16-07--which-orders-have-full-period-quasigroups-computer-assisted
+    evidence: [EXP-C16-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.
+  - id: CLM-C16-08
+    type: theorem
+    system: SYS-E
+    title: Direct products of full-period magmas of coprime orders are full-period
+    statement: If two magmas (or quasigroups) of coprime orders n1, n2 are full-period, so is their direct product (a quasigroup if both are).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review"
+    proof: proofs/paper/C16.md#theorem-6-clm-c16-08--products-of-coprime-orders
+    evidence: [EXP-C16-02]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary; the analogous product construction for de Bruijn-type sequences is standard.
+  - id: CLM-C16-09
+    type: theorem
+    system: SYS-E
+    title: No isotope of a group of even order has a full-period Fibonacci pair map
+    statement: "For every group G of even order n = 2m and every isotope x o y = gamma(alpha(x) beta(y)), prod_b sgn(L_b) = (-1)^m, whereas a full period requires (-1)^(m+1); so no group of even order and no isotope of one is full-period. (For odd n isotopes of Z_n are full-period for every n = 5, ..., 15.)"
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review"
+    proof: proofs/paper/C16.md#theorem-7-clm-c16-09--no-isotope-of-a-group-of-even-order-is-full-period
+    evidence: [EXP-C16-02]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small."
+  - id: CLM-C16-10
+    type: conjecture
+    system: SYS-E
+    title: Full-period quasigroups exist for every order n >= 5
+    statement: For every n >= 5 there is a quasigroup of order n whose Fibonacci pair map is a single cycle through all n^2 pairs.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C16-02, EXP-C16-05]
+    novelty: NOT ASSESSED
+    limitations: "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05)."
+
+  - id: CLM-C16-11
+    type: theorem
+    system: SYS-E
+    title: Fixed points of the pair map are idempotents
+    statement: "P(a, b) = (a, b) iff a = b and a*a = a; an idempotent magma has n fixed points and maximal period at most n^2 - n, so no idempotent quasigroup is full-period."
+    verification: PROVEN
+    proof_check: Lean 4 + Mathlib (pairMap_fixed_iff; standard axioms only)
+    proof: proofs/paper/C16.md#theorem-8-clm-c16-11--fixed-points-are-idempotents
+    lean: [proofs/lean/Infinity/C16_Dynamics.lean]
+    evidence: [EXP-C16-01]
+    novelty: NOT ASSESSED
+    novelty_basis: Elementary.
+  - id: CLM-C16-12
+    type: theorem
+    system: SYS-E
+    title: "Affine magmas: periods are orders of companion matrices; the anchored magma x + y + 1 is the Fibonacci sequence mod N"
+    statement: |
+      For x*y = alpha x + beta y + gamma on Z/N (beta a unit) whose pair map has a fixed point, the maximal period is the
+      order of [[0,1],[beta,alpha]] mod N. In particular the anchored associative magma x + y + 1 has exactly the cycle
+      structure of the Fibonacci numbers mod N (maximal period = the Pisano period), the odd-law magma x + 1 + y/2 has
+      maximal period ord([[0,1],[1/2,1]]) and the golden-law magmas x + 1 + a y (a^2 + a = 1) have maximal period
+      ord([[0,1],[a,1]]).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)"
+    proof: proofs/paper/C16.md#theorem-9-clm-c16-12--affine-magmas
+    lean: [proofs/lean/Infinity/C16_Dynamics.lean]
+    evidence: [EXP-C16-03]
+    novelty: REDISCOVERY
+    novelty_basis: "Periods of second-order linear recurrences modulo N are orders of companion matrices (M. Ward, Trans. AMS 35 (1933); D. D. Wall, Amer. Math. Monthly 67 (1960) for Fibonacci). The resulting period sequences of the odd and golden laws (6, 24, 48, 18, 5, ... and 4, 120, 342, ...) are not in the OEIS."
+  - id: CLM-C16-13
+    type: conjecture
+    system: SYS-E
+    title: "For affine magmas the maximal period equals the order of the 3x3 affine matrix"
+    statement: For every affine magma x*y = alpha x + beta y + gamma on Z/N with beta a unit, the maximal period of the pair map equals the order of [[0,1,0],[beta,alpha,gamma],[0,0,1]] mod N.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C16-03]
+    novelty: NOT ASSESSED
+    limitations: 300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.
+  - id: CLM-C16-14
+    type: theorem
+    system: SYS-E
+    title: "Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1)"
+    statement: "On [0, q), q = 2^(2^k), with nim-multiplication the pair map sends pairs containing 0 to (0, 0) within two steps and is isomorphic on nonzero pairs to the Fibonacci pair map on (Z/(q-1))^2; its maximal period is pi(q - 1) (40 for q = 16, 360 for q = 256)."
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03)"
+    proof: proofs/paper/C16.md#theorem-10-clm-c16-14--fibonacci-sequences-of-nimbers
+    evidence: [EXP-C16-03]
+    novelty: REDISCOVERY
+    novelty_basis: The Fibonacci length of a cyclic group is its Pisano period (classical; Knox 1992, Campbell et al.); nimber fields are Conway's.
+  - id: CLM-C16-15
+    type: theorem
+    system: SYS-E
+    title: "Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element"
+    statement: |
+      For n >= 1 and N = 2^n, the pair map of the Laver table A_n (0-based) has exactly N cycles - the fixed point
+      (N-1, N-1) and the two-cycles {(N-1, c), (c, N-1)} - and every orbit reaches one of them; so the maximal period is 2
+      (H-C16-4, 'the maximal period is a power of 2', holds for this degenerate reason).
+    verification: PROVEN
+    proof_check: "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10"
+    proof: proofs/paper/C16.md#theorem-11-clm-c16-15--laver-tables-collapse-to-2-cycles
+    lean: [proofs/lean/Infinity/C16_Dynamics.lean]
+    evidence: [EXP-C16-03]
+    novelty: POTENTIALLY NOVEL
+    novelty_basis: "No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small."
+  - id: CLM-C16-16
+    type: observation
+    system: SYS-E
+    title: Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10)
+    statement: The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C16-03]
+    novelty: NOT ASSESSED
+    limitations: No explanation; the proof of CLM-C16-15 only gives the bound N.
+  - id: CLM-C16-17
+    type: algorithmic
+    system: SYS-E
+    title: Magma Fibonacci generators are not competitive pseudo-random generators
+    statement: "On a simple battery (byte chi-square, serial pairs, lowest-bit period, lag-1 correlation; 2^20 outputs) the anchored Fibonacci and affine magma generators on Z/2^32 fail low-byte uniformity and have lowest-bit period 3, and the de Bruijn byte magma (maximal possible period 65536) is too regular; PCG64 passes every test."
+    verification: COMPUTATIONALLY SUPPORTED
+    improvement: NO IMPROVEMENT
+    improvement_detail: "every magma generator fails at least two tests that PCG64 passes; the longest periods available to order-2 recurrences (n^2 symbols) are far too short for practical use, and affine generators inherit the known low-bit weaknesses of lagged Fibonacci/multiple recursive generators"
+    evidence: [EXP-C16-04]
+    novelty: REDISCOVERY
+    novelty_basis: "Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5)."
+    limitations: A sanity battery, not TestU01 or PractRand.
+  - id: CLM-C16-18
+    type: observation
+    system: SYS-E
+    title: Maximal Fibonacci periods of small groups
+    statement: "Over all pairs of elements, the maximal period of x_{k+1} = x_k x_{k-1} is 8 in S3, 6 in D4, 6 in Q8, 16 in A4 and 18 in S4."
+    verification: PROVEN
+    proof_check: computer-assisted - exhaustive functional-graph analysis of the pair maps (EXP-C16-03)
+    evidence: [EXP-C16-03]
+    novelty: NOT ASSESSED
+    novelty_basis: "The literature studies the Fibonacci length for generating pairs (Knox, Fibonacci Quart. 30 (1992): period 6 for dihedral groups, consistent with D4 here); the maximum over all pairs was not compared in detail."
+  - id: CLM-C16-19
+    type: observation
+    system: SYS-E
+    title: Random sampling finds full-period quasigroups where exact search fails
+    statement: "With fixed budgets, lexicographic DFS (3e6 nodes) and a SAT encoding (3e5 conflicts) find full-period quasigroups only up to n = 8, while seeded sampling of random Latin squares finds them for every n = 5..16 at rates close to 1/n^2 (H-C16-11)."
+    verification: COMPUTATIONALLY SUPPORTED
+    evidence: [EXP-C16-05, EXP-C16-02]
+    novelty: NOT ASSESSED
+    limitations: Budgets are arbitrary; a better SAT encoding or symmetry breaking may scale further.
+
+journal:
+  - key: C16-01
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "In any finite magma the pair (x_{k-1}, x_k) determines x_{k+1} = x_k * x_{k-1}, so every magma carries a Fibonacci dynamics on n^2 states. H-C16-1 (bold) - as for Pisano periods the maximum is at most n^2 - 1 and is reached only by quasigroups. H-C16-4 (bold) - for Laver tables the maximal period is a power of 2."
+    refs: [EXP-C16-01, EXP-C16-03]
+  - key: C16-02
+    agent: Mathematical Explorer
+    kind: result
+    text: "EXP-C16-01 - the maximum is n^2 for n = 2, 3, 4 (x*y = 1 - y has period 4), refuting H-C16-1; the full-period tables number 1, 24, 20736, which identified them as de Bruijn cycles ((n!)^n / n^2). Since every function M x M -> M is a feedback, magma pair maps are exactly order-2 feedback shift registers - much of the general theory is classical."
+    refs: [EXP-C16-01, CLM-C16-02, CLM-C16-03]
+  - key: C16-03
+    agent: Mathematical Inventor
+    kind: hypothesis
+    text: "No full-period table of order <= 4 is a quasigroup, and the quasigroup maximum is n^2 - 1. H-C16-5 (bold) - this holds for all n."
+    refs: [EXP-C16-01]
+  - key: C16-04
+    agent: Mathematical Skeptic
+    kind: result
+    text: "H-C16-5 refuted - exactly 3360 full-period quasigroups of order 5 (two independent methods agree), and examples of every order 6-16. Lexicographic DFS and a SAT encoding fail from n = 9 on within their budgets (EXP-C16-05); seeded random sampling of Latin squares finds examples at rates near 1/n^2."
+    refs: [EXP-C16-02, EXP-C16-05, CLM-C16-06, CLM-C16-07]
+  - key: C16-05
+    agent: Formal Verifier
+    kind: proof
+    text: "A parity obstruction - the pair map factors as a swap of coordinates after fibrewise left translations, so a full period forces prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2). For isotopes of groups of even order this product is always (-1)^(n/2) (Burnside's normal 2-complement), the wrong sign; this explains why sampled isotopes of Z_n were full-period for every odd n and never for even n."
+    refs: [CLM-C16-04, CLM-C16-09, proofs/paper/C16.md]
+  - key: C16-06
+    agent: Formal Verifier
+    kind: proof
+    text: "Laver tables - by Laver's monotonicity x*y > x below the top element, Fibonacci sequences climb to the top and then alternate; the pair map has exactly one fixed point and N - 1 two-cycles. Affine magmas reduce to companion matrices; the anchored associative magma of C06 is the Fibonacci sequence mod N in disguise; nim-multiplication gives Pisano periods of 2^(2^k) - 1."
+    refs: [CLM-C16-12, CLM-C16-14, CLM-C16-15]
+  - key: C16-07
+    agent: Application Researcher
+    kind: result
+    text: "EXP-C16-04 - no magma generator is a usable PRNG compared with PCG64; the maximal period available to any order-2 recurrence on bytes is 65536, and affine generators mod 2^32 have lowest-bit period 3."
+    refs: [EXP-C16-04, CLM-C16-17]
+  - key: C16-08
+    agent: Historian
+    kind: novelty
+    text: "Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aardenne-Ehrenfest--de Bruijn), periods of linear recurrences mod N (Ward, Wall), Fibonacci lengths of groups (Knox; Campbell et al.). Not found - the characterisation of full-period quasigroups as distance-1/2 de Bruijn cycles, the counts 0, 0, 0, 3360, the even-order group-isotope obstruction, and Fibonacci dynamics in Laver tables."
+    refs: [CLM-C16-05, CLM-C16-07, CLM-C16-09, CLM-C16-15]
+
+next_directions:
+  - "C16: prove that full-period quasigroups exist for every n >= 5 (CLM-C16-10) - a recursive or algebraic construction for even n is needed, since isotopes of groups of even order are excluded"
+  - "C16: count full-period quasigroups of order 6 (a partial DFS found 1136 normalised cycles within 2e7 nodes without finishing) and compare with L(6)/36"
+  - "C16: prove CLM-C16-13 (affine maximal period = order of the 3x3 matrix) and explain the Laver transient bound 5"
+  - "C16: which laws force short periods? (idempotency gives n fixed points; left-distributivity with an anchor forces period <= 2)"

@@ -2,7 +2,8 @@
   "cycle": "C08",
   "evidence": [
     "EXP-C08-02",
-    "EXP-C08-03"
+    "EXP-C08-03",
+    "EXP-C08-06"
   ],
   "history": [
     {
@@ -10,14 +11,57 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "title",
+      "new": "Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts",
+      "old": "Pisot base sequences give associative circle products for all sufficiently large shifts",
+      "reason": "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "statement",
+      "new": "For base sequences G_k = a_1 G_(k-1) + ... + a_d G_(k-d) with a_1 >= a_2 >= ... >= a_d >= 1 and canonical\ninitial values (the conditions of Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is\nassociative once the shift s is large enough. (The earlier title, \"Pisot base sequences ...\", overstated\nthe published theorem.)",
+      "old": "For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the\ncircle product is associative once the shift parameter is large enough.",
+      "reason": "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md).",
+      "old": "Published theorem (Grabner, Petho, Tichy, Woeginger, \"Associativity of recurrence multiplication\", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).",
+      "reason": "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "old": [
+        "EXP-C08-02",
+        "EXP-C08-03"
+      ],
+      "reason": "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C08-03",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Published theorem (Grabner, Petho, Tichy, Woeginger, \"Associativity of recurrence multiplication\", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).",
-  "statement": "For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the\ncircle product is associative once the shift parameter is large enough.",
+  "novelty_basis": "Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md).",
+  "statement": "For base sequences G_k = a_1 G_(k-1) + ... + a_d G_(k-d) with a_1 >= a_2 >= ... >= a_d >= 1 and canonical\ninitial values (the conditions of Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is\nassociative once the shift s is large enough. (The earlier title, \"Pisot base sequences ...\", overstated\nthe published theorem.)",
   "system": "SYS-C",
-  "title": "Pisot base sequences give associative circle products for all sufficiently large shifts",
+  "title": "Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts",
   "type": "theorem",
   "verification": "COMPUTATIONALLY SUPPORTED"
 }

@@ -1,8 +1,10 @@
 {
+  "counterexample": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.",
   "cycle": "C08",
   "evidence": [
     "EXP-C08-02",
-    "EXP-C08-03"
+    "EXP-C08-03",
+    "EXP-C08-06"
   ],
   "history": [
     {
@@ -10,13 +12,75 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "title",
+      "new": "Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)",
+      "old": "Measured associativity thresholds for 45 base sequences",
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works).",
+      "old": null,
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C08-02",
+        "EXP-C08-03",
+        "EXP-C08-06"
+      ],
+      "old": [
+        "EXP-C08-02",
+        "EXP-C08-03"
+      ],
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.",
+      "old": null,
+      "reason": "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C08-05",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works).",
   "statement": "Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,\nG(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;\nG(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).",
   "system": "SYS-C",
-  "title": "Measured associativity thresholds for 45 base sequences",
+  "title": "Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)",
   "type": "observation",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "verification": "REFUTED"
 }

@@ -67,6 +67,21 @@ def sync(verbose: bool = True) -> dict:
     for rec in load_all():
         cyc = rec["cycle"]
         actor = f"sync:{cyc}"
+        # validate every claim of the record first, so that an unfinished record (e.g. a cycle still being
+        # written by a worker) is skipped as a whole instead of being half-applied
+        problems = []
+        for c in rec.get("claims", []) or []:
+            fields = {k: _strip(c[k]) for k in CLAIM_FIELDS if k in c}
+            fields.setdefault("novelty", "NOT ASSESSED")
+            preview = {**(db.load("claim", c.get("id", "")) or {}), **fields, "id": c.get("id")}
+            preview.pop("history", None)
+            try:
+                db.validate_claim(preview)
+            except db.ValidationError as exc:
+                problems.append(str(exc))
+        if problems:
+            stats["warnings"].append(f"{cyc} skipped (invalid record): " + "; ".join(problems))
+            continue
         for c in rec.get("claims", []) or []:
             fields = {k: _strip(c[k]) for k in CLAIM_FIELDS if k in c}
             fields["cycle"] = cyc

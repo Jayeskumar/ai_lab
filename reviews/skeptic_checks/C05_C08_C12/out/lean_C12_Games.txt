@@ -1,0 +1,6 @@
+'Infinity.C12.IsGrundy.unique' depends on axioms: [propext, Quot.sound]
+'Infinity.C12.residue_grundy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C12.power_of_two_grundy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C12.split_parity' depends on axioms: [propext, Quot.sound]
+'Infinity.C12.g03_P_positions' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0 seconds=10

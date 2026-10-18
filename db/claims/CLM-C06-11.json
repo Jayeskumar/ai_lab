@@ -9,11 +9,30 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty",
+      "new": "POTENTIALLY NOVEL",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "As data, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C06-11",
   "limitations": "No proof that all their models are affine; the arguments of Theorems 5-6 do not transfer directly because the z = 0 substitution produces 0*(yy) and 0*y terms.",
-  "novelty": "NOT ASSESSED",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "As data, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "(xy)z = x(z(yy)) has the same anchored model counts as the golden law (xy)z = x(y(zz)), and (xy)z = x((zy)y) the same as the odd law (xy)z = x((yz)z), for N <= 9; their affine spectra coincide for N <= 40.",
   "system": "SYS-B",
   "title": "Mirror twins of the golden and odd laws",

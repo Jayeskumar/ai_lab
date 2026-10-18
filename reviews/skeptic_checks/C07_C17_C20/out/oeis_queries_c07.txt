@@ -1,0 +1,12 @@
+== 1,1,2,3,5,8,13,21,34
+10 hits: [('A000045', 'Fibonacci numbers: F(n) = F(n-1) + F(n-2) with F(0) = 0 and '), ('A290689', 'Number of transitive rooted trees with n nodes.'), ('A212804', 'Expansion of (1 - x)/(1 - x - x^2).'), ('A027926', 'Triangular array T read by rows: T(n,0) = T(n,2n) = 1 for n ')]
+== 0,2,1,5,7,4,3,16,13,10,15,6
+NO RESULTS (null)
+== 0,1,3,6,8,11,10,19
+NO RESULTS (null)
+== 0,1,3,6,8,11,10,19,32,20,29,31
+NO RESULTS (null)
+== 2,1,4,3,8,9,10,5,6,7,16,17,18
+NO RESULTS (null)
+== 1,1,1,1,3,3,3,3,3,3,5,5
+3 hits: [('A111233', 'Number of nonempty subsets of {1, 1/2, 1/3, ..., 1/n} that s'), ('A178832', 'Number of minima of the 1-D Griewank function in [-n, n].'), ('A210746', 'A leaf weight sequence.')]

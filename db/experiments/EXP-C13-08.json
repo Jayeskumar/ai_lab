@@ -1,0 +1,95 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries",
+    "family: values 0..3, -1, 4 rounds, constants only (cheap setting)",
+    "soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12), 150 random 2-variable laws (seed 8, SAT, N <= 7) and 200 random 3-variable laws with a bound (SAT, N <= 6): every N with a model must divide the bound"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C13-08",
+    "file": "experiments/C13/E08_closure_proofs.py",
+    "sha256": "986fd1e51f815d9c3828cff714517a3fe6f9641701a32e9e3f5d66bde56ca6df",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C13",
+  "falsification": "A SAT model of size N with N not dividing the derived bound (an unsound closure step).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:08:26Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries",
+        "family: values 0..3, -1, 4 rounds, constants only (cheap setting)",
+        "soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12), 150 random 2-variable laws (seed 8, SAT, N <= 7) and 200 random 3-variable laws with a bound (SAT, N <= 6): every N with a model must divide the bound"
+      ],
+      "old": [
+        "C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries",
+        "family: values 0..3, -1, 4 rounds, constants only (cheap setting)",
+        "soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12) and 150 random 2-variable laws (seed 8, SAT, N <= 7): every N with a model must divide the bound"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T17:09:43Z"
+    }
+  ],
+  "hypothesis": "H-C13-6: for 16 of the 17 laws of CLM-C06-10 the closure proves N | 3 resp. N | 2 (with the affine models this gives the exact spectra {1,3}, {1,2}); a sizeable part of the 18,581-law family gets an exact finite spectrum Div(g); no bound is ever contradicted by a SAT model.",
+  "id": "EXP-C13-08",
+  "methodology": "offset_closure_bound(); a law whose bound g > 0 has affine models for every divisor of g has spectrum exactly Div(g) (upper bound from the closure, lower bound from the affine tables).",
+  "question": "Can the sound closure procedure of systems/anchored.py (law instances at small elements, the anchor, functionality of the table, union-find with integer offsets) prove N | g for the finite-spectrum laws of CLM-C06-10 and for the laws of the 3-variable family? Is it ever contradicted by SAT data?",
+  "results_file": "results/EXP-C13-08.json",
+  "results_sha256": "1602429fe21d9d7b858585326f97e1044110ccd1eeca9d9aede2f1f40cb7d50c",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-08",
+        "file": "experiments/C13/E08_closure_proofs.py",
+        "sha256": "6bfcd3935013b900970aa84e81e1406df46b5b51828401f643a70dc4a2e15654",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:08:26Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C13-08.json",
+      "results_sha256": "5ca842a16ed7401aec85f78bd5d34e49b5cf090d992c250bd73c319a1e5913a9",
+      "runtime_s": 50.297,
+      "started": "2026-10-18T17:07:35Z",
+      "summary": [
+        "CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']",
+        "3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}",
+        "soundness: 403 laws, 35 with a bound, 275 sizes N not dividing the bound checked by SAT/affine; violations 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-08",
+        "file": "experiments/C13/E08_closure_proofs.py",
+        "sha256": "986fd1e51f815d9c3828cff714517a3fe6f9641701a32e9e3f5d66bde56ca6df",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:09:43Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-08.json",
+      "results_sha256": "1602429fe21d9d7b858585326f97e1044110ccd1eeca9d9aede2f1f40cb7d50c",
+      "runtime_s": 62.111,
+      "started": "2026-10-18T17:08:40Z",
+      "summary": [
+        "CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']",
+        "3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}",
+        "soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0"
+      ]
+    }
+  ],
+  "summary": [
+    "CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']",
+    "3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}",
+    "soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0"
+  ],
+  "title": "Finite spectra proved by offset congruence closure (and a soundness test against SAT)"
+}

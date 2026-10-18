@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-07",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.",
+  "proof": "proofs/paper/C16.md#theorem-5-clm-c16-07--which-orders-have-full-period-quasigroups-computer-assisted",
+  "proof_check": "computer-assisted - exhaustive analysis of all Latin squares of orders 2-5, confirmed by an independent depth-first enumeration (0, 0, 0, 3360); explicit certificates for orders 6-16 re-verified by an independent cycle analysis; products by Theorem 6 (EXP-C16-02)",
+  "statement": "There is no full-period quasigroup of order 2, 3 or 4; there are exactly 3360 of order 5, forming 28 isomorphism\nclasses; full-period quasigroups of every order 6, ..., 16 and of orders 30, 35, 40, 42, 45, 56, 63, 72 exist.",
+  "system": "SYS-E",
+  "title": "Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

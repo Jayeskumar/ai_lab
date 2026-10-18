@@ -52,29 +52,44 @@ search this classifies the family almost completely:
 
 **Theorem 4.5** *[PROVEN — computer-assisted; REDISCOVERY]*. Of the 625 rules
 with $p, q, r, s \le 5$, 525 terminate (Theorems 4.1–4.2) and 76 do not
-(re-checked loop certificates); 24 remain open in our hands, all predicted to
+(re-checked loop certificates); 24 remained open in our hands, all predicted to
 terminate, including Zantema's problem.
 
-**Conjecture 4.6** *[COMPUTATIONALLY SUPPORTED]*. $0^p1^q \to 1^r0^s$ is
-non-terminating iff ($r \ge 2q$ and $s \ge 2p$), or ($s \ge 2p$, $q < r < 2q$
-and $p \mid s$), or ($r \ge 2q$, $p < s < 2p$ and $q \mid r$). Zero
-contradictions on 625 rules.
+**Theorem 4.6** (Zantema–Geser) *[PROVEN in the literature; REDISCOVERY,
+verbatim]*. $0^p1^q \to 1^r0^s$ is non-terminating iff ($r \ge 2q$ and
+$s \ge 2p$), or ($s \ge 2p$, $q < r < 2q$ and $p \mid s$), or ($r \ge 2q$,
+$p < s < 2p$ and $q \mid r$).
+
+We first stated this as a conjecture (zero contradictions on 625 rules). The
+laboratory's Historian later located the 1994 technical report of Zantema and
+Geser, whose Theorem 1.1 says exactly this — rule terminates iff $p \ge s$, or
+$q \ge r$, or $p < s < 2p$ and $q \nmid r$, or $q < r < 2q$ and $p \nmid s$ —
+and whose page 2 lists the three non-terminating cases in the same words.
+So the 24 open rules all terminate, and our intermediate hypothesis H-C03-3
+("non-terminating iff both counts grow and $r \ge 2q$ or $s \ge 2p$") is
+refuted by the published theorem: $0011 \to 11100000$ terminates.
 
 Loops can be long: the rule $0\,1^6 \to 1^7 0^6$ needs 9,332 steps and grows
 a 56,035-letter word before its starting word reappears inside it.
 
 ## Comparison with existing mathematics
 
-The family was completely characterised by Zantema and Geser (RTA 1995;
-AAECC 2000); termination of one-rule systems with left side in $0^*1^*$ is
-decidable. We could not retrieve their theorem statement from this
-environment, so whether Conjecture 4.6 coincides with it is unverified — if it
-differs, the published theorem wins. Hard terminating cases such as
+The family was completely characterised by Zantema and Geser (tech. report
+UU-CS-1994-44; RTA 1995; AAECC 2000). Our first attempts to retrieve the
+theorem failed (the usual repository hosts refused the download); the
+Historian found the scanned report on an older archive host, and
+Conjecture 4.6 turned out to be their theorem, verbatim (Theorem 4.6 above).
+Their Lemma 4.1 is our doubling loop, and their Lemma 4.3 reduces the
+divisible cases to $q = 1$ exactly as our lifting lemma does. Hard terminating
+cases such as Zantema's problem admit no simple matrix interpretations (none
+exist in the tiers we searched) and need the Zantema–Geser method. Hard terminating cases such as
 Zantema's problem admit no simple matrix interpretations (none exist in the
 tiers we searched) and need match-bounds or the Zantema–Geser method.
 
 ## Open questions
 
-1. Compare Conjecture 4.6 with the Zantema–Geser characterisation.
-2. Prove termination of the 24 open rules (RFC match-bounds).
+1. ~~Compare Conjecture 4.6 with the Zantema–Geser characterisation.~~
+   Done: identical (Theorem 4.6).
+2. An independent, machine-checkable termination proof for the 24 rules
+   (e.g. RFC match-bounds) — they terminate by the published theorem.
 3. Explain the $k^q$ growth of loop lengths in the base family.

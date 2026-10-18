@@ -1,4 +1,5 @@
 {
+  "counterexample": "0011 -> 11100000 (p = q = 2, r = 3, s = 5): H-C03-3 predicts non-termination (r > q, s > p, s >= 2p), but the rule terminates by Zantema-Geser Theorem 1.1, case 4 (q < r < 2q and p does not divide s). The refutation rests on the published proof.",
   "cycle": "C03",
   "evidence": [
     "EXP-C03-02",
@@ -10,14 +11,51 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": "INCONCLUSIVE",
+      "reason": "Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "0011 -> 11100000 (p = q = 2, r = 3, s = 5): H-C03-3 predicts non-termination (r > q, s > p, s >= 2p), but the rule terminates by Zantema-Geser Theorem 1.1, case 4 (q < r < 2q and p does not divide s). The refutation rests on the published proof.",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-09",
   "notes": "Predicts loops for e.g. 0011 -> 11100000, which terminates from every start 0^a 1^b (a <= 6, b <= 8) and every word of length <= 12 (finite reachable sets), and has no loop within the search bounds. Superseded by H-C03-4; not refuted by proof because termination of 0011 -> 11100000 is unproven.",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "The rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p).",
   "system": "SYS-A",
   "title": "H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)",
   "type": "hypothesis",
-  "verification": "INCONCLUSIVE"
+  "verification": "REFUTED"
 }

@@ -22,8 +22,9 @@ META = {
                   "an exact finite spectrum Div(g); no bound is ever contradicted by a SAT model.",
     "assumptions": ["C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries",
                     "family: values 0..3, -1, 4 rounds, constants only (cheap setting)",
-                    "soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12) and 150 random "
-                    "2-variable laws (seed 8, SAT, N <= 7): every N with a model must divide the bound"],
+                    "soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12), 150 random "
+                    "2-variable laws (seed 8, SAT, N <= 7) and 200 random 3-variable laws with a bound (SAT, N <= 6): "
+                    "every N with a model must divide the bound"],
     "methodology": "offset_closure_bound(); a law whose bound g > 0 has affine models for every divisor of g has "
                    "spectrum exactly Div(g) (upper bound from the closure, lower bound from the affine tables).",
     "falsification": "A SAT model of size N with N not dividing the derived bound (an unsound closure step).",
@@ -64,10 +65,13 @@ def run():
     fam = enumerate_laws(("x", "y", "z"), 4)
     bounds = Counter()
     exact = Counter()
+    bounded = []
     for k in fam:
         law = law_from_key(k)
         g = offset_closure_bound([law], values=(0, 1, 2, 3, -1), rounds=4)
         bounds[g] += 1
+        if g > 0:
+            bounded.append((k, g))
         if g > 0 and exact_divisor_spectrum(law, g):
             exact[g] += 1
     # (c) soundness test against SAT
@@ -80,6 +84,8 @@ def run():
     laws_soundness = [(f"{to_str(a)} = {to_str(b)}", (a, b), 12) for a, b in itertools.combinations(one, 2)]
     two = rng.sample(enumerate_laws(("x", "y"), 4), 150)
     laws_soundness += [(law_str(k), law_from_key(k), 7) for k in two]
+    fam_sample = rng.sample(bounded, 200)
+    laws_soundness += [(law_str(k), law_from_key(k), 6) for k, _ in fam_sample]
     nontrivial_bounds = 0
     for name, law, nmax in laws_soundness:
         g = offset_closure_bound([law], values=(0, 1, 2, 3, 4, -1, -2), rounds=6, symbol_values=4)

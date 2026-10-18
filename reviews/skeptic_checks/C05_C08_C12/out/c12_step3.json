@@ -1,0 +1,204 @@
+{
+ "mex_failures": [],
+ "offset_sets": {
+  "m=1,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2
+   ],
+   "zero": false,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": -13
+  },
+  "m=1,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": -1
+  },
+  "m=3,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -1,
+    0,
+    1
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": -2
+  },
+  "m=3,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -1,
+    1
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": -2
+  },
+  "m=5,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 2
+  },
+  "m=5,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    1
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 2
+  },
+  "m=7,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=7,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=9,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    2
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=9,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=11,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    3
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=11,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    3
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=13,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=13,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=15,parity=1": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    2,
+    3
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  },
+  "m=15,parity=0": {
+   "offsets_ge_-4": [
+    -4,
+    -3,
+    -2,
+    -1,
+    0,
+    2,
+    3
+   ],
+   "zero": true,
+   "all_1_to_a-5_present": true,
+   "mex_minus_a": 1
+  }
+ },
+ "offset_invariance_failures": [],
+ "range": "m odd <= 15, a = 6..400 (mex), a = 13..400 (offsets)",
+ "wall_seconds": 0.9
+}

@@ -9,10 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "In substance - token conservation; b-ary counter (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C10-04",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "In substance - token conservation; b-ary counter (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems",
   "proof_check": "written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules",
   "statement": "For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).",

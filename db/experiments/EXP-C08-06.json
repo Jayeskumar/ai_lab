@@ -1,0 +1,111 @@
+{
+  "agent": "Mathematical Skeptic",
+  "assumptions": [
+    "pairs a <= b < 300, plus 4000 seeded random pairs in [1, 10^6), plus the literature example and the three pairs reported by the Historian",
+    "for each failing pair, c is searched in [1, 300)",
+    "shifts 0..12"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C08-06",
+    "file": "experiments/C08/E06_certified_thresholds.py",
+    "sha256": "c1596d47e7e59e57468017044a3c28197bae04fcf36e0a016d9f71110896154e",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C08",
+  "falsification": "A shift listed as associative in EXP-C08-02..04 with a certified counterexample (refutes the earlier measurement), or a certified counterexample for Fibonacci with s >= 2 (would contradict the Lean theorem of CLM-C08-01).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:01:35Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "pairs a <= b < 300, plus 4000 seeded random pairs in [1, 10^6), plus the literature example and the three pairs reported by the Historian",
+        "for each failing pair, c is searched in [1, 300)",
+        "shifts 0..12"
+      ],
+      "old": [
+        "pairs a <= b < 200, plus 2000 seeded random pairs in [1, 10^6), plus listed literature examples",
+        "for each failing pair, c is searched in [1, 300)",
+        "shifts 0..12"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T17:03:29Z"
+    }
+  ],
+  "hypothesis": "The Historian's audit (reviews/historian_C03_C10.md) predicts failures at tribonacci s = 3, G(k+1) = G(k) + G(k-2) at s = 10, (2,2;1,2) at s = 4, 4-bonacci at s = 6, (3,3;1,5) at s = 9, (4,3;1,5) at s = 4 and (3,3;1,2) at s = 7, all listed as associative before.",
+  "id": "EXP-C08-06",
+  "methodology": "For every sequence and shift: test the embedding identity on the pair set; on the first failing pair search an explicit triple; record a certified counterexample or 'no failure found'.",
+  "question": "Which associativity claims of EXP-C08-02..04 survive a stronger search (embedding identity on all pairs a <= b < 200, 2000 random pairs below 10^6, the literature example of Ambroz-Frougny-Masakova-Pelantova for tribonacci), with explicit counterexamples for every failure?",
+  "results_file": "results/EXP-C08-06.json",
+  "results_sha256": "f34b3a55127266bebe9794ebadfb45b948d68289590667fed8f302c1c0348dcf",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-06",
+        "file": "experiments/C08/E06_certified_thresholds.py",
+        "sha256": "7998c4da710f2b14ae198f39a35a4fc8d0829af76d03cb01bdb6eece39b1bd39",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:01:35Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C08-06.json",
+      "results_sha256": "d31fc41947cc4e0b035a5ca64f02c87cd3573f5fdfd95a4a8a7c0a3a3c6e7481",
+      "runtime_s": 18.899,
+      "started": "2026-10-18T17:01:16Z",
+      "summary": [
+        "thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 9/10; (3,3) 1,5: 9/10",
+        "quadratic rows re-tested: 75; rows whose earlier 'associative' shifts are now certified to fail: 2; still non-monotone on 0..10: 9 (canonical among them: 0)"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-06",
+        "file": "experiments/C08/E06_certified_thresholds.py",
+        "sha256": "dbbf3e7933ce5c7319dfe3b70557e7d3eca1ee77cf3fbd8b091076ee4d354803",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:03:28Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C08-06.json",
+      "results_sha256": "2e418df4ca261e5751b22723172deac38c0aad696d3ee6fda46c22c7037ea870",
+      "runtime_s": 75.715,
+      "started": "2026-10-18T17:02:12Z",
+      "summary": [
+        "thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 10/11; (3,3) 1,5: 9/10",
+        "quadratic rows re-tested: 125; rows whose earlier 'associative' shifts are now certified to fail: 6; still non-monotone on 0..10: 10 (canonical among them: 0)"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C08-06",
+        "file": "experiments/C08/E06_certified_thresholds.py",
+        "sha256": "c1596d47e7e59e57468017044a3c28197bae04fcf36e0a016d9f71110896154e",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:06:12Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C08-06.json",
+      "results_sha256": "f34b3a55127266bebe9794ebadfb45b948d68289590667fed8f302c1c0348dcf",
+      "runtime_s": 114.107,
+      "started": "2026-10-18T17:04:18Z",
+      "summary": [
+        "thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 10/11; (3,3) 1,5: 9/10",
+        "quadratic rows re-tested (the 90 of EXP-C08-04): 90; rows whose earlier 'associative' shifts are now certified to fail: 6; still non-monotone on 0..10: 10 (canonical: 0, positive beta: 0 of 30 rows)"
+      ]
+    }
+  ],
+  "summary": [
+    "thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 10/11; (3,3) 1,5: 9/10",
+    "quadratic rows re-tested (the 90 of EXP-C08-04): 90; rows whose earlier 'associative' shifts are now certified to fail: 6; still non-monotone on 0..10: 10 (canonical: 0, positive beta: 0 of 30 rows)"
+  ],
+  "title": "Certified non-associativity: re-testing the circle-product thresholds and the 90 quadratic rows"
+}

@@ -1,0 +1,22 @@
+{
+  "counterexample": "True for n = 2, 3, 4, false for n = 5 - exactly 3360 of the 161280 Latin squares of order 5 are full-period (e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3); examples exist for every order 6-16 (EXP-C16-02).",
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-06",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every n, no quasigroup of order n has a full-period pair map; the maximal period of a quasigroup of order n is n^2 - 1.",
+  "system": "SYS-E",
+  "title": "H-C16-5: no quasigroup has a full-period pair map (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

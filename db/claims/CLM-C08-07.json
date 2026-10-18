@@ -1,0 +1,24 @@
+{
+  "cycle": "C08",
+  "evidence": [
+    "EXP-C08-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C08",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C08-07",
+  "limitations": "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked).",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements.",
+  "proof_check": "lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)",
+  "statement": "For the circle product o_s: Fibonacci (1,2) fails for s <= 1 and is associative for s >= 2 (Lean, CLM-C08-01);\nPell (1,2,5) fails at s = 0, no failure found for 1 <= s <= 5 (associative for s >= 1 by Messaoudi 2000);\nG(k+1) = 2G(k) + 2G(k-1) (1,2) fails for s <= 5, no failure found for 6 <= s <= 8; tribonacci (1,2,4) fails\nfor s <= 3, no failure found for 4 <= s <= 9; 4-bonacci (1,2,4,8) fails for s <= 7, no failure found for\n8 <= s <= 10; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10, no failure found for s = 11, 12;\nG(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 9, no failure found for 10 <= s <= 12. Every failure is\ncertified by an explicit triple; every \"no failure\" is computational support only.",
+  "system": "SYS-C",
+  "title": "Corrected associativity thresholds - certified lower bounds and searched ranges",
+  "type": "observation",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

@@ -37,7 +37,8 @@ claims:
     lean: [proofs/lean/Infinity/C08_Knuth.lean]
     evidence: [EXP-C08-01, EXP-C08-03, EXP-C08-05]
     novelty: REDISCOVERY
-    novelty_basis: t = 0 is Knuth (Appl. Math. Lett. 1, 1988) with Arnoux's Z[phi] proof (Appl. Math. Lett. 2, 1989); the shift extension follows from the same window and is covered by the "sufficiently large parameter" theorem of Grabner-Petho-Tichy-Woeginger (1994).
+    novelty_basis: "Knuth 1988; Arnoux 1989; all shifts s >= 2 and the failures at s = 0, 1 are in A. Messaoudi, Math. Slovaca 50 (2000), Thm 6 and Prop 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md). The Lean proof is a verification asset."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C08-02
     type: conjecture
     system: SYS-C
@@ -47,19 +48,24 @@ claims:
       other than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C08-02]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
     limitations: 10 non-Pisot sequences, shifts 0..8 only.
+    novelty_basis: "As a conjecture, low confidence - not found; natural attack via Messaoudi's Cor 1 (window stability); related: property (F) implies Pisot (Frougny-Solomyak 1992) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C08-03
     type: theorem
     system: SYS-C
-    title: Pisot base sequences give associative circle products for all sufficiently large shifts
+    title: Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts
     statement: |
-      For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the
-      circle product is associative once the shift parameter is large enough.
+      For base sequences G_k = a_1 G_(k-1) + ... + a_d G_(k-d) with a_1 >= a_2 >= ... >= a_d >= 1 and canonical
+      initial values (the conditions of Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is
+      associative once the shift s is large enough. (The earlier title, "Pisot base sequences ...", overstated
+      the published theorem.)
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-02, EXP-C08-03]
+    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06]
     novelty: REDISCOVERY
-    novelty_basis: Published theorem (Grabner, Petho, Tichy, Woeginger, "Associativity of recurrence multiplication", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).
+    novelty_basis: "Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 - title and statement narrowed to the hypotheses of the cited theorem"
   - id: CLM-C08-04
     type: conjecture
     system: SYS-C
@@ -69,21 +75,25 @@ claims:
       associative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)
       occur only when beta < 0.
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-04, EXP-C08-03]
+    evidence: [EXP-C08-04, EXP-C08-03, EXP-C08-06]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: One web search (2026-10-18) and the abstracts of Knuth 1988, Arnoux 1989, Grabner et al. 1994, Math. Slovaca 50 (2000) did not mention non-monotone shift thresholds; low-confidence novelty pending the Historian audit.
-    limitations: 90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).
+    novelty_basis: "Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md)."
+    limitations: "Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative."
+    change_reason: "Historian audit and certified re-test (EXP-C08-06) - evidence corrected; two former examples were artefacts of random testing"
   - id: CLM-C08-05
     type: observation
     system: SYS-C
-    title: Measured associativity thresholds for 45 base sequences
+    title: Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)
     statement: |
       Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,
       G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;
       G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
-    verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C08-02, EXP-C08-03]
-    novelty: NOT ASSESSED
+    verification: REFUTED
+    counterexample: "Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07."
+    evidence: [EXP-C08-02, EXP-C08-03, EXP-C08-06]
+    novelty: REDISCOVERY
+    novelty_basis: "Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works)."
+    change_reason: "Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong"
   - id: CLM-C08-06
     type: hypothesis
     system: SYS-C
@@ -92,8 +102,28 @@ claims:
     verification: REFUTED
     counterexample: "Fibonacci with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric bases are associative for every s; many Pisot sequences are associative at larger shifts (EXP-C08-02)."
     evidence: [EXP-C08-01, EXP-C08-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "Grabner-Petho-Tichy-Woeginger 1994 and Messaoudi 2000 exhibit infinitely many associative circle products (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
 
+  - id: CLM-C08-07
+    type: observation
+    system: SYS-C
+    title: Corrected associativity thresholds - certified lower bounds and searched ranges
+    statement: |
+      For the circle product o_s: Fibonacci (1,2) fails for s <= 1 and is associative for s >= 2 (Lean, CLM-C08-01);
+      Pell (1,2,5) fails at s = 0, no failure found for 1 <= s <= 5 (associative for s >= 1 by Messaoudi 2000);
+      G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for s <= 5, no failure found for 6 <= s <= 8; tribonacci (1,2,4) fails
+      for s <= 3, no failure found for 4 <= s <= 9; 4-bonacci (1,2,4,8) fails for s <= 7, no failure found for
+      8 <= s <= 10; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10, no failure found for s = 11, 12;
+      G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 9, no failure found for 10 <= s <= 12. Every failure is
+      certified by an explicit triple; every "no failure" is computational support only.
+    verification: COMPUTATIONALLY SUPPORTED
+    proof_check: "lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)"
+    evidence: [EXP-C08-06]
+    novelty: REDISCOVERY
+    novelty_basis: "Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements."
+    limitations: "Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked)."
 journal:
   - key: C08-01
     agent: Mathematical Inventor
@@ -135,6 +165,22 @@ journal:
     kind: proof
     text: Lean 4 + Mathlib formalisation of Theorem 1 completed by a dedicated Formal Verifier worker (proofs/lean/Infinity/C08_Knuth.lean, 256 lines) - circ_assoc and circ_comm for every shift t, via the twisted homomorphism E(circ t a b) = phi^t E(a) E(b) and a symmetric conjugate window |sum psi^k| < -psi. Standard axioms only. Knuth's theorem and its shifted versions are now machine-checked.
     refs: [CLM-C08-01, proofs/lean/Infinity/C08_Knuth.lean]
+
+  - key: C08-09
+    agent: Historian
+    kind: contradiction
+    text: "The tribonacci circle product is NOT associative at shift 3 - (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1), the example by which Ambroz-Frougny-Masakova-Pelantova (2003) refuted Arnoux's conjecture; G(k+1) = G(k) + G(k-2) also fails at s = 10. The lab's random tests up to 10^6 missed both."
+    refs: [CLM-C08-05, reviews/historian_C03_C10.md]
+  - key: C08-10
+    agent: Mathematical Skeptic
+    kind: result
+    text: 'EXP-C08-06 re-tested every threshold and the 90 quadratic rows with an exact embedding filter and explicit certificates - four of eight listed thresholds were too small (tribonacci, 4-bonacci, (2,2;1,2), G(k)+G(k-2)); 6 quadratic rows had listed shifts that are certified failures; Conjecture 9.2 survives (no positive-beta row is non-monotone; all 10 non-monotone rows have non-canonical initial values). CLM-C08-05 marked REFUTED, corrected values in CLM-C08-07.'
+    refs: [EXP-C08-06, CLM-C08-04, CLM-C08-05, CLM-C08-07]
+  - key: C08-11
+    agent: Formal Verifier
+    kind: revision
+    text: "Lesson recorded for all cycles - random sampling of triples is not a reliable associativity test when failures are rare; use certificate-producing searches (exact embeddings, structured candidates, literature examples) and state 'no failure found' as support only."
+    refs: [EXP-C08-06]
 
 next_directions:
   - "C08: complete the Lean proof of the shifted Knuth theorem"

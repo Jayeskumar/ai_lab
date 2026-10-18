@@ -1,0 +1,58 @@
+{
+  "agent": "Mathematical Skeptic",
+  "assumptions": [
+    "300 laws sampled (seed 5) from the 2601 laws over {x,y} with at most 4 leaves per side (up to renaming and exchange of sides); a run with 600 laws, N <= 10 and budget 2,000,000 was stopped after 22 CPU-minutes (hard UNSAT instances at N = 9, 10)",
+    "sizes 2, 3, 5 always decided; a composite N in {4, 6, 8, 9} is decided only when one of its proper divisors is UNSAT (otherwise no violation is possible at N)",
+    "affine models decide SAT without a solver; conflict budget 200,000; UNKNOWN recorded"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C13-05",
+    "file": "experiments/C13/E05_divisor_closure.py",
+    "sha256": "c904ed3883e3da6b696eb497ca3a00de13cdef26ed4b589bbf78597abeaa1f8c",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C13",
+  "falsification": "Any such pair.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:06:04Z"
+    }
+  ],
+  "hypothesis": "H-C13-1 (bold): every anchored spectrum is closed under divisors.",
+  "id": "EXP-C13-05",
+  "methodology": "For each law: zero-substitution filter (N | m); affine roots; otherwise MagmaSAT with the anchor. Report every pair (N, d) with N SAT and d | N UNSAT.",
+  "question": "Is there a law with an anchored model of some size N <= 9 but none of some size d | N?",
+  "results_file": "results/EXP-C13-05.json",
+  "results_sha256": "56ef2f83731cf61cd14368f784fed013af4fe9ce8ab9c774586aba9eb8912452",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-05",
+        "file": "experiments/C13/E05_divisor_closure.py",
+        "sha256": "c904ed3883e3da6b696eb497ca3a00de13cdef26ed4b589bbf78597abeaa1f8c",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:06:03Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C13-05.json",
+      "results_sha256": "56ef2f83731cf61cd14368f784fed013af4fe9ce8ab9c774586aba9eb8912452",
+      "runtime_s": 241.215,
+      "started": "2026-10-18T17:02:02Z",
+      "summary": [
+        "300 sampled laws; 251 have a model of some size 2..9",
+        "divisor-closure violations: 81 ['(xx)(xy) = y(y(yy))', '(x(xx))y = y((xy)x)', '((xx)y)y = (xy)(xx)', 'x(xy) = y(y(xx))', '((xx)y)y = x(x(xy))']",
+        "UNKNOWN: 9; decisions {'zero': 38, 'affine': 515, 'sat': 918, 'skipped': 551}"
+      ]
+    }
+  ],
+  "summary": [
+    "300 sampled laws; 251 have a model of some size 2..9",
+    "divisor-closure violations: 81 ['(xx)(xy) = y(y(yy))', '(x(xx))y = y((xy)x)', '((xx)y)y = (xy)(xx)', 'x(xy) = y(y(xx))', '((xx)y)y = x(x(xy))']",
+    "UNKNOWN: 9; decisions {'zero': 38, 'affine': 515, 'sat': 918, 'skipped': 551}"
+  ],
+  "title": "Divisor-closure of anchored spectra: 300 random 2-variable laws with <= 4 leaves per side, N <= 9"
+}

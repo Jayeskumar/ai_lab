@@ -9,14 +9,32 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "POTENTIALLY NOVEL",
+      "reason": "Historian audit 2026-10-18 - downgraded from POTENTIALLY NOVEL",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial (downgraded) - a two-line lemma on left-permutable groupoids with a right identity; Dudek-Gigon 2013 (AG-groupoid version); OEIS A058156 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "Left-permutable groupoids are studied (e.g. Stanovsky's surveys; Weber 2009 on commutativity identities), and the argument is the regular-representation idea (Cayley); no statement about anchored left-permutable magmas or their enumeration was found in one search (2026-10-18). Likely folklore in spirit; small.",
+      "reason": "Historian audit 2026-10-18 - downgraded from POTENTIALLY NOVEL",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C06-08",
   "lean": [
     "proofs/lean/Infinity/C06_Laver.lean"
   ],
-  "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Left-permutable groupoids are studied (e.g. Stanovsky's surveys; Weber 2009 on commutativity identities), and the argument is the regular-representation idea (Cayley); no statement about anchored left-permutable magmas or their enumeration was found in one search (2026-10-18). Likely folklore in spirit; small.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial (downgraded) - a two-line lemma on left-permutable groupoids with a right identity; Dudek-Gigon 2013 (AG-groupoid version); OEIS A058156 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C06.md#theorem-7-clm-c06-08--anchored-left-permutable-magmas-are-commutative-monoids-in-disguise",
   "proof_check": "Lean 4 + Mathlib for the structural core (centralizer_eq, comp_eq, id_eq, leftPerm_assoc, leftPerm_comm, leftPerm_one_mul, leftPerm_mul_one; standard axioms only); the inverse construction is immediate (written proof proofs/paper/C06.md Theorem 7); counts agree for N <= 5 (EXP-C06-02)",
   "statement": "On Z/N, a.b := (a - 1)*b and x*y := (x + 1).y are inverse bijections between anchored magmas satisfying\nx(yz) = y(xz) and commutative monoid structures with identity 0. Hence the number of anchored left-permutable\nmagmas of size N is the number of labelled commutative monoids of order N with a fixed identity (OEIS A058156:\n1, 2, 9, 94, 1486, ...).",

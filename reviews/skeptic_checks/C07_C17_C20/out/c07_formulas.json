@@ -1,0 +1,107 @@
+{
+ "window": 128,
+ "groups": {
+  "empty": {
+   "specs": [
+    "empty"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[x]": {
+   "specs": [
+    "D[x]",
+    "D[x^z]",
+    "D[x]+D[z]",
+    "D[x]+D[x^z]",
+    "D[z]+D[x^z]",
+    "D[x]+D[z]+D[x^z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[y]": {
+   "specs": [
+    "D[y]",
+    "D[y^z]",
+    "D[y]+D[z]",
+    "D[y]+D[y^z]",
+    "D[z]+D[y^z]",
+    "D[y]+D[z]+D[y^z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[z]": {
+   "specs": [
+    "D[z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[x^y^z]": {
+   "specs": [
+    "D[x^y^z]",
+    "D[x]+D[x^y^z]",
+    "D[y]+D[x^y^z]",
+    "D[x]+D[y]+D[x^y^z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[x]+D[y]": {
+   "specs": [
+    "D[x]+D[y]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "D[x]+D[y]+D[z]": {
+   "specs": [
+    "D[x]+D[y]+D[z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "R": {
+   "specs": [
+    "R",
+    "R+D[y]",
+    "R+D[z]",
+    "R+D[y^z]",
+    "R+D[y]+D[z]",
+    "R+D[y]+D[y^z]",
+    "R+D[z]+D[y^z]",
+    "R+D[y]+D[z]+D[y^z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "L": {
+   "specs": [
+    "L",
+    "L+D[x]",
+    "L+D[z]",
+    "L+D[x^z]",
+    "L+D[x]+D[z]",
+    "L+D[x]+D[x^z]",
+    "L+D[z]+D[x^z]",
+    "L+D[x]+D[z]+D[x^z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "L+R": {
+   "specs": [
+    "L+R",
+    "L+R+D[x]",
+    "L+R+D[y]",
+    "L+R+D[x]+D[y]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  },
+  "L+R+D[z]": {
+   "specs": [
+    "L+R+D[z]",
+    "L+R+D[x]+D[z]",
+    "L+R+D[y]+D[z]",
+    "L+R+D[x]+D[y]+D[z]"
+   ],
+   "specs_differing_from_formula_on_128": []
+  }
+ },
+ "all_44_equal_formula_on_128": true,
+ "formulas_associative_random_2000_each": true,
+ "_seconds": 11.4
+}

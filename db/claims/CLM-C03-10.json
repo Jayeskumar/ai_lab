@@ -20,15 +20,62 @@
       "old": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem.",
       "reason": "Skeptic review 2026-10-18 - conjecture survives; limitations completed (unstored loop certificates, literature unavailable)",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "type",
+      "new": "theorem",
+      "old": "conjecture",
+      "reason": "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Verbatim rediscovery of H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1; the lab's three non-terminating cases match ZG's own list on p. 2 word for word (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.",
+      "reason": "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "proof",
+      "new": "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "published theorem - Zantema-Geser Theorem 1.1 (tech. report UU-CS-1994-44, p. 1; AAECC 2000 Thm 1), statement read verbatim by the Historian; equivalence with the lab's formulation checked by case analysis (Historian, re-checked by the Director) and on all 1 <= p, q, r, s <= 40; not re-proved by the lab",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-10",
   "limitations": "Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.",
+  "novelty_basis": "Verbatim rediscovery of H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1; the lab's three non-terminating cases match ZG's own list on p. 2 word for word (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+  "proof": "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item",
+  "proof_check": "published theorem - Zantema-Geser Theorem 1.1 (tech. report UU-CS-1994-44, p. 1; AAECC 2000 Thm 1), statement read verbatim by the Historian; equivalence with the lab's formulation checked by case analysis (Historian, re-checked by the Director) and on all 1 <= p, q, r, s <= 40; not re-proved by the lab",
   "statement": "0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,\nq < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.",
   "system": "SYS-A",
   "title": "Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4)",
-  "type": "conjecture",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "type": "theorem",
+  "verification": "PROVEN"
 }

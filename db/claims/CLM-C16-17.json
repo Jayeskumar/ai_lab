@@ -1,0 +1,25 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-04"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-17",
+  "improvement": "NO IMPROVEMENT",
+  "improvement_detail": "every magma generator fails at least two tests that PCG64 passes; the longest periods available to order-2 recurrences (n^2 symbols) are far too short for practical use, and affine generators inherit the known low-bit weaknesses of lagged Fibonacci/multiple recursive generators",
+  "limitations": "A sanity battery, not TestU01 or PractRand.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5).",
+  "statement": "On a simple battery (byte chi-square, serial pairs, lowest-bit period, lag-1 correlation; 2^20 outputs) the anchored Fibonacci and affine magma generators on Z/2^32 fail low-byte uniformity and have lowest-bit period 3, and the de Bruijn byte magma (maximal possible period 65536) is too regular; PCG64 passes every test.",
+  "system": "SYS-E",
+  "title": "Magma Fibonacci generators are not competitive pseudo-random generators",
+  "type": "algorithmic",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

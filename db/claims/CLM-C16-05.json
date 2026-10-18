@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-05",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.",
+  "proof": "proofs/paper/C16.md#theorem-4-clm-c16-05--full-period-quasigroups-are-distance-2-de-bruijn-cycles",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review",
+  "statement": "A full-period table is a quasigroup iff in its cycle x_0 ... x_{n^2-1} every ordered pair also occurs exactly once\nas (x_i, x_{i+2}); equivalently the windows (x_{i-1}, x_i, x_{i+1}) run once through the n^2 triples\n(a, b, b*a) of the Latin square (a universal cycle of the quasigroup).",
+  "system": "SYS-E",
+  "title": "Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

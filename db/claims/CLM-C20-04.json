@@ -9,14 +9,89 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "title",
+      "new": "C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation",
+      "old": "C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text inaccessible)",
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "statement",
+      "new": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.",
+      "old": "The published complete characterisation of termination of 0^p 1^q -> 1^r 0^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-*), because the full text could not be retrieved from this environment.",
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "INCONCLUSIVE",
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Zantema-Geser 1994/2000 (see CLM-C03-10).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "proof",
+      "new": "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "limitations",
+      "new": "The lab relies on the published proof.",
+      "old": "Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.",
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Theorem statement read verbatim by the Historian from the scanned tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf; the lab's own retrieval attempts at other hosts failed); equivalence by case analysis (s >= 2p or not, r >= 2q or not) and checked on all parameters <= 40",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
+      "ts": "2026-10-18T17:10:29Z"
     }
   ],
   "id": "CLM-C20-04",
-  "limitations": "Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.",
-  "novelty": "NOT ASSESSED",
-  "statement": "The published complete characterisation of termination of 0^p 1^q -> 1^r 0^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-*), because the full text could not be retrieved from this environment.",
+  "limitations": "The lab relies on the published proof.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Zantema-Geser 1994/2000 (see CLM-C03-10).",
+  "proof": "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item",
+  "proof_check": "Theorem statement read verbatim by the Historian from the scanned tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf; the lab's own retrieval attempts at other hosts failed); equivalence by case analysis (s >= 2p or not, r >= 2q or not) and checked on all parameters <= 40",
+  "statement": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.",
   "system": "SYS-A",
-  "title": "C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text inaccessible)",
+  "title": "C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation",
   "type": "observation",
-  "verification": "INCONCLUSIVE"
+  "verification": "PROVEN"
 }

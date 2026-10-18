@@ -1,0 +1,22 @@
+{
+  "counterexample": "x*y = 1 - y on {0,1} has the single cycle (0,0) -> (0,1) -> (1,1) -> (1,0) of length 4 = n^2 and is not a quasigroup; every n has full-period tables (Theorem 2); for n <= 4 none of them is a quasigroup (EXP-C16-01).",
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-01"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-02",
+  "novelty": "NOT ASSESSED",
+  "statement": "As for Pisano periods (where (0, 0) is fixed), the maximal period of the pair map on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups.",
+  "system": "SYS-E",
+  "title": "H-C16-1: maximal period at most n^2 - 1, attained only by quasigroups (refuted)",
+  "type": "hypothesis",
+  "verification": "REFUTED"
+}

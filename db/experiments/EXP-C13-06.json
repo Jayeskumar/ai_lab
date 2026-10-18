@@ -1,0 +1,58 @@
+{
+  "agent": "Mathematical Skeptic",
+  "assumptions": [
+    "150 laws sampled (seed 13) among the 3-variable laws whose affine spectrum is not all N and which survive the zero filter; sizes 2, 3, 5 always decided, composite 4, 6, 8 only when a proper divisor is UNSAT",
+    "80 pairs of 2-variable laws (<= 4 leaves per side, seed 13); sizes 2..8 with the same pruning",
+    "conflict budget 100,000; UNKNOWN recorded"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C13-06",
+    "file": "experiments/C13/E06_divisor_closure_3var.py",
+    "sha256": "4ac683106c2c866ba8446adc3db4a4494470479a34fbfdbd3a07c57893c7a730",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C13",
+  "falsification": "Any such pair.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:07:31Z"
+    }
+  ],
+  "hypothesis": "H-C13-1 (bold): every anchored spectrum is closed under divisors.",
+  "id": "EXP-C13-06",
+  "methodology": "As EXP-C13-05: zero filter, affine roots, SAT; violations are pairs (N, d), N SAT, d | N UNSAT.",
+  "question": "Does any 3-variable law (<= 4 leaves per side) or any conjunction of two 2-variable laws have an anchored model of a size N but not of some divisor d of N?",
+  "results_file": "results/EXP-C13-06.json",
+  "results_sha256": "1a47462732140956ed422bdcf7e1a99d43d9ddee3dea6d0bc61596daaa6c3fff",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-06",
+        "file": "experiments/C13/E06_divisor_closure_3var.py",
+        "sha256": "4ac683106c2c866ba8446adc3db4a4494470479a34fbfdbd3a07c57893c7a730",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:07:31Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C13-06.json",
+      "results_sha256": "1a47462732140956ed422bdcf7e1a99d43d9ddee3dea6d0bc61596daaa6c3fff",
+      "runtime_s": 77.799,
+      "started": "2026-10-18T17:06:13Z",
+      "summary": [
+        "3-var: 150 of 14223 candidate laws; 62 with a model of size 2..8; violations 29 ['(x(xy))x = x((zz)y)', 'x(yx) = z((xz)y)', '(x(yy))x = y(y(xy))', '((xx)x)x = (y(xx))y']; UNKNOWN 0",
+        "pairs: 80; 34 with a model of size 2..8; violations 17 ['(x(yx))y = y((xy)y) & ((xy)y)x = (y(xx))x', 'xx = (y(xx))y & (x(xx))x = x((yx)y)', '((xx)y)x = x(y(yx)) & x(xy) = x(x(yx))']; UNKNOWN 0",
+        "decisions {'zero': 14, 'affine': 73, 'sat': 1206, 'skipped': 87}"
+      ]
+    }
+  ],
+  "summary": [
+    "3-var: 150 of 14223 candidate laws; 62 with a model of size 2..8; violations 29 ['(x(xy))x = x((zz)y)', 'x(yx) = z((xz)y)', '(x(yy))x = y(y(xy))', '((xx)x)x = (y(xx))y']; UNKNOWN 0",
+    "pairs: 80; 34 with a model of size 2..8; violations 17 ['(x(yx))y = y((xy)y) & ((xy)y)x = (y(xx))x', 'xx = (y(xx))y & (x(xx))x = x((yx)y)', '((xx)y)x = x(y(yx)) & x(xy) = x(x(yx))']; UNKNOWN 0",
+    "decisions {'zero': 14, 'affine': 73, 'sat': 1206, 'skipped': 87}"
+  ],
+  "title": "Divisor-closure of anchored spectra: 150 random 3-variable laws and 80 random pairs of 2-variable laws"
+}

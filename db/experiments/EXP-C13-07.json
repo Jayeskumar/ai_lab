@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C13-07",
     "file": "experiments/C13/E07_one_variable_laws.py",
     "sha256": "bcf2caf38606ef27dd668f8d2dade818adc3e3c08257b9ed9ef2629821b3018f",
-    "systems_sha256": "6dcba2c19bebc70b062c48dcb3a2ceed41b7414d7022378e8a66510390a31ffe"
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
   },
   "cycle": "C13",
   "falsification": "A law whose spectrum up to 12 is neither {1} nor of the form 'all N >= n0 plus a set of small N' (e.g. a law with models exactly at the even sizes).",
@@ -26,7 +26,7 @@
   "methodology": "MagmaSAT with the anchor for every law and N; divisor-closure violations (N, d); spectra patterns; affine roots for comparison.",
   "question": "For every law t1(x) = t2(x) with t1 != t2 one-variable terms of at most 5 leaves, which N <= 12 admit an anchored model? Which spectra violate divisor-closure, and is every spectrum either {1} or cofinite?",
   "results_file": "results/EXP-C13-07.json",
-  "results_sha256": "fc82fdab5cb9183e1fc1dd290e0a4f0b9fb69b3303e882096b55052689db2668",
+  "results_sha256": "bb8a7a8453a3f4736336204550b4910525f46aba3aefafd2743c18d8f0c691cc",
   "runs": [
     {
       "code": {
@@ -42,6 +42,27 @@
       "results_sha256": "fc82fdab5cb9183e1fc1dd290e0a4f0b9fb69b3303e882096b55052689db2668",
       "runtime_s": 5.756,
       "started": "2026-10-18T09:26:09Z",
+      "summary": [
+        "253 one-variable laws; spectrum {1}: 9; models for every N in 7..12: 237; other: 7 ['x = (xx)x', 'x = ((xx)x)x', 'x = (((xx)x)x)x', 'xx = ((xx)x)x']",
+        "divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]",
+        "missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]",
+        "UNKNOWN: 0"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-07",
+        "file": "experiments/C13/E07_one_variable_laws.py",
+        "sha256": "bcf2caf38606ef27dd668f8d2dade818adc3e3c08257b9ed9ef2629821b3018f",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:09:57Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-07.json",
+      "results_sha256": "bb8a7a8453a3f4736336204550b4910525f46aba3aefafd2743c18d8f0c691cc",
+      "runtime_s": 6.008,
+      "started": "2026-10-18T17:09:51Z",
       "summary": [
         "253 one-variable laws; spectrum {1}: 9; models for every N in 7..12: 237; other: 7 ['x = (xx)x', 'x = ((xx)x)x', 'x = (((xx)x)x)x', 'xx = ((xx)x)x']",
         "divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]",

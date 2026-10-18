@@ -1,0 +1,92 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "Laver tables A_0..A_10 (N <= 1024)",
+    "anchored associative N <= 60; odd-law magmas x + 1 + y/2 for odd N <= 61; golden-law magmas x + 1 + a y (a^2 + a = 1) for every root and every N <= 200 in A089270",
+    "300 random affine magmas with N <= 30 (seeded)",
+    "nimbers via the C07 mex tables",
+    "groups S3, D4, Q8, A4, S4 as permutation groups"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C16-03",
+    "file": "experiments/C16/E03_structured_families.py",
+    "sha256": "2b6d8036efe045530b0b5a34a2f44e452fea1285f256626fe081298a2421979a",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C16",
+  "falsification": "H-C16-4: a Laver table whose maximal period is not a power of 2. H-C16-7: a mismatch between the period and the matrix order, or between the anchored and Fibonacci cycle structures. H-C16-8: any affine magma whose maximal period differs from the 3x3 order. H-C16-9: maximal periods other than 40 and 360.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T16:58:01Z"
+    }
+  ],
+  "hypothesis": "H-C16-4 (bold, Inventor): for every Laver table A_n the maximal period of the pair map is a power of 2. H-C16-7 (Formal Verifier): an affine magma x*y = x + beta*y + gamma whose pair map has a fixed point has maximal period ord([[0,1],[beta,1]]) mod N; in particular the anchored associative magma x + y + 1 has exactly the cycle structure of the Fibonacci numbers mod N (maximum: the Pisano period). H-C16-8 (bold, Explorer): for every affine magma x*y = alpha x + beta y + gamma with beta a unit the maximal period equals the order of the 3x3 affine matrix. H-C16-9: nim-multiplication on [0, 2^(2^k)) has maximal period pi(2^(2^k) - 1) (40 and 360).",
+  "id": "EXP-C16-03",
+  "methodology": "Exact functional-graph analysis of every pair map; matrix orders computed by repeated multiplication; comparisons with Pisano periods (OEIS A001175); OEIS checks of new sequences.",
+  "question": "What do the laws of the lab's structured magmas (left-distributivity, anchored associativity, the odd and golden laws of C06, nim arithmetic of C07, group laws) do to the cycle structure of the pair map (a, b) -> (b, b*a)?",
+  "results_file": "results/EXP-C16-03.json",
+  "results_sha256": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C16-03",
+        "file": "experiments/C16/E03_structured_families.py",
+        "sha256": "39edeb1a7e53880ebd9db413c0bdb6d8657acfc7fc56edabe325a7a5bc041db6",
+        "systems_sha256": "dbd3c85f1813b46642b546c268e3f9b134871e1b1a8acbdc3dc7a447f9a18b10"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:58:00Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C16-03.json",
+      "results_sha256": "c10cc1e81d3bdf1e19b4b3bb3bcea9abc84e1274e6485f2327f86bf651e09c9b",
+      "runtime_s": 19.119,
+      "started": "2026-10-18T16:57:41Z",
+      "summary": [
+        "Laver A_0..A_10 max periods: 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2; not a power of 2 for n in []",
+        "anchored x+y+1 = Fibonacci cycle structure for N <= 60: True",
+        "odd law: max period = ord([[0,1],[1/2,1]]) for odd N <= 61: True; golden law: max period = ord([[0,1],[a,1]]) for all 51 (N, a) with N <= 200: True",
+        "random affine: max period != order of the 3x3 matrix in 0 of 300 cases",
+        "nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)",
+        "groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6",
+        "OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C16-03",
+        "file": "experiments/C16/E03_structured_families.py",
+        "sha256": "2b6d8036efe045530b0b5a34a2f44e452fea1285f256626fe081298a2421979a",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:03:52Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C16-03.json",
+      "results_sha256": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
+      "runtime_s": 13.649,
+      "started": "2026-10-18T17:03:38Z",
+      "summary": [
+        "Laver A_0..A_10 max periods: 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2; not a power of 2 for n in []; cycle structure = 1 fixed point + N-1 two-cycles and Laver's facts hold for all n <= 10: True",
+        "anchored x+y+1 = Fibonacci cycle structure for N <= 60: True",
+        "odd law: max period = ord([[0,1],[1/2,1]]) for odd N <= 61: True; golden law: max period = ord([[0,1],[a,1]]) for all 51 (N, a) with N <= 200: True",
+        "random affine: max period != order of the 3x3 matrix in 0 of 300 cases",
+        "nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)",
+        "groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6",
+        "OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH"
+      ]
+    }
+  ],
+  "summary": [
+    "Laver A_0..A_10 max periods: 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2; not a power of 2 for n in []; cycle structure = 1 fixed point + N-1 two-cycles and Laver's facts hold for all n <= 10: True",
+    "anchored x+y+1 = Fibonacci cycle structure for N <= 60: True",
+    "odd law: max period = ord([[0,1],[1/2,1]]) for odd N <= 61: True; golden law: max period = ord([[0,1],[a,1]]) for all 51 (N, a) with N <= 200: True",
+    "random affine: max period != order of the 3x3 matrix in 0 of 300 cases",
+    "nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)",
+    "groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6",
+    "OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH"
+  ],
+  "title": "Fibonacci dynamics in structured families: Laver tables, affine and anchored magmas, nimbers, groups"
+}

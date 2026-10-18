@@ -11,11 +11,20 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 classifies all these rules; in particular the 24 rules left open here all terminate (ZG cases 3/4) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-06",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.",
+  "novelty_basis": "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 classifies all these rules; in particular the 24 rules left open here all terminate (ZG cases 3/4) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C03.md#theorem-6-clm-c03-06--computer-assisted-classification-p-q-r-s--5",
   "proof_check": "computer-assisted (Python) - theorems CLM-C03-01/02 for the terminating rules; explicit loop certificates (forward closures, strategies, mirror images) re-checked step by step for the non-terminating ones",
   "statement": "Among the 625 rules 0^p 1^q -> 1^r 0^s with p, q, r, s <= 5, the 525 with s <= p or r <= q terminate and 76\n(listed in results/EXP-C03-02.json and EXP-C03-03.json) are non-terminating; the remaining 24 are open here.",

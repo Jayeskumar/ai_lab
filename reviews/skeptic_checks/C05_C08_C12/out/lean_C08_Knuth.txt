@@ -1,0 +1,5 @@
+'Infinity.C08.window' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C08.key' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C08.circ_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Infinity.C08.circ_comm' depends on axioms: [propext, Classical.choice, Quot.sound]
+exit=0 seconds=6

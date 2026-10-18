@@ -1,0 +1,65 @@
+{
+  "agent": "Mathematical Skeptic",
+  "assumptions": [
+    "all Latin squares of orders 2..5 (2, 12, 576, 161280)",
+    "an independent depth-first count of cyclic sequences with all pairs distinct at distances 1 and 2 (orders <= 5)",
+    "orders 6..16: deterministic sampling (seeded) of isotopes of Z_n (odd n) and of random Latin squares built from random perfect matchings (all n); every example is re-verified",
+    "groups of even order 4, 6, 8: 2000 random isotopes each"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C16-02",
+    "file": "experiments/C16/E02_quasigroups.py",
+    "sha256": "d4eeddc07928ebc069926afbc710e870bfcd0861f44af160dddb511e80475c14",
+    "systems_sha256": "dbd3c85f1813b46642b546c268e3f9b134871e1b1a8acbdc3dc7a447f9a18b10"
+  },
+  "cycle": "C16",
+  "falsification": "H-C16-5: one full-period quasigroup. H-C16-6: a full-period table violating the parity, or a full-period isotope of a group of even order.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T16:56:50Z"
+    }
+  ],
+  "hypothesis": "H-C16-5 (bold, from the n <= 4 data): no quasigroup of any order has a full-period pair map; the maximal period of a quasigroup of order n is n^2 - 1. H-C16-6 (Formal Verifier, parity): a full-period table must satisfy prod_b sgn(a -> b*a) = (-1)^((n-1)(n+2)/2); for groups of even order this fails for every isotope, so no isotope of a group of even order is full-period.",
+  "id": "EXP-C16-02",
+  "methodology": "Batch pair-map analysis of all Latin squares of order <= 5; DFS enumeration of universal cycles; sampling for larger orders with verification by an independent cycle analysis; direct products of examples of coprime orders; row-sign products of all full-period tables and of group isotopes.",
+  "question": "EXP-C16-01 found no quasigroup of order <= 4 with a full period n^2 (the quasigroup maximum was n^2 - 1). Is that a law, or a small-number accident?",
+  "results_file": "results/EXP-C16-02.json",
+  "results_sha256": "054116983d84654527486cd1e8225025cd05677598cb95aadee9db15d48098af",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C16-02",
+        "file": "experiments/C16/E02_quasigroups.py",
+        "sha256": "d4eeddc07928ebc069926afbc710e870bfcd0861f44af160dddb511e80475c14",
+        "systems_sha256": "dbd3c85f1813b46642b546c268e3f9b134871e1b1a8acbdc3dc7a447f9a18b10"
+      },
+      "error": false,
+      "finished": "2026-10-18T16:56:50Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C16-02.json",
+      "results_sha256": "054116983d84654527486cd1e8225025cd05677598cb95aadee9db15d48098af",
+      "runtime_s": 31.628,
+      "started": "2026-10-18T16:56:18Z",
+      "summary": [
+        "full-period quasigroups (exhaustive): n=2: 0 of 2, n=3: 0 of 12, n=4: 0 of 576, n=5: 3360 of 161280",
+        "independent DFS counts agree: True ({'2': 0, '3': 0, '4': 0, '5': 3360})",
+        "order 5: 28 isomorphism classes; left-division parastrophes full-period: 3360",
+        "examples found and verified for n = 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16; all satisfy the parity condition: True",
+        "coprime products full-period: 5x6: True, 5x7: True, 5x8: True, 6x7: True, 7x8: True, 5x9: True, 7x9: True, 8x9: True",
+        "even-order group isotopes: Z4: signs [1] (needed -1), full 0, Z2xZ2: signs [1] (needed -1), full 0, Z6: signs [-1] (needed 1), full 0, S3: signs [-1] (needed 1), full 0, Z8: signs [1] (needed -1), full 0, Z2xZ4: signs [1] (needed -1), full 0, Z2^3: signs [1] (needed -1), full 0, D4: signs [1] (needed -1), full 0, Q8: signs [1] (needed -1), full 0"
+      ]
+    }
+  ],
+  "summary": [
+    "full-period quasigroups (exhaustive): n=2: 0 of 2, n=3: 0 of 12, n=4: 0 of 576, n=5: 3360 of 161280",
+    "independent DFS counts agree: True ({'2': 0, '3': 0, '4': 0, '5': 3360})",
+    "order 5: 28 isomorphism classes; left-division parastrophes full-period: 3360",
+    "examples found and verified for n = 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16; all satisfy the parity condition: True",
+    "coprime products full-period: 5x6: True, 5x7: True, 5x8: True, 6x7: True, 7x8: True, 5x9: True, 7x9: True, 8x9: True",
+    "even-order group isotopes: Z4: signs [1] (needed -1), full 0, Z2xZ2: signs [1] (needed -1), full 0, Z6: signs [-1] (needed 1), full 0, S3: signs [-1] (needed 1), full 0, Z8: signs [1] (needed -1), full 0, Z2xZ4: signs [1] (needed -1), full 0, Z2^3: signs [1] (needed -1), full 0, D4: signs [1] (needed -1), full 0, Q8: signs [1] (needed -1), full 0"
+  ],
+  "title": "Quasigroups whose Fibonacci pair map is a single cycle through all n^2 pairs"
+}

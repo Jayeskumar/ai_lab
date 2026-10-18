@@ -1198,3 +1198,99 @@ Housekeeping - the first EXP-C18-03 run failed (synthetic words passed as str in
 
 *Evidence:* EXP-C06-03, EXP-C06-04
 
+
+## C03
+
+### [2026-10-18T17:10:10Z] Formal Verifier — revision (`C03-14#rev4`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+### [2026-10-18T17:10:10Z] Historian — novelty (`C03-15`)
+
+Found the Zantema-Geser technical report (UU-CS-1994-44) on an older archive host after the usual hosts failed; its Theorem 1.1 is the lab's Conjecture 4.6 verbatim. CLM-C03-10 becomes PROVEN (by literature), H-C03-3 (CLM-C03-09) is refuted by the theorem, and the 24 rules left open all terminate.
+
+*Evidence:* CLM-C03-09, CLM-C03-10, reviews/historian_C03_C10.md
+
+
+## C04
+
+### [2026-10-18T17:10:10Z] Historian — novelty (`C04-18`)
+
+Audit - most of C04 is classical (Kurth, McNaughton, Zantema-Geser, van Oostrom, Latteux-Roos); the aab -> ba complexity stays potentially novel (low confidence) and the A247983 identity answers a question left open by Kimberling in the OEIS.
+
+*Evidence:* CLM-C04-06, CLM-C04-09, CLM-C04-10, reviews/historian_C03_C10.md
+
+
+## C06
+
+### [2026-10-18T17:10:10Z] Formal Verifier — revision (`C06-11#rev4`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+### [2026-10-18T17:10:10Z] Historian — novelty (`C06-12`)
+
+Audit - CLM-C06-08 (left-permutable <-> commutative monoids) downgraded to a rediscovery in substance (a two-line lemma); the odd and golden laws remain potentially novel (small); spectra closed under products is classical for varieties.
+
+*Evidence:* CLM-C06-08, CLM-C06-06, CLM-C06-07, CLM-C06-12, reviews/historian_C03_C10.md
+
+
+## C08
+
+### [2026-10-18T17:10:10Z] Historian — contradiction (`C08-09`)
+
+The tribonacci circle product is NOT associative at shift 3 - (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1), the example by which Ambroz-Frougny-Masakova-Pelantova (2003) refuted Arnoux's conjecture; G(k+1) = G(k) + G(k-2) also fails at s = 10. The lab's random tests up to 10^6 missed both.
+
+*Evidence:* CLM-C08-05, reviews/historian_C03_C10.md
+
+### [2026-10-18T17:10:10Z] Mathematical Skeptic — result (`C08-10`)
+
+EXP-C08-06 re-tested every threshold and the 90 quadratic rows with an exact embedding filter and explicit certificates - four of eight listed thresholds were too small (tribonacci, 4-bonacci, (2,2;1,2), G(k)+G(k-2)); 6 quadratic rows had listed shifts that are certified failures; Conjecture 9.2 survives (no positive-beta row is non-monotone; all 10 non-monotone rows have non-canonical initial values). CLM-C08-05 marked REFUTED, corrected values in CLM-C08-07.
+
+*Evidence:* EXP-C08-06, CLM-C08-04, CLM-C08-05, CLM-C08-07
+
+### [2026-10-18T17:10:10Z] Formal Verifier — revision (`C08-11`)
+
+Lesson recorded for all cycles - random sampling of triples is not a reliable associativity test when failures are rare; use certificate-producing searches (exact embeddings, structured candidates, literature examples) and state 'no failure found' as support only.
+
+*Evidence:* EXP-C08-06
+
+
+## C09
+
+### [2026-10-18T17:10:10Z] Historian — novelty (`C09-08`)
+
+Audit - the product formula is Lunnon's formula in OEIS A101330 and the norm statement follows from Q(sqrt 5); the window-obstruction density 1/phi^2 and its corollaries remain potentially novel.
+
+*Evidence:* CLM-C09-01, CLM-C09-03, CLM-C09-07, reviews/historian_C03_C10.md
+
+
+## C10
+
+### [2026-10-18T17:10:10Z] Historian — novelty (`C10-07`)
+
+Audit - missed source: Berthe-Frougny-Rigo-Sakarovitch (Adv. Appl. Math. 2020) on the cost of the successor; under their carry-propagation measure Zeckendorf costs phi^2, under the lab's Hamming measure 2. Claims now state the measure; T_m is OEIS A215005.
+
+*Evidence:* CLM-C10-01, CLM-C10-02, CLM-C10-05, reviews/historian_C03_C10.md
+
+
+## C03
+
+### [2026-10-18T17:10:29Z] Formal Verifier — revision (`C03-14#rev5`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-18T17:10:29Z] Formal Verifier — revision (`C06-11#rev5`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+

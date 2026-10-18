@@ -394,7 +394,7 @@ def cubeOp {N : ℕ} (x y : ZMod N) : ZMod N :=
 Together with `cube_law_no_two` the anchored spectrum of this law is `ℕ ∖ {2}`: it contains 4 but not 2. -/
 theorem cubeOp_model {N : ℕ} (hN : 3 ≤ N) :
     (∀ x : ZMod N, cubeOp x 0 = x + 1) ∧ ∀ x : ZMod N, cubeOp x (cubeOp x (cubeOp x x)) = x := by
-  haveI : NeZero N := ⟨by omega⟩
+  have : NeZero N := ⟨by omega⟩
   have h1 : (1 : ZMod N) ≠ 0 := by
     intro h
     have := (ZMod.natCast_eq_zero_iff 1 N).mp (by exact_mod_cast h)

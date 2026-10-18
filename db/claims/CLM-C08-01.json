@@ -11,6 +11,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C08",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Knuth 1988; Arnoux 1989; all shifts s >= 2 and the failures at s = 0, 1 are in A. Messaoudi, Math. Slovaca 50 (2000), Thm 6 and Prop 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md). The Lean proof is a verification asset.",
+      "old": "t = 0 is Knuth (Appl. Math. Lett. 1, 1988) with Arnoux's Z[phi] proof (Appl. Math. Lett. 2, 1989); the shift extension follows from the same window and is covered by the \"sufficiently large parameter\" theorem of Grabner-Petho-Tichy-Woeginger (1994).",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C08-01",
@@ -18,7 +27,7 @@
     "proofs/lean/Infinity/C08_Knuth.lean"
   ],
   "novelty": "REDISCOVERY",
-  "novelty_basis": "t = 0 is Knuth (Appl. Math. Lett. 1, 1988) with Arnoux's Z[phi] proof (Appl. Math. Lett. 2, 1989); the shift extension follows from the same window and is covered by the \"sufficiently large parameter\" theorem of Grabner-Petho-Tichy-Woeginger (1994).",
+  "novelty_basis": "Knuth 1988; Arnoux 1989; all shifts s >= 2 and the failures at s = 0, 1 are in A. Messaoudi, Math. Slovaca 50 (2000), Thm 6 and Prop 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md). The Lean proof is a verification asset.",
   "proof": "proofs/paper/C08.md#theorem-1-clm-c08-01--every-shifted-knuth-product-is-associative",
   "proof_check": "Lean 4 + Mathlib (Infinity.C08.circ_assoc, circ_comm, key, window; standard axioms only) for all t >= 0; counterexamples for s = 0, 1 by computation; no failure in 20,000 random triples up to 1e9 (t = 0)",
   "statement": "For every t >= 0 the operation a o_t b = sum_{k in Z(a)} sum_{l in Z(b)} F_(k+l+t) on the natural numbers\n(Z(n) the Zeckendorf index set, indices >= 2) is associative and commutative; in the lab's G-indexing these\nare the shifts s = t + 2 >= 2. For s = 0 and s = 1 associativity fails ((2 o 4) o 4 != 2 o (4 o 4) for s = 0,\n(1 o 4) o 4 != 1 o (4 o 4) for s = 1).",

@@ -208,3 +208,130 @@ def greedy_length_fast(n: int) -> int:
         c[found + 2] += 1
         length += 1
         lo = found
+
+
+# ------------------------------------------------------------------ structure of the longest game (C19)
+def combine_weight(counts: dict) -> int:
+    """W = sum_{i >= 2} (i - 1) MC_i over the consecutive-combine moves of a game (C1 excluded)."""
+    return sum((int(k[1:]) - 1) * v for k, v in counts.items() if k.startswith("C") and k != "C1")
+
+
+def random_game(n: int, rng) -> dict:
+    """A uniformly random sequence of legal moves from n chips on level 0 (for checking identities)."""
+    c = (n,) if n else ()
+    counts, length = {}, 0
+    while True:
+        mv = moves(c)
+        if not mv:
+            return {"length": length, "counts": counts, "final": c}
+        name, c = mv[rng.randrange(len(mv))]
+        counts[name] = counts.get(name, 0) + 1
+        length += 1
+
+
+def split_phase(n: int, order=None, rng=None):
+    """Apply split and combine-1 moves (only) until every level holds at most one chip.
+
+    order=None fires the lowest possible level; order='random' fires a random possible level (rng required).
+    Returns (stable configuration, number of moves)."""
+    c = [n] + [0] * 64
+    steps = 0
+    while True:
+        cand = [k for k, x in enumerate(c) if x >= 2]
+        if not cand:
+            return _trim(c), steps
+        k = cand[0] if order is None else cand[rng.randrange(len(cand))]
+        c[k] -= 2
+        if k == 0:
+            c[1] += 1
+        elif k == 1:
+            c[2] += 1
+            c[0] += 1
+        else:
+            c[k + 1] += 1
+            c[k - 2] += 1
+        steps += 1
+
+
+def lazy_digits(n: int) -> list[int]:
+    """Top-down 'lazy' algorithm: take level l only if the lower levels together cannot hold the remainder.
+
+    The result is checked separately to have no two consecutive zeros (which characterises the lazy
+    representation, Brown 1965)."""
+    if n == 0:
+        return []
+    t = 0
+    while FIB[t + 2] - 2 < n:          # FIB[0] + ... + FIB[t] = FIB[t + 2] - 2
+        t += 1
+    d = [0] * (t + 1)
+    r = n
+    for l in range(t, -1, -1):
+        lower = FIB[l + 1] - 2         # FIB[0] + ... + FIB[l - 1]
+        if r > lower:
+            d[l] = 1
+            r -= FIB[l]
+    assert r == 0
+    return d
+
+
+def _top(n: int) -> int:
+    k = 0
+    while FIB[k + 1] <= n:
+        k += 1
+    return k
+
+
+def _h(k: int) -> int:
+    return k * k // 4
+
+
+_RHO_CACHE: dict = {}
+
+
+def rho(p: int, m: int) -> int:
+    """Auxiliary 'saving' sequences of the conjectured recursion (CLM-C19-06); p in {0, 1}."""
+    key = (p, m)
+    if key in _RHO_CACHE:
+        return _RHO_CACHE[key]
+    if m == 0:
+        val = 0
+    else:
+        i = _top(m)
+        t = m - FIB[i]
+        if i == 0:
+            base = 1
+        elif i % 2 == p:
+            base = _h(i) + 2
+        else:
+            base = _h(i + 1) + 1
+        val = base + max(0, rho(p, t) - _h(i - 2)) if i % 2 == p else base
+    _RHO_CACHE[key] = val
+    return val
+
+
+def deficit_rec(n: int) -> int:
+    """Conjectured closed recursion for D(n) = B(n) - L(n):  D(0) = 0,
+    D(F_j + m) = floor(j^2/4) + D(m) - rho_{j mod 2}(m)  for 0 <= m < F_{j-1} (levels j: F = 1, 2, 3, 5, ...)."""
+    total = 0
+    while n:
+        j = _top(n)
+        m = n - FIB[j]
+        total += _h(j) - rho(j % 2, m)
+        n = m
+    return total
+
+
+def longest_rec(n: int) -> int:
+    """L(n) via the conjectured recursion (O(log^2 n) arithmetic operations)."""
+    return cusenza_bound(n) - deficit_rec(n)
+
+
+def fib_partitions(N: int) -> list[int]:
+    """Number of partitions of n into parts 1, 2, 3, 5, 8, ... (multiplicities allowed), n < N."""
+    p = [1] + [0] * (N - 1)
+    for f in FIB:
+        if f >= N:
+            break
+        for v in range(f, N):
+            p[v] += p[v - f]
+    return p

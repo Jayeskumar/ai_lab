@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-14",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The Fibonacci length of a cyclic group is its Pisano period (classical; Knox 1992, Campbell et al.); nimber fields are Conway's.",
+  "proof": "proofs/paper/C16.md#theorem-10-clm-c16-14--fibonacci-sequences-of-nimbers",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03)",
+  "statement": "On [0, q), q = 2^(2^k), with nim-multiplication the pair map sends pairs containing 0 to (0, 0) within two steps and is isomorphic on nonzero pairs to the Fibonacci pair map on (Z/(q-1))^2; its maximal period is pi(q - 1) (40 for q = 16, 360 for q = 256).",
+  "system": "SYS-E",
+  "title": "Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

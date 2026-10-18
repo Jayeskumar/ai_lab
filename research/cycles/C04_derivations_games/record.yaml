@@ -56,8 +56,9 @@ claims:
     proof_check: computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently
     proof: proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3
     evidence: [EXP-C04-01]
-    novelty: NOT ASSESSED
-    novelty_basis: A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz "Open. Closed. Open.", RTA 2005) and this observation is likely folklore.
+    novelty: "REDISCOVERY"
+    novelty_basis: "In substance - Kurth's criteria A and D (W. Kurth, dissertation, TU Clausthal 1990, who treated all length-increasing one-rule systems with |r| <= 6), McNaughton's barren criterion and Zantema-Geser Thm 1.1, as stated in A. Geser, J. Waldmann, M. Wenzel, Symbolic enumeration of one-rule string rewriting systems, WST 2016, section 4; the census itself was not found as a statement (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-02
     type: hypothesis
     system: SYS-A
@@ -66,7 +67,9 @@ claims:
     verification: REFUTED
     counterexample: "ab -> bbaa is non-terminating although ab is not a factor of bbaa: aab -> abbaa -> bbaabaa = bb.aab.aa. In total 18 such rules with |r| <= 5 (EXP-C04-02)."
     evidence: [EXP-C04-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "ab -> bbaa is the loop of Zantema-Geser Lemma 4.1; Kurth 1996 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-03
     type: conjecture
     system: SYS-A
@@ -130,10 +133,10 @@ claims:
     proof: proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential
     lean: [proofs/lean/Infinity/C04_Derivations.lean]
     evidence: [EXP-C04-05, EXP-C04-06]
-    novelty: NOT ASSESSED
-    novelty_basis: Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.
+    novelty: "REDISCOVERY"
+    novelty_basis: "In substance - M. Latteux, Y. Roos 2014, Lemma 3.7; Y. Metivier 1985, Lemma 3.5; Adinayev-Stein 2019 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
     notes: Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
-    change_reason: Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-07
     type: hypothesis
     system: SYS-A
@@ -142,7 +145,9 @@ claims:
     verification: REFUTED
     counterexample: "aa -> a has the bordered left-hand side aa but random descent (every derivation from w has sum over a-runs of (length - 1) steps and ends in the same word); 18 bordered rules with |l|, |r| <= 3 have random descent (EXP-C04-05). The 'if' direction is CLM-C04-05."
     evidence: [EXP-C04-05]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "One line from van Oostrom (RTA 2007) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-08
     type: theorem
     system: SYS-D
@@ -169,7 +174,7 @@ claims:
     proof: proofs/paper/C04.md#theorem-7-clm-c04-09--aab--ba-has-complexity-n--log-n--o1
     evidence: [EXP-C04-03, EXP-C04-04]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
+    novelty_basis: "Low confidence. Zantema-Geser Prop 3.2 gives only O(n); Kobayashi-Katsura-Shikishima-Tsuji (TCS 262, 2001) claim a complete complexity analysis of a family containing aab -> ba but were not read (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
     change_reason: Skeptic review 2026-10-18 - proof upheld; verification range restated
   - id: CLM-C04-10
     type: theorem
@@ -184,8 +189,8 @@ claims:
     proof: proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
     evidence: [EXP-C04-09, EXP-C04-10]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
-    change_reason: Skeptic review 2026-10-18 - proof upheld for n >= 1; statement restricted to n >= 1 (false at n = 0)
+    novelty_basis: "Medium confidence. The identity answers the question left open by C. Kimberling in OEIS A247983 / A083706 (no formula given there); valid for n >= 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit and skeptic review 2026-10-18 - statement restricted to n >= 1; novelty basis updated"
   - id: CLM-C04-11
     type: hypothesis
     system: SYS-A
@@ -194,7 +199,9 @@ claims:
     verification: REFUTED
     counterexample: "aab -> ba (and its 3 symmetric images): D(n) = n - 1 - kappa(n) is not given by any linear recurrence (CLM-C04-09)."
     evidence: [EXP-C04-03, EXP-C04-04]
-    novelty: NOT ASSESSED
+    novelty: "POTENTIALLY NOVEL"
+    novelty_basis: "Low confidence, as CLM-C04-09 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-12
     type: observation
     system: SYS-A
@@ -206,8 +213,10 @@ claims:
       terms.
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C04-03]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
     limitations: Closed forms are verified on n <= 12-20 only; proofs exist for ab -> ba (CLM-C04-04), the doubling rules (proofs/paper/C04.md Theorem 6) and aab -> ba (CLM-C04-09).
+    novelty_basis: "Partial - Zantema-Geser 1994 section 3 (bubble sort, quadratic and exponential cases); Bertrand 1994; Kobayashi et al. 2001 (unread) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-13
     type: theorem
     system: SYS-D
@@ -232,7 +241,9 @@ claims:
     verification: REFUTED
     counterexample: "aa -> b: the word a^14 has Grundy value 4 (computed from its own derivation graph); Dawson's Kayles reaches 9, Officers 91 for n <= 3000 (EXP-C04-08)."
     evidence: [EXP-C04-08]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "Dawson's Kayles values (OEIS A002187, shifted) reach 4 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-15
     type: theorem
     system: SYS-D
@@ -341,6 +352,12 @@ journal:
     kind: decision
     text: 'CLM-C04-03 (termination of aab -> ababa, aab -> babaa) upgraded to PROVEN by the proofs of cycle C20; the same theorems give exponential complexities 2^(n-2) - 1 and max_b b(2^floor((n-b)/2) - 1).'
     refs: [CLM-C04-03, CLM-C20-01, CLM-C20-02]
+
+  - key: C04-18
+    agent: Historian
+    kind: novelty
+    text: 'Audit - most of C04 is classical (Kurth, McNaughton, Zantema-Geser, van Oostrom, Latteux-Roos); the aab -> ba complexity stays potentially novel (low confidence) and the A247983 identity answers a question left open by Kimberling in the OEIS.'
+    refs: [CLM-C04-06, CLM-C04-09, CLM-C04-10, reviews/historian_C03_C10.md]
 
 next_directions:
   - "C04: decide termination of aab -> ababa and aab -> babaa"

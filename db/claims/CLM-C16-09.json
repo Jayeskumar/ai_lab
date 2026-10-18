@@ -1,0 +1,24 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-09",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.",
+  "proof": "proofs/paper/C16.md#theorem-7-clm-c16-09--no-isotope-of-a-group-of-even-order-is-full-period",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review",
+  "statement": "For every group G of even order n = 2m and every isotope x o y = gamma(alpha(x) beta(y)), prod_b sgn(L_b) = (-1)^m, whereas a full period requires (-1)^(m+1); so no group of even order and no isotope of one is full-period. (For odd n isotopes of Z_n are full-period for every n = 5, ..., 15.)",
+  "system": "SYS-E",
+  "title": "No isotope of a group of even order has a full-period Fibonacci pair map",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

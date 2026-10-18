@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-18T17:10:29Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -589,7 +589,11 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C03.md#theorem-6-clm-c03-06--computer-assisted-classification-p-q-r-s--5
 - **evidence:** EXP-C03-01; EXP-C03-02; EXP-C03-03
-- **novelty_basis:** The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.
+- **novelty_basis:**
+
+  H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 classifies all these rules; in particular the 24 rules left open here all terminate (ZG cases 3/4) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **status history:**
 
 ### CLM-C03-07: H-C03-1: terminates iff some letter count never grows (refuted)
 
@@ -597,13 +601,19 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-A
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** The rule 0^p 1^q -> 1^r 0^s terminates iff s <= p or r <= q.
 - **evidence:** EXP-C03-01; EXP-C03-02
 - **counterexample:**
 
   0011 -> 111000 (both counts grow) is terminating - a published theorem (A. Geser, 'A Solution to Zantema's Problem', Passau MIP-9314, 1993; Zantema-Geser 2000; automated RFC match-bound proofs). Our own evidence agrees (all 3747 words of length <= 12 containing 0011 have finite derivation trees) but we have no independent proof; the refutation rests on the cited proof.
 
+- **novelty_basis:**
+
+  A. Geser, A solution to Zantema's problem (1993); H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C03; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C03-08: H-C03-2: terminates iff r < 2q or s < 2p (refuted)
 
@@ -611,51 +621,73 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-A
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** The rule 0^p 1^q -> 1^r 0^s terminates iff r < 2q or s < 2p.
 - **evidence:** EXP-C03-01; EXP-C03-02
 - **counterexample:**
 
   011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review).
 
+- **novelty_basis:**
+
+  H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 and Lemma 4.3 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
 - **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C03; Skeptic review 2026-10-18 - counterexample count corrected (40, not 35))
 
 ### CLM-C03-09: H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)
 
 - **cycle:** C03
 - **type:** hypothesis
 - **system:** SYS-A
-- **verification:** INCONCLUSIVE
-- **novelty:** NOT ASSESSED
+- **verification:** REFUTED
+- **novelty:** REDISCOVERY
 - **statement:** The rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p).
 - **evidence:** EXP-C03-02; EXP-C03-03
+- **counterexample:**
+
+  0011 -> 11100000 (p = q = 2, r = 3, s = 5): H-C03-3 predicts non-termination (r > q, s > p, s >= 2p), but the rule terminates by Zantema-Geser Theorem 1.1, case 4 (q < r < 2q and p does not divide s). The refutation rests on the published proof.
+
+- **novelty_basis:**
+
+  H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
 - **notes:**
 
   Predicts loops for e.g. 0011 -> 11100000, which terminates from every start 0^a 1^b (a <= 6, b <= 8) and every word of length <= 12 (finite reachable sets), and has no loop within the search bounds. Superseded by H-C03-4; not refuted by proof because termination of 0011 -> 11100000 is unproven.
 
+- **status history:**
+  - 2026-10-18T17:10:10Z verification: INCONCLUSIVE → REFUTED (sync:C03; Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE))
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C03; Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE))
 
 ### CLM-C03-10: Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4)
 
 - **cycle:** C03
-- **type:** conjecture
+- **type:** theorem
 - **system:** SYS-A
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  published theorem - Zantema-Geser Theorem 1.1 (tech. report UU-CS-1994-44, p. 1; AAECC 2000 Thm 1), statement read verbatim by the Historian; equivalence with the lab's formulation checked by case analysis (Historian, re-checked by the Director) and on all 1 <= p, q, r, s <= 40; not re-proved by the lab
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
   0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,
   q < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.
 
+- **proof:** reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item
 - **evidence:** EXP-C03-02; EXP-C03-03; EXP-C03-04
 - **novelty_basis:**
 
-  Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.
+  Verbatim rediscovery of H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1; the lab's three non-terminating cases match ZG's own list on p. 2 word for word (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 
 - **limitations:**
 
   Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).
 
 - **status history:**
+  - 2026-10-18T17:10:10Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C03; Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature)
 
 ### CLM-C03-11: Loop lengths in the base family grow like k^q
 
@@ -663,14 +695,19 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** observation
 - **system:** SYS-A
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For 0 1^q -> 1^(q+1) 0^k the rightmost strategy from 0 1^(q(q+1)) reaches a self-embedding after 16, 32, 64 steps
   (k = 2) and 260, 1556, 9332 steps (k = 6) for q = 4, 5, 6.
 
 - **evidence:** EXP-C03-04
-- **novelty_basis:** Related to Geser, Hofbauer, Waldmann, "Loops of superexponential lengths in one-rule string rewriting" (RTA 2002).
+- **novelty_basis:**
+
+  Partial rediscovery - the same closed form appears in A. Geser, Loops of superexponential lengths in one-rule string rewriting, RTA 2002 (LNCS 2378), Theorem 1; that paper is by Geser alone (the earlier record listed three authors) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C03; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-01: Termination census of one-rule systems with |l|, |r| <= 3: non-terminating iff l is a factor of r
 
@@ -682,7 +719,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
   computer-assisted (Python) - explicit termination certificates (length decrease, lexicographic monotonicity, linear interpretations over N, decreasing factor counts) for 162 rules and self-embeddings for 34, all re-checked independently
 
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   Among the 196 rules l -> r over {a,b} with 1 <= |l| <= 3, 0 <= |r| <= 3, l != r, exactly the 34 rules in
@@ -690,7 +727,12 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C04.md#theorem-1-clm-c04-01--termination-census-for-l-r--3
 - **evidence:** EXP-C04-01
-- **novelty_basis:** A small exhaustive census; termination of one-rule systems is a classical topic (Zantema-Geser, Dershowitz "Open. Closed. Open.", RTA 2005) and this observation is likely folklore.
+- **novelty_basis:**
+
+  In substance - Kurth's criteria A and D (W. Kurth, dissertation, TU Clausthal 1990, who treated all length-increasing one-rule systems with |r| <= 6), McNaughton's barren criterion and Zantema-Geser Thm 1.1, as stated in A. Geser, J. Waldmann, M. Wenzel, Symbolic enumeration of one-rule string rewriting systems, WST 2016, section 4; the census itself was not found as a statement (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-02: H-C04-0: a rule with |l| <= 3 terminates iff l is not a factor of r (refuted)
 
@@ -698,10 +740,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-A
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** A one-rule system l -> r with |l| <= 3 is non-terminating iff l is a factor of r.
 - **evidence:** EXP-C04-02
 - **counterexample:** ab -> bbaa is non-terminating although ab is not a factor of bbaa: aab -> abbaa -> bbaabaa = bb.aab.aa. In total 18 such rules with |r| <= 5 (EXP-C04-02).
+- **novelty_basis:** ab -> bbaa is the loop of Zantema-Geser Lemma 4.1; Kurth 1996 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-03: The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate
 
@@ -790,7 +835,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
   written proof (proofs/paper/C04.md Theorem 2), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); abstract consequence and the length-changing case Lean-verified (steps_length_unique, length_changing_unique); potential checked on 5365 rules / 470,927 steps
 
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For every rule l -> r (l != r) over a finite alphabet there are Phi : words -> Z and delta != 0 with
@@ -802,15 +847,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C04.md#theorem-2-clm-c04-06--every-one-rule-system-has-a-constant-step-potential
 - **lean:** proofs/lean/Infinity/C04_Derivations.lean
 - **evidence:** EXP-C04-05; EXP-C04-06
-- **novelty_basis:**
-
-  Two web searches (2026-10-18) found no statement; closest work studies the structure of derivations of length-preserving one-rule systems (Inform. Comput., 2015, doi 10.1016/j.ic.2015.07.002). Elementary enough to be folklore; pending Historian audit.
-
+- **novelty_basis:** In substance - M. Latteux, Y. Roos 2014, Lemma 3.7; Y. Metivier 1985, Lemma 3.5; Adinayev-Stein 2019 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **notes:**
 
   Length uniformity alone is strictly weaker than random descent - 126 bordered length-preserving rules with |l| = 4, 5 are length-uniform on words <= 10 but not confluent (e.g. aaaba -> baabb on aaabaaaba).
 
 - **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-07: H-C04-1: random descent iff the left-hand side is unbordered (refuted)
 
@@ -818,13 +861,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-A
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** A terminating one-rule system has random descent iff its left-hand side is unbordered.
 - **evidence:** EXP-C04-05
 - **counterexample:**
 
   aa -> a has the bordered left-hand side aa but random descent (every derivation from w has sum over a-runs of (length - 1) steps and ends in the same word); 18 bordered rules with |l|, |r| <= 3 have random descent (EXP-C04-05). The 'if' direction is CLM-C04-05.
 
+- **novelty_basis:** One line from van Oostrom (RTA 2007) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-08: Rewriting games of random-descent rules are parity games (Grundy value = D(w) mod 2)
 
@@ -865,7 +911,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C04-03; EXP-C04-04
 - **novelty_basis:**
 
-  Web search on one-rule derivational complexity (2026-10-18) found classifications by growth class (Kobayashi; Metivier/Bertrand) but no analysis of this rule; the value sequence matches OEIS A247983 under a different definition (see CLM-C04-10). Small result.
+  Low confidence. Zantema-Geser Prop 3.2 gives only O(n); Kobayashi-Katsura-Shikishima-Tsuji (TCS 262, 2001) claim a complete complexity analysis of a family containing aab -> ba but were not read (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 
 - **status history:**
 
@@ -888,7 +934,10 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C04.md#theorem-8-clm-c04-10--an-unexpected-identity-with-oeis-a247983
 - **evidence:** EXP-C04-09; EXP-C04-10
-- **novelty_basis:** The OEIS entry A247983 (cached 2026-10-18) gives no formula and no combinatorial interpretation; no other source found.
+- **novelty_basis:**
+
+  Medium confidence. The identity answers the question left open by C. Kimberling in OEIS A247983 / A083706 (no formula given there); valid for n >= 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
 - **status history:**
 
 ### CLM-C04-11: H-C04-G (second part): every terminating rule has a rational complexity generating function (refuted)
@@ -897,10 +946,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-A
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** For every terminating one-rule system over {a,b} with |l|, |r| <= 3, the derivational complexity D(n) satisfies a linear recurrence.
 - **evidence:** EXP-C04-03; EXP-C04-04
 - **counterexample:** aab -> ba (and its 3 symmetric images): D(n) = n - 1 - kappa(n) is not given by any linear recurrence (CLM-C04-09).
+- **novelty_basis:** Low confidence, as CLM-C04-09 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-12: Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3
 
@@ -908,7 +960,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** observation
 - **system:** SYS-A
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   The 162 terminating rules (55 symmetry classes) have derivational complexity linear (144 rules, of which 4
@@ -917,7 +969,10 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   terms.
 
 - **evidence:** EXP-C04-03
+- **novelty_basis:** Partial - Zantema-Geser 1994 section 3 (bubble sort, quadratic and exponential cases); Bertrand 1994; Kobayashi et al. 2001 (unread) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:** Closed forms are verified on n <= 12-20 only; proofs exist for ab -> ba (CLM-C04-04), the doubling rules (proofs/paper/C04.md Theorem 6) and aab -> ba (CLM-C04-09).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-13: Rewriting games with lhs a^k are take-and-break games: aa -> b is Dawson's Kayles, aa -> ab is Officers
 
@@ -948,10 +1003,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-D
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** Every rewriting game of a terminating one-rule system with |l|, |r| <= 3 has Sprague-Grundy values <= 3.
 - **evidence:** EXP-C04-08
 - **counterexample:** aa -> b: the word a^14 has Grundy value 4 (computed from its own derivation graph); Dawson's Kayles reaches 9, Officers 91 for n <= 3000 (EXP-C04-08).
+- **novelty_basis:** Dawson's Kayles values (OEIS A002187, shifted) reach 4 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C04; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C04-15: The rewriting game of aa -> b on a^n has Grundy values periodic with period 34 from n = 53
 
@@ -1190,12 +1248,14 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-B
 - **verification:** PROVEN
 - **proof_check:** Lean 4 + Mathlib (anchored_rd_unique; standard axioms only); written proof proofs/paper/C06.md Theorem 2
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** If (xy)z = (xz)(yz) on Z/N and x*0 = x + 1, then x*y = x + 1 for all x, y; conversely this operation is right-distributive and anchored.
 - **proof:** proofs/paper/C06.md#theorem-2-clm-c06-03--anchored-right-distributivity-gives-exactly-one-model-for-every-n
 - **lean:** proofs/lean/Infinity/C06_Laver.lean
 - **evidence:** EXP-C06-02
-- **novelty_basis:** Elementary; explains why the anchor singles out left- and not right-distributivity.
+- **novelty_basis:** Partial - the cyclic rack (Fenn-Rourke 1992; Lopes-Roseman, Ex. 2.3) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-04: H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted)
 
@@ -1203,13 +1263,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-B
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** Among the laws x(yz) = t and (xy)z = t with t a term of 3-4 leaves over exactly {x, y, z}, every law other than left-distributivity has anchored spectrum {1} or {1, ..., 6}.
 - **evidence:** EXP-C06-03
 - **counterexample:**
 
   21 other laws have restricted spectra (EXP-C06-03): (xy)z = x((yz)z) - odd N; (xy)z = x(y(zz)) - N = 1, 5 (and 11, 19, ... by Theorem 6 of proofs/paper/C06.md); x(yz) = ((zx)x)y - N = 1, 3; x(yz) = ((xx)y)z - N = 1, 2.
 
+- **novelty_basis:** As data, low-medium confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-05: Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them
 
@@ -1218,15 +1281,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-B
 - **verification:** PROVEN
 - **proof_check:** written proof (proofs/paper/C06.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02) and 7776 at N = 6 (Skeptic)
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.
 
 - **proof:** proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models
 - **evidence:** EXP-C06-02
-- **novelty_basis:** Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.
+- **novelty_basis:** Partial, folklore level - centraliser of an N-cycle; count N^(N-1) (OEIS A000169) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-06: An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique
 
@@ -1278,7 +1342,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
   Lean 4 + Mathlib for the structural core (centralizer_eq, comp_eq, id_eq, leftPerm_assoc, leftPerm_comm, leftPerm_one_mul, leftPerm_mul_one; standard axioms only); the inverse construction is immediate (written proof proofs/paper/C06.md Theorem 7); counts agree for N <= 5 (EXP-C06-02)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   On Z/N, a.b := (a - 1)*b and x*y := (x + 1).y are inverse bijections between anchored magmas satisfying
@@ -1291,8 +1355,10 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C06-02
 - **novelty_basis:**
 
-  Left-permutable groupoids are studied (e.g. Stanovsky's surveys; Weber 2009 on commutativity identities), and the argument is the regular-representation idea (Cayley); no statement about anchored left-permutable magmas or their enumeration was found in one search (2026-10-18). Likely folklore in spirit; small.
+  Partial (downgraded) - a two-line lemma on left-permutable groupoids with a right identity; Dudek-Gigon 2013 (AG-groupoid version); OEIS A058156 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C06; Historian audit 2026-10-18 - downgraded from POTENTIALLY NOVEL)
 
 ### CLM-C06-09: H-C06-3: anchored spectra are affine spectra (refuted)
 
@@ -1300,13 +1366,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-B
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** For every law of EXP-C06-03 other than left-distributivity, the anchored spectrum for N <= 6 equals the set of N for which some affine table x*y = x + a*y + 1 satisfies the law.
 - **evidence:** EXP-C06-04
 - **counterexample:**
 
   x(yz) = y(x(yz)), x(yz) = y(x(xz)), x(yz) = y(y(xz)) and x(yz) = (yx)(yz) have anchored models for every N <= 6 but no affine model for N > 1; x(yz) = y((yx)z) has a non-affine model at N = 2 (EXP-C06-04).
 
+- **novelty_basis:** As data, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-10: Laws with finite anchored spectra {1, 2} and {1, 3}
 
@@ -1314,7 +1383,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** conjecture
 - **system:** SYS-B
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   The seven laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z = y((zx)y), (xy)z = y((zy)x),
@@ -1323,10 +1392,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   x(yz) = ((xz)x)y, x(yz) = ((xz)y)x, x(yz) = ((xz)y)y have anchored models exactly for N in {1, 2}.
 
 - **evidence:** EXP-C06-03; EXP-C06-04
+- **novelty_basis:** As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:**
 
   Complete SAT enumeration for N <= 9; for all but x(yz) = y((yx)z) every model found is affine, and the affine spectrum is provably the stated finite set for all N (the affine conditions are polynomial congruences in a). Open - excluding non-affine models for N >= 10.
 
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-11: Mirror twins of the golden and odd laws
 
@@ -1334,13 +1406,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** observation
 - **system:** SYS-B
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   (xy)z = x(z(yy)) has the same anchored model counts as the golden law (xy)z = x(y(zz)), and (xy)z = x((zy)y) the same as the odd law (xy)z = x((yz)z), for N <= 9; their affine spectra coincide for N <= 40.
 
 - **evidence:** EXP-C06-04
+- **novelty_basis:** As data, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:** No proof that all their models are affine; the arguments of Theorems 5-6 do not transfer directly because the z = 0 substitution produces 0*(yy) and 0*y terms.
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C06; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C06-12: Anchored spectra are closed under coprime products
 
@@ -1352,15 +1427,16 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
   written proof (proofs/paper/C06.md Theorem 8), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); the Skeptic transported 9 actual model pairs (e.g. golden 5 x 11, odd 5 x 7) and all satisfy law and anchor
 
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For every set of laws, if anchored models of coprime sizes N and M exist, then an anchored model of size NM exists (transport the direct product along the Chinese remainder isomorphism, which maps x + 1 to (x + 1, x + 1)). In particular no anchored spectrum (which always contains 1) has the form {1} together with a set of primes containing two primes but not their product - for example {1} together with an infinite set of primes.
 
 - **proof:** proofs/paper/C06.md#theorem-8-clm-c06-12--anchored-spectra-are-closed-under-coprime-products
 - **evidence:** EXP-C06-03; EXP-C06-04
-- **novelty_basis:** Standard product construction (varieties are closed under direct products); the anchored reformulation answers the lab's question whether a spectrum can be the primes.
+- **novelty_basis:** In substance - closure of varieties under products; spectra of varieties (Gratzer; Froemke-Quackenbush 1975) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C06; Skeptic review 2026-10-18 - proof upheld; consequence reworded ({1} together with primes))
 
 ### CLM-C07-01: The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives
 
@@ -1510,8 +1586,9 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C08-01; EXP-C08-03; EXP-C08-05
 - **novelty_basis:**
 
-  t = 0 is Knuth (Appl. Math. Lett. 1, 1988) with Arnoux's Z[phi] proof (Appl. Math. Lett. 2, 1989); the shift extension follows from the same window and is covered by the "sufficiently large parameter" theorem of Grabner-Petho-Tichy-Woeginger (1994).
+  Knuth 1988; Arnoux 1989; all shifts s >= 2 and the failures at s = 0, 1 are in A. Messaoudi, Math. Slovaca 50 (2000), Thm 6 and Prop 1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md). The Lean proof is a verification asset.
 
+- **status history:**
 
 ### CLM-C08-02: Circle products over non-Pisot base sequences are never associative
 
@@ -1519,16 +1596,22 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** conjecture
 - **system:** SYS-C
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   If the minimal linear recurrence of an increasing base sequence G (G_0 = 1) has a characteristic root beta
   other than the dominant root with |beta| >= 1, then the circle product o_s is non-associative for every s >= 0.
 
 - **evidence:** EXP-C08-02
-- **limitations:** 10 non-Pisot sequences, shifts 0..8 only.
+- **novelty_basis:**
 
-### CLM-C08-03: Pisot base sequences give associative circle products for all sufficiently large shifts
+  As a conjecture, low confidence - not found; natural attack via Messaoudi's Cor 1 (window stability); related: property (F) implies Pisot (Frougny-Solomyak 1992) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **limitations:** 10 non-Pisot sequences, shifts 0..8 only.
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C08; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
+
+### CLM-C08-03: Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts
 
 - **cycle:** C08
 - **type:** theorem
@@ -1537,14 +1620,17 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **novelty:** REDISCOVERY
 - **statement:**
 
-  For base sequences satisfying the dominant-root conditions of Grabner-Petho-Tichy-Woeginger (1994), the
-  circle product is associative once the shift parameter is large enough.
+  For base sequences G_k = a_1 G_(k-1) + ... + a_d G_(k-d) with a_1 >= a_2 >= ... >= a_d >= 1 and canonical
+  initial values (the conditions of Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is
+  associative once the shift s is large enough. (The earlier title, "Pisot base sequences ...", overstated
+  the published theorem.)
 
-- **evidence:** EXP-C08-02; EXP-C08-03
+- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06
 - **novelty_basis:**
 
-  Published theorem (Grabner, Petho, Tichy, Woeginger, "Associativity of recurrence multiplication", Appl. Math. Lett. 7 (1994) 85-90). We have not re-verified their proof; our data confirm it for 31 Pisot sequences (one, with |beta| ~ 0.94, not yet associative at s <= 20).
+  Published theorem (P. J. Grabner, A. Petho, R. F. Tichy, G. J. Woeginger, Appl. Math. Lett. 7 (1994) 85-90); see also A. Messaoudi, Math. Slovaca 50 (2000) 135-148 (window criterion, Thm 2-3). Not re-proved by the lab; our data agree for the sequences tested. The sequence G(k+1) = G(k) + G(k-3) (no associative shift <= 20) may be outside the theorem's hypotheses (Historian audit, reviews/historian_C03_C10.md).
 
+- **status history:**
 
 ### CLM-C08-04: Non-monotone associative-shift sets require a negative conjugate root
 
@@ -1559,27 +1645,39 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   associative is upward-closed. Sets that are not upward-closed (e.g. {2} and s >= 4 for G = 1,3,4,7,11,...)
   occur only when beta < 0.
 
-- **evidence:** EXP-C08-04; EXP-C08-03
+- **evidence:** EXP-C08-04; EXP-C08-03; EXP-C08-06
 - **novelty_basis:**
 
-  One web search (2026-10-18) and the abstracts of Knuth 1988, Arnoux 1989, Grabner et al. 1994, Math. Slovaca 50 (2000) did not mention non-monotone shift thresholds; low-confidence novelty pending the Historian audit.
+  Low confidence. Not found in Knuth 1988, Arnoux 1989, Grabner et al. 1994, Messaoudi 2000 (read in full) or Ambroz-Frougny-Masakova-Pelantova 2003. The Historian derives from Messaoudi's Thm 2 that for canonical (Parry) sequences the associative shifts are upward-closed whatever the sign of beta; so the phenomenon concerns non-canonical initial values only (reviews/historian_C03_C10.md).
 
-- **limitations:** 90 quadratic sequences, shifts 0..10, randomised large-input tests (not proofs of associativity).
+- **limitations:**
 
-### CLM-C08-05: Measured associativity thresholds for 45 base sequences
+  Re-tested with certificates (EXP-C08-06, the same 90 quadratic sequences, shifts 0..10) - 6 rows of EXP-C08-04 listed shifts that are certified non-associative, including two of the original non-monotone examples ((4,3;1,5) at s = 4, (3,3;1,2) at s = 7). After the re-test 10 rows are still non-monotone, all with non-canonical initial values and beta < 0; none of the 30 rows with beta > 0. Isolated 'associative' shifts are supported by search only (no proof). Note that for G(k+1) = pG(k) + qG(k-1) with q > 0 the conjugate root is automatically negative.
+
+- **status history:**
+
+### CLM-C08-05: Measured associativity thresholds for 45 base sequences (refuted - four thresholds were too small)
 
 - **cycle:** C08
 - **type:** observation
 - **system:** SYS-C
-- **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **verification:** REFUTED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   Smallest shift s0 with o_s associative for all tested s0 <= s <= max tested: Fibonacci 2, Pell (1,2,5) 1,
   G(k+1)=2G(k)+2G(k-1) (1,2) 5, tribonacci 3, 4-bonacci 7, G(k+1)=G(k)+G(k-2) 10, G(k+1)=3G(k)+3G(k-1) (1,5) 10;
   G(k+1)=G(k)+G(k-3) none up to 20 (full table in results/EXP-C08-02.json and EXP-C08-03.json).
 
-- **evidence:** EXP-C08-02; EXP-C08-03
+- **evidence:** EXP-C08-02; EXP-C08-03; EXP-C08-06
+- **counterexample:**
+
+  Certified violations (EXP-C08-06) - tribonacci s = 3: (10016 o 10016) o 1 = 3414681926 != 3414681924 = 10016 o (10016 o 1) (the example of Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1) (found by the Historian). The random tests behind the measurement (triples up to 10^6) missed these rare failures. Corrected values in CLM-C08-07.
+
+- **novelty_basis:** Partial rediscovery - thresholds known in the literature (Messaoudi 2000, 2002; Ambroz-Frougny-Masakova-Pelantova 2003 refute Arnoux's conjecture that tribonacci s = 3 works).
+- **status history:**
+  - 2026-10-18T17:10:10Z verification: COMPUTATIONALLY SUPPORTED → REFUTED (sync:C08; Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong)
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C08; Historian audit and certified re-test 2026-10-18 - four listed thresholds are wrong)
 
 ### CLM-C08-06: H-C08-1: Knuth's associative circle product is an isolated case (refuted)
 
@@ -1587,10 +1685,41 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-C
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** Among digit-convolution products a o_s b = sum d_i d_j G_(i+j+s), only Fibonacci with s = 2 is associative.
 - **evidence:** EXP-C08-01; EXP-C08-02
 - **counterexample:** Fibonacci with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric bases are associative for every s; many Pisot sequences are associative at larger shifts (EXP-C08-02).
+- **novelty_basis:** Grabner-Petho-Tichy-Woeginger 1994 and Messaoudi 2000 exhibit infinitely many associative circle products (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C08; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
+
+### CLM-C08-07: Corrected associativity thresholds - certified lower bounds and searched ranges
+
+- **cycle:** C08
+- **type:** observation
+- **system:** SYS-C
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **proof_check:**
+
+  lower bounds certified by explicit triples (results/EXP-C08-06.json); upper bounds proved only where the literature proves them (Fibonacci s >= 2 Lean; Pell s >= 1 Messaoudi 2000 Thm 1; tribonacci s >= 6 per Messaoudi 2002 as reported by Ambroz-Masakova-Pelantova 2007, s >= 9 GPTW; 4-bonacci s >= 10 Messaoudi 2000 Remark 2)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For the circle product o_s: Fibonacci (1,2) fails for s <= 1 and is associative for s >= 2 (Lean, CLM-C08-01);
+  Pell (1,2,5) fails at s = 0, no failure found for 1 <= s <= 5 (associative for s >= 1 by Messaoudi 2000);
+  G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for s <= 5, no failure found for 6 <= s <= 8; tribonacci (1,2,4) fails
+  for s <= 3, no failure found for 4 <= s <= 9; 4-bonacci (1,2,4,8) fails for s <= 7, no failure found for
+  8 <= s <= 10; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s <= 10, no failure found for s = 11, 12;
+  G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s <= 9, no failure found for 10 <= s <= 12. Every failure is
+  certified by an explicit triple; every "no failure" is computational support only.
+
+- **evidence:** EXP-C08-06
+- **novelty_basis:** Partial - the tribonacci and 4-bonacci bounds are in the literature (Messaoudi 2000, 2002; AFMP 2003); the other values are the lab's measurements.
+- **limitations:**
+
+  Search - all pairs a <= b < 300, 4000 random pairs below 10^6, literature and Historian examples, c < 300 for an explicit triple; 'no failure found' does not prove associativity. Tribonacci s = 4 and s = 5 are open in the sources read (the Historian derives s >= 5 from AFMP's bound on fractional digits and Messaoudi's Thm 2, unchecked).
+
 
 ### CLM-C09-01: Knuth's circle semigroup embeds in Z[phi]; Fibonacci numbers are its units-images
 
@@ -1608,7 +1737,8 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C09.md#theorem-1-clm-c09-01--structure
 - **evidence:** EXP-C09-03
-- **novelty_basis:** The embedding is Arnoux's (1989) proof idea for Knuth's theorem; units of Z[phi] are classical.
+- **novelty_basis:** Arnoux 1989; the product formula is Lunnon's formula in OEIS A101330 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
 
 ### CLM-C09-02: H-C09-2: factorisation into circle irreducibles is unique (refuted)
 
@@ -1616,10 +1746,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-C
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** Every n >= 1 has a unique multiset of circle-irreducible factors.
 - **evidence:** EXP-C09-02
 - **counterexample:** 8 = 1 o 1 o 1 = 2 o 2 with 1, 2 irreducible (every product is >= 3); the factorisations even differ in length.
+- **novelty_basis:** Trivial from F_j o F_k = F_(j+k) (Knuth 1988) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C09-03: Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible
 
@@ -1648,10 +1781,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-C
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** The proportion of circle-irreducible numbers up to x tends to 0 as x tends to infinity.
 - **evidence:** EXP-C09-01; EXP-C09-04
 - **counterexample:** By CLM-C09-03 the irreducibles contain a set of natural density 1/phi^2 = 0.3819...; observed density is 0.539 at 1e6.
+- **novelty_basis:** As CLM-C09-03 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C09-05: The density of circle irreducibles is exactly 1/phi^2
 
@@ -1659,10 +1795,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** conjecture
 - **system:** SYS-C
 - **verification:** CONJECTURE
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** Almost every n whose conjugate lies in the product zone is a circle product, so the circle irreducibles have natural density 1/phi^2.
 - **evidence:** EXP-C09-04; EXP-C09-01
+- **novelty_basis:** As a conjecture, low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:** The irreducible fraction inside the product zone decreases only slowly (0.316, 0.291, 0.270, 0.255 at 1e3..1e6); the rate is unknown.
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C09-06: Factorisation lengths are bounded by the conjugate coordinate
 
@@ -1671,10 +1810,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-C
 - **verification:** PROVEN
 - **proof_check:** written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:** If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.
 - **proof:** proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations
 - **evidence:** EXP-C09-04
+- **novelty_basis:** Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C09-07: The norm N(n) = n*^2 + n n* - n^2 is multiplicative for the circle product
 
@@ -1683,10 +1825,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-C
 - **verification:** PROVEN
 - **proof_check:** written proof (proofs/paper/C09.md Theorem 1); multiplicativity checked on all a, b <= 400 and the bound on n <= 1e5
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** N(a o b) = N(a) N(b) for all a, b >= 1; |N(n)| < (sqrt5/phi) n + 1; N(n) = +-1 iff n is a Fibonacci number.
 - **proof:** proofs/paper/C09.md#theorem-1-clm-c09-01--structure
 - **evidence:** EXP-C09-03
+- **novelty_basis:** In substance - the norm of Q(sqrt 5) combined with Arnoux's embedding (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C09-08: Factorisation statistics of the circle semigroup up to 2e5
 
@@ -1695,7 +1840,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-C
 - **verification:** PROVEN
 - **proof_check:** computer-assisted exhaustive enumeration (EXP-C09-01, EXP-C09-02)
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   Up to 10^6 there are 539,392 circle irreducibles. Up to 2*10^5, 75,332 numbers have at least two
@@ -1704,6 +1849,9 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** results/EXP-C09-01.json and results/EXP-C09-02.json
 - **evidence:** EXP-C09-01; EXP-C09-02
+- **novelty_basis:** As data; not in the OEIS (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C09; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C10-01: Average cost of counting in classical representations (b/(b-1), e-1, 1)
 
@@ -1720,7 +1868,15 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C10.md#theorem-1-clm-c10-01--classical-constants
 - **evidence:** EXP-C10-01
-- **novelty_basis:** Standard amortised analysis of counters; frequency argument is folklore.
+- **novelty_basis:**
+
+  Classical (Cormen et al., ch. 17); see V. Berthe, C. Frougny, M. Rigo, J. Sakarovitch, On the cost and complexity of the successor function, Adv. Appl. Math. 2020 (BFRS) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+
+- **notes:**
+
+  Cost measure here: the number of digit positions that change between the representations of n and n+1 (Hamming distance). BFRS use carry propagation, under which the Zeckendorf value is phi^2 instead of 2.
+
+- **status history:**
 
 ### CLM-C10-02: Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2
 
@@ -1738,7 +1894,9 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C10.md#theorem-2-clm-c10-02--zeckendorf-counting
 - **evidence:** EXP-C10-02; EXP-C10-04
-- **novelty_basis:** The sequence T_m is OEIS A215005 (same recurrence); the counting-cost interpretation is elementary.
+- **novelty_basis:** In substance - the closed form of T_m is OEIS A215005 (Kotesovec); potential method; see BFRS 2020 for the carry-propagation measure (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **notes:** Cost measure: Hamming distance between consecutive representations (not BFRS's carry propagation).
+- **status history:**
 
 ### CLM-C10-03: H-C10-0: Zeckendorf counting is cheaper than binary counting (refuted)
 
@@ -1746,10 +1904,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** hypothesis
 - **system:** SYS-C
 - **verification:** REFUTED
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** The average number of digit changes per increment in the Zeckendorf system is smaller than in binary.
 - **evidence:** EXP-C10-01; EXP-C10-02
 - **counterexample:** Both averages tend to exactly 2 (Theorem 2 and the binary case of Theorem 1); at n < 1e6 the Zeckendorf average is 1.999992 vs binary 1.999988.
+- **novelty_basis:** As CLM-C10-02; BFRS obtain phi^2 with their measure (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C10; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C10-04: Exchange systems fire 1/(m - sum b) times per increment on average
 
@@ -1758,10 +1919,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-C
 - **verification:** PROVEN
 - **proof_check:** written proof (proofs/paper/C10.md Theorem 3) from the abelian property (CLM-C02-02); deviation <= 5.7e-4 at n = 2e5 for all 31 rules
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** For every terminating carry rule (m; b) the average number of firings per increment tends to 1/(m - sum_j b_j).
 - **proof:** proofs/paper/C10.md#theorem-3-clm-c10-04--firings-in-exchange-systems
 - **evidence:** EXP-C10-03
+- **novelty_basis:** In substance - token conservation; b-ary counter (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C10; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C10-05: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q))
 
@@ -1770,10 +1934,13 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-C
 - **verification:** PROVEN
 - **proof_check:** written proof (proofs/paper/C10.md Theorem 4); deviation <= 2.7e-4 for all single-offset rules
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:** If the carry rule has a single nonzero b_g = q < m, every increment changes exactly (number of firings) + 1 digits; the average cost is 1 + 1/(m - q).
 - **proof:** proofs/paper/C10.md#theorem-4-clm-c10-05--single-offset-rules
 - **evidence:** EXP-C10-03
+- **novelty_basis:** Partial - BFRS 2020 Thm 3.23 (p/(p-q), Akiyama-Frougny-Sakarovitch normalisation) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → REDISCOVERY (sync:C10; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C10-06: Multi-offset exchange rules have rule-specific average counting costs
 
@@ -1781,7 +1948,7 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **type:** conjecture
 - **system:** SYS-C
 - **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   For carry rules with two or more nonzero b_j, the average digit-change cost per increment converges to a
@@ -1790,7 +1957,10 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   the digit process.
 
 - **evidence:** EXP-C10-03
+- **novelty_basis:** As a conjecture, low confidence; BFRS section 5 (ergodic method) is the natural tool (Historian audit 2026-10-18, reviews/historian_C03_C10.md).
 - **limitations:** Averages over 2e5 increments only; no formula.
+- **status history:**
+  - 2026-10-18T17:10:10Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C10; Historian audit 2026-10-18 (reviews/historian_C03_C10.md))
 
 ### CLM-C10-07: Skew binary counting has worst-case cost 2 and average 3/2
 
@@ -2867,6 +3037,308 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   True for affine magmas and commutative semigroups (Theorems 2-3); no algorithm is known for the 685 bounded-width order-3 classes outside the structured classes, and bounded width does not give short cycles (the affine quasigroups have long ones).
 
 
+### CLM-C16-01: The Fibonacci pair map of a magma is a permutation iff every left translation is a bijection
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (pairMap_injective_iff, pairMap_bijective_iff, mirrorMap_eq; standard axioms only); count by written proof (proofs/paper/C16.md Theorem 1) and exhaustive check n <= 4 (EXP-C16-01)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For a finite magma (M, *), the pair map P(a, b) = (b, b*a) of the recurrence x_{k+1} = x_k * x_{k-1} is a
+  bijection iff every left translation a -> b*a is a bijection; hence exactly (n!)^n of the n^(n^2) tables of
+  order n give permutations. The mirror recurrence x_{k+1} = x_{k-1} * x_k is the forward recurrence of the
+  opposite magma.
+
+- **proof:** proofs/paper/C16.md#theorem-1-clm-c16-01--when-the-pair-map-is-a-permutation
+- **lean:** proofs/lean/Infinity/C16_Dynamics.lean
+- **evidence:** EXP-C16-01
+- **novelty_basis:**
+
+  Every function M x M -> M is the feedback of a unique magma, so pair maps are exactly the order-2 feedback shift registers over n letters, and the criterion is the q-ary form of Golomb's nonsingularity condition (S. W. Golomb, Shift Register Sequences, 1967; see e.g. arXiv:1911.06670 for the binary statement and the correspondence of nonsingular registers with factors of the de Bruijn graph).
+
+
+### CLM-C16-02: H-C16-1: maximal period at most n^2 - 1, attained only by quasigroups (refuted)
+
+- **cycle:** C16
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** As for Pisano periods (where (0, 0) is fixed), the maximal period of the pair map on an n-element magma is at most n^2 - 1, and the maximum is attained only by quasigroups.
+- **evidence:** EXP-C16-01
+- **counterexample:**
+
+  x*y = 1 - y on {0,1} has the single cycle (0,0) -> (0,1) -> (1,1) -> (1,0) of length 4 = n^2 and is not a quasigroup; every n has full-period tables (Theorem 2); for n <= 4 none of them is a quasigroup (EXP-C16-01).
+
+
+### CLM-C16-03: Full-period magmas are de Bruijn cycles: there are (n!)^n / n^2 of them
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  A table of order n is full-period (its pair map is one cycle through all n^2 states) iff the symbol sequence
+  along that cycle is a de Bruijn cycle of order 2 over n symbols, and this is a bijection; hence there are exactly
+  (n!)^n / n^2 full-period tables of order n (1, 24, 20736, ...) and the maximal period over n-element magmas is
+  n^2 for every n >= 1.
+
+- **proof:** proofs/paper/C16.md#theorem-2-clm-c16-03--full-period-is-the-same-thing-as-a-de-bruijn-cycle
+- **evidence:** EXP-C16-01
+- **novelty_basis:**
+
+  Translation of a classical fact - the number of de Bruijn sequences B(k, m) is (k!)^(k^(m-1)) / k^m (T. van Aardenne-Ehrenfest, N. G. de Bruijn, Simon Stevin 28 (1951); BEST theorem; https://en.wikipedia.org/wiki/De_Bruijn_sequence).
+
+
+### CLM-C16-04: A parity condition for full periods
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); awaiting independent skeptic review
+- **novelty:** NOT ASSESSED
+- **statement:** If every left translation L_b is a bijection, sign(P) = (-1)^(n(n-1)/2) prod_b sgn(L_b); hence a full-period table satisfies prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2).
+- **proof:** proofs/paper/C16.md#theorem-3-clm-c16-04--a-parity-condition
+- **evidence:** EXP-C16-02
+- **novelty_basis:** Elementary; likely known in the shift-register literature in other forms (Golomb's cycle-parity results for binary registers); no search for the q-ary order-2 statement beyond two web searches.
+
+### CLM-C16-05: Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  A full-period table is a quasigroup iff in its cycle x_0 ... x_{n^2-1} every ordered pair also occurs exactly once
+  as (x_i, x_{i+2}); equivalently the windows (x_{i-1}, x_i, x_{i+1}) run once through the n^2 triples
+  (a, b, b*a) of the Latin square (a universal cycle of the quasigroup).
+
+- **proof:** proofs/paper/C16.md#theorem-4-clm-c16-05--full-period-quasigroups-are-distance-2-de-bruijn-cycles
+- **evidence:** EXP-C16-02
+- **novelty_basis:**
+
+  Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.
+
+
+### CLM-C16-06: H-C16-5: no quasigroup has a full-period pair map (refuted)
+
+- **cycle:** C16
+- **type:** hypothesis
+- **system:** SYS-E
+- **verification:** REFUTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every n, no quasigroup of order n has a full-period pair map; the maximal period of a quasigroup of order n is n^2 - 1.
+- **evidence:** EXP-C16-02
+- **counterexample:**
+
+  True for n = 2, 3, 4, false for n = 5 - exactly 3360 of the 161280 Latin squares of order 5 are full-period (e.g. the cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3); examples exist for every order 6-16 (EXP-C16-02).
+
+
+### CLM-C16-07: Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - exhaustive analysis of all Latin squares of orders 2-5, confirmed by an independent depth-first enumeration (0, 0, 0, 3360); explicit certificates for orders 6-16 re-verified by an independent cycle analysis; products by Theorem 6 (EXP-C16-02)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  There is no full-period quasigroup of order 2, 3 or 4; there are exactly 3360 of order 5, forming 28 isomorphism
+  classes; full-period quasigroups of every order 6, ..., 16 and of orders 30, 35, 40, 42, 45, 56, 63, 72 exist.
+
+- **proof:** proofs/paper/C16.md#theorem-5-clm-c16-07--which-orders-have-full-period-quasigroups-computer-assisted
+- **evidence:** EXP-C16-02
+- **novelty_basis:** Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.
+
+### CLM-C16-08: Direct products of full-period magmas of coprime orders are full-period
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review
+- **novelty:** NOT ASSESSED
+- **statement:** If two magmas (or quasigroups) of coprime orders n1, n2 are full-period, so is their direct product (a quasigroup if both are).
+- **proof:** proofs/paper/C16.md#theorem-6-clm-c16-08--products-of-coprime-orders
+- **evidence:** EXP-C16-02
+- **novelty_basis:** Elementary; the analogous product construction for de Bruijn-type sequences is standard.
+
+### CLM-C16-09: No isotope of a group of even order has a full-period Fibonacci pair map
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For every group G of even order n = 2m and every isotope x o y = gamma(alpha(x) beta(y)), prod_b sgn(L_b) = (-1)^m, whereas a full period requires (-1)^(m+1); so no group of even order and no isotope of one is full-period. (For odd n isotopes of Z_n are full-period for every n = 5, ..., 15.)
+
+- **proof:** proofs/paper/C16.md#theorem-7-clm-c16-09--no-isotope-of-a-group-of-even-order-is-full-period
+- **evidence:** EXP-C16-02
+- **novelty_basis:**
+
+  The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.
+
+
+### CLM-C16-10: Full-period quasigroups exist for every order n >= 5
+
+- **cycle:** C16
+- **type:** conjecture
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every n >= 5 there is a quasigroup of order n whose Fibonacci pair map is a single cycle through all n^2 pairs.
+- **evidence:** EXP-C16-02
+- **limitations:**
+
+  Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (about 1/n^2 per random Latin square of the right parity) suggest the number of full-period quasigroups grows like L(n)/n^2, but there is no proof. Plain depth-first search and a SAT encoding stall at n = 9, so random sampling was the only method that scaled.
+
+
+### CLM-C16-11: Fixed points of the pair map are idempotents
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** Lean 4 + Mathlib (pairMap_fixed_iff; standard axioms only)
+- **novelty:** NOT ASSESSED
+- **statement:** P(a, b) = (a, b) iff a = b and a*a = a; an idempotent magma has n fixed points and maximal period at most n^2 - n, so no idempotent quasigroup is full-period.
+- **proof:** proofs/paper/C16.md#theorem-8-clm-c16-11--fixed-points-are-idempotents
+- **lean:** proofs/lean/Infinity/C16_Dynamics.lean
+- **evidence:** EXP-C16-01
+- **novelty_basis:** Elementary.
+
+### CLM-C16-12: Affine magmas: periods are orders of companion matrices; the anchored magma x + y + 1 is the Fibonacci sequence mod N
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)
+
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For x*y = alpha x + beta y + gamma on Z/N (beta a unit) whose pair map has a fixed point, the maximal period is the
+  order of [[0,1],[beta,alpha]] mod N. In particular the anchored associative magma x + y + 1 has exactly the cycle
+  structure of the Fibonacci numbers mod N (maximal period = the Pisano period), the odd-law magma x + 1 + y/2 has
+  maximal period ord([[0,1],[1/2,1]]) and the golden-law magmas x + 1 + a y (a^2 + a = 1) have maximal period
+  ord([[0,1],[a,1]]).
+
+- **proof:** proofs/paper/C16.md#theorem-9-clm-c16-12--affine-magmas
+- **lean:** proofs/lean/Infinity/C16_Dynamics.lean
+- **evidence:** EXP-C16-03
+- **novelty_basis:**
+
+  Periods of second-order linear recurrences modulo N are orders of companion matrices (M. Ward, Trans. AMS 35 (1933); D. D. Wall, Amer. Math. Monthly 67 (1960) for Fibonacci). The resulting period sequences of the odd and golden laws (6, 24, 48, 18, 5, ... and 4, 120, 342, ...) are not in the OEIS.
+
+
+### CLM-C16-13: For affine magmas the maximal period equals the order of the 3x3 affine matrix
+
+- **cycle:** C16
+- **type:** conjecture
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** For every affine magma x*y = alpha x + beta y + gamma on Z/N with beta a unit, the maximal period of the pair map equals the order of [[0,1,0],[beta,alpha,gamma],[0,0,1]] mod N.
+- **evidence:** EXP-C16-03
+- **limitations:**
+
+  300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.
+
+
+### CLM-C16-14: Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1)
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  On [0, q), q = 2^(2^k), with nim-multiplication the pair map sends pairs containing 0 to (0, 0) within two steps and is isomorphic on nonzero pairs to the Fibonacci pair map on (Z/(q-1))^2; its maximal period is pi(q - 1) (40 for q = 16, 360 for q = 256).
+
+- **proof:** proofs/paper/C16.md#theorem-10-clm-c16-14--fibonacci-sequences-of-nimbers
+- **evidence:** EXP-C16-03
+- **novelty_basis:** The Fibonacci length of a cyclic group is its Pisano period (classical; Knox 1992, Campbell et al.); nimber fields are Conway's.
+
+### CLM-C16-15: Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element
+
+- **cycle:** C16
+- **type:** theorem
+- **system:** SYS-E
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  For n >= 1 and N = 2^n, the pair map of the Laver table A_n (0-based) has exactly N cycles - the fixed point
+  (N-1, N-1) and the two-cycles {(N-1, c), (c, N-1)} - and every orbit reaches one of them; so the maximal period is 2
+  (H-C16-4, 'the maximal period is a power of 2', holds for this degenerate reason).
+
+- **proof:** proofs/paper/C16.md#theorem-11-clm-c16-15--laver-tables-collapse-to-2-cycles
+- **lean:** proofs/lean/Infinity/C16_Dynamics.lean
+- **evidence:** EXP-C16-03
+- **novelty_basis:**
+
+  No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small.
+
+
+### CLM-C16-16: Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10)
+
+- **cycle:** C16
+- **type:** observation
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** NOT ASSESSED
+- **statement:** The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.
+- **evidence:** EXP-C16-03
+- **limitations:** No explanation; the proof of CLM-C16-15 only gives the bound N.
+
+### CLM-C16-17: Magma Fibonacci generators are not competitive pseudo-random generators
+
+- **cycle:** C16
+- **type:** algorithmic
+- **system:** SYS-E
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **improvement:** NO IMPROVEMENT
+- **statement:**
+
+  On a simple battery (byte chi-square, serial pairs, lowest-bit period, lag-1 correlation; 2^20 outputs) the anchored Fibonacci and affine magma generators on Z/2^32 fail low-byte uniformity and have lowest-bit period 3, and the de Bruijn byte magma (maximal possible period 65536) is too regular; PCG64 passes every test.
+
+- **evidence:** EXP-C16-04
+- **novelty_basis:**
+
+  Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5).
+
+- **limitations:** A sanity battery, not TestU01 or PractRand.
+
 ### CLM-C17-01: Light's test: generators suffice for associativity
 
 - **cycle:** C17
@@ -3259,22 +3731,28 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C04-02; EXP-C20-01
 - **novelty_basis:** A census; one-rule termination for small rules is classical territory (Kurth 1990; McNaughton; Geser).
 
-### CLM-C20-04: C03 Conjecture 4.6 versus the Zantema-Geser characterisation - not settled (full text inaccessible)
+### CLM-C20-04: C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation
 
 - **cycle:** C20
 - **type:** observation
 - **system:** SYS-A
-- **verification:** INCONCLUSIVE
-- **novelty:** NOT ASSESSED
+- **verification:** PROVEN
+- **proof_check:**
+
+  Theorem statement read verbatim by the Historian from the scanned tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf; the lab's own retrieval attempts at other hosts failed); equivalence by case analysis (s >= 2p or not, r >= 2q or not) and checked on all parameters <= 40
+
+- **novelty:** REDISCOVERY
 - **statement:**
 
-  The published complete characterisation of termination of 0^p 1^q -> 1^r 0^s (H. Zantema, A. Geser, AAECC 11 (2000) 1-25; tech. report UU-CS-1994-44) could not be compared with the lab's Conjecture 4.6 (CLM-C03-*), because the full text could not be retrieved from this environment.
+  The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.
 
+- **proof:** reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item
 - **evidence:** EXP-C03-01
-- **limitations:**
-
-  Attempts on 2026-10-18 - Utrecht DSpace (HTTP 403 / Cloudflare challenge), its mirror (HTTP 500), the author's publication page (no link). A human with library access should compare the theorem with Conjecture 4.6; if they differ, the published theorem wins.
-
+- **novelty_basis:** Zantema-Geser 1994/2000 (see CLM-C03-10).
+- **limitations:** The lab relies on the published proof.
+- **status history:**
+  - 2026-10-18T17:10:29Z verification: INCONCLUSIVE → PROVEN (sync:C20; Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE))
+  - 2026-10-18T17:10:29Z novelty: NOT ASSESSED → REDISCOVERY (sync:C20; Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE))
 
 ## Experiments
 
@@ -4333,6 +4811,29 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **related:** CLM-C08-01
 - **runs:** 1; last 2026-10-18T07:35:02Z (2.247 s), results sha256 `48d8359d8fead52d…`, code `experiments/C08/E05_literature_validation.py`
 
+### EXP-C08-06: Certified non-associativity: re-testing the circle-product thresholds and the 90 quadratic rows
+
+- **cycle:** C08
+- **agent:** Mathematical Skeptic
+- **question:**
+
+  Which associativity claims of EXP-C08-02..04 survive a stronger search (embedding identity on all pairs a <= b < 200, 2000 random pairs below 10^6, the literature example of Ambroz-Frougny-Masakova-Pelantova for tribonacci), with explicit counterexamples for every failure?
+
+- **hypothesis:**
+
+  The Historian's audit (reviews/historian_C03_C10.md) predicts failures at tribonacci s = 3, G(k+1) = G(k) + G(k-2) at s = 10, (2,2;1,2) at s = 4, 4-bonacci at s = 6, (3,3;1,5) at s = 9, (4,3;1,5) at s = 4 and (3,3;1,2) at s = 7, all listed as associative before.
+
+- **assumptions:** pairs a <= b < 300, plus 4000 seeded random pairs in [1, 10^6), plus the literature example and the three pairs reported by the Historian; for each failing pair, c is searched in [1, 300); shifts 0..12
+- **methodology:** For every sequence and shift: test the embedding identity on the pair set; on the first failing pair search an explicit triple; record a certified counterexample or 'no failure found'.
+- **falsification:**
+
+  A shift listed as associative in EXP-C08-02..04 with a certified counterexample (refutes the earlier measurement), or a certified counterexample for Fibonacci with s >= 2 (would contradict the Lean theorem of CLM-C08-01).
+
+- **summary:**
+  - thresholds (largest certified failing shift / smallest later shift without failure): Fibonacci 1,2: 1/2; Pell 1,2,5: 0/1; (2,2) 1,2: 5/6; tribonacci 1,2,4: 3/4; 4-bonacci 1,2,4,8: 7/8; G(k+1)=G(k)+G(k-2) 1,2,3: 10/11; (3,3) 1,5: 9/10
+  - quadratic rows re-tested (the 90 of EXP-C08-04): 90; rows whose earlier 'associative' shifts are now certified to fail: 6; still non-monotone on 0..10: 10 (canonical: 0, positive beta: 0 of 30 rows)
+- **runs:** 3; last 2026-10-18T17:06:12Z (114.107 s), results sha256 `f34b3a55127266be…`, code `experiments/C08/E06_certified_thresholds.py`
+
 ### EXP-C09-01: Irreducibles ('circle primes') of (N>=1, o) up to 10^6
 
 - **cycle:** C09
@@ -4957,6 +5458,42 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **summary:** 17 laws; spectrum (N <= 12) equals the conjectured set for 17; non-affine models: x(yz)=y((yx)z) at [2]; UNKNOWN instances: 0
 - **runs:** 1; last 2026-10-18T09:27:41Z (66.864 s), results sha256 `e2dc4a04980df47f…`, code `experiments/C13/E04_finite_spectra.py`
 
+### EXP-C13-05: Divisor-closure of anchored spectra: 300 random 2-variable laws with <= 4 leaves per side, N <= 9
+
+- **cycle:** C13
+- **agent:** Mathematical Skeptic
+- **question:** Is there a law with an anchored model of some size N <= 9 but none of some size d | N?
+- **hypothesis:** H-C13-1 (bold): every anchored spectrum is closed under divisors.
+- **assumptions:**
+  - 300 laws sampled (seed 5) from the 2601 laws over {x,y} with at most 4 leaves per side (up to renaming and exchange of sides); a run with 600 laws, N <= 10 and budget 2,000,000 was stopped after 22 CPU-minutes (hard UNSAT instances at N = 9, 10)
+  - sizes 2, 3, 5 always decided; a composite N in {4, 6, 8, 9} is decided only when one of its proper divisors is UNSAT (otherwise no violation is possible at N)
+  - affine models decide SAT without a solver; conflict budget 200,000; UNKNOWN recorded
+- **methodology:** For each law: zero-substitution filter (N | m); affine roots; otherwise MagmaSAT with the anchor. Report every pair (N, d) with N SAT and d | N UNSAT.
+- **falsification:** Any such pair.
+- **summary:**
+  - 300 sampled laws; 251 have a model of some size 2..9
+  - divisor-closure violations: 81 ['(xx)(xy) = y(y(yy))', '(x(xx))y = y((xy)x)', '((xx)y)y = (xy)(xx)', 'x(xy) = y(y(xx))', '((xx)y)y = x(x(xy))']
+  - UNKNOWN: 9; decisions {'zero': 38, 'affine': 515, 'sat': 918, 'skipped': 551}
+- **runs:** 1; last 2026-10-18T17:06:03Z (241.215 s), results sha256 `56ef2f83731cf61c…`, code `experiments/C13/E05_divisor_closure.py`
+
+### EXP-C13-06: Divisor-closure of anchored spectra: 150 random 3-variable laws and 80 random pairs of 2-variable laws
+
+- **cycle:** C13
+- **agent:** Mathematical Skeptic
+- **question:** Does any 3-variable law (<= 4 leaves per side) or any conjunction of two 2-variable laws have an anchored model of a size N but not of some divisor d of N?
+- **hypothesis:** H-C13-1 (bold): every anchored spectrum is closed under divisors.
+- **assumptions:**
+  - 150 laws sampled (seed 13) among the 3-variable laws whose affine spectrum is not all N and which survive the zero filter; sizes 2, 3, 5 always decided, composite 4, 6, 8 only when a proper divisor is UNSAT
+  - 80 pairs of 2-variable laws (<= 4 leaves per side, seed 13); sizes 2..8 with the same pruning
+  - conflict budget 100,000; UNKNOWN recorded
+- **methodology:** As EXP-C13-05: zero filter, affine roots, SAT; violations are pairs (N, d), N SAT, d | N UNSAT.
+- **falsification:** Any such pair.
+- **summary:**
+  - 3-var: 150 of 14223 candidate laws; 62 with a model of size 2..8; violations 29 ['(x(xy))x = x((zz)y)', 'x(yx) = z((xz)y)', '(x(yy))x = y(y(xy))', '((xx)x)x = (y(xx))y']; UNKNOWN 0
+  - pairs: 80; 34 with a model of size 2..8; violations 17 ['(x(yx))y = y((xy)y) & ((xy)y)x = (y(xx))x', 'xx = (y(xx))y & (x(xx))x = x((yx)y)', '((xx)y)x = x(y(yx)) & x(xy) = x(x(yx))']; UNKNOWN 0
+  - decisions {'zero': 14, 'affine': 73, 'sat': 1206, 'skipped': 87}
+- **runs:** 1; last 2026-10-18T17:07:31Z (77.799 s), results sha256 `1a47462732140956…`, code `experiments/C13/E06_divisor_closure_3var.py`
+
 ### EXP-C13-07: Spectra of one-variable laws and the failure of divisor-closure
 
 - **cycle:** C13
@@ -4974,7 +5511,31 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   - divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]
   - missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]
   - UNKNOWN: 0
-- **runs:** 1; last 2026-10-18T09:26:15Z (5.756 s), results sha256 `fc82fdab5cb9183e…`, code `experiments/C13/E07_one_variable_laws.py`
+- **runs:** 2; last 2026-10-18T17:09:57Z (6.008 s), results sha256 `bb8a7a8453a3f473…`, code `experiments/C13/E07_one_variable_laws.py`
+
+### EXP-C13-08: Finite spectra proved by offset congruence closure (and a soundness test against SAT)
+
+- **cycle:** C13
+- **agent:** Formal Verifier
+- **question:**
+
+  Can the sound closure procedure of systems/anchored.py (law instances at small elements, the anchor, functionality of the table, union-find with integer offsets) prove N | g for the finite-spectrum laws of CLM-C06-10 and for the laws of the 3-variable family? Is it ever contradicted by SAT data?
+
+- **hypothesis:**
+
+  H-C13-6: for 16 of the 17 laws of CLM-C06-10 the closure proves N | 3 resp. N | 2 (with the affine models this gives the exact spectra {1,3}, {1,2}); a sizeable part of the 18,581-law family gets an exact finite spectrum Div(g); no bound is ever contradicted by a SAT model.
+
+- **assumptions:**
+  - C06 laws: values 0..4, -1, -2, 8 rounds, instances also at the first 10 table entries
+  - family: values 0..3, -1, 4 rounds, constants only (cheap setting)
+  - soundness test: all 253 one-variable laws with <= 5 leaves (SAT, N <= 12), 150 random 2-variable laws (seed 8, SAT, N <= 7) and 200 random 3-variable laws with a bound (SAT, N <= 6): every N with a model must divide the bound
+- **methodology:** offset_closure_bound(); a law whose bound g > 0 has affine models for every divisor of g has spectrum exactly Div(g) (upper bound from the closure, lower bound from the affine tables).
+- **falsification:** A SAT model of size N with N not dividing the derived bound (an unsound closure step).
+- **summary:**
+  - CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']
+  - 3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}
+  - soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0
+- **runs:** 2; last 2026-10-18T17:09:43Z (62.111 s), results sha256 `1602429fe21d9d7b…`, code `experiments/C13/E08_closure_proofs.py`
 
 ### EXP-C14-01: Exhaustive classification of the 256 local graph products
 
@@ -5342,6 +5903,113 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
   - mirror dynamics = forward dynamics of the transpose (order 3): True
 - **runs:** 1; last 2026-10-18T09:27:31Z (7.899 s), results sha256 `0550e32b9f950756…`, code `experiments/C16/E01_small_magmas.py`
 
+### EXP-C16-02: Quasigroups whose Fibonacci pair map is a single cycle through all n^2 pairs
+
+- **cycle:** C16
+- **agent:** Mathematical Skeptic
+- **question:** EXP-C16-01 found no quasigroup of order <= 4 with a full period n^2 (the quasigroup maximum was n^2 - 1). Is that a law, or a small-number accident?
+- **hypothesis:**
+
+  H-C16-5 (bold, from the n <= 4 data): no quasigroup of any order has a full-period pair map; the maximal period of a quasigroup of order n is n^2 - 1. H-C16-6 (Formal Verifier, parity): a full-period table must satisfy prod_b sgn(a -> b*a) = (-1)^((n-1)(n+2)/2); for groups of even order this fails for every isotope, so no isotope of a group of even order is full-period.
+
+- **assumptions:**
+  - all Latin squares of orders 2..5 (2, 12, 576, 161280)
+  - an independent depth-first count of cyclic sequences with all pairs distinct at distances 1 and 2 (orders <= 5)
+  - orders 6..16: deterministic sampling (seeded) of isotopes of Z_n (odd n) and of random Latin squares built from random perfect matchings (all n); every example is re-verified
+  - groups of even order 4, 6, 8: 2000 random isotopes each
+- **methodology:**
+
+  Batch pair-map analysis of all Latin squares of order <= 5; DFS enumeration of universal cycles; sampling for larger orders with verification by an independent cycle analysis; direct products of examples of coprime orders; row-sign products of all full-period tables and of group isotopes.
+
+- **falsification:** H-C16-5: one full-period quasigroup. H-C16-6: a full-period table violating the parity, or a full-period isotope of a group of even order.
+- **summary:**
+  - full-period quasigroups (exhaustive): n=2: 0 of 2, n=3: 0 of 12, n=4: 0 of 576, n=5: 3360 of 161280
+  - independent DFS counts agree: True ({'2': 0, '3': 0, '4': 0, '5': 3360})
+  - order 5: 28 isomorphism classes; left-division parastrophes full-period: 3360
+  - examples found and verified for n = 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16; all satisfy the parity condition: True
+  - coprime products full-period: 5x6: True, 5x7: True, 5x8: True, 6x7: True, 7x8: True, 5x9: True, 7x9: True, 8x9: True
+  - even-order group isotopes: Z4: signs [1] (needed -1), full 0, Z2xZ2: signs [1] (needed -1), full 0, Z6: signs [-1] (needed 1), full 0, S3: signs [-1] (needed 1), full 0, Z8: signs [1] (needed -1), full 0, Z2xZ4: signs [1] (needed -1), full 0, Z2^3: signs [1] (needed -1), full 0, D4: signs [1] (needed -1), full 0, Q8: signs [1] (needed -1), full 0
+- **runs:** 1; last 2026-10-18T16:56:50Z (31.628 s), results sha256 `054116983d846545…`, code `experiments/C16/E02_quasigroups.py`
+
+### EXP-C16-03: Fibonacci dynamics in structured families: Laver tables, affine and anchored magmas, nimbers, groups
+
+- **cycle:** C16
+- **agent:** Mathematical Explorer
+- **question:**
+
+  What do the laws of the lab's structured magmas (left-distributivity, anchored associativity, the odd and golden laws of C06, nim arithmetic of C07, group laws) do to the cycle structure of the pair map (a, b) -> (b, b*a)?
+
+- **hypothesis:**
+
+  H-C16-4 (bold, Inventor): for every Laver table A_n the maximal period of the pair map is a power of 2. H-C16-7 (Formal Verifier): an affine magma x*y = x + beta*y + gamma whose pair map has a fixed point has maximal period ord([[0,1],[beta,1]]) mod N; in particular the anchored associative magma x + y + 1 has exactly the cycle structure of the Fibonacci numbers mod N (maximum: the Pisano period). H-C16-8 (bold, Explorer): for every affine magma x*y = alpha x + beta y + gamma with beta a unit the maximal period equals the order of the 3x3 affine matrix. H-C16-9: nim-multiplication on [0, 2^(2^k)) has maximal period pi(2^(2^k) - 1) (40 and 360).
+
+- **assumptions:**
+  - Laver tables A_0..A_10 (N <= 1024)
+  - anchored associative N <= 60; odd-law magmas x + 1 + y/2 for odd N <= 61; golden-law magmas x + 1 + a y (a^2 + a = 1) for every root and every N <= 200 in A089270
+  - 300 random affine magmas with N <= 30 (seeded)
+  - nimbers via the C07 mex tables
+  - groups S3, D4, Q8, A4, S4 as permutation groups
+- **methodology:** Exact functional-graph analysis of every pair map; matrix orders computed by repeated multiplication; comparisons with Pisano periods (OEIS A001175); OEIS checks of new sequences.
+- **falsification:**
+
+  H-C16-4: a Laver table whose maximal period is not a power of 2. H-C16-7: a mismatch between the period and the matrix order, or between the anchored and Fibonacci cycle structures. H-C16-8: any affine magma whose maximal period differs from the 3x3 order. H-C16-9: maximal periods other than 40 and 360.
+
+- **summary:**
+  - Laver A_0..A_10 max periods: 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2; not a power of 2 for n in []; cycle structure = 1 fixed point + N-1 two-cycles and Laver's facts hold for all n <= 10: True
+  - anchored x+y+1 = Fibonacci cycle structure for N <= 60: True
+  - odd law: max period = ord([[0,1],[1/2,1]]) for odd N <= 61: True; golden law: max period = ord([[0,1],[a,1]]) for all 51 (N, a) with N <= 200: True
+  - random affine: max period != order of the 3x3 matrix in 0 of 300 cases
+  - nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)
+  - groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6
+  - OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH
+- **runs:** 2; last 2026-10-18T17:03:52Z (13.649 s), results sha256 `dc9afab6824db2ab…`, code `experiments/C16/E03_structured_families.py`
+
+### EXP-C16-04: Magma Fibonacci generators versus PCG64 and an LCG on simple statistical tests
+
+- **cycle:** C16
+- **agent:** Application Researcher
+- **question:**
+
+  The longest pair-map periods found are n^2 (de Bruijn tables) and, for affine magmas on Z/2^32, the order of a matrix. Do such generators give usable pseudo-random numbers compared with standard generators?
+
+- **hypothesis:**
+
+  H-C16-10 (Application Researcher): none of the magma generators passes the simple test battery as well as PCG64; the anchored Fibonacci generator fails low-bit tests (Fibonacci numbers are not uniformly distributed modulo 2^k) and the de Bruijn byte generator is too regular.
+
+- **assumptions:**
+  - 2^20 outputs per generator
+  - tests: chi-square of the top byte and of the low byte, serial chi-square of consecutive top-byte pairs, lowest-bit period (searched up to 2^16), lag-1 correlation; p-values from scipy.stats
+  - this is a sanity battery, not TestU01/PractRand
+- **methodology:**
+
+  Generators: G1 anchored associative magma on Z/2^32, x_{k+1} = x_k + x_{k-1} + 1; G2 affine magma x_{k+1} = x_k + beta x_{k-1} + 1 (beta = 0x9E3779B9); G3 the de Bruijn byte magma (full period 65536 = the maximum for an order-2 byte recurrence; FKM construction); baselines PCG64 and the LCG 1664525 x + 1013904223 mod 2^32.
+
+- **falsification:** A magma generator passing every test at the 1% level with a period comparable to the baselines.
+- **summary:**
+  - G1 anchored Fibonacci x+y+1 on Z/2^32: low byte: non-uniform (p = 0); lowest bit periodic with period 3
+  - G2 affine magma x + beta y + 1 on Z/2^32: low byte: non-uniform (p = 0); lowest bit periodic with period 3
+  - B1 PCG64 (numpy): passes all
+  - B2 LCG 1664525x + 1013904223: low byte: too regular (p_lower = 0); lowest bit periodic with period 2
+  - G3 de Bruijn byte magma (period 65536): top byte: too regular (p_lower = 0); low byte: too regular (p_lower = 0); serial pairs: too regular (p_lower = 0); lowest bit periodic with period 65536
+- **runs:** 1; last 2026-10-18T17:00:37Z (8.962 s), results sha256 `815066cf04de7b6d…`, code `experiments/C16/E04_prng_test.py`
+
+### EXP-C16-05: Search methods for full-period quasigroups: depth-first search, SAT and random sampling
+
+- **cycle:** C16
+- **agent:** Mathematical Explorer
+- **question:** Which method finds full-period quasigroups (cycles with all pairs distinct at distances 1 and 2) for growing n, and what does a partial count for n = 6 show?
+- **hypothesis:** H-C16-11 (Explorer): exact search (lexicographic DFS, SAT) scales worse than random sampling of Latin squares, whose success rate is about 1/n^2 per sample.
+- **assumptions:**
+  - deterministic budgets - DFS: 3,000,000 nodes per n (first solution) and 20,000,000 nodes for the partial count at n = 6; SAT (CaDiCaL via pysat): 300,000 conflicts per n; sampling: seeded
+  - every solution is re-verified by an independent cycle analysis
+- **methodology:**
+
+  For n = 5..10 run the lexicographic DFS and the SAT encoding with the budgets above; count the solutions the DFS enumerates for n = 6 within its budget (a lower bound, normalised cycles); sample 1500 random Latin squares per n and record the success rate.
+
+- **falsification:** Exact search succeeding for every n where sampling succeeds, within the same budget.
+- **summary:** n=5: DFS found (731 nodes), SAT SAT, sampling 30/1500; n=6: DFS found (2219 nodes), SAT SAT, sampling 22/1500; n=7: DFS found (68179 nodes), SAT SAT, sampling 21/1500; n=8: DFS found (222753 nodes), SAT SAT, sampling 22/1500; n=9: DFS none (3000001 nodes), SAT UNKNOWN, sampling 14/1500; n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500; n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)
+- **runs:** 1; last 2026-10-18T17:10:08Z (255.67 s), results sha256 `ab2230f26a5d73bf…`, code `experiments/C16/E05_search_methods.py`
+
 ### EXP-C17-01: Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples
 
 - **cycle:** C17
@@ -5564,6 +6232,24 @@ _Generated 2026-10-18T16:55:43Z from `db/`. The JSON records are authoritative; 
 - **verification:** REFUTED
 - **related:** CLM-C18-03; CLM-C18-07; CLM-C18-11; CLM-C18-12; CLM-C18-13
 - **runs:** 1; last 2026-10-18T16:48:40Z (35.152 s), results sha256 `b65260e9bb0972c2…`, code `experiments/C18/E05_cascade.py`
+
+### EXP-C19-01: Exact longest Zeckendorf games for n <= 150 and independent check of the published strategy
+
+- **cycle:** C19
+- **agent:** Mathematical Explorer
+- **question:** What is the longest game L(n) for n <= 150, computed without assuming any strategy, and does the split-first greedy strategy of Cusenza et al. (2022, Thm 1.2) attain it?
+- **hypothesis:**
+
+  H-C19-0: the greedy strategy attains L(n) for every n <= 150; the published values (n <= 49) and the lab's earlier values (n <= 60) are reproduced; Cusenza's bound sum a_i delta_i is attained exactly for n = F_k - 1 (their Thm 1.4).
+
+- **assumptions:** levels 0, 1, 2, ... carry F_1 = 1, F_2 = 2, F_3 = 3, ...; exact DP over all configurations reachable from n ones (memoised longest path; the move graph is acyclic because the game terminates)
+- **methodology:**
+
+  For each n <= 150: memoised longest path over all reachable configurations; compare with C02 values (results/EXP-C02-02.json, n <= 40), the Skeptic's values (n = 41..60), the simple and the fast greedy implementations, and Cusenza's bound; record the state counts and compare them with the number of partitions of n into Fibonacci parts.
+
+- **falsification:** Any n where the greedy is shorter than the exact optimum, a mismatch with earlier values, or bound equality at some n != F_k - 1.
+- **summary:** exact longest games for n <= 150 (max 910775 states at n = 150); known values n <= 60 reproduced: True; split-first greedy = exact optimum for all n <= 150: True (fast implementation: True); Cusenza bound attained exactly at n in [1, 2, 4, 7, 12, 20, 33, 54, 88, 143] - i.e. iff n = F_k - 1: True; reachable configurations = partitions of n into Fibonacci parts for every n <= 150: True
+- **runs:** 1; last 2026-10-18T17:08:43Z (394.275 s), results sha256 `786fcf3863714493…`, code `experiments/C19/E01_exact_longest.py`
 
 ### EXP-C20-01: Termination and exact derivational complexity of aab -> ababa and aab -> babaa
 

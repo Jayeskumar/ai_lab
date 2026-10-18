@@ -115,7 +115,8 @@ commute with the successor, an $N$-cycle, whose centraliser consists of its
 powers.)
 
 **Theorem 7.7** *[PROVEN — Lean core: `centralizer_eq`, `comp_eq`, `id_eq`,
-`leftPerm_assoc`, `leftPerm_comm`; POTENTIALLY NOVEL (small)]*. Anchored
+`leftPerm_assoc`, `leftPerm_comm`; REDISCOVERY in substance — a two-line
+lemma on left-permutable groupoids with a right identity]*. Anchored
 magmas satisfying $x(yz) = y(xz)$ correspond bijectively to commutative monoid
 structures on $\mathbb{Z}/N$ with identity 0, via $a \cdot b = (a-1) \star b$.
 Their numbers $1, 2, 9, 94, 1486, \ldots$ are OEIS A058156.

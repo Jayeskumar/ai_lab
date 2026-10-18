@@ -1,0 +1,647 @@
+{
+  "fetched": "2026-10-18T16:57:53Z",
+  "query": "1,2,2,2,2,2,2,2,2,2,2",
+  "response": [
+    {
+      "author": "_Henry Bottomley_, Jun 06 2000",
+      "comment": [
+        "From _Hieronymus Fischer_, Jun 08 2012: (Start)",
+        "For n > 0 the first differences of A117804.",
+        "The total number of digits necessary to write down all the numbers 0, 1, 2, ..., n is A117804(n+1). (End)",
+        "Here a(0) = 1, but a different common convention is to consider that the expansion of 0 in any base b > 0 has 0 terms and digits. - _M. F. Hasler_, Dec 07 2018"
+      ],
+      "created": "2000-06-15T03:00:00-04:00",
+      "data": "1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3",
+      "example": [
+        "Examples:",
+        "999: 1 + floor(log_10(999)) = 1 + floor(2.x) = 1 + 2 = 3 or",
+        "      ceiling(log_10(999+1)) = ceiling(log_10(1000)) = ceiling(3) = 3;",
+        "1000: 1 + floor(log_10(1000)) = 1 + floor(3) = 1 + 3 = 4 or",
+        "      ceiling(log_10(1000+1)) = ceiling(log_10(1001)) = ceiling(3.x) = 4;",
+        "1001: 1 + floor(log_10(1001)) = 1 + floor(3.x) = 1 + 3 = 4 or",
+        "      ceiling(log_10(1001+1)) = ceiling(log_10(1002)) = ceiling(3.x) = 4;"
+      ],
+      "formula": [
+        "a(A046760(n)) < A050252(A046760(n)); a(A046759(n)) > A050252(A046759(n)). - _Reinhard Zumkeller_, Jun 21 2011",
+        "a(n) = A196563(n) + A196564(n).",
+        "a(n) = 1 + floor(log_10(n)) = 1 + A004216(n) = ceiling(log_10(n+1)) = A004218(n+1), if n >= 1. - _Daniel Forgues_, Mar 27 2014",
+        "a(A046758(n)) = A050252(A046758(n)). - _Reinhard Zumkeller_, Jun 21 2011",
+        "a(n) = A117804(n+1) - A117804(n), n > 0. - _Hieronymus Fischer_, Jun 08 2012",
+        "G.f.: g(x) = 1 + (1/(1-x))*Sum_{j>=0} x^(10^j). - _Hieronymus Fischer_, Jun 08 2012",
+        "a(n) = A262190(n) for n < 100; a(A262198(n)) != A262190(A262198(n)). - _Reinhard Zumkeller_, Sep 14 2015"
+      ],
+      "keyword": "base,easy,nonn,nice",
+      "link": [
+        "Charles R Greathouse IV, <a href=\"/A055642/b055642.txt\">Table of n, a(n) for n = 0..10000</a>"
+      ],
+      "maple": [
+        "A055642 := proc(n)",
+        "        max(1,ilog10(n)+1) ;",
+        "end proc:  # _R. J. Mathar_, Nov 30 2011"
+      ],
+      "mathematica": [
+        "Join[{1}, Array[ Floor[ Log[10, 10# ]] &, 104]] (* _Robert G. Wilson v_, Jan 04 2006 *)",
+        "(* Alternative: *)",
+        "Join[{1},Table[IntegerLength[n],{n,104}]] (* _Ray Chandler_, Dec 31 2010 *)",
+        "(* Alternative: *)",
+        "A055642[0] = 1;",
+        "A055642[n_] := IntegerLength[n];",
+        "Table[A055642[n],{n,0,120}]; (* _R. J. Mathar_, May 11 2026 *)"
+      ],
+      "name": "Number of digits in the decimal expansion of n.",
+      "number": 55642,
+      "offset": "0,11",
+      "program": [
+        "(PARI) a(n)=#Str(n) \\\\ _M. F. Hasler_, Nov 17 2008",
+        "(PARI) A055642(n)=logint(n+!n,10)+1 \\\\ Increasingly faster than the above, for larger n. (About twice as fast for n ~ 10^7.) - _M. F. Hasler_, Dec 07 2018",
+        "(Haskell)",
+        "a055642 :: Integer -> Int",
+        "a055642 = length . show  -- _Reinhard Zumkeller_, Feb 19 2012, Apr 26 2011",
+        "(Magma) [ #Intseq(n): n in [0..105] ];   //  _Bruno Berselli_, Jun 30 2011",
+        "(Common Lisp) (defun A055642 (n) (if (zerop n) 1 (floor (log n 10)))) ; _James Spahlinger_, Oct 13 2012",
+        "(Python)",
+        "def a(n): return len(str(n))",
+        "print([a(n) for n in range(121)]) # _Michael S. Branicky_, May 10 2022",
+        "(Python)",
+        "def A055642(n): # Faster than len(str(n)) from ~ 50 digits on",
+        "    L = math.log10(n or 1)",
+        "    if L.is_integer() and 10**int(L)>n: return int(L or 1)",
+        "    return int(L)+1  # _M. F. Hasler_, Apr 08 2024"
+      ],
+      "references": 536,
+      "revision": 118,
+      "time": "2026-07-19T19:56:37-04:00",
+      "xref": [
+        "Cf. A043537, A178788, A046034, A019546, A054899, A122840, A055640, A055641, A102669-A102685, A117804, A160093, A160094, A196563, A196564, A000120, A000788, A023416, A059015 (for base 2).",
+        "Cf. A262190, A262198.",
+        "Cf. A007953: sum of digits."
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_, _Simon Plouffe_",
+      "comment": [
+        "When n - a(n)*10^[log_10 n] >= 10^[(log_10 n) - 1], where [] denotes floor, or when n < 100 and 10|n, n is the concatenation of a(n) and A217657(n). - _Reinhard Zumkeller_, Oct 10 2012, improved by _M. F. Hasler_, Nov 17 2018, and corrected by _Glen Whitney_, Jul 01 2022",
+        "Equivalent definition: The initial a(0) = 0 is followed by each digit in S = {1,...,9} once. Thereafter, repeat 10 times each digit in S. Then, repeat 100 times each digit in S, etc."
+      ],
+      "created": "1994-09-19T03:00:00-04:00",
+      "data": "0,1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1",
+      "example": [
+        "23 begins with a 2, so a(23) = 2."
+      ],
+      "formula": [
+        "a(n) = [n / 10^([log_10(n)])] where [] denotes floor and log_10(n) is the logarithm is base 10. - Dan Fux (dan.fux(AT)OpenGaia.com or danfux(AT)OpenGaia.com), Apr 07 2001",
+        "a(n) = k for k*10^j <= n < (k+1)*10^j for some j. - _M. F. Hasler_, Mar 23 2015"
+      ],
+      "id": "M0470",
+      "keyword": "nonn,base,easy,nice,look",
+      "link": [
+        "David W. Wilson, <a href=\"/A000030/b000030.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "A. Cobham, <a href=\"https://doi.org/10.1007/BF01706087\">Uniform Tag Sequences</a>, Mathematical Systems Theory, 6 (1972), 164-192."
+      ],
+      "maple": [
+        "A000030 := proc(n)",
+        "    if n = 0 then",
+        "        0;",
+        "    else",
+        "        convert(n,base,10) ;",
+        "        %[-1] ;",
+        "    end if;",
+        "end proc:",
+        "seq(A000030(n),n=0..200) ;# _N. J. A. Sloane_, Feb 10 2017"
+      ],
+      "mathematica": [
+        "Join[{0},First[IntegerDigits[#]]&/@Range[90]] (* _Harvey P. Dale_, Mar 01 2011 *)",
+        "(* Alternative: *)",
+        "Table[Floor[n/10^(Floor[Log10[n]])], {n, 1, 50}] (* _G. C. Greubel_, May 16 2017 *)",
+        "(* Alternative: *)",
+        "Table[NumberDigit[n,IntegerLength[n]-1],{n,0,100}] (* _Harvey P. Dale_, Aug 29 2021 *)"
+      ],
+      "name": "Initial digit of n.",
+      "number": 30,
+      "offset": "0,3",
+      "program": [
+        "(PARI) a(n)=if(n<10,n,a(n\\10)) \\\\ Mainly for illustration.",
+        "(PARI) A000030(n)=n\\10^logint(n+!n,10) \\\\ Twice as fast as a(n)=digits(n)[1]. Before digits() was added in PARI v.2.6.0 (2013), one could use, e.g., Vecsmall(Str(n))[1]-48. - _M. F. Hasler_, Nov 17 2018",
+        "(Haskell) a000030 = until (< 10) (`div` 10) -- _Reinhard Zumkeller_, Feb 20 2012, Feb 11 2011",
+        "(Magma) [Intseq(n)[#Intseq(n)]: n in [1..100]]; // _Vincenzo Librandi_, Nov 17 2018",
+        "(Python)",
+        "def a(n): return int(str(n)[0])",
+        "print([a(n) for n in range(85)]) # _Michael S. Branicky_, Jul 01 2022"
+      ],
+      "reference": [
+        "N. J. A. Sloane and Simon Plouffe, The Encyclopedia of Integer Sequences, Academic Press, 1995 (includes this sequence)."
+      ],
+      "references": 205,
+      "revision": 94,
+      "time": "2026-07-11T07:20:13-04:00",
+      "xref": [
+        "Cf. A010879 (final digit of n).",
+        "Cf. A061681, A130571, A109453, A134010, A052038.",
+        "Cf. A002993, A089951, A002994, A143464, A098174, A098175, A072543, A072544, A073600, A073601, A037904. - _Reinhard Zumkeller_, Aug 17 2008"
+      ]
+    },
+    {
+      "author": "_N. J. A. Sloane_, Dec 11 1999",
+      "comment": [
+        "Continued fraction expansion of sqrt(2) is 1 + 1/(2 + 1/(2 + 1/(2 + ...))).",
+        "Inverse binomial transform of Mersenne numbers A000225(n+1) = 2^(n+1) - 1. - _Paul Barry_, Feb 28 2003",
+        "A Chebyshev transform of 2^n: if A(x) is the g.f. of a sequence, map it to ((1-x^2)/(1+x^2))A(x/(1+x^2)). - _Paul Barry_, Oct 31 2004",
+        "An inverse Catalan transform of A068875 under the mapping g(x)->g(x(1-x)). A068875 can be retrieved using the mapping g(x)->g(xc(x)), where c(x) is the g.f. of A000108. A040000 and A068875 may be described as a Catalan pair. - _Paul Barry_, Nov 14 2004",
+        "Sequence of electron arrangement in the 1s 2s and 3s atomic subshells. Cf. A001105, A016825. - _Jeremy Gardiner_, Dec 19 2004",
+        "Binomial transform of A165326. - _Philippe Deléham_, Sep 16 2009",
+        "Let m=2. We observe that a(n) = Sum_{k=0..floor(n/2)} binomial(m,n-2*k). Then there is a link with A113311 and A115291: it is the same formula with respectively m=3 and m=4. We can generalize this result with the sequence whose g.f. is given by (1+z)^(m-1)/(1-z). - _Richard Choulet_, Dec 08 2009",
+        "With offset 1: number of permutations where |p(i) - p(i+1)| <= 1 for n=1,2,...,n-1. This is the identical permutation and (for n>1) its reversal.",
+        "Equals INVERT transform of bar(1, 1, -1, -1, ...).",
+        "Eventual period is (2). - _Zak Seidov_, Mar 05 2011",
+        "Also decimal expansion of 11/90. - _Vincenzo Librandi_, Sep 24 2011",
+        "a(n) = 3 - A054977(n); right edge of the triangle in A182579. - _Reinhard Zumkeller_, May 07 2012",
+        "With offset 1: minimum cardinality of the range of a periodic sequence with (least) period n. Of course the range's maximum cardinality for a purely periodic sequence with (least) period n is n. - _Rick L. Shepherd_, Dec 08 2014",
+        "With offset 1: n*a(1) + (n-1)*a(2) + ... + 2*a(n-1) + a(n) = n^2. - _Warren Breslow_, Dec 12 2014",
+        "With offset 1: decimal expansion of gamma(4) = 11/9 where gamma(n) = Cp(n)/Cv(n) is the n-th Poisson's constant. For the definition of Cp and Cv see A272002. - _Natan Arie Consigli_, Sep 11 2016",
+        "a(n) equals the number of binary sequences of length n where no two consecutive terms differ. Also equals the number of binary sequences of length n where no two consecutive terms are the same. - _David Nacin_, May 31 2017",
+        "a(n) is the period of the continued fractions for sqrt((n+2)/(n+1)) and sqrt((n+1)/(n+2)). - _A.H.M. Smeets_, Dec 05 2017",
+        "Also, number of self-avoiding walks and coordination sequence for the one-dimensional lattice Z. - _Sean A. Irvine_, Jul 27 2020",
+        "For n >= 2, a(n) is the size of the largest complete subgraph (clique number) and chromatic number of a tree with n vertices. - _Igor Blokhin_, Feb 25 2026"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2",
+      "example": [
+        "sqrt(2) = 1.41421356237309504... = 1 + 1/(2 + 1/(2 + 1/(2 + 1/(2 + ...)))). - _Harry J. Smith_, Apr 21 2009",
+        "G.f. = 1 + 2*x + 2*x^2 + 2*x^3 + 2*x^4 + 2*x^5 + 2*x^6 + 2*x^7 + 2*x^8 + ...",
+        "11/90 = 0.1222222222222222222... - _Natan Arie Consigli_, Sep 11 2016"
+      ],
+      "formula": [
+        "G.f.: (1+x)/(1-x). - _Paul Barry_, Feb 28 2003",
+        "a(n) = 2 - 0^n; a(n) = Sum_{k=0..n} binomial(1, k). - _Paul Barry_, Oct 16 2004",
+        "For n >= 1, a(n) = n*Sum_{k=0..floor(n/2)} (-1)^k*binomial(n-k, k)*2^(n-2*k)/(n-k). - _Paul Barry_, Oct 31 2004",
+        "A040000(n) = Sum_{k=0..floor(n/2)} binomial(n-k, k)*(-1)^k*A068875(n-k). - _Paul Barry_, Nov 14 2004",
+        "From _Michael Somos_, Apr 16 2007: (Start)",
+        "Euler transform of length 2 sequence [2, -1].",
+        "G.f. A(x) satisfies 0 = f(A(x), A(x^2), A(x^4)) where f(u, v, w) = (u-v)*(u+v) - 2*v*(u-w).",
+        "E.g.f.: 2*exp(x) - 1.",
+        "a(n) = a(-n) for all n in Z (one possible extension to n<0). (End)",
+        "G.f.: (1-x^2)/(1-x)^2. - _Jaume Oliver Lafont_, Mar 26 2009",
+        "G.f.: exp(2*atanh(x)). - _Jaume Oliver Lafont_, Oct 20 2009",
+        "a(n) = Sum_{k=0..n} A108561(n,k)*(-1)^k. - _Philippe Deléham_, Nov 17 2013",
+        "a(n) = 1 + sign(n). - _Wesley Ivan Hurt_, Apr 16 2014",
+        "10 * 11/90 = 11/9 = (11/2 R)/(9/2 R) = Cp(4)/Cv(4) = A272005/A272004, with R = A081822 (or A070064). - _Natan Arie Consigli_, Sep 11 2016",
+        "a(n) = A001227(A000040(n+1)). - _Omar E. Pol_, Feb 28 2018"
+      ],
+      "keyword": "nonn,cofr,easy,cons,changed",
+      "link": [
+        "Harry J. Smith, <a href=\"/A040000/b040000.txt\">Table of n, a(n) for n = 0..20000</a>",
+        "Paul Barry, <a href=\"https://cs.uwaterloo.ca/journals/JIS/VOL8/Barry/barry84.html\">A Catalan Transform and Related Transformations on Integer Sequences</a>, Journal of Integer Sequences, Vol. 8 (2005), Article 05.4.5.",
+        "Bruce Fang, Pamela E. Harris, Brian M. Kamau, and David Wang, <a href=\"https://arxiv.org/abs/2402.02538\">Vacillating parking functions</a>, arXiv:2402.02538 [math.CO], 2024.",
+        "Kshitij Education, <a href=\"https://web.archive.org/web/20171219234500/http://www.kshitij-iitjee.com/molar-specific-heat-of-an-ideal-gas\">Molar specific heat</a>.",
+        "MathPath, <a href=\"https://web.archive.org/web/20150911210941/http://www.mathpath.org/Algor/squareroot/algor.square.root.contfrac.htm\">Square-roots via Continued Fractions</a>.",
+        "Narad Rampersad and Max Wiebe, <a href=\"https://arxiv.org/abs/2309.04012\">Sums of products of binomial coefficients mod 2 and 2-regular sequences</a>, arXiv:2309.04012 [math.NT], 2023.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/PythagorassConstant.html\">Pythagoras's Constant</a>.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/SquareRoot.html\">Square root</a>.",
+        "Wikipedia, <a href=\"https://en.wikipedia.org/wiki/Heat_capacity_ratio\">Poisson's constant</a>.",
+        "G. Xiao, <a href=\"https://wims.univ-cotedazur.fr/~wims/en_tool~number~contfrac.en.html\">Contfrac</a>.",
+        "<a href=\"/index/Con#confC\">Index entries for continued fractions for constants</a>.",
+        "<a href=\"/index/Con#constant\">Index entries for eventually constant sequences</a>.",
+        "<a href=\"/index/Di#divseq\">Index to divisibility sequences</a>.",
+        "<a href=\"/index/Rec#order_01\">Index entries for linear recurrences with constant coefficients</a>, signature (1)."
+      ],
+      "maple": [
+        "Digits := 100: convert(evalf(sqrt(2)),confrac,90,'cvgts'):"
+      ],
+      "mathematica": [
+        "ContinuedFraction[Sqrt[2],300] (* _Vladimir Joseph Stephan Orlovsky_, Mar 04 2011 *)",
+        "a[ n_] := 2 - Boole[n == 0]; (* _Michael Somos_, Dec 28 2014 *)",
+        "PadRight[{1},120,2] (* or *) RealDigits[11/90, 10, 120][[1]] (* _Harvey P. Dale_, Jul 12 2025 *)"
+      ],
+      "name": "a(0)=1; a(n)=2 for n >= 1.",
+      "number": 40000,
+      "offset": "0,2",
+      "program": [
+        "(PARI) {a(n) = 2-!n}; /* _Michael Somos_, Apr 16 2007 */",
+        "(PARI) a(n)=1+sign(n)  \\\\ _Jaume Oliver Lafont_, Mar 26 2009",
+        "(PARI)  allocatemem(932245000); default(realprecision, 21000); x=contfrac(sqrt(2)); for (n=0, 20000, write(\"b040000.txt\", n, \" \", x[n+1]));  \\\\ _Harry J. Smith_, Apr 21 2009",
+        "(Haskell)",
+        "a040000 0 = 1; a040000 n = 2",
+        "a040000_list = 1 : repeat 2  -- _Reinhard Zumkeller_, May 07 2012"
+      ],
+      "reference": [
+        "Edward J. Barbeau, Pell's Equation, New York: Springer-Verlag, 2003, p. 3, Exercise 1.2.",
+        "A. Beiser, Concepts of Modern Physics, 2nd Ed., McGraw-Hill, 1973.",
+        "John H. Conway and Richard K. Guy, The Book of Numbers, New York: Springer-Verlag, 1996. See p. 186.",
+        "Harold Davenport, The Higher Arithmetic, Cambridge University Press, 8th ed., 2008, pp. 84-85, 97.",
+        "Elena Deza and Michel Marie Deza, Figurate numbers, World Scientific Publishing (2012), page 24.",
+        "Jan Gullberg, Mathematics from the Birth of Numbers, W. W. Norton & Co., NY & London, 1997, §4.4 Powers and Roots, p. 144.",
+        "James J. Tattersall, Elementary Number Theory in Nine Chapters, Cambridge University Press, 1999, pages 276-278."
+      ],
+      "references": 202,
+      "revision": 208,
+      "time": "2026-10-13T09:24:46-04:00",
+      "xref": [
+        "Convolution square is A008574.",
+        "See A003945 etc. for (1+x)/(1-k*x).",
+        "From _Jaume Oliver Lafont_, Mar 26 2009: (Start)",
+        "Sum_{0<=k<=n} a(k) = A005408(n).",
+        "Prod_{0<=k<=n} a(k) = A000079(n). (End)",
+        "Cf. A113311, A115291, A171418, A171440, A171441, A171442, A171443.",
+        "Cf. A000674 (boustrophedon transform).",
+        "Cf. A001333/A000129 (continued fraction convergents).",
+        "Cf. A000122, A002193 (sqrt(2) decimal expansion), A006487 (Egyptian fraction).",
+        "Cf. Other continued fractions for sqrt(a^2+1) = (a, 2a, 2a, 2a....): A040002 (contfrac(sqrt(5)) = (2,4,4,...)), A040006, A040012, A040020, A040030, A040042, A040056, A040072, A040090, A040110 (contfrac(sqrt(122)) = (11,22,22,...)), A040132, A040156, A040182, A040210, A040240, A040272, A040306, A040342, A040380, A040420 (contfrac(sqrt(442)) = (21,42,42,...)), A040462, A040506, A040552, A040600, A040650, A040702, A040756, A040812, A040870, A040930 (contfrac(sqrt(962)) = (31,62,62,...))."
+      ]
+    },
+    {
+      "author": "_Clark Kimberling_",
+      "comment": [
+        "a(A000079(A130694(n))) = 10. - _Reinhard Zumkeller_, Jul 29 2007",
+        "a(A000290(A016070(n))) = 2. - _Reinhard Zumkeller_, Aug 05 2010",
+        "a(n) = 10 for almost all n. - _Charles R Greathouse IV_, Oct 02 2013"
+      ],
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "1,1,1,1,1,1,1,1,1,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2,2,2,2,2,2,2,2,2,1,2,2",
+      "keyword": "nonn,base,easy",
+      "link": [
+        "R. Zumkeller, <a href=\"/A043537/b043537.txt\">Table of n, a(n) for n = 1..10000</a>"
+      ],
+      "maple": [
+        "A043537 := proc(n)",
+        "        convert(convert(n,base,10),set) ;",
+        "        nops(%) ;",
+        "end proc: # _R. J. Mathar_, Dec 22 2012"
+      ],
+      "mathematica": [
+        "Count[DigitCount@ #, n_ /; n > 0] & /@ Range@ 120 (* _Michael De Vlieger_, Aug 29 2015 *)"
+      ],
+      "name": "Number of distinct base-10 digits of n.",
+      "number": 43537,
+      "offset": "1,10",
+      "program": [
+        "(Haskell)",
+        "import Data.List (nub)",
+        "a043537 = length . nub . show  -- _Reinhard Zumkeller_, Apr 16 2011",
+        "(PARI) a(n)=#vecsort(digits(n),,8) \\\\ _Charles R Greathouse IV_, Oct 02 2013",
+        "(Python)",
+        "def A043537(n): return len(set(str(n))) # _Dimiter Skordev_, Oct 02 2021"
+      ],
+      "references": 59,
+      "revision": 37,
+      "time": "2021-12-02T02:12:50-05:00",
+      "xref": [
+        "Cf. A047726, A118668, A119797, A119798, A119799, A119823, A038378, A076493, A055642, A178788."
+      ]
+    },
+    {
+      "author": "_Henry Bottomley_, May 23 2000",
+      "comment": [
+        "The old definition of this sequence was \"Highest power of 10 dividing n!\", but that is wrong (see A027868). For example, the highest power of 10 dividing 5!=120 is 1; however, a(5)=0. - _Hieronymus Fischer_, Jun 18 2007",
+        "Highest power of 10 dividing the quotient of multifactorials Product_{k>=1} M(10^k, 10^k*floor(n/10^k)) /( Product_{k>=1} M(10^(k-1), 10^(k-1) * floor(n/10^k)) ) where M(r,s) is the r-multifactorial (r>=1) of s which is defined by M(r,s) = s*M(r,s-r) for s > 0, M(r,s) = 1 for s <= 0. This is because that quotient of multifactorials evaluates to the product 10^floor(n/10)*10^floor(n/100)*... - _Hieronymus Fischer_, Jun 14 2007",
+        "Partial sums of A122840. - _Hieronymus Fischer_, Jun 06 2012",
+        "Called the \"terminating nines function\" by Kennedy et al. (1989). a(n) is the number of terminating nines which occur up to n but not including n. - _Amiram Eldar_, Sep 06 2024"
+      ],
+      "created": "2000-06-15T03:00:00-04:00",
+      "data": "0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,11,11,11",
+      "example": [
+        "          a(11) = 1",
+        "         a(111) = 12.",
+        "        a(1111) = 123.",
+        "       a(11111) = 1234.",
+        "      a(111111) = 12345.",
+        "     a(1111111) = 123456.",
+        "    a(11111111) = 1234567.",
+        "   a(111111111) = 12345678.",
+        "  a(1111111111) = 123456789."
+      ],
+      "ext": [
+        "An incorrect g.f. was deleted by _N. J. A. Sloane_, Sep 13 2009",
+        "Examples added by _Hieronymus Fischer_, Jun 06 2012"
+      ],
+      "formula": [
+        "a(n) = floor(n/10) + floor(n/100) + floor(n/1000) + ...",
+        "a(n) = (n - A007953(n))/9.",
+        "From _Hieronymus Fischer_, Jun 14 2007, Jun 25 2007, and Aug 13 2007: (Start)",
+        "a(n) = Sum_{k>0} floor(n/10^k).",
+        "a(n) = Sum_{k=10..n} Sum_{j|k, j>=10} ( floor(log_10(j)) -floor(log_10(j-1)) ).",
+        "G.f.: g(x) = ( Sum_{k>0} x^(10^k)/(1-x^(10^k)) )/(1-x).",
+        "G.f. expressed in terms of Lambert series:",
+        "g(x) = L[b(k)](x)/(1-x) where L[b(k)](x) = Sum_{k>=0} b(k)*x^k/(1-x^k) is a Lambert series with b(k)=1, if k>1 is a power of 10, else b(k)=0.",
+        "G.f.: g(x) = ( Sum_{k>0} c(k)*x^k )/(1-x), where c(k) = Sum_{j>1, j|k} (floor(log_10(j)) - floor(log_10(j-1)) ).",
+        "a(n) = Sum_{k=0..floor(log_10(n))} ds_10(floor(n/10^k))*10^k - n where ds_10(x) = digital sum of x in base 10.",
+        "a(n) = Sum_{k=0..floor(log_10(n))} A007953(floor(n/10^k))*10^k - n.",
+        "Recurrence:",
+        "a(n) = floor(n/10) + a(floor(n/10)).",
+        "a(10*n) = n + a(n).",
+        "a(n*10^m) = n*(10^m-1)/9 + a(n).",
+        "a(k*10^m) = k*(10^m-1)/9, for 0 <= k < 10, m >= 0.",
+        "Asymptotic behavior:",
+        "a(n) = n/9 + O(log(n)),",
+        "a(n+1) - a(n) = O(log(n)), which follows from the inequalities below.",
+        "a(n) <= (n - 1)/9; equality holds for powers of 10.",
+        "a(n) >= n/9 - 1 - floor(log_10(n)); equality holds for n=10^m-1, m>0.",
+        "lim inf (n/9 - a(n)) = 1/9, for n --> oo.",
+        "lim sup (n/9 - log_10(n) - a(n)) = 0, for n --> oo.",
+        "lim sup (a(n+1) - a(n) - log_10(n)) = 0, for n --> oo. (End)"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Hieronymus Fischer, <a href=\"/A054899/b054899.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "Robert K. Kennedy, Curtis N. Cooper, Vladimir Drobot, and Fred Hickling, <a href=\"https://doi.org/10.1155/S0161171289000992\">On the natural density of the range of the terminating nines function</a>, International Journal of Mathematics and Mathematical Sciences, Vol. 12, No. 4 (1989), pp. 805-808.",
+        "Eric Weisstein's World of Mathematics, <a href=\"https://mathworld.wolfram.com/Multifactorial.html\">Multifactorial</a>."
+      ],
+      "mathematica": [
+        "Table[t=0; p=10; While[s=Floor[n/p]; t=t+s; s>0, p*=10]; t, {n,0,100}]"
+      ],
+      "name": "a(n) = Sum_{k>0} floor(n/10^k).",
+      "number": 54899,
+      "offset": "0,21",
+      "program": [
+        "(PARI) a(n)=my(s);while(n\\=10,s+=n);s \\\\ _Charles R Greathouse IV_, Jul 19 2011",
+        "(Magma)",
+        "m:=10;",
+        "function a(n) // a = A054899, m = 10",
+        "  if n eq 0 then return 0;",
+        "  else return a(Floor(n/m)) + Floor(n/m);",
+        "  end if; end function;",
+        "[a(n): n in [0..103]]; // _G. C. Greubel_, Apr 28 2023",
+        "(SageMath)",
+        "m=10 # a = A054899",
+        "def a(n): return 0 if (n==0) else a(n//m) + (n//m)",
+        "[a(n) for n in range(104)] # _G. C. Greubel_, Apr 28 2023",
+        "(Python)",
+        "from sympy import integer_log",
+        "def A054899(n): return sum(n//10**k for k in range(1,integer_log(n,10)[0]+1)) # _Chai Wah Wu_, Jul 02 2026"
+      ],
+      "references": 59,
+      "revision": 51,
+      "time": "2026-07-03T01:27:57-04:00",
+      "xref": [
+        "Cf. A011371 and A054861 for analogs involving powers of 2 and 3.",
+        "Different from the highest power of 10 dividing n! (see A027868 for reference).",
+        "Cf. A007953, A027868, A067080, A098844, A132027, A122840."
+      ]
+    },
+    {
+      "author": "_Gus Wiseman_, Feb 07 2022",
+      "comment": [
+        "The n-th composition in standard order (graded reverse-lexicographic, A066099) is obtained by taking the set of positions of 1's in the reversed binary expansion of n, prepending 0, taking first differences, and reversing again. This gives a bijective correspondence between nonnegative integers and integer compositions."
+      ],
+      "created": "2022-02-10T20:19:16-05:00",
+      "data": "0,1,1,1,1,2,2,1,1,2,1,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,3,2,3,2,1,1,2,2,2,1,3,3,2,2,3,1,2,3,2,2,2,2,2,3,3,3,2,2,3,2,3,2,2,2,3,2,1,1,2,2,2,2,3,3,2,2,2,2,3,2,3,3,2,2,3,2,3,2,2,3",
+      "example": [
+        "The number 3310 has binary expansion 110011101110 and standard composition (1,3,1,1,2,1,1,2), with runs (1), (3), (1,1), (2), (1,1), (2), of which 4 are distinct, so a(3310) = 4."
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Mathematics Stack Exchange, <a href=\"https://math.stackexchange.com/q/87559\">What is a sequence run? (answered 2011-12-01)</a>"
+      ],
+      "mathematica": [
+        "stc[n_]:=Differences[Prepend[Join@@ Position[Reverse[IntegerDigits[n,2]],1],0]]//Reverse;",
+        "Table[Length[Union[Split[stc[n]]]],{n,0,100}]"
+      ],
+      "name": "Number of distinct runs in the n-th composition in standard order.",
+      "number": 351014,
+      "offset": "0,6",
+      "references": 57,
+      "revision": 14,
+      "time": "2022-02-10T20:19:16-05:00",
+      "xref": [
+        "Counting not necessarily distinct runs gives A124767.",
+        "Using binary expansions instead of standard compositions gives A297770.",
+        "Positions of first appearances are A351015.",
+        "A005811 counts runs in binary expansion.",
+        "A011782 counts integer compositions.",
+        "A044813 lists numbers whose binary expansion has distinct run-lengths.",
+        "A085207 represents concatenation of standard compositions, reverse A085208.",
+        "A333489 ranks anti-runs, complement A348612.",
+        "A345167 ranks alternating compositions, counted by A025047.",
+        "A351204 counts partitions where every permutation has all distinct runs.",
+        "Counting words with all distinct runs:",
+        "- A351013 = compositions, for run-lengths A329739, ranked by A351290.",
+        "- A351016 = binary words, for run-lengths A351017.",
+        "- A351018 = binary expansions, for run-lengths A032020, ranked by A175413.",
+        "- A351200 = patterns, for run-lengths A351292.",
+        "- A351202 = permutations of prime factors.",
+        "Selected statistics of standard compositions:",
+        "- Length is A000120.",
+        "- Sum is A070939.",
+        "- Heinz number is A333219.",
+        "- Number of distinct parts is A334028.",
+        "Selected classes of standard compositions:",
+        "- Partitions are A114994, strict A333256.",
+        "- Multisets are A225620, strict A333255.",
+        "- Strict compositions are A233564.",
+        "- Constant compositions are A272919.",
+        "Cf. A098859, A106356, A116608, A238279, A242882, A318928, A325545, A328592, A329745, A350952, A351201."
+      ]
+    },
+    {
+      "author": "Charles T. Le (charlestle(AT)yahoo.com)",
+      "created": "1999-12-11T03:00:00-05:00",
+      "data": "0,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+      "ext": [
+        "Additional comments from _Reinhard Zumkeller_, Oct 07 2001",
+        "More terms from _Benoit Cloitre_, Jan 30 2003"
+      ],
+      "formula": [
+        "G.f.: Sum_{k>=1} x^(k^3)/(1-x). - _Geoffrey Critzer_, Feb 05 2014",
+        "a(n) = Sum_{i=1..n} A210826(i)*floor(n/i). - _Ridouane Oudra_, Jan 21 2021"
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "Reinhard Zumkeller, <a href=\"/A048766/b048766.txt\">Table of n, a(n) for n = 0..10000</a>",
+        "K. Atanassov, On the 100th, 101st and 102nd Smarandache Problems, <a href=\"http://www.gallup.unm.edu/~smarandache/Atanassov-SomeProblems.pdf\">On Some of Smarandache's Problems</a>, American Research Press, 1999, pp. 57-61. Reprinted in Notes on Number Theory and Discrete Mathematics, Sophia, Bulgaria, Vol. 5 (1999), No. 3, 94-96.",
+        "F. Smarandache, <a href=\"http://www.gallup.unm.edu/~smarandache/OPNS.pdf\">Only Problems, Not Solutions!</a>."
+      ],
+      "maple": [
+        "A048766 := proc(n)",
+        "    floor(root[3](n)) ;",
+        "end proc:",
+        "seq(A048766(n),n=0..80) ; # _R. J. Mathar_, Dec 20 2020"
+      ],
+      "mathematica": [
+        "a[n_]:=IntegerPart[n^(1/3)];lst={};Do[AppendTo[lst, a[n]], {n, 0, 6!}];lst (* _Vladimir Joseph Stephan Orlovsky_, Dec 02 2008 *)",
+        "Floor[CubeRoot[Range[0,120]]] (* _Harvey P. Dale_, May 18 2026 *)"
+      ],
+      "name": "Integer part of cube root of n. Or, number of cubes <= n. Or, n appears 3n^2 + 3n + 1 times.",
+      "number": 48766,
+      "offset": "0,9",
+      "program": [
+        "(Haskell)",
+        "a048766 = round . (** (1/3)) . fromIntegral",
+        "a048766_list = concatMap (\\x -> take (a003215 x) $ repeat x) [0..]",
+        "-- _Reinhard Zumkeller_, Sep 15 2013, Oct 22 2011",
+        "(PARI) a(n)=floor(n^(1/3)) \\\\ _Charles R Greathouse IV_, Mar 20 2012",
+        "(PARI) a(n) = sqrtnint(n, 3); \\\\ _Michel Marcus_, Nov 10 2015",
+        "(Magma) [n eq 0 select 0 else Iroot(n,3): n in [0..110]]; // _Bruno Berselli_, Feb 20 2015",
+        "(Python)",
+        "from sympy import integer_nthroot",
+        "def a(n): return integer_nthroot(n, 3)[0]",
+        "print([a(n) for n in range(105)]) # _Michael S. Branicky_, Oct 19 2021"
+      ],
+      "references": 50,
+      "revision": 63,
+      "time": "2026-05-18T10:35:48-04:00",
+      "xref": [
+        "Cf. A000196, A003215, A007412."
+      ]
+    },
+    {
+      "author": "_Hieronymus Fischer_, Oct 10 2007",
+      "comment": [
+        "Periodic with length p^2=100.",
+        "a(n) = A179051(n) for n < 90. - _Reinhard Zumkeller_, Jun 27 2010"
+      ],
+      "created": "2007-11-10T03:00:00-05:00",
+      "data": "1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6,6,7,7,7,7,7,7,7,7,7,7,8,8,8,8,8,8,8,8,8,8,9,9,9,9,9,9,9,9,9,9,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1",
+      "formula": [
+        "The following formulas are given for a general parameter p (p=10 for this sequence).",
+        "a(n)=(1+floor(n/p)) mod p.",
+        "a(n)=1+floor(n/p)-p*floor((n+p)/p^2).",
+        "a(n)=(((n+p) mod p^2)-(n mod p))/p.",
+        "a(n)=((n+p-(n mod p))/p) mod p.",
+        "G.f. g(x)=((p-1)x^(p^2)-px^(p(p-1))+1)/((1-x)(1-x^p)(1-x^(p^2))).",
+        "G.f. g(x)=(1-x^p)*sum{0<=k<(p-1), (k+1)*x^(k*p)}/((1-x)(1-x^(p^2)))."
+      ],
+      "keyword": "nonn,easy",
+      "link": [
+        "<a href=\"/index/Rec#order_91\">Index entries for linear recurrences with constant coefficients</a>, signature (1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1, 0, 0, 0, 0, 0, 0, 0, 0, -1, 1)."
+      ],
+      "mathematica": [
+        "Flatten[Table[PadRight[{},10,Mod[n,10]],{n,11}]] (* _Harvey P. Dale_, May 10 2012 *)"
+      ],
+      "name": "n modulo p repeated p times (where p=10).",
+      "number": 133880,
+      "offset": "0,11",
+      "program": [
+        "(PARI) a(n)=(n\\10+1)%10 \\\\ _Charles R Greathouse IV_, Nov 15 2022"
+      ],
+      "references": 50,
+      "revision": 15,
+      "time": "2023-04-16T22:14:09-04:00",
+      "xref": [
+        "Cf. A000040, A133620-A133625, A133630, A038509, A133634-A133636.",
+        "Cf. A133890, A133900, A133910."
+      ]
+    },
+    {
+      "author": "_Gus Wiseman_, Apr 18 2020",
+      "comment": [
+        "A composition of n is a finite sequence of positive integers summing to n. The k-th composition in standard order (row k of A066099) is obtained by taking the set of positions of 1's in the reversed binary expansion of k, prepending 0, taking first differences, and reversing again. This gives a bijective correspondence between nonnegative integers and integer compositions."
+      ],
+      "created": "2020-04-18T11:51:02-04:00",
+      "data": "0,1,1,1,1,2,2,1,1,2,1,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,1,3,3,2,2,3,1,2,3,2,2,2,2,2,3,2,3,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,3,3,2,2,2,2,3,2,3,3,2,2,3,2,3,2,2,2",
+      "example": [
+        "The 77th composition is (3,1,2,1), so a(77) = 3."
+      ],
+      "keyword": "nonn",
+      "mathematica": [
+        "stc[n_]:=Differences[Prepend[Join@@Position[Reverse[IntegerDigits[n,2]],1],0]]//Reverse;",
+        "Table[Length[Union[stc[n]]],{n,0,100}]"
+      ],
+      "name": "Number of distinct parts in the n-th composition in standard order.",
+      "number": 334028,
+      "offset": "0,6",
+      "references": 40,
+      "revision": 5,
+      "time": "2020-04-18T11:51:02-04:00",
+      "xref": [
+        "Number of distinct prime indices is A001221.",
+        "Positions of first appearances (offset 1) are A246534.",
+        "Positions of 1's are A272919.",
+        "All of the following pertain to compositions in standard order (A066099):",
+        "- Length is A000120.",
+        "- Necklaces are A065609.",
+        "- Sum is A070939.",
+        "- Runs are counted by A124767.",
+        "- Rotational symmetries are counted by A138904.",
+        "- Strict compositions are A233564.",
+        "- Constant compositions are A272919.",
+        "- Aperiodic compositions are A328594.",
+        "- Rotational period is A333632.",
+        "- Dealings are A333939.",
+        "Cf. A001037, A059966, A060223, A066099, A333765, A333940."
+      ]
+    },
+    {
+      "author": "_John W. Layman_, Oct 22 2004",
+      "comment": [
+        "Records in {a(n)} occur at {1,4,18,96,600,4320,35280,322560,3265920,...}, which appears to be n*n! = A001563(n).",
+        "The most significant digit in the factorial expansion of n (A007623). Proof: The algorithm that computes the factorial expansion of n, generates the successive digits by repeatedly dividing the previous quotient with successively larger divisors (the remainders give the digits), starting from n itself and divisor 2. As a corollary we find that A001563 indeed gives the positions of the records. - _Antti Karttunen_, Jan 01 2007."
+      ],
+      "created": "2005-02-20T03:00:00-05:00",
+      "data": "0,1,1,1,2,2,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4",
+      "example": [
+        "For n=15, f(15,2) = floor(15/2)=7, f(7,3)=2, f(2,4)=0, so a(15)=2.",
+        "From _Antti Karttunen_, Dec 24 2015: (Start)",
+        "Example illustrating the role of this sequence in factorial base representation:",
+        "   n  A007623(n)       a(n) [= the most significant digit].",
+        "   0 =   0               0",
+        "   1 =   1               1",
+        "   2 =  10               1",
+        "   3 =  11               1",
+        "   4 =  20               2",
+        "   5 =  21               2",
+        "   6 = 100               1",
+        "   7 = 101               1",
+        "   8 = 110               1",
+        "   9 = 111               1",
+        "  10 = 120               1",
+        "  11 = 121               1",
+        "  12 = 200               2",
+        "  13 = 201               2",
+        "  14 = 210               2",
+        "  15 = 211               2",
+        "  16 = 220               2",
+        "  17 = 221               2",
+        "  18 = 300               3",
+        "  etc.",
+        "Note that there is no any upper bound for the size of digits in this representation.",
+        "(End)"
+      ],
+      "ext": [
+        "a(0) = 0 prepended and the alternative description added to the name-field by _Antti Karttunen_, Dec 24 2015"
+      ],
+      "formula": [
+        "From _Antti Karttunen_, Dec 25 2015: (Start)",
+        "a(0) = 0; for n >= 1, if A265333(n) = 1 [when n is one of the terms of A265334], a(n) = 1, otherwise 1 + a(A257684(n)).",
+        "Other identities. For all n >= 0:",
+        "a(A001563(n)) = n. [Sequence works as a left inverse for A001563.]",
+        "a(n) = A257686(n) / A048764(n).",
+        "(End)"
+      ],
+      "keyword": "nonn",
+      "link": [
+        "Antti Karttunen, <a href=\"/A099563/b099563.txt\">Table of n, a(n) for n = 0..10080</a>",
+        "<a href=\"/index/Fa#facbase\">Index entries for sequences related to factorial base representation</a>"
+      ],
+      "mathematica": [
+        "Table[Floor[n/#] &@ (k = 1; While[(k + 1)! <= n, k++]; k!), {n, 0, 120}] (* _Michael De Vlieger_, Aug 30 2016 *)"
+      ],
+      "name": "a(0) = 0; for n > 0, a(n) = final nonzero number in the sequence n, f(n,2), f(f(n,2),3), f(f(f(n,2),3),4),..., where f(n,d) = floor(n/d); the most significant digit in the factorial base representation of n.",
+      "number": 99563,
+      "offset": "0,5",
+      "program": [
+        "(PARI) A099563(n) = { my(i=2,dig=0); until(0==n, dig = n % i; n = (n - dig)/i; i++); return(dig); }; \\\\ _Antti Karttunen_, Dec 24 2015",
+        "(Scheme)",
+        "(define (A099563 n) (let loop ((n n) (i 2)) (let* ((dig (modulo n i)) (next-n (/ (- n dig) i))) (if (zero? next-n) dig (loop next-n (+ 1 i))))))",
+        "(definec (A099563 n) (cond ((zero? n) n) ((= 1 (A265333 n)) 1) (else (+ 1 (A099563 (A257684 n)))))) ;; Based on given recurrence, using the memoization-macro definec",
+        ";; _Antti Karttunen_, Dec 24-25 2015",
+        "(Python)",
+        "def a(n):",
+        "    i=2",
+        "    d=0",
+        "    while n:",
+        "        d=n%i",
+        "        n=(n - d)//i",
+        "        i+=1",
+        "    return d",
+        "print([a(n) for n in range(201)]) # _Indranil Ghosh_, Jun 21 2017, after PARI code"
+      ],
+      "references": 34,
+      "revision": 33,
+      "time": "2021-03-10T07:23:26-05:00",
+      "xref": [
+        "Cf. A001563, A007623, A099564.",
+        "Cf. also A034968, A048764, A051683, A055881, A126307, A230420, A246359, A249069, A257679, A257684, A257686, A257687, A265890, A265891, A265894, A265333, A265334."
+      ]
+    }
+  ],
+  "url": "https://oeis.org/search?q=1%2C2%2C2%2C2%2C2%2C2%2C2%2C2%2C2%2C2%2C2&fmt=json"
+}

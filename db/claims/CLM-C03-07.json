@@ -11,10 +11,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "A. Geser, A solution to Zantema's problem (1993); H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-07",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "A. Geser, A solution to Zantema's problem (1993); H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "The rule 0^p 1^q -> 1^r 0^s terminates iff s <= p or r <= q.",
   "system": "SYS-A",
   "title": "H-C03-1: terminates iff some letter count never grows (refuted)",

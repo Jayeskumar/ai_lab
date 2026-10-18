@@ -104,7 +104,8 @@ claims:
     proof: proofs/paper/C03.md#theorem-6-clm-c03-06--computer-assisted-classification-p-q-r-s--5
     evidence: [EXP-C03-01, EXP-C03-02, EXP-C03-03]
     novelty: REDISCOVERY
-    novelty_basis: The family is completely characterised by Zantema-Geser (2000); this is an independent re-derivation of part of it.
+    novelty_basis: "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 classifies all these rules; in particular the 24 rules left open here all terminate (ZG cases 3/4) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C03-07
     type: hypothesis
     system: SYS-A
@@ -113,7 +114,9 @@ claims:
     verification: REFUTED
     counterexample: "0011 -> 111000 (both counts grow) is terminating - a published theorem (A. Geser, 'A Solution to Zantema's Problem', Passau MIP-9314, 1993; Zantema-Geser 2000; automated RFC match-bound proofs). Our own evidence agrees (all 3747 words of length <= 12 containing 0011 have finite derivation trees) but we have no independent proof; the refutation rests on the cited proof."
     evidence: [EXP-C03-01, EXP-C03-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
+    novelty_basis: "A. Geser, A solution to Zantema's problem (1993); H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C03-08
     type: hypothesis
     system: SYS-A
@@ -122,30 +125,36 @@ claims:
     verification: REFUTED
     counterexample: "011 -> 11100 (r = 3 < 4 = 2q) loops: 001111 ->4 111 001111 00100 (Lean-verified, not_terminating_0_11). 40 counterexamples with parameters <= 5 (35 loops of EXP-C03-02 plus the 5 mirror loops of EXP-C03-03; count corrected after the skeptic review)."
     evidence: [EXP-C03-01, EXP-C03-02]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
     change_reason: Skeptic review 2026-10-18 - counterexample count corrected (40, not 35)
+    novelty_basis: "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 and Lemma 4.3 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
   - id: CLM-C03-09
     type: hypothesis
     system: SYS-A
     title: "H-C03-3: non-terminating iff both counts grow and (r >= 2q or s >= 2p) (inconclusive, evidence against)"
     statement: The rule is non-terminating iff r > q, s > p and (r >= 2q or s >= 2p).
-    verification: INCONCLUSIVE
+    verification: "REFUTED"
     evidence: [EXP-C03-02, EXP-C03-03]
-    novelty: NOT ASSESSED
+    novelty: "REDISCOVERY"
     notes: Predicts loops for e.g. 0011 -> 11100000, which terminates from every start 0^a 1^b (a <= 6, b <= 8) and every word of length <= 12 (finite reachable sets), and has no loop within the search bounds. Superseded by H-C03-4; not refuted by proof because termination of 0011 -> 11100000 is unproven.
+    counterexample: "0011 -> 11100000 (p = q = 2, r = 3, s = 5): H-C03-3 predicts non-termination (r > q, s > p, s >= 2p), but the rule terminates by Zantema-Geser Theorem 1.1, case 4 (q < r < 2q and p does not divide s). The refutation rests on the published proof."
+    novelty_basis: "H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 - refuted by the published Zantema-Geser theorem (formerly INCONCLUSIVE)"
   - id: CLM-C03-10
-    type: conjecture
+    type: "theorem"
     system: SYS-A
     title: "Divisibility characterization of termination for 0^p 1^q -> 1^r 0^s (H-C03-4)"
     statement: |
       0^p 1^q -> 1^r 0^s (p, q, r, s >= 1) is non-terminating iff (a) r >= 2q and s >= 2p, or (b) s >= 2p,
       q < r < 2q and p divides s, or (c) r >= 2q, p < s < 2p and q divides r. Otherwise it terminates.
-    verification: COMPUTATIONALLY SUPPORTED
+    verification: "PROVEN"
     evidence: [EXP-C03-02, EXP-C03-03, EXP-C03-04]
-    novelty: REDISCOVERY
-    novelty_basis: Termination of this family is completely characterised by Zantema and Geser (RTA 1995, LNCS 914; AAECC 11(1):1-25, 2000). We could not retrieve the statement of their theorem, so whether H-C03-4 coincides with it is unverified; if it differs, theirs takes precedence.
+    novelty: "REDISCOVERY"
+    novelty_basis: "Verbatim rediscovery of H. Zantema, A. Geser, A complete characterization of termination of 0^p 1^q -> 1^r 0^s, tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf), RTA 1995 (LNCS 914) and AAECC 11 (2000) 1-25, Theorem 1.1; the lab's three non-terminating cases match ZG's own list on p. 2 word for word (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
     limitations: Proved for (a) in general and for (b)/(c) whenever the base rule 0 1^q -> 1^r 0^(s/p) has a known loop (all q <= 6, s/p <= 6; the Skeptic extended the base-family loops to q = 7); termination proved only for s <= p or r <= q. The 24 open rules with parameters <= 5 (all predicted terminating) include Zantema's problem. The loop certificates of the base-family and mirror rules are not stored in the results (reviews/skeptic_C03_C04_C06.md, C4); the Zantema-Geser (2000) characterisation, which would settle the conjecture, could not be retrieved (CLM-C20-04).
-    change_reason: Skeptic review 2026-10-18 - conjecture survives; limitations completed (unstored loop certificates, literature unavailable)
+    change_reason: "Historian audit 2026-10-18 - identical to the published Zantema-Geser theorem; status PROVEN by literature"
+    proof_check: "published theorem - Zantema-Geser Theorem 1.1 (tech. report UU-CS-1994-44, p. 1; AAECC 2000 Thm 1), statement read verbatim by the Historian; equivalence with the lab's formulation checked by case analysis (Historian, re-checked by the Director) and on all 1 <= p, q, r, s <= 40; not re-proved by the lab"
+    proof: "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item"
   - id: CLM-C03-11
     type: observation
     system: SYS-A
@@ -155,8 +164,9 @@ claims:
       (k = 2) and 260, 1556, 9332 steps (k = 6) for q = 4, 5, 6.
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C03-04]
-    novelty: NOT ASSESSED
-    novelty_basis: Related to Geser, Hofbauer, Waldmann, "Loops of superexponential lengths in one-rule string rewriting" (RTA 2002).
+    novelty: "REDISCOVERY"
+    novelty_basis: "Partial rediscovery - the same closed form appears in A. Geser, Loops of superexponential lengths in one-rule string rewriting, RTA 2002 (LNCS 2378), Theorem 1; that paper is by Geser alone (the earlier record listed three authors) (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
+    change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
 
 journal:
   - key: C03-01
@@ -230,6 +240,12 @@ journal:
     kind: revision
     text: 'Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.'
     refs: [reviews/skeptic_C03_C04_C06.md]
+
+  - key: C03-15
+    agent: Historian
+    kind: novelty
+    text: "Found the Zantema-Geser technical report (UU-CS-1994-44) on an older archive host after the usual hosts failed; its Theorem 1.1 is the lab's Conjecture 4.6 verbatim. CLM-C03-10 becomes PROVEN (by literature), H-C03-3 (CLM-C03-09) is refuted by the theorem, and the 24 rules left open all terminate."
+    refs: [CLM-C03-09, CLM-C03-10, reviews/historian_C03_C10.md]
 
 next_directions:
   - "C03: retrieve the Zantema-Geser theorem statement and compare with H-C03-4"

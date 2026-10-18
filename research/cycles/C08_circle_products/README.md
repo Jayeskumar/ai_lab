@@ -43,6 +43,21 @@ external validation of the implementation against the OEIS.
 | EXP-C08-04 | 90 quadratic Pisot sequences: **all 30 with β > 0 have upward-closed shift sets; the 10 non-monotone ones all have β < 0** |
 | EXP-C08-05 | Our table of Knuth's product equals OEIS A101330 (implementation validated against the literature) |
 
+> **Correction (2026-10-18, after the Historian audit).** Four of the thresholds
+> measured in EXP-C08-02/03 were too small: tribonacci fails at s = 3
+> ((10016 ∘ 10016) ∘ 1 ≠ 10016 ∘ (10016 ∘ 1), the counterexample of
+> Ambrož–Frougny–Masáková–Pelantová 2003), 4-bonacci at s = 7,
+> G(k+1) = 2G(k) + 2G(k−1) (1, 2) at s = 5 and G(k+1) = G(k) + G(k−2) at s = 10.
+> EXP-C08-06 re-tested everything with an exact embedding filter and explicit
+> certificates; 6 of the 90 quadratic rows of EXP-C08-04 had listed shifts that
+> fail. CLM-C08-05 is now REFUTED and CLM-C08-07 holds the corrected values;
+> CLM-C08-03 was retitled to the hypotheses of Grabner–Pethő–Tichy–Woeginger.
+> Random triples up to 10⁶ are not a reliable associativity test.
+
+| Experiment | Outcome |
+|---|---|
+| EXP-C08-06 | certified re-test: thresholds now tribonacci ≥ 4, 4-bonacci ≥ 8, (2,2;1,2) ≥ 6, G(k)+G(k−2) ≥ 11 (lower bounds certified, "no failure found" above them); Conjecture 9.2 survives (0/30 positive-β rows non-monotone; all 10 non-monotone rows non-canonical) |
+
 ## Step 6 — Analysis
 
 The data are explained by one picture (Arnoux's idea, generalised): map n to

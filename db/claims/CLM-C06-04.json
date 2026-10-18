@@ -10,10 +10,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:45:16Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty",
+      "new": "POTENTIALLY NOVEL",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "As data, low-medium confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C06-04",
-  "novelty": "NOT ASSESSED",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "As data, low-medium confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "Among the laws x(yz) = t and (xy)z = t with t a term of 3-4 leaves over exactly {x, y, z}, every law other than left-distributivity has anchored spectrum {1} or {1, ..., 6}.",
   "system": "SYS-B",
   "title": "H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted)",

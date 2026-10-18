@@ -1,0 +1,3601 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C16-03",
+    "file": "experiments/C16/E03_structured_families.py",
+    "sha256": "2b6d8036efe045530b0b5a34a2f44e452fea1285f256626fe081298a2421979a",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "env": {
+    "git_head": "5ec4c37c014dbbbfc1730f3ef1efd04348372b51",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T17:03:52Z",
+  "id": "EXP-C16-03",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "Laver tables A_0..A_10 (N <= 1024)",
+      "anchored associative N <= 60; odd-law magmas x + 1 + y/2 for odd N <= 61; golden-law magmas x + 1 + a y (a^2 + a = 1) for every root and every N <= 200 in A089270",
+      "300 random affine magmas with N <= 30 (seeded)",
+      "nimbers via the C07 mex tables",
+      "groups S3, D4, Q8, A4, S4 as permutation groups"
+    ],
+    "cycle": "C16",
+    "falsification": "H-C16-4: a Laver table whose maximal period is not a power of 2. H-C16-7: a mismatch between the period and the matrix order, or between the anchored and Fibonacci cycle structures. H-C16-8: any affine magma whose maximal period differs from the 3x3 order. H-C16-9: maximal periods other than 40 and 360.",
+    "hypothesis": "H-C16-4 (bold, Inventor): for every Laver table A_n the maximal period of the pair map is a power of 2. H-C16-7 (Formal Verifier): an affine magma x*y = x + beta*y + gamma whose pair map has a fixed point has maximal period ord([[0,1],[beta,1]]) mod N; in particular the anchored associative magma x + y + 1 has exactly the cycle structure of the Fibonacci numbers mod N (maximum: the Pisano period). H-C16-8 (bold, Explorer): for every affine magma x*y = alpha x + beta y + gamma with beta a unit the maximal period equals the order of the 3x3 affine matrix. H-C16-9: nim-multiplication on [0, 2^(2^k)) has maximal period pi(2^(2^k) - 1) (40 and 360).",
+    "id": "EXP-C16-03",
+    "methodology": "Exact functional-graph analysis of every pair map; matrix orders computed by repeated multiplication; comparisons with Pisano periods (OEIS A001175); OEIS checks of new sequences.",
+    "question": "What do the laws of the lab's structured magmas (left-distributivity, anchored associativity, the odd and golden laws of C06, nim arithmetic of C07, group laws) do to the cycle structure of the pair map (a, b) -> (b, b*a)?",
+    "seed": 1616,
+    "title": "Fibonacci dynamics in structured families: Laver tables, affine and anchored magmas, nimbers, groups"
+  },
+  "results": {
+    "H_C16_4_counterexamples": [],
+    "H_C16_8_counterexample_count": 0,
+    "H_C16_8_counterexamples": [],
+    "affine_random": [
+      {
+        "N": 9,
+        "alpha": 3,
+        "beta": 4,
+        "gamma": 4,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 17,
+        "alpha": 7,
+        "beta": 10,
+        "gamma": 1,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 6,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 4,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 12,
+        "alpha": 5,
+        "beta": 1,
+        "gamma": 9,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 29,
+        "alpha": 9,
+        "beta": 13,
+        "gamma": 6,
+        "max_period": 35,
+        "order3": 35
+      },
+      {
+        "N": 9,
+        "alpha": 5,
+        "beta": 4,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 15,
+        "alpha": 7,
+        "beta": 8,
+        "gamma": 7,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 26,
+        "alpha": 22,
+        "beta": 11,
+        "gamma": 25,
+        "max_period": 168,
+        "order3": 168
+      },
+      {
+        "N": 7,
+        "alpha": 6,
+        "beta": 3,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 16,
+        "alpha": 2,
+        "beta": 3,
+        "gamma": 10,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 25,
+        "alpha": 16,
+        "beta": 21,
+        "gamma": 1,
+        "max_period": 100,
+        "order3": 100
+      },
+      {
+        "N": 25,
+        "alpha": 6,
+        "beta": 19,
+        "gamma": 21,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 4,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 22,
+        "alpha": 8,
+        "beta": 17,
+        "gamma": 21,
+        "max_period": 220,
+        "order3": 220
+      },
+      {
+        "N": 12,
+        "alpha": 7,
+        "beta": 5,
+        "gamma": 10,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 14,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 7,
+        "max_period": 21,
+        "order3": 21
+      },
+      {
+        "N": 6,
+        "alpha": 2,
+        "beta": 1,
+        "gamma": 4,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 14,
+        "alpha": 0,
+        "beta": 3,
+        "gamma": 2,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 23,
+        "alpha": 0,
+        "beta": 16,
+        "gamma": 13,
+        "max_period": 22,
+        "order3": 22
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 17,
+        "alpha": 3,
+        "beta": 2,
+        "gamma": 9,
+        "max_period": 272,
+        "order3": 272
+      },
+      {
+        "N": 14,
+        "alpha": 3,
+        "beta": 5,
+        "gamma": 2,
+        "max_period": 21,
+        "order3": 21
+      },
+      {
+        "N": 23,
+        "alpha": 9,
+        "beta": 5,
+        "gamma": 14,
+        "max_period": 11,
+        "order3": 11
+      },
+      {
+        "N": 16,
+        "alpha": 9,
+        "beta": 1,
+        "gamma": 7,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 3,
+        "beta": 4,
+        "gamma": 3,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 23,
+        "alpha": 21,
+        "beta": 1,
+        "gamma": 7,
+        "max_period": 22,
+        "order3": 22
+      },
+      {
+        "N": 25,
+        "alpha": 9,
+        "beta": 6,
+        "gamma": 4,
+        "max_period": 100,
+        "order3": 100
+      },
+      {
+        "N": 5,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 10,
+        "order3": 10
+      },
+      {
+        "N": 24,
+        "alpha": 20,
+        "beta": 1,
+        "gamma": 14,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 29,
+        "alpha": 17,
+        "beta": 11,
+        "gamma": 16,
+        "max_period": 280,
+        "order3": 280
+      },
+      {
+        "N": 8,
+        "alpha": 6,
+        "beta": 3,
+        "gamma": 1,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 18,
+        "alpha": 2,
+        "beta": 7,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 11,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 6,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 28,
+        "alpha": 23,
+        "beta": 27,
+        "gamma": 22,
+        "max_period": 21,
+        "order3": 21
+      },
+      {
+        "N": 2,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 2,
+        "order3": 2
+      },
+      {
+        "N": 15,
+        "alpha": 3,
+        "beta": 4,
+        "gamma": 2,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 21,
+        "alpha": 3,
+        "beta": 8,
+        "gamma": 14,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 29,
+        "alpha": 20,
+        "beta": 16,
+        "gamma": 24,
+        "max_period": 812,
+        "order3": 812
+      },
+      {
+        "N": 29,
+        "alpha": 26,
+        "beta": 24,
+        "gamma": 7,
+        "max_period": 140,
+        "order3": 140
+      },
+      {
+        "N": 23,
+        "alpha": 3,
+        "beta": 7,
+        "gamma": 16,
+        "max_period": 88,
+        "order3": 88
+      },
+      {
+        "N": 12,
+        "alpha": 11,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 6,
+        "beta": 2,
+        "gamma": 1,
+        "max_period": 42,
+        "order3": 42
+      },
+      {
+        "N": 17,
+        "alpha": 5,
+        "beta": 9,
+        "gamma": 0,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 10,
+        "alpha": 9,
+        "beta": 3,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 29,
+        "alpha": 2,
+        "beta": 22,
+        "gamma": 15,
+        "max_period": 28,
+        "order3": 28
+      },
+      {
+        "N": 23,
+        "alpha": 16,
+        "beta": 3,
+        "gamma": 5,
+        "max_period": 528,
+        "order3": 528
+      },
+      {
+        "N": 20,
+        "alpha": 12,
+        "beta": 3,
+        "gamma": 8,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 19,
+        "alpha": 9,
+        "beta": 16,
+        "gamma": 0,
+        "max_period": 360,
+        "order3": 360
+      },
+      {
+        "N": 29,
+        "alpha": 13,
+        "beta": 9,
+        "gamma": 1,
+        "max_period": 70,
+        "order3": 70
+      },
+      {
+        "N": 20,
+        "alpha": 16,
+        "beta": 7,
+        "gamma": 3,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 26,
+        "alpha": 8,
+        "beta": 5,
+        "gamma": 10,
+        "max_period": 56,
+        "order3": 56
+      },
+      {
+        "N": 27,
+        "alpha": 20,
+        "beta": 22,
+        "gamma": 21,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 13,
+        "alpha": 9,
+        "beta": 11,
+        "gamma": 10,
+        "max_period": 168,
+        "order3": 168
+      },
+      {
+        "N": 25,
+        "alpha": 23,
+        "beta": 2,
+        "gamma": 10,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 14,
+        "alpha": 2,
+        "beta": 13,
+        "gamma": 11,
+        "max_period": 28,
+        "order3": 28
+      },
+      {
+        "N": 19,
+        "alpha": 10,
+        "beta": 3,
+        "gamma": 13,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 13,
+        "alpha": 1,
+        "beta": 10,
+        "gamma": 0,
+        "max_period": 42,
+        "order3": 42
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 17,
+        "alpha": 2,
+        "beta": 10,
+        "gamma": 16,
+        "max_period": 96,
+        "order3": 96
+      },
+      {
+        "N": 27,
+        "alpha": 17,
+        "beta": 20,
+        "gamma": 6,
+        "max_period": 27,
+        "order3": 27
+      },
+      {
+        "N": 5,
+        "alpha": 1,
+        "beta": 4,
+        "gamma": 3,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 5,
+        "alpha": 4,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 21,
+        "alpha": 20,
+        "beta": 11,
+        "gamma": 10,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 18,
+        "alpha": 6,
+        "beta": 13,
+        "gamma": 1,
+        "max_period": 36,
+        "order3": 36
+      },
+      {
+        "N": 2,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 28,
+        "alpha": 15,
+        "beta": 15,
+        "gamma": 25,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 27,
+        "alpha": 15,
+        "beta": 25,
+        "gamma": 23,
+        "max_period": 54,
+        "order3": 54
+      },
+      {
+        "N": 10,
+        "alpha": 7,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 16,
+        "alpha": 13,
+        "beta": 13,
+        "gamma": 15,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 12,
+        "alpha": 4,
+        "beta": 11,
+        "gamma": 9,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 12,
+        "alpha": 7,
+        "beta": 7,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 2,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 19,
+        "alpha": 14,
+        "beta": 4,
+        "gamma": 18,
+        "max_period": 360,
+        "order3": 360
+      },
+      {
+        "N": 21,
+        "alpha": 1,
+        "beta": 13,
+        "gamma": 0,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 3,
+        "alpha": 2,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 24,
+        "alpha": 0,
+        "beta": 19,
+        "gamma": 17,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 21,
+        "alpha": 19,
+        "beta": 16,
+        "gamma": 7,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 29,
+        "alpha": 0,
+        "beta": 2,
+        "gamma": 1,
+        "max_period": 56,
+        "order3": 56
+      },
+      {
+        "N": 7,
+        "alpha": 2,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 11,
+        "alpha": 9,
+        "beta": 3,
+        "gamma": 9,
+        "max_period": 110,
+        "order3": 110
+      },
+      {
+        "N": 9,
+        "alpha": 5,
+        "beta": 7,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 30,
+        "alpha": 18,
+        "beta": 13,
+        "gamma": 27,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 12,
+        "alpha": 5,
+        "beta": 11,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 10,
+        "alpha": 0,
+        "beta": 7,
+        "gamma": 7,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 20,
+        "alpha": 2,
+        "beta": 19,
+        "gamma": 3,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 12,
+        "alpha": 10,
+        "beta": 11,
+        "gamma": 0,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 15,
+        "alpha": 3,
+        "beta": 2,
+        "gamma": 14,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 18,
+        "alpha": 14,
+        "beta": 13,
+        "gamma": 17,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 6,
+        "beta": 3,
+        "gamma": 1,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 28,
+        "alpha": 19,
+        "beta": 11,
+        "gamma": 0,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 28,
+        "alpha": 12,
+        "beta": 17,
+        "gamma": 1,
+        "max_period": 168,
+        "order3": 168
+      },
+      {
+        "N": 23,
+        "alpha": 19,
+        "beta": 6,
+        "gamma": 21,
+        "max_period": 528,
+        "order3": 528
+      },
+      {
+        "N": 5,
+        "alpha": 0,
+        "beta": 4,
+        "gamma": 1,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 8,
+        "alpha": 6,
+        "beta": 1,
+        "gamma": 7,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 15,
+        "alpha": 3,
+        "beta": 8,
+        "gamma": 7,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 25,
+        "alpha": 0,
+        "beta": 9,
+        "gamma": 8,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 24,
+        "alpha": 8,
+        "beta": 11,
+        "gamma": 21,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 24,
+        "alpha": 8,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 27,
+        "alpha": 20,
+        "beta": 19,
+        "gamma": 9,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 5,
+        "alpha": 4,
+        "beta": 1,
+        "gamma": 4,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 24,
+        "alpha": 11,
+        "beta": 1,
+        "gamma": 19,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 25,
+        "alpha": 24,
+        "beta": 14,
+        "gamma": 8,
+        "max_period": 15,
+        "order3": 15
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 19,
+        "alpha": 8,
+        "beta": 18,
+        "gamma": 12,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 27,
+        "alpha": 21,
+        "beta": 1,
+        "gamma": 12,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 30,
+        "alpha": 21,
+        "beta": 19,
+        "gamma": 14,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 27,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 17,
+        "max_period": 54,
+        "order3": 54
+      },
+      {
+        "N": 22,
+        "alpha": 10,
+        "beta": 3,
+        "gamma": 18,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 22,
+        "alpha": 20,
+        "beta": 15,
+        "gamma": 15,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 23,
+        "alpha": 12,
+        "beta": 3,
+        "gamma": 13,
+        "max_period": 22,
+        "order3": 22
+      },
+      {
+        "N": 7,
+        "alpha": 2,
+        "beta": 4,
+        "gamma": 5,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 17,
+        "alpha": 12,
+        "beta": 14,
+        "gamma": 16,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 15,
+        "alpha": 13,
+        "beta": 14,
+        "gamma": 11,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 8,
+        "alpha": 5,
+        "beta": 3,
+        "gamma": 6,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 9,
+        "alpha": 0,
+        "beta": 7,
+        "gamma": 8,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 23,
+        "alpha": 8,
+        "beta": 12,
+        "gamma": 12,
+        "max_period": 528,
+        "order3": 528
+      },
+      {
+        "N": 5,
+        "alpha": 4,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 17,
+        "alpha": 7,
+        "beta": 10,
+        "gamma": 0,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 21,
+        "alpha": 0,
+        "beta": 19,
+        "gamma": 17,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 11,
+        "alpha": 4,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 30,
+        "alpha": 9,
+        "beta": 7,
+        "gamma": 16,
+        "max_period": 60,
+        "order3": 60
+      },
+      {
+        "N": 20,
+        "alpha": 19,
+        "beta": 3,
+        "gamma": 17,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 4,
+        "alpha": 3,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 11,
+        "alpha": 4,
+        "beta": 5,
+        "gamma": 3,
+        "max_period": 10,
+        "order3": 10
+      },
+      {
+        "N": 16,
+        "alpha": 14,
+        "beta": 13,
+        "gamma": 11,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 2,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 22,
+        "alpha": 8,
+        "beta": 13,
+        "gamma": 9,
+        "max_period": 60,
+        "order3": 60
+      },
+      {
+        "N": 8,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 2,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 13,
+        "alpha": 7,
+        "beta": 6,
+        "gamma": 7,
+        "max_period": 168,
+        "order3": 168
+      },
+      {
+        "N": 5,
+        "alpha": 2,
+        "beta": 3,
+        "gamma": 2,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 28,
+        "alpha": 12,
+        "beta": 19,
+        "gamma": 6,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 19,
+        "alpha": 3,
+        "beta": 13,
+        "gamma": 0,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 21,
+        "alpha": 9,
+        "beta": 16,
+        "gamma": 17,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 23,
+        "alpha": 6,
+        "beta": 14,
+        "gamma": 17,
+        "max_period": 253,
+        "order3": 253
+      },
+      {
+        "N": 12,
+        "alpha": 7,
+        "beta": 11,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 24,
+        "alpha": 9,
+        "beta": 23,
+        "gamma": 10,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 13,
+        "alpha": 9,
+        "beta": 11,
+        "gamma": 10,
+        "max_period": 168,
+        "order3": 168
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 27,
+        "alpha": 20,
+        "beta": 19,
+        "gamma": 9,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 30,
+        "alpha": 8,
+        "beta": 23,
+        "gamma": 25,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 22,
+        "alpha": 0,
+        "beta": 21,
+        "gamma": 2,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 7,
+        "alpha": 2,
+        "beta": 4,
+        "gamma": 5,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 15,
+        "alpha": 8,
+        "beta": 14,
+        "gamma": 10,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 26,
+        "alpha": 14,
+        "beta": 19,
+        "gamma": 5,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 22,
+        "alpha": 3,
+        "beta": 7,
+        "gamma": 1,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 17,
+        "alpha": 11,
+        "beta": 10,
+        "gamma": 9,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 28,
+        "alpha": 22,
+        "beta": 25,
+        "gamma": 13,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 8,
+        "alpha": 7,
+        "beta": 3,
+        "gamma": 5,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 21,
+        "alpha": 4,
+        "beta": 19,
+        "gamma": 8,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 18,
+        "alpha": 5,
+        "beta": 5,
+        "gamma": 14,
+        "max_period": 9,
+        "order3": 9
+      },
+      {
+        "N": 11,
+        "alpha": 4,
+        "beta": 5,
+        "gamma": 3,
+        "max_period": 10,
+        "order3": 10
+      },
+      {
+        "N": 27,
+        "alpha": 3,
+        "beta": 19,
+        "gamma": 11,
+        "max_period": 54,
+        "order3": 54
+      },
+      {
+        "N": 17,
+        "alpha": 9,
+        "beta": 6,
+        "gamma": 13,
+        "max_period": 288,
+        "order3": 288
+      },
+      {
+        "N": 24,
+        "alpha": 5,
+        "beta": 5,
+        "gamma": 8,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 5,
+        "alpha": 3,
+        "beta": 3,
+        "gamma": 2,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 9,
+        "alpha": 1,
+        "beta": 7,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 11,
+        "alpha": 8,
+        "beta": 5,
+        "gamma": 9,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 8,
+        "alpha": 6,
+        "beta": 7,
+        "gamma": 3,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 12,
+        "alpha": 6,
+        "beta": 1,
+        "gamma": 9,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 20,
+        "alpha": 11,
+        "beta": 13,
+        "gamma": 13,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 2,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 8,
+        "alpha": 6,
+        "beta": 7,
+        "gamma": 4,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 5,
+        "alpha": 4,
+        "beta": 2,
+        "gamma": 4,
+        "max_period": 20,
+        "order3": 20
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 17,
+        "alpha": 13,
+        "beta": 5,
+        "gamma": 7,
+        "max_period": 272,
+        "order3": 272
+      },
+      {
+        "N": 25,
+        "alpha": 7,
+        "beta": 6,
+        "gamma": 11,
+        "max_period": 60,
+        "order3": 60
+      },
+      {
+        "N": 26,
+        "alpha": 25,
+        "beta": 9,
+        "gamma": 7,
+        "max_period": 84,
+        "order3": 84
+      },
+      {
+        "N": 28,
+        "alpha": 25,
+        "beta": 11,
+        "gamma": 3,
+        "max_period": 42,
+        "order3": 42
+      },
+      {
+        "N": 10,
+        "alpha": 8,
+        "beta": 3,
+        "gamma": 5,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 30,
+        "alpha": 17,
+        "beta": 13,
+        "gamma": 10,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 21,
+        "alpha": 20,
+        "beta": 11,
+        "gamma": 10,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 27,
+        "alpha": 24,
+        "beta": 1,
+        "gamma": 13,
+        "max_period": 54,
+        "order3": 54
+      },
+      {
+        "N": 24,
+        "alpha": 19,
+        "beta": 5,
+        "gamma": 17,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 9,
+        "alpha": 1,
+        "beta": 8,
+        "gamma": 3,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 17,
+        "alpha": 1,
+        "beta": 9,
+        "gamma": 13,
+        "max_period": 144,
+        "order3": 144
+      },
+      {
+        "N": 17,
+        "alpha": 14,
+        "beta": 10,
+        "gamma": 4,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 24,
+        "alpha": 18,
+        "beta": 5,
+        "gamma": 22,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 27,
+        "alpha": 4,
+        "beta": 16,
+        "gamma": 8,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 20,
+        "alpha": 8,
+        "beta": 3,
+        "gamma": 5,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 18,
+        "alpha": 11,
+        "beta": 17,
+        "gamma": 17,
+        "max_period": 9,
+        "order3": 9
+      },
+      {
+        "N": 9,
+        "alpha": 3,
+        "beta": 2,
+        "gamma": 7,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 29,
+        "alpha": 14,
+        "beta": 23,
+        "gamma": 2,
+        "max_period": 420,
+        "order3": 420
+      },
+      {
+        "N": 15,
+        "alpha": 0,
+        "beta": 13,
+        "gamma": 7,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 26,
+        "alpha": 3,
+        "beta": 25,
+        "gamma": 9,
+        "max_period": 42,
+        "order3": 42
+      },
+      {
+        "N": 30,
+        "alpha": 5,
+        "beta": 13,
+        "gamma": 4,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 16,
+        "alpha": 4,
+        "beta": 7,
+        "gamma": 14,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 15,
+        "alpha": 13,
+        "beta": 13,
+        "gamma": 4,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 18,
+        "alpha": 16,
+        "beta": 7,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 5,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 8,
+        "alpha": 3,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 8,
+        "alpha": 5,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 8,
+        "alpha": 2,
+        "beta": 7,
+        "gamma": 2,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 25,
+        "alpha": 16,
+        "beta": 8,
+        "gamma": 16,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 15,
+        "alpha": 10,
+        "beta": 14,
+        "gamma": 4,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 17,
+        "alpha": 15,
+        "beta": 2,
+        "gamma": 2,
+        "max_period": 144,
+        "order3": 144
+      },
+      {
+        "N": 12,
+        "alpha": 9,
+        "beta": 1,
+        "gamma": 7,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 16,
+        "alpha": 6,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 11,
+        "alpha": 7,
+        "beta": 4,
+        "gamma": 8,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 11,
+        "alpha": 5,
+        "beta": 3,
+        "gamma": 10,
+        "max_period": 10,
+        "order3": 10
+      },
+      {
+        "N": 17,
+        "alpha": 0,
+        "beta": 14,
+        "gamma": 7,
+        "max_period": 32,
+        "order3": 32
+      },
+      {
+        "N": 2,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 2,
+        "order3": 2
+      },
+      {
+        "N": 29,
+        "alpha": 6,
+        "beta": 17,
+        "gamma": 15,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 14,
+        "order3": 14
+      },
+      {
+        "N": 16,
+        "alpha": 7,
+        "beta": 13,
+        "gamma": 9,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 11,
+        "alpha": 0,
+        "beta": 10,
+        "gamma": 6,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 8,
+        "alpha": 4,
+        "beta": 3,
+        "gamma": 3,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 25,
+        "alpha": 7,
+        "beta": 21,
+        "gamma": 22,
+        "max_period": 60,
+        "order3": 60
+      },
+      {
+        "N": 30,
+        "alpha": 15,
+        "beta": 19,
+        "gamma": 21,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 2,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 18,
+        "alpha": 16,
+        "beta": 7,
+        "gamma": 2,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 27,
+        "alpha": 19,
+        "beta": 17,
+        "gamma": 18,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 18,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 10,
+        "alpha": 7,
+        "beta": 7,
+        "gamma": 7,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 23,
+        "alpha": 2,
+        "beta": 9,
+        "gamma": 9,
+        "max_period": 176,
+        "order3": 176
+      },
+      {
+        "N": 4,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 2,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 14,
+        "alpha": 0,
+        "beta": 5,
+        "gamma": 2,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 22,
+        "alpha": 7,
+        "beta": 1,
+        "gamma": 21,
+        "max_period": 30,
+        "order3": 30
+      },
+      {
+        "N": 11,
+        "alpha": 1,
+        "beta": 8,
+        "gamma": 0,
+        "max_period": 110,
+        "order3": 110
+      },
+      {
+        "N": 22,
+        "alpha": 8,
+        "beta": 3,
+        "gamma": 6,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 11,
+        "alpha": 9,
+        "beta": 1,
+        "gamma": 9,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 7,
+        "alpha": 0,
+        "beta": 2,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 24,
+        "alpha": 5,
+        "beta": 19,
+        "gamma": 16,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 28,
+        "alpha": 16,
+        "beta": 23,
+        "gamma": 1,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 27,
+        "alpha": 15,
+        "beta": 10,
+        "gamma": 0,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 11,
+        "alpha": 10,
+        "beta": 6,
+        "gamma": 3,
+        "max_period": 10,
+        "order3": 10
+      },
+      {
+        "N": 7,
+        "alpha": 2,
+        "beta": 4,
+        "gamma": 0,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 30,
+        "alpha": 6,
+        "beta": 7,
+        "gamma": 11,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 14,
+        "alpha": 4,
+        "beta": 13,
+        "gamma": 8,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 21,
+        "alpha": 3,
+        "beta": 8,
+        "gamma": 10,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 19,
+        "alpha": 10,
+        "beta": 10,
+        "gamma": 17,
+        "max_period": 171,
+        "order3": 171
+      },
+      {
+        "N": 18,
+        "alpha": 10,
+        "beta": 1,
+        "gamma": 16,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 18,
+        "alpha": 13,
+        "beta": 1,
+        "gamma": 14,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 16,
+        "alpha": 15,
+        "beta": 3,
+        "gamma": 0,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 10,
+        "alpha": 7,
+        "beta": 7,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 29,
+        "alpha": 8,
+        "beta": 2,
+        "gamma": 18,
+        "max_period": 280,
+        "order3": 280
+      },
+      {
+        "N": 4,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 2,
+        "order3": 2
+      },
+      {
+        "N": 24,
+        "alpha": 16,
+        "beta": 13,
+        "gamma": 14,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 27,
+        "alpha": 25,
+        "beta": 1,
+        "gamma": 15,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 9,
+        "alpha": 5,
+        "beta": 5,
+        "gamma": 7,
+        "max_period": 9,
+        "order3": 9
+      },
+      {
+        "N": 20,
+        "alpha": 10,
+        "beta": 9,
+        "gamma": 14,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 17,
+        "alpha": 0,
+        "beta": 8,
+        "gamma": 1,
+        "max_period": 16,
+        "order3": 16
+      },
+      {
+        "N": 16,
+        "alpha": 13,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 23,
+        "alpha": 11,
+        "beta": 14,
+        "gamma": 11,
+        "max_period": 22,
+        "order3": 22
+      },
+      {
+        "N": 12,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 10,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 20,
+        "alpha": 14,
+        "beta": 19,
+        "gamma": 18,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 14,
+        "alpha": 1,
+        "beta": 13,
+        "gamma": 8,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 30,
+        "alpha": 14,
+        "beta": 19,
+        "gamma": 7,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 22,
+        "alpha": 3,
+        "beta": 5,
+        "gamma": 19,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 11,
+        "alpha": 10,
+        "beta": 2,
+        "gamma": 5,
+        "max_period": 55,
+        "order3": 55
+      },
+      {
+        "N": 30,
+        "alpha": 2,
+        "beta": 17,
+        "gamma": 16,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 13,
+        "alpha": 11,
+        "beta": 11,
+        "gamma": 5,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 2,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 2,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 4,
+        "order3": 4
+      },
+      {
+        "N": 29,
+        "alpha": 25,
+        "beta": 3,
+        "gamma": 15,
+        "max_period": 28,
+        "order3": 28
+      },
+      {
+        "N": 5,
+        "alpha": 4,
+        "beta": 4,
+        "gamma": 2,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 15,
+        "alpha": 10,
+        "beta": 2,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 14,
+        "alpha": 11,
+        "beta": 5,
+        "gamma": 13,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 29,
+        "alpha": 11,
+        "beta": 21,
+        "gamma": 2,
+        "max_period": 280,
+        "order3": 280
+      },
+      {
+        "N": 2,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 3,
+        "order3": 3
+      },
+      {
+        "N": 9,
+        "alpha": 1,
+        "beta": 8,
+        "gamma": 7,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 22,
+        "alpha": 4,
+        "beta": 9,
+        "gamma": 14,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 11,
+        "alpha": 8,
+        "beta": 1,
+        "gamma": 3,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 14,
+        "alpha": 2,
+        "beta": 9,
+        "gamma": 13,
+        "max_period": 48,
+        "order3": 48
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 2,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 27,
+        "alpha": 10,
+        "beta": 16,
+        "gamma": 11,
+        "max_period": 72,
+        "order3": 72
+      },
+      {
+        "N": 18,
+        "alpha": 4,
+        "beta": 5,
+        "gamma": 8,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 7,
+        "alpha": 6,
+        "beta": 3,
+        "gamma": 6,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 19,
+        "alpha": 2,
+        "beta": 7,
+        "gamma": 11,
+        "max_period": 120,
+        "order3": 120
+      },
+      {
+        "N": 9,
+        "alpha": 8,
+        "beta": 4,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 3,
+        "gamma": 2,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 21,
+        "alpha": 19,
+        "beta": 19,
+        "gamma": 6,
+        "max_period": 24,
+        "order3": 24
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 1,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 9,
+        "alpha": 6,
+        "beta": 4,
+        "gamma": 1,
+        "max_period": 18,
+        "order3": 18
+      },
+      {
+        "N": 20,
+        "alpha": 13,
+        "beta": 13,
+        "gamma": 13,
+        "max_period": 60,
+        "order3": 60
+      },
+      {
+        "N": 22,
+        "alpha": 20,
+        "beta": 21,
+        "gamma": 15,
+        "max_period": 44,
+        "order3": 44
+      },
+      {
+        "N": 26,
+        "alpha": 11,
+        "beta": 1,
+        "gamma": 23,
+        "max_period": 84,
+        "order3": 84
+      },
+      {
+        "N": 24,
+        "alpha": 4,
+        "beta": 5,
+        "gamma": 8,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 5,
+        "alpha": 0,
+        "beta": 2,
+        "gamma": 1,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 22,
+        "alpha": 6,
+        "beta": 15,
+        "gamma": 11,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 6,
+        "alpha": 1,
+        "beta": 5,
+        "gamma": 4,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 2,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 2,
+        "order3": 2
+      },
+      {
+        "N": 3,
+        "alpha": 1,
+        "beta": 2,
+        "gamma": 1,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 24,
+        "alpha": 3,
+        "beta": 19,
+        "gamma": 21,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 3,
+        "alpha": 0,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 2,
+        "order3": 2
+      },
+      {
+        "N": 20,
+        "alpha": 10,
+        "beta": 7,
+        "gamma": 4,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 16,
+        "alpha": 4,
+        "beta": 15,
+        "gamma": 8,
+        "max_period": 8,
+        "order3": 8
+      },
+      {
+        "N": 15,
+        "alpha": 7,
+        "beta": 4,
+        "gamma": 2,
+        "max_period": 40,
+        "order3": 40
+      },
+      {
+        "N": 4,
+        "alpha": 1,
+        "beta": 1,
+        "gamma": 0,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 28,
+        "alpha": 25,
+        "beta": 5,
+        "gamma": 12,
+        "max_period": 6,
+        "order3": 6
+      },
+      {
+        "N": 13,
+        "alpha": 9,
+        "beta": 12,
+        "gamma": 12,
+        "max_period": 12,
+        "order3": 12
+      },
+      {
+        "N": 21,
+        "alpha": 15,
+        "beta": 5,
+        "gamma": 10,
+        "max_period": 84,
+        "order3": 84
+      },
+      {
+        "N": 6,
+        "alpha": 5,
+        "beta": 1,
+        "gamma": 3,
+        "max_period": 24,
+        "order3": 24
+      }
+    ],
+    "anchored_associative": {
+      "1": {
+        "max_period": 1,
+        "pisano": 1,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "10": {
+        "max_period": 60,
+        "pisano": 60,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "11": {
+        "max_period": 10,
+        "pisano": 10,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "12": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "13": {
+        "max_period": 28,
+        "pisano": 28,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "14": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "15": {
+        "max_period": 40,
+        "pisano": 40,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "16": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "17": {
+        "max_period": 36,
+        "pisano": 36,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "18": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "19": {
+        "max_period": 18,
+        "pisano": 18,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "2": {
+        "max_period": 3,
+        "pisano": 3,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "20": {
+        "max_period": 60,
+        "pisano": 60,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "21": {
+        "max_period": 16,
+        "pisano": 16,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "22": {
+        "max_period": 30,
+        "pisano": 30,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "23": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "24": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "25": {
+        "max_period": 100,
+        "pisano": 100,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "26": {
+        "max_period": 84,
+        "pisano": 84,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "27": {
+        "max_period": 72,
+        "pisano": 72,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "28": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "29": {
+        "max_period": 14,
+        "pisano": 14,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "3": {
+        "max_period": 8,
+        "pisano": 8,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "30": {
+        "max_period": 120,
+        "pisano": 120,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "31": {
+        "max_period": 30,
+        "pisano": 30,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "32": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "33": {
+        "max_period": 40,
+        "pisano": 40,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "34": {
+        "max_period": 36,
+        "pisano": 36,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "35": {
+        "max_period": 80,
+        "pisano": 80,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "36": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "37": {
+        "max_period": 76,
+        "pisano": 76,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "38": {
+        "max_period": 18,
+        "pisano": 18,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "39": {
+        "max_period": 56,
+        "pisano": 56,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "4": {
+        "max_period": 6,
+        "pisano": 6,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "40": {
+        "max_period": 60,
+        "pisano": 60,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "41": {
+        "max_period": 40,
+        "pisano": 40,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "42": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "43": {
+        "max_period": 88,
+        "pisano": 88,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "44": {
+        "max_period": 30,
+        "pisano": 30,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "45": {
+        "max_period": 120,
+        "pisano": 120,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "46": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "47": {
+        "max_period": 32,
+        "pisano": 32,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "48": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "49": {
+        "max_period": 112,
+        "pisano": 112,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "5": {
+        "max_period": 20,
+        "pisano": 20,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "50": {
+        "max_period": 300,
+        "pisano": 300,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "51": {
+        "max_period": 72,
+        "pisano": 72,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "52": {
+        "max_period": 84,
+        "pisano": 84,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "53": {
+        "max_period": 108,
+        "pisano": 108,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "54": {
+        "max_period": 72,
+        "pisano": 72,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "55": {
+        "max_period": 20,
+        "pisano": 20,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "56": {
+        "max_period": 48,
+        "pisano": 48,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "57": {
+        "max_period": 72,
+        "pisano": 72,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "58": {
+        "max_period": 42,
+        "pisano": 42,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "59": {
+        "max_period": 58,
+        "pisano": 58,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "6": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "60": {
+        "max_period": 120,
+        "pisano": 120,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "7": {
+        "max_period": 16,
+        "pisano": 16,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "8": {
+        "max_period": 12,
+        "pisano": 12,
+        "same_cycle_structure_as_fibonacci": true
+      },
+      "9": {
+        "max_period": 24,
+        "pisano": 24,
+        "same_cycle_structure_as_fibonacci": true
+      }
+    },
+    "anchored_equals_fibonacci": true,
+    "golden_law": {
+      "101/22": {
+        "max_period": 425,
+        "order_companion": 425,
+        "pisano": 50
+      },
+      "101/78": {
+        "max_period": 5100,
+        "order_companion": 5100,
+        "pisano": 50
+      },
+      "109/10": {
+        "max_period": 11880,
+        "order_companion": 11880,
+        "pisano": 108
+      },
+      "109/98": {
+        "max_period": 108,
+        "order_companion": 108,
+        "pisano": 108
+      },
+      "11/3": {
+        "max_period": 120,
+        "order_companion": 120,
+        "pisano": 10
+      },
+      "11/7": {
+        "max_period": 60,
+        "order_companion": 60,
+        "pisano": 10
+      },
+      "121/36": {
+        "max_period": 1320,
+        "order_companion": 1320,
+        "pisano": 110
+      },
+      "121/84": {
+        "max_period": 660,
+        "order_companion": 660,
+        "pisano": 110
+      },
+      "131/11": {
+        "max_period": 130,
+        "order_companion": 130,
+        "pisano": 130
+      },
+      "131/119": {
+        "max_period": 130,
+        "order_companion": 130,
+        "pisano": 130
+      },
+      "139/63": {
+        "max_period": 6440,
+        "order_companion": 6440,
+        "pisano": 46
+      },
+      "139/75": {
+        "max_period": 1610,
+        "order_companion": 1610,
+        "pisano": 46
+      },
+      "145/52": {
+        "max_period": 28,
+        "order_companion": 28,
+        "pisano": 140
+      },
+      "145/92": {
+        "max_period": 420,
+        "order_companion": 420,
+        "pisano": 140
+      },
+      "149/108": {
+        "max_period": 22200,
+        "order_companion": 22200,
+        "pisano": 148
+      },
+      "149/40": {
+        "max_period": 7400,
+        "order_companion": 7400,
+        "pisano": 148
+      },
+      "151/123": {
+        "max_period": 150,
+        "order_companion": 150,
+        "pisano": 50
+      },
+      "151/27": {
+        "max_period": 3800,
+        "order_companion": 3800,
+        "pisano": 50
+      },
+      "155/12": {
+        "max_period": 60,
+        "order_companion": 60,
+        "pisano": 60
+      },
+      "155/142": {
+        "max_period": 960,
+        "order_companion": 960,
+        "pisano": 60
+      },
+      "179/104": {
+        "max_period": 89,
+        "order_companion": 89,
+        "pisano": 178
+      },
+      "179/74": {
+        "max_period": 32040,
+        "order_companion": 32040,
+        "pisano": 178
+      },
+      "181/13": {
+        "max_period": 16380,
+        "order_companion": 16380,
+        "pisano": 90
+      },
+      "181/167": {
+        "max_period": 180,
+        "order_companion": 180,
+        "pisano": 90
+      },
+      "19/14": {
+        "max_period": 342,
+        "order_companion": 342,
+        "pisano": 18
+      },
+      "19/4": {
+        "max_period": 18,
+        "order_companion": 18,
+        "pisano": 18
+      },
+      "191/102": {
+        "max_period": 190,
+        "order_companion": 190,
+        "pisano": 190
+      },
+      "191/88": {
+        "max_period": 190,
+        "order_companion": 190,
+        "pisano": 190
+      },
+      "199/137": {
+        "max_period": 99,
+        "order_companion": 99,
+        "pisano": 22
+      },
+      "199/61": {
+        "max_period": 198,
+        "order_companion": 198,
+        "pisano": 22
+      },
+      "29/23": {
+        "max_period": 28,
+        "order_companion": 28,
+        "pisano": 14
+      },
+      "29/5": {
+        "max_period": 105,
+        "order_companion": 105,
+        "pisano": 14
+      },
+      "31/12": {
+        "max_period": 15,
+        "order_companion": 15,
+        "pisano": 30
+      },
+      "31/18": {
+        "max_period": 960,
+        "order_companion": 960,
+        "pisano": 30
+      },
+      "41/34": {
+        "max_period": 560,
+        "order_companion": 560,
+        "pisano": 40
+      },
+      "41/6": {
+        "max_period": 40,
+        "order_companion": 40,
+        "pisano": 40
+      },
+      "5/2": {
+        "max_period": 4,
+        "order_companion": 4,
+        "pisano": 20
+      },
+      "55/47": {
+        "max_period": 120,
+        "order_companion": 120,
+        "pisano": 20
+      },
+      "55/7": {
+        "max_period": 60,
+        "order_companion": 60,
+        "pisano": 20
+      },
+      "59/25": {
+        "max_period": 3480,
+        "order_companion": 3480,
+        "pisano": 58
+      },
+      "59/33": {
+        "max_period": 29,
+        "order_companion": 29,
+        "pisano": 58
+      },
+      "61/17": {
+        "max_period": 3720,
+        "order_companion": 3720,
+        "pisano": 60
+      },
+      "61/43": {
+        "max_period": 3720,
+        "order_companion": 3720,
+        "pisano": 60
+      },
+      "71/62": {
+        "max_period": 70,
+        "order_companion": 70,
+        "pisano": 70
+      },
+      "71/8": {
+        "max_period": 5040,
+        "order_companion": 5040,
+        "pisano": 70
+      },
+      "79/29": {
+        "max_period": 78,
+        "order_companion": 78,
+        "pisano": 78
+      },
+      "79/49": {
+        "max_period": 6240,
+        "order_companion": 6240,
+        "pisano": 78
+      },
+      "89/79": {
+        "max_period": 88,
+        "order_companion": 88,
+        "pisano": 44
+      },
+      "89/9": {
+        "max_period": 792,
+        "order_companion": 792,
+        "pisano": 44
+      },
+      "95/42": {
+        "max_period": 36,
+        "order_companion": 36,
+        "pisano": 180
+      },
+      "95/52": {
+        "max_period": 684,
+        "order_companion": 684,
+        "pisano": 180
+      }
+    },
+    "golden_law_period_equals_companion_order": true,
+    "groups": {
+      "A4": {
+        "max_period": 16,
+        "n_cycles": 16,
+        "order": 12,
+        "periods": [
+          1,
+          3,
+          8,
+          16
+        ]
+      },
+      "D4": {
+        "max_period": 6,
+        "n_cycles": 16,
+        "order": 8,
+        "periods": [
+          1,
+          3,
+          6
+        ]
+      },
+      "Q8": {
+        "max_period": 6,
+        "n_cycles": 16,
+        "order": 8,
+        "periods": [
+          1,
+          3,
+          6
+        ]
+      },
+      "S3": {
+        "max_period": 8,
+        "n_cycles": 8,
+        "order": 6,
+        "periods": [
+          1,
+          3,
+          6,
+          8
+        ]
+      },
+      "S4": {
+        "max_period": 18,
+        "n_cycles": 70,
+        "order": 24,
+        "periods": [
+          1,
+          3,
+          6,
+          8,
+          16,
+          18
+        ]
+      }
+    },
+    "laver": {
+      "0": {
+        "N": 1,
+        "cycle_lengths": {
+          "1": 1
+        },
+        "is_permutation": true,
+        "laver_facts_hold": true,
+        "max_period": 1,
+        "max_period_is_power_of_2": true,
+        "max_transient": 0,
+        "n_cycles": 1,
+        "periodic_states": 1,
+        "periods": [
+          1
+        ],
+        "predicted_structure": true,
+        "states": 1,
+        "top_two_cycles": true
+      },
+      "1": {
+        "N": 2,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 1
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 1,
+        "n_cycles": 2,
+        "periodic_states": 3,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 4,
+        "top_two_cycles": true
+      },
+      "10": {
+        "N": 1024,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 1023
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 1024,
+        "periodic_states": 2047,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 1048576,
+        "top_two_cycles": true
+      },
+      "2": {
+        "N": 4,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 3
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 3,
+        "n_cycles": 4,
+        "periodic_states": 7,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 16,
+        "top_two_cycles": true
+      },
+      "3": {
+        "N": 8,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 7
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 3,
+        "n_cycles": 8,
+        "periodic_states": 15,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 64,
+        "top_two_cycles": true
+      },
+      "4": {
+        "N": 16,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 15
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 16,
+        "periodic_states": 31,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 256,
+        "top_two_cycles": true
+      },
+      "5": {
+        "N": 32,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 31
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 32,
+        "periodic_states": 63,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 1024,
+        "top_two_cycles": true
+      },
+      "6": {
+        "N": 64,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 63
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 64,
+        "periodic_states": 127,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 4096,
+        "top_two_cycles": true
+      },
+      "7": {
+        "N": 128,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 127
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 128,
+        "periodic_states": 255,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 16384,
+        "top_two_cycles": true
+      },
+      "8": {
+        "N": 256,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 255
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 256,
+        "periodic_states": 511,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 65536,
+        "top_two_cycles": true
+      },
+      "9": {
+        "N": 512,
+        "cycle_lengths": {
+          "1": 1,
+          "2": 511
+        },
+        "is_permutation": false,
+        "laver_facts_hold": true,
+        "max_period": 2,
+        "max_period_is_power_of_2": true,
+        "max_transient": 5,
+        "n_cycles": 512,
+        "periodic_states": 1023,
+        "periods": [
+          1,
+          2
+        ],
+        "predicted_structure": true,
+        "states": 262144,
+        "top_two_cycles": true
+      }
+    },
+    "nimbers": {
+      "16": {
+        "nim_product_max_period": 40,
+        "nim_product_periods": [
+          1,
+          4,
+          8,
+          20,
+          40
+        ],
+        "pisano_of_group_order": 40,
+        "xor_periods": [
+          1,
+          3
+        ]
+      },
+      "256": {
+        "nim_product_max_period": 360,
+        "nim_product_periods": [
+          1,
+          4,
+          8,
+          20,
+          36,
+          40,
+          72,
+          180,
+          360
+        ],
+        "pisano_of_group_order": 360,
+        "xor_periods": [
+          1,
+          3
+        ]
+      }
+    },
+    "odd_law": {
+      "11": {
+        "max_period": 5,
+        "n_cycles": 25,
+        "order_companion": 5
+      },
+      "13": {
+        "max_period": 12,
+        "n_cycles": 20,
+        "order_companion": 12
+      },
+      "15": {
+        "max_period": 24,
+        "n_cycles": 12,
+        "order_companion": 24
+      },
+      "17": {
+        "max_period": 144,
+        "n_cycles": 3,
+        "order_companion": 144
+      },
+      "19": {
+        "max_period": 180,
+        "n_cycles": 3,
+        "order_companion": 180
+      },
+      "21": {
+        "max_period": 48,
+        "n_cycles": 12,
+        "order_companion": 48
+      },
+      "23": {
+        "max_period": 22,
+        "n_cycles": 26,
+        "order_companion": 22
+      },
+      "25": {
+        "max_period": 120,
+        "n_cycles": 7,
+        "order_companion": 120
+      },
+      "27": {
+        "max_period": 54,
+        "n_cycles": 27,
+        "order_companion": 54
+      },
+      "29": {
+        "max_period": 840,
+        "n_cycles": 2,
+        "order_companion": 840
+      },
+      "3": {
+        "max_period": 6,
+        "n_cycles": 3,
+        "order_companion": 6
+      },
+      "31": {
+        "max_period": 320,
+        "n_cycles": 4,
+        "order_companion": 320
+      },
+      "33": {
+        "max_period": 30,
+        "n_cycles": 75,
+        "order_companion": 30
+      },
+      "35": {
+        "max_period": 48,
+        "n_cycles": 27,
+        "order_companion": 48
+      },
+      "37": {
+        "max_period": 36,
+        "n_cycles": 42,
+        "order_companion": 36
+      },
+      "39": {
+        "max_period": 12,
+        "n_cycles": 146,
+        "order_companion": 12
+      },
+      "41": {
+        "max_period": 280,
+        "n_cycles": 7,
+        "order_companion": 280
+      },
+      "43": {
+        "max_period": 308,
+        "n_cycles": 7,
+        "order_companion": 308
+      },
+      "45": {
+        "max_period": 72,
+        "n_cycles": 54,
+        "order_companion": 72
+      },
+      "47": {
+        "max_period": 46,
+        "n_cycles": 50,
+        "order_companion": 46
+      },
+      "49": {
+        "max_period": 336,
+        "n_cycles": 9,
+        "order_companion": 336
+      },
+      "5": {
+        "max_period": 24,
+        "n_cycles": 2,
+        "order_companion": 24
+      },
+      "51": {
+        "max_period": 144,
+        "n_cycles": 21,
+        "order_companion": 144
+      },
+      "53": {
+        "max_period": 936,
+        "n_cycles": 4,
+        "order_companion": 936
+      },
+      "55": {
+        "max_period": 120,
+        "n_cycles": 50,
+        "order_companion": 120
+      },
+      "57": {
+        "max_period": 180,
+        "n_cycles": 21,
+        "order_companion": 180
+      },
+      "59": {
+        "max_period": 58,
+        "n_cycles": 61,
+        "order_companion": 58
+      },
+      "61": {
+        "max_period": 60,
+        "n_cycles": 68,
+        "order_companion": 60
+      },
+      "7": {
+        "max_period": 48,
+        "n_cycles": 2,
+        "order_companion": 48
+      },
+      "9": {
+        "max_period": 18,
+        "n_cycles": 9,
+        "order_companion": 18
+      }
+    },
+    "odd_law_period_equals_companion_order": true,
+    "oeis": {
+      "golden_law_max_period": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          4,
+          120,
+          342,
+          105,
+          960,
+          560,
+          120,
+          3480,
+          3720,
+          5040,
+          6240,
+          792,
+          684,
+          5100,
+          11880,
+          1320,
+          130,
+          6440,
+          420,
+          22200,
+          3800,
+          960,
+          32040,
+          16380,
+          190,
+          198
+        ]
+      },
+      "laver_max_period": {
+        "hits": [
+          {
+            "anumber": "A055642",
+            "name": "Number of digits in the decimal expansion of n."
+          },
+          {
+            "anumber": "A000030",
+            "name": "Initial digit of n."
+          },
+          {
+            "anumber": "A040000",
+            "name": "a(0)=1; a(n)=2 for n >= 1."
+          }
+        ],
+        "status": "MATCH",
+        "terms": [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      "odd_law_max_period_odd_N": {
+        "hits": [],
+        "status": "NO MATCH",
+        "terms": [
+          6,
+          24,
+          48,
+          18,
+          5,
+          12,
+          24,
+          144,
+          180,
+          48,
+          22,
+          120,
+          54,
+          840,
+          320,
+          30,
+          48,
+          36,
+          12,
+          280,
+          308,
+          72,
+          46,
+          336,
+          144,
+          936,
+          120,
+          180,
+          58,
+          60
+        ]
+      }
+    },
+    "summary": [
+      "Laver A_0..A_10 max periods: 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2; not a power of 2 for n in []; cycle structure = 1 fixed point + N-1 two-cycles and Laver's facts hold for all n <= 10: True",
+      "anchored x+y+1 = Fibonacci cycle structure for N <= 60: True",
+      "odd law: max period = ord([[0,1],[1/2,1]]) for odd N <= 61: True; golden law: max period = ord([[0,1],[a,1]]) for all 51 (N, a) with N <= 200: True",
+      "random affine: max period != order of the 3x3 matrix in 0 of 300 cases",
+      "nim-product max periods: [0,16): 40 (pi = 40), [0,256): 360 (pi = 360)",
+      "groups max period: S3: 8, D4: 6, A4: 16, S4: 18, Q8: 6",
+      "OEIS: laver_max_period: MATCH, odd_law_max_period_odd_N: NO MATCH, golden_law_max_period: NO MATCH"
+    ],
+    "timings": {
+      "affine": 0.32,
+      "laver": 4.02
+    }
+  },
+  "results_sha256": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
+  "runtime_s": 13.649,
+  "started": "2026-10-18T17:03:38Z"
+}

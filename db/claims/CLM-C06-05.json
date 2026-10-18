@@ -18,11 +18,29 @@
       "old": "written proof (proofs/paper/C06.md Theorem 4); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02); awaiting independent skeptic review",
       "reason": "Independent skeptic review 2026-10-18 (reviews/skeptic_C03_C04_C06.md) - proof upheld",
       "ts": "2026-10-18T16:49:32Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial, folklore level - centraliser of an N-cycle; count N^(N-1) (OEIS A000169) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C06-05",
-  "novelty": "NOT ASSESSED",
-  "novelty_basis": "Elementary consequence of the fact that the centraliser of an N-cycle consists of its powers.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial, folklore level - centraliser of an N-cycle; count N^(N-1) (OEIS A000169) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C06.md#theorem-4-clm-c06-05--anchored-right-permutable-magmas-x--y--x--cy-nn1-models",
   "proof_check": "written proof (proofs/paper/C06.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C03_C04_C06.md); counts 1, 2, 9, 64, 625 for N <= 5 (EXP-C06-02) and 7776 at N = 6 (Skeptic)",
   "statement": "If (xy)z = (xz)y on Z/N and x*0 = x + 1, then x*y = x + c(y) for a function c with c(0) = 1; conversely every such operation is right-permutable and anchored. Hence there are exactly N^(N-1) anchored right-permutable magmas of size N.",

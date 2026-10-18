@@ -9,10 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "novelty",
+      "new": "POTENTIALLY NOVEL",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C09-06",
-  "novelty": "NOT ASSESSED",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Minor corollary, medium-low confidence (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "proof": "proofs/paper/C09.md#theorem-4-clm-c09-06--a-length-bound-for-factorisations",
   "proof_check": "written proof (proofs/paper/C09.md Theorem 4); 0 violations for n <= 2e5; awaiting independent skeptic review",
   "statement": "If n = a_1 o ... o a_r then |nu'(n)| < |psi|^r; hence (N>=1, o) has bounded factorisation lengths.",

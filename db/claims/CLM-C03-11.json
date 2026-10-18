@@ -9,11 +9,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C03",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial rediscovery - the same closed form appears in A. Geser, Loops of superexponential lengths in one-rule string rewriting, RTA 2002 (LNCS 2378), Theorem 1; that paper is by Geser alone (the earlier record listed three authors) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": "Related to Geser, Hofbauer, Waldmann, \"Loops of superexponential lengths in one-rule string rewriting\" (RTA 2002).",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C03-11",
-  "novelty": "NOT ASSESSED",
-  "novelty_basis": "Related to Geser, Hofbauer, Waldmann, \"Loops of superexponential lengths in one-rule string rewriting\" (RTA 2002).",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial rediscovery - the same closed form appears in A. Geser, Loops of superexponential lengths in one-rule string rewriting, RTA 2002 (LNCS 2378), Theorem 1; that paper is by Geser alone (the earlier record listed three authors) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "For 0 1^q -> 1^(q+1) 0^k the rightmost strategy from 0 1^(q(q+1)) reaches a self-embedding after 16, 32, 64 steps\n(k = 2) and 260, 1556, 9332 steps (k = 6) for q = 4, 5, 6.",
   "system": "SYS-A",
   "title": "Loop lengths in the base family grow like k^q",

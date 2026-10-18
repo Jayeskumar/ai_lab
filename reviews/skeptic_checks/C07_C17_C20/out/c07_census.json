@@ -1,0 +1,170 @@
+{
+ "specs": 512,
+ "distinct_operations_64": 134,
+ "commutative": 34,
+ "associative_operations_64": 11,
+ "associative_specs_64": 44,
+ "nonassociative_specs_with_witness": 468,
+ "associative_groups": [
+  [
+   "empty"
+  ],
+  [
+   "D[x]",
+   "D[x^z]",
+   "D[x]+D[z]",
+   "D[x]+D[x^z]",
+   "D[z]+D[x^z]",
+   "D[x]+D[z]+D[x^z]"
+  ],
+  [
+   "D[y]",
+   "D[y^z]",
+   "D[y]+D[z]",
+   "D[y]+D[y^z]",
+   "D[z]+D[y^z]",
+   "D[y]+D[z]+D[y^z]"
+  ],
+  [
+   "D[z]"
+  ],
+  [
+   "D[x^y^z]",
+   "D[x]+D[x^y^z]",
+   "D[y]+D[x^y^z]",
+   "D[x]+D[y]+D[x^y^z]"
+  ],
+  [
+   "D[x]+D[y]"
+  ],
+  [
+   "D[x]+D[y]+D[z]"
+  ],
+  [
+   "R",
+   "R+D[y]",
+   "R+D[z]",
+   "R+D[y^z]",
+   "R+D[y]+D[z]",
+   "R+D[y]+D[y^z]",
+   "R+D[z]+D[y^z]",
+   "R+D[y]+D[z]+D[y^z]"
+  ],
+  [
+   "L",
+   "L+D[x]",
+   "L+D[z]",
+   "L+D[x^z]",
+   "L+D[x]+D[z]",
+   "L+D[x]+D[x^z]",
+   "L+D[z]+D[x^z]",
+   "L+D[x]+D[z]+D[x^z]"
+  ],
+  [
+   "L+R",
+   "L+R+D[x]",
+   "L+R+D[y]",
+   "L+R+D[x]+D[y]"
+  ],
+  [
+   "L+R+D[z]",
+   "L+R+D[x]+D[z]",
+   "L+R+D[y]+D[z]",
+   "L+R+D[x]+D[y]+D[z]"
+  ]
+ ],
+ "commutative_not_closed_2_4_16": 30,
+ "D[x^y] f(2,3)": 4,
+ "D[x^y] commutative": true,
+ "commutative_zero_neither": [],
+ "theorem2_violations_all_512": [],
+ "same_partition_as_lab": true,
+ "same_associative_groups_as_lab": true,
+ "witness_examples": {
+  "D[x^y]": [
+   2,
+   3,
+   3,
+   6,
+   2
+  ],
+  "D[x]+D[x^y]": [
+   2,
+   3,
+   3,
+   6,
+   2
+  ],
+  "D[y]+D[x^y]": [
+   2,
+   3,
+   3,
+   6,
+   2
+  ],
+  "D[x]+D[y]+D[x^y]": [
+   2,
+   3,
+   3,
+   6,
+   2
+  ],
+  "D[x]+D[y^z]": [
+   2,
+   2,
+   3,
+   3,
+   5
+  ],
+  "D[x]+D[y]+D[y^z]": [
+   2,
+   2,
+   3,
+   3,
+   5
+  ],
+  "D[y]+D[x^z]": [
+   2,
+   3,
+   2,
+   5,
+   3
+  ],
+  "D[x]+D[y]+D[x^z]": [
+   2,
+   3,
+   2,
+   5,
+   3
+  ],
+  "D[x^y]+D[z]": [
+   2,
+   2,
+   5,
+   7,
+   14
+  ],
+  "D[x]+D[x^y]+D[z]": [
+   2,
+   2,
+   5,
+   7,
+   14
+  ],
+  "D[y]+D[x^y]+D[z]": [
+   2,
+   2,
+   5,
+   7,
+   14
+  ],
+  "D[x]+D[y]+D[x^y]+D[z]": [
+   2,
+   2,
+   5,
+   7,
+   14
+  ]
+ },
+ "_seconds": 1.5
+}

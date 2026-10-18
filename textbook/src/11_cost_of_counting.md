@@ -9,6 +9,12 @@ The successor $n \mapsto n+1$ is the most basic operation on quantities. Its
 a natural measure of how well the representation suits counting, and it
 matters in practice (counters in data structures and hardware).
 
+*Which measure.* Throughout this chapter the cost is the Hamming distance
+between the representations of $n$ and $n+1$. Berthé, Frougny, Rigo and
+Sakarovitch (Adv. Appl. Math., 2020) study the related *carry propagation*
+measure systematically; under theirs the Zeckendorf value is $\varphi^2$, not
+the 2 we obtain below. The two measures agree for ordinary bases.
+
 ## Classical constants
 
 **Theorem 11.1** *[PROVEN — written; REDISCOVERY]*. The average cost per
@@ -25,7 +31,8 @@ Gray 1.0, skew binary 1.4999955 with worst case 2.
 The Inventor guessed that the sparse Zeckendorf system (no two adjacent ones)
 would be cheaper to count in than binary. It is not.
 
-**Theorem 11.2** *[PROVEN — written]*. Let $T_m$ be the total cost of counting
+**Theorem 11.2** *[PROVEN — written; REDISCOVERY in substance: OEIS A215005]*.
+Let $T_m$ be the total cost of counting
 from 0 to $G_m - 1$ in the Zeckendorf system ($G = 1, 2, 3, 5, \ldots$). Then
 $$T_{m+1} = T_m + T_{m-1} + \lceil m/2\rceil + 1,\qquad
   T_m = 2G_m - \lceil m/2\rceil - 2,$$

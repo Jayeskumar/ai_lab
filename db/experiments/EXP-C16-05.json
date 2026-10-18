@@ -1,0 +1,65 @@
+{
+  "agent": "Mathematical Explorer",
+  "assumptions": [
+    "deterministic budgets - DFS: 3,000,000 nodes per n (first solution) and 20,000,000 nodes for the partial count at n = 6; SAT (CaDiCaL via pysat): 300,000 conflicts per n; sampling: seeded",
+    "every solution is re-verified by an independent cycle analysis"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C16-05",
+    "file": "experiments/C16/E05_search_methods.py",
+    "sha256": "fd0ea81ce7fc1ef4b772b19c7b27124ab1317ce89eb4e7b228a7b6aeb2737336",
+    "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+  },
+  "cycle": "C16",
+  "falsification": "Exact search succeeding for every n where sampling succeeds, within the same budget.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-18T17:10:08Z"
+    }
+  ],
+  "hypothesis": "H-C16-11 (Explorer): exact search (lexicographic DFS, SAT) scales worse than random sampling of Latin squares, whose success rate is about 1/n^2 per sample.",
+  "id": "EXP-C16-05",
+  "methodology": "For n = 5..10 run the lexicographic DFS and the SAT encoding with the budgets above; count the solutions the DFS enumerates for n = 6 within its budget (a lower bound, normalised cycles); sample 1500 random Latin squares per n and record the success rate.",
+  "question": "Which method finds full-period quasigroups (cycles with all pairs distinct at distances 1 and 2) for growing n, and what does a partial count for n = 6 show?",
+  "results_file": "results/EXP-C16-05.json",
+  "results_sha256": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C16-05",
+        "file": "experiments/C16/E05_search_methods.py",
+        "sha256": "fd0ea81ce7fc1ef4b772b19c7b27124ab1317ce89eb4e7b228a7b6aeb2737336",
+        "systems_sha256": "899b79b2399a001c23095e259d0ad4fe8266d73f76dfe30a55ba2fec4165298d"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:10:08Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C16-05.json",
+      "results_sha256": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
+      "runtime_s": 255.67,
+      "started": "2026-10-18T17:05:52Z",
+      "summary": [
+        "n=5: DFS found (731 nodes), SAT SAT, sampling 30/1500",
+        "n=6: DFS found (2219 nodes), SAT SAT, sampling 22/1500",
+        "n=7: DFS found (68179 nodes), SAT SAT, sampling 21/1500",
+        "n=8: DFS found (222753 nodes), SAT SAT, sampling 22/1500",
+        "n=9: DFS none (3000001 nodes), SAT UNKNOWN, sampling 14/1500",
+        "n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500",
+        "n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)"
+      ]
+    }
+  ],
+  "summary": [
+    "n=5: DFS found (731 nodes), SAT SAT, sampling 30/1500",
+    "n=6: DFS found (2219 nodes), SAT SAT, sampling 22/1500",
+    "n=7: DFS found (68179 nodes), SAT SAT, sampling 21/1500",
+    "n=8: DFS found (222753 nodes), SAT SAT, sampling 22/1500",
+    "n=9: DFS none (3000001 nodes), SAT UNKNOWN, sampling 14/1500",
+    "n=10: DFS none (3000001 nodes), SAT UNKNOWN, sampling 9/1500",
+    "n=6 partial DFS count: 1136 solutions in 20000001 nodes (complete: False)"
+  ],
+  "title": "Search methods for full-period quasigroups: depth-first search, SAT and random sampling"
+}

@@ -10,10 +10,29 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T08:13:57Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "NOT ASSESSED",
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Trivial from F_j o F_k = F_(j+k) (Knuth 1988) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
+      "old": null,
+      "reason": "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)",
+      "ts": "2026-10-18T17:10:10Z"
     }
   ],
   "id": "CLM-C09-02",
-  "novelty": "NOT ASSESSED",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Trivial from F_j o F_k = F_(j+k) (Knuth 1988) (Historian audit 2026-10-18, reviews/historian_C03_C10.md).",
   "statement": "Every n >= 1 has a unique multiset of circle-irreducible factors.",
   "system": "SYS-C",
   "title": "H-C09-2: factorisation into circle irreducibles is unique (refuted)",

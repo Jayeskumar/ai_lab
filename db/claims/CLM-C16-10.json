@@ -1,0 +1,22 @@
+{
+  "cycle": "C16",
+  "evidence": [
+    "EXP-C16-02"
+  ],
+  "history": [
+    {
+      "actor": "sync:C16",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-18T17:10:10Z"
+    }
+  ],
+  "id": "CLM-C16-10",
+  "limitations": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (about 1/n^2 per random Latin square of the right parity) suggest the number of full-period quasigroups grows like L(n)/n^2, but there is no proof. Plain depth-first search and a SAT encoding stall at n = 9, so random sampling was the only method that scaled.",
+  "novelty": "NOT ASSESSED",
+  "statement": "For every n >= 5 there is a quasigroup of order n whose Fibonacci pair map is a single cycle through all n^2 pairs.",
+  "system": "SYS-E",
+  "title": "Full-period quasigroups exist for every order n >= 5",
+  "type": "conjecture",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}

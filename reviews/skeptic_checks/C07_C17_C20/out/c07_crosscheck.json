@@ -1,0 +1,8 @@
+{
+ "window": 16,
+ "specs": 512,
+ "mismatches_C_vs_python": [],
+ "seconds": 4.6,
+ "c64_top_left_equals_c16": true,
+ "_seconds": 4.9
+}

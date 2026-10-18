@@ -23,13 +23,27 @@ pattern is governed by the roots of the sequence's *minimal* recurrence:
 | class of $G$ | sequences | associative shifts |
 |---|---|---|
 | geometric ($G_k = b^k$) | 5 | all $s$ |
-| Pisot (other roots $|\beta| < 1$) | 31 | all $s$ beyond a threshold (most cases) |
+| Pisot (other roots $|\beta| < 1$) | 31 | all $s$ beyond a threshold (most cases; see the correction below) |
 | non-Pisot (some $|\beta| \ge 1$) | 10 | **none** ($s \le 8$) |
 
 Thresholds grow as $|\beta| \to 1$: Pell ($|\beta| = 0.41$) from $s = 1$,
-Fibonacci (0.62) from 2, tribonacci (0.74) from 3, 4-bonacci from 7,
-$G_{k+1} = G_k + G_{k-2}$ (0.83) from 10; $G_{k+1} = G_k + G_{k-3}$
-($|\beta| \approx 0.94$) not yet at $s = 20$.
+Fibonacci (0.62) from 2, tribonacci (0.74) not before 4, 4-bonacci not
+before 8, $G_{k+1} = G_k + G_{k-2}$ (0.83) not before 11;
+$G_{k+1} = G_k + G_{k-3}$ ($|\beta| \approx 0.94$) not yet at $s = 20$.
+
+> **Correction (2026-10-18).** The first version of this chapter gave the
+> thresholds 3 (tribonacci), 7 (4-bonacci), 10 ($G_k + G_{k-2}$) and 5
+> ($G_{k+1} = 2G_k + 2G_{k-1}$). All four are wrong. The laboratory's
+> Historian found the tribonacci counterexample in the literature —
+> $(10016 \circ_3 10016) \circ_3 1 = 3414681926 \ne 3414681924 =
+> 10016 \circ_3 (10016 \circ_3 1)$, the example by which Ambrož, Frougny,
+> Masáková and Pelantová (2003) refuted a conjecture of Arnoux — and one more
+> by computation. A certificate-producing re-test (EXP-C08-06) found the
+> other two. The original tests sampled random triples up to $10^6$, and
+> such sampling misses rare failures. Every failure quoted above is now
+> certified by an explicit triple; every "from $s$" is a search result,
+> proved only where the literature proves it (Fibonacci: Lean; Pell:
+> Messaoudi 2000; tribonacci $s \ge 6$ and 4-bonacci $s \ge 10$: Messaoudi).
 
 ## Why: a twisted embedding into an algebraic number field
 
@@ -57,17 +71,21 @@ window of greedy expansions, if $|\beta| \ge 1$ nothing can.
 
 ## A surprise: non-monotone thresholds
 
-For $G = 1, 3, 4, 7, 11, \ldots$ (a Lucas-type sequence) the product is
-associative for $s = 2$, *not* for $s = 3$, and again for all $s \ge 4$ —
-confirmed on inputs up to $10^6$. Our explanation: $\beta^s$ alternates in
+For $G = 1, 3, 4, 7, 11, \ldots$ (a Lucas-type sequence) no failure is found
+for $s = 2$, $s = 3$ fails (certified), and no failure is found again for
+$s \ge 4$ — even under the stronger search of EXP-C08-06. Our explanation: $\beta^s$ alternates in
 sign when $\beta < 0$, and the window is asymmetric about 0 (for Fibonacci
 $(-0.382, 0.618)$), so an odd shift can push a product's conjugate out.
 
-**Conjecture 9.2** *[COMPUTATIONALLY SUPPORTED; POTENTIALLY NOVEL]*. For
-quadratic Pisot sequences with positive conjugate root the associative shifts
-form an upward-closed set; non-monotone sets occur only for negative
-conjugates. *Evidence:* 30/30 positive-$\beta$ sequences upward-closed; all
-10 non-monotone cases among 60 negative-$\beta$ sequences (EXP-C08-04).
+**Conjecture 9.2** *[COMPUTATIONALLY SUPPORTED; POTENTIALLY NOVEL (low)]*.
+For quadratic Pisot sequences with positive conjugate root the associative
+shifts form an upward-closed set; non-monotone sets occur only for negative
+conjugates — and, as the Historian pointed out, only for *non-canonical*
+initial values: for canonical sequences Messaoudi's criterion implies
+upward-closure whatever the sign of $\beta$. *Evidence (after the certified
+re-test, EXP-C08-06):* 0 of 30 positive-$\beta$ sequences non-monotone; 10
+non-monotone sequences, all non-canonical with $\beta < 0$. Two of the
+original ten examples were artefacts of random testing.
 
 **Conjecture 9.3** *[COMPUTATIONALLY SUPPORTED]*. For non-Pisot sequences the
 circle product is non-associative at every shift.
@@ -76,11 +94,15 @@ circle product is non-associative at every shift.
 
 Knuth (1988) proved associativity for Fibonacci; Arnoux (1989) found the
 $\mathbb{Z}[\varphi]$ embedding; Grabner, Pethő, Tichy and Woeginger (1994)
-proved associativity for dominant-root recurrences once a parameter is large
-enough — our Pisot observations are a **rediscovery** of their theorem; a
-Math. Slovaca paper (2000) treats length-2 recurrences and Tribonacci. We did
-not find the non-Pisot statement or the sign phenomenon in our (limited)
-search.
+proved eventual associativity for recurrences with non-increasing
+coefficients and canonical initial values — our Pisot observations are a
+**rediscovery** of their theorem in that range (the first version of this
+chapter overstated it as "all Pisot sequences"). A. Messaoudi (Math. Slovaca
+2000) characterises associativity by the stability of the conjugate window —
+exactly our mechanism — and proves the Fibonacci case for all $s \ge 2$;
+Ambrož, Frougny, Masáková and Pelantová (2003) bound the fractional digits of
+products of tribonacci integers. We did not find the non-Pisot statement or
+the sign phenomenon.
 
 ## Open questions
 

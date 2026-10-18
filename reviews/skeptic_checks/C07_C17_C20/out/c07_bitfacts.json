@@ -1,0 +1,12 @@
+{
+ "J1_all_k_le_60": true,
+ "J2a_fails_at": [
+  1
+ ],
+ "J2b_fails_at": [],
+ "recurrence": true,
+ "X_violations_c_le_2048": 0,
+ "proof_case_failures_k_3_20": [],
+ "n_proof_case_failures": 0,
+ "_seconds": 0.7
+}
