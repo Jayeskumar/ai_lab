@@ -8,7 +8,7 @@
     "command": "python -m lab run EXP-C15-05",
     "file": "experiments/C15/E05_case_studies.py",
     "sha256": "52d0846d387b3832fd45eadbd44abae7cf8025bb3cb4944aeb81bf3ea09a9789",
-    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "cycle": "C15",
   "falsification": "A fuse width differing from t + 2, coinciding residuals in the lower-bound family, or a non-surjective or permutive rectangular band.",
@@ -77,6 +77,28 @@
       "results_sha256": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
       "runtime_s": 7.762,
       "started": "2026-10-18T16:37:53Z",
+      "summary": [
+        "fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}",
+        "Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]",
+        "GF(4) mult lambda bounded: 4; XOR[0,4) widths 4",
+        "rectangular band order 4: surjective True, injective True, permutive False",
+        "OEIS: surjective tables n=1,2,3: MATCH ['A273820']; x+y mod 3: essential cells of F_t: MATCH ['A006047', 'A130830']; widths of [[0,1,2],[2,0,0],[1,2,0]]: NO MATCH []"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C15-05",
+        "file": "experiments/C15/E05_case_studies.py",
+        "sha256": "52d0846d387b3832fd45eadbd44abae7cf8025bb3cb4944aeb81bf3ea09a9789",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:45:59Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C15-05.json",
+      "results_sha256": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
+      "runtime_s": 1.728,
+      "started": "2026-10-18T17:45:58Z",
       "summary": [
         "fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}",
         "Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]",

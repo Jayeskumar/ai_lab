@@ -111,12 +111,12 @@ static int laver(int EMAX) {
         long N = 1L << e;
         uint16_t *T = malloc(sizeof(uint16_t) * (N + 1) * (N + 1));
         /* 1-based Laver table: p*1 = p+1 mod N (in 1..N), p*(q+1) = (p*q)*(p+1); rows from N down to 1 */
-        for (long p = N; p >= 1; p--) {
-            T[p * (N + 1) + 1] = (uint16_t)(p % N + 1);
+        for (long q = 1; q <= N; q++) T[N * (N + 1) + q] = (uint16_t)q;   /* N is a left identity */
+        for (long p = N - 1; p >= 1; p--) {
+            T[p * (N + 1) + 1] = (uint16_t)(p + 1);
             for (long q = 1; q < N; q++) {
-                long pq = T[p * (N + 1) + q];
-                long p1 = p % N + 1;
-                T[p * (N + 1) + q + 1] = T[pq * (N + 1) + p1];
+                long pq = T[p * (N + 1) + q];          /* p*q > p: row already computed */
+                T[p * (N + 1) + q + 1] = T[pq * (N + 1) + p + 1];
             }
         }
         /* verify left-distributivity on a sample (all triples for N <= 64) */

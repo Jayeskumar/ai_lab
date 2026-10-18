@@ -1,0 +1,155 @@
+{
+ "python_N_le_200_solutions": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128
+ ],
+ "python_N_le_200_stuck": [],
+ "c_N_le_4096_solutions": [
+  1,
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256,
+  512,
+  1024,
+  2048,
+  4096
+ ],
+ "c_N_le_4096_stuck": [],
+ "c_last_line": [
+  "done NMAX=4096 solutions=13 stuck=0"
+ ],
+ "powers_of_two": {
+  "1": {
+   "equals_laver": true,
+   "LD": true
+  },
+  "2": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "4": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "8": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "16": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "32": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "64": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "128": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "256": {
+   "equals_laver": false,
+   "LD": true
+  },
+  "512": {
+   "equals_laver": false,
+   "LD": true
+  }
+ },
+ "sat_enumeration": {
+  "2": {
+   "models": 1,
+   "complete": true,
+   "equal_forced": [
+    true
+   ],
+   "LD": [
+    true
+   ]
+  },
+  "3": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "4": {
+   "models": 1,
+   "complete": true,
+   "equal_forced": [
+    true
+   ],
+   "LD": [
+    true
+   ]
+  },
+  "5": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "6": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "7": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "8": {
+   "models": 1,
+   "complete": true,
+   "equal_forced": [
+    true
+   ],
+   "LD": [
+    true
+   ]
+  },
+  "9": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "10": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "11": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  },
+  "12": {
+   "models": 0,
+   "complete": true,
+   "equal_forced": [],
+   "LD": []
+  }
+ },
+ "_seconds": 131.9
+}

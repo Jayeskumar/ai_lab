@@ -1,0 +1,403 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C14-01",
+    "file": "experiments/C14/E01_classification.py",
+    "sha256": "643a23b0e37d58df72a2d86a3cb239ed04efbd4abbe35c7aa2fa1804338855c5",
+    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+  },
+  "env": {
+    "git_head": "f503d24626bd2b073316c2d6a649a6b45c4da44e",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T08:40:47Z",
+  "id": "EXP-C14-01",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "simple graphs (no loops); a product is a subset of the 8 cells (r1,r2) != (E,E)",
+      "strict notions (identity-like canonical maps); isomorphism-level notions in EXP-C14-02",
+      "random test graphs: 40 seeded triples of orders 1..4 per product"
+    ],
+    "cycle": "C14",
+    "falsification": "A code where the relation-level verdict and the graph-level verdict disagree, or a count different from 20/10.",
+    "hypothesis": "H-C14-2 (from the Historian's recollection of Imrich-Izbicki 1975): exactly 20 local products are associative, 10 of them commutative. H-C14-R (reduction lemma, to be proved): the canonical map ((g,h),k) -> (g,(h,k)) is an isomorphism for all G, H, K iff the relation-level identity phi(phi(r1,r2),r3) = phi(r1,phi(r2,r3)) holds on the 26 triples != (E,E,E), and P3*P3*P3 already detects every failure.",
+    "id": "EXP-C14-01",
+    "methodology": "Relation-level check of the 26 triples for every code; independent brute-force check on actual graphs (P3^3 and random triples: adjacency matrices of (G*H)*K and G*(H*K) compared entrywise, the canonical map being the identity on the index g|H||K| + h|K| + k); orbits under transposition and complement-conjugation.",
+    "question": "Which of the 256 local products of simple graphs are (strictly) associative, commutative, unital and distributive over disjoint union?",
+    "seed": 14,
+    "title": "Exhaustive classification of the 256 local graph products"
+  },
+  "results": {
+    "associative_and_both_distributive": [
+      0,
+      1,
+      4,
+      5,
+      8,
+      13
+    ],
+    "associative_orbits": [
+      [
+        0,
+        255
+      ],
+      [
+        1,
+        4,
+        223,
+        253
+      ],
+      [
+        5,
+        221
+      ],
+      [
+        8,
+        127
+      ],
+      [
+        13,
+        93
+      ],
+      [
+        28,
+        31,
+        73,
+        109
+      ],
+      [
+        29,
+        77
+      ],
+      [
+        85,
+        141
+      ]
+    ],
+    "associative_table": [
+      {
+        "cells": "-",
+        "code": 0,
+        "commutative": true,
+        "left_distributive": true,
+        "left_unit": false,
+        "name": "empty",
+        "right_distributive": true,
+        "right_unit": false
+      },
+      {
+        "cells": "EA",
+        "code": 1,
+        "commutative": false,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": true,
+        "right_unit": false
+      },
+      {
+        "cells": "AE",
+        "code": 4,
+        "commutative": false,
+        "left_distributive": true,
+        "left_unit": false,
+        "name": null,
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE",
+        "code": 5,
+        "commutative": true,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": "cartesian",
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "AA",
+        "code": 8,
+        "commutative": true,
+        "left_distributive": true,
+        "left_unit": false,
+        "name": "direct",
+        "right_distributive": true,
+        "right_unit": false
+      },
+      {
+        "cells": "EA AE AA",
+        "code": 13,
+        "commutative": true,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": "strong",
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "AE AA AN",
+        "code": 28,
+        "commutative": false,
+        "left_distributive": false,
+        "left_unit": false,
+        "name": null,
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AA AN",
+        "code": 29,
+        "commutative": false,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": "lexicographic",
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "EA EN AE AA AN",
+        "code": 31,
+        "commutative": false,
+        "left_distributive": false,
+        "left_unit": false,
+        "name": null,
+        "right_distributive": true,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AA NA",
+        "code": 73,
+        "commutative": false,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": false
+      },
+      {
+        "cells": "EA AE AA NA",
+        "code": 77,
+        "commutative": false,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AN NA",
+        "code": 85,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": "symmetric difference",
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AA AN NA",
+        "code": 93,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": "co-normal",
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AA NE NA",
+        "code": 109,
+        "commutative": false,
+        "left_distributive": true,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": false
+      },
+      {
+        "cells": "EA EN AE AA AN NE NA",
+        "code": 127,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": false,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": false
+      },
+      {
+        "cells": "EA AE AA NN",
+        "code": 141,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AA AN NA NN",
+        "code": 221,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA EN AE AA AN NA NN",
+        "code": 223,
+        "commutative": false,
+        "left_distributive": false,
+        "left_unit": false,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": true
+      },
+      {
+        "cells": "EA AE AA AN NE NA NN",
+        "code": 253,
+        "commutative": false,
+        "left_distributive": false,
+        "left_unit": true,
+        "name": null,
+        "right_distributive": false,
+        "right_unit": false
+      },
+      {
+        "cells": "EA EN AE AA AN NE NA NN",
+        "code": 255,
+        "commutative": true,
+        "left_distributive": false,
+        "left_unit": false,
+        "name": "complete",
+        "right_distributive": false,
+        "right_unit": false
+      }
+    ],
+    "associativity_orbit_invariant": true,
+    "defect_histogram": {
+      "0": 20,
+      "1": 4,
+      "2": 6,
+      "3": 8,
+      "4": 24,
+      "5": 8,
+      "6": 34,
+      "7": 12,
+      "8": 36,
+      "9": 4,
+      "10": 20,
+      "11": 16,
+      "12": 26,
+      "14": 6,
+      "15": 12,
+      "16": 8,
+      "18": 6,
+      "20": 2,
+      "24": 4
+    },
+    "n_associative": 20,
+    "n_associative_commutative": 10,
+    "n_commutative_total": 32,
+    "n_orbits": 76,
+    "n_products": 256,
+    "named_products": {
+      "cartesian": {
+        "associative": true,
+        "code": 5,
+        "commutative": true
+      },
+      "co-normal": {
+        "associative": true,
+        "code": 93,
+        "commutative": true
+      },
+      "complete": {
+        "associative": true,
+        "code": 255,
+        "commutative": true
+      },
+      "direct": {
+        "associative": true,
+        "code": 8,
+        "commutative": true
+      },
+      "empty": {
+        "associative": true,
+        "code": 0,
+        "commutative": true
+      },
+      "homomorphic": {
+        "associative": false,
+        "code": 23,
+        "commutative": false
+      },
+      "lexicographic": {
+        "associative": true,
+        "code": 29,
+        "commutative": false
+      },
+      "modular": {
+        "associative": false,
+        "code": 136,
+        "commutative": true
+      },
+      "rejection": {
+        "associative": false,
+        "code": 162,
+        "commutative": true
+      },
+      "strong": {
+        "associative": true,
+        "code": 13,
+        "commutative": true
+      },
+      "symmetric difference": {
+        "associative": true,
+        "code": 85,
+        "commutative": true
+      }
+    },
+    "non_associative_detected_by_random_triples": 236,
+    "relation_vs_graph_disagreements": [],
+    "summary": [
+      "20 associative products, 10 of them commutative (32 commutative in total)",
+      "two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']",
+      "relation-level vs graph-level disagreements: 0",
+      "76 orbits under <transpose, conjugate>; associativity orbit-invariant: True"
+    ],
+    "two_sided_unit": [
+      5,
+      13,
+      29,
+      77,
+      85,
+      93,
+      141,
+      221
+    ],
+    "two_sided_unit_named": [
+      "cartesian",
+      "strong",
+      "lexicographic",
+      "EA AE AA NA",
+      "symmetric difference",
+      "co-normal",
+      "EA AE AA NN",
+      "EA AE AA AN NA NN"
+    ]
+  },
+  "results_sha256": "98a25916b494a20da66a9944723ced4d164d1a6ca57036625c2513c27e1587f8",
+  "runtime_s": 0.227,
+  "started": "2026-10-18T08:40:47Z"
+}

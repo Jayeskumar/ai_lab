@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C14-01",
     "file": "experiments/C14/E01_classification.py",
     "sha256": "643a23b0e37d58df72a2d86a3cb239ed04efbd4abbe35c7aa2fa1804338855c5",
-    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "cycle": "C14",
   "falsification": "A code where the relation-level verdict and the graph-level verdict disagree, or a count different from 20/10.",
@@ -98,6 +98,27 @@
       "results_sha256": "98a25916b494a20da66a9944723ced4d164d1a6ca57036625c2513c27e1587f8",
       "runtime_s": 0.227,
       "started": "2026-10-18T08:40:47Z",
+      "summary": [
+        "20 associative products, 10 of them commutative (32 commutative in total)",
+        "two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']",
+        "relation-level vs graph-level disagreements: 0",
+        "76 orbits under <transpose, conjugate>; associativity orbit-invariant: True"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-01",
+        "file": "experiments/C14/E01_classification.py",
+        "sha256": "643a23b0e37d58df72a2d86a3cb239ed04efbd4abbe35c7aa2fa1804338855c5",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:45:52Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C14-01.json",
+      "results_sha256": "98a25916b494a20da66a9944723ced4d164d1a6ca57036625c2513c27e1587f8",
+      "runtime_s": 0.207,
+      "started": "2026-10-18T17:45:52Z",
       "summary": [
         "20 associative products, 10 of them commutative (32 commutative in total)",
         "two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']",

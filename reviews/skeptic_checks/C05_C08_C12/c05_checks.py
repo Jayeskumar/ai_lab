@@ -210,12 +210,17 @@ def encode(t, n, latin_rows=False, latin_cols=False, symbreak=True, idempotent=F
     return E, m
 
 
-def solve(t, n, solver="cadical195", budget_s=None, **kw):
+def solve(t, n, solver="cadical195", budget_s=None, conf=None, **kw):
+    """conf: conflict budget (solve_limited); budget_s: wall-clock interrupt (NOT honoured by every pysat
+    solver -- CaDiCaL 1.9.5 ignored it in this environment, so the census uses conflict budgets)."""
     E, m = encode(t, n, **kw)
     if any(len(c) == 0 for c in E.cl):
         return "UNSAT", None
     with Solver(name=solver, bootstrap_with=E.cl) as S:
-        if budget_s is None:
+        if conf is not None:
+            S.conf_budget(conf)
+            ok = S.solve_limited()
+        elif budget_s is None:
             ok = S.solve()
         else:
             import threading
@@ -308,7 +313,7 @@ def part_brute3():
 
 
 def part_census():
-    """SAT spectra n = 1..6 for all 115 identities (sound constraints only, 30 s per instance)."""
+    """SAT spectra n = 1..6 for all 115 identities (sound constraints only, 300k conflicts per instance)."""
     ids = nontrivial_identities()
     lab = {r["identity"]: r for r in json.loads((ROOT / "results/EXP-C05-01.json").read_text())["results"]["rows"]}
     res, mism, unknown = {}, [], []
@@ -317,7 +322,7 @@ def part_census():
         key = show(t) + " = x"
         pat = ""
         for n in range(1, 7):
-            st, _ = solve(t, n, budget_s=30, **sound_kw(t))
+            st, _ = solve(t, n, conf=300_000, **sound_kw(t))
             pat += {"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[st]
             if st == "UNKNOWN":
                 unknown.append([key, n])
@@ -333,7 +338,7 @@ def part_census():
 
 
 def part_census78():
-    """n = 7, 8 for one identity per non-full pattern of EXP-C05-02 (40 s per instance, 12 min cap)."""
+    """n = 7, 8 for one identity per non-full pattern of EXP-C05-02 (1M conflicts per instance, 12 min cap)."""
     lab2 = {r["identity"]: r["spectrum_1_8"] for r in json.loads((ROOT / "results/EXP-C05-02.json").read_text())["results"]["rows"]}
     reps = {}
     for key, pat in lab2.items():
@@ -346,7 +351,7 @@ def part_census78():
             if time.time() - t0 > 720:
                 mine += "s"          # skipped for time
                 continue
-            st, _ = solve(t, n, solver="kissat404", budget_s=40, **sound_kw(t))
+            st, _ = solve(t, n, conf=1_000_000, **sound_kw(t))
             mine += {"SAT": "1", "UNSAT": "0", "UNKNOWN": "?"}[st]
         out[key] = {"lab_1_8": pat, "mine_7_8": mine,
                     "agree_where_both_decided": all(a == b or "?" in (a, b) or b == "s" for a, b in zip(pat[6:], mine))}

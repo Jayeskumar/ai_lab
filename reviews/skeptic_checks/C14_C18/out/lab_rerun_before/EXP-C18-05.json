@@ -1,0 +1,369 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C18-05",
+    "file": "experiments/C18/E05_cascade.py",
+    "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
+    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+  },
+  "env": {
+    "git_head": "8c7b7fa755aa4874448f22daf5a151a733a5a29a",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-18T16:48:40Z",
+  "id": "EXP-C18-05",
+  "meta": {
+    "agent": "Application Researcher",
+    "assumptions": [
+      "same keys as EXP-C18-02 (avalanche, seed 1802) and EXP-C18-03 (key sets, seed 1803)",
+      "throughput (batch of 16384 keys of 64 bytes, median of 3, shared machine) is stored under timings only"
+    ],
+    "cycle": "C18",
+    "falsification": "H-C18-7: more than 256 (resp. 256^p) distinct values. H-C18-8: any flag for QC-LS, QC-ISO or QC-NIMINV. H-C18-9: QC-ARP with BIC max < 0.5.",
+    "hypothesis": "H-C18-7: for the reverse-pass hash, keys sharing their first 7 bytes receive at most 256 distinct hash values; for the p-pass forward hash, keys sharing the last 7 message bytes receive at most 256^p values (Theorem 6, checked on data). H-C18-8 (bold): the cascade QC (8 passes, final state output, 8 zero bytes of finalisation) over the random Latin square, the group isotope and the nimber inversion quasigroup has avalanche at the BLAKE2b noise floor, |z| <= 3 and collision ratio within 2% on all four key sets, and no full 64-bit collisions. H-C18-9: the cascade over x + c(y) (ARP) still fails bit independence.",
+    "id": "EXP-C18-05",
+    "methodology": "(a) For 50 random 7-byte prefixes, hash 4096 keys with that prefix (random 9-byte suffixes) with QG-LS p2+rev and count distinct values; for 50 random 7-byte suffixes do the same with the forward 1-pass hash (bound 256). (b) Avalanche, bit independence, chi-square and collisions for the four cascades, exactly as in EXP-C18-02/03.",
+    "question": "EXP-C18-03 showed massive collisions of the tail-output hashes on structured keys. Does the tail-information bound (Theorem 6) account for them exactly, and does a cascade whose output is the final state of 8 parallel passes behave like the good baselines?",
+    "seed": 1805,
+    "title": "Tail-information bound of e-transformation hashes, and an 8-pass cascade with a 64-bit state"
+  },
+  "results": {
+    "H-C18-8_holds": false,
+    "H-C18-9_holds": false,
+    "avalanche": {
+      "BLAKE2b-64": {
+        "bic_max_abs_corr": 0.1124,
+        "bic_mean_abs_corr": 0.0178,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.045,
+        "mean_bias": 0.0089,
+        "mean_flip_rate": 0.4999
+      },
+      "MX64": {
+        "bic_max_abs_corr": 0.1129,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0445,
+        "mean_bias": 0.009,
+        "mean_flip_rate": 0.5
+      },
+      "QC-ARP d8": {
+        "bic_max_abs_corr": 0.1759,
+        "bic_mean_abs_corr": 0.0182,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 5,
+        "deterministic_cells": 0,
+        "max_bias": 0.116,
+        "mean_bias": 0.0108,
+        "mean_flip_rate": 0.5006
+      },
+      "QC-ISO d8": {
+        "bic_max_abs_corr": 0.1064,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.046,
+        "mean_bias": 0.0091,
+        "mean_flip_rate": 0.5002
+      },
+      "QC-LS d8": {
+        "bic_max_abs_corr": 0.108,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0475,
+        "mean_bias": 0.009,
+        "mean_flip_rate": 0.5002
+      },
+      "QC-NIMINV d8": {
+        "bic_max_abs_corr": 0.146,
+        "bic_mean_abs_corr": 0.0179,
+        "cells": 8192,
+        "cells_bias_gt_0.1": 0,
+        "deterministic_cells": 0,
+        "max_bias": 0.0845,
+        "mean_bias": 0.0091,
+        "mean_flip_rate": 0.5003
+      }
+    },
+    "distribution": {
+      "BLAKE2b-64": {
+        "near_duplicates": {
+          "bucket_collisions": 23931,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9993,
+          "z_mask1024": 0.51,
+          "z_mod1021": 0.04
+        },
+        "random": {
+          "bucket_collisions": 24104,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9998,
+          "z_mask1024": 0.6,
+          "z_mod1021": 0.52
+        },
+        "sequential": {
+          "bucket_collisions": 24004,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9956,
+          "z_mask1024": 1.72,
+          "z_mod1021": 0.21
+        },
+        "words": {
+          "bucket_collisions": 24252,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0059,
+          "z_mask1024": 0.39,
+          "z_mod1021": -0.33
+        }
+      },
+      "MX64": {
+        "near_duplicates": {
+          "bucket_collisions": 24065,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0049,
+          "z_mask1024": 0.67,
+          "z_mod1021": 1.64
+        },
+        "random": {
+          "bucket_collisions": 24102,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9997,
+          "z_mask1024": -0.51,
+          "z_mod1021": 2.41
+        },
+        "sequential": {
+          "bucket_collisions": 24199,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0037,
+          "z_mask1024": -0.5,
+          "z_mod1021": 0.57
+        },
+        "words": {
+          "bucket_collisions": 24161,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0022,
+          "z_mask1024": 1.12,
+          "z_mod1021": 0.79
+        }
+      },
+      "QC-ARP d8": {
+        "near_duplicates": {
+          "bucket_collisions": 23968,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0009,
+          "z_mask1024": 0.25,
+          "z_mod1021": -0.55
+        },
+        "random": {
+          "bucket_collisions": 24172,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0026,
+          "z_mask1024": -1.01,
+          "z_mod1021": -0.6
+        },
+        "sequential": {
+          "bucket_collisions": 24096,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9995,
+          "z_mask1024": 2.75,
+          "z_mod1021": 0.45
+        },
+        "words": {
+          "bucket_collisions": 24204,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0039,
+          "z_mask1024": 0.67,
+          "z_mod1021": -0.64
+        }
+      },
+      "QC-ISO d8": {
+        "near_duplicates": {
+          "bucket_collisions": 23849,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9959,
+          "z_mask1024": -1.6,
+          "z_mod1021": -0.61
+        },
+        "random": {
+          "bucket_collisions": 23916,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.992,
+          "z_mask1024": -1.03,
+          "z_mod1021": -0.2
+        },
+        "sequential": {
+          "bucket_collisions": 24179,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0029,
+          "z_mask1024": -0.54,
+          "z_mod1021": 1.79
+        },
+        "words": {
+          "bucket_collisions": 24112,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0001,
+          "z_mask1024": -0.97,
+          "z_mod1021": -0.61
+        }
+      },
+      "QC-LS d8": {
+        "near_duplicates": {
+          "bucket_collisions": 24040,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0039,
+          "z_mask1024": -1.67,
+          "z_mod1021": -1.0
+        },
+        "random": {
+          "bucket_collisions": 23971,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9943,
+          "z_mask1024": 0.54,
+          "z_mod1021": -1.66
+        },
+        "sequential": {
+          "bucket_collisions": 24041,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9972,
+          "z_mask1024": -0.59,
+          "z_mod1021": -0.66
+        },
+        "words": {
+          "bucket_collisions": 24059,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9979,
+          "z_mask1024": 0.07,
+          "z_mod1021": 0.18
+        }
+      },
+      "QC-NIMINV d8": {
+        "near_duplicates": {
+          "bucket_collisions": 24136,
+          "expected": 23947.5,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0079,
+          "z_mask1024": 0.79,
+          "z_mod1021": -1.16
+        },
+        "random": {
+          "bucket_collisions": 24058,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9979,
+          "z_mask1024": 1.68,
+          "z_mod1021": 0.41
+        },
+        "sequential": {
+          "bucket_collisions": 24172,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 1.0026,
+          "z_mask1024": -0.18,
+          "z_mod1021": 0.19
+        },
+        "words": {
+          "bucket_collisions": 24018,
+          "expected": 24109.2,
+          "full_64bit_collisions": 0,
+          "ratio": 0.9962,
+          "z_mask1024": 0.82,
+          "z_mod1021": -3.21
+        }
+      }
+    },
+    "flagged": {
+      "BLAKE2b-64": [],
+      "MX64": [],
+      "QC-ARP d8": [],
+      "QC-ISO d8": [],
+      "QC-LS d8": [],
+      "QC-NIMINV d8": [
+        "words"
+      ]
+    },
+    "summary": [
+      "tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)",
+      "QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none",
+      "QC-ISO d8: mean bias 0.0091, max bias 0.046, BIC max 0.1064, flagged on none",
+      "QC-NIMINV d8: mean bias 0.0091, max bias 0.0845, BIC max 0.146, flagged on ['words']",
+      "QC-ARP d8: mean bias 0.0108, max bias 0.116, BIC max 0.1759, flagged on none",
+      "MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none",
+      "BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none",
+      "H-C18-8 False; H-C18-9 False"
+    ],
+    "tail_bound": {
+      "H-C18-7_holds": true,
+      "forward_1pass_distinct_per_suffix": {
+        "max": 256,
+        "min": 256
+      },
+      "reverse_pass_distinct_per_prefix": {
+        "max": 256,
+        "min": 256
+      }
+    },
+    "timings": {
+      "BLAKE2b-64": {
+        "MB_per_s": 40.87,
+        "seconds": 0.0257
+      },
+      "MX64": {
+        "MB_per_s": 165.4,
+        "seconds": 0.0063
+      },
+      "QC-ARP d8": {
+        "MB_per_s": 9.49,
+        "seconds": 0.1105
+      },
+      "QC-ISO d8": {
+        "MB_per_s": 10.04,
+        "seconds": 0.1045
+      },
+      "QC-LS d8": {
+        "MB_per_s": 12.96,
+        "seconds": 0.0809
+      },
+      "QC-NIMINV d8": {
+        "MB_per_s": 9.52,
+        "seconds": 0.1102
+      }
+    }
+  },
+  "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
+  "runtime_s": 35.152,
+  "started": "2026-10-18T16:48:04Z"
+}

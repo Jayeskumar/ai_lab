@@ -9,7 +9,7 @@
     "command": "python -m lab run EXP-C18-05",
     "file": "experiments/C18/E05_cascade.py",
     "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
-    "systems_sha256": "fcfd176a7cf29e27a061eed4cf305d571d86c6bba9a5d50d5e6604d5c18035c3"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "QC-NIMINV d8: maximal avalanche bias 0.0845 (BLAKE2b 0.045) and z = -3.21 (1021 buckets) on synthetic words (H-C18-8 refuted)",
@@ -98,6 +98,31 @@
       "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
       "runtime_s": 35.152,
       "started": "2026-10-18T16:48:04Z",
+      "summary": [
+        "tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)",
+        "QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none",
+        "QC-ISO d8: mean bias 0.0091, max bias 0.046, BIC max 0.1064, flagged on none",
+        "QC-NIMINV d8: mean bias 0.0091, max bias 0.0845, BIC max 0.146, flagged on ['words']",
+        "QC-ARP d8: mean bias 0.0108, max bias 0.116, BIC max 0.1759, flagged on none",
+        "MX64: mean bias 0.009, max bias 0.0445, BIC max 0.1129, flagged on none",
+        "BLAKE2b-64: mean bias 0.0089, max bias 0.045, BIC max 0.1124, flagged on none",
+        "H-C18-8 False; H-C18-9 False"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C18-05",
+        "file": "experiments/C18/E05_cascade.py",
+        "sha256": "6ab12459308226a750c0c81f0c3852e418d1fabc7ade0d1161400fd307cc9540",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:47:31Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C18-05.json",
+      "results_sha256": "b65260e9bb0972c2bdfd059a2d7d888397133ed4b6b4bcf364dfd65392202862",
+      "runtime_s": 7.963,
+      "started": "2026-10-18T17:47:23Z",
       "summary": [
         "tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)",
         "QC-LS d8: mean bias 0.009, max bias 0.0475, BIC max 0.108, flagged on none",

@@ -13,9 +13,9 @@ int main(int argc, char **argv) {
     int nsol = 0, nstuck = 0;
     for (int N = 1; N <= NMAX; N++) {
         for (long i = 0; i < (long)N * N; i++) T[i] = -1;
+        for (int x = 0; x < N; x++) T[(long)x * N + 0] = (x + 1) % N;   /* anchor column, every row */
         int stuck = 0;
         for (int x = N - 1; x >= 0 && !stuck; x--) {
-            T[(long)x * N + 0] = (x + 1) % N;
             for (int y = 0; y < N - 1; y++) {
                 int v = T[(long)x * N + y];
                 int w = T[(long)v * N + (x + 1) % N];

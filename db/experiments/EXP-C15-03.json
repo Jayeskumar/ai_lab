@@ -10,7 +10,7 @@
     "command": "python -m lab run EXP-C15-03",
     "file": "experiments/C15/E03_algebraic_fast_forward.py",
     "sha256": "37cf5da0d6b7da3ad559f5b7e114a20dce35ef8caf3a4c1548da779a751d04c7",
-    "systems_sha256": "9d9f1f88162dbb1ec95647a1914fce92c3ad7cce4c9678a3d15e96dee2d58da2"
+    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
   },
   "counterexamples": [
     "H-C15-6: the commutative-semigroup method stays below x100 at L = 1024, t = 10^5 (mult mod 3 x62, min x77); the affine and fuse methods never lose to simulation, even at t = 100"
@@ -101,6 +101,24 @@
       "results_sha256": "60337b19e325b45873eb1c0fb43195ffbe656fe4152d00e73965517f0d3a8bbb",
       "runtime_s": 45.725,
       "started": "2026-10-18T09:30:39Z",
+      "summary": [
+        "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C15-03",
+        "file": "experiments/C15/E03_algebraic_fast_forward.py",
+        "sha256": "37cf5da0d6b7da3ad559f5b7e114a20dce35ef8caf3a4c1548da779a751d04c7",
+        "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+      },
+      "error": false,
+      "finished": "2026-10-18T17:46:52Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C15-03.json",
+      "results_sha256": "60337b19e325b45873eb1c0fb43195ffbe656fe4152d00e73965517f0d3a8bbb",
+      "runtime_s": 39.332,
+      "started": "2026-10-18T17:46:13Z",
       "summary": [
         "99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)"
       ]

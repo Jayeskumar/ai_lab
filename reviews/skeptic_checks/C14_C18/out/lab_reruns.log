@@ -1,0 +1,17 @@
+[EXP-C14-01] ok in 0.21s (reproduced previous hash)
+    20 associative products, 10 of them commutative (32 commutative in total)
+    two-sided unit K1: ['cartesian', 'strong', 'lexicographic', 'EA AE AA NA', 'symmetric difference', 'co-normal', 'EA AE AA NN', 'EA AE AA AN NA NN']
+[EXP-C16-01] ok in 3.23s (RESULT HASH CHANGED)
+    max period over all tables: n=2: 4, n=3: 9, n=4: 16
+    permutation pair maps (predicted (n!)^n): n=2: 4 (4), criterion violations 0, n=3: 216 (216), criterion violations 0, n=4: 331776 (331776), criterion violations 0
+[EXP-C15-05] ok in 1.73s (reproduced previous hash)
+    fuse: lambda(t) = t + 2 for t = 1..12: True; residual family (count, distinct) {'6': (2, 2), '8': (2, 2), '10': (3, 3), '12': (3, 3)}
+    Laver A2: widths fw [4, 4, 4, 4, 4, 4, 4, 4, 4]; A3 fw [8, 8, 8, 8, 8, 8]
+[EXP-C18-04] ok in 2.48s (reproduced previous hash)
+    checksums recorded for 34 (hash, length) pairs; throughput (MB/s, indicative) is stored under timings
+[EXP-C15-03] ok in 39.33s (reproduced previous hash)
+    99/99 fast-forward results agree with direct simulation (9 magmas, L in {256, 1024, 4096}, t up to 10^5; t = 10^9 by fast-forward only)
+[EXP-C16-02] ok in 28.80s (reproduced previous hash)
+    full-period quasigroups (exhaustive): n=2: 0 of 2, n=3: 0 of 12, n=4: 0 of 576, n=5: 3360 of 161280
+[EXP-C18-05] ok in 7.96s (reproduced previous hash)
+    tail bound: reverse-pass hash takes 256-256 distinct values on 4096 keys sharing a 7-byte prefix; forward 1-pass hash 256-256 on keys sharing the last 7 message bytes (bound 256)

@@ -504,8 +504,9 @@ def forced_table(N):
     """Unique solution of x*0 = x+1, x*(y+1) = (x*y)*(x+1) for y <= N-2 (rows from N-1 downwards).
     Returns (T, stuck) where stuck is True if a needed row was not yet computed (never expected)."""
     T = [[None] * N for _ in range(N)]
+    for x in range(N):
+        T[x][0] = (x + 1) % N                      # the anchor column is known for every row
     for x in range(N - 1, -1, -1):
-        T[x][0] = (x + 1) % N
         for y in range(N - 1):
             v = T[x][y]
             if T[v][(x + 1) % N] is None:
@@ -537,18 +538,25 @@ def is_ld_np(T):
 
 
 def part_ld():
-    res = {"forced": {}}
-    sols = []
-    for N in range(1, 4097):
+    import subprocess
+    res = {}
+    # Python version (cross-check) for N <= 200
+    sols, stuck_py = [], []
+    for N in range(1, 201):
         T, stuck = forced_table(N)
         if stuck:
-            res["forced"][N] = "stuck"
+            stuck_py.append(N)
             continue
-        wrap = all(T[(x * 1)][0] == T[T[x][N - 1]][(x + 1) % N] for x in range(N))
-        if wrap:
+        if all(T[x][0] == T[T[x][N - 1]][(x + 1) % N] for x in range(N)):
             sols.append(N)
-    res["N_le_4096_with_solution"] = sols
-    res["stuck_any"] = [N for N, v in res["forced"].items() if v == "stuck"]
+    res["python_N_le_200_solutions"] = sols
+    res["python_N_le_200_stuck"] = stuck_py
+    # C version for N <= 4096
+    out = subprocess.run(["nice", "-n", "10", os.path.join(HERE, "ldforce"), "4096"], capture_output=True,
+                         text=True, check=True).stdout.split("\n")
+    res["c_N_le_4096_solutions"] = [int(s.split()[1]) for s in out if s.startswith("solution")]
+    res["c_N_le_4096_stuck"] = [int(s.split()[1]) for s in out if s.startswith("stuck")]
+    res["c_last_line"] = [s for s in out if s.startswith("done")]
     # forced table = Laver table and LD at powers of two (N <= 512)
     lv = {}
     for n in range(0, 10):

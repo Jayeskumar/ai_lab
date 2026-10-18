@@ -569,10 +569,11 @@ def part_fastforward():
 def laver(n):
     N = 2 ** n
     T = np.zeros((N + 1, N + 1), dtype=np.int64)    # 1-based
-    for p in range(N, 0, -1):
-        T[p, 1] = p % N + 1
+    T[N, 1:] = np.arange(1, N + 1)                   # N is a left identity: N * q = q
+    for p in range(N - 1, 0, -1):
+        T[p, 1] = p + 1
         for q in range(1, N):
-            T[p, q + 1] = T[T[p, q], p % N + 1]
+            T[p, q + 1] = T[T[p, q], p + 1]          # p*(q+1) = (p*q)*(p+1), row p*q > p already known
     return (T[1:, 1:] - 1).astype(np.int8)
 
 
