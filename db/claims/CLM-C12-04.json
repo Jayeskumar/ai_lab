@@ -30,12 +30,21 @@
       "old": "Computer-assisted (proofs/paper/C12.md Theorem 8): exact computation for n <= 1e5 and an inductive-step\ncertificate for odd parts <= 15 and 13 <= a <= 100 (EXP-C12-06, 0 failures); written induction for odd parts\n>= 17 and shift-invariance argument for odd parts <= 15; odd n via the Lean P-set theorem g03_pset. Trust\nbase: exact Python integer arithmetic plus the written Steps 2-3 (not yet reviewed by the Skeptic).",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written Steps 1-3 upheld, values checked to 1e8",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C12",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Not in Iannucci-Larsson (arXiv:2101.07608), whose divisor-subtraction game allows d = 1 and d = n; Codeforces 1537D and its solution give only the P-positions. OEIS has neither the Grundy sequence nor the P-position sequence (queried 2026-10-18 and again 2026-10-19). Web searches found no analysis of the Grundy values. Not a priority claim (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "The Grundy sequence is not in the OEIS (EXP-C12-04, queried 2026-10-18); the game is not among the divisor\ngames of Iannucci & Larsson 2021; Codeforces 1537D and its solution determine only the P-positions; web\nsearches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.",
+      "reason": "Historian audit 2026-10-19 - label upheld, basis refreshed",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C12-04",
   "limitations": "Beyond a = 100 (the Skeptic - a = 400) the certificate relies on the written shift-invariance argument.",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "The Grundy sequence is not in the OEIS (EXP-C12-04, queried 2026-10-18); the game is not among the divisor\ngames of Iannucci & Larsson 2021; Codeforces 1537D and its solution determine only the P-positions; web\nsearches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.",
+  "novelty_basis": "Not in Iannucci-Larsson (arXiv:2101.07608), whose divisor-subtraction game allows d = 1 and d = n; Codeforces 1537D and its solution give only the P-positions. OEIS has neither the Grundy sequence nor the P-position sequence (queried 2026-10-18 and again 2026-10-19). Web searches found no analysis of the Grundy values. Not a priority claim (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C12.md#theorem-8-clm-c12-04--grundy-values-of-the-deleting-divisors-game",
   "proof_check": "Computer-assisted (proofs/paper/C12.md Theorem 8): exact computation for n <= 1e5 and an inductive-step\ncertificate for odd parts <= 15 and 13 <= a <= 100 (EXP-C12-06, 0 failures); written induction for odd parts\n>= 17 and shift-invariance argument for odd parts <= 15; odd n via the Lean P-set theorem g03_pset. Trust\nbase: exact Python integer arithmetic plus the written Steps 1-3, skeptic-reviewed 2026-10-18\n(reviews/skeptic_C05_C08_C12.md, A.5 - steps correct; the Skeptic's own C computation gives g = the closed form\nfor all n <= 1e8, the mex certificate for 6 <= a <= 400 and the shift invariance for 13 <= a <= 400).",
   "statement": "Let g be the Grundy function of G03 and n = 2^a m with m odd. Then g(n) = 0 for odd n, and for a >= 1:\ng(2^a m) = a if m >= 17; g(2^a) = 0 for odd a and a - 1 for even a, except g(16) = 2; for m = 3 the values\nare 2, 3, 4, 3, 6 (a = 1..5) and a - 2 (a >= 6); for m = 5 they are 1, 3, 4, 3, 6 (a = 1..5) and a + 2\n(a >= 6); for m = 7, 9, 11, 15 they are a (a <= 2) and a + 1 (a >= 3); for m = 13 they are a (a <= 3) and\na + 1 (a >= 4). Consequently |g(n) - v2(n)| <= 2 unless n is an odd power of 2, and the record values occur\nat n = 5 * 2^a for a >= 6.",

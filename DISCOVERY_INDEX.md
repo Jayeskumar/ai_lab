@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-19T14:44:30Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-19T23:04:05Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 131 |
-| COMPUTATIONALLY SUPPORTED | 39 |
+| PROVEN | 133 |
+| COMPUTATIONALLY SUPPORTED | 38 |
 | CONJECTURE | 4 |
 | REFUTED | 49 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 103 |
-| POTENTIALLY NOVEL | 52 |
-| NOT ASSESSED | 70 |
+| REDISCOVERY | 108 |
+| POTENTIALLY NOVEL | 49 |
+| NOT ASSESSED | 69 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -63,6 +63,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-07 | New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 … | Lean 4 kernel decide on explicit tables (E677_order5_law, E… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-04 |
 | CLM-C05-08 | New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; … | computer-assisted - DRUP refutations from Glucose 4 verifie… | POTENTIALLY NOVEL | EXP-C05-03, EXP-C05-06 |
 | CLM-C05-10 | Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a mo… | computer-assisted - exhaustive search over GF(q)^2 for ever… | NOT ASSESSED | EXP-C05-07 |
+| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | published theorem (R. Laver 1992/1995; P. Dehornoy, Braids … | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | written proof (proofs/paper/C06.md Theorem 4), skeptic-revi… | REDISCOVERY | EXP-C06-02 |
@@ -83,13 +84,13 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C10-02 | Zeckendorf counting: T_m = 2 G_m - ceil(m/2) - 2, average cost 2 | written proof (proofs/paper/C10.md Theorem 2); recurrence e… | REDISCOVERY | EXP-C10-02, EXP-C10-04 |
 | CLM-C10-04 | Exchange systems fire 1/(m - sum b) times per increment on average | written proof (proofs/paper/C10.md Theorem 3) from the abel… | REDISCOVERY | EXP-C10-03 |
 | CLM-C10-05 | Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q… | written proof (proofs/paper/C10.md Theorem 4), skeptic-revi… | REDISCOVERY | EXP-C10-03 |
-| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [… | REDISCOVERY | EXP-C10-01 |
+| CLM-C10-07 | Skew binary counting has worst-case cost 2 and average 3/2 | Lean 4 (complete) - proofs/lean/Infinity/C10_SkewBinary.lea… | REDISCOVERY | EXP-C10-01 |
 | CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | Prefix property and unique parsing machine-checked in Lean … | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
 | CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) … | REDISCOVERY | EXP-C11-02 |
 | CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | written proof (proofs/paper/C11.md Theorem 3), skeptic-revi… | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
-| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | written proof (proofs/paper/C11.md Corollary 4), skeptic-re… | POTENTIALLY NOVEL | EXP-C11-06 |
+| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | written proof (proofs/paper/C11.md Corollary 4), skeptic-re… | REDISCOVERY | EXP-C11-06 |
 | CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | written proof (proofs/paper/C11.md Proposition 5), skeptic-… | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
-| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | written proof (proofs/paper/C11.md Corollary 6, from cum_01… | POTENTIALLY NOVEL | EXP-C11-09 |
+| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | written proof (proofs/paper/C11.md Corollary 6, from cum_01… | REDISCOVERY | EXP-C11-09 |
 | CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | written proof (proofs/paper/C12.md Theorem 1), skeptic-revi… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | written proof (proofs/paper/C12.md Theorem 2), skeptic-revi… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-03 | P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers… | Lean 4 + Mathlib: Infinity.C12.g03_pset and Infinity.C12.g0… | REDISCOVERY | EXP-C12-02, EXP-C12-04 |
@@ -98,7 +99,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C12-06 | Residue lemma; subtract-a-power-of-k has the Grundy function of the subtraction game {1, … | (a) machine-checked in Lean (Infinity.C12.residue_grundy, I… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-07 | Splitting games in which every heap can be split have g(n) = [n even] | Lean 4 + Mathlib: Infinity.C12.split_parity (axioms propext… | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-08 | Subtract-a-square and subtract-a-triangular-number have infinite density-zero P-sets and … | written proof (proofs/paper/C12.md Theorem 7) from the Furs… | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
-| CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | written proof (proofs/paper/C13.md Theorem 1; Chinese remai… | REDISCOVERY | EXP-C13-01 |
+| CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | Lean 4 (complete, except the standard fact quoted as an exa… | REDISCOVERY | EXP-C13-01 |
 | CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | Lean 4 + Mathlib (translation_form, right_normed_translatio… | POTENTIALLY NOVEL | EXP-C13-03 |
 | CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | Lean 4 + Mathlib for the model correspondence for every W (… | POTENTIALLY NOVEL | EXP-C13-03, EXP-C13-09 |
 | CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | Lean 4 + Mathlib for N | 3 resp. N | 2 and for the existenc… | POTENTIALLY NOVEL | EXP-C13-04 |
@@ -111,7 +112,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | written case analysis (proofs/paper/C14.md Theorem 4); poly… | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | written proof (proofs/paper/C14.md Theorem 5); sympy over C… | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | written proof (proofs/paper/C14.md Theorem 6); entry-level … | REDISCOVERY | EXP-C14-03, EXP-C14-06 |
-| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | written proof (proofs/paper/C14.md Theorem 7; (c) via twin … | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
+| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | written proof (proofs/paper/C14.md Theorem 7; (c) via twin … | REDISCOVERY | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | written proof (proofs/paper/C14.md Theorem 9) relying on th… | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | computer-assisted exact census (all prime factorisations of… | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | by hand (both sides are two disjoint 4-cycles plus two isol… | REDISCOVERY | EXP-C14-04 |
@@ -136,6 +137,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C17-01 | Light's test: generators suffice for associativity | written proof (proofs/paper/C17.md Theorem 1, four-line clo… | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-02 | Associativity of an anchored magma is decided by one O(n^2) identity | written proof (proofs/paper/C17.md Corollary 2) from C06 Th… | NOT ASSESSED | EXP-C17-01, EXP-C17-02 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | one-sidedness proved (proofs/paper/C17.md Theorem 3, biline… | REDISCOVERY | EXP-C17-01 |
+| CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | computer-assisted - for every N, uniqueness and existence o… | REDISCOVERY | EXP-C17-03, EXP-C17-02 |
 | CLM-C18-01 | e-transformations are bijections of strings of fixed length | Lean 4 + Mathlib (eT_injective, eT_length; standard axioms … | REDISCOVERY | EXP-C18-01 |
 | CLM-C18-02 | Differences propagate forward only; forward-only tail hashes fail the strict avalanche cr… | Lean 4 + Mathlib for the persistence of differences (eT_ne_… | NOT ASSESSED | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-03 | The tail-information bound: an e-transformation tail carries one byte of state | Lean 4 + Mathlib for the factorisation of the tail through … | NOT ASSESSED | EXP-C18-03, EXP-C18-05 |
@@ -150,7 +152,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C19-07 | Exact longest games for n <= 150 and independent confirmation of the split-first strategy | computer-assisted - exhaustive longest-path dynamic program… | REDISCOVERY | EXP-C19-01 |
 | CLM-C19-08 | Every multiset of Fibonacci numbers with sum n is a reachable game position | written proof (proofs/paper/C19.md Proposition 6 - undoing … | NOT ASSESSED | EXP-C19-01 |
 | CLM-C19-14 | Computing the longest game with O(log^2 n) moves instead of Theta(n) | written proof (proofs/paper/C19.md Theorem 7, from Theorems… | POTENTIALLY NOVEL | EXP-C19-05, EXP-C19-04 |
-| CLM-C19-15 | The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L… | written proof (proofs/paper/C19.md Theorem 8 - the split ph… | NOT ASSESSED | EXP-C19-05 |
+| CLM-C19-15 | The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L… | written proof with a Lean-checked arithmetic core - proofs/… | NOT ASSESSED | EXP-C19-05 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | written proof (proofs/paper/C20.md Theorem 1 - run encoding… | REDISCOVERY | EXP-C20-01 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | written proof (proofs/paper/C20.md Theorem 2 - a pair of a'… | POTENTIALLY NOVEL | EXP-C20-01 |
 | CLM-C20-03 | The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r|… | computer-assisted certificates for 860 rules (EXP-C04-02, C… | NOT ASSESSED | EXP-C04-02, EXP-C20-01 |
@@ -170,7 +172,6 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C03-11 | Loop lengths in the base family grow like k^q | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C03-04 |
 | CLM-C04-12 | Complexity classes and closed forms of the 162 terminating rules with |l|, |r| <= 3 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C04-03 |
 | CLM-C05-02 | Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C05-01, EXP-C05-02 |
-| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-10 | Laws with finite anchored spectra {1, 2} and {1, 3} | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-11 | Mirror twins of the golden and odd laws | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C07-08 | Additive periodicity is the exception among mex operations | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C07-03 |
@@ -197,7 +198,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C16-04 |
 | CLM-C16-19 | Random sampling finds full-period quasigroups where exact search fails | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-05, EXP-C16-02 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
-| CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-03, EXP-C17-02 |
+| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-03 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 | CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04, EXP-C19-05 |
@@ -236,9 +237,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C09-06 | Factorisation lengths are bounded by the conjugate coordinate | PROVEN | POTENTIALLY NOVEL | EXP-C09-04 |
 | CLM-C09-08 | Factorisation statistics of the circle semigroup up to 2e5 | PROVEN | POTENTIALLY NOVEL | EXP-C09-01, EXP-C09-02 |
 | CLM-C10-06 | Multi-offset exchange rules have rule-specific average counting costs | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C10-03 |
-| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | PROVEN | POTENTIALLY NOVEL | EXP-C11-06 |
 | CLM-C11-07 | The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-… | PROVEN | POTENTIALLY NOVEL | EXP-C11-08, EXP-C11-07 |
-| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | PROVEN | POTENTIALLY NOVEL | EXP-C11-09 |
 | CLM-C12-04 | Grundy function of the deleting-divisors game: v2(n) except on odd parts <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C12-06, EXP-C12-04, EXP-C12-01 |
 | CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | PROVEN | POTENTIALLY NOVEL | EXP-C13-03 |
 | CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | PROVEN | POTENTIALLY NOVEL | EXP-C13-03, EXP-C13-09 |
@@ -246,7 +245,6 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | PROVEN | POTENTIALLY NOVEL | EXP-C13-01, EXP-C13-09 |
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
-| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
 | CLM-C15-04 | The fuse magma: linear streaming width, yet an O(L) fast-forward for every t | PROVEN | POTENTIALLY NOVEL | EXP-C15-02, EXP-C15-03, EXP-C15-05 |
@@ -311,7 +309,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C05-02 | Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C05-01, EXP-C05-02 |
 | CLM-C05-04 | Law 167, x = (y*x)*(x*y): every finite model has order 0 or 1 mod 4 | PROVEN | REDISCOVERY | EXP-C05-01 |
 | CLM-C05-05 | Identities x = y*s(x, y) make every left translation of a finite model bijective | PROVEN | REDISCOVERY | EXP-C05-03 |
-| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
+| CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | PROVEN | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-05 | Anchored right-permutable magmas are x*y = x + c(y); there are N^(N-1) of them | PROVEN | REDISCOVERY | EXP-C06-02 |
@@ -335,6 +333,8 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C11-01 | Pattern-terminated codes T_p are complete prefix codes with counts x^k / (x^k + (1-2x) c_… | PROVEN | REDISCOVERY | EXP-C11-01, EXP-C11-02 |
 | CLM-C11-02 | The all-ones terminator 1^k (and 0^k) uniquely maximises the growth rate among length-k p… | PROVEN | REDISCOVERY | EXP-C11-02 |
 | CLM-C11-03 | Unbordered terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums of the… | PROVEN | REDISCOVERY | EXP-C11-06, EXP-C11-02 |
+| CLM-C11-04 | T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L… | PROVEN | REDISCOVERY | EXP-C11-06 |
+| CLM-C11-09 | T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer … | PROVEN | REDISCOVERY | EXP-C11-09 |
 | CLM-C12-01 | Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to … | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-02 | Coprimality games: index of the smallest prime factor; the non-coprime game has g(2k) = k… | PROVEN | REDISCOVERY | EXP-C12-01, EXP-C12-02 |
 | CLM-C12-03 | P-positions of the deleting-divisors game (subtract d | n with 1 < d < n): 0, odd numbers… | PROVEN | REDISCOVERY | EXP-C12-02, EXP-C12-04 |
@@ -346,6 +346,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | PROVEN | REDISCOVERY | EXP-C13-01 |
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | PROVEN | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
 | CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | REDISCOVERY | EXP-C14-03, EXP-C14-06 |
+| CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | REDISCOVERY | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C15-01 | Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width | PROVEN | REDISCOVERY | EXP-C15-02, EXP-C15-03 |
@@ -362,6 +363,8 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C17-01 | Light's test: generators suffice for associativity | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
+| CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | PROVEN | REDISCOVERY | EXP-C17-03, EXP-C17-02 |
+| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-03 |
 | CLM-C18-01 | e-transformations are bijections of strings of fixed length | PROVEN | REDISCOVERY | EXP-C18-01 |
 | CLM-C18-04 | T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits in… | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |

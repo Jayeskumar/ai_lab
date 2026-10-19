@@ -20,13 +20,36 @@
       "old": "written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review",
       "reason": "Skeptic review 2026-10-18 - written proof upheld; lambda(t) = t + 2 confirmed to t = 14",
       "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. Streaming width is essentially the one-way communication complexity of the t-step local rule used by Durr-Rapaport-Theyssier (TCS 322 (2004) 355-368, https://arxiv.org/abs/cs/0210008; their d_n uses the central cut and the maximum over the two directions). They classify ECAs into bounded/linear/other and prove linear complexity with an explicit description of f^n for rule 132 (Lemma 10), so 'unbounded width yet easy prediction' is already exemplified there. The fuse magma and its burn-time fast-forward were not found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence); the measure is essentially Durr-Rapaport-Theyssier's",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "references",
+      "new": [
+        "https://arxiv.org/abs/cs/0210008"
+      ],
+      "old": null,
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence); the measure is essentially Durr-Rapaport-Theyssier's",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C15-04",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.",
+  "novelty_basis": "Low confidence. Streaming width is essentially the one-way communication complexity of the t-step local rule used by Durr-Rapaport-Theyssier (TCS 322 (2004) 355-368, https://arxiv.org/abs/cs/0210008; their d_n uses the central cut and the maximum over the two directions). They classify ECAs into bounded/linear/other and prove linear complexity with an explicit description of f^n for rule 132 (Lemma 10), so 'unbounded width yet easy prediction' is already exemplified there. The fuse magma and its burn-time fast-forward were not found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward",
   "proof_check": "written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the upper bound needs one more sentence, given in the review A.2; burn-time formula checked on 870,969 exhaustive cases; lambda(t) = t + 2 for t <= 14)",
+  "references": [
+    "https://arxiv.org/abs/cs/0210008"
+  ],
   "statement": "For the fuse magma [[0,0,0],[0,0,1],[1,2,2]] (0 burnt, 1 burning, 2 intact): burn times satisfy tau_i = 0 (x_i = 0),\ntau_(i+1) + 2 (x_i = 2), tau_(i+1) (x_i = 1, x_(i+1) = 2), 1 (x_i = 1, x_(i+1) != 2); the row at any time t is\nobtained from them in O(L) operations; and floor((m+1)/2) <= lambda(t) <= 3t + 3 with m = floor(t/2), so the\nstreaming width grows linearly (computed lambda(t) = t + 2 for t <= 12).",
   "system": "SYS-E",
   "title": "The fuse magma: linear streaming width, yet an O(L) fast-forward for every t",

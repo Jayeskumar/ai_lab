@@ -19,13 +19,54 @@
       "old": "written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)",
       "reason": "Skeptic review 2026-10-18 - written proof upheld",
       "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k-absorbs-switching",
+      "old": "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching",
+      "reason": "proof link corrected: the anchor did not match the heading (found by `python -m lab check`)",
+      "ts": "2026-10-19T22:29:33Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "POTENTIALLY NOVEL",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c))",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial - (c) and (b) for a = 1 are Oh-Yoo-Yun, 'Rainbow graphs and switching classes', SIAM J. Discrete Math. 27 (2013) 1106-1111, Thm 1.1 and Prop. 3.3 (https://arxiv.org/abs/1108.6143). Their 2n-vertex graph G~ is K_2 (+) G, and G~ = H~ iff G and H are switching-equivalent; they note a similar map in Colbourn-Corneil 1980. (b) for a >= 2 follows since K_(a,a) = K_2 (+) aK_1. Part (a), K_(a,b) (+) K_(c,d) = K_(ac+bd, ad+bc), was not found (elementary) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "No statement found in the searches listed for CLM-C14-06. Small result.",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c))",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "references",
+      "new": [
+        "https://arxiv.org/abs/1108.6143"
+      ],
+      "old": null,
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c))",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C14-07",
-  "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "No statement found in the searches listed for CLM-C14-06. Small result.",
-  "proof": "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - (c) and (b) for a = 1 are Oh-Yoo-Yun, 'Rainbow graphs and switching classes', SIAM J. Discrete Math. 27 (2013) 1106-1111, Thm 1.1 and Prop. 3.3 (https://arxiv.org/abs/1108.6143). Their 2n-vertex graph G~ is K_2 (+) G, and G~ = H~ iff G and H are switching-equivalent; they note a similar map in Colbourn-Corneil 1980. (b) for a >= 2 follows since K_(a,a) = K_2 (+) aK_1. Part (a), K_(a,b) (+) K_(c,d) = K_(ac+bd, ad+bc), was not found (elementary) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+  "proof": "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k-absorbs-switching",
   "proof_check": "written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+  "references": [
+    "https://arxiv.org/abs/1108.6143"
+  ],
   "statement": "(a) K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; so (|V|, |a-b|) is multiplicative on complete bipartite graphs.\n(b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).\n(c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.",
   "system": "SYS-D",
   "title": "Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching",

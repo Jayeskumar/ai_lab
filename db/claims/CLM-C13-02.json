@@ -18,6 +18,15 @@
       "old": "Lean 4 + Mathlib (translation_form, right_normed_translation; standard axioms only); written proof proofs/paper/C13.md Theorem 2",
       "reason": "Skeptic review 2026-10-18 (C5) - Lean coverage stated precisely",
       "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. Anchored magmas impose Laver's initial condition x * 0 = x + 1 on arbitrary laws. Spectra of single magma laws are studied without anchor in the Equational Theories Project (arXiv:2512.07087 section 9; B. Le Floch, 'Spectra of equational laws', 2025). No treatment of anchored models or of right-normed laws was found. Small lemma (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence), basis corrected",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C13-02",
@@ -25,7 +34,7 @@
     "proofs/lean/Infinity/C13_Spectra.lean"
   ],
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.",
+  "novelty_basis": "Low confidence. Anchored magmas impose Laver's initial condition x * 0 = x + 1 on arbitrary laws. Spectra of single magma laws are studied without anchor in the Equational Theories Project (arXiv:2512.07087 section 9; B. Le Floch, 'Spectra of equational laws', 2025). No treatment of anchored models or of right-normed laws was found. Small lemma (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C13.md#theorem-2-clm-c13-02--right-normed-laws-have-only-translation-models",
   "proof_check": "Lean 4 + Mathlib (translation_form, right_normed_translation - stated for an arbitrary binary function V, so more general than the English; standard axioms only); the relation k(V(y,z)) = k(y) + k(z) + 1 by the written proof (one substitution, proofs/paper/C13.md Theorem 2)",
   "statement": "For every term V(y, z) not containing x, every anchored model of (x*y)*z = x*V(y, z) is a translation table x*y = x + 1 + k(y) with k a permutation of Z/N fixing 0, and k satisfies k(V(y,z)) = k(y) + k(z) + 1.",

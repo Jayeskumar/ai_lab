@@ -19,6 +19,15 @@
       "old": "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof; implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written parts upheld",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.",
+      "reason": "Historian audit 2026-10-19 - sources added to the novelty basis",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C11-01",
@@ -26,7 +35,7 @@
     "proofs/lean/Infinity/C11_Codes.lean"
   ],
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.",
+  "novelty_basis": "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C11.md#theorem-1-clm-c11-01--t_p-is-a-complete-prefix-code",
   "proof_check": "Prefix property and unique parsing machine-checked in Lean (Infinity.C11.prefix_free, unique_parse_head; #print axioms: none); generating function and completeness by the written proof, skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); implementations checked in EXP-C11-01 (Kraft partial sums >= 0.999999999993, C1 == T_11 for n <= 2e5)",
   "statement": "For a binary pattern p of length k, the set T_p of binary words in which p occurs for the first time at the end\nis a prefix code with Kraft sum 1, the number of its codewords of each length has generating function\nx^k / (x^k + (1 - 2x) c_p(x)) with c_p the autocorrelation polynomial of p, and T_11 (T_(1^k)) is exactly the\ncodeword set of the Fibonacci code C1 (of its order-k generalisation).",

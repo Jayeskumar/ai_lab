@@ -37,8 +37,8 @@ claims:
     proof: proofs/paper/C20.md#theorem-2-clm-c20-02--aab--babaa-terminates-an-exact-formula-for-dw
     evidence: [EXP-C20-01]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "Termination follows from the right-barren criterion (OVL(r,l) = {a, aa} with r_alpha in {baba, bab}; OVL(l,r) = {b}, l_beta = aa, never a suffix) - a rediscovery; the exact per-word formula and the complexity were not found in McNaughton's or Geser's reports (searches 2026-10-18). Small."
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld; explicit form of D(n) added"
+    novelty_basis: "Low confidence. Termination is a rediscovery (right barren: McNaughton; Geser, ICASE 2002-33). The exact derivation length D(w) and D(n) were not found. The most relevant paper was not obtained: aab is unbordered, so aab -> babaa is a confluent one-rule system, the class of Kobayashi-Katsura-Shikishima-Tsuji, 'Termination and derivational complexity of confluent one-rule string-rewriting systems', TCS 262 (2001) (ScienceDirect blocked). Geser-Hofbauer-Waldmann's derivational complexities of one-rule leftmost rewriting (JSC 38, 2004) are also unread. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence: the decisive paper could not be read)"
   - id: CLM-C20-03
     type: theorem
     system: SYS-A

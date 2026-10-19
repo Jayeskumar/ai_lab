@@ -18,6 +18,15 @@
       "old": "Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, law12_size_dvd_two, law12_model_two; standard axioms only); written proof proofs/paper/C13.md Theorem 4",
       "reason": "Skeptic review 2026-10-18 (C5) - uniqueness is written, not formal",
       "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Settles two cases of the lab's own conjecture CLM-C06-10; anchored spectra do not occur in the ETP material read (arXiv:2512.07087 section 9; Le Floch 2025). Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Settles two cases of the lab's own conjecture CLM-C06-10; no prior statement expected or found. Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld, basis refreshed",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C13-04",
@@ -25,7 +34,7 @@
     "proofs/lean/Infinity/C13_Spectra.lean"
   ],
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Settles two cases of the lab's own conjecture CLM-C06-10; no prior statement expected or found. Small.",
+  "novelty_basis": "Settles two cases of the lab's own conjecture CLM-C06-10; anchored spectra do not occur in the ETP material read (arXiv:2512.07087 section 9; Le Floch 2025). Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C13.md#theorem-4-clm-c13-04--two-of-the-finite-spectra-of-clm-c06-10",
   "proof_check": "Lean 4 + Mathlib for N | 3 resp. N | 2 and for the existence of the models (law13_size_dvd_three, law13_model_three, law12_size_dvd_two, law12_model_two; standard axioms only); uniqueness of the models by the written proof (proofs/paper/C13.md Theorem 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C13_C19.md)",
   "statement": "The law x(yz) = ((zx)x)y has anchored models exactly for N in {1, 3} (unique model x*y = x + 1 + 2y at N = 3), and x(yz) = ((xy)z)x exactly for N in {1, 2} (unique model x*y = x + 1 at N = 2).",

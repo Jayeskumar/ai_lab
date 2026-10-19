@@ -57,8 +57,8 @@ claims:
     proof: proofs/paper/C19.md#theorem-2-clm-c19-02--the-split-phase-ends-at-the-lazy-representation
     evidence: [EXP-C19-02]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965)."
-    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
+    novelty_basis: "Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965). All arXiv Zeckendorf-game papers to 2026-10-07 were checked (including the reversed, ordered and black-hole variants); none mentions lazy representations (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld, search extended"
   - id: CLM-C19-03
     type: theorem
     system: SYS-D
@@ -73,8 +73,8 @@ claims:
     lean: [proofs/lean/Infinity/C19_Zeckendorf.lean]
     evidence: [EXP-C19-01, EXP-C19-03]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature."
-    change_reason: "Skeptic review 2026-10-18 - written proof upheld; cited theorem checked"
+    novelty_basis: "Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature. Confirmed 2026-10-19: Cusenza et al. (arXiv:2009.09510) contain no formula for n = F_k; no later Zeckendorf-game paper treats it (arXiv to 2026-10-07); L(F_k) is still not in the OEIS (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld, search extended"
   - id: CLM-C19-04
     type: theorem
     system: SYS-D
@@ -194,9 +194,10 @@ claims:
     novelty: POTENTIALLY NOVEL
     novelty_basis: No sublinear method for the longest game was found in the literature listed under CLM-C19-05.
     limitations: "Correct as far as [C, Thm 1.2] is; that theorem was independently confirmed only for n <= 233 (exhaustive search)."
-    proof: "proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog²-n-move-method-for-ln"
-    proof_check: "written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05)"
-    change_reason: "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN"
+    proof: "proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog-n-move-method-for-ln"
+    proof_check: "written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05); the arithmetic of the move bound B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean, deficit_bound)"
+    lean: [proofs/lean/Infinity/C19_DeficitBound.lean]
+    change_reason: "Batch 1.1 (G2) - the move bound's arithmetic is Lean-checked (C19_DeficitBound.lean)"
 
   - id: CLM-C19-15
     type: theorem
@@ -204,11 +205,13 @@ claims:
     title: "The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L(n) = phi^2 n - O(log^2 n)"
     statement: "For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed."
     verification: PROVEN
-    proof: "proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog²-n-unconditionally"
-    proof_check: "written proof (proofs/paper/C19.md Theorem 8 - the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)); then the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3); the argument is the Skeptic's (reviews/skeptic_C13_C19.md, C9), written out and checked by the Director; the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)"
+    proof: "proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog-n-unconditionally"
+    proof_check: "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)"
     evidence: [EXP-C19-05]
     novelty: NOT ASSESSED
     novelty_basis: "The asymptotics L(n) ~ phi^2 n are known (Cusenza et al.); an explicit O(log^2 n) error bound was not looked for in the literature."
+    lean: [proofs/lean/Infinity/C19_DeficitBound.lean]
+    change_reason: "Batch 1.1 (G2) - arithmetic core of the bound formalised in Lean (C19_DeficitBound.lean)"
 
 journal:
   - key: C19-01
@@ -256,6 +259,11 @@ journal:
     kind: result
     text: "EXP-C19-05 - the lazy-representation method agrees with full simulation for every n < 20,000; the conjectured recursion agrees with this provably correct method on 103,799 n up to 10^15, so the recursion is now tested against a proof-backed reference rather than against the Theta(n) simulation."
     refs: [EXP-C19-05, CLM-C19-05, CLM-C19-14]
+  - key: C19-10
+    agent: Formal Verifier
+    kind: proof
+    text: "Batch 1.1 - the arithmetic core of Theorems 7-8 (the weight identity and the bound 1 + (t+1)(t+6)/2 for any two 0/1 strings of equal value) is proved in Lean (proofs/lean/Infinity/C19_DeficitBound.lean); the game-theoretic steps remain a written proof. Historian audit 2026-10-19: all arXiv Zeckendorf-game papers to 2026-10-07 checked; the C19 labels stand."
+    refs: [CLM-C19-14, CLM-C19-15, reviews/historian_C11_C20.md]
 
 next_directions:
   - "C19: prove the recursion CLM-C19-05 by analysing the normalisation phase from the lazy representation (carries through alternating blocks)"

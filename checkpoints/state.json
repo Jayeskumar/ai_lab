@@ -237,7 +237,7 @@
       "NOT ASSESSED"
     ],
     "CLM-C06-01": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "REDISCOVERY"
     ],
     "CLM-C06-02": [
@@ -422,7 +422,7 @@
     ],
     "CLM-C11-04": [
       "PROVEN",
-      "POTENTIALLY NOVEL"
+      "REDISCOVERY"
     ],
     "CLM-C11-05": [
       "REFUTED",
@@ -442,7 +442,7 @@
     ],
     "CLM-C11-09": [
       "PROVEN",
-      "POTENTIALLY NOVEL"
+      "REDISCOVERY"
     ],
     "CLM-C12-01": [
       "PROVEN",
@@ -570,7 +570,7 @@
     ],
     "CLM-C14-07": [
       "PROVEN",
-      "POTENTIALLY NOVEL"
+      "REDISCOVERY"
     ],
     "CLM-C14-08": [
       "REFUTED",
@@ -761,8 +761,8 @@
       "REDISCOVERY"
     ],
     "CLM-C17-05": [
-      "COMPUTATIONALLY SUPPORTED",
-      "NOT ASSESSED"
+      "PROVEN",
+      "REDISCOVERY"
     ],
     "CLM-C17-06": [
       "REFUTED",
@@ -771,6 +771,10 @@
     "CLM-C17-07": [
       "REFUTED",
       "NOT ASSESSED"
+    ],
+    "CLM-C17-08": [
+      "COMPUTATIONALLY SUPPORTED",
+      "REDISCOVERY"
     ],
     "CLM-C18-01": [
       "PROVEN",
@@ -1048,13 +1052,17 @@
     "proofs/lean/Infinity/C05_Magmas.lean": true,
     "proofs/lean/Infinity/C06_Laver.lean": true,
     "proofs/lean/Infinity/C08_Knuth.lean": true,
+    "proofs/lean/Infinity/C10_SkewBinary.lean": true,
     "proofs/lean/Infinity/C11_Codes.lean": true,
     "proofs/lean/Infinity/C12_Games.lean": true,
+    "proofs/lean/Infinity/C13_AffineStructure.lean": true,
     "proofs/lean/Infinity/C13_Spectra.lean": true,
     "proofs/lean/Infinity/C14_GraphProducts.lean": true,
     "proofs/lean/Infinity/C15_MagmaCA.lean": true,
     "proofs/lean/Infinity/C16_Dynamics.lean": true,
+    "proofs/lean/Infinity/C17_ForcedTable.lean": true,
     "proofs/lean/Infinity/C18_Quasigroups.lean": true,
+    "proofs/lean/Infinity/C19_DeficitBound.lean": true,
     "proofs/lean/Infinity/C19_Zeckendorf.lean": true
   },
   "next_priorities": [
@@ -1089,5 +1097,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-19T14:44:31Z"
+  "updated": "2026-10-19T23:04:06Z"
 }

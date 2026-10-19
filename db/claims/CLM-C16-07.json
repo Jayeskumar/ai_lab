@@ -9,13 +9,36 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Answers Problems 7.3-7.5 of P. Klimov (arXiv:2604.05754v2, 2026) positively, with finite examples: he asks whether a UFS-groupoid (finite or infinite) with more than one element can be left-cancellative, a left quasigroup or a quasigroup; the lab's order-5 cycle gives a Latin square whose pair map is one 25-cycle (checked independently by the Historian, reviews/historian_checks/C11_C20/klimov_problem75_check.py). The counts 0, 0, 0, 3360 were not found. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld with more confidence; answers Klimov's Problems 7.3-7.5 positively",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "references",
+      "new": [
+        "https://arxiv.org/abs/2604.05754"
+      ],
+      "old": null,
+      "reason": "Historian audit 2026-10-19 - label upheld with more confidence; answers Klimov's Problems 7.3-7.5 positively",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C16-07",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.",
+  "novelty_basis": "Answers Problems 7.3-7.5 of P. Klimov (arXiv:2604.05754v2, 2026) positively, with finite examples: he asks whether a UFS-groupoid (finite or infinite) with more than one element can be left-cancellative, a left quasigroup or a quasigroup; the lab's order-5 cycle gives a Latin square whose pair map is one 25-cycle (checked independently by the Historian, reviews/historian_checks/C11_C20/klimov_problem75_check.py). The counts 0, 0, 0, 3360 were not found. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C16.md#theorem-5-clm-c16-07--which-orders-have-full-period-quasigroups-computer-assisted",
   "proof_check": "computer-assisted - exhaustive analysis of all Latin squares of orders 2-5, confirmed by an independent depth-first enumeration (0, 0, 0, 3360); explicit certificates for orders 6-16 re-verified by an independent cycle analysis; products by Theorem 6 (EXP-C16-02)",
+  "references": [
+    "https://arxiv.org/abs/2604.05754"
+  ],
   "statement": "There is no full-period quasigroup of order 2, 3 or 4; there are exactly 3360 of order 5, forming 28 isomorphism\nclasses; full-period quasigroups of every order 6, ..., 16 and of orders 30, 35, 40, 42, 45, 56, 63, 72 exist.",
   "system": "SYS-E",
   "title": "Full-period quasigroups: none of order 2, 3, 4; 3360 of order 5; examples of every order 6-16",

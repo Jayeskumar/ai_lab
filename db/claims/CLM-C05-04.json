@@ -9,6 +9,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:23:58Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-x--yxxy-orders-are--0-1-mod-4",
+      "old": "proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-xyxxy-orders-are--0-1-mod-4",
+      "reason": "proof link corrected: the anchor did not match the heading (found by `python -m lab check`)",
+      "ts": "2026-10-19T22:29:33Z"
     }
   ],
   "id": "CLM-C05-04",
@@ -17,7 +26,7 @@
   ],
   "novelty": "REDISCOVERY",
   "novelty_basis": "Proposition 3 of the ETP write-up 'Spectra of order-3 equations' (Lean Zulip upload; attributed in Le Floch's notes to Ben Gunby-Mann) gives the same orbit argument and the full spectrum. Our addition is a Lean formalisation of the necessity half via a fixed-point-free involution on Sym2.",
-  "proof": "proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-xyxxy-orders-are--0-1-mod-4",
+  "proof": "proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-x--yxxy-orders-are--0-1-mod-4",
   "proof_check": "Lean 4 + Mathlib (Infinity.C05.law167_card_mod_four; standard axioms only); models of orders 4 and 5 certified by decide",
   "statement": "If a finite magma satisfies x = (y*x)*(x*y) for all x, y, its order n satisfies n = 0 or 1 (mod 4).\n(With the constructions of the ETP write-up \"Spectra of order-3 equations\" the spectrum is exactly\n{n : n = 0, 1 mod 4}.)",
   "system": "SYS-B",

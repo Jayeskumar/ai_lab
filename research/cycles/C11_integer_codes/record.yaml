@@ -89,8 +89,8 @@ claims:
     lean: [proofs/lean/Infinity/C11_Codes.lean]
     evidence: [EXP-C11-01, EXP-C11-02]
     novelty: REDISCOVERY
-    novelty_basis: "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard."
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written parts upheld"
+    novelty_basis: "Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - sources added to the novelty basis"
   - id: CLM-C11-02
     type: theorem
     system: SYS-C
@@ -104,8 +104,8 @@ claims:
     proof: proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate
     evidence: [EXP-C11-02]
     novelty: REDISCOVERY
-    novelty_basis: In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
+    novelty_basis: "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - sources added to the novelty basis"
   - id: CLM-C11-03
     type: theorem
     system: SYS-C
@@ -118,8 +118,8 @@ claims:
     proof: proofs/paper/C11.md#theorem-3-clm-c11-03--unbordered-terminators-the-x1--x-identity
     evidence: [EXP-C11-06, EXP-C11-02]
     novelty: REDISCOVERY
-    novelty_basis: An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
+    novelty_basis: "An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers). Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - sources added to the novelty basis"
   - id: CLM-C11-04
     type: theorem
     system: SYS-C
@@ -132,10 +132,10 @@ claims:
     proof_check: "written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)"
     proof: proofs/paper/C11.md#corollary-4-clm-c11-04--t_011-versus-the-fibonacci-code
     evidence: [EXP-C11-06]
-    novelty: POTENTIALLY NOVEL
-    novelty_basis: "Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09)."
+    novelty: "REDISCOVERY"
+    novelty_basis: "Partial - T_011 is Capocelli's code C(3) (all words in which 011 occurs only as a suffix; IEEE Trans. IT 35 (1989) 191-193, as attributed by Lima-da Rocha, JCIS 2013, https://jcis.sbrt.org.br/jcis/article/download/17/11/127). T_p in general is the pattern code L(p): Lakshmanan, IEEE Trans. IT 27 (1981), in Fraenkel-Klein's version with p itself adjoined (DAM 64 (1996), section 2.1 and section 3); Berstel-Perrin call these semaphore codes. Lima-da Rocha (JCIS 2013, Table I) tabulate C(3) against the Fibonacci code at n = 2^t: longer at 1, 2, 4, equal at 8-32, one bit shorter for 2^6 <= n <= 2^26. The exact characterisation (one bit shorter except on the last L values of each level) was not found; Capocelli 1989 was not read (IEEE Xplore blocked), so it may be a full rediscovery (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
     applications: A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
+    change_reason: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Capocelli's code C(3), Lima-da Rocha's table)"
   - id: CLM-C11-05
     type: hypothesis
     system: SYS-C
@@ -169,8 +169,8 @@ claims:
     proof: proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates
     evidence: [EXP-C11-08, EXP-C11-07]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04."
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
+    novelty_basis: "Low confidence. Compares Apostolico-Fraenkel's code C^(k) (= T_(1^k)) with pattern codes such as Capocelli's C(k+1) (= T_(01^k)). Their lengths are tabulated (Lima-da Rocha, JCIS 2013, Table I), but no analysis of the running average gain, its oscillation or the constants (2-lambda)/(lambda-1)^2, lambda(2-lambda)/(lambda-1) was found. Capocelli 1989 and Lakshmanan 1981 were not read (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - novelty basis corrected (the codes compared are Apostolico-Fraenkel's and Capocelli's)"
   - id: CLM-C11-08
     type: algorithmic
     system: SYS-C
@@ -202,9 +202,9 @@ claims:
     proof_check: "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)"
     proof: proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3
     evidence: [EXP-C11-09]
-    novelty: POTENTIALLY NOVEL
-    novelty_basis: "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04)."
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld"
+    novelty: "REDISCOVERY"
+    novelty_basis: "Partial - the count 2F_(r-2) and C3 <= C1 for n > 1 are Fraenkel-Klein (DAM 64 (1996), Prop. 5 and the proof of Prop. 6, https://u.cs.biu.ac.il/~tomi/Postscripts/robust.pdf). The comparison of C3 with T_011 (= Capocelli's C(3), 1989), which is longer only at n = 2, 4, 8, was not found: Fraenkel-Klein do not cite Capocelli, and Lima-da Rocha (2013) do not treat C3 (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Fraenkel-Klein Props 5-6)"
 
 journal:
   - key: C11-01
@@ -298,6 +298,11 @@ journal:
     kind: review
     text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all nine claims upheld, every written proof checked; benchmarks reproduced to 4 decimals with independent length functions."
     refs: [reviews/skeptic_C05_C08_C12.md]
+  - key: C11-13
+    agent: Historian
+    kind: novelty
+    text: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - T_011 is Capocelli's code C(3) (IEEE Trans. IT 35, 1989), tabulated against the Fibonacci code by Lima-da Rocha (JCIS 2013), and the pattern codes T_p are Lakshmanan's (1981); CLM-C11-04 and CLM-C11-09 become partial rediscoveries (REDISCOVERY with a 'Partial' basis), CLM-C11-07 keeps POTENTIALLY NOVEL with low confidence. Capocelli 1989 and Lakshmanan 1981 could not be read and may settle the residue."
+    refs: [CLM-C11-04, CLM-C11-07, CLM-C11-09, reviews/historian_C11_C20.md]
 
 next_directions:
   - "C11: table-driven (byte-wise) decoders for T_p and a fair speed comparison with optimised Elias and Fibonacci decoders"

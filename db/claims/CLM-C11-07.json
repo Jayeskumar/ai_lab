@@ -19,11 +19,20 @@
       "old": "written proof (proofs/paper/C11.md Proposition 5); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. Compares Apostolico-Fraenkel's code C^(k) (= T_(1^k)) with pattern codes such as Capocelli's C(k+1) (= T_(01^k)). Their lengths are tabulated (Lima-da Rocha, JCIS 2013, Table I), but no analysis of the running average gain, its oscillation or the constants (2-lambda)/(lambda-1)^2, lambda(2-lambda)/(lambda-1) was found. Capocelli 1989 and Lakshmanan 1981 were not read (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.",
+      "reason": "Historian audit 2026-10-19 - novelty basis corrected (the codes compared are Apostolico-Fraenkel's and Capocelli's)",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C11-07",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.",
+  "novelty_basis": "Low confidence. Compares Apostolico-Fraenkel's code C^(k) (= T_(1^k)) with pattern codes such as Capocelli's C(k+1) (= T_(01^k)). Their lengths are tabulated (Lima-da Rocha, JCIS 2013, Table I), but no analysis of the running average gain, its oscillation or the constants (2-lambda)/(lambda-1)^2, lambda(2-lambda)/(lambda-1) was found. Capocelli 1989 and Lakshmanan 1981 were not read (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C11.md#proposition-5-clm-c11-07--the-average-gain-oscillates",
   "proof_check": "written proof (proofs/paper/C11.md Proposition 5), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); both constants agree to 6 digits with exact averages at L = 100, 200, 400 for k = 2..6 (EXP-C11-08)",
   "statement": "For k >= 2, lambda the k-bonacci constant and u unbordered of length k + 1, the running average\nG(N) = (1/N) sum_(n<=N) (L_(1^k)(n) - L_u(n)) has liminf (2 - lambda)/(lambda - 1)^2 and limsup\nlambda(2 - lambda)/(lambda - 1) (both 1 for k = 2; 0.228155 and 0.352201 for k = 3).",

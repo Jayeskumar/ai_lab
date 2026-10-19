@@ -9,12 +9,21 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. A census in the style of Durr-Rapaport-Theyssier's experimental classification of the 88 elementary CA (TCS 322 (2004), Table 1); the magma-automaton framework is Pedersen's (1992) and Moore's. No census of the 1734 order-3 magma automata by this measure was found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence), basis corrected",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C15-07",
   "limitations": "Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.",
+  "novelty_basis": "Low confidence. A census in the style of Durr-Rapaport-Theyssier's experimental classification of the 88 elementary CA (TCS 322 (2004), Table 1); the magma-automaton framework is Pedersen's (1992) and Moore's. No census of the 1734 order-3 magma automata by this measure was found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "statement": "Of the 1734 order-3 magma automata (up to isomorphism and mirror image), on t <= 9 the streaming width is bounded for 808 classes, grows linearly for 104, geometrically for 300 (largest lambda(9) = 649) and irregularly for 522; 43 are surjective, 7 injective and 34 nilpotent by t = 9.",
   "system": "SYS-E",
   "title": "Census of order-3 magma automata by streaming width",

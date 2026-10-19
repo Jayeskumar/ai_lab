@@ -1049,42 +1049,6 @@ Both rules are right barren (McNaughton; Geser, ICASE 2002-33, Thm 3.2-3.3), so 
 *Evidence:* CLM-C20-01, CLM-C20-02, CLM-C20-04
 
 
-## C03
-
-### [2026-10-18T16:49:49Z] Formal Verifier — revision (`C03-14#rev1`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T16:49:49Z] Formal Verifier — revision (`C06-11#rev1`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C03
-
-### [2026-10-18T16:55:13Z] Formal Verifier — revision (`C03-14#rev2`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T16:55:13Z] Formal Verifier — revision (`C06-11#rev2`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
 ## C15
 
 ### [2026-10-18T16:55:13Z] Mathematical Inventor — hypothesis (`C15-01`)
@@ -1183,30 +1147,6 @@ Housekeeping - the first EXP-C18-03 run failed (synthetic words passed as str in
 
 ## C03
 
-### [2026-10-18T16:55:43Z] Formal Verifier — revision (`C03-14#rev3`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T16:55:43Z] Formal Verifier — revision (`C06-11#rev3`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C03
-
-### [2026-10-18T17:10:10Z] Formal Verifier — revision (`C03-14#rev4`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
 ### [2026-10-18T17:10:10Z] Historian — novelty (`C03-15`)
 
 Found the Zantema-Geser technical report (UU-CS-1994-44) on an older archive host after the usual hosts failed; its Theorem 1.1 is the lab's Conjecture 4.6 verbatim. CLM-C03-10 becomes PROVEN (by literature), H-C03-3 (CLM-C03-09) is refuted by the theorem, and the 24 rules left open all terminate.
@@ -1224,12 +1164,6 @@ Audit - most of C04 is classical (Kurth, McNaughton, Zantema-Geser, van Oostrom,
 
 
 ## C06
-
-### [2026-10-18T17:10:10Z] Formal Verifier — revision (`C06-11#rev4`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
 
 ### [2026-10-18T17:10:10Z] Historian — novelty (`C06-12`)
 
@@ -1275,42 +1209,6 @@ Audit - the product formula is Lunnon's formula in OEIS A101330 and the norm sta
 Audit - missed source: Berthe-Frougny-Rigo-Sakarovitch (Adv. Appl. Math. 2020) on the cost of the successor; under their carry-propagation measure Zeckendorf costs phi^2, under the lab's Hamming measure 2. Claims now state the measure; T_m is OEIS A215005.
 
 *Evidence:* CLM-C10-01, CLM-C10-02, CLM-C10-05, reviews/historian_C03_C10.md
-
-
-## C03
-
-### [2026-10-18T17:10:29Z] Formal Verifier — revision (`C03-14#rev5`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T17:10:29Z] Formal Verifier — revision (`C06-11#rev5`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C03
-
-### [2026-10-18T17:12:39Z] Formal Verifier — revision (`C03-14#rev6`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T17:12:39Z] Formal Verifier — revision (`C06-11#rev6`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
 
 
 ## C13
@@ -1415,24 +1313,6 @@ Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aarde
 *Evidence:* CLM-C16-05, CLM-C16-07, CLM-C16-09, CLM-C16-15
 
 
-## C03
-
-### [2026-10-18T17:27:51Z] Formal Verifier — revision (`C03-14#rev7`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T17:27:51Z] Formal Verifier — revision (`C06-11#rev7`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
 ## C13
 
 ### [2026-10-18T17:27:51Z] Mathematical Skeptic — review (`C13-09`)
@@ -1440,24 +1320,6 @@ Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aarde
 EXP-C13-09 cross-checked the main results by independent code paths - explicit cube-law models for N = 3..60, the W-family theorem on all 42 six-leaf terms (N <= 6), and six atlas identifications against their direct arithmetic definitions up to N = 1000; no discrepancy. Remaining weak points - Theorem 1, Theorem 3 (iv) and Theorem 6 are written proofs not yet reviewed by an independent Skeptic; CLM-C13-11 rests on mechanical affine systems.
 
 *Evidence:* EXP-C13-09, CLM-C13-03, CLM-C13-05, CLM-C13-11
-
-
-## C03
-
-### [2026-10-18T17:45:11Z] Formal Verifier — revision (`C03-14#rev8`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-18T17:45:11Z] Formal Verifier — revision (`C06-11#rev8`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
 
 
 ## C19
@@ -1505,15 +1367,6 @@ Out-of-sample test of the recursion on 6,272 n not used to infer it (up to 2*10^
 *Evidence:* EXP-C19-04, EXP-C19-02
 
 
-## C03
-
-### [2026-10-18T18:17:35Z] Formal Verifier — revision (`C03-14#rev9`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
 ## C05
 
 ### [2026-10-18T18:17:35Z] Mathematical Skeptic — rejection (`C05-14`)
@@ -1527,15 +1380,6 @@ Independent review (reviews/skeptic_C05_C08_C12.md) - CLM-C05-09 refuted by line
 EXP-C05-07 - systematic search for linear models over GF(q), q <= 128. 0 conflicts with SAT, DRUP gaps or notes; even orders for 14 of 15 laws; 670 at n = 9 settled (new relative to the notes). Lesson - the Z_n affine search of EXP-C05-05 was blind to non-cyclic additive groups.
 
 *Evidence:* EXP-C05-07, CLM-C05-10
-
-
-## C06
-
-### [2026-10-18T18:17:35Z] Formal Verifier — revision (`C06-11#rev9`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
 
 
 ## C08
@@ -1561,50 +1405,11 @@ Revision of C20-04 - the scanned Zantema-Geser report UU-CS-1994-44 was found on
 
 *Evidence:* CLM-C20-04, CLM-C03-10, reviews/historian_C03_C10.md
 
-
-## C03
-
-### [2026-10-19T14:24:52Z] Formal Verifier — revision (`C03-14#rev10`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-19T14:24:53Z] Formal Verifier — revision (`C06-11#rev10`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C20
-
 ### [2026-10-19T14:24:53Z] Mathematical Skeptic — review (`C20-06`)
 
 Independent review (reviews/skeptic_C07_C17_C20.md) - Theorems 1-2 and Corollary 3 upheld (exhaustive derivation graphs n <= 10 / 15, strategies to length 18 / 21); the Zantema-Geser statement re-read on the scan and the equivalence confirmed on all parameters <= 50. Correction to C20-05 - the conjecture is equivalent to Theorem 1.1, not verbatim (one characterises termination, the other non-termination). Warning - the introduction of Geser's ICASE report claims linear lengths for all one-overlap-pair rules, which aab -> ababa contradicts; only the body's restricted statement is correct.
 
 *Evidence:* CLM-C20-01, CLM-C20-02, CLM-C20-04, reviews/skeptic_C07_C17_C20.md
-
-
-## C03
-
-### [2026-10-19T14:25:22Z] Formal Verifier — revision (`C03-14#rev11`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-19T14:25:22Z] Formal Verifier — revision (`C06-11#rev11`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
 
 
 ## C07
@@ -1697,60 +1502,6 @@ Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; the 
 *Evidence:* CLM-C18-09, CLM-C18-10, CLM-C18-13, reviews/skeptic_C14_C15_C16_C18.md
 
 
-## C03
-
-### [2026-10-19T14:26:08Z] Formal Verifier — revision (`C03-14#rev12`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-19T14:26:08Z] Formal Verifier — revision (`C06-11#rev12`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C03
-
-### [2026-10-19T14:26:15Z] Formal Verifier — revision (`C03-14#rev13`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-19T14:26:15Z] Formal Verifier — revision (`C06-11#rev13`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
-## C03
-
-### [2026-10-19T14:44:16Z] Formal Verifier — revision (`C03-14#rev14`)
-
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
-
-*Evidence:* reviews/skeptic_C03_C04_C06.md
-
-
-## C06
-
-### [2026-10-19T14:44:16Z] Formal Verifier — revision (`C06-11#rev14`)
-
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
-
-*Evidence:* EXP-C06-03, EXP-C06-04
-
-
 ## C13
 
 ### [2026-10-19T14:44:17Z] Mathematical Skeptic — review (`C13-10`)
@@ -1775,20 +1526,92 @@ EXP-C19-05 - the lazy-representation method agrees with full simulation for ever
 *Evidence:* EXP-C19-05, CLM-C19-05, CLM-C19-14
 
 
-## C03
+## C20
 
-### [2026-10-19T14:44:30Z] Formal Verifier — revision (`C03-14#rev15`)
+### [2026-10-19T22:30:20Z] Research Director — infrastructure (`manual-2026-10-19T22:30:20Z`)
 
-[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+Batch 1.1 (G6): 'lab sync' compared each record's journal entry with the original entry, kind included. The records of C03 and C06 had changed the kind of entries C03-14 and C06-11 from 'correction' (not a known kind) to 'revision', so every sync appended an identical revision of both entries (16 copies each, text unchanged). The 32 copies were removed from journal/entries.jsonl (they remain in the git history), 'correction' is now a known journal kind and the two records use it again, sync now compares agent, text and references with the latest version of an entry, and the new 'python -m lab check' rejects a revision that repeats the version before it. The batch-1 report's journal count (255) included the 32 copies.
 
-*Evidence:* reviews/skeptic_C03_C04_C06.md
+*Evidence:* lab/records.py, lab/check.py
 
 
 ## C06
 
-### [2026-10-19T14:44:30Z] Formal Verifier — revision (`C06-11#rev15`)
+### [2026-10-19T23:04:05Z] Historian — novelty (`C06-13`)
 
-[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - CLM-C06-01 states a published theorem (Laver; Dehornoy 2000, Prop. X.1.6, statement read in Biane's refereed survey SLC 80 (2019) and in Aguilera-Iannella 2026), so it is now PROVEN (literature) instead of COMPUTATIONALLY SUPPORTED. The C06 citation of Biane's arXiv v1, whose section 2.1 states the recursion for all q, is replaced by the published version, which corrects it.
 
-*Evidence:* EXP-C06-03, EXP-C06-04
+*Evidence:* CLM-C06-01, reviews/historian_C11_C20.md
+
+
+## C10
+
+### [2026-10-19T23:04:05Z] Formal Verifier — proof (`C10-09`)
+
+Batch 1.1 - Theorem 6 (skew binary counting: worst case 2, average 3/2 + O(log N / N)) is now proved in Lean (proofs/lean/Infinity/C10_SkewBinary.lean, standard axioms), with the explicit bound |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) and a proof of the uniqueness of canonical skew-binary representations, which the paper had cited.
+
+*Evidence:* CLM-C10-07, proofs/lean/NOTES_batch1.1.md
+
+
+## C11
+
+### [2026-10-19T23:04:05Z] Historian — novelty (`C11-13`)
+
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - T_011 is Capocelli's code C(3) (IEEE Trans. IT 35, 1989), tabulated against the Fibonacci code by Lima-da Rocha (JCIS 2013), and the pattern codes T_p are Lakshmanan's (1981); CLM-C11-04 and CLM-C11-09 become partial rediscoveries (REDISCOVERY with a 'Partial' basis), CLM-C11-07 keeps POTENTIALLY NOVEL with low confidence. Capocelli 1989 and Lakshmanan 1981 could not be read and may settle the residue.
+
+*Evidence:* CLM-C11-04, CLM-C11-07, CLM-C11-09, reviews/historian_C11_C20.md
+
+
+## C13
+
+### [2026-10-19T23:04:05Z] Formal Verifier — proof (`C13-11`)
+
+Batch 1.1 - Theorem 1 (structure of affine spectra) is now proved in Lean (proofs/lean/Infinity/C13_AffineStructure.lean): parts (a)-(f), the infinite case by Gauss's lemma instead of Schur's theorem; only the example that resultants lie in the ideal is not formalised. Historian audit 2026-10-19: CLM-C13-02, -03, -11 keep POTENTIALLY NOVEL with low confidence (single-law spectra are an ETP topic, without the anchor).
+
+*Evidence:* CLM-C13-01, CLM-C13-02, CLM-C13-03, CLM-C13-11, reviews/historian_C11_C20.md
+
+
+## C14
+
+### [2026-10-19T23:04:05Z] Historian — novelty (`C14-13`)
+
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - Oh, Yoo and Yun (SIAM J. Discrete Math. 27, 2013) prove that G -> K_2 (+) G is well defined and injective on switching classes, which is CLM-C14-07 (c) and (b); only the elementary part (a) is not in the literature found. CLM-C14-07 becomes a partial rediscovery; the K_2-cancellation step of the conjecture CLM-C14-13 is their theorem.
+
+*Evidence:* CLM-C14-07, CLM-C14-13, reviews/historian_C11_C20.md
+
+
+## C15
+
+### [2026-10-19T23:04:05Z] Historian — novelty (`C15-09`)
+
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - streaming width is essentially the one-way communication complexity of the t-step rule of Durr, Rapaport and Theyssier (TCS 322, 2004), who classify the elementary CA into bounded / linear / other and give explicit linear-complexity rules (132, 23) and a 3-state Theta(n^2) CA, so the refutations of H-C15-1 and H-C15-4 were already exemplified there. Only the fuse magma and the order-3 census are new; CLM-C15-04, -07, -15 keep POTENTIALLY NOVEL with low confidence.
+
+*Evidence:* CLM-C15-04, CLM-C15-07, CLM-C15-15, reviews/historian_C11_C20.md
+
+
+## C16
+
+### [2026-10-19T23:04:05Z] Historian — novelty (`C16-10`)
+
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - P. Klimov (arXiv:2604.05754, 2026) studies the same objects (UFS-groupoids) and poses as open (Problems 7.3-7.5) whether one can be left-cancellative, a left quasigroup or a quasigroup; CLM-C16-07 answers this positively with finite examples (the Historian re-checked the order-5 example). CLM-C16-05 and -07 keep POTENTIALLY NOVEL with more confidence; CLM-C16-15 is a two-line corollary, not a substantive novelty.
+
+*Evidence:* CLM-C16-05, CLM-C16-07, CLM-C16-15, reviews/historian_C11_C20.md
+
+
+## C17
+
+### [2026-10-19T23:04:05Z] Historian — novelty (`C17-05`)
+
+Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - the anchor-instance question of CLM-C17-05 is answered in the literature for every N: uniqueness is Dehornoy's Lemma X.1.2 (also Biane, SLC 80 (2019) section 2.1), and the full instance fails for every N that is not a power of 2 (Biane's footnote 1; Aguilera-Iannella, arXiv:2610.06106, Prop. 2.5 with Dehornoy's Lemma X.1.7 and Prop. X.1.6). Several surveys, including Biane's arXiv v1 cited in C06, state the recursion for all q, which is false already at N = 3; the lab's C17 correction of its own C06 paraphrase is the correction Biane made in the published version. With the new Lean file C17_ForcedTable.lean (uniqueness, existence, reduction to the wrap-around equations for every N), CLM-C17-05 becomes PROVEN (computer-assisted, N <= 4096) and REDISCOVERY; the all-N statement is recorded as CLM-C17-08 (REDISCOVERY, COMPUTATIONALLY SUPPORTED until an independent proof check).
+
+*Evidence:* CLM-C17-05, CLM-C17-08, reviews/historian_C11_C20.md
+
+
+## C19
+
+### [2026-10-19T23:04:05Z] Formal Verifier — proof (`C19-10`)
+
+Batch 1.1 - the arithmetic core of Theorems 7-8 (the weight identity and the bound 1 + (t+1)(t+6)/2 for any two 0/1 strings of equal value) is proved in Lean (proofs/lean/Infinity/C19_DeficitBound.lean); the game-theoretic steps remain a written proof. Historian audit 2026-10-19: all arXiv Zeckendorf-game papers to 2026-10-07 checked; the C19 labels stand.
+
+*Evidence:* CLM-C19-14, CLM-C19-15, reviews/historian_C11_C20.md
 

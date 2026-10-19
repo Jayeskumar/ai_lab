@@ -18,6 +18,8 @@ def proof_kind(proof_check: str) -> str:
     computed = "computer-assisted" in pc
     if pc.startswith("published theorem") or "read verbatim" in pc:
         return "published proof (literature)"
+    if pc.startswith("lean 4 (complete"):
+        return "Lean (complete)"
     if lean and not (written or computed):
         return "Lean (complete)"
     if lean:

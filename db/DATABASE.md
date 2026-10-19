@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-19T23:04:05Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1098,13 +1098,14 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   (With the constructions of the ETP write-up "Spectra of order-3 equations" the spectrum is exactly
   {n : n = 0, 1 mod 4}.)
 
-- **proof:** proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-xyxxy-orders-are--0-1-mod-4
+- **proof:** proofs/paper/C05.md#theorem-2-clm-c05-04--law-167-x--yxxy-orders-are--0-1-mod-4
 - **lean:** proofs/lean/Infinity/C05_Magmas.lean
 - **evidence:** EXP-C05-01
 - **novelty_basis:**
 
   Proposition 3 of the ETP write-up 'Spectra of order-3 equations' (Lean Zulip upload; attributed in Le Floch's notes to Ben Gunby-Mann) gives the same orbit argument and the full spectrum. Our addition is a Lean formalisation of the necessity half via a fixed-point-free involution on Sym2.
 
+- **status history:**
 
 ### CLM-C05-05: Identities x = y*s(x, y) make every left translation of a finite model bijective
 
@@ -1238,7 +1239,11 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C06
 - **type:** theorem
 - **system:** SYS-B
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  published theorem (R. Laver 1992/1995; P. Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2 and Prop. X.1.6) - statement read verbatim in P. Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.2 ('left distributive if and only if N = 2^n') and in Aguilera-Iannella, arXiv:2610.06106, Prop. 2.3(ii) (citing Dehornoy); the proof itself was not read by the lab. An anchored left-distributive table satisfies the recursion, hence is the unique table it forces. The bounded statement is also checked by EXP-C06-01/02 and in Lean for N = 3 (laver3_left_distributive, no_anchored_ld_three)
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -1246,13 +1251,16 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   N = 1, 2, 4, 8 among N <= 10 and is then unique (the Laver table A_n); Laver's recursion yields
   left-distributive tables exactly at the powers of 2 up to N = 64 (verified to N = 256 exhaustively).
 
+- **proof:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf
 - **lean:** proofs/lean/Infinity/C06_Laver.lean
 - **evidence:** EXP-C06-01; EXP-C06-02
 - **novelty_basis:**
 
-  Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.
+  Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, 'Laver tables and combinatorics', Sem. Lothar. Combin. 80 (2019) B80c, whose arXiv v1 (arXiv:1810.00548) states the recursion for all q, corrected in the published version; Aguilera-Iannella, arXiv:2610.06106). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.
 
+- **references:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf; https://arxiv.org/abs/2610.06106
 - **status history:**
+  - 2026-10-19T23:04:05Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C06; Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the r…)
 
 ### CLM-C06-02: Anchored associativity forces x*y = x + y + 1, for every N
 
@@ -1854,7 +1862,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   (1/phi - psi^2, 1/phi - psi^3) = (0.2360..., 0.8541...). Hence every n with frac((n+1)/phi) outside this
   interval is circle-irreducible, and these n have natural density exactly 1/phi^2 = 0.381966...
 
-- **proof:** proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ²
+- **proof:** proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ
 - **evidence:** EXP-C09-04
 - **novelty_basis:**
 
@@ -2075,11 +2083,12 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)
+  Lean 4 (complete) - proofs/lean/Infinity/C10_SkewBinary.lean proves all of Theorem 6 with explicit constants: canonical skew-binary representations exist and are unique (canon_existsUnique; the paper cited this from Myers 1983 and Okasaki 1998), consecutive representations differ in exactly 1 + [the representation of n contains a 2] <= 2 digits (increment_cost), the indicator word is B_K (chi_word), and |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) (average_cost); standard axioms only. The paper argument (proofs/paper/C10.md Theorem 6) was sketched by the Skeptic and written out by the Director; measured average 1.4999955 below 1e6 (EXP-C10-01)
 
 - **novelty:** REDISCOVERY
 - **statement:** In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).
 - **proof:** proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting
+- **lean:** proofs/lean/Infinity/C10_SkewBinary.lean
 - **evidence:** EXP-C10-01
 - **novelty_basis:** Myers (1983), Okasaki (skew binary random-access lists).
 - **status history:**
@@ -2108,7 +2117,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-01; EXP-C11-02
 - **novelty_basis:**
 
-  Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard.
+  Generating function: Guibas and Odlyzko (1981), string overlaps. Fibonacci code and its order-k generalisation: Apostolico and Fraenkel (1987), Fraenkel and Klein (1996); the 'N consecutive ones' generalisation is standard. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2133,7 +2142,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-02
 - **novelty_basis:**
 
-  In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.
+  In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2157,7 +2166,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-06; EXP-C11-02
 - **novelty_basis:**
 
-  An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).
+  An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers). Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2171,7 +2180,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
   written proof (proofs/paper/C11.md Corollary 4), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 (difference -1 at 3 values, 0 at 429, +1 at 1999568) and block-wise check up to L = 90 (EXP-C11-06)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   cum_11(L) = F_(L+1) - 1 and cum_011(L) = F_(L+2) - L - 1. If the Fibonacci (C1) codeword of n has length L + 1,
@@ -2182,10 +2191,11 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-06
 - **novelty_basis:**
 
-  Low confidence. Not found in Apostolico-Fraenkel (1987), Fraenkel-Klein (1996), Anisimov-Zavadskyi multi-delimiter codes (IEEE Trans. IT 63, 2017), the prefix-synchronised-code literature (Gilbert 1960; Guibas-Odlyzko 1978) or the standard accounts of Fibonacci coding. Closest prior art: Fraenkel-Klein's C3, a non-prefix improvement of C1 that is also decoded by searching for 011 (compared in CLM-C11-09).
+  Partial - T_011 is Capocelli's code C(3) (all words in which 011 occurs only as a suffix; IEEE Trans. IT 35 (1989) 191-193, as attributed by Lima-da Rocha, JCIS 2013, https://jcis.sbrt.org.br/jcis/article/download/17/11/127). T_p in general is the pattern code L(p): Lakshmanan, IEEE Trans. IT 27 (1981), in Fraenkel-Klein's version with p itself adjoined (DAM 64 (1996), section 2.1 and section 3); Berstel-Perrin call these semaphore codes. Lima-da Rocha (JCIS 2013, Table I) tabulate C(3) against the Fibonacci code at n = 2^t: longer at 1, 2, 4, equal at 8-32, one bit shorter for 2^6 <= n <= 2^26. The exact characterisation (one bit shorter except on the last L values of each level) was not found; Capocelli 1989 was not read (IEEE Xplore blocked), so it may be a full rediscovery (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **applications:** A drop-in prefix-free replacement for the Fibonacci code that saves one bit on almost every integer.
 - **status history:**
+  - 2026-10-19T23:04:05Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C11; Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Capocelli's code C(3), Lima-da Rocha's table))
 
 ### CLM-C11-05: H-C11-2: 1^k is the best length-k terminator beyond small n (refuted at practical sizes)
 
@@ -2240,7 +2250,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-08; EXP-C11-07
 - **novelty_basis:**
 
-  Low confidence. Log-periodic oscillation of averages is a generic phenomenon in the analysis of algorithms; the specific constants for pattern-terminated codes were not found in the sources listed for CLM-C11-04.
+  Low confidence. Compares Apostolico-Fraenkel's code C^(k) (= T_(1^k)) with pattern codes such as Capocelli's C(k+1) (= T_(01^k)). Their lengths are tabulated (Lima-da Rocha, JCIS 2013, Table I), but no analysis of the running average gain, its oscillation or the constants (2-lambda)/(lambda-1)^2, lambda(2-lambda)/(lambda-1) was found. Capocelli 1989 and Lakshmanan 1981 were not read (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2280,7 +2290,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
   written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   The Fraenkel-Klein code C3 (2F_(r-2) codewords of length r >= 3, so cum_C3(L) = 2F_L - 2) is never longer than the
@@ -2291,9 +2301,10 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C11-09
 - **novelty_basis:**
 
-  Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).
+  Partial - the count 2F_(r-2) and C3 <= C1 for n > 1 are Fraenkel-Klein (DAM 64 (1996), Prop. 5 and the proof of Prop. 6, https://u.cs.biu.ac.il/~tomi/Postscripts/robust.pdf). The comparison of C3 with T_011 (= Capocelli's C(3), 1989), which is longer only at n = 2, 4, 8, was not found: Fraenkel-Klein do not cite Capocelli, and Lima-da Rocha (2013) do not treat C3 (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
+  - 2026-10-19T23:04:05Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C11; Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Fraenkel-Klein Props 5-6))
 
 ### CLM-C12-01: Divisibility games: subtract a proper divisor = v2, subtract a divisor = v2 + 1, move to a divisor = Omega
 
@@ -2396,9 +2407,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C12-06; EXP-C12-04; EXP-C12-01
 - **novelty_basis:**
 
-  The Grundy sequence is not in the OEIS (EXP-C12-04, queried 2026-10-18); the game is not among the divisor
-  games of Iannucci & Larsson 2021; Codeforces 1537D and its solution determine only the P-positions; web
-  searches (2026-10-18) found no analysis of the Grundy values. Not a priority claim.
+  Not in Iannucci-Larsson (arXiv:2101.07608), whose divisor-subtraction game allows d = 1 and d = n; Codeforces 1537D and its solution give only the P-positions. OEIS has neither the Grundy sequence nor the P-position sequence (queried 2026-10-18 and again 2026-10-19). Web searches found no analysis of the Grundy values. Not a priority claim (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **applications:** Sums of deleting-divisors heaps are solved by XOR of closed-form values (the P-positions alone do not solve sums).
 - **limitations:** Beyond a = 100 (the Skeptic - a = 400) the certificate relies on the written shift-invariance argument.
@@ -2607,7 +2616,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C13.md Theorem 1; Chinese remainder theorem, Bezout in Q[a], Gauss's lemma, Schur's theorem); consistent with all 152 spectra of EXP-C13-01 (every finite one is Div(L)); skeptic-reviewed 2026-10-18 (reviews/skeptic_C13_C19.md) - its own atlas (direct root search for every N <= 200) reproduces all spectra
+  Lean 4 (complete, except the standard fact quoted as an example that a resultant of two polynomials lies in the ideal they generate) - proofs/lean/Infinity/C13_AffineStructure.lean: the anchored affine tables are exactly x + a*y + 1 (affine_anchored, affine_table_anchored); a law holds in x + a*y + 1 on Z/N iff a is a common root mod N of its affine system (law_holds_affine_iff, affModels_eq); closure under divisors and coprime products (aff_of_dvd, aff_mul_of_coprime, mem_aff_iff_primePow); with no common factor over Q the spectrum is finite, equal to the divisors of its maximum L, and L divides every integer of the ideal (aff_structure_of_no_common_factor); a common factor of positive degree makes it infinite (aff_infinite - via Gauss's lemma instead of the paper's Schur argument) and the empty system gives every N (aff_empty); Theorem 1(f) as well (aff_of_root, primePow_root_iff, primePow_mem_aff_iff_of_coprime_cofactors); standard axioms only. The paper proof was skeptic-reviewed 2026-10-18 (reviews/skeptic_C13_C19.md); consistent with all 152 spectra of EXP-C13-01
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -2615,6 +2624,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   For any finite set E of laws, the anchored affine tables are exactly x*y = x + a*y + 1, and the affine spectrum Aff(E) is the set of N for which the affine system of E (polynomials in Z[a]) has a common root mod N. Aff(E) is closed under divisors and under coprime products; if the system has no common factor over Q it is finite and equal to the set of divisors of its maximum L (L divides every non-zero integer of the ideal generated by the system in Z[a], e.g. any non-zero constant of the system or any non-zero resultant of two of its polynomials), and otherwise it is infinite (an empty system gives Aff(E) = N).
 
 - **proof:** proofs/paper/C13.md#theorem-1-clm-c13-01--the-structure-of-affine-spectra
+- **lean:** proofs/lean/Infinity/C13_AffineStructure.lean
 - **evidence:** EXP-C13-01
 - **novelty_basis:**
 
@@ -2640,7 +2650,10 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C13.md#theorem-2-clm-c13-02--right-normed-laws-have-only-translation-models
 - **lean:** proofs/lean/Infinity/C13_Spectra.lean
 - **evidence:** EXP-C13-03
-- **novelty_basis:** Generalises the argument of C06 Theorem 6; searches on anchored/successor-anchored magmas (C06) found only the Laver-table literature. Small.
+- **novelty_basis:**
+
+  Low confidence. Anchored magmas impose Laver's initial condition x * 0 = x + 1 on arbitrary laws. Spectra of single magma laws are studied without anchor in the Equational Theories Project (arXiv:2512.07087 section 9; B. Le Floch, 'Spectra of equational laws', 2025). No treatment of anchored models or of right-normed laws was found. Small lemma (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
 - **status history:**
 
 ### CLM-C13-03: The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1
@@ -2668,7 +2681,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C13-03; EXP-C13-09
 - **novelty_basis:**
 
-  Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical.
+  Low confidence. Reducing laws to polynomial congruences through linear models is standard (Toyoda-Bruck; the ETP uses x * y = ax + by over Z/n, arXiv:2512.07087 section 9). The anchored W-family theorem was not found: true spectrum = roots of a*c_W(a) - 1, and every gap-free c_W with constant term 1 occurs. The number theory of the resulting sets is classical (earlier searches: Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2687,7 +2700,10 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C13.md#theorem-4-clm-c13-04--two-of-the-finite-spectra-of-clm-c06-10
 - **lean:** proofs/lean/Infinity/C13_Spectra.lean
 - **evidence:** EXP-C13-04
-- **novelty_basis:** Settles two cases of the lab's own conjecture CLM-C06-10; no prior statement expected or found. Small.
+- **novelty_basis:**
+
+  Settles two cases of the lab's own conjecture CLM-C06-10; anchored spectra do not occur in the ETP material read (arXiv:2512.07087 section 9; Le Floch 2025). Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
 - **status history:**
 
 ### CLM-C13-05: The law x = x(x(xx)) has anchored models of every size except 2
@@ -2812,7 +2828,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C13-01; EXP-C13-09
 - **novelty_basis:**
 
-  The sets are classical (OEIS entries quoted). Their realisation as affine anchored spectra of single magma laws was not found (searches as for CLM-C13-03). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger; true spectra are realised for the W-family sets (CLM-C13-03).
+  Low confidence. Classical arithmetic sets occur as (unanchored) spectra of single laws in the Equational Theories Project (e.g. law 546: sums of two squares; Le Floch's notes section 2.1). Their realisation as affine anchored spectra was not found. The sets themselves are classical (OEIS entries quoted). These are affine spectra only - by EXP-C13-02 the true spectra of the short laws realising them are usually larger (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2925,7 +2941,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C14-03
 - **novelty_basis:**
 
-  The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore.
+  The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore. Searches on Boolean/NEPS products and Seidel spectra (2026-10-19) found no classification; Cvetkovic-Doob-Sachs, Spectra of Graphs, sections 2.5-2.6 not checked. Possibly folklore (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -2946,7 +2962,10 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
 - **evidence:** EXP-C14-03
-- **novelty_basis:** The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
+- **novelty_basis:**
+
+  The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result. Searches on Boolean/NEPS products and Seidel spectra (2026-10-19) found no classification; Cvetkovic-Doob-Sachs, Spectra of Graphs, sections 2.5-2.6 not checked. Possibly folklore (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
 - **status history:**
 
 ### CLM-C14-06: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs
@@ -2987,17 +3006,22 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
   written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   (a) K_{a,b} xor K_{c,d} = K_{ac+bd, ad+bc}; so (|V|, |a-b|) is multiplicative on complete bipartite graphs.
   (b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).
   (c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.
 
-- **proof:** proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
+- **proof:** proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k-absorbs-switching
 - **evidence:** EXP-C14-05; EXP-C14-06
-- **novelty_basis:** No statement found in the searches listed for CLM-C14-06. Small result.
+- **novelty_basis:**
+
+  Partial - (c) and (b) for a = 1 are Oh-Yoo-Yun, 'Rainbow graphs and switching classes', SIAM J. Discrete Math. 27 (2013) 1106-1111, Thm 1.1 and Prop. 3.3 (https://arxiv.org/abs/1108.6143). Their 2n-vertex graph G~ is K_2 (+) G, and G~ = H~ iff G and H are switching-equivalent; they note a similar map in Colbourn-Corneil 1980. (b) for a >= 2 follows since K_(a,a) = K_2 (+) aK_1. Part (a), K_(a,b) (+) K_(c,d) = K_(ac+bd, ad+bc), was not found (elementary) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
+- **references:** https://arxiv.org/abs/1108.6143
 - **status history:**
+  - 2026-10-19T23:04:05Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C14; Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c)))
 
 ### CLM-C14-08: H-C14-3: the six commutative unital associative products factor uniquely on connected (or co-connected) graphs (refuted)
 
@@ -3065,7 +3089,11 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C14.md#theorem-10-clm-c14-10--prime-counts-over-all-graphs-computer-assisted
 - **evidence:** EXP-C14-04
-- **novelty_basis:** OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.
+- **novelty_basis:**
+
+  Low confidence. OEIS searches (2026-10-18, repeated 2026-10-19) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
+- **status history:**
 
 ### CLM-C14-11: The lexicographic product has non-unique factorisation already at order 10 (different multisets of primes)
 
@@ -3123,7 +3151,10 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   up to signed permutation similarity, under the Kronecker product).
 
 - **evidence:** EXP-C14-05
-- **novelty_basis:** The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts.
+- **novelty_basis:**
+
+  Low confidence. The product of two-graphs is the Kronecker product of the matrices S + I, as used for graphical Hadamard matrices (Abiad-Butler-Haemers, arXiv:1801.01149 sections 4-5). Cancellation by [K_2] is Oh-Yoo-Yun (SIAM J. Discrete Math. 2013). No unique-factorisation statement for two-graphs, or for +-1 matrices up to signed permutation similarity, was found. Lajou's unique factorisation of signed graphs concerns the Cartesian product (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
 - **limitations:**
 
   No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c). The Skeptic notes that this evidence was thin - up to order 16 almost every composite is [K2] (x) X, covered by the proved cancellation - and extends it substantially: all 53,703 multisets of prime classes with <= 8 vertices and product order <= 64, screened by exact integer power sums tr((S+I)^k) and decided by exact switching-equivalence tests (2,205 cospectral groups, 3,012 pairs), give 0 collisions.
@@ -3221,8 +3252,9 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C15-02; EXP-C15-03; EXP-C15-05
 - **novelty_basis:**
 
-  Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.
+  Low confidence. Streaming width is essentially the one-way communication complexity of the t-step local rule used by Durr-Rapaport-Theyssier (TCS 322 (2004) 355-368, https://arxiv.org/abs/cs/0210008; their d_n uses the central cut and the maximum over the two directions). They classify ECAs into bounded/linear/other and prove linear complexity with an explicit description of f^n for rule 132 (Lemma 10), so 'unbounded width yet easy prediction' is already exemplified there. The fuse magma and its burn-time fast-forward were not found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
+- **references:** https://arxiv.org/abs/cs/0210008
 - **status history:**
 
 ### CLM-C15-05: Surjective iff permutive for magmas of order at most 3; false at order 4
@@ -3272,8 +3304,12 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   Of the 1734 order-3 magma automata (up to isomorphism and mirror image), on t <= 9 the streaming width is bounded for 808 classes, grows linearly for 104, geometrically for 300 (largest lambda(9) = 649) and irregularly for 522; 43 are surjective, 7 injective and 34 nilpotent by t = 9.
 
 - **evidence:** EXP-C15-02
-- **novelty_basis:** Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.
+- **novelty_basis:**
+
+  Low confidence. A census in the style of Durr-Rapaport-Theyssier's experimental classification of the 88 elementary CA (TCS 322 (2004), Table 1); the magma-automaton framework is Pedersen's (1992) and Moore's. No census of the 1734 order-3 magma automata by this measure was found (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
 - **limitations:** Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).
+- **status history:**
 
 ### CLM-C15-08: H-C15-1: streaming width is either bounded or geometric (refuted)
 
@@ -3385,7 +3421,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - about three orders of magnitude faster than direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x on the Skeptic's re-run), with t = 10^9 in about a millisecond; because the O(L) method is a Python loop it loses to simulation for t below about 20-70.
 
 - **evidence:** EXP-C15-03
-- **novelty_basis:** As CLM-C15-04.
+- **novelty_basis:** Low confidence. A benchmark of the fast-forward of CLM-C15-04; no mathematical novelty beyond it (see CLM-C15-04) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 - **status history:**
 
 ### CLM-C15-16: Cycle detection as a generic fast-forward
@@ -3533,8 +3569,9 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C16-02
 - **novelty_basis:**
 
-  Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.
+  Full-period tables are Klimov's finite UFS-groupoids with periodic universal Fibonacci sequence (P. Klimov, 'Universal Fibonacci sequences and UFS-groupoids', arXiv:2604.05754, 2026, Thm 4.2: their cycles are the de Bruijn sequences B(n,2)). Klimov characterises them through distance-1 pairs only and leaves open whether one can be a quasigroup (Problem 7.5). The distance-2 characterisation was not found. Tuscan-2 squares (Etzion-Golomb-Taylor 1989) and recursive MDS codes are different objects. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
+- **references:** https://arxiv.org/abs/2604.05754
 - **status history:**
 
 ### CLM-C16-06: H-C16-5: no quasigroup has a full-period pair map (refuted)
@@ -3569,7 +3606,12 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
 - **proof:** proofs/paper/C16.md#theorem-5-clm-c16-07--which-orders-have-full-period-quasigroups-computer-assisted
 - **evidence:** EXP-C16-02
-- **novelty_basis:** Same searches as CLM-C16-05; the counts 0, 0, 0, 3360 were not found. Small.
+- **novelty_basis:**
+
+  Answers Problems 7.3-7.5 of P. Klimov (arXiv:2604.05754v2, 2026) positively, with finite examples: he asks whether a UFS-groupoid (finite or infinite) with more than one element can be left-cancellative, a left quasigroup or a quasigroup; the lab's order-5 cycle gives a Latin square whose pair map is one 25-cycle (checked independently by the Historian, reviews/historian_checks/C11_C20/klimov_problem75_check.py). The counts 0, 0, 0, 3360 were not found. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
+- **references:** https://arxiv.org/abs/2604.05754
+- **status history:**
 
 ### CLM-C16-08: Direct products of full-period magmas of coprime orders are full-period
 
@@ -3607,7 +3649,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C16-02
 - **novelty_basis:**
 
-  The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.
+  The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small. Sign-of-permutation obstructions to single cycles of shift-register maps are standard (e.g. S. Li, arXiv:2605.09489, 2026). Klimov's study of UFS-groupoids (arXiv:2604.05754) contains no parity or isotopy result. The q-ary NFSR literature was not searched exhaustively for an even-alphabet obstruction (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -3722,7 +3764,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C16-03
 - **novelty_basis:**
 
-  No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small.
+  Low confidence; trivial corollary. No source on Fibonacci-type recurrences in Laver tables was found (Biane, SLC 80 (2019) B80c; Dehornoy's surveys; Klimov's UFS paper, arXiv:2604.05754, does not mention Laver tables). It is a two-line consequence of p * q > p (p < 2^n) and p * 2^n = 2^n (Dehornoy-Lebed, arXiv:1401.2335, (1.3)-(1.4)). Not a substantive novelty (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -3862,16 +3904,28 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **cycle:** C17
 - **type:** observation
 - **system:** SYS-B
-- **verification:** COMPUTATIONALLY SUPPORTED
-- **novelty:** NOT ASSESSED
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5)
+
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For every N, the instances y <= N - 2 of x*(y+1) = (x*y)*(x+1) force at most one anchored table (Laver's recursion; written proof in proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which satisfies the full instance including the wrap-around y = N - 1. For every N <= 4096 (EXP-C17-03, and independently the Skeptic's C program) the full instance has a model exactly at the powers of 2, so for these N left-distributivity of an anchored table is decided by an O(N^2) check.
 
+- **proof:** proofs/paper/C17.md#observation-4-clm-c17-05--the-anchor-instance-of-left-distributivity
+- **lean:** proofs/lean/Infinity/C17_ForcedTable.lean
 - **evidence:** EXP-C17-03; EXP-C17-02
-- **novelty_basis:** Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.
-- **limitations:** Uniqueness is proved for every N; the exclusion of non-powers of 2 is computational (N <= 4096) and open in general.
+- **novelty_basis:**
+
+  Uniqueness for every N: Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2; Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.1 (https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf). Non-existence of a model of the full instance for N not a power of 2: Biane's footnote 1 ('(2.2) for all p, q ... if N is not a power of 2 this is not true', credited to A. Lewandowski); Aguilera-Iannella (arXiv:2610.06106, 2026) state it as Biane's observation, and it follows from their Prop. 2.5 (the instance at (a, N) holds iff a * N = N) together with Dehornoy's Lemma X.1.7 and Prop. X.1.6. So the statement holds for every N (CLM-C17-08) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
+
+- **references:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf; https://arxiv.org/abs/2610.06106
+- **limitations:** Uniqueness and existence are Lean-checked for every N; the exclusion of non-powers of 2 is computational here (N <= 4096). For every N it is published (CLM-C17-08).
 - **status history:**
+  - 2026-10-19T23:04:05Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C17; Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED …)
+  - 2026-10-19T23:04:05Z novelty: NOT ASSESSED → REDISCOVERY (sync:C17; Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED …)
 
 ### CLM-C17-06: H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (refuted)
 
@@ -3902,6 +3956,30 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
   43 of the 382 laws (first violating anchored model at N = 3 for 33 laws, at N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N = 3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other 339 laws the instance decides the law for N <= 5, among them associativity, and (N <= 10) left-distributivity. The first version reported 18 insufficient and 31 undecided laws because of a classification bug - a law whose enumeration was capped at one N was counted as undecided even when a violation had been found at another N; the Skeptic's independent census gives the same 339 / 43 / 0 as the corrected experiment.
 
 - **status history:**
+
+### CLM-C17-08: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N <= 4096)
+
+- **cycle:** C17
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** COMPUTATIONALLY SUPPORTED
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  For every N >= 1, an anchored table (x*0 = x + 1 mod N) satisfies x*(y+1) = (x*y)*(x+1) for all x and y, the wrap-around y = N - 1 included, iff N is a power of 2; it is then the Laver table A_n. Equivalently (CLM-C17-05), left-distributivity of an anchored table of any order is decided by an O(N^2) comparison with the forced table.
+
+- **evidence:** EXP-C17-03
+- **novelty_basis:**
+
+  Stated in Biane, Sem. Lothar. Combin. 80 (2019) B80c, section 2.1, footnote 1 (credited to A. Lewandowski) and, as Biane's observation, in Aguilera-Iannella, 'Non-dyadic Laver algebras', arXiv:2610.06106 (2026), section 2.2. A proof: their Prop. 2.5 (read; the instance at (a, N) holds iff a * N = N) with Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.7 (left-distributive iff a * N = N for every a) and Prop. X.1.6 (no such left-distributive table unless N is a power of 2), the last two read only as cited by Aguilera-Iannella (Historian audit 2026-10-19, reviews/historian_C11_C20.md, section 'The CLM-C17-05 question').
+
+- **references:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf; https://arxiv.org/abs/2610.06106
+- **limitations:**
+
+  The lab has checked the statement for N <= 4096 only (EXP-C17-03). The published proof rests on two results of Dehornoy's book that the lab read only as cited; an independent argument through row periods (Historian report, section 4: rows s+1..N-1 of the forced table are shifted copies of rows of A_(k+1), with s = N - 2^(k+1) and k = v_2(N), so row s has period 2^(k+1), which does not divide N) uses only Laver's periodicity theorem and awaits independent review.
+
+- **related:** CLM-C17-05; CLM-C06-01
+- **notes:** Answers the first of the C17 next directions ('prove the LD anchor-instance characterisation for all N') from the literature.
 
 ### CLM-C18-01: e-transformations are bijections of strings of fixed length
 
@@ -4183,7 +4261,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C19-02
 - **novelty_basis:**
 
-  Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965).
+  Searches (2026-10-18) for the Zeckendorf game together with lazy representations / chip-firing found no such statement; the papers on the game (Baird-Smith et al. arXiv:1809.04881; Li et al. arXiv:2006.16457; Cusenza et al. arXiv:2009.09510; Cheigh et al. 2025; Black Hole Zeckendorf games arXiv:2409.10981) do not mention lazy representations. Small; uses the classical uniqueness of lazy representations (J. L. Brown, 1965). All arXiv Zeckendorf-game papers to 2026-10-07 were checked (including the reversed, ordered and black-hole variants); none mentions lazy representations (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -4209,7 +4287,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C19-01; EXP-C19-03
 - **novelty_basis:**
 
-  Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature.
+  Cusenza et al. (2022) give the exact length only for n = F_k - 1 (their Thm 1.4) and a bound otherwise; Cheigh et al. (2025) state that a closed form for non-Fibonacci inputs is open and describe the Fibonacci case as treated by Cusenza et al., whose paper we read in full and which treats F_k - 1, not F_k. The sequence L(F_k) is not in the OEIS (EXP-C19-04). Medium-low confidence that no formula exists in the literature. Confirmed 2026-10-19: Cusenza et al. (arXiv:2009.09510) contain no formula for n = F_k; no later Zeckendorf-game paper treats it (arXiv to 2026-10-07); L(F_k) is still not in the OEIS (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 
@@ -4379,7 +4457,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05)
+  written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05); the arithmetic of the move bound B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean, deficit_bound)
 
 - **novelty:** POTENTIALLY NOVEL
 - **improvement:** IMPROVEMENT
@@ -4387,7 +4465,8 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 
   The longest game can be computed with O(log^2 n) moves: L(n) = Psi(lazy(n)) + (length of the strategy game of Cusenza et al. started at the lazy representation), whose second phase has at most B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 moves (t the top level of lazy(n)); correct whenever [C, Thm 1.2] is (like Theorem 4). The published method plays about phi^2 n moves. The conjectured recursion (CLM-C19-05) gives the same values at the same speed.
 
-- **proof:** proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog²-n-move-method-for-ln
+- **proof:** proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog-n-move-method-for-ln
+- **lean:** proofs/lean/Infinity/C19_DeficitBound.lean
 - **evidence:** EXP-C19-05; EXP-C19-04
 - **novelty_basis:** No sublinear method for the longest game was found in the literature listed under CLM-C19-05.
 - **limitations:** Correct as far as [C, Thm 1.2] is; that theorem was independently confirmed only for n <= 233 (exhaustive search).
@@ -4402,13 +4481,15 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C19.md Theorem 8 - the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)); then the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3); the argument is the Skeptic's (reviews/skeptic_C13_C19.md, C9), written out and checked by the Director; the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)
+  written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)
 
 - **novelty:** NOT ASSESSED
 - **statement:** For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed.
-- **proof:** proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog²-n-unconditionally
+- **proof:** proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog-n-unconditionally
+- **lean:** proofs/lean/Infinity/C19_DeficitBound.lean
 - **evidence:** EXP-C19-05
 - **novelty_basis:** The asymptotics L(n) ~ phi^2 n are known (Cusenza et al.); an explicit O(log^2 n) error bound was not looked for in the literature.
+- **status history:**
 
 ### CLM-C20-01: aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1
 
@@ -4455,7 +4536,7 @@ _Generated 2026-10-19T14:44:30Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C20-01
 - **novelty_basis:**
 
-  Termination follows from the right-barren criterion (OVL(r,l) = {a, aa} with r_alpha in {baba, bab}; OVL(l,r) = {b}, l_beta = aa, never a suffix) - a rediscovery; the exact per-word formula and the complexity were not found in McNaughton's or Geser's reports (searches 2026-10-18). Small.
+  Low confidence. Termination is a rediscovery (right barren: McNaughton; Geser, ICASE 2002-33). The exact derivation length D(w) and D(n) were not found. The most relevant paper was not obtained: aab is unbordered, so aab -> babaa is a confluent one-rule system, the class of Kobayashi-Katsura-Shikishima-Tsuji, 'Termination and derivational complexity of confluent one-rule string-rewriting systems', TCS 262 (2001) (ScienceDirect blocked). Geser-Hofbauer-Waldmann's derivational complexities of one-rule leftmost rewriting (JSC 38, 2004) are also unread. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **status history:**
 

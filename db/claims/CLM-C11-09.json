@@ -18,11 +18,29 @@
       "old": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "POTENTIALLY NOVEL",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Fraenkel-Klein Props 5-6)",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Partial - the count 2F_(r-2) and C3 <= C1 for n > 1 are Fraenkel-Klein (DAM 64 (1996), Prop. 5 and the proof of Prop. 6, https://u.cs.biu.ac.il/~tomi/Postscripts/robust.pdf). The comparison of C3 with T_011 (= Capocelli's C(3), 1989), which is longer only at n = 2, 4, 8, was not found: Fraenkel-Klein do not cite Capocelli, and Lima-da Rocha (2013) do not treat C3 (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Fraenkel-Klein Props 5-6)",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C11-09",
-  "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Low confidence. The count 2F_(r-2) and the comparison C3 <= C1 (for n > 1) are Fraenkel and Klein's (Discrete Appl. Math. 64, 1996, Propositions 5-6); the comparison with T_011 is new only insofar as T_011 itself is (CLM-C11-04).",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - the count 2F_(r-2) and C3 <= C1 for n > 1 are Fraenkel-Klein (DAM 64 (1996), Prop. 5 and the proof of Prop. 6, https://u.cs.biu.ac.il/~tomi/Postscripts/robust.pdf). The comparison of C3 with T_011 (= Capocelli's C(3), 1989), which is longer only at n = 2, 4, 8, was not found: Fraenkel-Klein do not cite Capocelli, and Lima-da Rocha (2013) do not treat C3 (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C11.md#corollary-6-clm-c11-09--t_011-versus-the-fraenkelklein-code-c3",
   "proof_check": "written proof (proofs/paper/C11.md Corollary 6, from cum_011(L) - cum_C3(L) = F_(L-1) - (L - 1)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); exhaustive check for n <= 2e6 and the count inequalities for L < 300 (EXP-C11-09)",
   "statement": "The Fraenkel-Klein code C3 (2F_(r-2) codewords of length r >= 3, so cum_C3(L) = 2F_L - 2) is never longer than the\nFibonacci code C1 except at n = 1, and T_011 is never longer than C3 except at n in {2, 4, 8}; moreover\ncum_011(L)/cum_C3(L) -> phi^2/2 and cum_C3(L)/cum_C1(L) -> 2/phi.",

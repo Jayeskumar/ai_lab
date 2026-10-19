@@ -19,11 +19,20 @@
       "old": "written proof (proofs/paper/C11.md Theorem 3); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers). Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).",
+      "reason": "Historian audit 2026-10-19 - sources added to the novelty basis",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C11-03",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers).",
+  "novelty_basis": "An elementary consequence of the Guibas-Odlyzko generating function; the resulting count sequences are catalogued as partial sums (OEIS A000071 = Fibonacci(n) - 1, A008937 = partial sums of tribonacci numbers). Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C11.md#theorem-3-clm-c11-03--unbordered-terminators-the-x1--x-identity",
   "proof_check": "written proof (proofs/paper/C11.md Theorem 3), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 mismatches with exact integers for all unbordered patterns of length 3..9 up to length 200 (EXP-C11-06); ratios 1.618033989, 1.191487884, 1.078095078 for k = 2, 3, 4 (EXP-C11-02)",
   "statement": "If u is unbordered and |u| = k + 1, the codeword counts of T_u are the partial sums of those of T_(1^k):\nf_u(L) = cum_(1^k)(L - 1). Hence lambda_u is the k-bonacci constant lambda and cum_u(L)/cum_(1^k)(L) -> 1/(lambda - 1).",

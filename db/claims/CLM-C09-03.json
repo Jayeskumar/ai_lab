@@ -27,12 +27,21 @@
       "old": "written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution); 0 counterexamples up to 1e6, density 0.381966 observed; awaiting independent skeptic review",
       "reason": "Skeptic review 2026-10-18 - proof upheld; title said 'a proportion 1/phi^2 are irreducible', which is Conjecture CLM-C09-05; the theorem gives 'at least'",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C09",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ",
+      "old": "proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ²",
+      "reason": "proof link corrected: the anchor did not match the heading (found by `python -m lab check`)",
+      "ts": "2026-10-19T22:29:33Z"
     }
   ],
   "id": "CLM-C09-03",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Irreducibles/reducibles of Knuth's product are not in the OEIS (2026-10-18); no study of circle-product factorisation found in the C08 literature search. Elementary consequence of Arnoux's embedding; may exist in the literature on factorisation in submonoids of rings of integers.",
-  "proof": "proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ²",
+  "proof": "proofs/paper/C09.md#theorem-3-clm-c09-03--the-window-obstruction-and-density-1φ",
   "proof_check": "written proof (proofs/paper/C09.md Theorem 3; Weyl equidistribution), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 counterexamples up to 1e6 (the Skeptic - up to 1e8), forced density 0.381967 at 1e6",
   "statement": "If n is a circle product then nu'(n) = n psi + n* lies in (psi^3, psi^2), i.e. frac((n+1)/phi) lies in\n(1/phi - psi^2, 1/phi - psi^3) = (0.2360..., 0.8541...). Hence every n with frac((n+1)/phi) outside this\ninterval is circle-irreducible, and these n have natural density exactly 1/phi^2 = 0.381966...",
   "system": "SYS-C",

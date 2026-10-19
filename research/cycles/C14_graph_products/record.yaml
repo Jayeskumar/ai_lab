@@ -100,8 +100,8 @@ claims:
     lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
     evidence: [EXP-C14-03]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore."
-    change_reason: "Skeptic review 2026-10-18 - written case analysis upheld (independent sympy derivation from the full matrix identity); novelty basis updated"
+    novelty_basis: "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore. Searches on Boolean/NEPS products and Seidel spectra (2026-10-19) found no classification; Cvetkovic-Doob-Sachs, Spectra of Graphs, sections 2.5-2.6 not checked. Possibly folklore (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence), searches added"
   - id: CLM-C14-05
     type: theorem
     system: SYS-D
@@ -116,8 +116,8 @@ claims:
     proof: proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
     evidence: [EXP-C14-03]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
-    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
+    novelty_basis: "The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result. Searches on Boolean/NEPS products and Seidel spectra (2026-10-19) found no classification; Cvetkovic-Doob-Sachs, Spectra of Graphs, sections 2.5-2.6 not checked. Possibly folklore (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence), searches added"
   - id: CLM-C14-06
     type: theorem
     system: SYS-D
@@ -145,11 +145,12 @@ claims:
       (c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.
     verification: PROVEN
     proof_check: "written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
-    proof: proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
+    proof: "proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k-absorbs-switching"
     evidence: [EXP-C14-05, EXP-C14-06]
-    novelty: POTENTIALLY NOVEL
-    novelty_basis: No statement found in the searches listed for CLM-C14-06. Small result.
-    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
+    novelty: "REDISCOVERY"
+    novelty_basis: "Partial - (c) and (b) for a = 1 are Oh-Yoo-Yun, 'Rainbow graphs and switching classes', SIAM J. Discrete Math. 27 (2013) 1106-1111, Thm 1.1 and Prop. 3.3 (https://arxiv.org/abs/1108.6143). Their 2n-vertex graph G~ is K_2 (+) G, and G~ = H~ iff G and H are switching-equivalent; they note a similar map in Colbourn-Corneil 1980. (b) for a >= 2 follows since K_(a,a) = K_2 (+) aK_1. Part (a), K_(a,b) (+) K_(c,d) = K_(ac+bd, ad+bc), was not found (elementary) (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    references: [https://arxiv.org/abs/1108.6143]
+    change_reason: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -> REDISCOVERY (partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c))"
   - id: CLM-C14-08
     type: hypothesis
     system: SYS-D
@@ -193,7 +194,8 @@ claims:
     proof: proofs/paper/C14.md#theorem-10-clm-c14-10--prime-counts-over-all-graphs-computer-assisted
     evidence: [EXP-C14-04]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.
+    novelty_basis: "Low confidence. OEIS searches (2026-10-18, repeated 2026-10-19) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence)"
   - id: CLM-C14-11
     type: theorem
     system: SYS-D
@@ -234,8 +236,8 @@ claims:
     evidence: [EXP-C14-05]
     limitations: "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c). The Skeptic notes that this evidence was thin - up to order 16 almost every composite is [K2] (x) X, covered by the proved cancellation - and extends it substantially: all 53,703 multisets of prime classes with <= 8 vertices and product order <= 64, screened by exact integer power sums tr((S+I)^k) and decided by exact switching-equivalence tests (2,205 cospectral groups, 3,012 pairs), give 0 collisions."
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts."
-    change_reason: "Skeptic review 2026-10-18 - evidence extended to product order 64; novelty basis updated"
+    novelty_basis: "Low confidence. The product of two-graphs is the Kronecker product of the matrices S + I, as used for graphical Hadamard matrices (Abiad-Butler-Haemers, arXiv:1801.01149 sections 4-5). Cancellation by [K_2] is Oh-Yoo-Yun (SIAM J. Discrete Math. 2013). No unique-factorisation statement for two-graphs, or for +-1 matrices up to signed permutation similarity, was found. Lajou's unique factorisation of signed graphs concerns the Cartesian product (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence); the K_2-cancellation step is Oh-Yoo-Yun's theorem"
 
 journal:
   - key: C14-01
@@ -298,6 +300,11 @@ journal:
     kind: review
     text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; every census number reproduced with independent code. CLM-C14-06 is a rediscovery - Abiad, Butler and Haemers (arXiv:1801.01149, 2018, Section 5) define the product and give its Seidel matrix; the lab's searches missed it. CLM-C14-13 survives a much larger search (53,703 multisets, product order <= 64). The '4-5 orders of magnitude' spectra speedup was inflated by BLAS thread oversubscription (about 3 orders)."
     refs: [CLM-C14-06, CLM-C14-13, reviews/skeptic_C14_C15_C16_C18.md]
+  - key: C14-13
+    agent: Historian
+    kind: novelty
+    text: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - Oh, Yoo and Yun (SIAM J. Discrete Math. 27, 2013) prove that G -> K_2 (+) G is well defined and injective on switching classes, which is CLM-C14-07 (c) and (b); only the elementary part (a) is not in the literature found. CLM-C14-07 becomes a partial rediscovery; the K_2-cancellation step of the conjecture CLM-C14-13 is their theorem."
+    refs: [CLM-C14-07, CLM-C14-13, reviews/historian_C11_C20.md]
 
 next_directions:
   - "C14: prove or refute that two-graphs are a free commutative monoid under the symmetric-difference product (twin reducts; analogue of McKenzie's theorem for Kronecker products of +-1 matrices)"

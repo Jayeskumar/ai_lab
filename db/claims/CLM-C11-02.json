@@ -18,11 +18,20 @@
       "old": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - written proof upheld",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C11",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.",
+      "reason": "Historian audit 2026-10-19 - sources added to the novelty basis",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C11-02",
   "novelty": "REDISCOVERY",
-  "novelty_basis": "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator.",
+  "novelty_basis": "In substance the Guibas-Odlyzko comparison of patterns through their correlation polynomials (words avoiding a more self-overlapping pattern are more numerous); the codes share the avoidance denominator. Also: Lakshmanan, IEEE Trans. IT 27 (1981) (the pattern codes L(p) and recurrences for their codeword counts); Fraenkel-Klein, DAM 64 (1996) section 3, Thm 1 (L(p) is complete for every p) and Thm 2 (for unbordered p the comma-free and prefix versions coincide); Berstel-Perrin's semaphore codes (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C11.md#theorem-2-clm-c11-02--the-all-ones-terminator-has-the-largest-growth-rate",
   "proof_check": "written proof (proofs/paper/C11.md Theorem 2, from D_(1^k) - D_p = (1-2x)(c_(1^k) - c_p)), skeptic-reviewed 2026-10-18 (reviews/skeptic_C05_C08_C12.md); 0 violations among all 2044 patterns of length 2..10 (EXP-C11-02)",
   "statement": "Let lambda_p = 1/rho_p, with rho_p the smallest positive root of x^k + (1 - 2x) c_p(x). Among binary patterns of\nlength k, 1^k and 0^k have the largest lambda_p and every other pattern has a strictly smaller one; hence\nT_(1^k) has the smallest asymptotic codeword length log2(n)/log2(lambda) among length-k terminators.",

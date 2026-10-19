@@ -108,6 +108,17 @@ def cmd_book(args):
     return book.build(pdf=not args.no_pdf)
 
 
+def cmd_check(args):
+    from . import check
+    rep = check.run_all()
+    for w in rep.warnings:
+        print("warning:", w)
+    for e in rep.errors:
+        print("ERROR:", e)
+    print(f"check: {len(rep.errors)} errors, {len(rep.warnings)} warnings")
+    return 1 if rep.errors else 0
+
+
 def cmd_catalogue(args):
     from . import catalogue
     for f in catalogue.build():
@@ -151,6 +162,8 @@ def main(argv=None):
     b = sub.add_parser("book", help="build the textbook (HTML + PDF)")
     b.add_argument("--no-pdf", action="store_true")
     b.set_defaults(func=cmd_book)
+    ck = sub.add_parser("check", help="consistency checks: records, references, database, result files")
+    ck.set_defaults(func=cmd_check)
     c = sub.add_parser("catalogue", help="regenerate the catalogue volumes (results, failures, open problems)")
     c.set_defaults(func=cmd_catalogue)
     args = p.parse_args(argv)

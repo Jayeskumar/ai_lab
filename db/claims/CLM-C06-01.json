@@ -19,6 +19,54 @@
       "old": "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q*1) = (p*q)*(p*1), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.",
       "reason": "Wording of the cited theorem corrected - the recursion is imposed for q < N only; EXP-C17-02 shows that with the wrap-around instance there are no anchored solutions at N = 3, 5, 6, 7, 9, 10",
       "ts": "2026-10-18T09:23:59Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, 'Laver tables and combinatorics', Sem. Lothar. Combin. 80 (2019) B80c, whose arXiv v1 (arXiv:1810.00548) states the recursion for all q, corrected in the published version; Aguilera-Iannella, arXiv:2610.06106). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.",
+      "old": "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.",
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "proof",
+      "new": "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
+      "old": null,
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "references",
+      "new": [
+        "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
+        "https://arxiv.org/abs/2610.06106"
+      ],
+      "old": null,
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C06",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "published theorem (R. Laver 1992/1995; P. Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2 and Prop. X.1.6) - statement read verbatim in P. Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.2 ('left distributive if and only if N = 2^n') and in Aguilera-Iannella, arXiv:2610.06106, Prop. 2.3(ii) (citing Dehornoy); the proof itself was not read by the lab. An anchored left-distributive table satisfies the recursion, hence is the unique table it forces. The bounded statement is also checked by EXP-C06-01/02 and in Lean for N = 3 (laver3_left_distributive, no_anchored_ld_three)",
+      "old": null,
+      "reason": "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C06-01",
@@ -26,10 +74,16 @@
     "proofs/lean/Infinity/C06_Laver.lean"
   ],
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.",
+  "novelty_basis": "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, 'Laver tables and combinatorics', Sem. Lothar. Combin. 80 (2019) B80c, whose arXiv v1 (arXiv:1810.00548) states the recursion for all q, corrected in the published version; Aguilera-Iannella, arXiv:2610.06106). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab.",
+  "proof": "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
+  "proof_check": "published theorem (R. Laver 1992/1995; P. Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2 and Prop. X.1.6) - statement read verbatim in P. Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.2 ('left distributive if and only if N = 2^n') and in Aguilera-Iannella, arXiv:2610.06106, Prop. 2.3(ii) (citing Dehornoy); the proof itself was not read by the lab. An anchored left-distributive table satisfies the recursion, hence is the unique table it forces. The bounded statement is also checked by EXP-C06-01/02 and in Lean for N = 3 (laver3_left_distributive, no_anchored_ld_three)",
+  "references": [
+    "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
+    "https://arxiv.org/abs/2610.06106"
+  ],
   "statement": "An anchored left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N exists exactly for\nN = 1, 2, 4, 8 among N <= 10 and is then unique (the Laver table A_n); Laver's recursion yields\nleft-distributive tables exactly at the powers of 2 up to N = 64 (verified to N = 256 exhaustively).",
   "system": "SYS-B",
   "title": "Left-distributivity with a successor anchor: the Laver tables (rediscovery)",
   "type": "theorem",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "verification": "PROVEN"
 }

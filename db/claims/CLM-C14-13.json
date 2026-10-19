@@ -27,12 +27,21 @@
       "old": "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).",
       "reason": "Skeptic review 2026-10-18 - evidence extended to product order 64; novelty basis updated",
       "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. The product of two-graphs is the Kronecker product of the matrices S + I, as used for graphical Hadamard matrices (Abiad-Butler-Haemers, arXiv:1801.01149 sections 4-5). Cancellation by [K_2] is Oh-Yoo-Yun (SIAM J. Discrete Math. 2013). No unique-factorisation statement for two-graphs, or for +-1 matrices up to signed permutation similarity, was found. Lajou's unique factorisation of signed graphs concerns the Cartesian product (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence); the K_2-cancellation step is Oh-Yoo-Yun's theorem",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C14-13",
   "limitations": "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c). The Skeptic notes that this evidence was thin - up to order 16 almost every composite is [K2] (x) X, covered by the proved cancellation - and extends it substantially: all 53,703 multisets of prime classes with <= 8 vertices and product order <= 64, screened by exact integer power sums tr((S+I)^k) and decided by exact switching-equivalence tests (2,205 cospectral groups, 3,012 pairs), give 0 collisions.",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts.",
+  "novelty_basis": "Low confidence. The product of two-graphs is the Kronecker product of the matrices S + I, as used for graphical Hadamard matrices (Abiad-Butler-Haemers, arXiv:1801.01149 sections 4-5). Cancellation by [K_2] is Oh-Yoo-Yun (SIAM J. Discrete Math. 2013). No unique-factorisation statement for two-graphs, or for +-1 matrices up to signed permutation similarity, was found. Lajou's unique factorisation of signed graphs concerns the Cartesian product (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "statement": "Every switching class of finite graphs has a unique factorisation into prime switching classes with respect\nto the product induced by the symmetric difference (equivalently, symmetric +-1 matrices with unit diagonal\nup to signed permutation similarity, under the Kronecker product).",
   "system": "SYS-D",
   "title": "H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product",

@@ -32,12 +32,15 @@ claims:
       An anchored left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N exists exactly for
       N = 1, 2, 4, 8 among N <= 10 and is then unique (the Laver table A_n); Laver's recursion yields
       left-distributive tables exactly at the powers of 2 up to N = 64 (verified to N = 256 exhaustively).
-    verification: COMPUTATIONALLY SUPPORTED
+    verification: "PROVEN"
     evidence: [EXP-C06-01, EXP-C06-02]
     lean: [proofs/lean/Infinity/C06_Laver.lean]
-    change_reason: "Wording of the cited theorem corrected - the recursion is imposed for q < N only; EXP-C17-02 shows that with the wrap-around instance there are no anchored solutions at N = 3, 5, 6, 7, 9, 10"
     novelty: REDISCOVERY
-    novelty_basis: "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; see P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, arXiv:1810.00548). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab."
+    novelty_basis: "Published theorem - for every N there is a unique operation on {1..N} with p*1 = p+1 mod N and p*(q+1) = (p*q)*(p+1) for q < N (the recursion without its wrap-around instance), and it is left-distributive iff N is a power of 2 (R. Laver 1992/1995; elementary proof in A. Drapal's survey; P. Dehornoy, Braids and Self-Distributivity (2000), Ch. X; P. Dehornoy, 'Some aspects of the SD-world', arXiv:1711.09792; P. Biane, 'Laver tables and combinatorics', Sem. Lothar. Combin. 80 (2019) B80c, whose arXiv v1 (arXiv:1810.00548) states the recursion for all q, corrected in the published version; Aguilera-Iannella, arXiv:2610.06106). Lean checks A_3 and the non-existence for N = 3 (laver3_left_distributive, no_anchored_ld_three); the general theorem is not re-proved by the lab."
+    proof: "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf"
+    proof_check: "published theorem (R. Laver 1992/1995; P. Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2 and Prop. X.1.6) - statement read verbatim in P. Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.2 ('left distributive if and only if N = 2^n') and in Aguilera-Iannella, arXiv:2610.06106, Prop. 2.3(ii) (citing Dehornoy); the proof itself was not read by the lab. An anchored left-distributive table satisfies the recursion, hence is the unique table it forces. The bounded statement is also checked by EXP-C06-01/02 and in Lean for N = 3 (laver3_left_distributive, no_anchored_ld_three)"
+    references: [https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf, https://arxiv.org/abs/2610.06106]
+    change_reason: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a published theorem: COMPUTATIONALLY SUPPORTED -> PROVEN (literature); citation of Biane's survey updated to the refereed version"
   - id: CLM-C06-02
     type: theorem
     system: SYS-B
@@ -237,7 +240,7 @@ journal:
     refs: [CLM-C06-07, CLM-C06-10, CLM-C06-11, CLM-C06-12, reviews/skeptic_C03_C04_C06.md]
   - key: C06-11
     agent: Formal Verifier
-    kind: revision
+    kind: correction
     text: "EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run."
     refs: [EXP-C06-03, EXP-C06-04]
 
@@ -246,6 +249,11 @@ journal:
     kind: novelty
     text: 'Audit - CLM-C06-08 (left-permutable <-> commutative monoids) downgraded to a rediscovery in substance (a two-line lemma); the odd and golden laws remain potentially novel (small); spectra closed under products is classical for varieties.'
     refs: [CLM-C06-08, CLM-C06-06, CLM-C06-07, CLM-C06-12, reviews/historian_C03_C10.md]
+  - key: C06-13
+    agent: Historian
+    kind: novelty
+    text: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md, note 6) - CLM-C06-01 states a published theorem (Laver; Dehornoy 2000, Prop. X.1.6, statement read in Biane's refereed survey SLC 80 (2019) and in Aguilera-Iannella 2026), so it is now PROVEN (literature) instead of COMPUTATIONALLY SUPPORTED. The C06 citation of Biane's arXiv v1, whose section 2.1 states the recursion for all q, is replaced by the published version, which corrects it."
+    refs: [CLM-C06-01, reviews/historian_C11_C20.md]
 
 next_directions:
   - "C06: prove the finite spectra {1,2} and {1,3} (CLM-C06-10) by showing every anchored model of those laws is affine"

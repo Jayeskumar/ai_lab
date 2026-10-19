@@ -106,13 +106,14 @@ claims:
     title: Skew binary counting has worst-case cost 2 and average 3/2
     statement: In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)"
+    proof_check: "Lean 4 (complete) - proofs/lean/Infinity/C10_SkewBinary.lean proves all of Theorem 6 with explicit constants: canonical skew-binary representations exist and are unique (canon_existsUnique; the paper cited this from Myers 1983 and Okasaki 1998), consecutive representations differ in exactly 1 + [the representation of n contains a 2] <= 2 digits (increment_cost), the indicator word is B_K (chi_word), and |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) (average_cost); standard axioms only. The paper argument (proofs/paper/C10.md Theorem 6) was sketched by the Skeptic and written out by the Director; measured average 1.4999955 below 1e6 (EXP-C10-01)"
     proof: "proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting"
     evidence: [EXP-C10-01]
-    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise"
 
     novelty: REDISCOVERY
     novelty_basis: Myers (1983), Okasaki (skew binary random-access lists).
+    lean: [proofs/lean/Infinity/C10_SkewBinary.lean]
+    change_reason: "Batch 1.1 (G2) - Theorem 6 formalised in Lean (C10_SkewBinary.lean), including the uniqueness of canonical representations that the paper cited"
 
 journal:
   - key: C10-01
@@ -156,6 +157,11 @@ journal:
     kind: review
     text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all claims upheld; the evidence summary of CLM-C10-05 covered only offset-1 rules (the Skeptic checked all 18); CLM-C10-07 (skew binary) now PROVEN by an elementary argument sketched by the Skeptic."
     refs: [CLM-C10-05, CLM-C10-07, reviews/skeptic_C05_C08_C12.md]
+  - key: C10-09
+    agent: Formal Verifier
+    kind: proof
+    text: "Batch 1.1 - Theorem 6 (skew binary counting: worst case 2, average 3/2 + O(log N / N)) is now proved in Lean (proofs/lean/Infinity/C10_SkewBinary.lean, standard axioms), with the explicit bound |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) and a proof of the uniqueness of canonical skew-binary representations, which the paper had cited."
+    refs: [CLM-C10-07, proofs/lean/NOTES_batch1.1.md]
 
 next_directions:
   - "C10: exact multi-offset counting constants via the invariant measure of the digit process"

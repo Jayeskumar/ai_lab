@@ -18,11 +18,20 @@
       "old": "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review",
       "reason": "Skeptic review 2026-10-18 - written proof upheld; n = 5 case of the remark checked",
       "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small. Sign-of-permutation obstructions to single cycles of shift-register maps are standard (e.g. S. Li, arXiv:2605.09489, 2026). Klimov's study of UFS-groupoids (arXiv:2604.05754) contains no parity or isotopy result. The q-ary NFSR literature was not searched exhaustively for an even-alphabet obstruction (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low-medium confidence), sources added",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C16-09",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.",
+  "novelty_basis": "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small. Sign-of-permutation obstructions to single cycles of shift-register maps are standard (e.g. S. Li, arXiv:2605.09489, 2026). Klimov's study of UFS-groupoids (arXiv:2604.05754) contains no parity or isotopy result. The q-ary NFSR literature was not searched exhaustively for an even-alphabet obstruction (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C16.md#theorem-7-clm-c16-09--no-isotope-of-a-group-of-even-order-is-full-period",
   "proof_check": "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the review checked the Burnside step and 36 groups of even order 2-30; it also filled the evidence gap for n = 5 - 480 of the 3360 full-period quasigroups of order 5 are isotopes of Z_5)",
   "statement": "For every group G of even order n = 2m and every isotope x o y = gamma(alpha(x) beta(y)), prod_b sgn(L_b) = (-1)^m, whereas a full period requires (-1)^(m+1); so no group of even order and no isotope of one is full-period. (For odd n isotopes of Z_n are full-period for every n = 5, ..., 15.)",

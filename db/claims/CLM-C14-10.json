@@ -9,11 +9,20 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Low confidence. OEIS searches (2026-10-18, repeated 2026-10-19) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.",
+      "reason": "Historian audit 2026-10-19 - label upheld (low confidence)",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C14-10",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "OEIS searches (cached, 2026-10-18) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed.",
+  "novelty_basis": "Low confidence. OEIS searches (2026-10-18, repeated 2026-10-19) found none of the three sequences; derived sequences of a natural kind, novelty unconfirmed (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C14.md#theorem-10-clm-c14-10--prime-counts-over-all-graphs-computer-assisted",
   "proof_check": "computer-assisted exact census (all prime factorisations of each order <= 15 with factors from the complete list of graphs with <= 7 vertices, isomorphism decided by VF2 within invariant buckets; graph totals from OEIS A000088); pipeline validated by reproducing A129582 to n = 15",
   "statement": "Prime graphs of order n = 2..11 over all finite graphs: Cartesian = strong = co-normal = code 221:\n2, 4, 8, 34, 148, 1044, 12326, 274658, 12005100, 1018997864; symmetric difference = code 141:\n2, 4, 9, 34, 150, 1044, 12333, 274658, 12005127, 1018997864; lexicographic = its transpose:\n2, 4, 7, 34, 142, 1044, 12310, 274652, 12005036, 1018997864 (values to n = 15 in results/EXP-C14-04.json).",

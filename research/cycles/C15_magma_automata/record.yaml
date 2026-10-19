@@ -88,8 +88,9 @@ claims:
     proof: proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward
     evidence: [EXP-C15-02, EXP-C15-03, EXP-C15-05]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small."
-    change_reason: "Skeptic review 2026-10-18 - written proof upheld; lambda(t) = t + 2 confirmed to t = 14"
+    novelty_basis: "Low confidence. Streaming width is essentially the one-way communication complexity of the t-step local rule used by Durr-Rapaport-Theyssier (TCS 322 (2004) 355-368, https://arxiv.org/abs/cs/0210008; their d_n uses the central cut and the maximum over the two directions). They classify ECAs into bounded/linear/other and prove linear complexity with an explicit description of f^n for rule 132 (Lemma 10), so 'unbounded width yet easy prediction' is already exemplified there. The fuse magma and its burn-time fast-forward were not found (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    references: [https://arxiv.org/abs/cs/0210008]
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence); the measure is essentially Durr-Rapaport-Theyssier's"
   - id: CLM-C15-05
     type: theorem
     system: SYS-E
@@ -120,8 +121,9 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C15-02]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: Same searches as CLM-C15-04; the magma-automaton framework itself is Pedersen's (1992) and Moore's, but no census of this kind was found. Low confidence.
+    novelty_basis: "Low confidence. A census in the style of Durr-Rapaport-Theyssier's experimental classification of the 88 elementary CA (TCS 322 (2004), Table 1); the magma-automaton framework is Pedersen's (1992) and Moore's. No census of the 1734 order-3 magma automata by this measure was found (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
     limitations: Growth classes are judged on t <= 9 only and may change for larger t; 'linear' and 'geometric' are empirical labels except for the fuse magma (Theorem 4).
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence), basis corrected"
   - id: CLM-C15-08
     type: hypothesis
     system: SYS-E
@@ -202,8 +204,8 @@ claims:
     improvement_detail: "O(L) per query independent of t vs O(L t) simulation; single-run orders of magnitude on a shared machine; slower for small t"
     evidence: [EXP-C15-03]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: As CLM-C15-04.
-    change_reason: "Skeptic review 2026-10-18 (P3, P4) - the 4000x figure did not reproduce (1,363x); small-t loss recorded"
+    novelty_basis: "Low confidence. A benchmark of the fast-forward of CLM-C15-04; no mathematical novelty beyond it (see CLM-C15-04) (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
+    change_reason: "Historian audit 2026-10-19 - label upheld (low confidence)"
   - id: CLM-C15-16
     type: algorithmic
     system: SYS-E
@@ -276,6 +278,11 @@ journal:
     kind: review
     text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; written proofs correct. Corrections - 'affine and fuse fast-forwards never lose' was false (they lose for t below about 20-70 with a fair timing protocol), recorded speedups are single-run orders of magnitude (fuse x4000 became x1363 on re-run), the width bound holds for commutative semigroups only (S3 grows to 1296 by t = 6)."
     refs: [CLM-C15-12, CLM-C15-13, CLM-C15-15, reviews/skeptic_C14_C15_C16_C18.md]
+  - key: C15-09
+    agent: Historian
+    kind: novelty
+    text: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - streaming width is essentially the one-way communication complexity of the t-step rule of Durr, Rapaport and Theyssier (TCS 322, 2004), who classify the elementary CA into bounded / linear / other and give explicit linear-complexity rules (132, 23) and a 3-state Theta(n^2) CA, so the refutations of H-C15-1 and H-C15-4 were already exemplified there. Only the fuse magma and the order-3 census are new; CLM-C15-04, -07, -15 keep POTENTIALLY NOVEL with low confidence."
+    refs: [CLM-C15-04, CLM-C15-07, CLM-C15-15, reviews/historian_C11_C20.md]
 
 next_directions:
   - "C15: characterise bounded streaming width - what do the 685 unexplained bounded-width order-3 classes have in common?"

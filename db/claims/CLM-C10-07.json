@@ -45,13 +45,36 @@
       "old": null,
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an elementary proof exists; statement made precise",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "lean",
+      "new": [
+        "proofs/lean/Infinity/C10_SkewBinary.lean"
+      ],
+      "old": null,
+      "reason": "Batch 1.1 (G2) - Theorem 6 formalised in Lean (C10_SkewBinary.lean), including the uniqueness of canonical representations that the paper cited",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C10",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 (complete) - proofs/lean/Infinity/C10_SkewBinary.lean proves all of Theorem 6 with explicit constants: canonical skew-binary representations exist and are unique (canon_existsUnique; the paper cited this from Myers 1983 and Okasaki 1998), consecutive representations differ in exactly 1 + [the representation of n contains a 2] <= 2 digits (increment_cost), the indicator word is B_K (chi_word), and |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) (average_cost); standard axioms only. The paper argument (proofs/paper/C10.md Theorem 6) was sketched by the Skeptic and written out by the Director; measured average 1.4999955 below 1e6 (EXP-C10-01)",
+      "old": "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)",
+      "reason": "Batch 1.1 (G2) - Theorem 6 formalised in Lean (C10_SkewBinary.lean), including the uniqueness of canonical representations that the paper cited",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C10-07",
+  "lean": [
+    "proofs/lean/Infinity/C10_SkewBinary.lean"
+  ],
   "novelty": "REDISCOVERY",
   "novelty_basis": "Myers (1983), Okasaki (skew binary random-access lists).",
   "proof": "proofs/paper/C10.md#theorem-6-clm-c10-07--skew-binary-counting",
-  "proof_check": "written proof (proofs/paper/C10.md Theorem 6 - cost = 1 + [the representation contains a 2]; the 0/1 words of that indicator satisfy B_(k+1) = B_k B_k 1); the argument was sketched by the Skeptic in its review and written out by the Director, so it was checked by two parties; uniqueness of canonical skew-binary representations is cited (Myers 1983, Okasaki 1998); measured average 1.4999955 below 1e6 (EXP-C10-01)",
+  "proof_check": "Lean 4 (complete) - proofs/lean/Infinity/C10_SkewBinary.lean proves all of Theorem 6 with explicit constants: canonical skew-binary representations exist and are unique (canon_existsUnique; the paper cited this from Myers 1983 and Okasaki 1998), consecutive representations differ in exactly 1 + [the representation of n contains a 2] <= 2 digits (increment_cost), the indicator word is B_K (chi_word), and |average - 3/2| <= (floor(log2(N+1)) + 1)/(2N) (average_cost); standard axioms only. The paper argument (proofs/paper/C10.md Theorem 6) was sketched by the Skeptic and written out by the Director; measured average 1.4999955 below 1e6 (EXP-C10-01)",
   "statement": "In canonical skew binary every increment changes at most 2 digits, and the average number of changed digits over the increments n -> n + 1, n < N, is 3/2 + O(log N / N).",
   "system": "SYS-C",
   "title": "Skew binary counting has worst-case cost 2 and average 3/2",

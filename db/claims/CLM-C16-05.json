@@ -18,13 +18,36 @@
       "old": "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review",
       "reason": "Skeptic review 2026-10-18 - written proof upheld",
       "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Full-period tables are Klimov's finite UFS-groupoids with periodic universal Fibonacci sequence (P. Klimov, 'Universal Fibonacci sequences and UFS-groupoids', arXiv:2604.05754, 2026, Thm 4.2: their cycles are the de Bruijn sequences B(n,2)). Klimov characterises them through distance-1 pairs only and leaves open whether one can be a quasigroup (Problem 7.5). The distance-2 characterisation was not found. Tuscan-2 squares (Etzion-Golomb-Taylor 1989) and recursive MDS codes are different objects. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
+      "old": "Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.",
+      "reason": "Historian audit 2026-10-19 - label upheld with more confidence; Klimov 2026 studies the same objects",
+      "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "references",
+      "new": [
+        "https://arxiv.org/abs/2604.05754"
+      ],
+      "old": null,
+      "reason": "Historian audit 2026-10-19 - label upheld with more confidence; Klimov 2026 studies the same objects",
+      "ts": "2026-10-19T23:04:05Z"
     }
   ],
   "id": "CLM-C16-05",
   "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.",
+  "novelty_basis": "Full-period tables are Klimov's finite UFS-groupoids with periodic universal Fibonacci sequence (P. Klimov, 'Universal Fibonacci sequences and UFS-groupoids', arXiv:2604.05754, 2026, Thm 4.2: their cycles are the de Bruijn sequences B(n,2)). Klimov characterises them through distance-1 pairs only and leaves open whether one can be a quasigroup (Problem 7.5). The distance-2 characterisation was not found. Tuscan-2 squares (Etzion-Golomb-Taylor 1989) and recursive MDS codes are different objects. Small (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C16.md#theorem-4-clm-c16-05--full-period-quasigroups-are-distance-2-de-bruijn-cycles",
   "proof_check": "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+  "references": [
+    "https://arxiv.org/abs/2604.05754"
+  ],
   "statement": "A full-period table is a quasigroup iff in its cycle x_0 ... x_{n^2-1} every ordered pair also occurs exactly once\nas (x_i, x_{i+2}); equivalently the windows (x_{i-1}, x_i, x_{i+1}) run once through the n^2 triples\n(a, b, b*a) of the Latin square (a universal cycle of the quasigroup).",
   "system": "SYS-E",
   "title": "Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2",

@@ -252,6 +252,87 @@
         "circ_comm"
       ]
     },
+    "proofs/lean/Infinity/C10_SkewBinary.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-19T22:54:39Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C10.B_le_one' depends on axioms: [propext, Quot.sound]\n'Infinity.C10.length_B' depends on axioms: [propext, Quot.sound]\n'Infinity.C10.count_B' depends on axioms: [propext, Quot.sound]\n'Infinity.C10.prefix_bound_nat' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.prefix_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.count_B_eq' depends on axioms: [propext, Quot.sound]\n'Infinity.C10.deficit_full' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.inc_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.val_inc' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.changes_inc' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.repK_spec' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.canon_unique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.canon_existsUnique' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.increment_cost' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.chi_word' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.totalCost_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.totalCost_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.average_cost' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C10.totalCost_succ' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 6.32,
+      "sha256": "5ac8320c8b26ad6bec2c552c891b384f0518f17ded21d3f04c315bb14d4efcff",
+      "sorry": false,
+      "theorems": [
+        "B_le_one",
+        "length_B_add_one",
+        "length_B",
+        "count_B_add_one",
+        "count_B",
+        "prefix_bound_nat",
+        "prefix_bound",
+        "count_B_eq",
+        "deficit_full",
+        "w_zero",
+        "w_succ",
+        "w_pos",
+        "length_B_eq_w",
+        "canon_cons_zero",
+        "canon_cons_succ",
+        "length_bump",
+        "length_inc",
+        "length_maxK",
+        "repK_zero",
+        "repK_succ",
+        "length_repK",
+        "canon_replicate",
+        "canon_le_one_of_two_notMem",
+        "valFrom_replicate",
+        "valFrom_append",
+        "val_maxK",
+        "cons_zero_maxK",
+        "ne_maxK_of_cons_zero",
+        "valFrom_bump",
+        "inc_spec",
+        "val_inc",
+        "changes_self",
+        "changes_bump",
+        "changes_inc",
+        "repK_spec",
+        "repK_ne_maxK",
+        "bump_append",
+        "inc_append",
+        "inc_maxK_append",
+        "decomp_low",
+        "decomp_high_aux",
+        "decomp_top_aux",
+        "repK_last",
+        "decomp_high",
+        "decomp_top",
+        "canon_of_append",
+        "le_two_of_canon_append",
+        "zero_of_canon_append_two",
+        "canon_eq_repK",
+        "val_lt",
+        "canon_unique",
+        "canon_existsUnique",
+        "increment_cost",
+        "chi_append",
+        "chi_word",
+        "count_one_eq_sum",
+        "list_sum_range",
+        "S_eq_sum_chi",
+        "totalCost_eq",
+        "totalCost_bound",
+        "average_cost",
+        "changes_append",
+        "totalCost_succ"
+      ]
+    },
     "proofs/lean/Infinity/C11_Codes.lean": {
       "axioms_used": [],
       "checked": "2026-10-18T08:50:30Z",
@@ -301,6 +382,51 @@
         "g03_even_has_P_option",
         "g03_pset",
         "g03_P_positions"
+      ]
+    },
+    "proofs/lean/Infinity/C13_AffineStructure.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-19T22:54:44Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C13.affine_anchored' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.affine_table_anchored' depends on axioms: [propext, Quot.sound]\n'Infinity.C13.Term.eval_affine' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.law_holds_affine_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.affModels_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_mul_of_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.mem_aff_iff_primePow' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_empty' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_lcm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.dvd_of_mem_aff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_finite' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_eq_divisors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_eq_divisors_of_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.exists_int_mem_ideal' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_structure_of_no_common_factor' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_of_root' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.primePow_root_iff_of_mem_span' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.primePow_root_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.primePow_mem_aff_iff' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.primePow_mem_aff_iff_of_coprime_cofactors' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_infinite_of_dvd' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C13.aff_infinite' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 4.69,
+      "sha256": "2adb47024e65c6a061704d97fb440b2aedba488f57330860f19a17079c32276e",
+      "sorry": false,
+      "theorems": [
+        "affine_anchored",
+        "affine_table_anchored",
+        "aeval_ringHom",
+        "eval_affine",
+        "law_holds_affine_iff",
+        "affModels_eq",
+        "aff_one",
+        "aff_of_dvd",
+        "aff_mul_of_coprime",
+        "aff_prod_primePow",
+        "mem_aff_iff_primePow",
+        "aff_empty",
+        "aff_lcm",
+        "dvd_of_mem_aff",
+        "aff_finite",
+        "aff_eq_divisors",
+        "aff_eq_divisors_of_ideal",
+        "exists_int_mem_ideal",
+        "aff_structure_of_no_common_factor",
+        "aff_of_root",
+        "primePow_root_iff_of_mem_span",
+        "C_mem_span_of_sum",
+        "primePow_root_iff",
+        "primePow_mem_aff_iff",
+        "primePow_mem_aff_iff_of_coprime_cofactors",
+        "aff_infinite_of_dvd",
+        "aff_infinite"
       ]
     },
     "proofs/lean/Infinity/C13_Spectra.lean": {
@@ -422,6 +548,38 @@
         "anchored_fibonacci"
       ]
     },
+    "proofs/lean/Infinity/C17_ForcedTable.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-19T22:54:48Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C17.row_last' depends on axioms: [propext, Quot.sound]\n'Infinity.C17.row_gt' depends on axioms: [propext, Quot.sound]\n'Infinity.C17.full_instance_iff' depends on axioms: [propext, Quot.sound]\n'Infinity.C17.forced_unique' depends on axioms: [propext, Quot.sound]\n'Infinity.C17.forced_exists' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C17.forced_existsUnique' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 4.28,
+      "sha256": "8fcb94668efcf19af1c7b4fb33d065cb895cf32b0502fc9bde7937f451e185c9",
+      "sorry": false,
+      "theorems": [
+        "val_add_one",
+        "add_one_eq_zero",
+        "row_induction",
+        "row_last",
+        "row_gt",
+        "full_instance_iff",
+        "forced_unique",
+        "lav_top",
+        "lav_zero",
+        "lav_succ",
+        "lav_spec",
+        "lav_lt",
+        "forced_exists",
+        "forced_existsUnique"
+      ]
+    },
     "proofs/lean/Infinity/C18_Quasigroups.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -443,6 +601,34 @@
         "eT_ne_of_ne",
         "eT_append",
         "eT_tail_factors"
+      ]
+    },
+    "proofs/lean/Infinity/C19_DeficitBound.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-19T22:54:53Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C19.weight_identity' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.geom_abs_goldenConj' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.sum_lazy_le' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.sum_range_add_three' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.deficit_bound' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C19.deficit_bound_int' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 4.83,
+      "sha256": "cfe18255a971a5b91b4b6e633c72479f76ea104ef9e8f8a65c968d51200596d8",
+      "sorry": false,
+      "theorems": [
+        "weight_identity",
+        "weight_eq",
+        "abs_goldenConj_sq_add",
+        "geom_abs_goldenConj",
+        "geom_abs_goldenConj_le_one",
+        "sum_range_add_three",
+        "sum_lazy_le",
+        "deficit_bound",
+        "two_dvd_succ_mul_add_six",
+        "deficit_bound_int"
       ]
     },
     "proofs/lean/Infinity/C19_Zeckendorf.lean": {
@@ -477,5 +663,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-19T14:26:24Z"
+  "updated": "2026-10-19T22:54:53Z"
 }

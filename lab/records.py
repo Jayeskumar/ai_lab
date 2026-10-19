@@ -32,7 +32,7 @@ EXPERIMENT_FIELDS = (
 JOURNAL_KINDS = (
     "hypothesis", "experiment", "result", "failure", "rejection", "pattern", "surprise",
     "contradiction", "disagreement", "direction", "revision", "proof", "novelty", "infrastructure",
-    "decision", "review",
+    "decision", "review", "correction",
 )
 
 
@@ -64,6 +64,16 @@ def sync(verbose: bool = True) -> dict:
     stats = {"claims_changed": 0, "experiments_changed": 0, "journal_added": 0, "warnings": []}
     journal = read_jsonl(JOURNAL_ENTRIES)
     known_keys = {e["key"]: e for e in journal}
+    # latest version of each entry: the original, or its newest revision with the "[revision of KEY] " prefix removed
+    latest = {}
+    for e in journal:
+        base, sep, _ = e["key"].partition("#rev")
+        if not sep:
+            latest.setdefault(base, e)
+        else:
+            prefix = f"[revision of {base}] "
+            text = e["text"][len(prefix):] if e["text"].startswith(prefix) else e["text"]
+            latest[base] = dict(latest.get(base, {}), **{k: e[k] for k in ("agent", "refs") if k in e}, text=text)
     for rec in load_all():
         cyc = rec["cycle"]
         actor = f"sync:{cyc}"
@@ -106,8 +116,9 @@ def sync(verbose: bool = True) -> dict:
             if j["kind"] not in JOURNAL_KINDS:
                 stats["warnings"].append(f"journal {key}: unknown kind {j['kind']}")
             if key in known_keys:
-                old = known_keys[key]
-                if canonical_json({k: old.get(k) for k in entry}) != canonical_json(entry):
+                old = latest.get(key, known_keys[key])
+                compared = ("agent", "text", "refs")
+                if canonical_json({k: old.get(k) for k in compared}) != canonical_json({k: entry[k] for k in compared}):
                     # journal is append-only: record the revision as a new entry
                     n = sum(1 for k in known_keys if k.startswith(key + "#rev")) + 1
                     rev = dict(entry, key=f"{key}#rev{n}", kind="revision", ts=now_iso(),

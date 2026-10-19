@@ -1,0 +1,32 @@
+{
+  "cycle": "C17",
+  "evidence": [
+    "EXP-C17-03"
+  ],
+  "history": [
+    {
+      "actor": "sync:C17",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:04:05Z"
+    }
+  ],
+  "id": "CLM-C17-08",
+  "limitations": "The lab has checked the statement for N <= 4096 only (EXP-C17-03). The published proof rests on two results of Dehornoy's book that the lab read only as cited; an independent argument through row periods (Historian report, section 4: rows s+1..N-1 of the forced table are shifted copies of rows of A_(k+1), with s = N - 2^(k+1) and k = v_2(N), so row s has period 2^(k+1), which does not divide N) uses only Laver's periodicity theorem and awaits independent review.",
+  "notes": "Answers the first of the C17 next directions ('prove the LD anchor-instance characterisation for all N') from the literature.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Stated in Biane, Sem. Lothar. Combin. 80 (2019) B80c, section 2.1, footnote 1 (credited to A. Lewandowski) and, as Biane's observation, in Aguilera-Iannella, 'Non-dyadic Laver algebras', arXiv:2610.06106 (2026), section 2.2. A proof: their Prop. 2.5 (read; the instance at (a, N) holds iff a * N = N) with Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.7 (left-distributive iff a * N = N for every a) and Prop. X.1.6 (no such left-distributive table unless N is a power of 2), the last two read only as cited by Aguilera-Iannella (Historian audit 2026-10-19, reviews/historian_C11_C20.md, section 'The CLM-C17-05 question').",
+  "references": [
+    "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
+    "https://arxiv.org/abs/2610.06106"
+  ],
+  "related": [
+    "CLM-C17-05",
+    "CLM-C06-01"
+  ],
+  "statement": "For every N >= 1, an anchored table (x*0 = x + 1 mod N) satisfies x*(y+1) = (x*y)*(x+1) for all x and y, the wrap-around y = N - 1 included, iff N is a power of 2; it is then the Laver table A_n. Equivalently (CLM-C17-05), left-distributivity of an anchored table of any order is decided by an O(N^2) comparison with the forced table.",
+  "system": "SYS-B",
+  "title": "For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N <= 4096)",
+  "type": "theorem",
+  "verification": "COMPUTATIONALLY SUPPORTED"
+}
