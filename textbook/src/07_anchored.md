@@ -26,8 +26,8 @@ some $a \in \mathbb{Z}/N$.
 For the left-distributive law $x \star (y \star z) = (x \star y) \star (x \star z)$
 the anchor produces the famous **Laver tables**.
 
-**Theorem 7.1** *[REDISCOVERY: Laver; Drápal — COMPUTATIONALLY SUPPORTED in
-the lab]*. An anchored left-distributive magma of size $N$ exists iff $N$ is a
+**Theorem 7.1** *[PROVEN — published theorem (Laver; Dehornoy, Prop. X.1.6);
+REDISCOVERY]*. An anchored left-distributive magma of size $N$ exists iff $N$ is a
 power of 2, and it is then unique.
 
 Our evidence is independent of Laver's recursion: a complete SAT enumeration
@@ -35,7 +35,10 @@ finds exactly one model for $N = 1, 2, 4, 8$ and none for the other
 $N \le 10$ (EXP-C06-02); Laver's recursion gives left-distributive tables
 exactly at the powers of two up to 64 (EXP-C06-01). Lean checks the table
 $A_3$ and the non-existence for $N = 3$. The general theorem is published
-(Laver; elementary proof by Drápal; Dehornoy's book) and we do not re-prove it.
+(Laver; elementary proof by Drápal; Dehornoy's book) and we do not re-prove it;
+we read its statement in Biane's refereed survey (Sém. Lothar. Combin. 80,
+2019, §2.2), whose published version restricts the recursion to $q < N$ — the
+correction of the arXiv version that Chapter 19 rediscovers.
 
 ## When the anchor pins everything
 

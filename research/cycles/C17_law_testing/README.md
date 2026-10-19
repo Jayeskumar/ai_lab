@@ -71,6 +71,16 @@ lab's C06 Theorem 1. During this cycle the lab found that its own C06
 paraphrase of Laver's theorem was imprecise (the recursion holds for q < N
 only); the C06 record was corrected.
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** The anchor-instance
+question is answered in the literature for every N. Uniqueness is Dehornoy's Lemma X.1.2 (also Biane, SLC 80
+(2019) §2.1); the full instance fails for every N that is not a power of 2 (Biane's footnote 1, credited to
+A. Lewandowski; Aguilera–Iannella, [arXiv:2610.06106](https://arxiv.org/abs/2610.06106), Prop. 2.5 with Dehornoy's
+Lemma X.1.7 and Prop. X.1.6). The forcing argument, the existence of the forced table and the reduction to the
+wrap-around equations are now Lean-checked for every N (proofs/lean/Infinity/C17_ForcedTable.lean), so
+CLM-C17-05 (N ≤ 4096) is PROVEN (computer-assisted) and a REDISCOVERY; the all-N statement is CLM-C17-08
+(REDISCOVERY; computationally supported here until an independent proof is checked). This answers next
+direction 1.
+
 ## Step 9 — Applications
 
 When a table must be certified associative (e.g. checking a finite model found

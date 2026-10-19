@@ -107,11 +107,16 @@ $\oplus$ is compatible with switching: it is a multiplication of two-graphs.
 The proof is one line — $(-1)^{a \oplus b} = (-1)^a (-1)^b$ — but it changes how
 one should think about $\oplus$: it only half-sees graphs.
 
-**Theorem 15.7** *[PROVEN — written]*. (a)
+**Theorem 15.7** *[PROVEN — written; (b) is a REDISCOVERY: Oh, Yoo and Yun
+2013]*. (a)
 $K_{a,b} \oplus K_{c,d} \cong K_{ac+bd,\,ad+bc}$: on complete bipartite graphs
 the order and the *imbalance* $|a - b|$ simply multiply, like the two
 components of a split-complex number. (b) $K_2 \oplus X \cong K_2 \oplus Y$ iff
 $X$ and $Y$ are switching-equivalent.
+
+Part (b) is a theorem of Oh, Yoo and Yun (SIAM J. Discrete Math. 27, 2013),
+whose *rainbow graph* of $G$ is $K_2 \oplus G$; only the multiplication rule (a)
+was not found in the literature.
 
 ## A bold hypothesis that failed
 

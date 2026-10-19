@@ -90,6 +90,8 @@ types and their sum over any move list (`length_identity`), and the weight
 sums behind Theorem 4. Counterexamples: n = 12 (H-C19-1), levels (4, 2)
 (H-C19-2), the rank test 46 < 47 (H-C19-3), n = 3 (H-C19-4).
 
+**Batch 1.1 update (2026-10-19).** The arithmetic core of Theorems 7–8 (the weight identity and the bound 1 + (t+1)(t+6)/2 for any two 0/1 strings of equal value) is proved in Lean ([C19_DeficitBound.lean](../../../proofs/lean/Infinity/C19_DeficitBound.lean)); the game-theoretic steps remain written proofs.
+
 ## Step 8 — Comparison with existing mathematics (Historian)
 
 * P. Baird-Smith, A. Epstein, K. Flynt, S. J. Miller, *The Zeckendorf game*,

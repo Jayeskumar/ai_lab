@@ -90,7 +90,8 @@ unbordered pattern of length 3 to 9 up to length 200, and the count ratios at
 length 300 are $1.618033989$, $1.191487884$, $1.078095078$ for $k = 2, 3, 4$
 (EXP-C11-02, EXP-C11-06).
 
-**Corollary 12.4** *[PROVEN — written; POTENTIALLY NOVEL (low confidence)]*.
+**Corollary 12.4** *[PROVEN — written; partly REDISCOVERY: $T_{011}$ is
+Capocelli's code C(3)]*.
 With $F_1 = F_2 = 1$, $\mathrm{cum}_{11}(L) = F_{L+1} - 1$ and
 $\mathrm{cum}_{011}(L) = F_{L+2} - L - 1$. If the Fibonacci codeword of $n$ has
 length $L + 1$, the $T_{011}$ codeword is one bit shorter when
@@ -136,14 +137,14 @@ $11$ ($101, 111, 1001, 1101, 10001, \ldots$). C3 is uniquely decipherable and
 complete but *not* prefix-free: its decoder searches for $011$ and reads one
 bit of the next codeword.
 
-**Corollary 12.6** *[PROVEN — written; POTENTIALLY NOVEL (low confidence)]*.
+**Corollary 12.6** *[PROVEN — written; partly REDISCOVERY: Fraenkel–Klein]*.
 C3 has $2F_{r-2}$ codewords of length $r \ge 3$, so
 $\mathrm{cum}_{C3}(L) = 2F_L - 2$. C3 is never longer than C1 except at
 $n = 1$, and $T_{011}$ is never longer than C3 except at $n \in \{2, 4, 8\}$;
 $\mathrm{cum}_{011}/\mathrm{cum}_{C3} \to \varphi^2/2 \approx 1.309$ and
 $\mathrm{cum}_{C3}/\mathrm{cum}_{C1} \to 2/\varphi \approx 1.236$. (The count
 and the comparison with C1 are Fraenkel and Klein's; the comparison with
-$T_{011}$ is ours.)
+$T_{011}$ was not found in the sources we read.)
 
 *Proof.* As $F_{L+2} - 2F_L = F_{L-1}$, $\mathrm{cum}_{011}(L) -
 \mathrm{cum}_{C3}(L) = F_{L-1} - (L - 1)$, negative only for $L = 3, 4, 5$; and
@@ -217,9 +218,16 @@ $011$ but gives up the prefix property. For prefix-synchronised (fixed-length)
 codes, unbordered markers $1\cdots10$ are optimal at finite lengths (Gilbert;
 Guibas and Odlyzko), the phenomenon of Theorem 12.3 in another setting; the
 multi-delimiter codes of Anisimov and Zavadskyi are reported to beat Fibonacci
-codes. We found no statement of Corollaries 12.4 and 12.6 or Proposition 12.5;
-our confidence in their novelty is low, given C3, the multi-delimiter codes
-and the generic nature of log-periodic oscillations like Proposition 12.5's.
+codes. The Historian's second audit found that $T_{011}$ itself is
+Capocelli's code C(3) (IEEE Trans. Inform. Theory 35, 1989: the words in which
+011 occurs only as a suffix), that the codes $T_p$ in general are Lakshmanan's
+pattern codes (1981; Fraenkel and Klein 1996, §3), and that Lima and da Rocha
+(2013) tabulate C(3) against the Fibonacci code, one bit shorter at the
+tabulated $n = 2^t$. The exact comparisons of Corollaries 12.4 and 12.6 were
+not found (Capocelli's paper could not be read), so both are recorded as
+partial rediscoveries; our confidence in the novelty of Proposition 12.5 is
+low, given the multi-delimiter codes and the generic nature of log-periodic
+oscillations.
 
 * P. Elias, "Universal codeword sets and representations of the integers",
   IEEE Trans. Inform. Theory 21 (1975) 194–203.

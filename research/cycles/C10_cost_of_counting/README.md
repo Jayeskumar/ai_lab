@@ -45,6 +45,8 @@ full stabilisation.
 
 Theorems 1–4 in `proofs/paper/C10.md` (written); H-C10-0 refuted by Theorem 2.
 
+**Batch 1.1 update (2026-10-19).** Theorem 6 (CLM-C10-07, skew binary counting) is proved in Lean, with an explicit O(log N / N) bound and a proof of the uniqueness of canonical skew-binary representations, which the paper had cited ([C10_SkewBinary.lean](../../../proofs/lean/Infinity/C10_SkewBinary.lean)).
+
 ## Step 8 — Literature
 
 Amortised analysis of binary counters (textbook, e.g. Cormen et al.); Gray

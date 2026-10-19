@@ -27,7 +27,7 @@ every anchored model is affine, so that the two coincide.
 
 ## Affine spectra are arithmetic
 
-**Theorem 8.1** *[PROVEN — written]*. Affine spectra are closed under divisors
+**Theorem 8.1** *[PROVEN — Lean: `C13_AffineStructure.lean`]*. Affine spectra are closed under divisors
 and under coprime products, so membership of $N$ depends only on the prime
 powers dividing $N$. If the polynomials of the affine system have no common
 factor over $\mathbb{Q}$, the affine spectrum is the set of divisors of a

@@ -112,6 +112,13 @@ brief's hypothesis that an automaton can be fast-forwarded exactly when its
 light-cone complexity is bounded: its width is unbounded, yet the future is
 computable in $O(L)$. The reverse direction is open (Conjecture CLM-C15-18).
 
+Both refutations were in effect anticipated: streaming width is essentially
+the one-way communication complexity of the $t$-step rule used by Dürr,
+Rapaport and Theyssier (Theoret. Comput. Sci. 322, 2004), who already give
+elementary automata of linear complexity with an explicit description of the
+$t$-th row (rules 132 and 23). The fuse magma is a new instance, not a new
+phenomenon.
+
 ## Experiments
 
 | Experiment | Question | Result |

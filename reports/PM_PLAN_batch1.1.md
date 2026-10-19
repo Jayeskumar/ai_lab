@@ -25,12 +25,18 @@ research cycle starts.
 
 | id | goal | owner | acceptance criterion | status |
 |---|---|---|---|---|
-| G1 | Novelty audit of the potentially novel claims of C11–C20 | Historian (agent) | `reviews/historian_C11_C20.md` with a verdict and the sources actually read for every claim; labels updated in the records | in progress |
-| G2 | Lean formalisation of high-weight written proofs: uniqueness of the forced anchored table (CLM-C17-05), structure of affine spectra (CLM-C13-01 a–c, f), the arithmetic core of the deficit bound (CLM-C19-15); stretch: skew binary (CLM-C10-07) | Formal Verifier (agent) | new Lean files compile with standard axioms only; records name exactly what is formal | in progress |
-| G3 | Reproducibility audit of every experiment (`lab verify --dry`, cycle by cycle) | Director | every CHANGED or ERROR result explained and fixed or recorded | in progress |
-| G4 | Decide laws 677 and 1313 at orders 8 and 10 (SAT; UNSAT certified by DRUP + drat-trim) | Director | a recorded experiment; every answer certified or reported UNKNOWN | in progress |
-| G5 | Corrections log: a generated textbook appendix listing every change made after review, from the audit log | Director | `textbook/src/generated/` appendix, built into the PDF | planned |
-| G6 | Infrastructure: `python -m lab check` (record validation, duplicate keys, proof links), tests for the report and catalogue code | Director | `pytest` covers the new code; `lab check` passes | planned |
+| G1 | Novelty audit of the potentially novel claims of C11–C20 | Historian (agent) | `reviews/historian_C11_C20.md` with a verdict and the sources actually read for every claim; labels updated in the records | **done** — 4 relabelled REDISCOVERY (C17-05, and C11-04, C11-09, C14-07 partly), 20 novelty bases corrected, Klimov 2026 found for C16; new claim CLM-C17-08 |
+| G2 | Lean formalisation of high-weight written proofs: uniqueness of the forced anchored table (CLM-C17-05), structure of affine spectra (CLM-C13-01 a–c, f), the arithmetic core of the deficit bound (CLM-C19-15); stretch: skew binary (CLM-C10-07) | Formal Verifier (agent) | new Lean files compile with standard axioms only; records name exactly what is formal | **done** — all four targets and the stretch, plus C13-01 (d), (e); C10-07 and C13-01 are now fully formal |
+| G3 | Reproducibility audit of every experiment (`lab verify --dry`, cycle by cycle) | Director | every CHANGED or ERROR result explained and fixed or recorded | in progress — 106 of 113 re-run so far, one CHANGED (EXP-C19-04: wall-clock times inside the hashed results; fixed) |
+| G4 | Decide laws 677 and 1313 at orders 8 and 10 (SAT; UNSAT certified by DRUP + drat-trim) | Director | a recorded experiment; every answer certified or reported UNKNOWN | in progress — EXP-C05-08 running (complete case split, Lemmas 7–9 of proofs/paper/C05.md); literature: Mace4 exhausts 677 at size 8 (ETP paper) |
+| G5 | Corrections log: a generated textbook appendix listing every change made after review, from the audit log | Director | `textbook/src/generated/` appendix, built into the PDF | **done** — `appendix_corrections.md` (116 field changes on 81 claims, 44 changed re-runs with their cause) |
+| G6 | Infrastructure: `python -m lab check` (record validation, duplicate keys, proof links), tests for the report and catalogue code | Director | `pytest` covers the new code; `lab check` passes | **done** — `lab check` (records, anchors, database, result hashes, journal, timing fields) found 5 broken proof links and a sync bug that had duplicated 32 journal lines; 24 tests pass |
+
+## Added during the sprint
+
+- **G7 — independent review of the sprint's results** (Skeptic, agent): the row-period proof for CLM-C17-08,
+  Lemmas 7–9 and the encoding of EXP-C05-08 with an independent re-computation, the two PROVEN claims that had no
+  independent review (CLM-C05-10, CLM-C19-15), and the fidelity of the new Lean statements. In progress.
 
 ## Not in this sprint (and why)
 

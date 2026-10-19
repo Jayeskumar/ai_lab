@@ -24,7 +24,10 @@ base, and exactly 1 for the Gray code. *(Digit $k$ changes with frequency
 $b^{-k}$, respectively $1/k!$.)*
 
 Measured over $n < 10^6$ (EXP-C10-01): binary 1.999988, factorial 1.7182767,
-Gray 1.0, skew binary 1.4999955 with worst case 2.
+Gray 1.0, skew binary 1.4999955 with worst case 2. For skew binary both numbers
+are proved in Lean (`C10_SkewBinary.lean`): every increment changes at most two
+digits, and the average over the first $N$ increments is within
+$(\lfloor \log_2(N+1) \rfloor + 1)/(2N)$ of $3/2$.
 
 ## Zeckendorf counts like binary
 

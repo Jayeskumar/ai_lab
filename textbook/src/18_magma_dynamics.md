@@ -73,6 +73,11 @@ of the Latin square: the cycle is a universal cycle of the quasigroup.
 |---|---|---|---|---|---|
 | full-period quasigroups | 0 | 0 | 0 | 3360 (28 classes) | examples verified |
 
+Klimov (2026) studies full-period tables under the name *UFS-groupoids*
+and asks (Problems 7.3–7.5) whether one can be left-cancellative, a left
+quasigroup or a quasigroup; Theorem 18.5 answers all three positively from
+order 5 on. The distance-2 criterion of Theorem 18.4 is not in his paper.
+
 The counts for $n \le 5$ come from all $2 + 12 + 576 + 161280$ Latin squares and,
 independently, from a depth-first enumeration of cycles with distinct pairs at
 distances 1 and 2. An example of order 5 is the cycle

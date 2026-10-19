@@ -142,6 +142,12 @@ K₂⊕K₂⊕K₂ ≅ K₂⊕K_{1,3} and C₄ = K₂⊕K₂ = K₂⊕2K₁ (H-C
 * **OEIS.** Prime counts with respect to each product over *all* graphs, and
   the prime two-graph counts: no match (searched 2026-10-18; cached).
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** Part (b) of Theorem 7
+(CLM-C14-07; K₂ ⊕ X ≅ K₂ ⊕ Y iff X and Y are switching-equivalent) is a theorem of Oh, Yoo and Yun,
+*Rainbow graphs and switching classes*, SIAM J. Discrete Math. 27 (2013) 1106–1111
+([arXiv:1108.6143](https://arxiv.org/abs/1108.6143)); only part (a) was not found. CLM-C14-07 becomes a partial
+rediscovery; the K₂-cancellation step of the conjecture CLM-C14-13 is their theorem.
+
 ## Step 9 — Applications
 
 * *Spectra of large products from small factors* (EXP-C14-07): for ⊕, ⊠, ∨ and

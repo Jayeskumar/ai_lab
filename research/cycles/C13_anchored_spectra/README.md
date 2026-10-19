@@ -102,6 +102,8 @@ Theorem 6, which C06 left as a Lean target), `golden_law_model_of_root`,
 of `proofs/paper/C13.md`. Counterexamples: x = x(x(xx)) (H-C13-1, H-C13-2),
 x = (xx)x (H-C13-5).
 
+**Batch 1.1 update (2026-10-19).** Theorem 1 (CLM-C13-01, the structure of affine spectra) is proved in Lean, parts (a)–(f), the infinite case by Gauss's lemma instead of Schur's theorem ([C13_AffineStructure.lean](../../../proofs/lean/Infinity/C13_AffineStructure.lean)).
+
 ## Step 8 — Comparison with existing mathematics (Historian)
 
 * The arithmetic sets are classical: OEIS entries A005408, A001651, A008784,

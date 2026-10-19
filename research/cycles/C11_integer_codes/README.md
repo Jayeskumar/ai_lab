@@ -150,6 +150,13 @@ claim that the average gain converges.
   integer codes; marked **potentially novel, low confidence**.
 * OEIS: all codeword-count sequences used are catalogued.
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** T_011 is Capocelli's code
+C(3) (IEEE Trans. IT 35 (1989) 191–193: the words in which 011 occurs only as a suffix), and T_p in general is
+Lakshmanan's pattern code (IEEE Trans. IT 27, 1981; Fraenkel–Klein 1996 §3). Lima and da Rocha
+([JCIS 2013](https://jcis.sbrt.org.br/jcis/article/download/17/11/127), Table I) tabulate C(3) against the
+Fibonacci code. CLM-C11-04 and CLM-C11-09 (Corollaries 4 and 6) become partial rediscoveries; Proposition 5
+(CLM-C11-07) stays potentially novel with low confidence. Capocelli 1989 could not be read.
+
 ## Step 9 — Applications (Application Researcher)
 
 A practical recommendation, with its limits: for heavy-tailed integer streams

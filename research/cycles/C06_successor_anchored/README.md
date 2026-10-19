@@ -94,6 +94,12 @@ Counterexamples: (xy)z = x((yz)z), (xy)z = x(y(zz)), x(yz) = ((zx)x)y
   spirit).
 * Odd law, right-permutable count: elementary; no prior statement found.
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** Biane's arXiv v1
+(cited above) states the recursion for all q, which is false already at N = 3; the refereed version
+([Sém. Lothar. Combin. 80 (2019) B80c](https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf), §2.1 and
+footnote 1) restricts it to q < N, the correction this lab made in C17. CLM-C06-01 states the published theorem
+and is now PROVEN (literature); see also Aguilera–Iannella, [arXiv:2610.06106](https://arxiv.org/abs/2610.06106).
+
 ## Step 9 — Applications
 
 None claimed. The construction gives a compact way to generate finite

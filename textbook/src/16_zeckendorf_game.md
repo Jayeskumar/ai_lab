@@ -178,7 +178,8 @@ and the recursion of Conjecture 16.7 agree exactly (EXP-C19-05), so the
 conjecture is now tested against a proved method rather than against
 simulation.
 
-**Theorem 16.10** *[PROVEN — written]*. Without any optimality theorem,
+**Theorem 16.10** *[PROVEN — written; arithmetic core in Lean:
+`C19_DeficitBound.lean`]*. Without any optimality theorem,
 $D(n) \le 1 + (t+1)(t+6)/2$; hence $L(n) = \varphi^2 n - O(\log^2 n)$.
 
 *Proof idea.* Playing the lazy phase and then any legal moves is a game on

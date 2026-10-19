@@ -1049,6 +1049,7 @@
     "proofs/lean/Infinity/C02_Exchange.lean": true,
     "proofs/lean/Infinity/C03_Termination.lean": true,
     "proofs/lean/Infinity/C04_Derivations.lean": true,
+    "proofs/lean/Infinity/C05_Law1313.lean": true,
     "proofs/lean/Infinity/C05_Magmas.lean": true,
     "proofs/lean/Infinity/C06_Laver.lean": true,
     "proofs/lean/Infinity/C08_Knuth.lean": true,
@@ -1084,7 +1085,7 @@
     "C16: count full-period quasigroups of order 6 (a partial DFS found 1136 normalised cycles within 2e7 nodes without finishing) and compare with L(6)/36",
     "C16: prove CLM-C16-13 (affine maximal period = order of the 3x3 matrix) and explain the Laver transient bound 5",
     "C16: which laws force short periods? (idempotency gives n fixed points; left-distributivity with an anchor forces period <= 2)",
-    "C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance => Laver table, N a power of 2)",
+    "C17: the all-N statement is published (CLM-C17-08, batch 1.1); remaining - an independent check of the row-period proof and a reading of Dehornoy, Braids and Self-Distributivity, Ch. X (Lemma 1.7, Prop. 1.6)",
     "C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?",
     "C17: benchmark against optimised C implementations and against SAT-based model checkers",
     "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness",
@@ -1097,5 +1098,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-19T23:04:06Z"
+  "updated": "2026-10-19T23:21:57Z"
 }

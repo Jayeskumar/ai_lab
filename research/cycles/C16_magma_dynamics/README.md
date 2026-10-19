@@ -107,6 +107,13 @@ order-5 cycle 0,0,1,0,2,2,0,3,3,1,2,1,4,0,4,4,2,3,2,4,1,1,3,4,3 (H-C16-5).
 * OEIS: the odd- and golden-law period sequences and the order-3 period
   distribution have no match.
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** P. Klimov,
+*Universal Fibonacci sequences and UFS-groupoids* ([arXiv:2604.05754](https://arxiv.org/abs/2604.05754), 2026),
+studies the full-period tables of this cycle (his finite UFS-groupoids with periodic universal sequence) and poses
+as open (Problems 7.3–7.5) whether one can be left-cancellative, a left quasigroup or a quasigroup. CLM-C16-07
+answers this positively (the Historian re-checked the order-5 example); the distance-2 criterion CLM-C16-05 is not
+in his paper. Whether to tell the author is left to the human readers of this record.
+
 ## Step 9 — Applications
 
 Tested honestly against PCG64 and an LCG (EXP-C16-04): **no improvement**. The

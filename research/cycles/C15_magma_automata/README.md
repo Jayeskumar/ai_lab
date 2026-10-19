@@ -101,6 +101,14 @@ commutative-semigroup benchmark (H-C15-6).
   surjective-table counts 1, 6, 420 match only A273820 (an lcm sequence), a three-term
   coincidence; the geometric width sequence of [[0,1,2],[2,0,0],[1,2,0]] has no match.
 
+**Batch 1.1 update (2026-10-19, [Historian audit](../../../reviews/historian_C11_C20.md)).** Streaming width is
+essentially the one-way communication complexity of the t-step rule used by Dürr, Rapaport and Theyssier,
+*Cellular automata and communication complexity*, Theoret. Comput. Sci. 322 (2004) 355–368
+([arXiv:cs/0210008](https://arxiv.org/abs/cs/0210008)), who classify the elementary automata experimentally and
+give explicit linear-complexity rules (132, 23) and a three-state Θ(n²) automaton — so the refutations of H-C15-1
+and H-C15-4 were already exemplified there. Only the fuse magma and the order-3 census are new; CLM-C15-04, -07,
+-15 keep POTENTIALLY NOVEL with low confidence.
+
 ## Step 9 — Applications
 
 Exact fast-forwarding of affine and fuse automata gives the state at t = 10⁹ in

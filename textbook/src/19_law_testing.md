@@ -88,7 +88,8 @@ laws; a classification bug, found by the Skeptic, had counted laws with a
 violation at one size as undecided because the enumeration was capped at
 another.)
 
-**Observation 19.4** *[COMPUTATIONALLY SUPPORTED; uniqueness PROVEN]*. For
+**Observation 19.4** *[PROVEN — computer-assisted for $N \le 4096$, forcing
+argument in Lean; REDISCOVERY]*. For
 every $N \le 4096$, the single identity
 $x \star (y + 1) = (x \star y) \star (x + 1)$ (for all $x, y$ modulo $N$) has an
 anchored solution exactly when $N$ is a power of 2, and then it is the Laver
@@ -102,8 +103,19 @@ entry $x \star (y+1) = v \star (x+1)$ with $v = x \star y > x$ refers to a row
 that is already determined — this is Laver's recursion. So for every $N$ there
 is at most one candidate, and the question is only whether it satisfies the
 remaining wrap-around equations. Building the candidates for every
-$N \le 4096$ (EXP-C17-03) shows they do exactly at the powers of 2; why
-they never do otherwise is open.
+$N \le 4096$ (EXP-C17-03) shows they do exactly at the powers of 2. Lean
+checks the forcing argument, the existence of the candidate and the reduction
+to the wrap-around equations for every $N$ (`C17_ForcedTable.lean`).
+
+The Historian's second audit found the general case in the literature.
+Biane remarks, in the published version of his survey, that the full instance
+fails when $N$ is not a power of 2 (a correction credited to A. Lewandowski),
+and Aguilera and Iannella (2026) prove that the wrap-around equation at $x$
+holds iff row $x$ ends in the top element; with Dehornoy's criterion — the
+table is left-distributive iff every row ends in the top element — this
+settles every $N$ (CLM-C17-08). We have read the last step only as cited, so
+the all-$N$ statement stays computationally supported in our records until an
+independent proof (by row periods) has been checked.
 
 This experiment also corrected the laboratory's own citation of Laver's
 theorem in Chapter 7: the classical recursion is imposed only for $q < N$;
