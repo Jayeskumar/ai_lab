@@ -8,8 +8,8 @@
   "code": {
     "command": "python -m lab run EXP-C19-04",
     "file": "experiments/C19/E04_out_of_sample.py",
-    "sha256": "db2b41ba5be1c3dc614170d7037e7c9b01913816d8281a3b484e8bf38c5064df",
-    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+    "sha256": "9b09db083a2578f84f4fa36bfdfd698a0903ec092802685718f936d11bf0819f",
+    "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
   },
   "cycle": "C19",
   "falsification": "Any tested n with longest_rec(n) != greedy length.",
@@ -51,7 +51,7 @@
     "CLM-C19-14"
   ],
   "results_file": "results/EXP-C19-04.json",
-  "results_sha256": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
+  "results_sha256": "7076e77995397cb1a90c761eb30f8e816a7a1903cb724c6ea061296e5d90fa6d",
   "runs": [
     {
       "code": {
@@ -89,11 +89,32 @@
         "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
         "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
       ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-04",
+        "file": "experiments/C19/E04_out_of_sample.py",
+        "sha256": "9b09db083a2578f84f4fa36bfdfd698a0903ec092802685718f936d11bf0819f",
+        "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+      },
+      "error": false,
+      "finished": "2026-10-19T23:58:32Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C19-04.json",
+      "results_sha256": "7076e77995397cb1a90c761eb30f8e816a7a1903cb724c6ea061296e5d90fa6d",
+      "runtime_s": 330.854,
+      "started": "2026-10-19T23:53:01Z",
+      "summary": [
+        "recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches",
+        "benchmark n = 1e4..1e7: recursion and greedy simulation agree: True (wall-clock times under 'timings')",
+        "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
+        "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
+      ]
     }
   ],
   "summary": [
     "recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches",
-    "speed: n=1e4: greedy 0.0115 s, recursion 7.1e-05 s; n=1e5: greedy 0.102 s, recursion 6.2e-05 s; n=1e6: greedy 0.8548 s, recursion 7.1e-05 s; n=1e7: greedy 8.2811 s, recursion 9.3e-05 s",
+    "benchmark n = 1e4..1e7: recursion and greedy simulation agree: True (wall-clock times under 'timings')",
     "OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH",
     "(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]"
   ],
