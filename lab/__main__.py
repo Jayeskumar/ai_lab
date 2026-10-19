@@ -31,6 +31,8 @@ def cmd_verify(args):
     """Re-run every experiment and compare result hashes with the last recorded run."""
     scripts = runner.discover()
     ids = sorted(scripts) if not args.cycle else [i for i in sorted(scripts) if i.startswith(f"EXP-{args.cycle}-")]
+    if args.ids:
+        ids = [i for i in args.ids if i in scripts]
     changed, errors, skipped = [], [], []
     for i in ids:
         rec = db.load("experiment", i)
@@ -142,6 +144,7 @@ def main(argv=None):
     r.add_argument("--dry", action="store_true", help="do not record results")
     r.set_defaults(func=cmd_run)
     v = sub.add_parser("verify", help="re-run experiments and compare result hashes")
+    v.add_argument("ids", nargs="*", help="experiment ids (default: all, or those of --cycle)")
     v.add_argument("--cycle")
     v.add_argument("--dry", action="store_true")
     v.set_defaults(func=cmd_verify)

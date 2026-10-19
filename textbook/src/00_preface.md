@@ -63,3 +63,11 @@ limitations, and open questions.
 run EXP-C01-05` re-runs it and checks the recorded result hash. Every claim
 identifier (CLM-C08-01, …) has a record in `db/claims/` with its full status
 history. Lean theorem names refer to `proofs/lean/Infinity/`.
+
+*Version 1.1.* After the first edition the laboratory ran a hardening sprint
+instead of new research: an audit of the novelty labels of Chapters 12–21,
+Lean proofs of four theorems that had only written proofs, a re-run of every
+experiment, and a certified computation on two open spectrum questions of
+Chapter 6. Every change this caused to a claim's status, label or statement is
+listed, with its reason, in the generated *Corrections log* at the end of the
+book.

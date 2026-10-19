@@ -18,7 +18,7 @@ python -m lab lean                          # re-check every Lean file
 
 PDF export needs a Chromium binary (`CHROMIUM=/path/to/chrome python -m lab book`).
 
-Only EXP-C05-06 needs an external proof checker, drat-trim (see
+Only EXP-C05-06 and EXP-C05-08 need an external proof checker, drat-trim (see
 `research/cycles/C05_magma_spectra/README.md`, "Reproducibility"):
 
 ```bash
@@ -27,9 +27,18 @@ curl -sSfL https://raw.githubusercontent.com/marijnheule/drat-trim/master/drat-t
 gcc -O2 -o drat-trim drat-trim.c && export DRAT_TRIM="$HOME/tools/drat/drat-trim"
 ```
 
-Without it EXP-C05-06 records "checker unavailable" and certifies nothing.
+Without it EXP-C05-06 and EXP-C05-08 record "checker unavailable" and certify nothing.
 
 ## 2. Check that the recorded state is reproducible
+
+`python -m lab check` (about a second) validates everything that does not need
+a re-run: every `record.yaml` parses with duplicate keys rejected, claim ids
+and journal keys are unique, every reference resolves (evidence, related ids,
+proof files and their `#anchor`, Lean files), the database agrees with the
+records, every result file's stored hash matches its content and the last
+recorded run, no result was produced by an older version of its script, and
+no wall-clock field sits inside the hashed results. Run it after every
+`sync` and before every commit; it must report 0 errors.
 
 `python -m lab verify` re-runs every experiment and compares result hashes
 with the last recorded run (timings are excluded from hashes; add `--dry` to
@@ -38,7 +47,9 @@ whole batch takes several hours on one core — EXP-C05-03 alone needed 47
 minutes on the shared container — so verify cycle by cycle. Any `CHANGED`
 result must be investigated and recorded in the journal before continuing —
 never silently overwritten. Experiments that query the OEIS read the cached
-answers in `cache/oeis/` and need no network.
+answers in `cache/oeis/` and need no network. `verify` skips experiments that
+were never recorded (run them with `python -m lab run` first). The batch 1.1
+audit (`reports/REPRODUCIBILITY_batch1.1.md`) re-ran every experiment.
 
 ## 3. Where the state lives
 
@@ -52,7 +63,7 @@ answers in `cache/oeis/` and need no network.
 | raw results | `results/*.json`, `results/artifacts/` | runner |
 | Lean status | `proofs/lean_results.json` | `python -m lab lean` |
 | reviews | `reviews/*.md`, their check code in `reviews/skeptic_checks/`, `reviews/historian_checks/` | Skeptic / Historian agents |
-| catalogue volumes (Vol. 6, 9, 10 lists) | `textbook/src/generated/*.md` | `python -m lab catalogue` (also run by `book`) |
+| catalogue volumes (Vol. 6, 9, 10 lists) and the corrections-log appendix | `textbook/src/generated/*.md` | `python -m lab catalogue` (also run by `book`) |
 | batch statistics and report tables | `reports/batch_statistics.json`, `reports/REPORT_DATA.md` | `python -m lab report` |
 | textbook build | `textbook/build/` (HTML, PDF) | `python -m lab book [--no-pdf]` |
 
@@ -74,6 +85,12 @@ history and in the audit log.
 4. Write `research/cycles/Cnn_slug/README.md` (ten steps) and `record.yaml`
    (claims with type/title/statement/verification/novelty/evidence; PROVEN
    needs `proof` and `proof_check`; REFUTED needs `counterexample`).
+   The report classifies a PROVEN claim by the start of its `proof_check`:
+   `Lean 4 (complete) - ...` for a proof that is entirely machine-checked,
+   `computer-assisted - ...` for a finite certificate, `written proof ...`
+   (mention any Lean-checked part), `published theorem ...` for a statement
+   read in the literature. A partial rediscovery is recorded as REDISCOVERY
+   with a novelty basis starting `Partial - ` that names the unpublished part.
 5. `python -m lab sync && python -m lab lean`, then commit and push.
 6. Ask an *independent* Skeptic and Historian to review the new claims
    (see `reviews/` for the format) and fold their verdicts back in via
@@ -98,7 +115,7 @@ the "Next directions" section of every cycle README; the batch report
 (`reports/RESEARCH_REPORT_batch1.md`, section 10) ranks them, and the
 textbook's Volume 10 lists every open claim.
 
-## 6. Review status at the end of batch 1
+## 6. Review status (batch 1 and the batch 1.1 sprint)
 
 Every cycle had an independent Skeptic review and (for C01–C10 and selected
 later claims) a Historian novelty audit; the review files in `reviews/` list
@@ -106,9 +123,25 @@ the claims they covered and the verdicts. A claim whose `proof_check` still
 says "awaiting independent skeptic review" has not been re-checked by
 someone other than its author — treat such a written proof as provisional
 and review it first. `grep -l "awaiting independent" db/claims/*.json`
-lists them.
+lists them. Batch 1.1 added the Historian audit of C11–C20
+(`reviews/historian_C11_C20.md`) and a Skeptic review of the sprint's own
+results (`reviews/skeptic_batch1.1.md`); the sprint plan and its outcome are
+in `reports/PM_PLAN_batch1.1.md`.
 
-## 7. Lessons from batch 1 (operational)
+## 7. Lessons from batch 1 and 1.1 (operational)
+
+* **Check the literature before a heavy computation.** The ETP paper already
+  reports that Mace4 exhausts size 8 for law 677; reading it first turned a
+  planned "new result" into a certified rediscovery and redirected the CPU
+  time to order 10.
+* **Let the hard cases shape the symmetry breaking.** For 677 at order 10 the
+  first case split left 41 of 97 cases undecided, almost all with the chosen
+  element idempotent; splitting on idempotency (Lemma 8 of
+  `proofs/paper/C05.md`) and adding implied division clauses made them easy.
+* **Tooling bugs hide in idempotent-looking code.** `sync` re-appended the same
+  journal revision of two entries on every run (16 copies each) because it
+  compared the record with the original entry instead of its latest revision;
+  `lab check` and a regression test now catch this.
 
 * **Random testing is not a proof — and it missed real counterexamples.**
   The first circle-product thresholds (C08) were found by random triples and

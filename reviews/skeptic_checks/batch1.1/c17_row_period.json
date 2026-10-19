@@ -1,0 +1,27 @@
+{
+ "full_check_N": [
+  1,
+  1000
+ ],
+ "full_failures": {},
+ "block_check": {
+  "count": 4092,
+  "range": [
+   3,
+   4096
+  ],
+  "extra": [
+   1536,
+   1792,
+   2560,
+   3072,
+   3584,
+   3840,
+   4095,
+   1890,
+   3328
+  ]
+ },
+ "block_failures": {},
+ "seconds": 59.9
+}

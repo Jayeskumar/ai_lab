@@ -18,6 +18,7 @@ table. An instance that exhausts its conflict budget is reported UNKNOWN and lea
 import hashlib
 import os
 import subprocess
+import sys
 import tempfile
 import time
 from multiprocessing import get_context
@@ -173,6 +174,9 @@ def solve_case(job):
                 times["check_s"] = round(time.perf_counter() - t1, 2)
             else:
                 out["drat_trim"] = "checker unavailable"
+    # progress on stderr only (not part of the results)
+    print(f"[EXP-C05-08] {num}/{n} {case} {lam}/{ell}: {out['status']} {conflicts} conflicts "
+          f"{out.get('drat_trim', '')} {times}", file=sys.stderr, flush=True)
     return out, times
 
 
