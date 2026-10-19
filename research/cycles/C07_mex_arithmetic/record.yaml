@@ -78,7 +78,7 @@ claims:
       g(b) is the least v with v and v XOR b both outside {g(b') : b' < b}. The row is an involution and is not
       additively periodic.
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches"
+    proof_check: "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches"
     proof: proofs/paper/C07.md#theorem-3-clm-c07-05--the-jacobsthal-row
     evidence: [EXP-C07-03]
     novelty: POTENTIALLY NOVEL

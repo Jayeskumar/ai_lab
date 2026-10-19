@@ -84,14 +84,11 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C05-05** (Lean), rediscovery: Identities x = y\*s(x, y) make every left translation of a finite model bijective.
 * **CLM-C05-07** (Lean), potentially novel: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9.
 * **CLM-C05-08** (computer-assisted), potentially novel: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6.
+* **CLM-C05-10** (computer-assisted), not assessed: Linear models over finite fields: the orders q \<= 128 at which the 15 open laws have a model x\*y = ax + by over GF(q).
 
 **Computationally supported.**
 
 * **CLM-C05-02**, rediscovery: Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n \<= 6, restricted ones to n \<= 8).
-
-**Conjectures.**
-
-* **CLM-C05-09**, not assessed: Laws 677 and 1313 have spectrum {1} together with all odd n \>= 5.
 
 ## C06 — Successor-anchored magmas: spectra of composition laws
 
@@ -134,14 +131,14 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C08-02**, potentially novel: Circle products over non-Pisot base sequences are never associative.
 * **CLM-C08-03**, rediscovery: Recurrences with non-increasing coefficients and canonical initial values give associative circle products for large shifts.
 * **CLM-C08-04**, potentially novel: Non-monotone associative-shift sets require a negative conjugate root.
-* **CLM-C08-07**, rediscovery: Corrected associativity thresholds - certified lower bounds and searched ranges.
+* **CLM-C08-08**, rediscovery: Associativity thresholds after the targeted search - certified lower bounds, no failure up to s = 16.
 
 ## C09 — Arithmetic of Knuth's circle semigroup
 
 **Theorems.**
 
 * **CLM-C09-01** (written), rediscovery: Knuth's circle semigroup embeds in Z\[phi\]; Fibonacci numbers are its units-images.
-* **CLM-C09-03** (written), potentially novel: Window obstruction: a fixed proportion 1/phi\^2 of all integers are circle-irreducible.
+* **CLM-C09-03** (written), potentially novel: Window obstruction: at least a proportion 1/phi\^2 of all integers are circle-irreducible.
 * **CLM-C09-06** (written), potentially novel: Factorisation lengths are bounded by the conjugate coordinate.
 * **CLM-C09-07** (written), rediscovery: The norm N(n) = n\*\^2 + n n\* - n\^2 is multiplicative for the circle product.
 * **CLM-C09-08** (computer-assisted), potentially novel: Factorisation statistics of the circle semigroup up to 2e5.
@@ -158,11 +155,11 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C10-02** (written), rediscovery: Zeckendorf counting: T\_m = 2 G\_m - ceil(m/2) - 2, average cost 2.
 * **CLM-C10-04** (written), rediscovery: Exchange systems fire 1/(m - sum b) times per increment on average.
 * **CLM-C10-05** (written), rediscovery: Single-offset exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m - q)).
+* **CLM-C10-07** (written), rediscovery: Skew binary counting has worst-case cost 2 and average 3/2.
 
 **Computationally supported.**
 
 * **CLM-C10-06**, potentially novel: Multi-offset exchange rules have rule-specific average counting costs.
-* **CLM-C10-07**, rediscovery: Skew binary counting has worst-case cost 2 and average 3/2.
 
 ## C11 — Pattern-terminated universal integer codes
 
@@ -226,7 +223,7 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C14-03** (computer-assisted), not assessed: For local graph products, associativity and commutativity up to isomorphism are no weaker than the strict notions.
 * **CLM-C14-04** (written), potentially novel: Exactly six local products are Kronecker products in disguise (multiplicative characters).
 * **CLM-C14-05** (written), potentially novel: Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character.
-* **CLM-C14-06** (written), potentially novel: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs.
+* **CLM-C14-06** (written), rediscovery: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs.
 * **CLM-C14-07** (written), potentially novel: Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching.
 * **CLM-C14-09** (written), rediscovery: The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoids; equal prime counts (A129582).
 * **CLM-C14-10** (computer-assisted), potentially novel: Numbers of prime graphs (all graphs) for the unital associative products, orders \<= 15.
@@ -297,7 +294,7 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 **Computationally supported.**
 
 * **CLM-C17-04**, rediscovery: Benchmark - generator and anchor tests versus the exhaustive check.
-* **CLM-C17-05**, not assessed: The anchor instance of left-distributivity singles out the Laver tables (N \<= 10).
+* **CLM-C17-05**, not assessed: The anchor instance of left-distributivity singles out the Laver tables (every N \<= 4096).
 
 ## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes
 
@@ -314,7 +311,7 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 **Computationally supported.**
 
 * **CLM-C18-08**, not assessed: H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche.
-* **CLM-C18-13**, not assessed: Quasigroup hashes against non-cryptographic baselines - no improvement.
+* **CLM-C18-13**, not assessed: Quasigroup hashes against non-cryptographic baselines - no significant improvement.
 
 ## C19 — The longest Zeckendorf game
 

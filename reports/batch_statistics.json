@@ -10,25 +10,25 @@
     "CLM-C18-13": "NO IMPROVEMENT",
     "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 222,
+  "claims": 224,
   "claims_by_system": {
     "SYS-A": 39,
-    "SYS-B": 61,
-    "SYS-C": 40,
+    "SYS-B": 62,
+    "SYS-C": 41,
     "SYS-D": 45,
     "SYS-E": 37
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 179,
-  "experiments": 109,
-  "generated": "2026-10-18T17:51:32Z",
+  "experiment_runs": 200,
+  "experiments": 112,
+  "generated": "2026-10-19T14:28:40Z",
   "lean_files_verified": 15,
-  "lean_theorems": 191,
+  "lean_theorems": 194,
   "novelty": {
-    "NOT ASSESSED": 68,
-    "POTENTIALLY NOVEL": 53,
-    "REDISCOVERY": 101
+    "NOT ASSESSED": 69,
+    "POTENTIALLY NOVEL": 52,
+    "REDISCOVERY": 103
   },
   "potentially_novel": [
     [
@@ -133,7 +133,7 @@
     ],
     [
       "CLM-C09-03",
-      "Window obstruction: a fixed proportion 1/phi^2 of all integers are circle-irreducible",
+      "Window obstruction: at least a proportion 1/phi^2 of all integers are circle-irreducible",
       "PROVEN"
     ],
     [
@@ -209,11 +209,6 @@
     [
       "CLM-C14-05",
       "Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character",
-      "PROVEN"
-    ],
-    [
-      "CLM-C14-06",
-      "The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs",
       "PROVEN"
     ],
     [
@@ -299,21 +294,64 @@
   ],
   "proven_by_check": {
     "Lean (complete)": 14,
-    "Lean + written or computational parts": 35,
+    "Lean + written or computational parts": 36,
     "computer-assisted": 15,
     "published proof (literature)": 2,
-    "written proof": 61
+    "written proof": 62
   },
   "proven_not_fully_formal_by_review": {
-    "awaiting independent review": 22,
-    "independently reviewed": 23,
-    "no review recorded": 68
+    "awaiting independent review": 4,
+    "independently reviewed": 101,
+    "no review recorded": 10
+  },
+  "skeptic_verdicts": {
+    "claims_with_a_verdict": 191,
+    "claims_without_a_verdict": [
+      "CLM-C01-09",
+      "CLM-C01-10",
+      "CLM-C01-11",
+      "CLM-C02-11",
+      "CLM-C05-10",
+      "CLM-C08-07",
+      "CLM-C08-08",
+      "CLM-C13-01",
+      "CLM-C13-02",
+      "CLM-C13-03",
+      "CLM-C13-04",
+      "CLM-C13-05",
+      "CLM-C13-06",
+      "CLM-C13-07",
+      "CLM-C13-08",
+      "CLM-C13-09",
+      "CLM-C13-10",
+      "CLM-C13-11",
+      "CLM-C13-12",
+      "CLM-C19-01",
+      "CLM-C19-02",
+      "CLM-C19-03",
+      "CLM-C19-04",
+      "CLM-C19-05",
+      "CLM-C19-06",
+      "CLM-C19-07",
+      "CLM-C19-08",
+      "CLM-C19-09",
+      "CLM-C19-10",
+      "CLM-C19-11",
+      "CLM-C19-12",
+      "CLM-C19-13",
+      "CLM-C19-14"
+    ],
+    "latest_verdicts": {
+      "REFUTED": 2,
+      "UPHELD": 166,
+      "UPHELD WITH CAVEATS": 23
+    }
   },
   "verification": {
-    "COMPUTATIONALLY SUPPORTED": 41,
-    "CONJECTURE": 5,
+    "COMPUTATIONALLY SUPPORTED": 40,
+    "CONJECTURE": 4,
     "INCONCLUSIVE": 2,
-    "PROVEN": 127,
-    "REFUTED": 47
+    "PROVEN": 129,
+    "REFUTED": 49
   }
 }

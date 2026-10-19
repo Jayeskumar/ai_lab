@@ -223,6 +223,7 @@ $16 \cdot m$ with $m$ in the spectrum. Which even orders below 16 occur (8,
 | EXP-C05-04 | Lean certificates for the models found | 9 of 9 tables checked by the kernel |
 | EXP-C05-05 | affine models over $\mathbb{Z}/n$, $n \le 6$ | H-C05-A refuted by 4 laws |
 | EXP-C05-06 | DRUP proofs for the gaps | 48 of 48 verified by drat-trim |
+| EXP-C05-07 | linear models over $\mathrm{GF}(q)$, $q \le 128$ (after the review) | 0 conflicts; order 16 for laws 677 and 1313 (Theorem 6.10) |
 
 ## Comparison with existing mathematics
 

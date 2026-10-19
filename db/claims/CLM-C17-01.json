@@ -9,13 +9,31 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:23:59Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (the Skeptic re-checked every generating set of every magma of order <= 3 and 236,381 of random order-4 tables - 0 wrong verdicts)",
+      "old": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01; awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld",
+      "ts": "2026-10-19T14:26:08Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (the Skeptic re-checked every generating set of every magma of order <= 3 and 236,381 generating sets of 20,000 random order-4 tables - 0 wrong verdicts)",
+      "old": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (the Skeptic re-checked every generating set of every magma of order <= 3 and 236,381 of random order-4 tables - 0 wrong verdicts)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld",
+      "ts": "2026-10-19T14:26:15Z"
     }
   ],
   "id": "CLM-C17-01",
   "novelty": "REDISCOVERY",
   "novelty_basis": "F. W. Light's associativity test, presented in A. H. Clifford, G. B. Preston, The Algebraic Theory of Semigroups, Vol. 1 (AMS, 1961), section 1.2.",
   "proof": "proofs/paper/C17.md#theorem-1-clm-c17-01--lights-associativity-test",
-  "proof_check": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01; awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (the Skeptic re-checked every generating set of every magma of order <= 3 and 236,381 generating sets of 20,000 random order-4 tables - 0 wrong verdicts)",
   "statement": "If S generates the finite magma M, then M is associative iff (x*s)*y = x*(s*y) for all x, y in M and s in S; the test costs 2n + 2n^2 probes per generator.",
   "system": "SYS-B",
   "title": "Light's test: generators suffice for associativity",

@@ -42,7 +42,7 @@ math { font-size: 1.05em; }
 <p class="subtitle">An Experimental Journey into AI-Discovered
 Mathematical Systems</p>
 <p class="date">Version 1.0 (research batch 1, cycles C01-C20) — built
-2026-10-18T17:49:55Z</p>
+2026-10-19T14:26:34Z</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -122,12 +122,14 @@ Spectra of magma identities</a>
 <li><a href="#pushing-the-open-cases" id="toc-pushing-the-open-cases"><span class="toc-section-number">6.5</span> Pushing the open cases</a></li>
 <li><a href="#three-bold-hypotheses-fail" id="toc-three-bold-hypotheses-fail"><span class="toc-section-number">6.6</span> Three bold hypotheses
 fail</a></li>
-<li><a href="#experiments-2" id="toc-experiments-2"><span class="toc-section-number">6.7</span> Experiments</a></li>
-<li><a href="#comparison-with-existing-mathematics-3" id="toc-comparison-with-existing-mathematics-3"><span class="toc-section-number">6.8</span> Comparison with existing
+<li><a href="#after-the-review-linear-models-over-finite-fields" id="toc-after-the-review-linear-models-over-finite-fields"><span class="toc-section-number">6.7</span> After the review: linear models
+over finite fields</a></li>
+<li><a href="#experiments-2" id="toc-experiments-2"><span class="toc-section-number">6.8</span> Experiments</a></li>
+<li><a href="#comparison-with-existing-mathematics-3" id="toc-comparison-with-existing-mathematics-3"><span class="toc-section-number">6.9</span> Comparison with existing
 mathematics</a></li>
-<li><a href="#applications-and-limitations-2" id="toc-applications-and-limitations-2"><span class="toc-section-number">6.9</span> Applications and
+<li><a href="#applications-and-limitations-2" id="toc-applications-and-limitations-2"><span class="toc-section-number">6.10</span> Applications and
 limitations</a></li>
-<li><a href="#open-questions-3" id="toc-open-questions-3"><span class="toc-section-number">6.10</span> Open questions</a></li>
+<li><a href="#open-questions-3" id="toc-open-questions-3"><span class="toc-section-number">6.11</span> Open questions</a></li>
 </ul></li>
 <li><a href="#ch-anchored" id="toc-ch-anchored"><span class="toc-section-number">7</span> Anchored operations and arithmetic
 spectra</a>
@@ -1420,7 +1422,7 @@ REDISCOVERY]</em>. Of the 625 rules with
 certificates); 24 remained open in our hands, all predicted to
 terminate, including Zantema’s problem.</p>
 <p><strong>Theorem 4.6</strong> (Zantema–Geser) <em>[PROVEN in the
-literature; REDISCOVERY, verbatim]</em>.
+literature; REDISCOVERY — our conjecture is equivalent to it]</em>.
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mn>0</mn><mi>p</mi></msup><msup><mn>1</mn><mi>q</mi></msup><mo>→</mo><msup><mn>1</mn><mi>r</mi></msup><msup><mn>0</mn><mi>s</mi></msup></mrow><annotation encoding="application/x-tex">0^p1^q \to 1^r0^s</annotation></semantics></math>
 is non-terminating iff
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>≥</mo><mn>2</mn><mi>q</mi></mrow><annotation encoding="application/x-tex">r \ge 2q</annotation></semantics></math>
@@ -1470,9 +1472,11 @@ mathematics</h2>
 report UU-CS-1994-44; RTA 1995; AAECC 2000). Our first attempts to
 retrieve the theorem failed (the usual repository hosts refused the
 download); the Historian found the scanned report on an older archive
-host, and Conjecture 4.6 turned out to be their theorem, verbatim
-(Theorem 4.6 above). Their Lemma 4.1 is our doubling loop, and their
-Lemma 4.3 reduces the divisible cases to
+host, and Conjecture 4.6 turned out to be equivalent to their theorem
+(Theorem 4.6 above): their Theorem 1.1 characterises termination, our
+conjecture listed the non-terminating cases, and the lists match case by
+case. Their Lemma 4.1 is our doubling loop, and their Lemma 4.3 reduces
+the divisible cases to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">q = 1</annotation></semantics></math>
 exactly as our lifting lemma does. Hard terminating cases such as
 Zantema’s problem admit no simple matrix interpretations (none exist in
@@ -2092,7 +2096,7 @@ the 63 non-full laws fall into 15 patterns:</p>
 <td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x = (yx)(xy)</annotation></semantics></math>
 (167)</td>
 <td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mn>0</mn><mo>,</mo><mn>1</mn><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mo>mod</mo><mspace width="0.222em"></mspace><mn>4</mn><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n \equiv 0, 1 \pmod 4</annotation></semantics></math>
-(Theorem 6.2)</td>
+(Theorem 6.2, which also settles the two ? as absent)</td>
 </tr>
 <tr class="even">
 <td>11011011</td>
@@ -2116,7 +2120,8 @@ the 63 non-full laws fall into 15 patterns:</p>
 (677),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x = y(((yx)x)y)</annotation></semantics></math>
 (1313)</td>
-<td>open (Conjecture 6.6)</td>
+<td>open; order 16 occurs (Theorem 6.10), so Conjecture 6.6 is
+refuted</td>
 </tr>
 <tr class="odd">
 <td>10001000</td>
@@ -2311,14 +2316,21 @@ searches probably settle them.</p>
 CNF formula, and the independent checker drat-trim verifies it (all 48
 frontier refutations passed). What remains trusted is drat-trim, the CNF
 generator and the soundness of the two extra constraints. ∎</p>
-<p><strong>Conjecture 6.6</strong> <em>[CONJECTURE — weak
-evidence]</em>. Laws 677 and 1313 both have spectrum
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mi>n</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> odd</mtext></mrow><mo>:</mo><mi>n</mi><mo>≥</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1\} \cup \{n \text{ odd} : n \ge 5\}</annotation></semantics></math>.</p>
+<p><strong>Conjecture 6.6</strong> <em>[REFUTED — by the Skeptic’s
+review; see Theorem 6.10]</em>. “Laws 677 and 1313 both have spectrum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo><mo>∪</mo><mo stretchy="false" form="prefix">{</mo><mi>n</mi><mrow><mspace width="0.333em"></mspace><mtext mathvariant="normal"> odd</mtext></mrow><mo>:</mo><mi>n</mi><mo>≥</mo><mn>5</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1\} \cup \{n \text{ odd} : n \ge 5\}</annotation></semantics></math>.”</p>
 <p>Both laws have models of orders 5, 7, 9 and none of orders 2, 3, 4,
 6, all certified except orders 5 and 7 of law 1313 (stated in the notes,
-found again by SAT, tables re-checked). Orders 8 and 10 are undecided;
-the order-5 models are idempotent quasigroups. This directs the next
-search; it is no theorem.</p>
+found again by SAT, tables re-checked). Orders 8 and 10 were undecided;
+the order-5 models are idempotent quasigroups. The first version of this
+book stated the conjecture on this evidence. It is false: both laws have
+models of order 16 (Theorem 6.10). The evidence was too thin — four odd
+sizes and four small gaps say little about larger even sizes — and the
+search space had a blind spot: the lab looked for affine models only
+over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ℤ</mi><mi>n</mi></msub><annotation encoding="application/x-tex">\mathbb{Z}_n</annotation></semantics></math>,
+whose additive group is cyclic, never over the fields
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><msup><mn>2</mn><mi>k</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(2^k)</annotation></semantics></math>.</p>
 <h2 data-number="6.6" id="three-bold-hypotheses-fail"><span class="header-section-number">6.6</span> Three bold hypotheses fail</h2>
 <p><strong>Hypothesis 6.7 (H-C05-1)</strong> <em>[REFUTED]</em>. “A
 single law
@@ -2402,7 +2414,77 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n = 5</annotation></semantics></math>.
 Three more laws (two mirror pairs in all) behave the same way, and in 39
 restricted laws some sizes of the spectrum have no affine model.</p>
-<h2 data-number="6.7" id="experiments-2"><span class="header-section-number">6.7</span> Experiments</h2>
+<h2 data-number="6.7" id="after-the-review-linear-models-over-finite-fields"><span class="header-section-number">6.7</span> After the review: linear models
+over finite fields</h2>
+<p>The Skeptic found the counterexample to Conjecture 6.6 by looking at
+linear operations over a field with 16 elements. We then searched every
+prime power
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≤</mo><mn>128</mn></mrow><annotation encoding="application/x-tex">q \le 128</annotation></semantics></math>
+systematically (EXP-C05-07). For
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>*</mo><mi>y</mi><mo>=</mo><mi>a</mi><mi>x</mi><mo>+</mo><mi>b</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">x \ast y = ax + by</annotation></semantics></math>
+a term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>,</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">t(x, y)</annotation></semantics></math>
+evaluates to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mi>x</mi><mo>+</mo><mi>β</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\alpha x + \beta y</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+are polynomials in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>b</mi><annotation encoding="application/x-tex">b</annotation></semantics></math>;
+the law
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">x = t</annotation></semantics></math>
+holds exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\alpha = 1</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta = 0</annotation></semantics></math>
+in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(q)</annotation></semantics></math>.</p>
+<p><strong>Theorem 6.10</strong> <em>[PROVEN — computer-assisted, three
+tables Lean-checked; NOT ASSESSED: linear models are a standard tool of
+the ETP]</em>. For the 15 open laws of this chapter, the prime powers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≤</mo><mn>128</mn></mrow><annotation encoding="application/x-tex">q \le 128</annotation></semantics></math>
+admitting a linear model over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(q)</annotation></semantics></math>
+are those listed in EXP-C05-07. In particular:</p>
+<ul>
+<li>laws 677 and 1313 have models of order 16 —
+e.g. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>*</mo><mi>y</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>x</mi><mo>+</mo><msup><mi>t</mi><mn>3</mn></msup><mi>y</mi></mrow><annotation encoding="application/x-tex">x \ast y = (1 + t^3)x + t^3 y</annotation></semantics></math>
+for 677 and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>*</mo><mi>y</mi><mo>=</mo><msup><mi>t</mi><mn>3</mn></msup><mi>x</mi><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>1</mn><mo>+</mo><msup><mi>t</mi><mn>3</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>y</mi></mrow><annotation encoding="application/x-tex">x \ast y = t^3 x + (1 + t^3) y</annotation></semantics></math>
+for 1313, in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>16</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>t</mi><mo stretchy="true" form="postfix">]</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>t</mi><mn>4</mn></msup><mo>+</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(16) = \mathrm{GF}(2)[t]/(t^4 + t + 1)</annotation></semantics></math>
+(the Skeptic’s examples); our search finds other pairs
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">(</mo><mi>a</mi><mo>,</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(a, b)</annotation></semantics></math>
+as well;</li>
+<li>laws 670, 1076 and 1286 also have models of order 16, and 1286 one
+of order 32;</li>
+<li>law 670 has a model of order 9, a size the SAT search had left
+UNKNOWN;</li>
+<li>no linear model exists at any order that the SAT search, the DRUP
+certificates or the ETP notes exclude (0 conflicts).</li>
+</ul>
+<p><em>Proof.</em> The search is exhaustive over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\mathrm{GF}(q)^2</annotation></semantics></math>,
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(q)</annotation></semantics></math>
+is unique up to isomorphism, so “no linear model of order
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>q</mi><annotation encoding="application/x-tex">q</annotation></semantics></math>”
+does not depend on the representation. Every model found was re-checked
+on its full table, and Lean’s kernel checks the tables
+<code>E677_order16_law</code>, <code>E1313_order16_law</code> and
+<code>E670_order9_law</code>. ∎</p>
+<p>Because direct products of models are models, the spectra of 677 and
+1313 now contain every product of the orders 5, 7, 9, 16, … — including
+all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mo>⋅</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">16 \cdot m</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
+in the spectrum. Which even orders below 16 occur (8, 10, 12, 14) is
+open.</p>
+<h2 data-number="6.8" id="experiments-2"><span class="header-section-number">6.8</span> Experiments</h2>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -2462,7 +2544,7 @@ models up to isomorphism for
 </tr>
 </tbody>
 </table>
-<h2 data-number="6.8" id="comparison-with-existing-mathematics-3"><span class="header-section-number">6.8</span> Comparison with existing
+<h2 data-number="6.9" id="comparison-with-existing-mathematics-3"><span class="header-section-number">6.9</span> Comparison with existing
 mathematics</h2>
 <p><em>Classical spectra.</em> Steiner triple systems exist exactly for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mn>1</mn><mo>,</mo><mn>3</mn><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mo>mod</mo><mspace width="0.222em"></mspace><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n \equiv 1, 3 \pmod 6</annotation></semantics></math>
@@ -2502,7 +2584,7 @@ are the plausible additions. We retrieved the ETP paper only partly, and
 its model searches may already contain these facts, so the novelty is
 relative to the sources we read. The three refuted hypotheses were our
 own.</p>
-<h2 data-number="6.9" id="applications-and-limitations-2"><span class="header-section-number">6.9</span> Applications and
+<h2 data-number="6.10" id="applications-and-limitations-2"><span class="header-section-number">6.10</span> Applications and
 limitations</h2>
 <p>The reusable output is a certification pipeline for finite algebra: a
 model becomes a table checked by Lean’s <code>decide</code>, a
@@ -2523,10 +2605,11 @@ non-existence results of the census are trusted from the solver</strong>
 — only the 48 frontier instances are independently checked. An
 isomorphism-grouping step of EXP-C05-02 compared non-canonical tables,
 so its count is not used.</p>
-<h2 data-number="6.10" id="open-questions-3"><span class="header-section-number">6.10</span> Open questions</h2>
+<h2 data-number="6.11" id="open-questions-3"><span class="header-section-number">6.11</span> Open questions</h2>
 <ol type="1">
-<li>Decide laws 677 and 1313 at orders 8 and 10 (Conjecture 6.6), and
-law 1286 at orders 8 and 10, with stronger symmetry breaking.</li>
+<li>Decide laws 677 and 1313 at orders 8, 10, 12 and 14 (Conjecture 6.6
+is refuted at 16), and law 1286 at orders 8 and 10, with stronger
+symmetry breaking.</li>
 <li>Is the spectrum of law 115 all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≠</mo><mn>2</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">n \ne 2, 6</annotation></semantics></math>,
 as the notes conjecture? Our data agree up to
@@ -3471,11 +3554,20 @@ from
 Fibonacci (0.62) from 2, tribonacci (0.74) not before 4, 4-bonacci not
 before 8,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = G_k + G_{k-2}</annotation></semantics></math>
-(0.83) not before 11;
+(0.83) not before 11,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>2</mn><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><mn>2</mn><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = 2G_k + 2G_{k-1}</annotation></semantics></math>
+not before 7 and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><mn>3</mn><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = 3G_k + 3G_{k-1}</annotation></semantics></math>
+(with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">G_1 = 5</annotation></semantics></math>)
+not before 12;
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>3</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = G_k + G_{k-3}</annotation></semantics></math>
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">|</mo><mi>β</mi><mo stretchy="true" form="postfix">|</mo></mrow><mo>≈</mo><mn>0.94</mn></mrow><annotation encoding="application/x-tex">|\beta| \approx 0.94</annotation></semantics></math>)
-not yet at
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">s = 20</annotation></semantics></math>.</p>
+fails at every shift tested
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≤</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">s \le 16</annotation></semantics></math>
+in EXP-C08-07,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≤</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">s \le 24</annotation></semantics></math>
+in the Skeptic’s search).</p>
 <blockquote>
 <p><strong>Correction (2026-10-18).</strong> The first version of this
 chapter gave the thresholds 3 (tribonacci), 7 (4-bonacci), 10
@@ -3499,6 +3591,27 @@ is a search result, proved only where the literature proves it
 and 4-bonacci
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≥</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">s \ge 10</annotation></semantics></math>:
 Messaoudi).</p>
+<p><strong>Second correction (2026-10-18).</strong> The re-test was
+still not good enough. The Skeptic’s review found certified failures at
+shifts the re-test had passed:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>2</mn><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><mn>2</mn><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = 2G_k + 2G_{k-1}</annotation></semantics></math>
+fails at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">s = 6</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><mn>3</mn><msub><mi>G</mi><mi>k</mi></msub><mo>+</mo><mn>3</mn><msub><mi>G</mi><mrow><mi>k</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">G_{k+1} = 3G_k + 3G_{k-1}</annotation></semantics></math>
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mn>1</mn></msub><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">G_1 = 5</annotation></semantics></math>)
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">s = 10</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>11</mn><annotation encoding="application/x-tex">11</annotation></semantics></math>,
+e.g.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mn>173938</mn><mo>∘</mo><mn>173938</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>∘</mo><mn>1</mn><mo>≠</mo><mn>173938</mn><mo>∘</mo><mrow><mo stretchy="true" form="prefix">(</mo><mn>173938</mn><mo>∘</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">(173938 \circ 173938) \circ 1 \ne 173938 \circ (173938 \circ 1)</annotation></semantics></math>.
+Both the random triples and the small pairs of the re-test avoid the
+inputs where failures live: numbers whose conjugate coordinates are
+extreme, so that the conjugate of a product leaves the window. A third
+search aimed there (EXP-C08-07) reproduces every failure the Skeptic
+found; the values in the paragraph above are its results, with the same
+caveat: lower bounds are certified, “not before” is all we can say.</p>
 </blockquote>
 <h2 data-number="9.3" id="why-a-twisted-embedding-into-an-algebraic-number-field"><span class="header-section-number">9.3</span> Why: a twisted embedding into
 an algebraic number field</h2>
@@ -3568,7 +3681,7 @@ thresholds</h2>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">s = 3</annotation></semantics></math>
 fails (certified), and no failure is found again for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≥</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">s \ge 4</annotation></semantics></math>
-— even under the stronger search of EXP-C08-06. Our explanation:
+— even under the targeted search of EXP-C08-07. Our explanation:
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>β</mi><mi>s</mi></msup><annotation encoding="application/x-tex">\beta^s</annotation></semantics></math>
 alternates in sign when
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta &lt; 0</annotation></semantics></math>,
@@ -3583,15 +3696,30 @@ Historian pointed out, only for <em>non-canonical</em> initial values:
 for canonical sequences Messaoudi’s criterion implies upward-closure
 whatever the sign of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>.
-<em>Evidence (after the certified re-test, EXP-C08-06):</em> 0 of 30
+<em>Evidence (after the targeted search EXP-C08-07, shifts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>…</mi><mn>12</mn></mrow><annotation encoding="application/x-tex">0 \ldots 12</annotation></semantics></math>):</em>
+0 of 30
 positive-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
-sequences non-monotone; 10 non-monotone sequences, all non-canonical
-with
+sequences non-monotone; 8 non-monotone sequences, all non-canonical with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\beta &lt; 0</annotation></semantics></math>.
-Two of the original ten examples were artefacts of random testing.</p>
+Four of the original ten examples were artefacts of random testing. The
+Skeptic’s independent search agrees: 0 of 231
+positive-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+sequences non-monotone
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>s</mi><mo>≤</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">s \le 16</annotation></semantics></math>),
+60 of 396
+negative-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>
+ones, none canonical.</p>
 <p><strong>Conjecture 9.3</strong> <em>[COMPUTATIONALLY SUPPORTED]</em>.
-For non-Pisot sequences the circle product is non-associative at every
-shift.</p>
+For non-Pisot sequences whose dominant root exceeds 1 the circle product
+is non-associative at every shift. (The first version omitted “dominant
+root exceeds 1”; the Skeptic noted that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mi>k</mi></msub><mo>=</mo><mi>k</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">G_k = k + 1</annotation></semantics></math>,
+with minimal polynomial
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><annotation encoding="application/x-tex">(x - 1)^2</annotation></semantics></math>,
+gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><msub><mo>∘</mo><mi>s</mi></msub><mi>b</mi><mo>=</mo><mi>a</mi><mo>+</mo><mi>b</mi><mo>+</mo><mi>s</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a \circ_s b = a + b + s - 1</annotation></semantics></math>,
+associative at every shift.)</p>
 <h2 data-number="9.5" id="comparison-with-existing-mathematics-6"><span class="header-section-number">9.5</span> Comparison with existing
 mathematics</h2>
 <p>Knuth (1988) proved associativity for Fibonacci; Arnoux (1989) found
@@ -5321,9 +5449,14 @@ on positives, 0 absorbing</td>
 </tr>
 </tbody>
 </table>
-<p>Every other spec is refuted by an explicit triple. So
-<strong>ordinary addition is a mex operation</strong> — the least value
-not reachable by decreasing either argument or both — and so is min.</p>
+<p>Of the other specs, 468 are refuted by an explicit triple, and the
+remaining 33 define the same 11 operations — an extra option that,
+evaluated on the formula, already lies in the option set does not change
+the mex (the argument is the Skeptic’s; the first version of this
+chapter wrongly said every other spec was refuted). So exactly 44 specs
+are associative, and <strong>ordinary addition is a mex
+operation</strong> — the least value not reachable by decreasing either
+argument or both — and so is min.</p>
 <p><em>Proof idea.</em> For L + R +
 D[<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>z</mi><annotation encoding="application/x-tex">z</annotation></semantics></math>]
 the options are
@@ -5398,7 +5531,12 @@ to
 always creates a new top bit. ∎ An independent implementation confirms
 the formula for all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&lt;</mo><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">b &lt; 2^{15}</annotation></semantics></math>
-(EXP-C07-03). Only 222 of 670 rows tested are additively periodic.</p>
+(EXP-C07-03; the Skeptic, computing from the definition: all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&lt;</mo><msup><mn>2</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">b &lt; 2^{18}</annotation></semantics></math>).
+Only 222 of the 670 rows tested show an additive period of at most 375
+within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&lt;</mo><mn>1500</mn></mrow><annotation encoding="application/x-tex">b &lt; 1500</annotation></semantics></math>;
+rows without a detected period may still be periodic.</p>
 <h2 data-number="14.6" id="experiments-6"><span class="header-section-number">14.6</span> Experiments</h2>
 <table>
 <colgroup>
@@ -5449,8 +5587,8 @@ limitations</h2>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>64</mn><mo>×</mo><mn>64</mn></mrow><annotation encoding="application/x-tex">64 \times 64</annotation></semantics></math>
 and rows up to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi><mo>&lt;</mo><mn>1500</mn></mrow><annotation encoding="application/x-tex">b &lt; 1500</annotation></semantics></math>;
-33 specs are known to agree with associative formulas only on that
-window.</p>
+non-associativity is certified by explicit triples, associativity by the
+proofs above.</p>
 <h2 data-number="14.9" id="open-questions-10"><span class="header-section-number">14.9</span> Open questions</h2>
 <ol type="1">
 <li>Do rows
@@ -5458,8 +5596,9 @@ window.</p>
 of the same operation have a recursive block structure?</li>
 <li>Which mex tables are automatic sequences, so that statements about
 them could be decided mechanically?</li>
-<li>Are the remaining 33 associative-looking specs associative for all
-arguments?</li>
+<li><del>Are the remaining 33 associative-looking specs associative for
+all arguments?</del> Yes — answered by the Skeptic’s absorption argument
+(<code>proofs/paper/C07.md</code>).</li>
 </ol>
 <h1 data-number="15" id="ch-graph-products"><span class="header-section-number">15</span> Multiplying graphs</h1>
 <p><em>Volume 5 — Mathematical transformations and relationships.
@@ -5669,8 +5808,8 @@ the traces of powers of
 and the characteristic polynomial become homomorphisms into ordinary
 arithmetic.</p>
 <p><strong>Theorem 15.6</strong> <em>[PROVEN — written; Lean (entry
-level): <code>xor_character</code>; POTENTIALLY NOVEL (small)]</em>. For
-all graphs,
+level): <code>xor_character</code>; REDISCOVERY — Abiad, Butler and
+Haemers 2018]</em>. For all graphs,
 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mo>⊕</mo><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>I</mi><mo>=</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>G</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>I</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>⊗</mo><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><mi>S</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>H</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>I</mi><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mi>.</mi></mrow><annotation encoding="application/x-tex">S(G \oplus H) + I = \bigl(S(G) + I\bigr) \otimes \bigl(S(H) + I\bigr).</annotation></semantics></math>
 Hence the Seidel eigenvalues of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>⊕</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">G \oplus H</annotation></semantics></math>
@@ -5832,12 +5971,15 @@ mathematics</h2>
 factorisation theorems for the Cartesian and strong products, the
 non-uniqueness for the lexicographic product, the semiring view of
 disconnected graphs and the prime counts A129582 are all in the
-literature, and the chapter rediscovers them. We found no source for the
-classification of products by characters (Theorems 15.4–15.5), for the
-Seidel form of the symmetric difference beyond the special case of an
-edgeless factor, for Theorem 15.7, or for the factorisation behaviour of
-two-graphs; these are small results and could well be known to
-specialists.</p>
+literature, and the chapter rediscovers them. So is Theorem 15.6: Abiad,
+Butler and Haemers (arXiv:1801.01149, 2018, §5) define the same product
+and state that its Seidel matrix is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mn>1</mn></msub><mo>+</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⊗</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>S</mi><mn>2</mn></msub><mo>+</mo><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">(S_1 + I) \otimes (S_2 + I) - I</annotation></semantics></math>,
+using its compatibility with switching. Our four literature searches
+missed the paper; the Skeptic found it. We found no source for the
+classification of products by characters (Theorems 15.4–15.5), for
+Theorem 15.7, or for the factorisation behaviour of two-graphs; these
+are small results and could well be known to specialists.</p>
 <h2 data-number="15.9" id="applications-and-limitations-8"><span class="header-section-number">15.9</span> Applications and
 limitations</h2>
 <ul>
@@ -5845,8 +5987,10 @@ limitations</h2>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mi>m</mi><mo>=</mo><mn>40</mn></mrow><annotation encoding="application/x-tex">n = m = 40</annotation></semantics></math>
 (1600 vertices) the factor route agreed with direct diagonalisation to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mo>−</mo><mn>14</mn></mrow></msup><annotation encoding="application/x-tex">10^{-14}</annotation></semantics></math>
-and was four to five orders of magnitude faster on our machine — the
-standard Kronecker gain, newly applicable to
+and was about three orders of magnitude faster (our first measurement,
+four to five orders, was inflated by competing BLAS threads on a loaded
+machine — a correction by the Skeptic) — the standard Kronecker gain,
+newly applicable to
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⊕</mo><annotation encoding="application/x-tex">\oplus</annotation></semantics></math>.</li>
 <li>Squaring the regular two-graph on 6 points with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⊕</mo><annotation encoding="application/x-tex">\oplus</annotation></semantics></math>
@@ -6433,17 +6577,15 @@ memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286,
 New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models
 of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083
 none of 5, 6.</li>
+<li><strong>CLM-C05-10</strong> (computer-assisted), not assessed:
+Linear models over finite fields: the orders q &lt;= 128 at which the 15
+open laws have a model x*y = ax + by over GF(q).</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
 <li><strong>CLM-C05-02</strong>, rediscovery: Spectrum census of the 115
 nontrivial two-variable identities t = x with 2-4 operations (n &lt;= 6,
 restricted ones to n &lt;= 8).</li>
-</ul>
-<p><strong>Conjectures.</strong></p>
-<ul>
-<li><strong>CLM-C05-09</strong>, not assessed: Laws 677 and 1313 have
-spectrum {1} together with all odd n &gt;= 5.</li>
 </ul>
 <h2 data-number="16.18" id="c06-successor-anchored-magmas-spectra-of-composition-laws"><span class="header-section-number">16.18</span> C06 — Successor-anchored
 magmas: spectra of composition laws</h2>
@@ -6513,8 +6655,9 @@ non-increasing coefficients and canonical initial values give
 associative circle products for large shifts.</li>
 <li><strong>CLM-C08-04</strong>, potentially novel: Non-monotone
 associative-shift sets require a negative conjugate root.</li>
-<li><strong>CLM-C08-07</strong>, rediscovery: Corrected associativity
-thresholds - certified lower bounds and searched ranges.</li>
+<li><strong>CLM-C08-08</strong>, rediscovery: Associativity thresholds
+after the targeted search - certified lower bounds, no failure up to s =
+16.</li>
 </ul>
 <h2 data-number="16.21" id="c09-arithmetic-of-knuths-circle-semigroup"><span class="header-section-number">16.21</span> C09 — Arithmetic of Knuth’s
 circle semigroup</h2>
@@ -6523,7 +6666,7 @@ circle semigroup</h2>
 <li><strong>CLM-C09-01</strong> (written), rediscovery: Knuth’s circle
 semigroup embeds in Z[phi]; Fibonacci numbers are its units-images.</li>
 <li><strong>CLM-C09-03</strong> (written), potentially novel: Window
-obstruction: a fixed proportion 1/phi^2 of all integers are
+obstruction: at least a proportion 1/phi^2 of all integers are
 circle-irreducible.</li>
 <li><strong>CLM-C09-06</strong> (written), potentially novel:
 Factorisation lengths are bounded by the conjugate coordinate.</li>
@@ -6550,13 +6693,13 @@ fire 1/(m - sum b) times per increment on average.</li>
 <li><strong>CLM-C10-05</strong> (written), rediscovery: Single-offset
 exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m
 - q)).</li>
+<li><strong>CLM-C10-07</strong> (written), rediscovery: Skew binary
+counting has worst-case cost 2 and average 3/2.</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
 <li><strong>CLM-C10-06</strong>, potentially novel: Multi-offset
 exchange rules have rule-specific average counting costs.</li>
-<li><strong>CLM-C10-07</strong>, rediscovery: Skew binary counting has
-worst-case cost 2 and average 3/2.</li>
 </ul>
 <h2 data-number="16.23" id="c11-pattern-terminated-universal-integer-codes"><span class="header-section-number">16.23</span> C11 — Pattern-terminated
 universal integer codes</h2>
@@ -6674,7 +6817,7 @@ characters).</li>
 <li><strong>CLM-C14-05</strong> (written), potentially novel: Additive
 characters: only the Cartesian product and its complement-dual; every
 non-trivial commutative associative product has a character.</li>
-<li><strong>CLM-C14-06</strong> (written), potentially novel: The
+<li><strong>CLM-C14-06</strong> (written), rediscovery: The
 symmetric-difference product is the Kronecker product of Seidel
 matrices; it acts on two-graphs.</li>
 <li><strong>CLM-C14-07</strong> (written), potentially novel: Complete
@@ -6803,7 +6946,8 @@ Rajagopalan-Schulman randomised associativity test is one-sided.</li>
 <li><strong>CLM-C17-04</strong>, rediscovery: Benchmark - generator and
 anchor tests versus the exhaustive check.</li>
 <li><strong>CLM-C17-05</strong>, not assessed: The anchor instance of
-left-distributivity singles out the Laver tables (N &lt;= 10).</li>
+left-distributivity singles out the Laver tables (every N &lt;=
+4096).</li>
 </ul>
 <h2 data-number="16.30" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="header-section-number">16.30</span> C18 — Invented operations as
 mixing primitives: quasigroup string transformations versus standard
@@ -6835,7 +6979,7 @@ cascade has a bijective 64-bit state update.</li>
 <li><strong>CLM-C18-08</strong>, not assessed: H-C18-1: QG-LS with 2
 passes and a reverse pass has BLAKE2b-level avalanche.</li>
 <li><strong>CLM-C18-13</strong>, not assessed: Quasigroup hashes against
-non-cryptographic baselines - no improvement.</li>
+non-cryptographic baselines - no significant improvement.</li>
 </ul>
 <h2 data-number="16.31" id="c19-the-longest-zeckendorf-game"><span class="header-section-number">16.31</span> C19 — The longest Zeckendorf
 game</h2>
@@ -7140,7 +7284,15 @@ Laver tables; order-4 band</td>
 <h2 data-number="17.9" id="benchmark"><span class="header-section-number">17.9</span> Benchmark</h2>
 <p>Direct numpy simulation is the baseline; rows of length
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>1024</mn></mrow><annotation encoding="application/x-tex">L = 1024</annotation></semantics></math>;
-times are indicative (shared machine).</p>
+times are single runs on a shared machine and only their order of
+magnitude is meaningful. (Our benchmark timed the fast methods as the
+best of three runs and the simulation once; the Skeptic’s re-run with
+one protocol for both gave, for example, ×202–314 and ×1459–2262 for the
+affine method at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>10</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">t = 10^4</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>5</mn></msup><annotation encoding="application/x-tex">10^5</annotation></semantics></math>,
+and ×1363 instead of ×4000 for the fuse method.)</p>
 <table style="width:100%;">
 <colgroup>
 <col style="width: 16%" />
@@ -7174,7 +7326,7 @@ times are indicative (shared machine).</p>
 <td>×2.5</td>
 <td>×27</td>
 <td>×239</td>
-<td>×4000</td>
+<td>×4000 (re-run ×1363)</td>
 <td>0.6 ms</td>
 </tr>
 <tr class="odd">
@@ -7185,19 +7337,16 @@ times are indicative (shared machine).</p>
 <td>×62–100</td>
 <td>21–42 ms</td>
 </tr>
-<tr class="even">
-<td>cycle detection</td>
-<td>exact whenever the row repeats; 1590/1734 classes within 5000 steps
-at
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">L = 32</annotation></semantics></math>;
-fails for the affine quasigroups mod 3</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>With the same protocol on both sides, the affine method loses below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>≈</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">t \approx 20</annotation></semantics></math>
+and the fuse method below
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>≈</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">t \approx 20</annotation></semantics></math>–<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>70</mn><annotation encoding="application/x-tex">70</annotation></semantics></math>.
+| cycle detection | exact whenever the row repeats; 1590/1734 classes
+within 5000 steps at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mn>32</mn></mrow><annotation encoding="application/x-tex">L = 32</annotation></semantics></math>;
+fails for the affine quasigroups mod 3 | | | | |</p>
 <p><em>A third hypothesis fails.</em> H-C15-6 predicted more than ×100
 for every exact method at
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">t = 10^5</annotation></semantics></math>
@@ -7207,10 +7356,18 @@ The commutative-semigroup method stays below ×100 — its final product
 costs
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>L</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(L^2)</annotation></semantics></math>
 and it is even slower than simulation near
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">t = 10^3</annotation></semantics></math>
-— while the affine and fuse methods never lose. And H-C15-5 (“long
-cycles only for geometric width”) fails because the affine quasigroups
-mod 3 have bounded width but long cycles.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>=</mo><msup><mn>10</mn><mn>3</mn></msup></mrow><annotation encoding="application/x-tex">t = 10^3</annotation></semantics></math>.
+The first version said the affine and fuse methods “never lose”; timed
+with the same protocol on both sides (our benchmark had used the best of
+three runs for the fast method and a single run for the simulation) they
+lose for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+below about 20–70, so the
+small-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+clause of H-C15-6 is partly true, and the refutation rests on the ×100
+clause. And H-C15-5 (“long cycles only for geometric width”) fails
+because the affine quasigroups mod 3 have bounded width but long
+cycles.</p>
 <h2 data-number="17.10" id="comparison-with-existing-mathematics-12"><span class="header-section-number">17.10</span> Comparison with existing
 mathematics</h2>
 <p>Automata defined by a binary operation were studied algebraically by
@@ -7435,11 +7592,18 @@ odd. ∎</p>
 <p><strong>Conjecture 18.8</strong> <em>[COMPUTATIONALLY
 SUPPORTED]</em>. Full-period quasigroups exist for every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n \ge 5</annotation></semantics></math>.
-Random Latin squares are full-period with probability close to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1/n^2</annotation></semantics></math>,
-as if the pair map were a random permutation of the forced parity.
+Random Latin squares are full-period with probability of the order of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1/n^2</annotation></semantics></math>
+— roughly what a random permutation of the forced parity would give,
+though not close to it (exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.52</mn><mi>/</mi><msup><mi>n</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">0.52/n^2</annotation></semantics></math>
+at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n = 5</annotation></semantics></math>).
 Exhaustive search and a SAT encoding, by contrast, stall at
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">n = 9</annotation></semantics></math>.</p>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>9</mn></mrow><annotation encoding="application/x-tex">n = 9</annotation></semantics></math>.
+Examples are known for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>26</mn></mrow><annotation encoding="application/x-tex">n \le 26</annotation></semantics></math>
+(the Skeptic’s sampler covers 17–26).</p>
 <h2 data-number="18.5" id="laws-shape-the-dynamics"><span class="header-section-number">18.5</span> Laws shape the dynamics</h2>
 <p><strong>Theorem 18.9</strong> <em>[PROVEN — Lean:
 <code>pairMap_fixed_iff</code>]</em>. The fixed points of
@@ -7731,7 +7895,7 @@ triples.</p>
 <tr class="odd">
 <td>cyclic group</td>
 <td>383</td>
-<td>1.4 s</td>
+<td>1.7 s</td>
 <td>6 ms</td>
 <td>—</td>
 </tr>
@@ -7739,33 +7903,47 @@ triples.</p>
 <td>anchored
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>+</mo><mi>y</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">x + y + 1</annotation></semantics></math></td>
 <td>614</td>
-<td>1.7 s</td>
-<td>5 ms</td>
+<td>1.3 s</td>
+<td>4 ms</td>
 <td>3 ms</td>
 </tr>
 <tr class="odd">
 <td>left-zero band</td>
 <td><strong>1.7</strong></td>
-<td>1.6 s</td>
-<td>1.2 s</td>
+<td>1.4 s</td>
+<td>0.94 s</td>
 <td>—</td>
 </tr>
 <tr class="even">
 <td>one corrupted entry</td>
-<td>48–77</td>
-<td>0.18 s</td>
-<td>5–7 ms</td>
+<td>0.15–1.1</td>
+<td>0.16 s*</td>
+<td>4–5 ms</td>
 <td>3 ms</td>
 </tr>
 <tr class="odd">
 <td>random</td>
-<td>74</td>
-<td>0.20 s</td>
-<td>5 ms</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn><mo>⋅</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>6</mn></mrow></msup></mrow><annotation encoding="application/x-tex">4 \cdot 10^{-6}</annotation></semantics></math>
+(4 probes against
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>9</mn><mo>⋅</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">\approx 9 \cdot 10^5</annotation></semantics></math>)</td>
+<td>0.19 s*</td>
+<td>4–5 ms</td>
 <td>—</td>
 </tr>
 </tbody>
 </table>
+<p>* Our vectorised implementation evaluates a whole slab of 64 rows;
+the probe column counts a sequential check that stops at the first
+violating triple.</p>
+<p>The first three rows are <em>certification</em>: the input is
+associative and every exact test must do its full work. There Light’s
+test wins by two to three orders of magnitude whenever a small
+generating set exists. The last two rows are <em>refutation</em>, and
+there the exhaustive check wins: a random magma fails at the first
+triple it looks at. The first version of this table showed gains of
+48–77 on these rows; the Skeptic traced them to an accounting error (the
+exhaustive check was charged a whole slab as soon as the slab contained
+a violation), and the numbers above are re-measured.</p>
 <p>All exact tests and the randomised test (40 rounds) returned the
 correct verdict on all 90 instances; random-triple sampling with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>n</mi><mn>2</mn></msup><mi>/</mi><mn>16</mn></mrow><annotation encoding="application/x-tex">n^2/16</annotation></semantics></math>
@@ -7774,7 +7952,8 @@ samples missed 27 of the 30 near-associative inputs.</p>
 at least
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mi>/</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">n/10</annotation></semantics></math>.”
 Left-zero bands need every element as a generator, and the gain
-collapses to 1.7×.</p>
+collapses to 1.7×; on non-associative inputs there is no gain at
+all.</p>
 <h2 data-number="19.5" id="the-anchor-instance-of-a-law"><span class="header-section-number">19.5</span> The anchor instance of a
 law</h2>
 <p>For anchored magmas, the instance
@@ -7784,28 +7963,55 @@ of a three-variable law costs only
 probes to check. For associativity it decides the law (Corollary 19.2).
 Does it always?</p>
 <p><em>H-C17-2 [REFUTED].</em> Among the 382 laws of Chapter 7, the
-anchor instance decides the law for 333 (all anchored models with
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">N \le 5</annotation></semantics></math>),
-is insufficient for 18 —
+anchor instance decides the law for 339 (all anchored models with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">N \le 5</annotation></semantics></math>)
+and is insufficient for 43 —
 e.g. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x(yz) = y(y(xz))</annotation></semantics></math>
 has 11 anchored models of its instance at
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">N = 4</annotation></semantics></math>,
-two of which violate the law — and could not be settled for 31.</p>
-<p><strong>Observation 19.4</strong> <em>[COMPUTATIONALLY
-SUPPORTED]</em>. For
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>≤</mo><mi>N</mi><mo>≤</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">2 \le N \le 10</annotation></semantics></math>,
+two of which violate the law, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>z</mi><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x(yz) = x(zy)</annotation></semantics></math>
+fails already at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">N = 3</annotation></semantics></math>.
+(The first version reported 333 / 18 and 31 undecided laws; a
+classification bug, found by the Skeptic, had counted laws with a
+violation at one size as undecided because the enumeration was capped at
+another.)</p>
+<p><strong>Observation 19.4</strong> <em>[COMPUTATIONALLY SUPPORTED;
+uniqueness PROVEN]</em>. For every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>,
 the single identity
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \star (y + 1) = (x \star y) \star (x + 1)</annotation></semantics></math>
 (for all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x, y</annotation></semantics></math>
 modulo
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>)
-has anchored solutions only for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>4</mn><mo>,</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">N = 2, 4, 8</annotation></semantics></math>:
-the Laver tables. So left-distributivity of an anchored table is decided
-by an
+has an anchored solution exactly when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+is a power of 2, and then it is the Laver table. So left-distributivity
+of an anchored table is decided by an
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>N</mi><mn>2</mn></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(N^2)</annotation></semantics></math>
 check, at least for these sizes.</p>
+<p>The first version checked only
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">N \le 10</annotation></semantics></math>,
+by SAT. The Skeptic then noticed why the search space is so small: the
+instances with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>≤</mo><mi>N</mi><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">y \le N - 2</annotation></semantics></math>
+already <em>force</em> the table. Row
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">N - 1</annotation></semantics></math>
+must be the identity, and going down, every entry
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>v</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \star (y+1) = v \star (x+1)</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo>=</mo><mi>x</mi><mo>⋆</mo><mi>y</mi><mo>&gt;</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">v = x \star y &gt; x</annotation></semantics></math>
+refers to a row that is already determined — this is Laver’s recursion.
+So for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+there is at most one candidate, and the question is only whether it
+satisfies the remaining wrap-around equations. Building the candidates
+for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>
+(EXP-C17-03) shows they do exactly at the powers of 2; why they never do
+otherwise is open.</p>
 <p>This experiment also corrected the laboratory’s own citation of
 Laver’s theorem in Chapter 7: the classical recursion is imposed only
 for
@@ -7828,7 +8034,10 @@ or with model checkers.</p>
 <h2 data-number="19.8" id="open-questions-15"><span class="header-section-number">19.8</span> Open questions</h2>
 <ol type="1">
 <li>Prove Observation 19.4 for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>.</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>:
+show that the forced table fails the wrap-around equations whenever
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+is not a power of 2.</li>
 <li>Which other laws admit a Light-type reduction to generators?</li>
 </ol>
 <h1 class="unnumbered" id="volume-8-optimization-and-practical-applications">Volume 8 —
@@ -8097,12 +8306,17 @@ is <strong>refuted</strong> by the nimber cascade, whose structure
 commutativity) leaves a measurable bias.</p>
 <p><strong>Result 20.7</strong> <em>[COMPUTATIONALLY SUPPORTED —
 improvement: NO IMPROVEMENT]</em>. No quasigroup construction improves
-on the best baseline in any measured dimension: the good cascades only
-match MX64 and BLAKE2b in quality and are 3–13 times slower in the same
-run. (In a separate run under different load, the tail-output variants
-reached 11–52 MB/s against 640 and 428 MB/s for numpy-vectorised FNV-1a
-and MX64.) Against FNV-1a alone the good cascades mix better, at a large
-speed cost.</p>
+significantly on the best baseline in any measured dimension (some are
+numerically slightly better on a single statistic, within noise): the
+good cascades only match MX64 and BLAKE2b in quality and are several
+times slower in the same run. Throughput depends on machine load — the
+tail-output variants reached 11–52 MB/s in one run and 20–98 MB/s in the
+Skeptic’s re-run, against 640 and 428 MB/s for numpy-vectorised FNV-1a
+and MX64 — but the ordering is stable. Against FNV-1a alone the good
+cascades mix better, at a large speed cost. (FNV-1a’s
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>z</mi><mo>=</mo><mo>−</mo><mn>9.8</mn></mrow><annotation encoding="application/x-tex">z = -9.8</annotation></semantics></math>
+on sequential keys means <em>more</em> uniform than random; the first
+version of this chapter read it as a defect.)</p>
 <h2 data-number="20.7" id="comparison-with-existing-mathematics-15"><span class="header-section-number">20.7</span> Comparison with existing
 mathematics</h2>
 <p>The e-transformation and its bijectivity are Markovski, Gligoroski
@@ -8241,6 +8455,15 @@ affine model x*y = a x + b y + c over Z_n for every n &lt;= 6.
 yet no affine operation over Z_2 satisfies it (Lean:
 no_affine_model_mod2); its affine models exist only for n in {1, 5}.
 Three further identities behave alike (EXP-C05-05).</li>
+<li><strong>CLM-C05-09</strong> (refuted). <em>Claimed:</em> The finite
+models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313)
+have exactly the orders 1 and the odd integers n &gt;= 5.
+<em>Counterexample:</em> Linear models of order 16 (found by the
+Skeptic, reviews/skeptic_C05_C08_C12.md, Appendix B) - over GF(16) =
+GF(2)[t]/(t^4 + t + 1), x*y = (1 + t^3)x + t^3 y satisfies law 677 and
+x*y = t^3 x + (1 + t^3)y satisfies law 1313 (each has 8 such pairs (a,
+b)). Re-found by EXP-C05-07 and Lean-certified (E677_order16_law,
+E1313_order16_law, kernel decide on the 16 x 16 tables).</li>
 </ul>
 <h2 data-number="20.15" id="c06-successor-anchored-magmas-spectra-of-composition-laws-1"><span class="header-section-number">20.15</span> C06 — Successor-anchored
 magmas: spectra of composition laws</h2>
@@ -8305,14 +8528,37 @@ Ambroz-Frougny-Masakova-Pelantova 2003); 4-bonacci s = 7: triple
 (623729, 581581, 1); G(k+1) = 2G(k) + 2G(k-1) (1,2) s = 5: triple
 (29957, 280628, 1); G(k+1) = G(k) + G(k-2) s = 10: triple (78, 248, 1)
 (found by the Historian). The random tests behind the measurement
-(triples up to 10^6) missed these rare failures. Corrected values in
-CLM-C08-07.</li>
+(triples up to 10^6) missed these rare failures. The Skeptic’s review
+adds G(k+1) = 3G(k) + 3G(k-1) (1,5) at s = 10: (173938 o 173938) o 1 !=
+173938 o (173938 o 1) - the fifth wrong value. Thresholds after the
+targeted search in CLM-C08-08.</li>
 <li><strong>CLM-C08-06</strong> (refuted). <em>Claimed:</em> Among
 digit-convolution products a o_s b = sum d_i d_j G_(i+j+s), only
 Fibonacci with s = 2 is associative. <em>Counterexample:</em> Fibonacci
 with s = 3 (t = 1) is associative by Theorem 1 (CLM-C08-01); geometric
 bases are associative for every s; many Pisot sequences are associative
 at larger shifts (EXP-C08-02).</li>
+<li><strong>CLM-C08-07</strong> (refuted). <em>Claimed:</em> For the
+circle product o_s: Fibonacci (1,2) fails for s &lt;= 1 and is
+associative for s &gt;= 2 (Lean, CLM-C08-01); Pell (1,2,5) fails at s =
+0, no failure found for 1 &lt;= s &lt;= 5 (associative for s &gt;= 1 by
+Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for s &lt;= 5, no
+failure found for 6 &lt;= s &lt;= 8; tribonacci (1,2,4) fails for s
+&lt;= 3, no failure found for 4 &lt;= s &lt;= 9; 4-bonacci (1,2,4,8)
+fails for s &lt;= 7, no failure found for 8 &lt;= s &lt;= 10; G(k+1) =
+G(k) + G(k-2) (1,2,3) fails for s &lt;= 10, no failure found for s = 11,
+12; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s &lt;= 9, no failure found
+for 10 &lt;= s &lt;= 12. Every failure is certified by an explicit
+triple; every “no failure” is computational support only.
+<em>Counterexample:</em> Two of its ‘no failure found’ ranges were wrong
+(Skeptic review 2026-10-18, reviews/skeptic_C05_C08_C12.md, P2) - G(k+1)
+= 2G(k) + 2G(k-1) (1,2) fails at s = 6: (314965 o 314965) o 1 != 314965
+o (314965 o 1); G(k+1) = 3G(k) + 3G(k-1) (1,5) fails at s = 10 and s =
+11: (173938 o 173938) o 1 != 173938 o (173938 o 1). Both re-verified
+with the lab’s code and re-found by EXP-C08-07 (e.g. (5653, 42197, 1) at
+s = 6; (3192, 173938, 1) at s = 10; (12100, 12100, 1) at s = 11). The
+certified lower bounds of this claim stand; the thresholds it implied
+for these two sequences do not. Superseded by CLM-C08-08.</li>
 </ul>
 <h2 data-number="20.18" id="c09-arithmetic-of-knuths-circle-semigroup-1"><span class="header-section-number">20.18</span> C09 — Arithmetic of Knuth’s
 circle semigroup</h2>
@@ -8456,15 +8702,21 @@ width have rows that do not. <em>Counterexample:</em> The first part
 holds (1590/1734 classes at L = 32), the second fails - the
 bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1
 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and
-64 (EXP-C15-04).</li>
+64 (EXP-C15-04). The cap matters (Skeptic) - at L = 32 they do repeat,
+with periods 6,560 or 19,680 (still long, so the refutation stands); at
+L = 64 none repeats within 200,000 steps.</li>
 <li><strong>CLM-C15-12</strong> (refuted). <em>Claimed:</em> Each of the
 affine, commutative-semigroup and fuse fast-forwards is exact, beats
 direct numpy simulation by more than 100x at L = 1024, t = 10^5, and
 loses for t below a few hundred steps. <em>Counterexample:</em>
 Exactness holds (99/99), but the commutative-semigroup method reaches
-only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the
-affine and fuse methods are already 1.4-6.4x faster at t = 100 for every
-L in {256, 1024, 4096} (EXP-C15-03; indicative timings).</li>
+only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5 (the Skeptic’s
+re-run - 79-97x). The clause ‘loses for small t’ is partly true - timed
+with the same protocol on both sides, the affine method loses for t
+below about 20 and the fuse method below about 20-70 (Skeptic review,
+Appendix C). The first version said the affine and fuse methods never
+lose; EXP-C15-03 had timed the fast method as the best of 3 runs and the
+simulation as a single run.</li>
 </ul>
 <h2 data-number="20.25" id="c16-fibonacci-dynamics-in-invented-finite-algebras-1"><span class="header-section-number">20.25</span> C16 — Fibonacci dynamics in
 invented finite algebras</h2>
@@ -8492,16 +8744,28 @@ check</h2>
 <li><strong>CLM-C17-06</strong> (refuted). <em>Claimed:</em> Light’s
 test with a greedy generating set uses at most a fraction 10/n of the
 exhaustive check’s probes on every input family.
-<em>Counterexample:</em> Left-zero band x*y = x (n generators needed):
-ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio
-47.9 &lt; 51.2 at n = 512, because the exhaustive check stops at the
-first violation).</li>
+<em>Counterexample:</em> Left-zero band x*y = x (associative; n
+generators needed) - exhaustive/Light probe ratio 1.71 at n = 512
+(EXP-C17-01). The first version also cited one-entry corruptions of
+cyclic groups (ratio 47.9 at n = 512); that number was an artefact of
+the probe accounting (Skeptic review, P1). With correct accounting an
+early-exit exhaustive check is about as cheap as Light’s test on
+corruptions and far cheaper on random magmas, so the hypothesis fails on
+non-associative inputs as well.</li>
 <li><strong>CLM-C17-07</strong> (refuted). <em>Claimed:</em> For every
 law of the C06 family, every anchored magma satisfying the instance z =
-0 of the law satisfies the law (N &lt;= 5). <em>Counterexample:</em> 18
-laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4),
-x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does
-hold for associativity and (N &lt;= 10) for left-distributivity.</li>
+0 of the law satisfies the law (N &lt;= 5). <em>Counterexample:</em> 43
+of the 382 laws (first violating anchored model at N = 3 for 33 laws, at
+N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N =
+3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) =
+x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other
+339 laws the instance decides the law for N &lt;= 5, among them
+associativity, and (N &lt;= 10) left-distributivity. The first version
+reported 18 insufficient and 31 undecided laws because of a
+classification bug - a law whose enumeration was capped at one N was
+counted as undecided even when a violation had been found at another N;
+the Skeptic’s independent census gives the same 339 / 43 / 0 as the
+corrected experiment.</li>
 </ul>
 <h2 data-number="20.27" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes-1"><span class="header-section-number">20.27</span> C18 — Invented operations as
 mixing primitives: quasigroup string transformations versus standard
@@ -8509,29 +8773,40 @@ hashes</h2>
 <ul>
 <li><strong>CLM-C18-09</strong> (inconclusive). <em>Claimed:</em> Every
 structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y)
-gives a larger maximal avalanche bias than the random Latin square in
-the same construction. <em>Status:</em> Proved (bias 1/2) for the
+gives a larger maximal avalanche bias than the random Latin square, in
+the reverse-pass (p2+rev) construction. (As first worded - ‘in the same
+construction’ - the hypothesis is false for the forward-only
+construction, where the random Latin square and x + c(y) both have bias
+exactly 1/2 by CLM-C18-02; the experiment compared every structured
+variant with QG-LS p2+rev.) <em>Status:</em> Proved (bias 1/2) for the
 T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x
 + c(y) with a reverse pass the difference (0.043 versus 0.041) is within
 sampling noise; its defect shows in bit independence instead
 (CLM-C18-06), which the hypothesis did not measure.</li>
 <li><strong>CLM-C18-10</strong> (refuted). <em>Claimed:</em> QG-NIMINV
 p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has
-avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z|
-&lt;= 3 and a bucket-collision ratio within 2% on all four key sets.
+avalanche at least as good as FNV-1a-64, |chi-square z| &lt;= 3 and a
+bucket-collision ratio within 2% on all four key sets.
 <em>Counterexample:</em> Avalanche is better than FNV-1a’s (max bias
 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket
 z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate
-keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995,
-0 full collisions) - the tail-information bound (CLM-C18-03).</li>
+keys give 32,624 full 64-bit collisions - the tail-information bound
+(CLM-C18-03). (FNV-1a itself has z = -9.8 there - more uniform than
+random, bucket-collision ratio 0.995 - and 0 full collisions; the first
+wording wrongly attributed |z| &lt;= 3 on all four key sets to
+FNV-1a.)</li>
 <li><strong>CLM-C18-11</strong> (refuted). <em>Claimed:</em> The
 cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of
 finalisation) have avalanche within 0.01 of BLAKE2b-64, |z| &lt;= 3,
 collision ratios within 2% and no full collisions on all four key sets.
 <em>Counterexample:</em> QC-NIMINV d8 - maximal avalanche bias 0.0845
-against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z
-= -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass
-every test (EXP-C18-05).</li>
+against 0.045 for BLAKE2b (about 7 standard deviations of a cell; the
+Skeptic’s replication with new keys - 0.0735, against a null maximum of
+0.048; worst cell key byte 15, bit 0 -&gt; top bit of s1). QC-LS d8 and
+QC-ISO d8 pass every test (EXP-C18-05). (A z = -3.21 on synthetic words
+was also cited at first; it is 1 of 48 z-scores and in the benign
+direction - more uniform than random - so the refutation rests on the
+avalanche bias alone.)</li>
 <li><strong>CLM-C18-12</strong> (refuted). <em>Claimed:</em> The cascade
 QC-ARP d8 has a maximal bit-independence correlation of at least 0.5.
 <em>Counterexample:</em> QC-ARP d8 has maximal correlation 0.176 (noise
@@ -8660,7 +8935,16 @@ to the right of run
 when its turn comes (the original
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>−</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">m - k</annotation></semantics></math>
 plus one for every step already made), and
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>max</mo><mrow><mn>1</mn><mo>≤</mo><mi>b</mi><mo>≤</mo><mi>n</mi></mrow></munder><mi>b</mi><mspace width="0.167em"></mspace><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><msup><mn>2</mn><mrow><mo stretchy="false" form="prefix">⌊</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">⌋</mo></mrow></msup><mo>−</mo><mn>1</mn><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Θ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">D(n) = \max_{1 \le b \le n} b\,\bigl(2^{\lfloor (n-b)/2 \rfloor} - 1\bigr) = \Theta(2^{n/2}).</annotation></semantics></math></p>
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munder><mo>max</mo><mrow><mn>1</mn><mo>≤</mo><mi>b</mi><mo>≤</mo><mi>n</mi></mrow></munder><mi>b</mi><mspace width="0.167em"></mspace><mo minsize="1.2" maxsize="1.2" stretchy="false" form="prefix">(</mo><msup><mn>2</mn><mrow><mo stretchy="false" form="prefix">⌊</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mi>b</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn><mo stretchy="false" form="postfix">⌋</mo></mrow></msup><mo>−</mo><mn>1</mn><mo minsize="1.2" maxsize="1.2" stretchy="false" form="postfix">)</mo><mo>=</mo><mi>Θ</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo></mrow><annotation encoding="application/x-tex">D(n) = \max_{1 \le b \le n} b\,\bigl(2^{\lfloor (n-b)/2 \rfloor} - 1\bigr) = \Theta(2^{n/2}),</annotation></semantics></math>
+explicitly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mn>2</mn><mrow><mi>n</mi><mi>/</mi><mn>2</mn></mrow></msup><mo>−</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">D(n) = 2^{n/2} - 2</annotation></semantics></math>
+for even
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">n \ge 2</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>⋅</mo><msup><mn>2</mn><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo>−</mo><mn>3</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow></msup><mo>−</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">3 \cdot 2^{(n-3)/2} - 3</annotation></semantics></math>
+for odd
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≥</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n \ge 5</annotation></semantics></math>
+(the Skeptic’s simplification).</p>
 <p><em>Proof idea.</em> A pair of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>’s,
 once released, always travels all the way to the last run, so a run
@@ -8671,14 +8955,23 @@ the extended census are classified: 480 terminate and 388 do not.</p>
 <p>All three statements were checked on every word of length
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">\le 12</annotation></semantics></math>
 for all eight rules; the rightmost and leftmost strategies agree on
-every word, as random descent predicts (EXP-C20-01).</p>
+every word, as random descent predicts (EXP-C20-01). The independent
+Skeptic re-checked the written proofs step by step and extended the
+checks to all words of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>18</mn></mrow><annotation encoding="application/x-tex">\le 18</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≤</mo><mn>21</mn></mrow><annotation encoding="application/x-tex">\le 21</annotation></semantics></math>.</p>
 <p><em>What the literature already knew.</em> Both rules are <em>right
 barren</em> in McNaughton’s sense, and barren one-rule systems are known
 to terminate (McNaughton; Geser, ICASE Report 2002-33). So the
 termination half is a rediscovery. Geser’s report proves linear
 derivation lengths for its non-barren rules; for barren rules, as these
 examples show, the lengths can be exponential — and here they are known
-exactly.</p>
+exactly. (The report’s introduction announces linear lengths for
+<em>all</em> terminating rules with one pair of overlaps;
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mi>a</mi><mi>b</mi><mo>→</mo><mi>a</mi><mi>b</mi><mi>a</mi><mi>b</mi><mi>a</mi></mrow><annotation encoding="application/x-tex">aab \to ababa</annotation></semantics></math>
+has one pair of overlaps and exponential length, so only the body’s
+narrower statement is correct — a point the Skeptic made.)</p>
 <h2 data-number="21.4" id="a-literature-question-settled-by-the-historian"><span class="header-section-number">21.4</span> A literature question, settled
 by the Historian</h2>
 <p>Chapter 4 conjectured a divisibility criterion for when
@@ -8687,8 +8980,10 @@ does not terminate. Zantema and Geser published a complete
 characterisation of these rules (tech. report 1994, journal 2000). The
 Director’s attempts to obtain the full text failed (HTTP 403, a bot
 challenge, HTTP 500); the Historian then found the scanned report on an
-older archive host. Their Theorem 1.1 is our conjecture, verbatim — now
-Theorem 4.6. The 24 rules we had left open all terminate.</p>
+older archive host. Their Theorem 1.1 is equivalent to our conjecture
+(it characterises termination, ours non-termination, with the same
+cases) — now Theorem 4.6. The 24 rules we had left open all
+terminate.</p>
 <h2 data-number="21.5" id="the-open-problems-of-batch-1"><span class="header-section-number">21.5</span> The open problems of batch
 1</h2>
 <p>Volume 10’s catalogue (next chapter) lists every unproven claim of
@@ -8764,10 +9059,6 @@ restricted spectra; the 63 non-full ones fall into 15 patterns on n =
 (e.g. 10111011 for 16 identities including the Dupont law, 10110010 =
 Mendelsohn pattern for law 66 and three equivalents, 1010001? for law
 907). <em>Evidence:</em> EXP-C05-01, EXP-C05-02.</li>
-<li><strong>CLM-C05-09</strong> (conjecture): The finite models of x =
-y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the
-orders 1 and the odd integers n &gt;= 5. <em>Evidence:</em> EXP-C05-03,
-EXP-C05-02.</li>
 <li><strong>CLM-C06-01</strong> (computationally supported): An anchored
 left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N
 exists exactly for N = 1, 2, 4, 8 among N &lt;= 10 and is then unique
@@ -8793,35 +9084,39 @@ for N &lt;= 9; their affine spectra coincide for N &lt;= 40.
 mixed. <em>Evidence:</em> EXP-C07-03.</li>
 <li><strong>CLM-C08-02</strong> (computationally supported): If the
 minimal linear recurrence of an increasing base sequence G (G_0 = 1) has
-a characteristic root beta other than the dominant root with |beta|
-&gt;= 1, then the circle product o_s is non-associative for every s
-&gt;= 0. <em>Evidence:</em> EXP-C08-02.</li>
+a dominant root alpha &gt; 1 and another characteristic root beta with
+|beta| &gt;= 1 (counted with multiplicity: a repeated dominant root
+counts as such a beta), then the circle product o_s is non-associative
+for every s &gt;= 0. <em>Evidence:</em> EXP-C08-02, EXP-C08-07.</li>
 <li><strong>CLM-C08-03</strong> (computationally supported): For base
 sequences G_k = a_1 G_(k-1) + … + a_d G_(k-d) with a_1 &gt;= a_2 &gt;= …
 &gt;= a_d &gt;= 1 and canonical initial values (the conditions of
 Grabner-Petho-Tichy-Woeginger 1994), the circle product o_s is
 associative once the shift s is large enough. (The earlier title, “Pisot
 base sequences …”, overstated the published theorem.) <em>Evidence:</em>
-EXP-C08-02, EXP-C08-03, EXP-C08-06.</li>
+EXP-C08-02, EXP-C08-03, EXP-C08-06, EXP-C08-07.</li>
 <li><strong>CLM-C08-04</strong> (computationally supported): For
-quadratic Pisot base sequences with real conjugate root beta &gt; 0, the
-set of shifts s for which o_s is associative is upward-closed. Sets that
+quadratic Pisot base sequences G(k+1) = pG(k) + qG(k-1) with
+non-canonical initial values (for canonical ones the associative shifts
+are upward closed whatever the sign of beta, by Messaoudi’s Thm 2 as
+derived by the Historian): if the conjugate root beta is positive, the
+set of shifts s for which o_s is associative is upward-closed; sets that
 are not upward-closed (e.g. {2} and s &gt;= 4 for G = 1,3,4,7,11,…)
-occur only when beta &lt; 0. <em>Evidence:</em> EXP-C08-04, EXP-C08-03,
+occur only when beta &lt; 0. <em>Evidence:</em> EXP-C08-07, EXP-C08-06,
+EXP-C08-04, EXP-C08-03.</li>
+<li><strong>CLM-C08-08</strong> (computationally supported): For the
+circle product o_s: Fibonacci (1,2) fails for s &lt;= 1, associative for
+s &gt;= 2 (Lean, CLM-C08-01); Pell (1,2,5) fails at s = 0 (associative
+for s &gt;= 1, Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for
+s &lt;= 6; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s &lt;= 11;
+tribonacci (1,2,4) fails for s &lt;= 3; 4-bonacci (1,2,4,8) fails for s
+&lt;= 7; G(k+1) = G(k) + G(k-2) (1,2,3) fails for s &lt;= 10; G(k+1) =
+G(k) + G(k-3) (1,2,3,4) fails for every s &lt;= 16 (the Skeptic - every
+s &lt;= 24). Every failure is certified by an explicit triple. Above
+these bounds no failure was found up to s = 16 by the targeted search of
+EXP-C08-07 and by the Skeptic’s independent extreme-conjugate search -
+computational support only. <em>Evidence:</em> EXP-C08-07,
 EXP-C08-06.</li>
-<li><strong>CLM-C08-07</strong> (computationally supported): For the
-circle product o_s: Fibonacci (1,2) fails for s &lt;= 1 and is
-associative for s &gt;= 2 (Lean, CLM-C08-01); Pell (1,2,5) fails at s =
-0, no failure found for 1 &lt;= s &lt;= 5 (associative for s &gt;= 1 by
-Messaoudi 2000); G(k+1) = 2G(k) + 2G(k-1) (1,2) fails for s &lt;= 5, no
-failure found for 6 &lt;= s &lt;= 8; tribonacci (1,2,4) fails for s
-&lt;= 3, no failure found for 4 &lt;= s &lt;= 9; 4-bonacci (1,2,4,8)
-fails for s &lt;= 7, no failure found for 8 &lt;= s &lt;= 10; G(k+1) =
-G(k) + G(k-2) (1,2,3) fails for s &lt;= 10, no failure found for s = 11,
-12; G(k+1) = 3G(k) + 3G(k-1) (1,5) fails for s &lt;= 9, no failure found
-for 10 &lt;= s &lt;= 12. Every failure is certified by an explicit
-triple; every “no failure” is computational support only.
-<em>Evidence:</em> EXP-C08-06.</li>
 <li><strong>CLM-C09-05</strong> (conjecture): Almost every n whose
 conjugate lies in the product zone is a circle product, so the circle
 irreducibles have natural density 1/phi^2. <em>Evidence:</em>
@@ -8833,9 +9128,6 @@ excess: 0.500 for 3-&gt;(1,1), 0.333 for 4-&gt;(1,1), 0.643 for
 3-&gt;(0,1,1), 0.714 for 3-&gt;(1,0,1), 0.831 for 4-&gt;(1,1,1)), equal
 to an expectation under the invariant measure of the digit process.
 <em>Evidence:</em> EXP-C10-03.</li>
-<li><strong>CLM-C10-07</strong> (computationally supported): In
-canonical skew binary, every increment changes at most 2 digits and the
-average is 3/2 (n &lt; 1e6). <em>Evidence:</em> EXP-C10-01.</li>
 <li><strong>CLM-C11-08</strong> (computationally supported): Among fixed
 (untuned) universal codes, a pattern-terminated code (T_101, T_0111 or
 T_00111) has the smallest expected length on 5 of 12 synthetic sources
@@ -8889,19 +9181,24 @@ order-3 magma automata (up to isomorphism and mirror image), on t &lt;=
 <li><strong>CLM-C15-13</strong> (computationally supported): Computing
 the row at time t of an affine magma automaton by binary exponentiation
 of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024,
-about 3-4x faster than direct numpy simulation at t = 100, 22-29x at
-10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms
-for L &lt;= 4096. <em>Evidence:</em> EXP-C15-03.</li>
+faster than direct numpy simulation by about one order of magnitude at t
+= 10^3, two orders at 10^4 (138-314x in two runs) and three orders at
+10^5 (1,459-2,500x); t = 10^9 takes milliseconds for L &lt;= 4096. With
+the same timing protocol on both sides it loses for t below about 20.
+<em>Evidence:</em> EXP-C15-03.</li>
 <li><strong>CLM-C15-14</strong> (computationally supported): The
 exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is
-62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower)
-around t = 10^3 for L &gt;= 1024, and equal for t &lt; 2L (where it
-falls back to simulation). <em>Evidence:</em> EXP-C15-03.</li>
+about two orders of magnitude faster than direct simulation at t = 10^5
+(62-100x; the Skeptic’s re-run 79-97x) but no faster around t = 10^3
+(0.5-1.0x) for L &gt;= 1024, and equal for t &lt; 2L (where it falls
+back to simulation). <em>Evidence:</em> EXP-C15-03.</li>
 <li><strong>CLM-C15-15</strong> (computationally supported): The
 burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes
-O(L) time for every t - 1.4-5.3x faster than direct simulation at t =
-100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in
-about 0.6 ms (L = 1024). <em>Evidence:</em> EXP-C15-03.</li>
+O(L) time for every t - about three orders of magnitude faster than
+direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x
+on the Skeptic’s re-run), with t = 10^9 in about a millisecond; because
+the O(L) method is a Python loop it loses to simulation for t below
+about 20-70. <em>Evidence:</em> EXP-C15-03.</li>
 <li><strong>CLM-C15-16</strong> (computationally supported): Storing
 visited rows answers a query t in mu + lambda simulated steps; for
 random rows of length 32 this is at most 5000 steps for 1590 of 1734
@@ -8910,10 +9207,11 @@ the affine quasigroups and for 128 of 300 geometric-width classes.
 <em>Evidence:</em> EXP-C15-04.</li>
 <li><strong>CLM-C15-17</strong> (computationally supported): The Laver
 tables A_2 and A_3 give automata whose light cones depend on at most 3
-resp. 4 cells (t &lt;= 8 resp. 5) with widths 4 and 8; GF(4)
-multiplication and XOR on [0,4) have width 4; the anchored golden- and
-odd-law models of C06 are permutive (hence surjective) affine automata.
-<em>Evidence:</em> EXP-C15-05.</li>
+resp. 4 cells (t &lt;= 8 resp. 5) with streaming (forward) widths 4 and
+8 (backward widths 5 and 13-14); GF(4) multiplication and XOR on [0,4)
+have streaming width 4; the anchored golden- and odd-law models of C06
+are permutive (hence surjective) affine automata. <em>Evidence:</em>
+EXP-C15-05.</li>
 <li><strong>CLM-C15-18</strong> (conjecture): Every magma automaton with
 bounded streaming width admits an algorithm computing a cyclic row of
 length L at time t in time polynomial in L and log t. <em>Evidence:</em>
@@ -8929,8 +9227,8 @@ maximal period of the pair map equals the order of
 EXP-C16-03.</li>
 <li><strong>CLM-C16-16</strong> (computationally supported): The longest
 transient of the Laver pair map (steps until the state contains the top
-element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, …,
-10. <em>Evidence:</em> EXP-C16-03.</li>
+element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, …, 10
+(the Skeptic - every n = 4, …, 13). <em>Evidence:</em> EXP-C16-03.</li>
 <li><strong>CLM-C16-17</strong> (computationally supported): On a simple
 battery (byte chi-square, serial pairs, lowest-bit period, lag-1
 correlation; 2^20 outputs) the anchored Fibonacci and affine magma
@@ -8943,19 +9241,28 @@ conflicts) find full-period quasigroups only up to n = 8, while seeded
 sampling of random Latin squares finds them for every n = 5..16 at rates
 close to 1/n^2 (H-C16-11). <em>Evidence:</em> EXP-C16-05,
 EXP-C16-02.</li>
-<li><strong>CLM-C17-04</strong> (computationally supported): On cyclic
-groups, anchored tables, random magmas and their one-entry corruptions
-(n = 32..512), Light’s test with a greedy generating set uses 23-614
-times fewer table probes than the exhaustive n^3 check (generating-set
-cost included) and the anchored test 2n^2 probes; on left-zero bands the
-gain is only 1.7x. The randomised test (40 rounds) made no error;
-random-triple sampling with n^2/16 samples missed 27 of 30
-near-associative inputs. <em>Evidence:</em> EXP-C17-01.</li>
-<li><strong>CLM-C17-05</strong> (computationally supported): For 2 &lt;=
-N &lt;= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x,
-y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so
-for these N, left-distributivity of an anchored table is decided by an
-O(N^2) check. <em>Evidence:</em> EXP-C17-02.</li>
+<li><strong>CLM-C17-04</strong> (computationally supported):
+Certification (associative inputs, n = 32..512) - Light’s test with a
+greedy generating set uses 23-383 times (cyclic groups) and 38-614 times
+(anchored tables) fewer table probes than the exhaustive n^3 check
+(generating-set cost included), the anchored test 2n^2 probes; on
+left-zero bands the gain is only 1.7x. Refutation (one-entry
+corruptions, random magmas) - an exhaustive check that stops at the
+first violating triple is about as cheap as Light’s test or much cheaper
+(4 probes on random magmas against about 9e5; 0.1-1.1x Light’s probes on
+corruptions), so the gains concern certification only. The randomised
+test (40 rounds) made no error; random-triple sampling with n^2/16
+samples missed 27 of 30 near-associative inputs. <em>Evidence:</em>
+EXP-C17-01.</li>
+<li><strong>CLM-C17-05</strong> (computationally supported): For every
+N, the instances y &lt;= N - 2 of x*(y+1) = (x*y)*(x+1) force at most
+one anchored table (Laver’s recursion; written proof in
+proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which
+satisfies the full instance including the wrap-around y = N - 1. For
+every N &lt;= 4096 (EXP-C17-03, and independently the Skeptic’s C
+program) the full instance has a model exactly at the powers of 2, so
+for these N left-distributivity of an anchored table is decided by an
+O(N^2) check. <em>Evidence:</em> EXP-C17-03, EXP-C17-02.</li>
 <li><strong>CLM-C18-08</strong> (computationally supported): QG-LS
 p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on
 2000 random 16-byte keys. <em>Evidence:</em> EXP-C18-02.</li>
@@ -8963,9 +9270,11 @@ p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on
 tail-output quasigroup hashes and 4 cascades, measured against
 FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser),
 BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square,
-collisions and throughput, no quasigroup construction improves on the
-best baseline in any measured dimension. <em>Evidence:</em> EXP-C18-02,
-EXP-C18-03, EXP-C18-04, EXP-C18-05.</li>
+collisions and throughput, no quasigroup construction improves
+significantly on the best baseline in any measured dimension (some have
+numerically smaller maximal bias or bit-independence values, within
+noise). <em>Evidence:</em> EXP-C18-02, EXP-C18-03, EXP-C18-04,
+EXP-C18-05.</li>
 <li><strong>CLM-C19-05</strong> (computationally supported): Let h(k) =
 floor(k^2/4) and define rho_p (p = 0, 1) by rho_p(0) = 0 and, for m =
 F_{i+1} + t with Zeckendorf top level i (0 &lt;= t &lt; F_i): rho_p(m) =
@@ -9033,10 +9342,11 @@ human decision</li>
 <p><strong>C05 — Spectra of single-identity magma
 varieties.</strong></p>
 <ul>
-<li>C05: decide law 1286 at orders 8, 10 and law 677/1313 at 8, 10 with
-stronger symmetry breaking; certify</li>
-<li>C05: test the conjecture spec(677) = spec(1313) = {1} + odd n &gt;=
-5</li>
+<li>C05: decide law 1286 at orders 8, 10 and laws 677/1313 at 8, 10, 12,
+14 with stronger symmetry breaking; certify</li>
+<li>C05: which odd orders are in the spectra of 677 and 1313? (677 has
+no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime
+power)</li>
 <li>C05: extend the census to order-5 laws and three-variable
 identities</li>
 <li>C05: Lean-formalise orbit-counting arguments for other laws with a
@@ -9073,7 +9383,10 @@ proofs</li>
 systems.</strong></p>
 <ul>
 <li>C08: complete the Lean proof of the shifted Knuth theorem</li>
-<li>C08: prove non-Pisot never-associativity (CLM-C08-02)</li>
+<li>C08: prove non-Pisot never-associativity (CLM-C08-02, dominant root
+&gt; 1)</li>
+<li>C08: compute greedy windows exactly (Rauzy fractal boundaries) to
+turn the threshold searches of EXP-C08-07 into proofs</li>
 <li>C08: compute greedy windows to prove the sign-of-beta conjecture
 (CLM-C08-04)</li>
 <li>C09: arithmetic of the circle semigroup - irreducibles and

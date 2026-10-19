@@ -27,12 +27,28 @@ def proof_kind(proof_check: str) -> str:
     return "written proof"
 
 
-def review_state(proof_check: str) -> str:
-    """Whether a non-formal proof was re-checked by someone other than its author."""
+def skeptic_verdicts() -> dict:
+    """Claim id -> list of (review file, verdict) read from the verdict tables of reviews/skeptic_*.md."""
+    import re
+    from .paths import ROOT
+    pat = re.compile(r"^\|\s*(CLM-C\d\d-\d\d)\b(?:[^|\\]|\\.)*\|\s*\*\*([^*]+)\*\*")   # a cell may contain escaped pipes
+    out: dict = {}
+    for f in sorted((ROOT / "reviews").glob("skeptic_*.md")):
+        for line in f.read_text().splitlines():
+            m = pat.match(line)
+            if m:
+                out.setdefault(m.group(1), []).append((f.name, m.group(2).strip()))
+    return out
+
+
+def review_state(proof_check: str, verdicts=()) -> str:
+    """Whether a non-formal proof was re-checked by someone other than its author (the proof_check text, or an
+    UPHELD verdict in a Skeptic review table)."""
     pc = proof_check.lower()
     if "awaiting independent" in pc:
         return "awaiting independent review"
-    if "skeptic-reviewed" in pc or "by the skeptic" in pc or "skeptic review" in pc:
+    if "skeptic-reviewed" in pc or "by the skeptic" in pc or "skeptic review" in pc or \
+            any(v.upper().startswith("UPHELD") for _, v in verdicts):
         return "independently reviewed"
     return "no review recorded"
 
@@ -45,13 +61,16 @@ def stats() -> dict:
     n = Counter(c.get("novelty", "NOT ASSESSED") for c in claims)
     proof_checks = Counter()
     review = Counter()
+    verdicts = skeptic_verdicts()
     for c in claims:
         if c["verification"] != "PROVEN":
             continue
         kind = proof_kind(c.get("proof_check") or "")
         proof_checks[kind] += 1
         if kind != "Lean (complete)":
-            review[review_state(c.get("proof_check") or "")] += 1
+            review[review_state(c.get("proof_check") or "", verdicts.get(c["id"], ()))] += 1
+    verdict_counts = Counter(v.split(" (")[0].split(" —")[0].strip() for vs in verdicts.values() for _, v in vs[-1:])
+    unreviewed = sorted(c["id"] for c in claims if c["id"] not in verdicts)
     systems = Counter()
     for c in claims:
         systems[c.get("system") or "?"] += 1
@@ -70,6 +89,8 @@ def stats() -> dict:
         "novelty": dict(n),
         "proven_by_check": dict(proof_checks),
         "proven_not_fully_formal_by_review": dict(review),
+        "skeptic_verdicts": {"claims_with_a_verdict": len(verdicts), "latest_verdicts": dict(verdict_counts),
+                             "claims_without_a_verdict": unreviewed},
         "claims_by_system": dict(systems),
         "lean_files_verified": sum(1 for k, x in lean.items() if x.get("ok") and "C00" not in k),
         "lean_theorems": lean_theorems,
@@ -125,6 +146,11 @@ def render_tables() -> str:
             "of the proof are written or computational rather than formal.", "",
             "| review of the PROVEN claims that are not fully formal | claims |", "|---|---|"]
     out += [f"| {k} | {v} |" for k, v in sorted(s["proven_not_fully_formal_by_review"].items())]
+    sv = s["skeptic_verdicts"]
+    out += ["", f"Independent Skeptic reviews (`reviews/skeptic_*.md`) gave a verdict on {sv['claims_with_a_verdict']} "
+            f"of the {s['claims']} claims:", "", "| latest verdict | claims |", "|---|---|"]
+    out += [f"| {k} | {v} |" for k, v in sorted(sv["latest_verdicts"].items())]
+    out += ["", "Claims without a Skeptic verdict: " + (", ".join(sv["claims_without_a_verdict"]) or "none") + "."]
     out += ["", f"Lean: {s['lean_files_verified']} files verified, {s['lean_theorems']} theorems (standard axioms "
             f"only).", ""]
 

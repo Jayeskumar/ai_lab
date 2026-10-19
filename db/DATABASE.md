@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-19T14:25:22Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-19T14:26:15Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1545,7 +1545,7 @@ _Generated 2026-10-19T14:25:22Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches
+  written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -3785,12 +3785,16 @@ _Generated 2026-10-19T14:25:22Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01; awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C17.md Theorem 1, four-line closure argument); 0 wrong verdicts in EXP-C17-01, skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (the Skeptic re-checked every generating set of every magma of order <= 3 and 236,381 generating sets of 20,000 random order-4 tables - 0 wrong verdicts)
+
 - **novelty:** REDISCOVERY
 - **statement:** If S generates the finite magma M, then M is associative iff (x*s)*y = x*(s*y) for all x, y in M and s in S; the test costs 2n + 2n^2 probes per generator.
 - **proof:** proofs/paper/C17.md#theorem-1-clm-c17-01--lights-associativity-test
 - **evidence:** EXP-C17-01
 - **novelty_basis:** F. W. Light's associativity test, presented in A. H. Clifford, G. B. Preston, The Algebraic Theory of Semigroups, Vol. 1 (AMS, 1961), section 1.2.
+- **status history:**
 
 ### CLM-C17-02: Associativity of an anchored magma is decided by one O(n^2) identity
 

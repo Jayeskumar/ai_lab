@@ -1,0 +1,11 @@
+(1) n with a raised flag: [] | L(n), n<=150 equal to stored: True | states equal to stored: True | positions n<=200: 149975346 n=233: 13783708 L(233) = 566
+(2) phase-2 deficit vs full simulation: 4999 n, mismatches [] | split length = Psi(lazy): []
+(3) D(n) <= B(n)-Psi(lazy(n)) violations (n<1e5): 0 | B-Psi(lazy) <= 1+(t+1)(t+6)/2 violations: 0
+    n=1e+06: B-Psi(lazy)=210, bound 1+(t+1)(t+6)/2=463, phase-2 moves 26, D=184
+    n=1e+09: B-Psi(lazy)=412, bound 1+(t+1)(t+6)/2=988, phase-2 moves 53, D=359
+    n=1e+12: B-Psi(lazy)=728, bound 1+(t+1)(t+6)/2=1768, phase-2 moves 53, D=675
+    n=1e+15: B-Psi(lazy)=1163, bound 1+(t+1)(t+6)/2=2699, phase-2 moves 81, D=1082
+(4) n=1e+04 L=26042 phase-2==B-W: True, ==recursion: True, time phase-2 3.7e-05 s, recursion 8.7e-05 s
+(4) n=1e+07 L=26179925 phase-2==B-W: True, ==recursion: True, time phase-2 7.0e-05 s, recursion 1.0e-04 s
+(4) n=1e+12 L=2618033987626 phase-2==B-W: True, ==recursion: True, time phase-2 1.2e-04 s, recursion 1.4e-04 s
+(4) n=1e+18 L=2618033988749891985 phase-2==B-W: True, ==recursion: True, time phase-2 2.6e-04 s, recursion 2.9e-04 s
