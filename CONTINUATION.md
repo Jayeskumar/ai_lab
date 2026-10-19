@@ -138,6 +138,11 @@ in `reports/PM_PLAN_batch1.1.md`.
   first case split left 41 of 97 cases undecided, almost all with the chosen
   element idempotent; splitting on idempotency (Lemma 8 of
   `proofs/paper/C05.md`) and adding implied division clauses made them easy.
+* **Run multi-hour jobs detached and with progress output.** Background jobs of
+  the agent harness are stopped after at most two hours; start long runs with
+  `setsid nohup <script> &`, print one progress line per unit of work to
+  stderr (never into the results), and restart a stopped audit from the
+  cycle where it stopped (`python -m lab verify <ids> --dry`).
 * **Tooling bugs hide in idempotent-looking code.** `sync` re-appended the same
   journal revision of two entries on every run (16 copies each) because it
   compared the record with the original entry instead of its latest revision;

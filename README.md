@@ -63,9 +63,10 @@ python -m lab run EXP-C08-03             # re-run one experiment (results/ + db/
 python -m lab run --cycle C01            # re-run a whole cycle
 python -m lab run --dry EXP-C08-03       # re-run without recording anything
 python -m lab verify --cycle C08         # re-run a cycle and compare result hashes (--dry: do not record)
+python -m lab check                      # consistency checks (records, links, database, result hashes); must report 0 errors
 python -m lab lean                       # check all Lean files (needs elan + Mathlib cache)
 python -m lab sync                       # import cycle records, render index/journal/database
-python -m lab catalogue                  # regenerate the catalogue volumes of the textbook
+python -m lab catalogue                  # regenerate the catalogue volumes and the corrections log of the textbook
 python -m lab report                     # batch statistics + report tables (reports/)
 python -m lab book                       # build textbook HTML + PDF (--no-pdf: HTML only)
 python -m pytest -q tests/               # infrastructure tests
