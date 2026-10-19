@@ -329,6 +329,11 @@ journal:
     kind: novelty
     text: The bound 11 for subtract-a-prime is documented in OEIS A014589 up to 1e9 (Huet 2022, Dobbelaere 2024), so CLM-C12-12 is a weak rediscovery; the Fibonacci bound (CLM-C12-13) was not found in the entries read.
     refs: [CLM-C12-12, CLM-C12-13]
+  - key: C12-13
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all 13 claims upheld; the potentially novel Grundy theorem CLM-C12-04 checked step by step and computed to 1e8. CLM-C12-13 (subtract-a-Fibonacci bounded) has weaker support than recorded - new record values 15 at n = 206,025 and 16 at n = 63,331,966."
+    refs: [CLM-C12-04, CLM-C12-13, reviews/skeptic_C05_C08_C12.md]
 
 next_directions:
   - "C12: boundedness of the Grundy values of subtract-a-prime (11) and subtract-a-Fibonacci (14); convergence of the Fibonacci P-density (<= 1/5)"

@@ -119,12 +119,16 @@ hypothesis that all three random-like cascades would pass (H-C18-8) is
 commutativity) leaves a measurable bias.
 
 **Result 20.7** *[COMPUTATIONALLY SUPPORTED — improvement: NO IMPROVEMENT]*.
-No quasigroup construction improves on the best baseline in any measured
-dimension: the good cascades only match MX64 and BLAKE2b in quality and are
-3–13 times slower in the same run. (In a separate run under different load,
-the tail-output variants reached 11–52 MB/s against 640 and 428 MB/s for
-numpy-vectorised FNV-1a and MX64.) Against FNV-1a alone the good cascades mix
-better, at a large speed cost.
+No quasigroup construction improves significantly on the best baseline in any
+measured dimension (some are numerically slightly better on a single
+statistic, within noise): the good cascades only match MX64 and BLAKE2b in
+quality and are several times slower in the same run. Throughput depends on
+machine load — the tail-output variants reached 11–52 MB/s in one run and
+20–98 MB/s in the Skeptic's re-run, against 640 and 428 MB/s for
+numpy-vectorised FNV-1a and MX64 — but the ordering is stable. Against FNV-1a
+alone the good cascades mix better, at a large speed cost. (FNV-1a's
+$z = -9.8$ on sequential keys means *more* uniform than random; the first
+version of this chapter read it as a defect.)
 
 ## Comparison with existing mathematics
 

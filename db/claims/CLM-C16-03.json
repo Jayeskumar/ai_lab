@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-03",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Translation of a classical fact - the number of de Bruijn sequences B(k, m) is (k!)^(k^(m-1)) / k^m (T. van Aardenne-Ehrenfest, N. G. de Bruijn, Simon Stevin 28 (1951); BEST theorem; https://en.wikipedia.org/wiki/De_Bruijn_sequence).",
   "proof": "proofs/paper/C16.md#theorem-2-clm-c16-03--full-period-is-the-same-thing-as-a-de-bruijn-cycle",
-  "proof_check": "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "A table of order n is full-period (its pair map is one cycle through all n^2 states) iff the symbol sequence\nalong that cycle is a de Bruijn cycle of order 2 over n symbols, and this is a bijection; hence there are exactly\n(n!)^n / n^2 full-period tables of order n (1, 24, 20736, ...) and the maximal period over n-element magmas is\nn^2 for every n >= 1.",
   "system": "SYS-E",
   "title": "Full-period magmas are de Bruijn cycles: there are (n!)^n / n^2 of them",

@@ -1,0 +1,65 @@
+{
+ "((xy)x)y=(y(xx))x": {
+  "1": "SAT",
+  "2": "UNSAT",
+  "3": "UNSAT",
+  "4": "UNSAT",
+  "5": "UNSAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT",
+  "9": "SAT"
+ },
+ "(xx)(xy)=y(y(yy))": {
+  "1": "SAT",
+  "2": "UNSAT",
+  "3": "SAT",
+  "4": "SAT",
+  "5": "SAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT",
+  "9": "SAT"
+ },
+ "x(xy)=y(y(xx))": {
+  "1": "SAT",
+  "2": "UNSAT",
+  "3": "UNSAT",
+  "4": "UNSAT",
+  "5": "SAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT",
+  "9": "SAT"
+ },
+ "(x(xy))x=x((zz)y)": {
+  "1": "SAT",
+  "2": "SAT",
+  "3": "UNSAT",
+  "4": "UNSAT",
+  "5": "SAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT"
+ },
+ "((xx)x)x=(y(xx))y": {
+  "1": "SAT",
+  "2": "SAT",
+  "3": "UNSAT",
+  "4": "SAT",
+  "5": "SAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT"
+ },
+ "x=x(x(xx))": {
+  "1": "SAT",
+  "2": "UNSAT",
+  "3": "SAT",
+  "4": "SAT",
+  "5": "SAT",
+  "6": "SAT",
+  "7": "SAT",
+  "8": "SAT"
+ }
+}

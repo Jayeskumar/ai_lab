@@ -1,5 +1,5 @@
 {
-  "counterexample": "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).",
+  "counterexample": "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell; the Skeptic's replication with new keys - 0.0735, against a null maximum of 0.048; worst cell key byte 15, bit 0 -> top bit of s1). QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05). (A z = -3.21 on synthetic words was also cited at first; it is 1 of 48 z-scores and in the benign direction - more uniform than random - so the refutation rests on the avalanche bias alone.)",
   "cycle": "C18",
   "evidence": [
     "EXP-C18-05"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell; the Skeptic's replication with new keys - 0.0735, against a null maximum of 0.048; worst cell key byte 15, bit 0 -> top bit of s1). QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05). (A z = -3.21 on synthetic words was also cited at first; it is 1 of 48 z-scores and in the benign direction - more uniform than random - so the refutation rests on the avalanche bias alone.)",
+      "old": "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).",
+      "reason": "Skeptic review 2026-10-18 (P7) - refutation based on the avalanche bias",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C18-11",

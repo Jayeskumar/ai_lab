@@ -10,16 +10,43 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty",
+      "new": "REDISCOVERY",
+      "old": "POTENTIALLY NOVEL",
+      "reason": "Skeptic review 2026-10-18 (P6) - the identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL -> REDISCOVERY",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "A. Abiad, S. Butler and W. H. Haemers, arXiv:1801.01149 (2018), Section 5 'A graph product and its 2-rank behaviour', define this product (their F2 formula A1 (x) J + J (x) A2 is the symmetric-difference product; their verbal definition inverts the adjacency rule) and state that its Seidel matrix is (S1 + I) (x) (S2 + I) - I; their proof of Thm 5.1 uses its compatibility with Seidel switching. Found by the Skeptic - the lab's four searches missed it. The product itself is Harary-Wilcox (1967).",
+      "old": "Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists.",
+      "reason": "Skeptic review 2026-10-18 (P6) - the identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL -> REDISCOVERY",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)",
+      "reason": "Skeptic review 2026-10-18 (P6) - the identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL -> REDISCOVERY",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C14-06",
   "lean": [
     "proofs/lean/Infinity/C14_GraphProducts.lean"
   ],
-  "novelty": "POTENTIALLY NOVEL",
-  "novelty_basis": "Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists.",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "A. Abiad, S. Butler and W. H. Haemers, arXiv:1801.01149 (2018), Section 5 'A graph product and its 2-rank behaviour', define this product (their F2 formula A1 (x) J + J (x) A2 is the symmetric-difference product; their verbal definition inverts the adjacency rule) and state that its Seidel matrix is (S1 + I) (x) (S2 + I) - I; their proof of Thm 5.1 uses its compatibility with Seidel switching. Found by the Skeptic - the lab's four searches missed it. The product itself is Harary-Wilcox (1967).",
   "proof": "proofs/paper/C14.md#theorem-6-clm-c14-06--the-symmetric-difference-is-the-kronecker-product-of-seidel-matrices",
-  "proof_check": "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "references": [
     "https://www.mscand.dk/article/view/10817",
     "https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs",

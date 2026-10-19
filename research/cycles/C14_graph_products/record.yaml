@@ -95,12 +95,13 @@ claims:
       and code 141 (1,1,-1), M = I - S(G); the character is unique in each case, and every such product is
       associative and commutative.
     verification: PROVEN
-    proof_check: written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs
+    proof_check: "written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C14.md#theorem-4-clm-c14-04--multiplicative-characters
     lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
     evidence: [EXP-C14-03]
     novelty: POTENTIALLY NOVEL
-    novelty_basis: "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; we found no statement classifying the local products with such a linearisation, nor the symmetric-difference case in general (four web searches 2026-10-18, see CLM-C14-06). Small result; possibly folklore."
+    novelty_basis: "The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore."
+    change_reason: "Skeptic review 2026-10-18 - written case analysis upheld (independent sympy derivation from the full matrix identity); novelty basis updated"
   - id: CLM-C14-05
     type: theorem
     system: SYS-D
@@ -111,11 +112,12 @@ claims:
       products except the empty and the complete product has exactly one kind of character (multiplicative or
       additive).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)
+    proof_check: "written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
     evidence: [EXP-C14-03]
     novelty: POTENTIALLY NOVEL
     novelty_basis: The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C14-06
     type: theorem
     system: SYS-D
@@ -125,13 +127,14 @@ claims:
       and S the Seidel matrix. Hence the Seidel eigenvalues of G xor H are (theta+1)(eta+1) - 1, and xor is
       compatible with Seidel switching, giving a commutative associative product on two-graphs with unit [K1].
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)
+    proof_check: "written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C14.md#theorem-6-clm-c14-06--the-symmetric-difference-is-the-kronecker-product-of-seidel-matrices
     lean: [proofs/lean/Infinity/C14_GraphProducts.lean]
     evidence: [EXP-C14-03, EXP-C14-06]
-    novelty: POTENTIALLY NOVEL
-    novelty_basis: "Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists."
+    novelty: "REDISCOVERY"
+    novelty_basis: "A. Abiad, S. Butler and W. H. Haemers, arXiv:1801.01149 (2018), Section 5 'A graph product and its 2-rank behaviour', define this product (their F2 formula A1 (x) J + J (x) A2 is the symmetric-difference product; their verbal definition inverts the adjacency rule) and state that its Seidel matrix is (S1 + I) (x) (S2 + I) - I; their proof of Thm 5.1 uses its compatibility with Seidel switching. Found by the Skeptic - the lab's four searches missed it. The product itself is Harary-Wilcox (1967)."
     references: ["https://www.mscand.dk/article/view/10817", "https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs", "https://en.wikipedia.org/wiki/Two-graph"]
+    change_reason: "Skeptic review 2026-10-18 (P6) - the identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL -> REDISCOVERY"
   - id: CLM-C14-07
     type: theorem
     system: SYS-D
@@ -141,11 +144,12 @@ claims:
       (b) K_{a,a} xor X is isomorphic to K_{a,a} xor X^Z for every switching X^Z of X (a >= 1).
       (c) K2 xor X is isomorphic to K2 xor Y iff X and Y are switching-equivalent.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)
+    proof_check: "written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
     evidence: [EXP-C14-05, EXP-C14-06]
     novelty: POTENTIALLY NOVEL
     novelty_basis: No statement found in the searches listed for CLM-C14-06. Small result.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C14-08
     type: hypothesis
     system: SYS-D
@@ -168,12 +172,13 @@ claims:
       products have the same number of prime graphs of order n, and the connected Cartesian and strong primes are
       equinumerous (OEIS A129582).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15
+    proof_check: "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C14.md#theorem-9-clm-c14-09--cartesian-and-strong-products-give-isomorphic-graded-monoids
     evidence: [EXP-C14-04]
     novelty: REDISCOVERY
     novelty_basis: "Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation."
     references: ["https://arxiv.org/abs/0705.0038", "https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf"]
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld (given the cited unique factorisation theorems)"
   - id: CLM-C14-10
     type: observation
     system: SYS-D
@@ -214,8 +219,9 @@ claims:
       under the symmetric-difference product into primes with connected complement.
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C14-04]
-    limitations: Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation.
+    limitations: "Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation. The Skeptic's own census finds no collision for 141 on connected graphs at any order <= 15."
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 - independently confirmed to order 15"
   - id: CLM-C14-13
     type: conjecture
     system: SYS-D
@@ -226,9 +232,10 @@ claims:
       up to signed permutation similarity, under the Kronecker product).
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C14-05]
-    limitations: "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c)."
+    limitations: "No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c). The Skeptic notes that this evidence was thin - up to order 16 almost every composite is [K2] (x) X, covered by the proved cancellation - and extends it substantially: all 53,703 multisets of prime classes with <= 8 vertices and product order <= 64, screened by exact integer power sums tr((S+I)^k) and decided by exact switching-equivalence tests (2,205 cospectral groups, 3,012 pairs), give 0 collisions."
     novelty: POTENTIALLY NOVEL
-    novelty_basis: No source found for a product of two-graphs induced by the symmetric difference (searches listed under CLM-C14-06); OEIS has no match for the prime counts.
+    novelty_basis: "The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts."
+    change_reason: "Skeptic review 2026-10-18 - evidence extended to product order 64; novelty basis updated"
 
 journal:
   - key: C14-01
@@ -286,6 +293,11 @@ journal:
     kind: review
     text: "Independent re-implementation (no shared code) reproduced the classification, all 460 witnesses, the explicit xor isomorphisms, the bipartite formula, the Seidel identity in exact integers and K2-absorption; the census pipeline was validated against A129582 and A002854."
     refs: [EXP-C14-06]
+  - key: C14-12
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; every census number reproduced with independent code. CLM-C14-06 is a rediscovery - Abiad, Butler and Haemers (arXiv:1801.01149, 2018, Section 5) define the product and give its Seidel matrix; the lab's searches missed it. CLM-C14-13 survives a much larger search (53,703 multisets, product order <= 64). The '4-5 orders of magnitude' spectra speedup was inflated by BLAS thread oversubscription (about 3 orders)."
+    refs: [CLM-C14-06, CLM-C14-13, reviews/skeptic_C14_C15_C16_C18.md]
 
 next_directions:
   - "C14: prove or refute that two-graphs are a free commutative monoid under the symmetric-difference product (twin reducts; analogue of McKenzie's theorem for Kronecker products of +-1 matrices)"

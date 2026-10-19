@@ -1,0 +1,13 @@
+{
+ "n_bounded": 7239,
+ "sample": 400,
+ "checks": {
+  "4:UNSAT": 7175,
+  "5:UNSAT": 399,
+  "6:UNSAT": 400,
+  "7:UNSAT": 400
+ },
+ "violations": [],
+ "unknown": [],
+ "elapsed_s": 61.4
+}

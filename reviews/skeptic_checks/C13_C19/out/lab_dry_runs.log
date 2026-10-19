@@ -1,0 +1,18 @@
+[EXP-C19-02] ok in 11.39s (reproduced previous hash)
+    identity length = B(n) - sum (i-1) MC_i: violations on greedy games n < 1500: 0; on 1500 random games: 0
+    split phase (splits + combine-1s) ends at the lazy representation for 4999 of 4999 n; random firing orders change the end point or the length in 0 of 300 cases
+    H-C19-4 (L(m+1) = L(m) + lambda(m)) fails for 288 of 300 m, first: [{'m': 3, 'L(m+1)': 3, 'L(m)': 2, 'lambda': 0}, {'m': 5, 'L(m+1)': 6, 'L(m)': 5, 'lambda': 0}]
+[EXP-C13-07] ok in 5.37s (reproduced previous hash)
+    253 one-variable laws; spectrum {1}: 9; models for every N in 7..12: 237; other: 7 ['x = (xx)x', 'x = ((xx)x)x', 'x = (((xx)x)x)x', 'xx = ((xx)x)x']
+    divisor-closure violations: 24 e.g. [('x = x(x(xx))', [2]), ('x = x((xx)x)', [2]), ('x = x(((xx)x)x)', [3]), ('xx = (xx)((xx)x)', [2])]
+    missing-size patterns (count, missing N<=12): 213x[]; 20x[2]; 9x[2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 4x[3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 3x[3]; 2x[2, 4, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[3, 5, 6, 7, 8, 9, 10, 11, 12]; 1x[2, 3]
+    UNKNOWN: 0
+[EXP-C13-09] ok in 3.83s (reproduced previous hash)
+    cube law: model at N=2: False; failing explicit models N=3..60: []
+    W-family, 42 six-leaf terms, N <= 6: mismatches 0
+    identifications to N=1000: x(xx) = y(xy): True, (xx)(xy) = (yy)(yx): True, x = x((xx)x): True, ((xx)x)x = ((yy)y)y: True, x(xy) = y(yx): True, x((xy)y) = y((xx)x): True
+    all checks passed: True
+[EXP-C13-08] ok in 57.85s (reproduced previous hash)
+    CLM-C06-10: exact spectrum proved for 16 of 17 laws; not proved: ['x(yz)=y((yx)z)']
+    3-variable family (18581 laws): bound found for 7238 (g=1: 6045); exact spectrum Div(g) proved for 6912 {1: 6045, 2: 769, 3: 84, 4: 13, 5: 1}
+    soundness: 603 laws, 235 with a bound, 1245 sizes N not dividing the bound checked by SAT/affine; violations 0

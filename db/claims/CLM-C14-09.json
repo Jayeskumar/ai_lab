@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld (given the cited unique factorisation theorems)",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C14-09",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation.",
   "proof": "proofs/paper/C14.md#theorem-9-clm-c14-09--cartesian-and-strong-products-give-isomorphic-graded-monoids",
-  "proof_check": "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "references": [
     "https://arxiv.org/abs/0705.0038",
     "https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf"

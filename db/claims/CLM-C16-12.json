@@ -9,6 +9,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-12",
@@ -18,7 +27,7 @@
   "novelty": "REDISCOVERY",
   "novelty_basis": "Periods of second-order linear recurrences modulo N are orders of companion matrices (M. Ward, Trans. AMS 35 (1933); D. D. Wall, Amer. Math. Monthly 67 (1960) for Fibonacci). The resulting period sequences of the odd and golden laws (6, 24, 48, 18, 5, ... and 4, 120, 342, ...) are not in the OEIS.",
   "proof": "proofs/paper/C16.md#theorem-9-clm-c16-12--affine-magmas",
-  "proof_check": "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "For x*y = alpha x + beta y + gamma on Z/N (beta a unit) whose pair map has a fixed point, the maximal period is the\norder of [[0,1],[beta,alpha]] mod N. In particular the anchored associative magma x + y + 1 has exactly the cycle\nstructure of the Fibonacci numbers mod N (maximal period = the Pisano period), the odd-law magma x + 1 + y/2 has\nmaximal period ord([[0,1],[1/2,1]]) and the golden-law magmas x + 1 + a y (a^2 + a = 1) have maximal period\nord([[0,1],[a,1]]).",
   "system": "SYS-E",
   "title": "Affine magmas: periods are orders of companion matrices; the anchored magma x + y + 1 is the Fibonacci sequence mod N",

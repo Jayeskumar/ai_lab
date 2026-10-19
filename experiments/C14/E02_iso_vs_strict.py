@@ -86,10 +86,10 @@ def run():
             s *= {"K1": 1, "2K1": 2, "K2": 2}.get(nm, 3)
         size_hist[s] = size_hist.get(s, 0) + 1
     return {
-        "n_non_associative": 236,
+        "n_non_associative": sum(1 for code in range(256) if not is_associative(code)),
         "assoc_witnesses_found": len(a_rows),
         "assoc_no_witness_le3": a_none,
-        "n_non_commutative": 224,
+        "n_non_commutative": sum(1 for code in range(256) if not is_commutative(code)),
         "comm_witnesses_found": len(c_rows),
         "comm_no_witness_le3": c_none,
         "assoc_witness_order_histogram": dict(sorted(size_hist.items())),
@@ -97,9 +97,11 @@ def run():
         "comm_witnesses_certified_by_degree_sequence": cert_c,
         "assoc_witnesses": {str(k): v for k, v in a_rows.items()},
         "comm_witnesses": {str(k): v for k, v in c_rows.items()},
-        "summary": [f"associativity witnesses among graphs <= 3 vertices: {len(a_rows)}/236; without: "
+        "summary": [f"associativity witnesses among graphs <= 3 vertices: {len(a_rows)}/"
+                    f"{sum(1 for code in range(256) if not is_associative(code))}; without: "
                     f"{[(d['code'], d['cells']) for d in a_none]}",
-                    f"commutativity witnesses: {len(c_rows)}/224; without: {[(d['code'], d['cells']) for d in c_none]}",
+                    f"commutativity witnesses: {len(c_rows)}/{sum(1 for code in range(256) if not is_commutative(code))}; "
+                    f"without: {[(d['code'], d['cells']) for d in c_none]}",
                     f"witness product orders: {dict(sorted(size_hist.items()))}",
                     f"witnesses certified by edge count/degree sequence alone: assoc {cert_a}/{len(a_rows)}, "
                     f"comm {cert_c}/{len(c_rows)}"],

@@ -33,10 +33,19 @@
       "old": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (about 1/n^2 per random Latin square of the right parity) suggest the number of full-period quasigroups grows like L(n)/n^2, but there is no proof. Plain depth-first search and a SAT encoding stall at n = 9, so random sampling was the only method that scaled.",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; the Skeptic's own sampler adds verified examples for every n = 17..26 and full-period Z_n-isotopes for odd n <= 21. Sampling hit rates are of the order 1/n^2 per random Latin square but not close to it (exact n = 5 rate 0.52/n^2; pooled over n = 6..16 the lab has 139 hits against 181 expected), so a count of order L(n)/n^2 (L(n) = number of Latin squares) is suggested, without proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).",
+      "old": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).",
+      "reason": "Skeptic review 2026-10-18 (P10) - range extended to n = 26; rate wording corrected",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-10",
-  "limitations": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).",
+  "limitations": "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; the Skeptic's own sampler adds verified examples for every n = 17..26 and full-period Z_n-isotopes for odd n <= 21. Sampling hit rates are of the order 1/n^2 per random Latin square but not close to it (exact n = 5 rate 0.52/n^2; pooled over n = 6..16 the lab has 139 hits against 181 expected), so a count of order L(n)/n^2 (L(n) = number of Latin squares) is suggested, without proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).",
   "novelty": "NOT ASSESSED",
   "statement": "For every n >= 5 there is a quasigroup of order n whose Fibonacci pair map is a single cycle through all n^2 pairs.",
   "system": "SYS-E",

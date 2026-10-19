@@ -9,14 +9,32 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "statement",
+      "new": "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, faster than direct numpy simulation by about one order of magnitude at t = 10^3, two orders at 10^4 (138-314x in two runs) and three orders at 10^5 (1,459-2,500x); t = 10^9 takes milliseconds for L <= 4096. With the same timing protocol on both sides it loses for t below about 20.",
+      "old": "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096.",
+      "reason": "Skeptic review 2026-10-18 (P4) - speedups restated as orders of magnitude; small-t loss recorded",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "improvement_detail",
+      "new": "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); measured speedups are single-run orders of magnitude on a shared machine (a re-run by the Skeptic gave 202-314x at t = 10^4 and 1,459-2,262x at 10^5 against the recorded 138-215x and 1,800-2,500x); slower than simulation for t below about 20",
+      "old": "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); indicative timings on a shared machine",
+      "reason": "Skeptic review 2026-10-18 (P4) - speedups restated as orders of magnitude; small-t loss recorded",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-13",
   "improvement": "IMPROVEMENT",
-  "improvement_detail": "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); indicative timings on a shared machine",
+  "improvement_detail": "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); measured speedups are single-run orders of magnitude on a shared machine (a re-run by the Skeptic gave 202-314x at t = 10^4 and 1,459-2,262x at 10^5 against the recorded 138-215x and 1,800-2,500x); slower than simulation for t below about 20",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.",
-  "statement": "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096.",
+  "statement": "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, faster than direct numpy simulation by about one order of magnitude at t = 10^3, two orders at 10^4 (138-314x in two runs) and three orders at 10^5 (1,459-2,500x); t = 10^9 takes milliseconds for L <= 4096. With the same timing protocol on both sides it loses for t below about 20.",
   "system": "SYS-E",
   "title": "Affine fast-forward by operator powers",
   "type": "algorithmic",

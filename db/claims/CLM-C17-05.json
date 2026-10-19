@@ -1,6 +1,7 @@
 {
   "cycle": "C17",
   "evidence": [
+    "EXP-C17-03",
     "EXP-C17-02"
   ],
   "history": [
@@ -9,15 +10,56 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "title",
+      "new": "The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096)",
+      "old": "The anchor instance of left-distributivity singles out the Laver tables (N <= 10)",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for every N; range extended by EXP-C17-03",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "statement",
+      "new": "For every N, the instances y <= N - 2 of x*(y+1) = (x*y)*(x+1) force at most one anchored table (Laver's recursion; written proof in proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which satisfies the full instance including the wrap-around y = N - 1. For every N <= 4096 (EXP-C17-03, and independently the Skeptic's C program) the full instance has a model exactly at the powers of 2, so for these N left-distributivity of an anchored table is decided by an O(N^2) check.",
+      "old": "For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for every N; range extended by EXP-C17-03",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C17-03",
+        "EXP-C17-02"
+      ],
+      "old": [
+        "EXP-C17-02"
+      ],
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for every N; range extended by EXP-C17-03",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Uniqueness is proved for every N; the exclusion of non-powers of 2 is computational (N <= 4096) and open in general.",
+      "old": "Complete SAT enumeration for N <= 10 only.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for every N; range extended by EXP-C17-03",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C17-05",
-  "limitations": "Complete SAT enumeration for N <= 10 only.",
+  "limitations": "Uniqueness is proved for every N; the exclusion of non-powers of 2 is computational (N <= 4096) and open in general.",
   "novelty": "NOT ASSESSED",
   "novelty_basis": "Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.",
-  "statement": "For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.",
+  "statement": "For every N, the instances y <= N - 2 of x*(y+1) = (x*y)*(x+1) force at most one anchored table (Laver's recursion; written proof in proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which satisfies the full instance including the wrap-around y = N - 1. For every N <= 4096 (EXP-C17-03, and independently the Skeptic's C program) the full instance has a model exactly at the powers of 2, so for these N left-distributivity of an anchored table is decided by an O(N^2) check.",
   "system": "SYS-B",
-  "title": "The anchor instance of left-distributivity singles out the Laver tables (N <= 10)",
+  "title": "The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096)",
   "type": "observation",
   "verification": "COMPUTATIONALLY SUPPORTED"
 }

@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C14",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C14-05",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.",
   "proof": "proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character",
-  "proof_check": "written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)",
+  "proof_check": "written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "M_c(G*H) = M_c(G) (x) I + I (x) M_c(H) for all graphs (cA != cN) holds exactly for the Cartesian product\n(c = (0,t,0)) and code 221 (c = (0,0,t)), t != 0. Hence each of the ten commutative associative local\nproducts except the empty and the complete product has exactly one kind of character (multiplicative or\nadditive).",
   "system": "SYS-D",
   "title": "Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character",

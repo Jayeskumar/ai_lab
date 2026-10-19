@@ -9,15 +9,42 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "statement",
+      "new": "In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),\nf(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],\nD[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,\na (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all\nassociative; 468 of the 512 specs are not associative; the remaining 33 specs define the same 11 operations,\nso exactly 44 specs are associative.",
+      "old": "In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),\nf(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],\nD[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,\na (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all\nassociative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11\noperations on [0,64)^2.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld and strengthened: the 33 further specs define the same operations (exactly 44 associative specs)",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "limitations",
+      "new": "The first version proved agreement of the 33 non-canonical specs with their formulas only on [0,64)^2; the Skeptic's review supplied the general argument.",
+      "old": "Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld and strengthened: the 33 further specs define the same operations (exactly 44 associative specs)",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); the 33 non-canonical associative specs by the Skeptic's absorption argument (added to proofs/paper/C07.md); skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md)",
+      "old": "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld and strengthened: the 33 further specs define the same operations (exactly 44 associative specs)",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C07-01",
-  "limitations": "Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.",
+  "limitations": "The first version proved agreement of the 33 non-canonical specs with their formulas only on [0,64)^2; the Skeptic's review supplied the general argument.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Each formula is classical or elementary - nim-sum and nim-product (Conway, On Numbers and Games, 1976); a + b and min(a, b) are the Grundy functions of 'reduce either or both heaps' and 'reduce both heaps' (rank functions of product posets). The census of a 512-member family and the resulting classification were not found (one web search, OEIS); small.",
   "proof": "proofs/paper/C07.md#theorem-1-clm-c07-01--the-associative-mex-operations",
-  "proof_check": "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review",
-  "statement": "In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),\nf(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],\nD[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,\na (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all\nassociative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11\noperations on [0,64)^2.",
+  "proof_check": "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); the 33 non-canonical associative specs by the Skeptic's absorption argument (added to proofs/paper/C07.md); skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md)",
+  "statement": "In the family of 512 mex operations (options f(a',b) [L], f(a,b') [R] and XOR combinations of f(a',b),\nf(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],\nD[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,\na (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all\nassociative; 468 of the 512 specs are not associative; the remaining 33 specs define the same 11 operations,\nso exactly 44 specs are associative.",
   "system": "SYS-B",
   "title": "The associative mex operations are 0, projections, min, +, XOR, nim-product and four relatives",
   "type": "theorem",

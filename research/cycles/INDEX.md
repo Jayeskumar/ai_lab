@@ -18,7 +18,7 @@
 | [C14](C14_graph_products/README.md) | Graphs as quantities: the 256 local graph products | D | complete | 7 | 13 |
 | [C15](C15_magma_automata/README.md) | Magma cellular automata: light cones, streaming width and fast-forwarding | E | complete | 5 | 18 |
 | [C16](C16_magma_dynamics/README.md) | Fibonacci dynamics in invented finite algebras | E | complete | 5 | 19 |
-| [C17](C17_law_testing/README.md) | Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check | B-algorithms | complete | 2 | 7 |
+| [C17](C17_law_testing/README.md) | Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check | B-algorithms | complete | 3 | 7 |
 | [C18](C18_quasigroup_mixing/README.md) | Invented operations as mixing primitives: quasigroup string transformations versus standard hashes | B-applications | complete | 5 | 13 |
 | [C19](C19_zeckendorf_game/README.md) | The longest Zeckendorf game | C-D | complete | 4 | 14 |
 | [C20](C20_open_problems/README.md) | Open problems revisited: the last one-rule systems of C04, and a literature check for C03 | A | complete | 1 | 4 |

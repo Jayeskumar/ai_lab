@@ -47,7 +47,8 @@ mode) was caught by a sanity check before it affected any recorded result.
 * Exclusion produces familiar arithmetic: + is the mex of "decrease either or
   both", min of "decrease both", ⊕ of "decrease one", ⊗ of Conway's corner moves.
   Nothing else in the family is associative (468 specs refuted by explicit
-  triples; 33 further specs agree with the 11 formulas on the tested window).
+  triples; the 33 further specs define the same 11 operations — proved by the
+  Skeptic's absorption argument, so exactly 44 specs are associative).
 * Most commutative mex operations are chaotic (quadratic growth, no closed
   forms, unknown sequences) — but not structureless: the second row of
   D[x⊕y] is an exact self-similar involution built from Jacobsthal numbers.
@@ -85,6 +86,7 @@ minimal excludant" (Volume 5).
 ## Next directions
 
 1. Structure of rows a ≥ 3 of D[x⊕y].
-2. Prove the 33 remaining associative-looking specs equal their formulas.
+2. ~~Prove the 33 remaining associative-looking specs equal their formulas.~~
+   Done by the Skeptic's review (absorption argument, now in `proofs/paper/C07.md`).
 3. Which mex tables are automatic sequences (Walnut-style proofs)?
 4. OEIS submissions (human decision).

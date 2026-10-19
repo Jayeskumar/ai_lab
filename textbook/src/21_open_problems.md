@@ -44,7 +44,9 @@ terminates. Every maximal derivation from $w$ has length
 $$D(w) = \sum_{k=m-1}^{0} d_k \bigl(2^{\lfloor x_k/2 \rfloor} - 1\bigr),$$
 where $d_k$ is the number of $b$'s to the right of run $k$ when its turn comes
 (the original $m - k$ plus one for every step already made), and
-$$D(n) = \max_{1 \le b \le n} b\,\bigl(2^{\lfloor (n-b)/2 \rfloor} - 1\bigr) = \Theta(2^{n/2}).$$
+$$D(n) = \max_{1 \le b \le n} b\,\bigl(2^{\lfloor (n-b)/2 \rfloor} - 1\bigr) = \Theta(2^{n/2}),$$
+explicitly $D(n) = 2^{n/2} - 2$ for even $n \ge 2$ and $3 \cdot 2^{(n-3)/2} - 3$
+for odd $n \ge 5$ (the Skeptic's simplification).
 
 *Proof idea.* A pair of $a$'s, once released, always travels all the way to
 the last run, so a run releases its pairs one after another, each journey
@@ -55,14 +57,19 @@ classified: 480 terminate and 388 do not.
 
 All three statements were checked on every word of length $\le 12$ for all
 eight rules; the rightmost and leftmost strategies agree on every word, as
-random descent predicts (EXP-C20-01).
+random descent predicts (EXP-C20-01). The independent Skeptic re-checked the
+written proofs step by step and extended the checks to all words of length
+$\le 18$ and $\le 21$.
 
 *What the literature already knew.* Both rules are *right barren* in
 McNaughton's sense, and barren one-rule systems are known to terminate
 (McNaughton; Geser, ICASE Report 2002-33). So the termination half is a
 rediscovery. Geser's report proves linear derivation lengths for its
 non-barren rules; for barren rules, as these examples show, the lengths can
-be exponential — and here they are known exactly.
+be exponential — and here they are known exactly. (The report's introduction
+announces linear lengths for *all* terminating rules with one pair of
+overlaps; $aab \to ababa$ has one pair of overlaps and exponential length, so
+only the body's narrower statement is correct — a point the Skeptic made.)
 
 ## A literature question, settled by the Historian
 
@@ -71,7 +78,8 @@ $0^p 1^q \to 1^r 0^s$ does not terminate. Zantema and Geser published a
 complete characterisation of these rules (tech. report 1994, journal 2000).
 The Director's attempts to obtain the full text failed (HTTP 403, a bot
 challenge, HTTP 500); the Historian then found the scanned report on an older
-archive host. Their Theorem 1.1 is our conjecture, verbatim — now
+archive host. Their Theorem 1.1 is equivalent to our conjecture (it
+characterises termination, ours non-termination, with the same cases) — now
 Theorem 4.6. The 24 rules we had left open all terminate.
 
 ## The open problems of batch 1

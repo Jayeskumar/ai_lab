@@ -1,5 +1,5 @@
 {
-  "counterexample": "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).",
+  "counterexample": "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5 (the Skeptic's re-run - 79-97x). The clause 'loses for small t' is partly true - timed with the same protocol on both sides, the affine method loses for t below about 20 and the fuse method below about 20-70 (Skeptic review, Appendix C). The first version said the affine and fuse methods never lose; EXP-C15-03 had timed the fast method as the best of 3 runs and the simulation as a single run.",
   "cycle": "C15",
   "evidence": [
     "EXP-C15-03"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5 (the Skeptic's re-run - 79-97x). The clause 'loses for small t' is partly true - timed with the same protocol on both sides, the affine method loses for t below about 20 and the fuse method below about 20-70 (Skeptic review, Appendix C). The first version said the affine and fuse methods never lose; EXP-C15-03 had timed the fast method as the best of 3 runs and the simulation as a single run.",
+      "old": "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).",
+      "reason": "Skeptic review 2026-10-18 (P3, P4) - 'never lose' was false; the refutation rests on the >100x clause",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-12",

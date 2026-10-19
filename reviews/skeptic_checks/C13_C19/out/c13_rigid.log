@@ -1,0 +1,23 @@
+EXP-C13-02 tested laws by affine-spectrum kind: {'infinite': 147, 'finite': 52}
+laws with FINITE affine spectrum among them: 52
+    ('((xx)x)x = y(y(y(yy)))', [1, 61], [2, 3, 4, 5, 6, 7, 8], [])
+    ('x(x(yx)) = (((yy)y)y)y', [1, 61], [3, 5, 6, 7, 8], [])
+    ('((xx)x)x = x(y(x(yy)))', [1, 2, 37, 74], [2, 3, 4, 5, 6, 7, 8], [])
+    ('((xy)y)y = x(x(y(xx)))', [1, 2, 37, 74], [6], [7, 8])
+    ('(((xy)y)y)y = y(x((yx)x))', [1, 2, 37, 74], [2, 7, 8], [])
+    ('((xx)x)x = x(y(y(xy)))', [1, 2, 47, 94], [2, 4, 5, 6, 7, 8], [])
+    ('((xy)y)y = x(x(x(yx)))', [1, 2, 47, 94], [4, 5], [7, 8])
+    ('((xx)x)x = y(y(x(xy)))', [1, 107], [2, 3, 4, 5, 6, 7, 8], [])
+    ('((xx)x)x = y(y(y(xy)))', [1, 109], [2, 4, 5, 6, 7, 8], [])
+    ('(((xx)x)x)x = y(x(y(yy)))', [1, 2, 4, 8, 11, 22, 44, 88], [3, 4, 5, 6, 7, 8], [])
+    ('(((xx)x)x)y = y(y(y(yy)))', [1, 2, 4, 8, 11, 22, 44, 88], [3, 4, 5, 6, 7, 8], [])
+    ('(((xx)x)y)x = y(y(y(yy)))', [1, 2, 4, 8, 11, 22, 44, 88], [4, 5, 6, 7, 8], [])
+non-rigid among finite-class laws: 52 ; infinite-class laws: 147 non-rigid among them: 146
+infinite-class laws with non-affine models at every N = 6, 7, 8: 146
+non-affine models, x=x(x(xx)) {2: 'UNSAT', 3: 'SAT', 4: 'SAT', 5: 'SAT', 6: 'SAT', 7: 'SAT', 8: 'SAT'}
+non-affine models, (xx)x=(yy)y {2: 'SAT', 3: 'SAT', 4: 'SAT', 5: 'SAT', 6: 'SAT', 7: 'SAT', 8: 'SAT'}
+the 'rigid' law x((yz)z) = z((yx)x) {2: 'UNSAT', 3: 'UNSAT', 4: 'UNSAT', 5: 'UNSAT', 6: 'UNSAT', 7: 'UNSAT', 8: 'UNSAT'}
+
+real	0m2.727s
+user	0m2.717s
+sys	0m0.097s

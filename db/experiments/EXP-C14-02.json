@@ -8,8 +8,8 @@
   "code": {
     "command": "python -m lab run EXP-C14-02",
     "file": "experiments/C14/E02_iso_vs_strict.py",
-    "sha256": "68f83e75175b0445640d7d1eb40413590bfa73dec3af654a148a347493dddc5e",
-    "systems_sha256": "ae0c45f7b4c689c0eb0f0ca055088d07c9b87256a1deb6cba4a52412e57e9428"
+    "sha256": "f31655424999fb62d5625eaabc4f1ad75c7a65a1f89831f5095371c3815c8eaa",
+    "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
   },
   "cycle": "C14",
   "falsification": "A non-strict code without any witness (then it would be associative/commutative only up to isomorphism, refuting H-C14-1, and would be examined by hand).",
@@ -94,6 +94,27 @@
       "results_sha256": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
       "runtime_s": 1.008,
       "started": "2026-10-18T08:41:25Z",
+      "summary": [
+        "associativity witnesses among graphs <= 3 vertices: 236/236; without: []",
+        "commutativity witnesses: 224/224; without: []",
+        "witness product orders: {2: 144, 4: 84, 8: 8}",
+        "witnesses certified by edge count/degree sequence alone: assoc 236/236, comm 224/224"
+      ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C14-02",
+        "file": "experiments/C14/E02_iso_vs_strict.py",
+        "sha256": "f31655424999fb62d5625eaabc4f1ad75c7a65a1f89831f5095371c3815c8eaa",
+        "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
+      },
+      "error": false,
+      "finished": "2026-10-18T18:37:12Z",
+      "reproduced": true,
+      "results_file": "results/EXP-C14-02.json",
+      "results_sha256": "9bbb02dc8486fdf13399bddbf45736bb6e9f5c3ca0ab03a067a5f92c57c9e082",
+      "runtime_s": 1.107,
+      "started": "2026-10-18T18:37:11Z",
       "summary": [
         "associativity witnesses among graphs <= 3 vertices: 236/236; without: []",
         "commutativity witnesses: 224/224; without: []",

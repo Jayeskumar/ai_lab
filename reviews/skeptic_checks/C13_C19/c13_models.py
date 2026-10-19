@@ -237,14 +237,14 @@ def c06():
         law = read_law(name)
         spec = []
         nonaff = []
-        for N in range(1, 13):
+        for N in range(1, 10):
             cnt, tabs = count_models(N, [law], limit=50)
             if cnt:
                 spec.append(N)
             for T in tabs:
                 if not any(T == affine_tab(N, a) for a in range(N)):
                     nonaff.append((N, T))
-        res[name] = {"spectrum_le12": spec, "non_affine": nonaff}
+        res[name] = {"spectrum_le9": spec, "non_affine": nonaff}
         print(name, spec, "non-affine:", nonaff, flush=True)
     json.dump(res, open(os.path.join(OUT, "c13_c06laws.json"), "w"), indent=1)
 

@@ -14,7 +14,7 @@ triples?*
 | ID | Hypothesis | Proposer | Outcome |
 |---|---|---|---|
 | H-C17-1 | *(bold)* Light's generator test beats the exhaustive check by a factor ≥ n/10 on every input family. | Application Researcher | **refuted** (left-zero bands: 1.7×) |
-| H-C17-2 | *(bold)* For anchored magmas the instance z = 0 of any law decides the law. | Inventor | **refuted** (18 laws); true for associativity, and for left-distributivity up to N = 10 |
+| H-C17-2 | *(bold)* For anchored magmas the instance z = 0 of any law decides the law. | Inventor | **refuted** (43 laws; first reported as 18 — a counting bug); true for associativity, and for left-distributivity up to N = 4096 |
 | H-C17-3 | The Rajagopalan–Schulman test with 40 rounds never errs on the benchmark. | Explorer | supported (0 errors in 90 instances) |
 
 ## Step 2 — Definitions
@@ -33,8 +33,18 @@ bad triples among n³), random magmas.
 
 | Experiment | Outcome |
 |---|---|
-| EXP-C17-01 | 90 instances, n = 32 … 512: exact tests always correct; exhaustive/Light probe ratio 23–614 (left-zero bands 1.7); random triples (n²/16 samples) wrong on 27 of 30 near-associative inputs; RS(40) never wrong |
-| EXP-C17-02 | anchor instance decides 333 of 382 laws (N ≤ 5), insufficient for 18, undecided 31; LD wrap-around instance has solutions only at N = 2, 4, 8 (N ≤ 10) |
+| EXP-C17-01 | 90 instances, n = 32 … 512: exact tests always correct; certification (associative inputs) — exhaustive/Light probe ratio 23–614, left-zero bands 1.7; refutation — an exhaustive check stopping at the first violation needs 4 probes on random magmas and 0.15–1.1× Light's probes on corruptions; random triples (n²/16 samples) wrong on 27 of 30 near-associative inputs; RS(40) never wrong |
+| EXP-C17-02 | anchor instance decides 339 of 382 laws (N ≤ 5), insufficient for 43, undecided 0; LD wrap-around instance has solutions only at N = 2, 4, 8 (N ≤ 10) |
+| EXP-C17-03 | forced anchored tables (uniqueness proved for every N): the full LD anchor instance has a model exactly at the powers of 2, for every N ≤ 4096 (the Skeptic's C program agrees); at the powers of 2 up to 512 the forced table is the Laver table and left-distributive |
+
+> **Correction (2026-10-18, after the Skeptic's review).** The first version
+> of EXP-C17-01 charged the exhaustive check a whole 64-row slab as soon as the
+> slab contained a violation, so its "gains" of 23–77 on corrupted and random
+> inputs measured the slab size; with correct accounting the exhaustive check
+> wins on non-associative inputs, and the gains concern certification only.
+> EXP-C17-02 had a classification bug (laws with a capped enumeration at one N
+> were counted as undecided although a violation had been found at another N):
+> the correct count is 339 / 43 / 0, not 333 / 18 / 31.
 
 ## Step 6 — Analysis
 

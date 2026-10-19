@@ -1,6 +1,6 @@
 {
   "agent": "Application Researcher",
-  "analysis": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.",
+  "analysis": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). Certification of associative inputs - the exhaustive check costs 23-383 (cyclic) and 38-614 (anchored) times more table probes than Light's test with a greedy generating set (generating-set cost included), but only 1.7 times more on left-zero bands (x*y = x, every element is a generator). Refutation - an exhaustive check stopping at the first violating triple needs 4 probes on random magmas and 0.1-1.1 times Light's probes on one-entry corruptions. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.3-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.15 s. (Re-run after the Skeptic's review with corrected probe accounting; the first version charged the exhaustive check a whole 64-row slab on non-associative inputs.)",
   "assumptions": [
     "n in {32, 64, 128, 256, 512}; 3 instances per randomised family",
     "probes = table look-ups (machine-independent cost); wall times are medians of 3 runs on a shared, loaded machine and are indicative only",
@@ -9,8 +9,8 @@
   "code": {
     "command": "python -m lab run EXP-C17-01",
     "file": "experiments/C17/E01_assoc_benchmark.py",
-    "sha256": "c7fe22fb5a47b98319e5f745cbb982e682d2cdef52dee47ca93c0f210d3c6e75",
-    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+    "sha256": "9a70ded7c96b96281bb7a13320658da0b66f84994d1811940f344c5d70b5f853",
+    "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
   },
   "counterexamples": [
     "left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)"
@@ -64,18 +64,36 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "methodology",
+      "new": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs. The exhaustive check is charged the probes of a sequential check that stops at the first violating triple (revised after the Skeptic's review - the first version charged a whole 64-row slab, so its ratios on non-associative inputs measured the slab size). Probe ratios are reported separately for associative inputs (certification, where every test must do its full work) and non-associative inputs (refutation).",
+      "old": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.",
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T18:18:47Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "analysis",
+      "new": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). Certification of associative inputs - the exhaustive check costs 23-383 (cyclic) and 38-614 (anchored) times more table probes than Light's test with a greedy generating set (generating-set cost included), but only 1.7 times more on left-zero bands (x*y = x, every element is a generator). Refutation - an exhaustive check stopping at the first violating triple needs 4 probes on random magmas and 0.1-1.1 times Light's probes on one-entry corruptions. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.3-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.15 s. (Re-run after the Skeptic's review with corrected probe accounting; the first version charged the exhaustive check a whole 64-row slab on non-associative inputs.)",
+      "old": "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "hypothesis": "H-C17-1 (bold): Light's test with a greedy generating set beats the exhaustive test by a factor >= n/10 in table probes on every input family. H-C17-3: the Rajagopalan-Schulman test with 40 rounds never errs on the benchmark (one-sided error <= (7/8)^40 per non-associative input).",
   "id": "EXP-C17-01",
-  "methodology": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.",
+  "methodology": "Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs. The exhaustive check is charged the probes of a sequential check that stops at the first violating triple (revised after the Skeptic's review - the first version charged a whole 64-row slab, so its ratios on non-associative inputs measured the slab size). Probe ratios are reported separately for associative inputs (certification, where every test must do its full work) and non-associative inputs (refutation).",
   "question": "How much cheaper than the exhaustive n^3 check are generator-based, anchored and randomised associativity tests, on which inputs, and with which error rates?",
   "related": [
     "CLM-C17-04",
     "CLM-C17-06"
   ],
   "results_file": "results/EXP-C17-01.json",
-  "results_sha256": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
+  "results_sha256": "51c925a7bef6b358e7013f4cfd037e7e2e6aa145cbc9259bb3b6e7f17dee7622",
   "runs": [
     {
       "code": {
@@ -116,12 +134,34 @@
         "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
         "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
       ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-01",
+        "file": "experiments/C17/E01_assoc_benchmark.py",
+        "sha256": "9a70ded7c96b96281bb7a13320658da0b66f84994d1811940f344c5d70b5f853",
+        "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
+      },
+      "error": false,
+      "finished": "2026-10-18T18:18:47Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C17-01.json",
+      "results_sha256": "51c925a7bef6b358e7013f4cfd037e7e2e6aa145cbc9259bb3b6e7f17dee7622",
+      "runtime_s": 27.326,
+      "started": "2026-10-18T18:18:19Z",
+      "summary": [
+        "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
+        "certification (associative inputs) - exhaustive/Light probe ratio incl. generating set at n = 512: anchored: 613.68, cyclic: 383.16, left_zero: 1.71",
+        "refutation (non-associative inputs, exhaustive check stopping at the first violation) - ratio at n = 512: anchored+1err: 0.15, cyclic+1err: 1.07, random: 0.0",
+        "H-C17-1 fails for: ['anchored+1err', 'cyclic+1err', 'left_zero', 'random']"
+      ]
     }
   ],
   "summary": [
     "wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27",
-    "exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53",
-    "H-C17-1 fails for: ['cyclic+1err', 'left_zero']"
+    "certification (associative inputs) - exhaustive/Light probe ratio incl. generating set at n = 512: anchored: 613.68, cyclic: 383.16, left_zero: 1.71",
+    "refutation (non-associative inputs, exhaustive check stopping at the first violation) - ratio at n = 512: anchored+1err: 0.15, cyclic+1err: 1.07, random: 0.0",
+    "H-C17-1 fails for: ['anchored+1err', 'cyclic+1err', 'left_zero', 'random']"
   ],
   "title": "Benchmark of associativity tests: exhaustive, Light's generator test, the anchored O(n^2) test, Rajagopalan-Schulman and random triples",
   "verification": "COMPUTATIONALLY SUPPORTED"

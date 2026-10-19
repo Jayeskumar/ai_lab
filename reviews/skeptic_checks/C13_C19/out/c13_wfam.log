@@ -1,0 +1,12 @@
+W leaves 1 done; mismatches so far 0
+W leaves 2 done; mismatches so far 0
+W leaves 3 done; mismatches so far 0
+W leaves 4 done; mismatches so far 0
+W leaves 5 done; mismatches so far 0
+W leaves 6 done; mismatches so far 0
+Theorem 3 (iv): n -> (#c_W, #gap-free, equal): {1: (1, 1, True), 2: (1, 1, True), 3: (2, 2, True), 4: (4, 4, True), 5: (8, 8, True), 6: (16, 16, True), 7: (32, 32, True), 8: (64, 64, True), 9: (128, 128, True), 10: (256, 256, True), 11: (512, 512, True), 12: (1024, 1024, True), 13: (2048, 2048, True), 14: (4096, 4096, True), 15: (8192, 8192, True), 16: (16384, 16384, True)}
+W-family mismatches: [] checked 413
+
+real	0m7.898s
+user	0m7.686s
+sys	0m0.068s

@@ -64,22 +64,24 @@ claims:
       (n!)^n / n^2 full-period tables of order n (1, 24, 20736, ...) and the maximal period over n-element magmas is
       n^2 for every n >= 1.
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-2-clm-c16-03--full-period-is-the-same-thing-as-a-de-bruijn-cycle
     evidence: [EXP-C16-01]
     novelty: REDISCOVERY
     novelty_basis: "Translation of a classical fact - the number of de Bruijn sequences B(k, m) is (k!)^(k^(m-1)) / k^m (T. van Aardenne-Ehrenfest, N. G. de Bruijn, Simon Stevin 28 (1951); BEST theorem; https://en.wikipedia.org/wiki/De_Bruijn_sequence)."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-04
     type: theorem
     system: SYS-E
     title: A parity condition for full periods
     statement: "If every left translation L_b is a bijection, sign(P) = (-1)^(n(n-1)/2) prod_b sgn(L_b); hence a full-period table satisfies prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2)."
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-3-clm-c16-04--a-parity-condition
     evidence: [EXP-C16-02]
     novelty: NOT ASSESSED
     novelty_basis: Elementary; likely known in the shift-register literature in other forms (Golomb's cycle-parity results for binary registers); no search for the q-ary order-2 statement beyond two web searches.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-05
     type: theorem
     system: SYS-E
@@ -89,11 +91,12 @@ claims:
       as (x_i, x_{i+2}); equivalently the windows (x_{i-1}, x_i, x_{i+1}) run once through the n^2 triples
       (a, b, b*a) of the Latin square (a universal cycle of the quasigroup).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-4-clm-c16-05--full-period-quasigroups-are-distance-2-de-bruijn-cycles
     evidence: [EXP-C16-02]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-06
     type: hypothesis
     system: SYS-E
@@ -122,22 +125,24 @@ claims:
     title: Direct products of full-period magmas of coprime orders are full-period
     statement: If two magmas (or quasigroups) of coprime orders n1, n2 are full-period, so is their direct product (a quasigroup if both are).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-6-clm-c16-08--products-of-coprime-orders
     evidence: [EXP-C16-02]
     novelty: NOT ASSESSED
     novelty_basis: Elementary; the analogous product construction for de Bruijn-type sequences is standard.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-09
     type: theorem
     system: SYS-E
     title: No isotope of a group of even order has a full-period Fibonacci pair map
     statement: "For every group G of even order n = 2m and every isotope x o y = gamma(alpha(x) beta(y)), prod_b sgn(L_b) = (-1)^m, whereas a full period requires (-1)^(m+1); so no group of even order and no isotope of one is full-period. (For odd n isotopes of Z_n are full-period for every n = 5, ..., 15.)"
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the review checked the Burnside step and 36 groups of even order 2-30; it also filled the evidence gap for n = 5 - 480 of the 3360 full-period quasigroups of order 5 are isotopes of Z_5)"
     proof: proofs/paper/C16.md#theorem-7-clm-c16-09--no-isotope-of-a-group-of-even-order-is-full-period
     evidence: [EXP-C16-02]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld; n = 5 case of the remark checked"
   - id: CLM-C16-10
     type: conjecture
     system: SYS-E
@@ -146,7 +151,8 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C16-02, EXP-C16-05]
     novelty: NOT ASSESSED
-    limitations: "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05)."
+    limitations: "Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; the Skeptic's own sampler adds verified examples for every n = 17..26 and full-period Z_n-isotopes for odd n <= 21. Sampling hit rates are of the order 1/n^2 per random Latin square but not close to it (exact n = 5 rate 0.52/n^2; pooled over n = 6..16 the lab has 139 hits against 181 expected), so a count of order L(n)/n^2 (L(n) = number of Latin squares) is suggested, without proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05)."
+    change_reason: "Skeptic review 2026-10-18 (P10) - range extended to n = 26; rate wording corrected"
 
   - id: CLM-C16-11
     type: theorem
@@ -171,12 +177,13 @@ claims:
       maximal period ord([[0,1],[1/2,1]]) and the golden-law magmas x + 1 + a y (a^2 + a = 1) have maximal period
       ord([[0,1],[a,1]]).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-9-clm-c16-12--affine-magmas
     lean: [proofs/lean/Infinity/C16_Dynamics.lean]
     evidence: [EXP-C16-03]
     novelty: REDISCOVERY
     novelty_basis: "Periods of second-order linear recurrences modulo N are orders of companion matrices (M. Ward, Trans. AMS 35 (1933); D. D. Wall, Amer. Math. Monthly 67 (1960) for Fibonacci). The resulting period sequences of the odd and golden laws (6, 24, 48, 18, 5, ... and 4, 120, 342, ...) are not in the OEIS."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-13
     type: conjecture
     system: SYS-E
@@ -185,18 +192,20 @@ claims:
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C16-03]
     novelty: NOT ASSESSED
-    limitations: 300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.
+    limitations: "300 of 300 random cases with N <= 30 in the lab; the Skeptic checked all 1,997,716 affine magmas with beta a unit and 2 <= N <= 60 exhaustively - the maximal cycle length equals the lcm of all cycle lengths in every case, and that lcm equals the directly computed matrix order for N <= 24. Proven only when the pair map has a fixed point (CLM-C16-12); a partial proof idea from the review - if gamma is a unit, e_3 is a cyclic vector (det[e_3, A e_3, A^2 e_3] = -gamma^2)."
+    change_reason: "Skeptic review 2026-10-18 - exhaustive evidence to N = 60"
   - id: CLM-C16-14
     type: theorem
     system: SYS-E
     title: "Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1)"
     statement: "On [0, q), q = 2^(2^k), with nim-multiplication the pair map sends pairs containing 0 to (0, 0) within two steps and is isomorphic on nonzero pairs to the Fibonacci pair map on (Z/(q-1))^2; its maximal period is pi(q - 1) (40 for q = 16, 360 for q = 256)."
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03)"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-10-clm-c16-14--fibonacci-sequences-of-nimbers
     evidence: [EXP-C16-03]
     novelty: REDISCOVERY
     novelty_basis: The Fibonacci length of a cyclic group is its Pisano period (classical; Knox 1992, Campbell et al.); nimber fields are Conway's.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-15
     type: theorem
     system: SYS-E
@@ -206,21 +215,23 @@ claims:
       (N-1, N-1) and the two-cycles {(N-1, c), (c, N-1)} - and every orbit reaches one of them; so the maximal period is 2
       (H-C16-4, 'the maximal period is a power of 2', holds for this degenerate reason).
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10"
+    proof_check: "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C16.md#theorem-11-clm-c16-15--laver-tables-collapse-to-2-cycles
     lean: [proofs/lean/Infinity/C16_Dynamics.lean]
     evidence: [EXP-C16-03]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C16-16
     type: observation
     system: SYS-E
     title: Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10)
-    statement: The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.
+    statement: "The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10 (the Skeptic - every n = 4, ..., 13)."
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C16-03]
     novelty: NOT ASSESSED
     limitations: No explanation; the proof of CLM-C16-15 only gives the bound N.
+    change_reason: "Skeptic review 2026-10-18 - extended to n = 13"
   - id: CLM-C16-17
     type: algorithmic
     system: SYS-E
@@ -232,7 +243,8 @@ claims:
     evidence: [EXP-C16-04]
     novelty: REDISCOVERY
     novelty_basis: "Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5)."
-    limitations: A sanity battery, not TestU01 or PractRand.
+    limitations: "A sanity battery, not TestU01 or PractRand. The 'too regular' verdict on the de Bruijn generator is automatic - 2^20 outputs are exactly 16 full periods (Skeptic, P17)."
+    change_reason: "Skeptic review 2026-10-18 (P17) - limitation added"
   - id: CLM-C16-18
     type: observation
     system: SYS-E
@@ -295,6 +307,11 @@ journal:
     kind: novelty
     text: "Classical - nonsingular feedback registers (Golomb), de Bruijn counts (van Aardenne-Ehrenfest--de Bruijn), periods of linear recurrences mod N (Ward, Wall), Fibonacci lengths of groups (Knox; Campbell et al.). Not found - the characterisation of full-period quasigroups as distance-1/2 de Bruijn cycles, the counts 0, 0, 0, 3360, the even-order group-isotope obstruction, and Fibonacci dynamics in Laver tables."
     refs: [CLM-C16-05, CLM-C16-07, CLM-C16-09, CLM-C16-15]
+  - key: C16-09
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - all 19 claims upheld; written proofs correct. Evidence extended - full-period quasigroups for every n <= 26, CLM-C16-13 exhaustive for all affine magmas with N <= 60, Laver transients 5 up to n = 13. EXP-C16-01 hashed a wall-clock value (fixed; it now reproduces)."
+    refs: [CLM-C16-10, CLM-C16-13, EXP-C16-01, reviews/skeptic_C14_C15_C16_C18.md]
 
 next_directions:
   - "C16: prove that full-period quasigroups exist for every n >= 5 (CLM-C16-10) - a recursive or algebraic construction for even n is needed, since isotopes of groups of even order are excluded"

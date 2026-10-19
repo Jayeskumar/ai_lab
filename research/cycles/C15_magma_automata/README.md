@@ -20,7 +20,7 @@ left-to-right (or right-to-left, whichever is smaller) reader must distinguish.
 | H-C15-3 | Surjective ⇔ permutive (order ≤ 3). | Explorer | **confirmed** (exhaustive); fails at order 4; rediscovery (Kari–Salo–Törmä) |
 | H-C15-4 | *(bold, from the cycle brief)* Fast-forwardable ⇔ bounded width. | Inventor | **refuted** — fuse: linear width, O(L) fast-forward |
 | H-C15-5 | *(bold)* Cycle detection fast-forwards most automata; long cycles only for geometric width. | Application Researcher | first part holds, second **refuted** (affine quasigroups) |
-| H-C15-6 | The exact fast-forwards beat simulation > 100× at L = 1024, t = 10⁵ and lose for small t. | Application Researcher | **refuted** (commutative-semigroup method 62–100×; affine/fuse never lose, 1.4–6.4× already at t = 100) |
+| H-C15-6 | The exact fast-forwards beat simulation > 100× at L = 1024, t = 10⁵ and lose for small t. | Application Researcher | **refuted** on the > 100× clause (commutative-semigroup method 62–100×); the small-t clause is partly true — timed the same way on both sides, affine and fuse lose for t ≲ 20–70 (the first version said they never lose; Skeptic review) |
 
 ## Step 2 — Definitions
 
@@ -45,7 +45,7 @@ fast-forwards are compared with direct simulation.
 |---|---|
 | EXP-C15-01 | order 2: rules 17m; XOR = Gould's sequence; all widths ≤ 3; surjective rules 51, 85, 102, 153, 170, 204 |
 | EXP-C15-02 | order 3, 1734 classes: widths bounded 808 / linear 104 / geometric 300 / irregular 522 (t ≤ 9); 43 surjective = permutive; 7 reversible; 34 nilpotent |
-| EXP-C15-03 | 99/99 fast-forwards exact; affine ×1800–2500 and fuse ×4000 at t = 10⁵ (L = 1024); commutative semigroups ×62–100, slower near t = 10³ |
+| EXP-C15-03 | 99/99 fast-forwards exact; affine ×1800–2500 and fuse ×4000 at t = 10⁵ (L = 1024; single runs — the Skeptic's re-run gave ×1459–2262 and ×1363); commutative semigroups ×62–100, slower near t = 10³ |
 | EXP-C15-04 | cycle detection: 1590/1734 rows (L = 32) repeat within 5000 steps; affine quasigroups and many geometric classes do not |
 | EXP-C15-05 | fuse λ(t) = t + 2 to t = 12; Laver tables: bounded light cones; order-4 band surjective but not permutive; OEIS checks |
 
@@ -56,8 +56,9 @@ results were reproduced with the final code (identical result hashes for E01/E02
 ## Step 6 — Analysis
 
 * **Structure gives bounded width, but bounded width is much more common than
-  structure.** Semigroups (width ≤ |S|) and affine magmas (width ≤ |A|) are bounded,
-  as proved; yet 685 bounded-width order-3 automata have none of the known structures,
+  structure.** Commutative semigroups (width ≤ |S|) and affine magmas (width ≤ |A|)
+  are bounded, as proved (non-commutative semigroups need not be: for the group S₃
+  the width grows 6, 6, 6, 36, 72, 216, 1296 for t = 0…6 — Skeptic review); yet 685 bounded-width order-3 automata have none of the known structures,
   including a reversible automaton whose light cone uses every cell.
 * **Width can grow linearly.** The fuse magma (0 burnt, 1 burning, 2 intact) turns the
   light cone into a counter: a cell burns 2 steps after its right neighbour, so F_t
@@ -103,7 +104,8 @@ commutative-semigroup benchmark (H-C15-6).
 ## Step 9 — Applications
 
 Exact fast-forwarding of affine and fuse automata gives the state at t = 10⁹ in
-milliseconds (×1800–4000 faster than simulation already at t = 10⁵, L = 1024);
+milliseconds (about three orders of magnitude faster than simulation at t = 10⁵,
+L = 1024; slower for t below about 20–70);
 exponent arithmetic for commutative semigroups pays off only for t ≫ L; cycle detection
 is generic but fails exactly where cycles are long. No claim beyond these measured
 baselines is made.

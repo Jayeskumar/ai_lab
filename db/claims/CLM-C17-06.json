@@ -1,5 +1,5 @@
 {
-  "counterexample": "Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation).",
+  "counterexample": "Left-zero band x*y = x (associative; n generators needed) - exhaustive/Light probe ratio 1.71 at n = 512 (EXP-C17-01). The first version also cited one-entry corruptions of cyclic groups (ratio 47.9 at n = 512); that number was an artefact of the probe accounting (Skeptic review, P1). With correct accounting an early-exit exhaustive check is about as cheap as Light's test on corruptions and far cheaper on random magmas, so the hypothesis fails on non-associative inputs as well.",
   "cycle": "C17",
   "evidence": [
     "EXP-C17-01"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "Left-zero band x*y = x (associative; n generators needed) - exhaustive/Light probe ratio 1.71 at n = 512 (EXP-C17-01). The first version also cited one-entry corruptions of cyclic groups (ratio 47.9 at n = 512); that number was an artefact of the probe accounting (Skeptic review, P1). With correct accounting an early-exit exhaustive check is about as cheap as Light's test on corruptions and far cheaper on random magmas, so the hypothesis fails on non-associative inputs as well.",
+      "old": "Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation).",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - the second counterexample was an accounting artefact",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C17-06",

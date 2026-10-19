@@ -1,0 +1,5 @@
+D(n) <= B(n)-Psi(lazy(n)) violations: 0 ; max (B-Psi(lazy))/(log_phi n)^2 over 2<=n<1e5: 0.384 at n = 3
+1000000 B - Psi(lazy) = 210  ratio 0.255
+1000000000 B - Psi(lazy) = 412  ratio 0.222
+1000000000000 B - Psi(lazy) = 728  ratio 0.221
+1000000000000000 B - Psi(lazy) = 1163  ratio 0.226

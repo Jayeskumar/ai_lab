@@ -151,6 +151,11 @@ journal:
     kind: novelty
     text: "Audit - missed source: Berthe-Frougny-Rigo-Sakarovitch (Adv. Appl. Math. 2020) on the cost of the successor; under their carry-propagation measure Zeckendorf costs phi^2, under the lab's Hamming measure 2. Claims now state the measure; T_m is OEIS A215005."
     refs: [CLM-C10-01, CLM-C10-02, CLM-C10-05, reviews/historian_C03_C10.md]
+  - key: C10-08
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all claims upheld; the evidence summary of CLM-C10-05 covered only offset-1 rules (the Skeptic checked all 18); CLM-C10-07 (skew binary) now PROVEN by an elementary argument sketched by the Skeptic."
+    refs: [CLM-C10-05, CLM-C10-07, reviews/skeptic_C05_C08_C12.md]
 
 next_directions:
   - "C10: exact multi-offset counting constants via the invariant measure of the digit process"

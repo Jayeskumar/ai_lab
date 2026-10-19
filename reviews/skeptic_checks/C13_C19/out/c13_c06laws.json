@@ -1,0 +1,135 @@
+{
+ "x(yz)=((zx)x)y": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((zx)y)x": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((zy)x)x": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "(xy)z=y((zx)y)": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "(xy)z=y((zy)x)": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "(xy)z=z((yx)z)": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "(xy)z=z((yz)x)": {
+  "spectrum_le9": [
+   1,
+   3
+  ],
+  "non_affine": []
+ },
+ "x(yz)=y((yx)z)": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": [
+   [
+    2,
+    [
+     [
+      1,
+      1
+     ],
+     [
+      0,
+      1
+     ]
+    ]
+   ]
+  ]
+ },
+ "x(yz)=((xx)y)z": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xx)z)y": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xy)x)z": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xy)y)z": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xy)z)x": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xy)z)y": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xz)x)y": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xz)y)x": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ },
+ "x(yz)=((xz)y)y": {
+  "spectrum_le9": [
+   1,
+   2
+  ],
+  "non_affine": []
+ }
+}

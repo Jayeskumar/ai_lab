@@ -166,6 +166,11 @@ journal:
     kind: novelty
     text: "Audit - the product formula is Lunnon's formula in OEIS A101330 and the norm statement follows from Q(sqrt 5); the window-obstruction density 1/phi^2 and its corollaries remain potentially novel."
     refs: [CLM-C09-01, CLM-C09-03, CLM-C09-07, reviews/historian_C03_C10.md]
+  - key: C09-09
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all claims upheld, written proofs correct, data extended to 1e8. Fixes - the bound |N(n)| < (sqrt5/phi) n + 1 had no proof (added); the title of CLM-C09-03 said 'a proportion 1/phi^2 are irreducible' (now 'at least'); EXP-C09-02 truncated factorisation sets at 64 (now exact, same numbers); EXP-C09-04 used floating point at the boundary n = 1 (now exact)."
+    refs: [CLM-C09-03, CLM-C09-07, CLM-C09-08, reviews/skeptic_C05_C08_C12.md]
 
 next_directions:
   - "C09: prove the density-1/phi^2 conjecture"

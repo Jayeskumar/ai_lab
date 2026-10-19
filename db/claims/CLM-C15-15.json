@@ -9,14 +9,32 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "statement",
+      "new": "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - about three orders of magnitude faster than direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x on the Skeptic's re-run), with t = 10^9 in about a millisecond; because the O(L) method is a Python loop it loses to simulation for t below about 20-70.",
+      "old": "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024).",
+      "reason": "Skeptic review 2026-10-18 (P3, P4) - the 4000x figure did not reproduce (1,363x); small-t loss recorded",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "improvement_detail",
+      "new": "O(L) per query independent of t vs O(L t) simulation; single-run orders of magnitude on a shared machine; slower for small t",
+      "old": "O(L) per query independent of t vs O(L t) simulation; indicative timings",
+      "reason": "Skeptic review 2026-10-18 (P3, P4) - the 4000x figure did not reproduce (1,363x); small-t loss recorded",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-15",
   "improvement": "IMPROVEMENT",
-  "improvement_detail": "O(L) per query independent of t vs O(L t) simulation; indicative timings",
+  "improvement_detail": "O(L) per query independent of t vs O(L t) simulation; single-run orders of magnitude on a shared machine; slower for small t",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "As CLM-C15-04.",
-  "statement": "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024).",
+  "statement": "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - about three orders of magnitude faster than direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x on the Skeptic's re-run), with t = 10^9 in about a millisecond; because the O(L) method is a Python loop it loses to simulation for t below about 20-70.",
   "system": "SYS-E",
   "title": "Fuse fast-forward by burn times",
   "type": "algorithmic",

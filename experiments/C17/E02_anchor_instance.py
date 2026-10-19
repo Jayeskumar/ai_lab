@@ -70,6 +70,19 @@ def anchor(n):
     return lambda S: [[S.v[x, 0, (x + 1) % n]] for x in range(n)]
 
 
+def value(T, t, asg):
+    """Value of a term whose leaves are variables or the constant '0'."""
+    if isinstance(t, str):
+        return 0 if t == "0" else asg[t]
+    return int(T[value(T, t[0], asg), value(T, t[1], asg)])
+
+
+def holds(T, s, t, names):
+    N = T.shape[0]
+    return all(value(T, s, dict(zip(names, v))) == value(T, t, dict(zip(names, v)))
+               for v in itertools.product(range(N), repeat=len(names)))
+
+
 def violating_model(s, t, inst, N, budget=10 ** 6):
     """SAT query: an anchored model of the z = 0 instance that violates the full law s = t."""
     sat = AnchorSAT(N, [inst], extra=anchor(N))
@@ -87,7 +100,7 @@ def violating_model(s, t, inst, N, budget=10 ** 6):
     sat.clauses.append(sel)
     status, T = sat.solve(conf_budget=budget)
     if status == "SAT":
-        assert satisfies(T, inst) and not satisfies(T, (s, t)), "SAT answer is not a violating model"
+        assert holds(T, inst[0], inst[1], ["x", "y"]) and not holds(T, s, t, VARS), "SAT answer is not a violating model"
         assert all(T[x, 0] == (x + 1) % N for x in range(N))
     return status, T
 

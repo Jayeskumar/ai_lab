@@ -1,0 +1,2 @@
+3var_le4 classes passing the filter: 12 (finite 0 , infinite 12 ) laws tested (3 per class): 32 of which finite-class: 0 | infinite non-trivial classes missed by the filter: 0 []
+2var_le5 classes passing the filter: 67 (finite 23 , infinite 44 ) laws tested (3 per class): 167 of which finite-class: 52 | infinite non-trivial classes missed by the filter: 0 []

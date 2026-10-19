@@ -9,12 +9,21 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C18",
+      "event": "changed",
+      "field": "statement",
+      "new": "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square, in the reverse-pass (p2+rev) construction. (As first worded - 'in the same construction' - the hypothesis is false for the forward-only construction, where the random Latin square and x + c(y) both have bias exactly 1/2 by CLM-C18-02; the experiment compared every structured variant with QG-LS p2+rev.)",
+      "old": "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.",
+      "reason": "Skeptic review 2026-10-18 (P8) - statement restricted to the reverse-pass construction actually tested",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C18-09",
   "limitations": "Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure.",
   "novelty": "NOT ASSESSED",
-  "statement": "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.",
+  "statement": "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square, in the reverse-pass (p2+rev) construction. (As first worded - 'in the same construction' - the hypothesis is false for the forward-only construction, where the random Latin square and x + c(y) both have bias exactly 1/2 by CLM-C18-02; the experiment compared every structured variant with QG-LS p2+rev.)",
   "system": "SYS-B",
   "title": "H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal avalanche bias)",
   "type": "hypothesis",

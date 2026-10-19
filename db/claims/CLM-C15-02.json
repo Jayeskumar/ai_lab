@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-02",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Linear and affine cellular automata (O. Martin, A. M. Odlyzko, S. Wolfram, Algebraic properties of cellular automata, Comm. Math. Phys. 93 (1984) 219-258; M. Ito, N. Osato, M. Nasu 1983); the operator-power form is standard.",
   "proof": "proofs/paper/C15.md#theorem-2-clm-c15-02--affine-magmas-and-their-fast-forward",
-  "proof_check": "written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "For x*y = phi(x) + psi(y) + c on an abelian group A with commuting endomorphisms phi, psi:\nF_t = sum_k C(t,k) phi^(t-k) psi^k (x_k) + sum_(s<t) (phi + psi)^s (c); on cyclic rows the row at time t is\nP^t r + (sum_(s<t) q^s) c with P = phi + psi S in End(A)[S]/(S^L - 1), computable by binary exponentiation\n(for A = Z_n with FFT products, O(L log L log t)); streaming width <= |A|.",
   "system": "SYS-E",
   "title": "Affine magmas - binomial light cone and an O(L log L log t) fast-forward",

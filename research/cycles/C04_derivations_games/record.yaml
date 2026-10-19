@@ -71,20 +71,20 @@ claims:
     novelty_basis: "ab -> bbaa is the loop of Zantema-Geser Lemma 4.1; Kurth 1996 (Historian audit 2026-10-18, reviews/historian_C03_C10.md)."
     change_reason: "Historian audit 2026-10-18 (reviews/historian_C03_C10.md)"
   - id: CLM-C04-03
-    type: conjecture
+    type: theorem
     system: SYS-A
     title: The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate
     statement: |
       The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
       letter exchange) are terminating.
     verification: PROVEN
-    proof_check: "written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent); all words of length <= 12 verified (EXP-C20-01); awaiting independent skeptic review"
-    proof: proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
+    proof_check: "written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); all words of length <= 12 verified (EXP-C20-01)"
+    proof: proofs/paper/C20.md#part-i--the-last-open-one-rule-systems-of-c04
     evidence: [EXP-C04-02, EXP-C20-01]
-    change_reason: "Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the Skeptic's review (which found no loop and no matrix interpretation) predates the proof"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P7) - proof upheld; record hygiene (type, proof link to both theorems, limitations)"
     novelty: REDISCOVERY
     novelty_basis: "Both rules are right barren in McNaughton's sense, and barren one-rule systems terminate (McNaughton; A. Geser, ICASE Report 2002-33, Thm 3.2-3.3); the lab's proof is independent and also gives the exact complexities (CLM-C20-01/02)."
-    limitations: All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
+    limitations: "Proved by Theorems 1-2 of proofs/paper/C20.md (cycle C20). Before the proof the evidence was computational - all words of length <= 9 (aab -> ababa) and <= 12 (aab -> babaa) reach normal forms, and no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found."
   - id: CLM-C04-04
     type: theorem
     system: SYS-A

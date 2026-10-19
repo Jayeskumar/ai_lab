@@ -69,7 +69,6 @@ def census(tables, label, iso=True):
         "max_period_among_quasigroups": int(r["max_period"][latin].max()) if latin.any() else None,
         "quasigroups": int(latin.sum()),
         "max_transient": int(r["max_transient"].max()),
-        "seconds": round(time.perf_counter() - t0, 2),
     }
     if iso:
         codes = canonical_codes(tables)
@@ -98,7 +97,7 @@ def run():
     mirror_ok = bool((rm["max_period"] == rf["max_period"]).all() and (rm["n_cycles"] == rf["n_cycles"]).all())
     t0 = time.perf_counter()
     res["4"], r4 = census(row_permutation_magmas(4), "row-permutation magmas of order 4", iso=False)
-    timings["order_4"] = round(time.perf_counter() - t0, 2)
+    timings["order_4"] = round(time.perf_counter() - t0, 2)    # (the census no longer stores its own time - it was hashed)
     predicted = {str(n): {"permutations": __import__("math").factorial(n) ** n, "full": de_bruijn_count(n)}
                  for n in (2, 3, 4)}
     checks = {n: {"permutation_count_ok": res[n]["permutation_pair_maps"] == predicted[n]["permutations"],

@@ -97,9 +97,11 @@ even) have $n/o(g)$ odd. ∎
 
 **Conjecture 18.8** *[COMPUTATIONALLY SUPPORTED]*. Full-period quasigroups
 exist for every $n \ge 5$. Random Latin squares are full-period with
-probability close to $1/n^2$, as if the pair map were a random permutation of
-the forced parity. Exhaustive search and a SAT encoding, by contrast, stall at
-$n = 9$.
+probability of the order of $1/n^2$ — roughly what a random permutation of the
+forced parity would give, though not close to it (exactly $0.52/n^2$ at
+$n = 5$). Exhaustive search and a SAT encoding, by contrast, stall at $n = 9$.
+Examples are known for every $n \le 26$ (the Skeptic's sampler covers
+17–26).
 
 ## Laws shape the dynamics
 

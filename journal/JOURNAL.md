@@ -1561,3 +1561,138 @@ Revision of C20-04 - the scanned Zantema-Geser report UU-CS-1994-44 was found on
 
 *Evidence:* CLM-C20-04, CLM-C03-10, reviews/historian_C03_C10.md
 
+
+## C03
+
+### [2026-10-19T14:24:52Z] Formal Verifier — revision (`C03-14#rev10`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-19T14:24:53Z] Formal Verifier — revision (`C06-11#rev10`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C20
+
+### [2026-10-19T14:24:53Z] Mathematical Skeptic — review (`C20-06`)
+
+Independent review (reviews/skeptic_C07_C17_C20.md) - Theorems 1-2 and Corollary 3 upheld (exhaustive derivation graphs n <= 10 / 15, strategies to length 18 / 21); the Zantema-Geser statement re-read on the scan and the equivalence confirmed on all parameters <= 50. Correction to C20-05 - the conjecture is equivalent to Theorem 1.1, not verbatim (one characterises termination, the other non-termination). Warning - the introduction of Geser's ICASE report claims linear lengths for all one-overlap-pair rules, which aab -> ababa contradicts; only the body's restricted statement is correct.
+
+*Evidence:* CLM-C20-01, CLM-C20-02, CLM-C20-04, reviews/skeptic_C07_C17_C20.md
+
+
+## C03
+
+### [2026-10-19T14:25:22Z] Formal Verifier — revision (`C03-14#rev11`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-19T14:25:22Z] Formal Verifier — revision (`C06-11#rev11`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C07
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C07-07`)
+
+Independent review (reviews/skeptic_C07_C17_C20.md) - all claims upheld; the three written proofs are correct. Strengthening - the 33 further specs define the same 11 operations (absorption argument, now in proofs/paper/C07.md), so exactly 44 specs are associative; (J2) holds for k >= 2 (index slip); the Jacobsthal row checked from the definition for all b < 2^18.
+
+*Evidence:* CLM-C07-01, CLM-C07-05, reviews/skeptic_C07_C17_C20.md
+
+
+## C09
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C09-09`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - all claims upheld, written proofs correct, data extended to 1e8. Fixes - the bound |N(n)| < (sqrt5/phi) n + 1 had no proof (added); the title of CLM-C09-03 said 'a proportion 1/phi^2 are irreducible' (now 'at least'); EXP-C09-02 truncated factorisation sets at 64 (now exact, same numbers); EXP-C09-04 used floating point at the boundary n = 1 (now exact).
+
+*Evidence:* CLM-C09-03, CLM-C09-07, CLM-C09-08, reviews/skeptic_C05_C08_C12.md
+
+
+## C10
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C10-08`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - all claims upheld; the evidence summary of CLM-C10-05 covered only offset-1 rules (the Skeptic checked all 18); CLM-C10-07 (skew binary) now PROVEN by an elementary argument sketched by the Skeptic.
+
+*Evidence:* CLM-C10-05, CLM-C10-07, reviews/skeptic_C05_C08_C12.md
+
+
+## C11
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C11-12`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - all nine claims upheld, every written proof checked; benchmarks reproduced to 4 decimals with independent length functions.
+
+*Evidence:* reviews/skeptic_C05_C08_C12.md
+
+
+## C12
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C12-13`)
+
+Independent review (reviews/skeptic_C05_C08_C12.md) - all 13 claims upheld; the potentially novel Grundy theorem CLM-C12-04 checked step by step and computed to 1e8. CLM-C12-13 (subtract-a-Fibonacci bounded) has weaker support than recorded - new record values 15 at n = 206,025 and 16 at n = 63,331,966.
+
+*Evidence:* CLM-C12-04, CLM-C12-13, reviews/skeptic_C05_C08_C12.md
+
+
+## C14
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C14-12`)
+
+Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; every census number reproduced with independent code. CLM-C14-06 is a rediscovery - Abiad, Butler and Haemers (arXiv:1801.01149, 2018, Section 5) define the product and give its Seidel matrix; the lab's searches missed it. CLM-C14-13 survives a much larger search (53,703 multisets, product order <= 64). The '4-5 orders of magnitude' spectra speedup was inflated by BLAS thread oversubscription (about 3 orders).
+
+*Evidence:* CLM-C14-06, CLM-C14-13, reviews/skeptic_C14_C15_C16_C18.md
+
+
+## C15
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C15-08`)
+
+Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; written proofs correct. Corrections - 'affine and fuse fast-forwards never lose' was false (they lose for t below about 20-70 with a fair timing protocol), recorded speedups are single-run orders of magnitude (fuse x4000 became x1363 on re-run), the width bound holds for commutative semigroups only (S3 grows to 1296 by t = 6).
+
+*Evidence:* CLM-C15-12, CLM-C15-13, CLM-C15-15, reviews/skeptic_C14_C15_C16_C18.md
+
+
+## C16
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C16-09`)
+
+Independent review (reviews/skeptic_C14_C15_C16_C18.md) - all 19 claims upheld; written proofs correct. Evidence extended - full-period quasigroups for every n <= 26, CLM-C16-13 exhaustive for all affine magmas with N <= 60, Laver transients 5 up to n = 13. EXP-C16-01 hashed a wall-clock value (fixed; it now reproduces).
+
+*Evidence:* CLM-C16-10, CLM-C16-13, EXP-C16-01, reviews/skeptic_C14_C15_C16_C18.md
+
+
+## C17
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C17-04`)
+
+Independent review (reviews/skeptic_C07_C17_C20.md) - the theorems are correct, but two code problems changed stated numbers - the exhaustive check was charged a whole 64-row slab on non-associative inputs (the gains of CLM-C17-04 hold for certification only), and a classification bug in EXP-C17-02 gave 18 insufficient / 31 undecided laws instead of 43 / 0. Both fixed and re-run; the Skeptic's uniqueness argument for the anchored LD instance added, and EXP-C17-03 extends CLM-C17-05 to every N <= 4096.
+
+*Evidence:* CLM-C17-04, CLM-C17-05, CLM-C17-07, reviews/skeptic_C07_C17_C20.md
+
+
+## C18
+
+### [2026-10-19T14:25:22Z] Mathematical Skeptic — review (`C18-09`)
+
+Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; the negative result is robust. Wording fixed - FNV-1a's z = -9.8 means more uniform than random (not a defect), 'no improvement in any dimension' became 'no significant improvement', H-C18-2 restricted to the reverse-pass construction tested, the C18-11 refutation rests on the avalanche bias, throughput figures are load-dependent ranges.
+
+*Evidence:* CLM-C18-09, CLM-C18-10, CLM-C18-13, reviews/skeptic_C14_C15_C16_C18.md
+

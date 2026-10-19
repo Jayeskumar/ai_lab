@@ -99,7 +99,7 @@ of $M_c$, and the characteristic polynomial become homomorphisms into ordinary
 arithmetic.
 
 **Theorem 15.6** *[PROVEN — written; Lean (entry level): `xor_character`;
-POTENTIALLY NOVEL (small)]*. For all graphs,
+REDISCOVERY — Abiad, Butler and Haemers 2018]*. For all graphs,
 $$S(G \oplus H) + I = \bigl(S(G) + I\bigr) \otimes \bigl(S(H) + I\bigr).$$
 Hence the Seidel eigenvalues of $G \oplus H$ are $(\theta+1)(\eta+1) - 1$, and
 $\oplus$ is compatible with switching: it is a multiplication of two-graphs.
@@ -185,18 +185,23 @@ The twenty associative products (Imrich–Izbicki 1975), the unique
 factorisation theorems for the Cartesian and strong products, the
 non-uniqueness for the lexicographic product, the semiring view of
 disconnected graphs and the prime counts A129582 are all in the literature,
-and the chapter rediscovers them. We found no source for the classification
-of products by characters (Theorems 15.4–15.5), for the Seidel form of the
-symmetric difference beyond the special case of an edgeless factor, for
-Theorem 15.7, or for the factorisation behaviour of two-graphs; these are
-small results and could well be known to specialists.
+and the chapter rediscovers them. So is Theorem 15.6: Abiad, Butler and
+Haemers (arXiv:1801.01149, 2018, §5) define the same product and state that
+its Seidel matrix is $(S_1 + I) \otimes (S_2 + I) - I$, using its
+compatibility with switching. Our four literature searches missed the paper;
+the Skeptic found it. We found no source for the classification of products
+by characters (Theorems 15.4–15.5), for Theorem 15.7, or for the
+factorisation behaviour of two-graphs; these are small results and could well
+be known to specialists.
 
 ## Applications and limitations
 
 * The spectrum of a large product follows from its factors: for
   $n = m = 40$ (1600 vertices) the factor route agreed with direct
-  diagonalisation to $10^{-14}$ and was four to five orders of magnitude faster
-  on our machine — the standard Kronecker gain, newly applicable to $\oplus$.
+  diagonalisation to $10^{-14}$ and was about three orders of magnitude faster
+  (our first measurement, four to five orders, was inflated by competing BLAS
+  threads on a loaded machine — a correction by the Skeptic) — the standard
+  Kronecker gain, newly applicable to $\oplus$.
 * Squaring the regular two-graph on 6 points with $\oplus$ gives 36
   equiangular lines in $\mathbb{R}^{18}$ at angle $\arccos(1/5)$ — no
   improvement, since 36 such lines already exist in $\mathbb{R}^{15}$.

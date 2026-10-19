@@ -9,10 +9,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "limitations",
+      "new": "300 of 300 random cases with N <= 30 in the lab; the Skeptic checked all 1,997,716 affine magmas with beta a unit and 2 <= N <= 60 exhaustively - the maximal cycle length equals the lcm of all cycle lengths in every case, and that lcm equals the directly computed matrix order for N <= 24. Proven only when the pair map has a fixed point (CLM-C16-12); a partial proof idea from the review - if gamma is a unit, e_3 is a cyclic vector (det[e_3, A e_3, A^2 e_3] = -gamma^2).",
+      "old": "300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.",
+      "reason": "Skeptic review 2026-10-18 - exhaustive evidence to N = 60",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-13",
-  "limitations": "300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.",
+  "limitations": "300 of 300 random cases with N <= 30 in the lab; the Skeptic checked all 1,997,716 affine magmas with beta a unit and 2 <= N <= 60 exhaustively - the maximal cycle length equals the lcm of all cycle lengths in every case, and that lcm equals the directly computed matrix order for N <= 24. Proven only when the pair map has a fixed point (CLM-C16-12); a partial proof idea from the review - if gamma is a unit, e_3 is a cyclic vector (det[e_3, A e_3, A^2 e_3] = -gamma^2).",
   "novelty": "NOT ASSESSED",
   "statement": "For every affine magma x*y = alpha x + beta y + gamma on Z/N with beta a unit, the maximal period of the pair map equals the order of [[0,1,0],[beta,alpha,gamma],[0,0,1]] mod N.",
   "system": "SYS-E",

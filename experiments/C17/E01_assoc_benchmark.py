@@ -24,7 +24,11 @@ META = {
                     "(needs all n generators), the first two with one corrupted entry, random magmas"],
     "methodology": "Run every algorithm on every instance; record verdict, probes, time; compare with the "
                    "exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure "
-                   "mode on near-associative inputs.",
+                   "mode on near-associative inputs. The exhaustive check is charged the probes of a sequential "
+                   "check that stops at the first violating triple (revised after the Skeptic's review - the first "
+                   "version charged a whole 64-row slab, so its ratios on non-associative inputs measured the slab "
+                   "size). Probe ratios are reported separately for associative inputs (certification, where every "
+                   "test must do its full work) and non-associative inputs (refutation).",
     "falsification": "H-C17-1: a family where Light's test costs more than 10/n of the exhaustive probes. H-C17-3: a "
                      "wrong verdict of the randomised test.",
     "seed": 17,
@@ -79,6 +83,8 @@ def run():
         key = r["family"].split("#")[0]
         ratio.setdefault(key, {})[r["n"]] = round(r["probes"]["naive"] / r["probes"]["light_incl_gens"], 2)
     h1_fail = sorted({k for k, v in ratio.items() for n, x in v.items() if x < n / 10})
+    assoc_fams = sorted({r["family"].split("#")[0] for r in rows if r["associative"]})
+    nonassoc_fams = sorted({r["family"].split("#")[0] for r in rows if not r["associative"]})
     return {
         "rows": rows,
         "naive_over_light_probe_ratio": ratio,
@@ -88,8 +94,10 @@ def run():
         "summary": [
             f"wrong verdicts: Light {len(wrong['light'])}, anchored {len(wrong['anchored'])}, RS(40) "
             f"{len(wrong['rs40'])}, random triples (n^2/16 samples) {len(wrong['random_triples'])}",
-            "exhaustive/Light probe ratio (incl. generating set) at n = 512: " +
-            ", ".join(f"{k}: {v.get(512)}" for k, v in ratio.items()),
+            "certification (associative inputs) - exhaustive/Light probe ratio incl. generating set at n = 512: " +
+            ", ".join(f"{k}: {ratio[k].get(512)}" for k in assoc_fams),
+            "refutation (non-associative inputs, exhaustive check stopping at the first violation) - ratio at "
+            "n = 512: " + ", ".join(f"{k}: {ratio[k].get(512)}" for k in nonassoc_fams),
             f"H-C17-1 fails for: {h1_fail}",
         ],
     }

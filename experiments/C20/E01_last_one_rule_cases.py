@@ -81,7 +81,7 @@ def run():
     out = {}
     for base in RULES:
         for (l, r) in images(*base):
-            mism_strat, mism_exh, nonterm, D = 0, 0, 0, {}
+            mism_strat, mism_exh, skipped, nonterm, D = 0, 0, 0, 0, {}
             for n in range(1, 13):
                 best = 0
                 for t in itertools.product("ab", repeat=n):
@@ -94,11 +94,13 @@ def run():
                     mism_strat += a != b
                     if n <= 8:
                         e = exhaustive_max(w, l, r)
+                        skipped += e is None          # reachable set above the limit: not compared, but counted
                         mism_exh += (e is not None and e != a)
                     best = max(best, a)
                 D[n] = best
             out[f"{l} -> {r}"] = {"base": f"{base[0]} -> {base[1]}", "D": D, "strategy_mismatches": mism_strat,
-                                  "exhaustive_mismatches": mism_exh, "not_terminated_within_cap": nonterm}
+                                  "exhaustive_mismatches": mism_exh, "exhaustive_skipped": skipped,
+                                  "not_terminated_within_cap": nonterm}
     # formulas, on the base rules
     fa = {n: 2 ** (n - 2) - 1 for n in range(2, 13)}
     fb = {n: max(b * (2 ** ((n - b) // 2) - 1) for b in range(1, n + 1)) for n in range(1, 13)}
@@ -120,7 +122,8 @@ def run():
             f"8 rules (2 classes): words of length <= 12 - non-terminating within 10^6 steps: "
             f"{sum(v['not_terminated_within_cap'] for v in out.values())}; rightmost vs leftmost mismatches: "
             f"{sum(v['strategy_mismatches'] for v in out.values())}; vs exhaustive maximum (n <= 8): "
-            f"{sum(v['exhaustive_mismatches'] for v in out.values())}",
+            f"{sum(v['exhaustive_mismatches'] for v in out.values())} (words skipped for a reachable set above "
+            f"300000: {sum(v['exhaustive_skipped'] for v in out.values())})",
             f"aab -> ababa D(n), n = 1..12: {[A[n] for n in range(1, 13)]}; = 2^(n-2) - 1: {ok_a}",
             f"aab -> babaa D(n): {[B[n] for n in range(1, 13)]}; = max_b b(2^floor((n-b)/2) - 1): {ok_b}; "
             f"per-word formula mismatches: {word_mism}",

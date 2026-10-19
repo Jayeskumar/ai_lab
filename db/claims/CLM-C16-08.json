@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-08",
   "novelty": "NOT ASSESSED",
   "novelty_basis": "Elementary; the analogous product construction for de Bruijn-type sequences is standard.",
   "proof": "proofs/paper/C16.md#theorem-6-clm-c16-08--products-of-coprime-orders",
-  "proof_check": "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "If two magmas (or quasigroups) of coprime orders n1, n2 are full-period, so is their direct product (a quasigroup if both are).",
   "system": "SYS-E",
   "title": "Direct products of full-period magmas of coprime orders are full-period",

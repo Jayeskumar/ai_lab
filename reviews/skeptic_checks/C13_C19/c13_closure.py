@@ -165,8 +165,11 @@ def stage3(sample=400, seed=13):
     print("stage3 checks (N, status):", dict(checks), "violations", viol[:5], "unknown", len(unknown), flush=True)
     res = {"n_bounded": len(bounded), "sample": len(samp), "checks": {f"{a}:{b}": c for (a, b), c in checks.items()},
            "violations": viol, "unknown": unknown[:50], "elapsed_s": round(time.time() - t0, 1)}
-    json.dump(res, open(os.path.join(OUT, "c13_closure_stage3.json"), "w"), indent=1)
+    json.dump(res, open(os.path.join(OUT, f"c13_closure_stage3_{sample}.json"), "w"), indent=1)
 
 
 if __name__ == "__main__":
-    {"stage1": stage1, "stage2": stage2, "stage3": stage3}[sys.argv[1]]()
+    if sys.argv[1] == "stage3" and len(sys.argv) > 2:
+        stage3(sample=int(sys.argv[2]))
+    else:
+        {"stage1": stage1, "stage2": stage2, "stage3": stage3}[sys.argv[1]]()

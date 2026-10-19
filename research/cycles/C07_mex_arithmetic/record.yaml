@@ -7,7 +7,6 @@ systems: [SYS-B, SYS-D]
 experiments:
   - id: EXP-C07-01
     analysis: "The 512 specs give 134 distinct operations on [0,64)^2, 34 commutative. Exactly 11 operations (44 specs) show no associativity violation on the evaluable triples of [0,16)^3 and [0,64)^3; they are 0, a, b, a[b>0], b[a>0], min, a+b, XOR, nim-product and zero-absorbing shifts of XOR and +. The other 468 specs have explicit violating triples. 30 of the 34 commutative operations are not closed on [0,2), [0,4) or [0,16)."
-    verification: PROVEN
     counterexamples: ["L+R+D[z] = a + b and D[z] = min(a, b) are associative (H-C07-1 refuted)", "D[x^y]: f(2,3) = 4, so [0,4) is not closed (H-C07-2 refuted)"]
     related: [CLM-C07-01, CLM-C07-02, CLM-C07-04]
   - id: EXP-C07-02
@@ -15,7 +14,6 @@ experiments:
     related: [CLM-C07-03, CLM-C07-07]
   - id: EXP-C07-03
     analysis: "Only 222 of 670 rows (a = 1..5, b < 1500) are additively periodic with period <= 375; 22 operations have all five rows periodic, 40 none. Row 2 of D[x^y] is the Jacobsthal block swap - an independent bitset recursion agrees with the mex table for b < 1500 and with the formula for every b < 2^15; it is an involution; neither the row nor |g(b) - b| is in the OEIS."
-    verification: PROVEN
     counterexamples: ["Row 2 of D[x^y] is not additively periodic (|f(2,b) - b| = J_k unbounded, Theorem 3)"]
     related: [CLM-C07-05, CLM-C07-06, CLM-C07-08]
 
@@ -29,15 +27,16 @@ claims:
       f(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],
       D[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,
       a (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all
-      associative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11
-      operations on [0,64)^2.
+      associative; 468 of the 512 specs are not associative; the remaining 33 specs define the same 11 operations,
+      so exactly 44 specs are associative.
     verification: PROVEN
-    proof_check: "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review"
+    proof_check: "written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); the 33 non-canonical associative specs by the Skeptic's absorption argument (added to proofs/paper/C07.md); skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md)"
     proof: proofs/paper/C07.md#theorem-1-clm-c07-01--the-associative-mex-operations
     evidence: [EXP-C07-01]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Each formula is classical or elementary - nim-sum and nim-product (Conway, On Numbers and Games, 1976); a + b and min(a, b) are the Grundy functions of 'reduce either or both heaps' and 'reduce both heaps' (rank functions of product posets). The census of a 512-member family and the resulting classification were not found (one web search, OEIS); small."
-    limitations: Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.
+    limitations: "The first version proved agreement of the 33 non-canonical specs with their formulas only on [0,64)^2; the Skeptic's review supplied the general argument."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld and strengthened: the 33 further specs define the same operations (exactly 44 associative specs)"
   - id: CLM-C07-02
     type: hypothesis
     system: SYS-B
@@ -53,11 +52,12 @@ claims:
     title: In a mex operation with both L and R options 0 is an identity; with neither, 0 is absorbing
     statement: If the spec contains L and R then f(0,b) = b and f(a,0) = a; if it contains neither, f(0,b) = f(a,0) = 0.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C07.md Theorem 2, two-line induction); all 34 commutative operations of EXP-C07-02 conform
+    proof_check: "written proof (proofs/paper/C07.md Theorem 2, two-line induction), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); all 34 commutative operations of EXP-C07-02 conform (the Skeptic - the per-letter version on all 512 specs)"
     proof: proofs/paper/C07.md#theorem-2-clm-c07-03--0-is-an-identity-or-absorbing
     evidence: [EXP-C07-02]
     novelty: NOT ASSESSED
     novelty_basis: Elementary.
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld"
   - id: CLM-C07-04
     type: hypothesis
     system: SYS-B
@@ -78,11 +78,12 @@ claims:
       g(b) is the least v with v and v XOR b both outside {g(b') : b' < b}. The row is an involution and is not
       additively periodic.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches"
     proof: proofs/paper/C07.md#theorem-3-clm-c07-05--the-jacobsthal-row
     evidence: [EXP-C07-03]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "OEIS: no match for the row (2, 1, 4, 3, 8, 9, 10, 5, ...), for |g(b) - b| or for g(b) XOR b; text searches for greedy XOR-avoiding permutations found unrelated entries (A109812, A357578); a web search found no mex recursion of this form (closest: Multiplicative Modular Nim, arXiv:2507.08830, a different recursion). Small."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld; index slip in (J2) fixed; checked to b < 2^18"
   - id: CLM-C07-06
     type: hypothesis
     system: SYS-B
@@ -142,6 +143,11 @@ journal:
     kind: novelty
     text: "Nim-sum and nim-product are Conway's; + and min are rank functions of product posets (folklore in combinatorial game theory). No OEIS entry for the Jacobsthal row or for 88 further sequences of the census; no prior mex recursion of the D[x^y] form found."
     refs: [CLM-C07-01, CLM-C07-05, CLM-C07-07]
+  - key: C07-07
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C07_C17_C20.md) - all claims upheld; the three written proofs are correct. Strengthening - the 33 further specs define the same 11 operations (absorption argument, now in proofs/paper/C07.md), so exactly 44 specs are associative; (J2) holds for k >= 2 (index slip); the Jacobsthal row checked from the definition for all b < 2^18."
+    refs: [CLM-C07-01, CLM-C07-05, reviews/skeptic_C07_C17_C20.md]
 
 next_directions:
   - "C07: rows a >= 3 of D[x^y] - an exploratory look suggested row 3 is injective and rows 4-6 are not; is there a recursive block structure?"

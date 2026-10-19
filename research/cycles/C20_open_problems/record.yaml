@@ -17,11 +17,12 @@ claims:
     title: "aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1"
     statement: The one-rule system aab -> ababa over {a, b} (and its images under reversal and letter exchange) terminates, and the maximal derivation length from words of length n >= 2 is exactly 2^(n-2) - 1, attained by a^(n-1) b.
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent); verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); verified on all words of length <= 12 (EXP-C20-01); the Skeptic - exhaustive derivation graphs for n <= 10 and three strategies on all words of length <= 18"
     proof: proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
     evidence: [EXP-C20-01]
     novelty: REDISCOVERY
     novelty_basis: "Termination is a rediscovery - the rule is right barren in McNaughton's sense (OVL(r,l) = {a}, r_alpha = abab; OVL(l,r) = {ab}, l_beta = a, never a suffix of (abab)^k), and every non-overlapping left/right barren one-rule system terminates (R. McNaughton, RPI tech. reports 94-18 and 95-15; A. Geser, ICASE Report 2002-33, Thm 3.2/3.3, https://ntrs.nasa.gov/api/citations/20020088729/downloads/20020088729.pdf). The exact complexity 2^(n-2) - 1 was not found in the sources read (the report proves linear lengths only for its non-barren case)."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld"
   - id: CLM-C20-02
     type: theorem
     system: SYS-A
@@ -30,13 +31,14 @@ claims:
       The one-rule system aab -> babaa (and its symmetric images) terminates. For w = a^(x_0) b a^(x_1) b ... b a^(x_m),
       every maximal derivation has length sum_{k=m-1..0} d_k (2^floor(x_k/2) - 1) with d_k = (m - k) + (steps
       contributed by the runs right of k); the derivational complexity is D(n) = max_{1<=b<=n} b(2^floor((n-b)/2) - 1),
-      attained by a^(n-b) b^b.
+      attained by a^(n-b) b^b; explicitly D(n) = 2^(n/2) - 2 for even n >= 2 and 3*2^((n-3)/2) - 3 for odd n >= 5.
     verification: PROVEN
-    proof_check: "written proof (proofs/paper/C20.md Theorem 2 - a pair of a's travels to the last run in d steps, doubling d; random descent); per-word formula and D(n) verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review"
+    proof_check: "written proof (proofs/paper/C20.md Theorem 2 - a pair of a's travels to the last run in d steps, doubling d; random descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); per-word formula and D(n) verified on all words of length <= 12 (EXP-C20-01); the Skeptic - exhaustive graphs for n <= 15, its own implementation of the per-word formula on all words of length <= 21"
     proof: proofs/paper/C20.md#theorem-2-clm-c20-02--aab--babaa-terminates-an-exact-formula-for-dw
     evidence: [EXP-C20-01]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Termination follows from the right-barren criterion (OVL(r,l) = {a, aa} with r_alpha in {baba, bab}; OVL(l,r) = {b}, l_beta = aa, never a suffix) - a rediscovery; the exact per-word formula and the complexity were not found in McNaughton's or Geser's reports (searches 2026-10-18). Small."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld; explicit form of D(n) added"
   - id: CLM-C20-03
     type: theorem
     system: SYS-A
@@ -52,7 +54,7 @@ claims:
     type: observation
     system: SYS-A
     title: "C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation"
-    statement: "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem."
+    statement: "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem. (Equivalent, not verbatim - Theorem 1.1 characterises termination and the conjecture non-termination; the conjecture's cases are exactly the non-terminating cases listed on p. 2 of the report.)"
     verification: "PROVEN"
     evidence: [EXP-C03-01]
     novelty: "REDISCOVERY"
@@ -60,7 +62,7 @@ claims:
     proof_check: "Theorem statement read verbatim by the Historian from the scanned tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf; the lab's own retrieval attempts at other hosts failed); equivalence by case analysis (s >= 2p or not, r >= 2q or not) and checked on all parameters <= 40"
     proof: "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item"
     novelty_basis: "Zantema-Geser 1994/2000 (see CLM-C03-10)."
-    change_reason: "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)"
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P8) - 'verbatim' corrected to 'equivalent'; equivalence re-checked on all parameters <= 50"
 
 journal:
   - key: C20-01
@@ -89,6 +91,12 @@ journal:
     kind: novelty
     text: "Revision of C20-04 - the scanned Zantema-Geser report UU-CS-1994-44 was found on ics-archive.science.uu.nl; its Theorem 1.1 is C03 Conjecture 4.6 verbatim (equivalence by case analysis, checked on all parameters <= 40). CLM-C20-04 and CLM-C03-10 are PROVEN (published proof) and REDISCOVERY."
     refs: [CLM-C20-04, CLM-C03-10, reviews/historian_C03_C10.md]
+
+  - key: C20-06
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C07_C17_C20.md) - Theorems 1-2 and Corollary 3 upheld (exhaustive derivation graphs n <= 10 / 15, strategies to length 18 / 21); the Zantema-Geser statement re-read on the scan and the equivalence confirmed on all parameters <= 50. Correction to C20-05 - the conjecture is equivalent to Theorem 1.1, not verbatim (one characterises termination, the other non-termination). Warning - the introduction of Geser's ICASE report claims linear lengths for all one-overlap-pair rules, which aab -> ababa contradicts; only the body's restricted statement is correct."
+    refs: [CLM-C20-01, CLM-C20-02, CLM-C20-04, reviews/skeptic_C07_C17_C20.md]
 
 next_directions:
   - "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?"

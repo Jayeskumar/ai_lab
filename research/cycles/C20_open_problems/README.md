@@ -12,7 +12,7 @@ The last cycle of the batch attacks problems that earlier cycles left open.
 |---|---|---|---|
 | H-C20-1 | The 8 one-rule systems left undecided by C04 (classes aab → ababa, aab → babaa) terminate. | Inventor | **proved** (termination itself is a rediscovery: barren rules) |
 | H-C20-2 | Their derivational complexities are 2^(n−2) − 1 and max_b b·(2^⌊(n−b)/2⌋ − 1). | Explorer | **proved** |
-| H-C20-3 | C03's Conjecture 4.6 agrees with the published Zantema–Geser characterisation. | Historian | **confirmed** — the Historian found the scanned report; its Theorem 1.1 is the conjecture verbatim (REDISCOVERY) |
+| H-C20-3 | C03's Conjecture 4.6 agrees with the published Zantema–Geser characterisation. | Historian | **confirmed** — the Historian found the scanned report; its Theorem 1.1 is equivalent to the conjecture (REDISCOVERY) |
 
 ## Step 2 — Definitions
 
@@ -64,7 +64,7 @@ of the C04 extended census are classified (480 terminating, 388 not).
   Director's retrieval attempts failed (HTTP 403, a Cloudflare challenge,
   HTTP 500); the Historian later found the scanned report on an older archive
   host ([ics-archive](https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf)).
-  Its Theorem 1.1 is C03's Conjecture 4.6 verbatim (equivalence checked by
+  Its Theorem 1.1 is equivalent to C03's Conjecture 4.6 (equivalence checked by
   case analysis and on all parameters ≤ 40): CLM-C20-04 and CLM-C03-10 are
   **REDISCOVERY**, PROVEN by the published proof
   (`reviews/historian_C03_C10.md`, item 20).

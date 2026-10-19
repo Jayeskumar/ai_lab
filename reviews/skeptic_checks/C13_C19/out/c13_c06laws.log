@@ -1,0 +1,21 @@
+x(yz)=((zx)x)y [1, 3] non-affine: []
+x(yz)=((zx)y)x [1, 3] non-affine: []
+x(yz)=((zy)x)x [1, 3] non-affine: []
+(xy)z=y((zx)y) [1, 3] non-affine: []
+(xy)z=y((zy)x) [1, 3] non-affine: []
+(xy)z=z((yx)z) [1, 3] non-affine: []
+(xy)z=z((yz)x) [1, 3] non-affine: []
+x(yz)=y((yx)z) [1, 2] non-affine: [(2, [[1, 1], [0, 1]])]
+x(yz)=((xx)y)z [1, 2] non-affine: []
+x(yz)=((xx)z)y [1, 2] non-affine: []
+x(yz)=((xy)x)z [1, 2] non-affine: []
+x(yz)=((xy)y)z [1, 2] non-affine: []
+x(yz)=((xy)z)x [1, 2] non-affine: []
+x(yz)=((xy)z)y [1, 2] non-affine: []
+x(yz)=((xz)x)y [1, 2] non-affine: []
+x(yz)=((xz)y)x [1, 2] non-affine: []
+x(yz)=((xz)y)y [1, 2] non-affine: []
+
+real	0m8.598s
+user	0m8.258s
+sys	0m0.246s

@@ -14,7 +14,7 @@ A local product decides adjacency in V(G)×V(H) from the pair of relations
 
 | ID | Hypothesis | Proposer | Outcome |
 |---|---|---|---|
-| H-C14-R | Strict associativity reduces to a finite identity on the 26 relation triples, and P₃³ detects every failure. | Formal Verifier | **proved** (Lean, both directions) |
+| H-C14-R | Strict associativity reduces to a finite identity on the 27 relation triples (26 non-trivial), and P₃³ detects every failure. | Formal Verifier | **proved** (Lean, both directions) |
 | H-C14-2 | Exactly 20 products are associative, 10 commutative (Historian's recollection of Imrich–Izbicki 1975). | Historian | **confirmed** (Lean `decide`); rediscovery |
 | H-C14-1 | *(bold)* Associativity/commutativity *up to isomorphism* is no weaker than the strict notions. | Inventor | **proved** (computer-assisted: 236 + 224 witnesses with ≤ 3-vertex factors, certified by degree sequences) |
 | H-C14-5 | Exactly six products are linearised by a Kronecker "character" M(G∗H) = M(G)⊗M(H). | Formal Verifier | **proved** (hand case analysis + sympy + Lean at {−1,0,1}) |
@@ -54,7 +54,7 @@ lexicographic 29, symmetric difference 85, co-normal 93).
 | EXP-C14-04 | factorisation census, all graphs, orders ≤ 15: Cartesian, strong, co-normal, 221 — no collision; lexicographic (and transpose) — collisions at orders 10, 14 (multisets) — e.g. 2K₁∘(C₄+K₁) ≅ (2K₂+K₁)∘2K₁; symmetric difference and 141 — collisions at every even order ≥ 4 and at 15; connected: XOR collisions at 8, 10, 12, 14 (2, 6, 15, 53 classes); connected Cartesian/strong primes 1, 2, 5, 21, 110, 853, 11111, … = A129582 to n = 15; prime counts (all graphs) for every product; the 63-vertex Cartesian/strong counterexample verified |
 | EXP-C14-05 | switching classes n ≤ 8 reproduce A002854 (1,1,2,3,7,16,54,243); no non-unique factorisation of two-graphs under ⊕ up to order 16 (246 composite classes at order 16, each with one factorisation); prime two-graphs 1, 2, 2, 7, 14, 54, 240, 2035, 33113, …; K₂-cancellation 0 violations in 12,713 pairs |
 | EXP-C14-06 | Skeptic re-implementation (no shared code): 20/10 recounted, all 460 witnesses re-certified, K₂⊕K₂⊕K₂ ≅ K₂⊕K_{1,3} by explicit permutation, K_{a,b}⊕K_{c,d} = K_{ac+bd,ad+bc} edge by edge (a,b,c,d ≤ 4), Seidel identity exact in integers, K₂-absorption 200/200 |
-| EXP-C14-07 | spectra of products from the factors vs direct diagonalisation (`numpy.linalg.eigvalsh`): max relative error 1.2e−14 over 16 cases; at nm = 1600 the factor route took ≈ 0.2–0.4 ms against 14–19 s for the baseline on the (heavily loaded, shared) machine — the absolute times are inflated by load, the 4–5 orders of magnitude reflect the O((nm)³) vs O(n³ + m³ + nm log nm) costs |
+| EXP-C14-07 | spectra of products from the factors vs direct diagonalisation (`numpy.linalg.eigvalsh`): max relative error 1.2e−14 over 16 cases; at nm = 1600 the factor route took ≈ 0.2–0.4 ms against 14–19 s for the baseline on the (heavily loaded, shared) machine — the baseline was inflated by BLAS thread oversubscription; the Skeptic measured 0.22–0.38 s for the same `eigvalsh` on an unloaded run, so the typical gain is about 3 orders of magnitude, not 4–5 |
 
 ## Step 6 — Analysis
 
@@ -134,7 +134,11 @@ K₂⊕K₂⊕K₂ ≅ K₂⊕K_{1,3} and C₄ = K₂⊕K₂ = K₂⊕2K₁ (H-C
   product of Seidel matrices / two-graphs; tensor product two-graphs) found no
   statement of the general identity S(G⊕H) + I = (S(G)+I)⊗(S(H)+I), of the
   switching compatibility of ⊕, of Theorem 7 or of the character
-  classification. **POTENTIALLY NOVEL (small; plausibly folklore).**
+  classification. **Correction (Skeptic review, 2026-10-18):** the identity and
+  the switching compatibility are in A. Abiad, S. Butler, W. H. Haemers,
+  arXiv:1801.01149 (2018), §5 — CLM-C14-06 is a **REDISCOVERY**. Theorem 7 and
+  the character classification remain **POTENTIALLY NOVEL (small; plausibly
+  folklore).**
 * **OEIS.** Prime counts with respect to each product over *all* graphs, and
   the prime two-graph counts: no match (searched 2026-10-18; cached).
 

@@ -51,7 +51,7 @@ on which weak hashes fail.
 | EXP-C18-01 | 7 quasigroups verified; T-function/affinity classification; all structural predictions hold |
 | EXP-C18-02 | reverse-pass LS/ISO/NIMINV variants and MX64 at BLAKE2b's noise floor; forward-only variants, FNV-1a, AFF, ALP, XOR, CRC32 fail; x + c(y): ideal flip rates, BIC 1.0 |
 | EXP-C18-03 | every reverse-pass variant fails structured key sets (32,624 full collisions on near-duplicates) |
-| EXP-C18-04 | throughput (indicative): FNV-1a 640, MX64 428, CRC32 127, BLAKE2b 74, quasigroup 11–52 MB/s |
+| EXP-C18-04 | throughput (indicative, load-dependent): FNV-1a 640, MX64 428, CRC32 127, BLAKE2b 74, quasigroup 11–52 MB/s (20–98 MB/s on the Skeptic's re-run; the ordering is stable) |
 | EXP-C18-05 | tail bound attained exactly; cascades QC-LS, QC-ISO pass everything; QC-NIMINV biased; ~10–13 MB/s |
 
 Incidents: the first EXP-C18-03 run failed (words passed as str) and was
@@ -97,10 +97,13 @@ QC-ARP d8 (H-C18-9).
 
 ## Step 9 — Applications
 
-**No improvement** (CLM-C18-13). The best quasigroup constructions match MX64
-and BLAKE2b in quality on our tests but are several times slower; MX64 is at
-least as good on every axis. Against FNV-1a alone, the good cascades mix
-better but are much slower. Not a security evaluation.
+**No significant improvement** (CLM-C18-13). The best quasigroup constructions
+match MX64 and BLAKE2b in quality on our tests but are several times slower;
+MX64 is at least as good on every axis within noise (some quasigroup hashes
+are numerically slightly better on single statistics, within noise). Against
+FNV-1a alone, the good cascades mix better but are much slower; FNV-1a's
+z = −9.8 on sequential keys means *more* uniform than random, not a defect.
+Not a security evaluation.
 
 ## Step 10 — Documentation
 

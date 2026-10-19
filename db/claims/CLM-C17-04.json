@@ -18,15 +18,42 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:23Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "statement",
+      "new": "Certification (associative inputs, n = 32..512) - Light's test with a greedy generating set uses 23-383 times (cyclic groups) and 38-614 times (anchored tables) fewer table probes than the exhaustive n^3 check (generating-set cost included), the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. Refutation (one-entry corruptions, random magmas) - an exhaustive check that stops at the first violating triple is about as cheap as Light's test or much cheaper (4 probes on random magmas against about 9e5; 0.1-1.1x Light's probes on corruptions), so the gains concern certification only. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.",
+      "old": "On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - probe accounting fixed; gains restricted to certification",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Families chosen to include worst cases for each method; no comparison with optimised C implementations. The first version reported 23-77x gains on corrupted and random inputs too; the Skeptic showed those ratios measured an accounting artefact (the exhaustive check was charged a whole 64-row slab as soon as the slab contained a violation). Fixed in systems/law_testing.naive and re-measured.",
+      "old": "Families chosen to include worst cases for each method; no comparison with optimised C implementations.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - probe accounting fixed; gains restricted to certification",
+      "ts": "2026-10-19T14:24:53Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "improvement_detail",
+      "new": "certification of associative inputs - large gains when a small generating set exists (up to 614x fewer probes; at n = 512 Light incl. generating set about 300x and the anchored test about 500x faster in wall time than the exhaustive check, indicative timings); none on left-zero bands (1.7x); refutation of non-associative inputs - no gain, an early-exit exhaustive check is usually cheaper; randomised tests trade certainty for O(n^2) cost",
+      "old": "large gains when a small generating set exists (up to 614x fewer probes; on associative inputs at n = 512 Light incl. generating set is 235-340x faster and the anchored test 565x faster than the exhaustive check, indicative timings); essentially none on left-zero bands (1.7x); randomised tests trade certainty for O(n^2) cost",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - probe accounting fixed; gains restricted to certification",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C17-04",
   "improvement": "MIXED",
-  "improvement_detail": "large gains when a small generating set exists (up to 614x fewer probes; on associative inputs at n = 512 Light incl. generating set is 235-340x faster and the anchored test 565x faster than the exhaustive check, indicative timings); essentially none on left-zero bands (1.7x); randomised tests trade certainty for O(n^2) cost",
-  "limitations": "Families chosen to include worst cases for each method; no comparison with optimised C implementations.",
+  "improvement_detail": "certification of associative inputs - large gains when a small generating set exists (up to 614x fewer probes; at n = 512 Light incl. generating set about 300x and the anchored test about 500x faster in wall time than the exhaustive check, indicative timings); none on left-zero bands (1.7x); refutation of non-associative inputs - no gain, an early-exit exhaustive check is usually cheaper; randomised tests trade certainty for O(n^2) cost",
+  "limitations": "Families chosen to include worst cases for each method; no comparison with optimised C implementations. The first version reported 23-77x gains on corrupted and random inputs too; the Skeptic showed those ratios measured an accounting artefact (the exhaustive check was charged a whole 64-row slab as soon as the slab contained a violation). Fixed in systems/law_testing.naive and re-measured.",
   "novelty": "REDISCOVERY",
   "novelty_basis": "The algorithms are classical (Light; Rajagopalan-Schulman); the benchmark is ours. Timings were measured on a shared, loaded machine and are indicative only; probe counts are exact.",
-  "statement": "On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.",
+  "statement": "Certification (associative inputs, n = 32..512) - Light's test with a greedy generating set uses 23-383 times (cyclic groups) and 38-614 times (anchored tables) fewer table probes than the exhaustive n^3 check (generating-set cost included), the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. Refutation (one-entry corruptions, random magmas) - an exhaustive check that stops at the first violating triple is about as cheap as Light's test or much cheaper (4 probes on random magmas against about 9e5; 0.1-1.1x Light's probes on corruptions), so the gains concern certification only. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.",
   "system": "SYS-B",
   "title": "Benchmark - generator and anchor tests versus the exhaustive check",
   "type": "algorithmic",

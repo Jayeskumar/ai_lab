@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 - written parts upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-01",
@@ -19,7 +28,7 @@
   "novelty": "REDISCOVERY",
   "novelty_basis": "Pascal's triangle for additive CA is classical (Martin, Odlyzko, Wolfram, Comm. Math. Phys. 93 (1984)); automata of the form c'_i = c_i * c_{i+1} over groupoids, groups and quasigroups were studied by J. Pedersen (Complex Systems 6 (1992) 237-250) and C. Moore (Moore-Drisko 1995/96; Moore-Pnin, arXiv:patt-sol/9701008), where the word structure of semigroup and group rules is used. The width bound is immediate.",
   "proof": "proofs/paper/C15.md#theorem-1-clm-c15-01--light-cones-of-semigroups",
-  "proof_check": "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review",
+  "proof_check": "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "For an associative magma the t-step local map is the ordered product F_t(x_0..x_t) = prod_{j < 2^t} x_{s(j)},\ns(j) the binary digit sum of j; for a commutative semigroup F_t = prod_k x_k^C(t,k), and the forward and\nbackward streaming widths of F_t are at most |S|.",
   "system": "SYS-E",
   "title": "Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width",

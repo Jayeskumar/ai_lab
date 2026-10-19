@@ -1,0 +1,5 @@
+stage3 checks (N, status): {(4, 'UNSAT'): 7175, (5, 'UNSAT'): 7238, (6, 'UNSAT'): 7238, (7, 'UNSAT'): 7239} violations [] unknown 0
+
+real	10m57.474s
+user	10m24.116s
+sys	0m7.156s

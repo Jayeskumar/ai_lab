@@ -47,11 +47,23 @@ $4n$ of the $n^3$ triples.
 
 | family ($n = 512$) | exhaustive / Light probes | exhaustive time | Light + generators | anchored test |
 |---|---|---|---|---|
-| cyclic group | 383 | 1.4 s | 6 ms | — |
-| anchored $x + y + 1$ | 614 | 1.7 s | 5 ms | 3 ms |
-| left-zero band | **1.7** | 1.6 s | 1.2 s | — |
-| one corrupted entry | 48–77 | 0.18 s | 5–7 ms | 3 ms |
-| random | 74 | 0.20 s | 5 ms | — |
+| cyclic group | 383 | 1.7 s | 6 ms | — |
+| anchored $x + y + 1$ | 614 | 1.3 s | 4 ms | 3 ms |
+| left-zero band | **1.7** | 1.4 s | 0.94 s | — |
+| one corrupted entry | 0.15–1.1 | 0.16 s\* | 4–5 ms | 3 ms |
+| random | $4 \cdot 10^{-6}$ (4 probes against $\approx 9 \cdot 10^5$) | 0.19 s\* | 4–5 ms | — |
+
+\* Our vectorised implementation evaluates a whole slab of 64 rows; the probe
+column counts a sequential check that stops at the first violating triple.
+
+The first three rows are *certification*: the input is associative and every
+exact test must do its full work. There Light's test wins by two to three
+orders of magnitude whenever a small generating set exists. The last two rows
+are *refutation*, and there the exhaustive check wins: a random magma fails at
+the first triple it looks at. The first version of this table showed gains of
+48–77 on these rows; the Skeptic traced them to an accounting error (the
+exhaustive check was charged a whole slab as soon as the slab contained a
+violation), and the numbers above are re-measured.
 
 All exact tests and the randomised test (40 rounds) returned the correct
 verdict on all 90 instances; random-triple sampling with $n^2/16$ samples
@@ -59,7 +71,7 @@ missed 27 of the 30 near-associative inputs.
 
 *H-C17-1 [REFUTED].* "Light's test always wins by a factor of at least
 $n/10$." Left-zero bands need every element as a generator, and the gain
-collapses to 1.7×.
+collapses to 1.7×; on non-associative inputs there is no gain at all.
 
 ## The anchor instance of a law
 
@@ -68,15 +80,30 @@ $O(n^2)$ probes to check. For associativity it decides the law
 (Corollary 19.2). Does it always?
 
 *H-C17-2 [REFUTED].* Among the 382 laws of Chapter 7, the anchor instance
-decides the law for 333 (all anchored models with $N \le 5$), is insufficient
-for 18 — e.g. $x(yz) = y(y(xz))$ has 11 anchored models of its instance at
-$N = 4$, two of which violate the law — and could not be settled for 31.
+decides the law for 339 (all anchored models with $N \le 5$) and is
+insufficient for 43 — e.g. $x(yz) = y(y(xz))$ has 11 anchored models of its
+instance at $N = 4$, two of which violate the law, and $x(yz) = x(zy)$ fails
+already at $N = 3$. (The first version reported 333 / 18 and 31 undecided
+laws; a classification bug, found by the Skeptic, had counted laws with a
+violation at one size as undecided because the enumeration was capped at
+another.)
 
-**Observation 19.4** *[COMPUTATIONALLY SUPPORTED]*. For $2 \le N \le 10$,
-the single identity $x \star (y + 1) = (x \star y) \star (x + 1)$ (for all
-$x, y$ modulo $N$) has anchored solutions only for $N = 2, 4, 8$: the Laver
-tables. So left-distributivity of an anchored table is decided by an
-$O(N^2)$ check, at least for these sizes.
+**Observation 19.4** *[COMPUTATIONALLY SUPPORTED; uniqueness PROVEN]*. For
+every $N \le 4096$, the single identity
+$x \star (y + 1) = (x \star y) \star (x + 1)$ (for all $x, y$ modulo $N$) has an
+anchored solution exactly when $N$ is a power of 2, and then it is the Laver
+table. So left-distributivity of an anchored table is decided by an $O(N^2)$
+check, at least for these sizes.
+
+The first version checked only $N \le 10$, by SAT. The Skeptic then noticed
+why the search space is so small: the instances with $y \le N - 2$ already
+*force* the table. Row $N - 1$ must be the identity, and going down, every
+entry $x \star (y+1) = v \star (x+1)$ with $v = x \star y > x$ refers to a row
+that is already determined — this is Laver's recursion. So for every $N$ there
+is at most one candidate, and the question is only whether it satisfies the
+remaining wrap-around equations. Building the candidates for every
+$N \le 4096$ (EXP-C17-03) shows they do exactly at the powers of 2; why
+they never do otherwise is open.
 
 This experiment also corrected the laboratory's own citation of Laver's
 theorem in Chapter 7: the classical recursion is imposed only for $q < N$;
@@ -97,5 +124,6 @@ with model checkers.
 
 ## Open questions
 
-1. Prove Observation 19.4 for all $N$.
+1. Prove Observation 19.4 for all $N$: show that the forced table fails the
+   wrap-around equations whenever $N$ is not a power of 2.
 2. Which other laws admit a Light-type reduction to generators?

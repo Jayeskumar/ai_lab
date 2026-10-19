@@ -1,15 +1,15 @@
 {
   "agent": "Mathematical Skeptic",
-  "analysis": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.",
+  "analysis": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 339 laws and is insufficient for 43 (first violating model at N = 3 for 33 laws, N = 4 for 10); where the enumeration exceeds 3000 models a SAT query for a violating model decides the case, so no law is left undecided. Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table. (Corrected after the Skeptic's review - the first version reported 333 / 18 / 31 because of a classification bug.)",
   "assumptions": [
     "N = 2..5 for the census; left-distributivity additionally for N = 2..10",
-    "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)"
+    "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; where the enumeration is capped, a SAT query asks directly for an anchored model of the instance that violates the law (conflict budget 10^6)"
   ],
   "code": {
     "command": "python -m lab run EXP-C17-02",
     "file": "experiments/C17/E02_anchor_instance.py",
-    "sha256": "c3db0b896ed0402e078cdb9af1415eb696b9ef56a792b762bac12724716548ca",
-    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+    "sha256": "6edcf17dc39c5607253314d24d65e88205da34503548f0637ee22af16d7abe83",
+    "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
   },
   "counterexamples": [
     "x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)"
@@ -79,11 +79,44 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "N = 2..5 for the census; left-distributivity additionally for N = 2..10",
+        "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; where the enumeration is capped, a SAT query asks directly for an anchored model of the instance that violates the law (conflict budget 10^6)"
+      ],
+      "old": [
+        "N = 2..5 for the census; left-distributivity additionally for N = 2..10",
+        "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T18:18:57Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "methodology",
+      "new": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model; a law is 'insufficient' as soon as one violating model is found at some N, 'decides' when no violating model exists at any N = 2..5. (Revised after the Skeptic's review: the first version counted a law with a capped enumeration at one N as undecided even when a violation had been found at another N.)",
+      "old": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.",
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-18T18:18:57Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "analysis",
+      "new": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 339 laws and is insufficient for 43 (first violating model at N = 3 for 33 laws, N = 4 for 10); where the enumeration exceeds 3000 models a SAT query for a violating model decides the case, so no law is left undecided. Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table. (Corrected after the Skeptic's review - the first version reported 333 / 18 / 31 because of a classification bug.)",
+      "old": "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "hypothesis": "H-C17-2 (bold): for every law of the C06 family (x(yz) = t or (xy)z = t, t with 3-4 leaves over x, y, z), every anchored magma satisfying the z = 0 instance satisfies the law (N <= 5).",
   "id": "EXP-C17-02",
-  "methodology": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.",
+  "methodology": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model; a law is 'insufficient' as soon as one violating model is found at some N, 'decides' when no violating model exists at any N = 2..5. (Revised after the Skeptic's review: the first version counted a law with a capped enumeration at one N as undecided even when a violation had been found at another N.)",
   "question": "For anchored magmas (x*0 = x+1 mod N), the instance of a three-variable law with z = 0 can be checked with O(N^2) probes. For which laws of the C06 family does it imply the full law?",
   "related": [
     "CLM-C17-02",
@@ -91,7 +124,7 @@
     "CLM-C17-07"
   ],
   "results_file": "results/EXP-C17-02.json",
-  "results_sha256": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
+  "results_sha256": "a49afd99bdbfc75ac6612c8b91d80e22b61dbf7c400297ea811c9a033d3112d8",
   "runs": [
     {
       "code": {
@@ -152,10 +185,46 @@
         "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
         "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
       ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-02",
+        "file": "experiments/C17/E02_anchor_instance.py",
+        "sha256": "9d63d5f4a52bf78d20e62b6fbdc938d586c7b88b344d0d6833baffb305acd9fe",
+        "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
+      },
+      "error": true,
+      "finished": "2026-10-18T18:18:57Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C17-02.json",
+      "results_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "runtime_s": 0.437,
+      "started": "2026-10-18T18:18:56Z",
+      "summary": null
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C17-02",
+        "file": "experiments/C17/E02_anchor_instance.py",
+        "sha256": "6edcf17dc39c5607253314d24d65e88205da34503548f0637ee22af16d7abe83",
+        "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
+      },
+      "error": false,
+      "finished": "2026-10-18T18:20:16Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C17-02.json",
+      "results_sha256": "a49afd99bdbfc75ac6612c8b91d80e22b61dbf7c400297ea811c9a033d3112d8",
+      "runtime_s": 69.125,
+      "started": "2026-10-18T18:19:07Z",
+      "summary": [
+        "382 laws, N = 2..5: z=0 instance decides the law for 339, is insufficient for 43 (first violating model at N = 3: 33 laws, 4: 10 laws), not decided for 0",
+        "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
+        "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
+      ]
     }
   ],
   "summary": [
-    "382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31",
+    "382 laws, N = 2..5: z=0 instance decides the law for 339, is insufficient for 43 (first violating model at N = 3: 33 laws, 4: 10 laws), not decided for 0",
     "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
     "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
   ],

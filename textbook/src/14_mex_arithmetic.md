@@ -45,8 +45,12 @@ $a, b$:
 | D[$x$] + D[$y$] | $((a-1) \oplus (b-1)) + 1$ on positives, 0 absorbing |
 | D[$x$] + D[$y$] + D[$z$] | $a + b - 1$ on positives, 0 absorbing |
 
-Every other spec is refuted by an explicit triple. So **ordinary addition is a
-mex operation** — the least value not reachable by decreasing either argument
+Of the other specs, 468 are refuted by an explicit triple, and the remaining
+33 define the same 11 operations — an extra option that, evaluated on the
+formula, already lies in the option set does not change the mex (the
+argument is the Skeptic's; the first version of this chapter wrongly said
+every other spec was refuted). So exactly 44 specs are associative, and
+**ordinary addition is a mex operation** — the least value not reachable by decreasing either argument
 or both — and so is min.
 
 *Proof idea.* For L + R + D[$z$] the options are $a' + b$, $a + b'$ and
@@ -90,8 +94,10 @@ pair of blocks begins the used values are exactly $[0, 2^k - J_k)$. Inside the
 pair, every smaller candidate is excluded because two numbers just below $2^k$
 have a small XOR, while the claimed value survives because adding a number
 $c > x$ to $x$ always creates a new top bit. ∎ An independent implementation
-confirms the formula for all $b < 2^{15}$ (EXP-C07-03). Only 222 of 670 rows
-tested are additively periodic.
+confirms the formula for all $b < 2^{15}$ (EXP-C07-03; the Skeptic, computing
+from the definition: all $b < 2^{18}$). Only 222 of the 670 rows tested show
+an additive period of at most 375 within $b < 1500$; rows without a detected
+period may still be periodic.
 
 ## Experiments
 
@@ -112,13 +118,14 @@ description of the Jacobsthal row or of the census.
 ## Applications and limitations
 
 No application is claimed. The census uses tables up to $64 \times 64$ and
-rows up to $b < 1500$; 33 specs are known to agree with associative formulas
-only on that window.
+rows up to $b < 1500$; non-associativity is certified by explicit triples,
+associativity by the proofs above.
 
 ## Open questions
 
 1. Do rows $a \ge 3$ of the same operation have a recursive block structure?
 2. Which mex tables are automatic sequences, so that statements about them
    could be decided mechanically?
-3. Are the remaining 33 associative-looking specs associative for all
-   arguments?
+3. ~~Are the remaining 33 associative-looking specs associative for all
+   arguments?~~ Yes — answered by the Skeptic's absorption argument
+   (`proofs/paper/C07.md`).

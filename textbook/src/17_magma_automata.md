@@ -125,19 +125,30 @@ computable in $O(L)$. The reverse direction is open (Conjecture CLM-C15-18).
 ## Benchmark
 
 Direct numpy simulation is the baseline; rows of length $L = 1024$; times are
-indicative (shared machine).
+single runs on a shared machine and only their order of magnitude is
+meaningful. (Our benchmark timed the fast methods as the best of three runs
+and the simulation once; the Skeptic's re-run with one protocol for both gave,
+for example, ×202–314 and ×1459–2262 for the affine method at $t = 10^4$ and
+$10^5$, and ×1363 instead of ×4000 for the fuse method.)
 
 | method | $t = 10^2$ | $t = 10^3$ | $t = 10^4$ | $t = 10^5$ | $t = 10^9$ |
 |---|---|---|---|---|---|
 | affine (5 magmas) | ×3–4 | ×22–29 | ×138–215 | ×1800–2500 | 1.5–3 ms |
-| fuse burn times | ×2.5 | ×27 | ×239 | ×4000 | 0.6 ms |
+| fuse burn times | ×2.5 | ×27 | ×239 | ×4000 (re-run ×1363) | 0.6 ms |
 | commutative semigroups (3) | ×1–3 | ×0.9–2.1 | ×6–9 | ×62–100 | 21–42 ms |
+
+With the same protocol on both sides, the affine method loses below
+$t \approx 20$ and the fuse method below $t \approx 20$–$70$.
 | cycle detection | exact whenever the row repeats; 1590/1734 classes within 5000 steps at $L = 32$; fails for the affine quasigroups mod 3 | | | | |
 
 *A third hypothesis fails.* H-C15-6 predicted more than ×100 for every exact
 method at $t = 10^5$ and losses for small $t$. The commutative-semigroup method
 stays below ×100 — its final product costs $O(L^2)$ and it is even slower than
-simulation near $t = 10^3$ — while the affine and fuse methods never lose. And
+simulation near $t = 10^3$. The first version said the affine and fuse methods
+"never lose"; timed with the same protocol on both sides (our benchmark had
+used the best of three runs for the fast method and a single run for the
+simulation) they lose for $t$ below about 20–70, so the small-$t$ clause of
+H-C15-6 is partly true, and the refutation rests on the ×100 clause. And
 H-C15-5 ("long cycles only for geometric width") fails because the affine
 quasigroups mod 3 have bounded width but long cycles.
 

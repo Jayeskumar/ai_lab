@@ -1,0 +1,8 @@
+distinct infinite spectra (union of families): 45  of which all N: True
+per family: 3var 13  2var 45
+distinct finite spectra (union): 80 ; total distinct spectra union: 125
+infinite spectra with < 8 terms <= 200: []
+
+real	0m14.115s
+user	0m10.723s
+sys	0m0.334s

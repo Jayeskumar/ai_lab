@@ -81,6 +81,15 @@
       "old": null,
       "reason": "Historian audit 2026-10-18 - the full text was found on another host and compared (formerly INCONCLUSIVE)",
       "ts": "2026-10-18T17:10:29Z"
+    },
+    {
+      "actor": "sync:C20",
+      "event": "changed",
+      "field": "statement",
+      "new": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem. (Equivalent, not verbatim - Theorem 1.1 characterises termination and the conjecture non-termination; the conjecture's cases are exactly the non-terminating cases listed on p. 2 of the report.)",
+      "old": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P8) - 'verbatim' corrected to 'equivalent'; equivalence re-checked on all parameters <= 50",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C20-04",
@@ -89,7 +98,7 @@
   "novelty_basis": "Zantema-Geser 1994/2000 (see CLM-C03-10).",
   "proof": "reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item",
   "proof_check": "Theorem statement read verbatim by the Historian from the scanned tech. report UU-CS-1994-44 (https://ics-archive.science.uu.nl/research/techreps/repo/CS-1994/1994-44.pdf; the lab's own retrieval attempts at other hosts failed); equivalence by case analysis (s >= 2p or not, r >= 2q or not) and checked on all parameters <= 40",
-  "statement": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.",
+  "statement": "The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem. (Equivalent, not verbatim - Theorem 1.1 characterises termination and the conjecture non-termination; the conjecture's cases are exactly the non-terminating cases listed on p. 2 of the report.)",
   "system": "SYS-A",
   "title": "C03 Conjecture 4.6 coincides with the Zantema-Geser characterisation",
   "type": "observation",

@@ -20,17 +20,23 @@ import numpy as np
 
 
 def naive(T: np.ndarray, slab: int = 64):
+    """Exhaustive associativity check, vectorised in slabs of 64 values of a.
+
+    The probe count is that of the sequential check over (a, b, c) in lexicographic order which stops at the first
+    violating triple (4 table look-ups per triple). The first version charged a whole slab (4 * 64 * n^2 probes)
+    as soon as it contained a violation, which inflated the cost on non-associative inputs (Skeptic review of C17).
+    """
     n = T.shape[0]
-    probes = 0
     for a0 in range(0, n, slab):
         A = np.arange(a0, min(n, a0 + slab))
         ab = T[A, :]                                   # (s, n): a*b
         left = T[ab[:, :, None], np.arange(n)[None, None, :]]   # (a*b)*c
         right = T[A[:, None, None], T[None, :, :]]               # a*(b*c)
-        probes += 4 * len(A) * n * n
-        if not np.array_equal(left, right):
-            return False, probes
-    return True, probes
+        bad = left != right
+        if bad.any():
+            first = int(np.flatnonzero(bad.ravel())[0])          # lexicographic (a - a0, b, c)
+            return False, 4 * (a0 * n * n + first + 1)
+    return True, 4 * n ** 3
 
 
 def light(T: np.ndarray, gens):

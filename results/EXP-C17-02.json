@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C17-02",
     "file": "experiments/C17/E02_anchor_instance.py",
-    "sha256": "c3db0b896ed0402e078cdb9af1415eb696b9ef56a792b762bac12724716548ca",
-    "systems_sha256": "f5d4a7185009e3f00c5864e2b7bbe4044e4ad8efbaf6ce7d36d7b3c5ff0c6493"
+    "sha256": "6edcf17dc39c5607253314d24d65e88205da34503548f0637ee22af16d7abe83",
+    "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
   },
   "env": {
-    "git_head": "7fec8bd6551450f1cdb94c75b9dc5acbce351b3f",
+    "git_head": "6d581dd3078599b8a9cb68c9f18f1d54cd311f2a",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,19 +17,19 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T17:53:21Z",
+  "finished": "2026-10-18T18:20:16Z",
   "id": "EXP-C17-02",
   "meta": {
     "agent": "Mathematical Skeptic",
     "assumptions": [
       "N = 2..5 for the census; left-distributivity additionally for N = 2..10",
-      "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)"
+      "models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; where the enumeration is capped, a SAT query asks directly for an anchored model of the instance that violates the law (conflict budget 10^6)"
     ],
     "cycle": "C17",
     "falsification": "Any law with an anchored model of its z = 0 instance that violates the law.",
     "hypothesis": "H-C17-2 (bold): for every law of the C06 family (x(yz) = t or (xy)z = t, t with 3-4 leaves over x, y, z), every anchored magma satisfying the z = 0 instance satisfies the law (N <= 5).",
     "id": "EXP-C17-02",
-    "methodology": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.",
+    "methodology": "For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model; a law is 'insufficient' as soon as one violating model is found at some N, 'decides' when no violating model exists at any N = 2..5. (Revised after the Skeptic's review: the first version counted a law with a capped enumeration at one N as undecided even when a violation had been found at another N.)",
     "question": "For anchored magmas (x*0 = x+1 mod N), the instance of a three-variable law with z = 0 can be checked with O(N^2) probes. For which laws of the C06 family does it imply the full law?",
     "title": "The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?"
   },
@@ -54,31 +54,61 @@
         }
       },
       "instance_decides": true,
+      "instance_insufficient": false,
       "law": "x(yz) = (xy)z",
-      "not_decided_by_enumeration": false
+      "not_decided": false
     },
-    "examples_insufficient": [
+    "first_violation_at_N": {
+      "3": 33,
+      "4": 10
+    },
+    "instance_decides": 339,
+    "instance_insufficient": 43,
+    "insufficient_laws": [
+      "x(yz) = x(zy)",
+      "x(yz) = y(xz)",
+      "x(yz) = y(zx)",
+      "x(yz) = x(y(xz))",
+      "x(yz) = x(y(yz))",
+      "x(yz) = x(y(zx))",
+      "x(yz) = x(y(zy))",
+      "x(yz) = x(y(zz))",
+      "x(yz) = x(z(yx))",
+      "x(yz) = x(z(yy))",
+      "x(yz) = x(z(yz))",
+      "x(yz) = y(x(xz))",
+      "x(yz) = y(x(yz))",
+      "x(yz) = y(x(zx))",
       "x(yz) = y(y(xz))",
       "x(yz) = x((xy)z)",
       "x(yz) = x((xz)y)",
       "x(yz) = x((yx)z)",
+      "x(yz) = x((yy)z)",
+      "x(yz) = x((yz)y)",
       "x(yz) = x((zx)y)",
       "x(yz) = y((yx)z)",
+      "x(yz) = (yx)(yz)",
+      "x(yz) = (zx)(yy)",
       "x(yz) = (zx)(zy)",
       "x(yz) = ((xy)x)z",
       "x(yz) = ((xz)x)y",
       "x(yz) = ((zy)x)x",
+      "(xy)z = z(xy)",
       "(xy)z = (zy)x",
       "(xy)z = z((yx)z)",
       "(xy)z = z((zx)y)",
+      "(xy)z = (xy)(xz)",
+      "(xy)z = (xy)(zx)",
+      "(xy)z = (xy)(zy)",
+      "(xy)z = (xy)(zz)",
       "(xy)z = (xz)(zy)",
       "(xy)z = (x(zx))y",
       "(xy)z = (x(zy))x",
       "(xy)z = (x(zy))y",
-      "(xy)z = (x(zz))y"
+      "(xy)z = (x(zy))z",
+      "(xy)z = (x(zz))y",
+      "(xy)z = (z(xy))x"
     ],
-    "instance_decides": 333,
-    "instance_insufficient": 18,
     "left_distributivity": {
       "by_N": {
         "2": {
@@ -99,8 +129,9 @@
         }
       },
       "instance_decides": true,
+      "instance_insufficient": false,
       "law": "x(yz) = (xy)(xz)",
-      "not_decided_by_enumeration": false
+      "not_decided": false
     },
     "left_distributivity_instance_N_le_10": {
       "10": {
@@ -150,6 +181,7 @@
       }
     },
     "n_laws": 382,
+    "not_decided": 0,
     "rows": [
       {
         "by_N": {
@@ -161,12 +193,82 @@
             "models_of_instance": 82,
             "violating_full_law": 54
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                2,
+                3,
+                0
+              ],
+              [
+                2,
+                2,
+                3,
+                2
+              ],
+              [
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                0,
+                3,
+                3,
+                2
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                2,
+                3,
+                4,
+                0
+              ],
+              [
+                2,
+                3,
+                4,
+                4,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                4,
+                3
+              ],
+              [
+                4,
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                0,
+                4,
+                4,
+                4,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(zy)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -178,12 +280,82 @@
             "models_of_instance": 27,
             "violating_full_law": 18
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(xz)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -199,11 +371,52 @@
             "models_of_instance": 64,
             "violating_full_law": 63
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                2,
+                3,
+                4,
+                0
+              ],
+              [
+                2,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(zx)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -225,8 +438,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -248,8 +462,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -271,8 +486,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -294,8 +510,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -317,8 +534,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yx)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -330,12 +548,21 @@
             "models_of_instance": 27,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)x",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -357,8 +584,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zx)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -370,12 +598,21 @@
             "models_of_instance": 27,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)x",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -387,12 +624,21 @@
             "models_of_instance": 24,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x(x(yz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -414,8 +660,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -427,12 +674,82 @@
             "models_of_instance": 40,
             "violating_full_law": 17
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                3,
+                3,
+                3
+              ],
+              [
+                2,
+                3,
+                3,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                0,
+                0,
+                0,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                2,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                3,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(y(xz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -444,12 +761,82 @@
             "models_of_instance": 90,
             "violating_full_law": 47
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                2
+              ],
+              [
+                2,
+                3,
+                2,
+                1
+              ],
+              [
+                3,
+                0,
+                0,
+                3
+              ],
+              [
+                0,
+                3,
+                1,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                2,
+                2
+              ],
+              [
+                2,
+                4,
+                2,
+                1,
+                1
+              ],
+              [
+                3,
+                4,
+                0,
+                3,
+                1
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                4,
+                1,
+                1,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(y(yz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -461,12 +848,82 @@
             "models_of_instance": 36,
             "violating_full_law": 26
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                2,
+                2,
+                1,
+                1
+              ],
+              [
+                3,
+                2,
+                1,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                2,
+                4,
+                4
+              ],
+              [
+                3,
+                3,
+                3,
+                4,
+                4
+              ],
+              [
+                4,
+                3,
+                3,
+                3,
+                4
+              ],
+              [
+                0,
+                2,
+                0,
+                4,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(y(zx))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -478,12 +935,82 @@
             "models_of_instance": 54,
             "violating_full_law": 44
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(y(zy))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -495,12 +1022,82 @@
             "models_of_instance": 33,
             "violating_full_law": 23
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                2,
+                2,
+                1
+              ],
+              [
+                2,
+                2,
+                2,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                3,
+                3,
+                3,
+                1
+              ],
+              [
+                2,
+                2,
+                1,
+                2,
+                1
+              ],
+              [
+                3,
+                3,
+                1,
+                3,
+                1
+              ],
+              [
+                4,
+                4,
+                1,
+                4,
+                1
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(y(zz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -522,8 +1119,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -539,11 +1137,52 @@
             "models_of_instance": 124,
             "violating_full_law": 123
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                2,
+                3,
+                2
+              ],
+              [
+                2,
+                3,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                4,
+                4,
+                2,
+                4,
+                2
+              ],
+              [
+                0,
+                3,
+                3,
+                0,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(z(yx))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -559,11 +1198,52 @@
             "models_of_instance": 641,
             "violating_full_law": 640
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                2,
+                2,
+                2
+              ],
+              [
+                2,
+                2,
+                4,
+                4,
+                4
+              ],
+              [
+                3,
+                3,
+                4,
+                4,
+                4
+              ],
+              [
+                4,
+                4,
+                2,
+                2,
+                2
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(z(yy))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -575,12 +1255,82 @@
             "models_of_instance": 10,
             "violating_full_law": 9
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                3,
+                3
+              ],
+              [
+                2,
+                2,
+                3,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                0,
+                0,
+                3,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                4,
+                4,
+                4
+              ],
+              [
+                2,
+                2,
+                4,
+                4,
+                4
+              ],
+              [
+                3,
+                3,
+                4,
+                4,
+                4
+              ],
+              [
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                0,
+                0,
+                4,
+                4,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x(z(yz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -602,8 +1352,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x(z(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -619,11 +1370,52 @@
             "models_of_instance": 64,
             "violating_full_law": 55
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                0,
+                2,
+                0,
+                0
+              ],
+              [
+                3,
+                0,
+                0,
+                3,
+                0
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(x(xz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -639,11 +1431,52 @@
             "models_of_instance": 87,
             "violating_full_law": 29
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                3,
+                3,
+                3
+              ],
+              [
+                2,
+                3,
+                2,
+                3,
+                1
+              ],
+              [
+                3,
+                3,
+                3,
+                3,
+                1
+              ],
+              [
+                4,
+                1,
+                3,
+                3,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(x(yz))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -659,11 +1492,52 @@
             "models_of_instance": 16,
             "violating_full_law": 16
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                2,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                4,
+                3,
+                4
+              ],
+              [
+                3,
+                0,
+                3,
+                3,
+                4
+              ],
+              [
+                4,
+                0,
+                4,
+                4,
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(x(zx))",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -685,8 +1559,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -708,8 +1583,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(x(zz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -731,8 +1607,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y(y(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -754,8 +1631,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(y(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -777,8 +1655,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(z(xx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -800,8 +1679,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -823,8 +1703,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(z(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -846,8 +1727,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(z(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -869,8 +1751,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y(z(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -892,8 +1775,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(x(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -915,8 +1799,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(x(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -938,8 +1823,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(x(yy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -961,8 +1847,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(x(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -984,8 +1871,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1007,8 +1895,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(y(xx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1030,8 +1919,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(y(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1053,8 +1943,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(y(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1076,8 +1967,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(y(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1099,8 +1991,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(y(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1122,8 +2015,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1145,8 +2039,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z(z(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1168,8 +2063,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1191,8 +2087,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1214,8 +2111,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1231,11 +2129,52 @@
             "models_of_instance": 2077,
             "violating_full_law": 1777
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                2,
+                3,
+                3,
+                4,
+                3
+              ],
+              [
+                3,
+                2,
+                2,
+                4,
+                2
+              ],
+              [
+                4,
+                4,
+                4,
+                3,
+                4
+              ],
+              [
+                0,
+                4,
+                4,
+                4,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((yy)z)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1257,8 +2196,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1274,11 +2214,52 @@
             "models_of_instance": 2077,
             "violating_full_law": 2076
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                3,
+                3,
+                3,
+                0
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                4,
+                3,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                4,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((yz)y)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1300,8 +2281,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((yz)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1323,8 +2305,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = x((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1346,8 +2329,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1369,8 +2353,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((zy)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1392,8 +2377,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((zy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1415,8 +2401,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = x((zz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1438,8 +2425,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((xx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1461,8 +2449,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1484,8 +2473,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((xz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1507,8 +2497,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1530,8 +2521,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((xz)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1553,8 +2545,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = y((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1576,8 +2569,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1599,8 +2593,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((zx)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1622,8 +2617,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1645,8 +2641,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((zx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1668,8 +2665,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1691,8 +2689,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = y((zz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1714,8 +2713,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((xx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1737,8 +2737,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((xy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1760,8 +2761,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((xy)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1783,8 +2785,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1806,8 +2809,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1829,8 +2833,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((yx)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1852,8 +2857,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((yx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1875,8 +2881,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1898,8 +2905,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((yy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1921,8 +2929,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1944,8 +2953,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1967,8 +2977,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = z((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -1990,8 +3001,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xx)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2013,8 +3025,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2036,8 +3049,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2059,8 +3073,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2082,8 +3097,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2105,8 +3121,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2128,8 +3145,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xy)(zz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2151,8 +3169,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2174,8 +3193,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2197,8 +3217,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)(yy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2220,8 +3241,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2243,8 +3265,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (xz)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2266,8 +3289,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yx)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2283,11 +3307,52 @@
             "models_of_instance": 79,
             "violating_full_law": 74
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                2,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                3,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                4,
+                0,
+                0,
+                0,
+                4
+              ],
+              [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = (yx)(yz)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2309,8 +3374,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yx)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2332,8 +3398,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2355,8 +3422,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yx)(zz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2378,8 +3446,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yy)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2401,8 +3470,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yy)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2424,8 +3494,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)(xx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2447,8 +3518,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2470,8 +3542,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2493,8 +3566,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2516,8 +3590,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (yz)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2539,8 +3614,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zx)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2562,8 +3638,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zx)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2579,11 +3656,52 @@
             "models_of_instance": 64,
             "violating_full_law": 64
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                0,
+                2,
+                4,
+                3
+              ],
+              [
+                2,
+                0,
+                1,
+                4,
+                3
+              ],
+              [
+                3,
+                4,
+                3,
+                0,
+                4
+              ],
+              [
+                4,
+                0,
+                0,
+                4,
+                2
+              ],
+              [
+                0,
+                0,
+                4,
+                4,
+                2
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = (zx)(yy)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2605,8 +3723,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zx)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2628,8 +3747,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = (zx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2651,8 +3771,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)(xx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2674,8 +3795,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2697,8 +3819,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2720,8 +3843,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2743,8 +3867,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zy)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2766,8 +3891,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2789,8 +3915,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (zz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2812,8 +3939,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(xy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2835,8 +3963,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2858,8 +3987,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2881,8 +4011,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(yy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2904,8 +4035,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2927,8 +4059,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(yz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2950,8 +4083,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(yz))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2973,8 +4107,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -2996,8 +4131,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3019,8 +4155,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(zy))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3042,8 +4179,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(zy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3065,8 +4203,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (x(zz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3088,8 +4227,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(xx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3111,8 +4251,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(xy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3134,8 +4275,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(xz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3157,8 +4299,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3180,8 +4323,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(xz))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3203,8 +4347,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3226,8 +4371,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3249,8 +4395,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(zx))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3272,8 +4419,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3295,8 +4443,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(zx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3318,8 +4467,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3341,8 +4491,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (y(zz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3364,8 +4515,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(xx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3387,8 +4539,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(xy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3410,8 +4563,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(xy))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3433,8 +4587,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(xy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3456,8 +4611,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3479,8 +4635,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(yx))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3502,8 +4659,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(yx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3525,8 +4683,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3548,8 +4707,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(yy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3571,8 +4731,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3594,8 +4755,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3617,8 +4779,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = (z(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3640,8 +4803,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3663,8 +4827,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3686,8 +4851,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = ((xy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3709,8 +4875,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xy)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3732,8 +4899,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3755,8 +4923,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xy)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3778,8 +4947,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xy)z)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3801,8 +4971,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = ((xz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3824,8 +4995,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3847,8 +5019,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xz)y)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3870,8 +5043,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xz)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3893,8 +5067,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((xz)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3916,8 +5091,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yx)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3939,8 +5115,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3962,8 +5139,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yx)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -3985,8 +5163,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4008,8 +5187,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yx)z)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4031,8 +5211,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4054,8 +5235,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4077,8 +5259,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yz)x)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4100,8 +5283,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4123,8 +5307,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yz)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4146,8 +5331,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4169,8 +5355,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((yz)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4192,8 +5379,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zx)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4215,8 +5403,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zx)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4238,8 +5427,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zx)y)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4261,8 +5451,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4284,8 +5475,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4307,8 +5499,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "x(yz) = ((zy)x)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4330,8 +5523,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zy)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4353,8 +5547,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4376,8 +5571,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zy)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4399,8 +5595,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4422,8 +5619,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4445,8 +5643,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "x(yz) = ((zz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4468,8 +5667,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4491,8 +5691,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4514,8 +5715,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4537,8 +5739,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4550,12 +5753,82 @@
             "models_of_instance": 81,
             "violating_full_law": 54
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                2,
+                3,
+                0
+              ],
+              [
+                2,
+                2,
+                2,
+                2
+              ],
+              [
+                3,
+                3,
+                1,
+                3
+              ],
+              [
+                0,
+                3,
+                1,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                2,
+                3,
+                4,
+                0
+              ],
+              [
+                2,
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                3,
+                4,
+                1,
+                1,
+                4
+              ],
+              [
+                4,
+                4,
+                1,
+                1,
+                4
+              ],
+              [
+                0,
+                4,
+                1,
+                1,
+                1
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = z(xy)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4567,12 +5840,21 @@
             "models_of_instance": 27,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(yx)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4594,8 +5876,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xz)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4607,12 +5890,21 @@
             "models_of_instance": 27,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)z",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4634,8 +5926,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4657,8 +5950,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4680,8 +5974,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (zy)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4703,8 +5998,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(x(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4726,8 +6022,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4749,8 +6046,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(y(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4772,8 +6070,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(y(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4795,8 +6094,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(y(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4818,8 +6118,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(y(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4841,8 +6142,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(y(zz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4864,8 +6166,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4887,8 +6190,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(z(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4910,8 +6214,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(z(yy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4933,8 +6238,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(z(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4956,8 +6262,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x(z(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -4979,8 +6286,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(x(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5002,8 +6310,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(x(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5025,8 +6334,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(x(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5048,8 +6358,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5071,8 +6382,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(x(zz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5094,8 +6406,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(y(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5117,8 +6430,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(y(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5140,8 +6454,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(z(xx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5163,8 +6478,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5186,8 +6502,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(z(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5209,8 +6526,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(z(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5232,8 +6550,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y(z(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5255,8 +6574,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(x(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5278,8 +6598,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(x(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5301,8 +6622,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(x(yy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5324,8 +6646,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(x(yz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5347,8 +6670,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(x(zy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5370,8 +6694,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(y(xx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5393,8 +6718,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(y(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5416,8 +6742,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(y(xz))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5439,8 +6766,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(y(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5462,8 +6790,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(y(zx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5485,8 +6814,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(z(xy))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5508,8 +6838,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z(z(yx))",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5531,8 +6862,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5554,8 +6886,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5577,8 +6910,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5600,8 +6934,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((yy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5623,8 +6958,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5646,8 +6982,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((yz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5669,8 +7006,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((yz)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5692,8 +7030,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5715,8 +7054,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5738,8 +7078,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((zy)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5761,8 +7102,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((zy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5784,8 +7126,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = x((zz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5807,8 +7150,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((xx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5830,8 +7174,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5853,8 +7198,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((xz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5876,8 +7222,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5899,8 +7246,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((xz)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5922,8 +7270,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5945,8 +7294,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5968,8 +7318,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((zx)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -5991,8 +7342,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6014,8 +7366,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((zx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6037,8 +7390,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6060,8 +7414,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = y((zz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6083,8 +7438,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((xx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6106,8 +7462,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((xy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6129,8 +7486,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((xy)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6152,8 +7510,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((xy)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6175,8 +7534,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((xz)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6198,8 +7558,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((yx)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6221,8 +7582,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((yx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6244,8 +7606,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = z((yx)z)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6267,8 +7630,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((yy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6290,8 +7654,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((yz)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6313,8 +7678,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = z((zx)y)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6336,8 +7702,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = z((zy)x)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6359,8 +7726,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xx)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6382,8 +7750,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6395,12 +7764,82 @@
             "models_of_instance": 13,
             "violating_full_law": 12
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                3,
+                3,
+                3
+              ],
+              [
+                2,
+                2,
+                3,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                2,
+                2,
+                4,
+                4,
+                4
+              ],
+              [
+                3,
+                4,
+                3,
+                4,
+                4
+              ],
+              [
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (xy)(xz)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6422,8 +7861,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xy)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6435,12 +7875,82 @@
             "models_of_instance": 18,
             "violating_full_law": 17
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                3,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                3,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                4,
+                4,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0,
+                4
+              ],
+              [
+                3,
+                3,
+                3,
+                3,
+                4
+              ],
+              [
+                4,
+                3,
+                4,
+                3,
+                4
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (xy)(zx)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6452,12 +7962,82 @@
             "models_of_instance": 18,
             "violating_full_law": 17
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                3,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (xy)(zy)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6469,12 +8049,82 @@
             "models_of_instance": 27,
             "violating_full_law": 26
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0
+              ],
+              [
+                3,
+                3,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                0,
+                0,
+                0
+              ],
+              [
+                2,
+                2,
+                0,
+                0,
+                0
+              ],
+              [
+                3,
+                3,
+                0,
+                0,
+                0
+              ],
+              [
+                4,
+                4,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (xy)(zz)",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6496,8 +8146,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6519,8 +8170,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6542,8 +8194,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xz)(yy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6565,8 +8218,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (xz)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6588,8 +8242,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (xz)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6611,8 +8266,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6634,8 +8290,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6657,8 +8314,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6680,8 +8338,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6703,8 +8362,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yx)(zz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6726,8 +8386,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yy)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6749,8 +8410,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yy)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6772,8 +8434,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)(xx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6795,8 +8458,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6818,8 +8482,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6841,8 +8506,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6864,8 +8530,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (yz)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6887,8 +8554,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6910,8 +8578,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6933,8 +8602,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)(yy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6956,8 +8626,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)(yz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -6979,8 +8650,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zx)(zy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7002,8 +8674,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zy)(xx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7025,8 +8698,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zy)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7048,8 +8722,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zy)(xz)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7071,8 +8746,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zy)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7094,8 +8770,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zy)(zx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7117,8 +8794,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zz)(xy)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7140,8 +8818,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (zz)(yx)",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7153,12 +8832,21 @@
             "models_of_instance": 24,
             "violating_full_law": 0
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          },
+          "5": {
+            "example": null,
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "UNSAT"
+          }
         },
-        "instance_decides": false,
+        "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(xy))z",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7180,8 +8868,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7203,8 +8892,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7226,8 +8916,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(yy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7249,8 +8940,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7272,8 +8964,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(yz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7295,8 +8988,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (x(yz))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7318,8 +9012,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (x(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7341,8 +9036,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (x(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7364,8 +9060,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (x(zy))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7377,12 +9074,82 @@
             "models_of_instance": 10,
             "violating_full_law": 9
           },
-          "4": "too many models",
-          "5": "too many models"
+          "4": {
+            "example": [
+              [
+                1,
+                1,
+                3,
+                3
+              ],
+              [
+                2,
+                2,
+                3,
+                3
+              ],
+              [
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                0,
+                0,
+                3,
+                3
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          },
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                4,
+                4,
+                4
+              ],
+              [
+                2,
+                2,
+                4,
+                4,
+                4
+              ],
+              [
+                3,
+                3,
+                4,
+                4,
+                4
+              ],
+              [
+                4,
+                4,
+                4,
+                4,
+                4
+              ],
+              [
+                0,
+                0,
+                4,
+                4,
+                4
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (x(zy))z",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7404,8 +9171,9 @@
           }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (x(zz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7427,8 +9195,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(xx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7450,8 +9219,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(xy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7473,8 +9243,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(xz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7496,8 +9267,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7519,8 +9291,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(xz))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7542,8 +9315,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7565,8 +9339,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7588,8 +9363,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(zx))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7611,8 +9387,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7634,8 +9411,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(zx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7657,8 +9435,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7680,8 +9459,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (y(zz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7703,8 +9483,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(xx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7720,11 +9501,52 @@
             "models_of_instance": 67,
             "violating_full_law": 67
           },
-          "5": "too many models"
+          "5": {
+            "example": [
+              [
+                1,
+                1,
+                2,
+                3,
+                3
+              ],
+              [
+                2,
+                2,
+                2,
+                1,
+                1
+              ],
+              [
+                3,
+                3,
+                3,
+                3,
+                3
+              ],
+              [
+                4,
+                2,
+                4,
+                0,
+                0
+              ],
+              [
+                0,
+                4,
+                4,
+                2,
+                2
+              ]
+            ],
+            "models_of_instance": "more than 3000",
+            "violating_model_by_SAT": "SAT"
+          }
         },
         "instance_decides": false,
+        "instance_insufficient": true,
         "law": "(xy)z = (z(xy))x",
-        "not_decided_by_enumeration": true
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7746,8 +9568,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(xy))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7769,8 +9592,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(xy))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7792,8 +9616,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(xz))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7815,8 +9640,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(yx))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7838,8 +9664,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(yx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7861,8 +9688,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(yx))z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7884,8 +9712,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(yy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7907,8 +9736,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(yz))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7930,8 +9760,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(zx))y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7953,8 +9784,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = (z(zy))x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7976,8 +9808,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -7999,8 +9832,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8022,8 +9856,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8045,8 +9880,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xy)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8068,8 +9904,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8091,8 +9928,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xy)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8114,8 +9952,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xy)z)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8137,8 +9976,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8160,8 +10000,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8183,8 +10024,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xz)y)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8206,8 +10048,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xz)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8229,8 +10072,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((xz)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8252,8 +10096,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yx)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8275,8 +10120,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8298,8 +10144,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yx)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8321,8 +10168,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8344,8 +10192,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yx)z)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8367,8 +10216,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8390,8 +10240,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8413,8 +10264,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yz)x)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8436,8 +10288,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8459,8 +10312,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yz)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8482,8 +10336,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8505,8 +10360,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((yz)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8528,8 +10384,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zx)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8551,8 +10408,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zx)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8574,8 +10432,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zx)y)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8597,8 +10456,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zx)y)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8620,8 +10480,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zx)z)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8643,8 +10504,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zy)x)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8666,8 +10528,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zy)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8689,8 +10552,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zy)x)z",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8712,8 +10576,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zy)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8735,8 +10600,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zy)z)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8758,8 +10624,9 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zz)x)y",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       },
       {
         "by_N": {
@@ -8781,18 +10648,18 @@
           }
         },
         "instance_decides": true,
+        "instance_insufficient": false,
         "law": "(xy)z = ((zz)y)x",
-        "not_decided_by_enumeration": false
+        "not_decided": false
       }
     ],
     "summary": [
-      "382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31",
+      "382 laws, N = 2..5: z=0 instance decides the law for 339, is insufficient for 43 (first violating model at N = 3: 33 laws, 4: 10 laws), not decided for 0",
       "associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}",
       "LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)"
-    ],
-    "too_many_models": 31
+    ]
   },
-  "results_sha256": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
-  "runtime_s": 73.781,
-  "started": "2026-10-18T17:52:07Z"
+  "results_sha256": "a49afd99bdbfc75ac6612c8b91d80e22b61dbf7c400297ea811c9a033d3112d8",
+  "runtime_s": 69.125,
+  "started": "2026-10-18T18:19:07Z"
 }

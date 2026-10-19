@@ -1,0 +1,15 @@
+10000 26042 True True phase-2 method 5.50e-05 s recursion 7.44e-05 s
+1000000 2617743 True True phase-2 method 6.12e-05 s recursion 4.28e-05 s
+10000000 26179925 True True phase-2 method 6.27e-05 s recursion 8.97e-05 s
+1000000000000 2618033987626 True True phase-2 method 1.18e-04 s recursion 1.24e-04 s
+1000000000000000000 2618033988749891985 True True phase-2 method 2.08e-04 s recursion 2.35e-04 s
+Traceback (most recent call last):
+  File "<string>", line 9, in <module>
+    t=time.perf_counter(); a,b=L_phase2(n); dt=time.perf_counter()-t
+                               ~~~~~~~~^^^
+  File "<string>", line 4, in L_phase2
+    d=C.lazy(n)
+  File "/home/user/ai_lab/reviews/skeptic_checks/C13_C19/c19_checks.py", line 90, in lazy
+    while FIB[t + 2] - 2 < n:
+          ~~~^^^^^^^
+IndexError: list index out of range

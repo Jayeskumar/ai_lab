@@ -55,8 +55,8 @@ with $p, q, r, s \le 5$, 525 terminate (Theorems 4.1–4.2) and 76 do not
 (re-checked loop certificates); 24 remained open in our hands, all predicted to
 terminate, including Zantema's problem.
 
-**Theorem 4.6** (Zantema–Geser) *[PROVEN in the literature; REDISCOVERY,
-verbatim]*. $0^p1^q \to 1^r0^s$ is non-terminating iff ($r \ge 2q$ and
+**Theorem 4.6** (Zantema–Geser) *[PROVEN in the literature; REDISCOVERY —
+our conjecture is equivalent to it]*. $0^p1^q \to 1^r0^s$ is non-terminating iff ($r \ge 2q$ and
 $s \ge 2p$), or ($s \ge 2p$, $q < r < 2q$ and $p \mid s$), or ($r \ge 2q$,
 $p < s < 2p$ and $q \mid r$).
 
@@ -78,7 +78,9 @@ The family was completely characterised by Zantema and Geser (tech. report
 UU-CS-1994-44; RTA 1995; AAECC 2000). Our first attempts to retrieve the
 theorem failed (the usual repository hosts refused the download); the
 Historian found the scanned report on an older archive host, and
-Conjecture 4.6 turned out to be their theorem, verbatim (Theorem 4.6 above).
+Conjecture 4.6 turned out to be equivalent to their theorem (Theorem 4.6
+above): their Theorem 1.1 characterises termination, our conjecture listed the
+non-terminating cases, and the lists match case by case.
 Their Lemma 4.1 is our doubling loop, and their Lemma 4.3 reduces the
 divisible cases to $q = 1$ exactly as our lifting lemma does. Hard terminating
 cases such as Zantema's problem admit no simple matrix interpretations (none

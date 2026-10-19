@@ -9,6 +9,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
+      "old": "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10",
+      "reason": "Skeptic review 2026-10-18 - written proof upheld",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-15",
@@ -18,7 +27,7 @@
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small.",
   "proof": "proofs/paper/C16.md#theorem-11-clm-c16-15--laver-tables-collapse-to-2-cycles",
-  "proof_check": "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10",
+  "proof_check": "written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)",
   "statement": "For n >= 1 and N = 2^n, the pair map of the Laver table A_n (0-based) has exactly N cycles - the fixed point\n(N-1, N-1) and the two-cycles {(N-1, c), (c, N-1)} - and every orbit reaches one of them; so the maximal period is 2\n(H-C16-4, 'the maximal period is a power of 2', holds for this degenerate reason).",
   "system": "SYS-E",
   "title": "Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element",

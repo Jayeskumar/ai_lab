@@ -125,29 +125,32 @@ claims:
     type: hypothesis
     system: SYS-B
     title: "H-C18-2: structured quasigroups are worse mixers than a random Latin square (maximal avalanche bias)"
-    statement: Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.
+    statement: "Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square, in the reverse-pass (p2+rev) construction. (As first worded - 'in the same construction' - the hypothesis is false for the forward-only construction, where the random Latin square and x + c(y) both have bias exactly 1/2 by CLM-C18-02; the experiment compared every structured variant with QG-LS p2+rev.)"
     verification: INCONCLUSIVE
     evidence: [EXP-C18-02]
     novelty: NOT ASSESSED
     limitations: "Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure."
+    change_reason: "Skeptic review 2026-10-18 (P8) - statement restricted to the reverse-pass construction actually tested"
   - id: CLM-C18-10
     type: hypothesis
     system: SYS-B
     title: "H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted)"
-    statement: QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.
+    statement: "QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets."
     verification: REFUTED
-    counterexample: "Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03)."
+    counterexample: "Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions - the tail-information bound (CLM-C18-03). (FNV-1a itself has z = -9.8 there - more uniform than random, bucket-collision ratio 0.995 - and 0 full collisions; the first wording wrongly attributed |z| <= 3 on all four key sets to FNV-1a.)"
     evidence: [EXP-C18-02, EXP-C18-03]
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 (P7) - false clause about FNV-1a removed"
   - id: CLM-C18-11
     type: hypothesis
     system: SYS-B
     title: "H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted)"
     statement: The cascades QC-LS, QC-ISO and QC-NIMINV (depth 8, 8 zero bytes of finalisation) have avalanche within 0.01 of BLAKE2b-64, |z| <= 3, collision ratios within 2% and no full collisions on all four key sets.
     verification: REFUTED
-    counterexample: "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05)."
+    counterexample: "QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell; the Skeptic's replication with new keys - 0.0735, against a null maximum of 0.048; worst cell key byte 15, bit 0 -> top bit of s1). QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05). (A z = -3.21 on synthetic words was also cited at first; it is 1 of 48 z-scores and in the benign direction - more uniform than random - so the refutation rests on the avalanche bias alone.)"
     evidence: [EXP-C18-05]
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 (P7) - refutation based on the avalanche bias"
   - id: CLM-C18-12
     type: hypothesis
     system: SYS-B
@@ -160,15 +163,16 @@ claims:
   - id: CLM-C18-13
     type: algorithmic
     system: SYS-B
-    title: Quasigroup hashes against non-cryptographic baselines - no improvement
-    statement: "Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves on the best baseline in any measured dimension."
+    title: "Quasigroup hashes against non-cryptographic baselines - no significant improvement"
+    statement: "Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves significantly on the best baseline in any measured dimension (some have numerically smaller maximal bias or bit-independence values, within noise)."
     verification: COMPUTATIONALLY SUPPORTED
     improvement: NO IMPROVEMENT
-    improvement_detail: "Every tail-output variant fails at least one quality test (forward-only - avalanche; reverse-pass - distribution, 2.4-2.7x bucket collisions and 32,624 full collisions on near-duplicates). The cascades over the random Latin square and the Z/256 isotope match MX64 and BLAKE2b-64 on every quality test run, but at 10-13 MB/s they were about 3x slower than BLAKE2b (one C call per key) and over 10x slower than numpy-vectorised MX64 in the same run (EXP-C18-05; EXP-C18-04 under different load - FNV-1a 640, MX64 428, BLAKE2b 74 MB/s, quasigroup variants 11-52 MB/s). MX64 is at least as good on every axis. Against FNV-1a alone, the good cascades have better avalanche (FNV-1a max bias 0.5) and better distribution on sequential keys (FNV-1a z = -9.8), at a large speed cost. This is not a security evaluation."
+    improvement_detail: "Every tail-output variant fails at least one quality test (forward-only - avalanche; reverse-pass - distribution, 2.4-2.7x bucket collisions and 32,624 full collisions on near-duplicates). The cascades over the random Latin square and the Z/256 isotope match MX64 and BLAKE2b-64 on every quality test run, but are several times slower than BLAKE2b and over 10x slower than numpy-vectorised MX64 in the same run (EXP-C18-05). Throughput figures are load-dependent indicative ranges - the quasigroup variants measured 11-52 MB/s in EXP-C18-04 and 20-98 MB/s on the Skeptic's re-run, the cascades 10-13 and 19-21 MB/s - but the ordering is stable - the fastest quasigroup variant is at least 4x slower than MX64 and 5x slower than FNV-1a in both runs. MX64 is at least as good on every axis within noise. Against FNV-1a alone the good cascades have better avalanche (FNV-1a max bias 0.5); FNV-1a's z = -9.8 on sequential keys means more uniform than random, not a defect. This is not a security evaluation."
     evidence: [EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05]
     novelty: NOT ASSESSED
     novelty_basis: "Quasigroup string processing for cryptographic primitives and pseudo-random generators is established (Markovski et al.; Gligoroski, Candidate one-way functions and one-way permutations based on quasigroup string transformations, https://ia.cr/2005/352; Edon-R); the benchmark against these baselines is ours."
     limitations: Python/numpy implementations on a shared machine (times indicative); a small subset of SMHasher-style tests; one random Latin square (not uniformly sampled); 16-byte keys for avalanche.
+    change_reason: "Skeptic review 2026-10-18 (P7, P9) - 'no significant improvement'; FNV-1a z-score reading and throughput ranges corrected"
 
 journal:
   - key: C18-01
@@ -211,6 +215,11 @@ journal:
     kind: decision
     text: "Housekeeping - the first EXP-C18-03 run failed (synthetic words passed as str instead of bytes) and was fixed; a container restart interrupted the cycle after EXP-C18-01, and EXP-C18-02..05 were run afterwards from the committed scripts; the corrected near-duplicate count in the EXP-C18-03 META (65,280) reproduced the result hash."
     refs: [EXP-C18-03]
+  - key: C18-09
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; the negative result is robust. Wording fixed - FNV-1a's z = -9.8 means more uniform than random (not a defect), 'no improvement in any dimension' became 'no significant improvement', H-C18-2 restricted to the reverse-pass construction tested, the C18-11 refutation rests on the avalanche bias, throughput figures are load-dependent ranges."
+    refs: [CLM-C18-09, CLM-C18-10, CLM-C18-13, reviews/skeptic_C14_C15_C16_C18.md]
 
 next_directions:
   - "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness"

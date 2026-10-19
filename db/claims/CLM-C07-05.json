@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:13:45Z"
+    },
+    {
+      "actor": "sync:C07",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches",
+      "old": "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md) - written proof upheld; index slip in (J2) fixed; checked to b < 2^18",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C07-05",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "OEIS: no match for the row (2, 1, 4, 3, 8, 9, 10, 5, ...), for |g(b) - b| or for g(b) XOR b; text searches for greedy XOR-avoiding permutations found unrelated entries (A109812, A357578); a web search found no mex recursion of this form (closest: Multiplicative Modular Nim, arXiv:2507.08830, a different recursion). Small.",
   "proof": "proofs/paper/C07.md#theorem-3-clm-c07-05--the-jacobsthal-row",
-  "proof_check": "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review",
+  "proof_check": "written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches",
   "statement": "For the mex operation D[x^y], f(a,b) = mex{f(a',b) XOR f(a,b') : a' < a, b' < b}: f(0,b) = 0, f(1,b) = b, and\ng(b) = f(2,b) satisfies g(0) = 0 and, for every k >= 1, g(b) = b + J_k for 2^k - J_k <= b < 2^k and\ng(b) = b - J_k for 2^k <= b < 2^k + J_k, where J_k = (2^k - (-1)^k)/3 are the Jacobsthal numbers. Equivalently,\ng(b) is the least v with v and v XOR b both outside {g(b') : b' < b}. The row is an involution and is not\nadditively periodic.",
   "system": "SYS-B",
   "title": "The Jacobsthal row: row 2 of f(a,b) = mex{f(a',b) XOR f(a,b')} swaps the blocks [2^k - J_k, 2^k) and [2^k, 2^k + J_k)",

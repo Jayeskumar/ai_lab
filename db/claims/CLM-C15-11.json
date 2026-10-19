@@ -1,5 +1,5 @@
 {
-  "counterexample": "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).",
+  "counterexample": "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04). The cap matters (Skeptic) - at L = 32 they do repeat, with periods 6,560 or 19,680 (still long, so the refutation stands); at L = 64 none repeats within 200,000 steps.",
   "cycle": "C15",
   "evidence": [
     "EXP-C15-04"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04). The cap matters (Skeptic) - at L = 32 they do repeat, with periods 6,560 or 19,680 (still long, so the refutation stands); at L = 64 none repeats within 200,000 steps.",
+      "old": "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).",
+      "reason": "Skeptic review 2026-10-18 (P15) - the 5000-step cap made explicit",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-11",

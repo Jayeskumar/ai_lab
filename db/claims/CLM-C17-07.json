@@ -1,5 +1,5 @@
 {
-  "counterexample": "18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.",
+  "counterexample": "43 of the 382 laws (first violating anchored model at N = 3 for 33 laws, at N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N = 3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other 339 laws the instance decides the law for N <= 5, among them associativity, and (N <= 10) left-distributivity. The first version reported 18 insufficient and 31 undecided laws because of a classification bug - a law whose enumeration was capped at one N was counted as undecided even when a violation had been found at another N; the Skeptic's independent census gives the same 339 / 43 / 0 as the corrected experiment.",
   "cycle": "C17",
   "evidence": [
     "EXP-C17-02"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T09:24:11Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "43 of the 382 laws (first violating anchored model at N = 3 for 33 laws, at N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N = 3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other 339 laws the instance decides the law for N <= 5, among them associativity, and (N <= 10) left-distributivity. The first version reported 18 insufficient and 31 undecided laws because of a classification bug - a law whose enumeration was capped at one N was counted as undecided even when a violation had been found at another N; the Skeptic's independent census gives the same 339 / 43 / 0 as the corrected experiment.",
+      "old": "18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P2) - counting bug fixed; 43 laws, not 18",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C17-07",

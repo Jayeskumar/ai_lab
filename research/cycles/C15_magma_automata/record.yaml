@@ -39,12 +39,13 @@ claims:
       s(j) the binary digit sum of j; for a commutative semigroup F_t = prod_k x_k^C(t,k), and the forward and
       backward streaming widths of F_t are at most |S|.
     verification: PROVEN
-    proof_check: "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review"
+    proof_check: "Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C15.md#theorem-1-clm-c15-01--light-cones-of-semigroups
     lean: [proofs/lean/Infinity/C15_MagmaCA.lean]
     evidence: [EXP-C15-02, EXP-C15-03]
     novelty: REDISCOVERY
     novelty_basis: "Pascal's triangle for additive CA is classical (Martin, Odlyzko, Wolfram, Comm. Math. Phys. 93 (1984)); automata of the form c'_i = c_i * c_{i+1} over groupoids, groups and quasigroups were studied by J. Pedersen (Complex Systems 6 (1992) 237-250) and C. Moore (Moore-Drisko 1995/96; Moore-Pnin, arXiv:patt-sol/9701008), where the word structure of semigroup and group rules is used. The width bound is immediate."
+    change_reason: "Skeptic review 2026-10-18 - written parts upheld"
   - id: CLM-C15-02
     type: theorem
     system: SYS-E
@@ -55,22 +56,24 @@ claims:
       P^t r + (sum_(s<t) q^s) c with P = phi + psi S in End(A)[S]/(S^L - 1), computable by binary exponentiation
       (for A = Z_n with FFT products, O(L log L log t)); streaming width <= |A|.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)"
     proof: proofs/paper/C15.md#theorem-2-clm-c15-02--affine-magmas-and-their-fast-forward
     evidence: [EXP-C15-03]
     novelty: REDISCOVERY
     novelty_basis: Linear and affine cellular automata (O. Martin, A. M. Odlyzko, S. Wolfram, Algebraic properties of cellular automata, Comm. Math. Phys. 93 (1984) 219-258; M. Ito, N. Osato, M. Nasu 1983); the operator-power form is standard.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C15-03
     type: theorem
     system: SYS-E
     title: Commutative semigroups - fast-forward by exponent arithmetic
     statement: For a finite commutative semigroup and t >= 2L + iota + 1 (iota the largest index of an element), cell i of a cyclic row at time t is prod_j r_(i+j)^(N_j), where N_j are the coefficients of (1 + S)^t mod S^L - 1, and only N_j modulo the lcm of the element periods is needed.
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (it notes that t >= max(L + 1, iota) already suffices)"
     proof: proofs/paper/C15.md#theorem-3-clm-c15-03--commutative-semigroups-exponent-arithmetic
     evidence: [EXP-C15-03]
     novelty: NOT ASSESSED
     novelty_basis: A direct combination of Theorem 1(b) with the index/period structure of cyclic semigroups; likely folklore.
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld"
   - id: CLM-C15-04
     type: theorem
     system: SYS-E
@@ -81,11 +84,12 @@ claims:
       obtained from them in O(L) operations; and floor((m+1)/2) <= lambda(t) <= 3t + 3 with m = floor(t/2), so the
       streaming width grows linearly (computed lambda(t) = t + 2 for t <= 12).
     verification: PROVEN
-    proof_check: written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review
+    proof_check: "written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the upper bound needs one more sentence, given in the review A.2; burn-time formula checked on 870,969 exhaustive cases; lambda(t) = t + 2 for t <= 14)"
     proof: proofs/paper/C15.md#theorem-4-clm-c15-04--the-fuse-magma-linear-streaming-width-constant-time-fast-forward
     evidence: [EXP-C15-02, EXP-C15-03, EXP-C15-05]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small."
+    change_reason: "Skeptic review 2026-10-18 - written proof upheld; lambda(t) = t + 2 confirmed to t = 14"
   - id: CLM-C15-05
     type: theorem
     system: SYS-E
@@ -151,50 +155,55 @@ claims:
     title: "H-C15-5: cycle detection fast-forwards most automata, and long cycles mean geometric width (refuted in part)"
     statement: For at least half of the order-3 classes a random cyclic row of length 32 repeats within 5000 steps, and only classes with geometric streaming width have rows that do not.
     verification: REFUTED
-    counterexample: "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04)."
+    counterexample: "The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04). The cap matters (Skeptic) - at L = 32 they do repeat, with periods 6,560 or 19,680 (still long, so the refutation stands); at L = 64 none repeats within 200,000 steps."
     evidence: [EXP-C15-04]
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 (P15) - the 5000-step cap made explicit"
   - id: CLM-C15-12
     type: hypothesis
     system: SYS-E
     title: "H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^5 and loses for small t (refuted)"
     statement: Each of the affine, commutative-semigroup and fuse fast-forwards is exact, beats direct numpy simulation by more than 100x at L = 1024, t = 10^5, and loses for t below a few hundred steps.
     verification: REFUTED
-    counterexample: "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings)."
+    counterexample: "Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5 (the Skeptic's re-run - 79-97x). The clause 'loses for small t' is partly true - timed with the same protocol on both sides, the affine method loses for t below about 20 and the fuse method below about 20-70 (Skeptic review, Appendix C). The first version said the affine and fuse methods never lose; EXP-C15-03 had timed the fast method as the best of 3 runs and the simulation as a single run."
     evidence: [EXP-C15-03]
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 (P3, P4) - 'never lose' was false; the refutation rests on the >100x clause"
   - id: CLM-C15-13
     type: algorithmic
     system: SYS-E
     title: Affine fast-forward by operator powers
-    statement: "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096."
+    statement: "Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, faster than direct numpy simulation by about one order of magnitude at t = 10^3, two orders at 10^4 (138-314x in two runs) and three orders at 10^5 (1,459-2,500x); t = 10^9 takes milliseconds for L <= 4096. With the same timing protocol on both sides it loses for t below about 20."
     verification: COMPUTATIONALLY SUPPORTED
     improvement: IMPROVEMENT
-    improvement_detail: "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); indicative timings on a shared machine"
+    improvement_detail: "against direct numpy simulation (O(L t)); asymptotically O(L log L log t) vs O(L t); measured speedups are single-run orders of magnitude on a shared machine (a re-run by the Skeptic gave 202-314x at t = 10^4 and 1,459-2,262x at 10^5 against the recorded 138-215x and 1,800-2,500x); slower than simulation for t below about 20"
     evidence: [EXP-C15-03]
     novelty: REDISCOVERY
     novelty_basis: Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.
+    change_reason: "Skeptic review 2026-10-18 (P4) - speedups restated as orders of magnitude; small-t loss recorded"
   - id: CLM-C15-14
     type: algorithmic
     system: SYS-E
     title: Commutative-semigroup fast-forward by exponent arithmetic
-    statement: "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation)."
+    statement: "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is about two orders of magnitude faster than direct simulation at t = 10^5 (62-100x; the Skeptic's re-run 79-97x) but no faster around t = 10^3 (0.5-1.0x) for L >= 1024, and equal for t < 2L (where it falls back to simulation)."
     verification: COMPUTATIONALLY SUPPORTED
     improvement: MIXED
     improvement_detail: "wins only for t much larger than L; the O(L^2) product step dominates for moderate t"
     evidence: [EXP-C15-03]
     novelty: NOT ASSESSED
+    change_reason: "Skeptic review 2026-10-18 (P4) - re-run figures recorded"
   - id: CLM-C15-15
     type: algorithmic
     system: SYS-E
     title: Fuse fast-forward by burn times
-    statement: "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024)."
+    statement: "The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - about three orders of magnitude faster than direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x on the Skeptic's re-run), with t = 10^9 in about a millisecond; because the O(L) method is a Python loop it loses to simulation for t below about 20-70."
     verification: COMPUTATIONALLY SUPPORTED
     improvement: IMPROVEMENT
-    improvement_detail: "O(L) per query independent of t vs O(L t) simulation; indicative timings"
+    improvement_detail: "O(L) per query independent of t vs O(L t) simulation; single-run orders of magnitude on a shared machine; slower for small t"
     evidence: [EXP-C15-03]
     novelty: POTENTIALLY NOVEL
     novelty_basis: As CLM-C15-04.
+    change_reason: "Skeptic review 2026-10-18 (P3, P4) - the 4000x figure did not reproduce (1,363x); small-t loss recorded"
   - id: CLM-C15-16
     type: algorithmic
     system: SYS-E
@@ -210,11 +219,12 @@ claims:
     type: observation
     system: SYS-E
     title: Earlier structures of the lab as automata
-    statement: The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with widths 4 and 8; GF(4) multiplication and XOR on [0,4) have width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.
+    statement: "The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with streaming (forward) widths 4 and 8 (backward widths 5 and 13-14); GF(4) multiplication and XOR on [0,4) have streaming width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata."
     verification: COMPUTATIONALLY SUPPORTED
     evidence: [EXP-C15-05]
     novelty: NOT ASSESSED
     limitations: Laver tables only for t <= 8 (A_2) and t <= 5 (A_3).
+    change_reason: "Skeptic review 2026-10-18 (P16) - the widths are streaming (forward) widths"
   - id: CLM-C15-18
     type: conjecture
     system: SYS-E
@@ -261,6 +271,11 @@ journal:
     kind: proof
     text: Lean file C15_MagmaCA.lean - ca_comm_binomial (Pascal exponents in commutative monoids) and ca_step_shift (local maps compose like the global map), standard axioms only.
     refs: [proofs/lean/Infinity/C15_MagmaCA.lean, CLM-C15-01]
+  - key: C15-08
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; written proofs correct. Corrections - 'affine and fuse fast-forwards never lose' was false (they lose for t below about 20-70 with a fair timing protocol), recorded speedups are single-run orders of magnitude (fuse x4000 became x1363 on re-run), the width bound holds for commutative semigroups only (S3 grows to 1296 by t = 6)."
+    refs: [CLM-C15-12, CLM-C15-13, CLM-C15-15, reviews/skeptic_C14_C15_C16_C18.md]
 
 next_directions:
   - "C15: characterise bounded streaming width - what do the 685 unexplained bounded-width order-3 classes have in common?"

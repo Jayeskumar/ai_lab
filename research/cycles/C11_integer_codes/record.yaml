@@ -293,6 +293,11 @@ journal:
       Recommend T_0111 or T_101 for heavy-tailed integer streams of unknown scale, Golomb-Rice for geometric gaps and
       gamma, Fibonacci or C3 for small values. Open: table-driven decoders, multi-pattern terminators, robustness.
     refs: [CLM-C11-08]
+  - key: C11-12
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C05_C08_C12.md) - all nine claims upheld, every written proof checked; benchmarks reproduced to 4 decimals with independent length functions."
+    refs: [reviews/skeptic_C05_C08_C12.md]
 
 next_directions:
   - "C11: table-driven (byte-wise) decoders for T_p and a fair speed comparison with optimised Elias and Fibonacci decoders"

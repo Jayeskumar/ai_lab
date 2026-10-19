@@ -6,15 +6,16 @@ systems: [SYS-B]
 
 experiments:
   - id: EXP-C17-01
-    analysis: "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s."
-    verification: COMPUTATIONALLY SUPPORTED
+    analysis: "All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). Certification of associative inputs - the exhaustive check costs 23-383 (cyclic) and 38-614 (anchored) times more table probes than Light's test with a greedy generating set (generating-set cost included), but only 1.7 times more on left-zero bands (x*y = x, every element is a generator). Refutation - an exhaustive check stopping at the first violating triple needs 4 probes on random magmas and 0.1-1.1 times Light's probes on one-entry corruptions. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.3-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.15 s. (Re-run after the Skeptic's review with corrected probe accounting; the first version charged the exhaustive check a whole 64-row slab on non-associative inputs.)"
     counterexamples: ["left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)"]
     related: [CLM-C17-04, CLM-C17-06]
   - id: EXP-C17-02
-    analysis: "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table."
-    verification: REFUTED
+    analysis: "For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 339 laws and is insufficient for 43 (first violating model at N = 3 for 33 laws, N = 4 for 10); where the enumeration exceeds 3000 models a SAT query for a violating model decides the case, so no law is left undecided. Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table. (Corrected after the Skeptic's review - the first version reported 333 / 18 / 31 because of a classification bug.)"
     counterexamples: ["x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)"]
     related: [CLM-C17-02, CLM-C17-05, CLM-C17-07]
+  - id: EXP-C17-03
+    analysis: "After the Skeptic's review - for every N <= 4096 the forced table of the anchor instance (rows from N - 1 down, Laver's recursion) exists with no undetermined entry, and the wrap-around instance holds exactly at N = 1, 2, 4, ..., 4096; at every power of 2 up to 512 the forced table equals the Laver table and is left-distributive (all N^3 triples). Runtime 30 minutes in pure Python; the Skeptic's C program gives the same set."
+    related: [CLM-C17-05]
 
 claims:
   - id: CLM-C17-01
@@ -54,31 +55,34 @@ claims:
     type: algorithmic
     system: SYS-B
     title: Benchmark - generator and anchor tests versus the exhaustive check
-    statement: "On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs."
+    statement: "Certification (associative inputs, n = 32..512) - Light's test with a greedy generating set uses 23-383 times (cyclic groups) and 38-614 times (anchored tables) fewer table probes than the exhaustive n^3 check (generating-set cost included), the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. Refutation (one-entry corruptions, random magmas) - an exhaustive check that stops at the first violating triple is about as cheap as Light's test or much cheaper (4 probes on random magmas against about 9e5; 0.1-1.1x Light's probes on corruptions), so the gains concern certification only. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs."
     verification: COMPUTATIONALLY SUPPORTED
     improvement: MIXED
-    improvement_detail: "large gains when a small generating set exists (up to 614x fewer probes; on associative inputs at n = 512 Light incl. generating set is 235-340x faster and the anchored test 565x faster than the exhaustive check, indicative timings); essentially none on left-zero bands (1.7x); randomised tests trade certainty for O(n^2) cost"
+    improvement_detail: "certification of associative inputs - large gains when a small generating set exists (up to 614x fewer probes; at n = 512 Light incl. generating set about 300x and the anchored test about 500x faster in wall time than the exhaustive check, indicative timings); none on left-zero bands (1.7x); refutation of non-associative inputs - no gain, an early-exit exhaustive check is usually cheaper; randomised tests trade certainty for O(n^2) cost"
     evidence: [EXP-C17-01]
     novelty: REDISCOVERY
     novelty_basis: The algorithms are classical (Light; Rajagopalan-Schulman); the benchmark is ours. Timings were measured on a shared, loaded machine and are indicative only; probe counts are exact.
-    limitations: Families chosen to include worst cases for each method; no comparison with optimised C implementations.
+    limitations: "Families chosen to include worst cases for each method; no comparison with optimised C implementations. The first version reported 23-77x gains on corrupted and random inputs too; the Skeptic showed those ratios measured an accounting artefact (the exhaustive check was charged a whole 64-row slab as soon as the slab contained a violation). Fixed in systems/law_testing.naive and re-measured."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - probe accounting fixed; gains restricted to certification"
   - id: CLM-C17-05
     type: observation
     system: SYS-B
-    title: The anchor instance of left-distributivity singles out the Laver tables (N <= 10)
-    statement: For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.
+    title: The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096)
+    statement: "For every N, the instances y <= N - 2 of x*(y+1) = (x*y)*(x+1) force at most one anchored table (Laver's recursion; written proof in proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which satisfies the full instance including the wrap-around y = N - 1. For every N <= 4096 (EXP-C17-03, and independently the Skeptic's C program) the full instance has a model exactly at the powers of 2, so for these N left-distributivity of an anchored table is decided by an O(N^2) check."
     verification: COMPUTATIONALLY SUPPORTED
-    evidence: [EXP-C17-02]
+    evidence: [EXP-C17-03, EXP-C17-02]
     novelty: NOT ASSESSED
     novelty_basis: Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.
-    limitations: Complete SAT enumeration for N <= 10 only.
+    limitations: "Uniqueness is proved for every N; the exclusion of non-powers of 2 is computational (N <= 4096) and open in general."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for every N; range extended by EXP-C17-03"
   - id: CLM-C17-06
     type: hypothesis
     system: SYS-B
     title: "H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (refuted)"
     statement: Light's test with a greedy generating set uses at most a fraction 10/n of the exhaustive check's probes on every input family.
     verification: REFUTED
-    counterexample: "Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation)."
+    counterexample: "Left-zero band x*y = x (associative; n generators needed) - exhaustive/Light probe ratio 1.71 at n = 512 (EXP-C17-01). The first version also cited one-entry corruptions of cyclic groups (ratio 47.9 at n = 512); that number was an artefact of the probe accounting (Skeptic review, P1). With correct accounting an early-exit exhaustive check is about as cheap as Light's test on corruptions and far cheaper on random magmas, so the hypothesis fails on non-associative inputs as well."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P1) - the second counterexample was an accounting artefact"
     evidence: [EXP-C17-01]
     novelty: NOT ASSESSED
   - id: CLM-C17-07
@@ -87,7 +91,8 @@ claims:
     title: "H-C17-2: for anchored magmas the z = 0 instance of a law decides the law (refuted)"
     statement: For every law of the C06 family, every anchored magma satisfying the instance z = 0 of the law satisfies the law (N <= 5).
     verification: REFUTED
-    counterexample: "18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity."
+    counterexample: "43 of the 382 laws (first violating anchored model at N = 3 for 33 laws, at N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N = 3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other 339 laws the instance decides the law for N <= 5, among them associativity, and (N <= 10) left-distributivity. The first version reported 18 insufficient and 31 undecided laws because of a classification bug - a law whose enumeration was capped at one N was counted as undecided even when a violation had been found at another N; the Skeptic's independent census gives the same 339 / 43 / 0 as the corrected experiment."
+    change_reason: "Skeptic review 2026-10-18 (reviews/skeptic_C07_C17_C20.md, P2) - counting bug fixed; 43 laws, not 18"
     evidence: [EXP-C17-02]
     novelty: NOT ASSESSED
 
@@ -107,6 +112,11 @@ journal:
     kind: result
     text: "EXP-C17-02 refuted the bold H-C17-2 (18 laws whose anchor instance admits non-models) and, as a by-product, showed that the cited form of Laver's theorem in the C06 record was imprecise - with the wrap-around instance there are no solutions for N = 3, 5, 6, 7, 9, 10. The C06 record was corrected."
     refs: [EXP-C17-02, CLM-C17-05, CLM-C17-07, CLM-C06-01]
+  - key: C17-04
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Independent review (reviews/skeptic_C07_C17_C20.md) - the theorems are correct, but two code problems changed stated numbers - the exhaustive check was charged a whole 64-row slab on non-associative inputs (the gains of CLM-C17-04 hold for certification only), and a classification bug in EXP-C17-02 gave 18 insufficient / 31 undecided laws instead of 43 / 0. Both fixed and re-run; the Skeptic's uniqueness argument for the anchored LD instance added, and EXP-C17-03 extends CLM-C17-05 to every N <= 4096."
+    refs: [CLM-C17-04, CLM-C17-05, CLM-C17-07, reviews/skeptic_C07_C17_C20.md]
 
 next_directions:
   - "C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance => Laver table, N a power of 2)"

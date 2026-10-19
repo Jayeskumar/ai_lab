@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-19T14:25:22Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -751,12 +751,12 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 ### CLM-C04-03: The rules aab -> ababa and aab -> babaa (and their six symmetric images) terminate
 
 - **cycle:** C04
-- **type:** conjecture
+- **type:** theorem
 - **system:** SYS-A
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent); all words of length <= 12 verified (EXP-C20-01); awaiting independent skeptic review
+  written proof in cycle C20 (proofs/paper/C20.md Theorems 1-2 - run encoding, journeys under the rightmost strategy, random descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); all words of length <= 12 verified (EXP-C20-01)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -764,7 +764,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   The one-rule systems aab -> ababa and aab -> babaa over {a,b} (and their images under reversal and
   letter exchange) are terminating.
 
-- **proof:** proofs/paper/C20.md#theorem-1-clm-c20-01--aab--ababa-terminates-and-dn--2n2--1-n--2
+- **proof:** proofs/paper/C20.md#part-i--the-last-open-one-rule-systems-of-c04
 - **evidence:** EXP-C04-02; EXP-C20-01
 - **novelty_basis:**
 
@@ -772,7 +772,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
 - **limitations:**
 
-  All words of length <= 9 (aab -> ababa, maximal derivation 127 = 2^7 - 1) and <= 12 (aab -> babaa, maximal 62) reach normal forms; no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
+  Proved by Theorems 1-2 of proofs/paper/C20.md (cycle C20). Before the proof the evidence was computational - all words of length <= 9 (aab -> ababa) and <= 12 (aab -> babaa) reach normal forms, and no linear interpretation (coefficients <= 7), weighted factor count (|f| <= 4) or self-embedding (seeds <= 10, depth 30) was found.
 
 - **status history:**
   - 2026-10-18T16:49:32Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C04; Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the Skeptic's review (which found no loop and no matrix interpretation) predates the proof)
@@ -1477,7 +1477,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); awaiting independent skeptic review
+  written proof for the 11 canonical formulas (proofs/paper/C07.md Theorem 1(a), induction using Conway's mex lemmas); computer-assisted for non-associativity (explicit violating triples in [0,64)^3 for 468 specs, exact tables cross-checked against a plain implementation); the 33 non-canonical associative specs by the Skeptic's absorption argument (added to proofs/paper/C07.md); skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1486,8 +1486,8 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   f(a,b'), f(a',b') [D]), the canonical specs empty, L, R, D[x], D[y], D[z], L+R, D[x^y^z], L+R+D[z],
   D[x]+D[y], D[x]+D[y]+D[z] define for all a, b the operations 0, a, b, a[b>0], b[a>0], min(a,b), a XOR b,
   a (x) b (nim-product), a + b, ((a-1) XOR (b-1)) + 1 and a + b - 1 (the last two with 0 absorbing), all
-  associative; 468 of the 512 specs are not associative; the remaining 33 specs agree with one of the 11
-  operations on [0,64)^2.
+  associative; 468 of the 512 specs are not associative; the remaining 33 specs define the same 11 operations,
+  so exactly 44 specs are associative.
 
 - **proof:** proofs/paper/C07.md#theorem-1-clm-c07-01--the-associative-mex-operations
 - **evidence:** EXP-C07-01
@@ -1495,7 +1495,8 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Each formula is classical or elementary - nim-sum and nim-product (Conway, On Numbers and Games, 1976); a + b and min(a, b) are the Grundy functions of 'reduce either or both heaps' and 'reduce both heaps' (rank functions of product posets). The census of a 512-member family and the resulting classification were not found (one web search, OEIS); small.
 
-- **limitations:** Agreement of the 33 non-canonical associative-looking specs with their formulas is verified on [0,64)^2 only.
+- **limitations:** The first version proved agreement of the 33 non-canonical specs with their formulas only on [0,64)^2; the Skeptic's review supplied the general argument.
+- **status history:**
 
 ### CLM-C07-02: H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted)
 
@@ -1514,12 +1515,16 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C07.md Theorem 2, two-line induction); all 34 commutative operations of EXP-C07-02 conform
+- **proof_check:**
+
+  written proof (proofs/paper/C07.md Theorem 2, two-line induction), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); all 34 commutative operations of EXP-C07-02 conform (the Skeptic - the per-letter version on all 512 specs)
+
 - **novelty:** NOT ASSESSED
 - **statement:** If the spec contains L and R then f(0,b) = b and f(a,0) = a; if it contains neither, f(0,b) = f(a,0) = 0.
 - **proof:** proofs/paper/C07.md#theorem-2-clm-c07-03--0-is-an-identity-or-absorbing
 - **evidence:** EXP-C07-02
 - **novelty_basis:** Elementary.
+- **status history:**
 
 ### CLM-C07-04: H-C07-2: commutative mex operations are closed on the Fermat segments [0, 2^(2^m)) (refuted)
 
@@ -1540,7 +1545,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review
+  written proof (proofs/paper/C07.md Theorem 3, induction over Jacobsthal blocks using J_(k+1) + J_k = 2^k and bit estimates), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md) (one index slip fixed - (J2) holds for k >= 2, used only for k >= 3); formula verified for all b < 2^15 by an independent bitset implementation (EXP-C07-03); awaiting independent skeptic review; the Skeptic computed rows 0-2 from the definition for all b < 2^18 with 0 mismatches
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1557,6 +1562,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   OEIS: no match for the row (2, 1, 4, 3, 8, 9, 10, 5, ...), for |g(b) - b| or for g(b) XOR b; text searches for greedy XOR-avoiding permutations found unrelated entries (A109812, A357578); a web search found no mex recursion of this form (closest: Multiplicative Modular Nim, arXiv:2507.08830, a different recursion). Small.
 
+- **status history:**
 
 ### CLM-C07-06: H-C07-4: every row of every mex operation is eventually additively periodic (refuted)
 
@@ -2894,7 +2900,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs
+  written case analysis (proofs/paper/C14.md Theorem 4); polynomial system solved over C by sympy for all 256 codes (EXP-C14-03); Lean kernel computation for values in {-1,0,1} (character_codes); numerical matrix checks on random graphs; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -2910,8 +2916,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C14-03
 - **novelty_basis:**
 
-  The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; we found no statement classifying the local products with such a linearisation, nor the symmetric-difference case in general (four web searches 2026-10-18, see CLM-C14-06). Small result; possibly folklore.
+  The individual identities for the direct (A (x) B) and strong ((A+I) (x) (B+I)) products are classical and the co-normal one follows by complementation; the symmetric-difference case is in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5; see CLM-C14-06). A classification of the local products with such a linearisation was not found. Small result; possibly folklore.
 
+- **status history:**
 
 ### CLM-C14-05: Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character
 
@@ -2919,7 +2926,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-D
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03)
+- **proof_check:** written proof (proofs/paper/C14.md Theorem 5); sympy over C for all 256 codes (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -2931,6 +2938,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C14.md#theorem-5-clm-c14-05--additive-characters-every-non-trivial-commutative-associative-product-has-a-character
 - **evidence:** EXP-C14-03
 - **novelty_basis:** The Kronecker-sum formula for the Cartesian product is classical; the classification over all 256 local products was not found (same searches as CLM-C14-04). Small result.
+- **status history:**
 
 ### CLM-C14-06: The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on two-graphs
 
@@ -2940,9 +2948,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03)
+  written proof (proofs/paper/C14.md Theorem 6); entry-level identity in Lean (xor_character); exact integer check for all pairs of graphs with <= 3 vertices (EXP-C14-06); spectra on 30 random pairs (EXP-C14-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For all graphs G, H: S(G xor H) + I = (S(G) + I) (x) (S(H) + I), where xor is the symmetric-difference product
@@ -2954,9 +2962,11 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C14-03; EXP-C14-06
 - **novelty_basis:**
 
-  Searches (2026-10-18): 'symmetric difference' + Seidel spectrum; Kronecker product of Seidel matrices / two-graphs; tensor product of two-graphs. Only the special case with an edgeless factor, S(D_m(G)) + I = J_m (x) (S(G) + I), was found (a paper on Seidel equienergetic graphs, seen through a secondary summary). The symmetric-difference product itself is Harary-Wilcox (1967). One-line observation; plausibly known to two-graph specialists.
+  A. Abiad, S. Butler and W. H. Haemers, arXiv:1801.01149 (2018), Section 5 'A graph product and its 2-rank behaviour', define this product (their F2 formula A1 (x) J + J (x) A2 is the symmetric-difference product; their verbal definition inverts the adjacency rule) and state that its Seidel matrix is (S1 + I) (x) (S2 + I) - I; their proof of Thm 5.1 uses its compatibility with Seidel switching. Found by the Skeptic - the lab's four searches missed it. The product itself is Harary-Wilcox (1967).
 
 - **references:** https://www.mscand.dk/article/view/10817; https://www.themoonlight.io/review/some-new-results-on-seidel-equienergetic-graphs; https://en.wikipedia.org/wiki/Two-graph
+- **status history:**
+  - 2026-10-19T14:24:53Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C14; Skeptic review 2026-10-18 (P6) - the identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL -> REDISCOVERY)
 
 ### CLM-C14-07: Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching
 
@@ -2966,7 +2976,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05)
+  written proof (proofs/paper/C14.md Theorem 7; (c) via twin reducts of +-1 matrices); (a) checked edge by edge for a,b,c,d <= 4, (b) on 200 random cases (EXP-C14-06); (c) on 12,713 pairs with <= 6 vertices (EXP-C14-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -2978,6 +2988,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C14.md#theorem-7-clm-c14-07--complete-bipartite-graphs-and-k₂-absorbs-switching
 - **evidence:** EXP-C14-05; EXP-C14-06
 - **novelty_basis:** No statement found in the searches listed for CLM-C14-06. Small result.
+- **status history:**
 
 ### CLM-C14-08: H-C14-3: the six commutative unital associative products factor uniquely on connected (or co-connected) graphs (refuted)
 
@@ -3006,7 +3017,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15
+  written proof (proofs/paper/C14.md Theorem 9) relying on the published unique factorisation theorems for connected graphs (Sabidussi-Vizing; Doerfler-Imrich/McKenzie); census confirms equal counts for n <= 15 and reproduces A129582 to n = 15; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -3023,6 +3034,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   Connected Cartesian primes = OEIS A129582 (Ji Li, Prime graphs and exponential composition of species, J. Combin. Theory A 115 (2008) 1374-1401, arXiv:0705.0038). The semiring view of disconnected graphs and the parallel cancellation theory for Cartesian and strong products are in Hammack-Imrich-Klavzar's Handbook and Klavzar et al., Cancellation properties of products of graphs; the isomorphism statement is a reformulation.
 
 - **references:** https://arxiv.org/abs/0705.0038; https://users.fmf.uni-lj.si/klavzar/preprints/CC.pdf
+- **status history:**
 
 ### CLM-C14-10: Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15
 
@@ -3084,8 +3096,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C14-04
 - **limitations:**
 
-  Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation.
+  Exhaustive only for orders <= 15 inside the submonoid of connected graphs (factors with <= 7 vertices); the mechanism that breaks uniqueness for connected graphs under xor (absorption of switching by K2, Theorem 7) is unavailable because 2K1 is disconnected, which explains but does not prove the observation. The Skeptic's own census finds no collision for 141 on connected graphs at any order <= 15.
 
+- **status history:**
 
 ### CLM-C14-13: H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product
 
@@ -3101,11 +3114,12 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   up to signed permutation similarity, under the Kronecker product).
 
 - **evidence:** EXP-C14-05
-- **novelty_basis:** No source found for a product of two-graphs induced by the symmetric difference (searches listed under CLM-C14-06); OEIS has no match for the prime counts.
+- **novelty_basis:** The product of two-graphs is implicit in Abiad-Butler-Haemers (arXiv:1801.01149, Section 5); a unique-factorisation statement was not found; OEIS has no match for the prime counts.
 - **limitations:**
 
-  No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c).
+  No collision among all factorisations of orders <= 16 (orders 4, 6, 8, 9, 10, 12, 14, 15, 16); class counts validated against A002854 for n <= 8. Prime two-graph counts (exact for n <= 16): 1, 2, 2, 7, 14, 54, 240, 2035, 33113, ... Cancellation by [K2] is proved (CLM-C14-07c). The Skeptic notes that this evidence was thin - up to order 16 almost every composite is [K2] (x) X, covered by the proved cancellation - and extends it substantially: all 53,703 multisets of prime classes with <= 8 vertices and product order <= 64, screened by exact integer power sums tr((S+I)^k) and decided by exact switching-equivalence tests (2,205 cospectral groups, 3,012 pairs), give 0 collisions.
 
+- **status history:**
 
 ### CLM-C15-01: Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width
 
@@ -3115,7 +3129,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); awaiting independent skeptic review
+  Lean 4 + Mathlib for the commutative formula (ca_comm_binomial, ca_step_shift; standard axioms only); written proof for the word form and the width bound (proofs/paper/C15.md Theorem 1); every order-3 semigroup has width <= 3 (EXP-C15-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -3131,6 +3145,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Pascal's triangle for additive CA is classical (Martin, Odlyzko, Wolfram, Comm. Math. Phys. 93 (1984)); automata of the form c'_i = c_i * c_{i+1} over groupoids, groups and quasigroups were studied by J. Pedersen (Complex Systems 6 (1992) 237-250) and C. Moore (Moore-Drisko 1995/96; Moore-Pnin, arXiv:patt-sol/9701008), where the word structure of semigroup and group rules is used. The width bound is immediate.
 
+- **status history:**
 
 ### CLM-C15-02: Affine magmas - binomial light cone and an O(L log L log t) fast-forward
 
@@ -3138,7 +3153,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); awaiting independent skeptic review
+- **proof_check:** written proof (proofs/paper/C15.md Theorem 2); implementation agrees with direct simulation in all 55 affine cases (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -3153,6 +3168,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Linear and affine cellular automata (O. Martin, A. M. Odlyzko, S. Wolfram, Algebraic properties of cellular automata, Comm. Math. Phys. 93 (1984) 219-258; M. Ito, N. Osato, M. Nasu 1983); the operator-power form is standard.
 
+- **status history:**
 
 ### CLM-C15-03: Commutative semigroups - fast-forward by exponent arithmetic
 
@@ -3160,7 +3176,10 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C15.md Theorem 3); implementation agrees with direct simulation for three commutative semigroups (EXP-C15-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (it notes that t >= max(L + 1, iota) already suffices)
+
 - **novelty:** NOT ASSESSED
 - **statement:**
 
@@ -3169,6 +3188,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C15.md#theorem-3-clm-c15-03--commutative-semigroups-exponent-arithmetic
 - **evidence:** EXP-C15-03
 - **novelty_basis:** A direct combination of Theorem 1(b) with the index/period structure of cyclic semigroups; likely folklore.
+- **status history:**
 
 ### CLM-C15-04: The fuse magma: linear streaming width, yet an O(L) fast-forward for every t
 
@@ -3178,7 +3198,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); awaiting independent skeptic review
+  written proof (proofs/paper/C15.md Theorem 4); fast-forward agrees with direct simulation on 27,000 (row, t) pairs during development and in all EXP-C15-03 cases; widths and the lower-bound residual family checked to t = 12 (EXP-C15-05); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the upper bound needs one more sentence, given in the review A.2; burn-time formula checked on 870,969 exhaustive cases; lambda(t) = t + 2 for t <= 14)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -3194,6 +3214,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Searches (2026-10-18) on CA prediction complexity, branching-program/light-cone complexity and computational irreducibility (Wolfram; Israeli-Goldenfeld, arXiv:nlin/0309047; Moore's prediction papers) found no notion of streaming width of t-step rules and no analysis of this rule; the burn-time mechanism itself is elementary. Small.
 
+- **status history:**
 
 ### CLM-C15-05: Surjective iff permutive for magmas of order at most 3; false at order 4
 
@@ -3292,8 +3313,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C15-04
 - **counterexample:**
 
-  The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04).
+  The first part holds (1590/1734 classes at L = 32), the second fails - the bounded-width affine quasigroups x + y, 2x + y, 2x + 2y, 2x + 2y + 1 (mod 3, up to relabelling) do not repeat within 5000 steps at L = 32 and 64 (EXP-C15-04). The cap matters (Skeptic) - at L = 32 they do repeat, with periods 6,560 or 19,680 (still long, so the refutation stands); at L = 64 none repeats within 200,000 steps.
 
+- **status history:**
 
 ### CLM-C15-12: H-C15-6: every exact fast-forward beats simulation by more than 100x at L = 1024, t = 10^5 and loses for small t (refuted)
 
@@ -3306,8 +3328,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C15-03
 - **counterexample:**
 
-  Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5, while the affine and fuse methods are already 1.4-6.4x faster at t = 100 for every L in {256, 1024, 4096} (EXP-C15-03; indicative timings).
+  Exactness holds (99/99), but the commutative-semigroup method reaches only x62 (mult mod 3) and x77 (min) at L = 1024, t = 10^5 (the Skeptic's re-run - 79-97x). The clause 'loses for small t' is partly true - timed with the same protocol on both sides, the affine method loses for t below about 20 and the fuse method below about 20-70 (Skeptic review, Appendix C). The first version said the affine and fuse methods never lose; EXP-C15-03 had timed the fast method as the best of 3 runs and the simulation as a single run.
 
+- **status history:**
 
 ### CLM-C15-13: Affine fast-forward by operator powers
 
@@ -3319,10 +3342,11 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **improvement:** IMPROVEMENT
 - **statement:**
 
-  Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, about 3-4x faster than direct numpy simulation at t = 100, 22-29x at 10^3, 138-215x at 10^4 and 1800-2500x at 10^5; t = 10^9 takes 1.5-8 ms for L <= 4096.
+  Computing the row at time t of an affine magma automaton by binary exponentiation of P = a + bS modulo S^L - 1 (FFT products) is exact and, at L = 1024, faster than direct numpy simulation by about one order of magnitude at t = 10^3, two orders at 10^4 (138-314x in two runs) and three orders at 10^5 (1,459-2,500x); t = 10^9 takes milliseconds for L <= 4096. With the same timing protocol on both sides it loses for t below about 20.
 
 - **evidence:** EXP-C15-03
 - **novelty_basis:** Standard for linear CA (Martin-Odlyzko-Wolfram 1984); the benchmark is ours.
+- **status history:**
 
 ### CLM-C15-14: Commutative-semigroup fast-forward by exponent arithmetic
 
@@ -3334,9 +3358,10 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **improvement:** MIXED
 - **statement:**
 
-  The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation).
+  The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is about two orders of magnitude faster than direct simulation at t = 10^5 (62-100x; the Skeptic's re-run 79-97x) but no faster around t = 10^3 (0.5-1.0x) for L >= 1024, and equal for t < 2L (where it falls back to simulation).
 
 - **evidence:** EXP-C15-03
+- **status history:**
 
 ### CLM-C15-15: Fuse fast-forward by burn times
 
@@ -3348,10 +3373,11 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **improvement:** IMPROVEMENT
 - **statement:**
 
-  The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - 1.4-5.3x faster than direct simulation at t = 100 (L = 256-4096) and about 4000x at t = 10^5 (L = 1024); t = 10^9 in about 0.6 ms (L = 1024).
+  The burn-time fast-forward of the fuse magma (Theorem 4) is exact and takes O(L) time for every t - about three orders of magnitude faster than direct simulation at t = 10^5 (L = 1024; 4,021x in the first run, 1,363x on the Skeptic's re-run), with t = 10^9 in about a millisecond; because the O(L) method is a Python loop it loses to simulation for t below about 20-70.
 
 - **evidence:** EXP-C15-03
 - **novelty_basis:** As CLM-C15-04.
+- **status history:**
 
 ### CLM-C15-16: Cycle detection as a generic fast-forward
 
@@ -3377,10 +3403,11 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **novelty:** NOT ASSESSED
 - **statement:**
 
-  The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with widths 4 and 8; GF(4) multiplication and XOR on [0,4) have width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.
+  The Laver tables A_2 and A_3 give automata whose light cones depend on at most 3 resp. 4 cells (t <= 8 resp. 5) with streaming (forward) widths 4 and 8 (backward widths 5 and 13-14); GF(4) multiplication and XOR on [0,4) have streaming width 4; the anchored golden- and odd-law models of C06 are permutive (hence surjective) affine automata.
 
 - **evidence:** EXP-C15-05
 - **limitations:** Laver tables only for t <= 8 (A_2) and t <= 5 (A_3).
+- **status history:**
 
 ### CLM-C15-18: Bounded streaming width implies a fast-forward
 
@@ -3439,7 +3466,10 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 2) using the van Aardenne-Ehrenfest--de Bruijn count; exhaustive confirmation for n = 2, 3, 4 (EXP-C16-01); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -3454,6 +3484,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Translation of a classical fact - the number of de Bruijn sequences B(k, m) is (k!)^(k^(m-1)) / k^m (T. van Aardenne-Ehrenfest, N. G. de Bruijn, Simon Stevin 28 (1951); BEST theorem; https://en.wikipedia.org/wiki/De_Bruijn_sequence).
 
+- **status history:**
 
 ### CLM-C16-04: A parity condition for full periods
 
@@ -3461,12 +3492,16 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 3, factorisation P = swap o fibrewise translations); satisfied by every full-period table found (EXP-C16-01/02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
+
 - **novelty:** NOT ASSESSED
 - **statement:** If every left translation L_b is a bijection, sign(P) = (-1)^(n(n-1)/2) prod_b sgn(L_b); hence a full-period table satisfies prod_b sgn(L_b) = (-1)^((n-1)(n+2)/2).
 - **proof:** proofs/paper/C16.md#theorem-3-clm-c16-04--a-parity-condition
 - **evidence:** EXP-C16-02
 - **novelty_basis:** Elementary; likely known in the shift-register literature in other forms (Golomb's cycle-parity results for binary registers); no search for the q-ary order-2 statement beyond two web searches.
+- **status history:**
 
 ### CLM-C16-05: Full-period quasigroups are cycles in which every pair occurs once at distance 1 and once at distance 2
 
@@ -3474,7 +3509,10 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 4); the exhaustive Latin-square count and the independent distance-1/2 DFS count agree (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -3488,6 +3526,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Searched (2026-10-18) - de Bruijn cycles with distance constraints, universal cycles of Latin squares/quasigroups, Tuscan-2 squares (Etzion, Golomb, Taylor, Adv. Appl. Math. 10 (1989) - a related but different object: n x n arrays, pairs at distance <= 2 at most once across rows), orthogonal de Bruijn sequences. No statement of this characterisation or of these cycles found. Small.
 
+- **status history:**
 
 ### CLM-C16-06: H-C16-5: no quasigroup has a full-period pair map (refuted)
 
@@ -3529,12 +3568,16 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); awaiting independent skeptic review
+- **proof_check:**
+
+  written proof (proofs/paper/C16.md Theorem 6, Chinese remainder theorem on cycle lengths n1^2, n2^2); eight products verified (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
+
 - **novelty:** NOT ASSESSED
 - **statement:** If two magmas (or quasigroups) of coprime orders n1, n2 are full-period, so is their direct product (a quasigroup if both are).
 - **proof:** proofs/paper/C16.md#theorem-6-clm-c16-08--products-of-coprime-orders
 - **evidence:** EXP-C16-02
 - **novelty_basis:** Elementary; the analogous product construction for de Bruijn-type sequences is standard.
+- **status history:**
 
 ### CLM-C16-09: No isotope of a group of even order has a full-period Fibonacci pair map
 
@@ -3544,7 +3587,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); awaiting independent skeptic review
+  written proof (proofs/paper/C16.md Theorem 7, parity of the regular representation via Burnside's normal 2-complement theorem); consistent with 18000 random isotopes of the nine groups of order 4, 6, 8 (EXP-C16-02); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md) (the review checked the Burnside step and 36 groups of even order 2-30; it also filled the evidence gap for n = 5 - 480 of the 3360 full-period quasigroups of order 5 are isotopes of Z_5)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -3557,6 +3600,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   The sign of the left regular representation is classical; its use as an obstruction for full Fibonacci periods was not found (searches as for CLM-C16-05; Fibonacci lengths of groups - Knox, Fibonacci Quart. 30 (1992) 116-120; Campbell-Campbell, Irish Math. Soc. Bull. 56 (2005) - study generating pairs, not full periods). Small.
 
+- **status history:**
 
 ### CLM-C16-10: Full-period quasigroups exist for every order n >= 5
 
@@ -3569,7 +3613,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C16-02; EXP-C16-05
 - **limitations:**
 
-  Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; sampling hit rates (close to 1/n^2 per random Latin square) suggest the number of full-period quasigroups of order n grows like L(n)/n^2 (L(n) = number of Latin squares), but there is no proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).
+  Verified for n = 5..16 and for the products 30, 35, 40, 42, 45, 56, 63, 72; the Skeptic's own sampler adds verified examples for every n = 17..26 and full-period Z_n-isotopes for odd n <= 21. Sampling hit rates are of the order 1/n^2 per random Latin square but not close to it (exact n = 5 rate 0.52/n^2; pooled over n = 6..16 the lab has 139 hits against 181 expected), so a count of order L(n)/n^2 (L(n) = number of Latin squares) is suggested, without proof. Lexicographic DFS (3e6 nodes) and SAT (3e5 conflicts) fail from n = 9 on, random sampling succeeds (EXP-C16-05).
 
 - **status history:**
 
@@ -3595,7 +3639,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03)
+  written proof (proofs/paper/C16.md Theorem 9, conjugation to the linear map and a cyclic vector); Lean for the anchored conjugacy (anchored_fibonacci); exhaustive confirmation for anchored N <= 60, odd N <= 61 and 51 golden pairs (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -3613,6 +3657,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Periods of second-order linear recurrences modulo N are orders of companion matrices (M. Ward, Trans. AMS 35 (1933); D. D. Wall, Amer. Math. Monthly 67 (1960) for Fibonacci). The resulting period sequences of the odd and golden laws (6, 24, 48, 18, 5, ... and 4, 120, 342, ...) are not in the OEIS.
 
+- **status history:**
 
 ### CLM-C16-13: For affine magmas the maximal period equals the order of the 3x3 affine matrix
 
@@ -3625,8 +3670,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C16-03
 - **limitations:**
 
-  300 of 300 random cases with N <= 30. Proven only when the pair map has a fixed point (CLM-C16-12) - in general the matrix order is the lcm of all orbit lengths, and equality with the maximum needs a vector whose orbit attains the lcm.
+  300 of 300 random cases with N <= 30 in the lab; the Skeptic checked all 1,997,716 affine magmas with beta a unit and 2 <= N <= 60 exhaustively - the maximal cycle length equals the lcm of all cycle lengths in every case, and that lcm equals the directly computed matrix order for N <= 24. Proven only when the pair map has a fixed point (CLM-C16-12); a partial proof idea from the review - if gamma is a unit, e_3 is a cyclic vector (det[e_3, A e_3, A^2 e_3] = -gamma^2).
 
+- **status history:**
 
 ### CLM-C16-14: Fibonacci sequences of nimbers: maximal period pi(2^(2^k) - 1)
 
@@ -3634,7 +3680,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-E
 - **verification:** PROVEN
-- **proof_check:** written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03)
+- **proof_check:** written proof (proofs/paper/C16.md Theorem 10, discrete logarithms in the field of nimbers); confirmed for q = 16, 256 (EXP-C16-03); skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 - **novelty:** REDISCOVERY
 - **statement:**
 
@@ -3643,6 +3689,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **proof:** proofs/paper/C16.md#theorem-10-clm-c16-14--fibonacci-sequences-of-nimbers
 - **evidence:** EXP-C16-03
 - **novelty_basis:** The Fibonacci length of a cyclic group is its Pisano period (classical; Knox 1992, Campbell et al.); nimber fields are Conway's.
+- **status history:**
 
 ### CLM-C16-15: Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycles through the top element
 
@@ -3652,7 +3699,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10
+  written proof (proofs/paper/C16.md Theorem 11) from Laver's facts (N-1)*y = y, x*(N-1) = N-1, x*y > x for x < N-1 (Dehornoy, Braids and Self-Distributivity, Ch. X), which EXP-C16-03 also checks for n <= 10; Lean for the 2-cycle lemma (top_two_cycle); cycle structure confirmed for n <= 10; skeptic-reviewed 2026-10-18 (reviews/skeptic_C14_C15_C16_C18.md)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -3668,6 +3715,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   No source connecting Fibonacci-type recurrences with Laver tables was found (web search 2026-10-18; Laver-table surveys arXiv:1810.00548, Wikipedia). An easy consequence of Laver's monotonicity; small.
 
+- **status history:**
 
 ### CLM-C16-16: Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10)
 
@@ -3676,9 +3724,10 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-E
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **novelty:** NOT ASSESSED
-- **statement:** The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.
+- **statement:** The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10 (the Skeptic - every n = 4, ..., 13).
 - **evidence:** EXP-C16-03
 - **limitations:** No explanation; the proof of CLM-C16-15 only gives the bound N.
+- **status history:**
 
 ### CLM-C16-17: Magma Fibonacci generators are not competitive pseudo-random generators
 
@@ -3697,7 +3746,8 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Low-bit periodicity of additive generators modulo 2^w and the non-uniformity of Fibonacci numbers modulo 2^k are classical (Knuth, TAOCP vol. 2, 3.2.2; H. Niederreiter, Fibonacci Quart. 10 (1972) - uniform distribution only modulo powers of 5).
 
-- **limitations:** A sanity battery, not TestU01 or PractRand.
+- **limitations:** A sanity battery, not TestU01 or PractRand. The 'too regular' verdict on the de Bruijn generator is automatic - 2^20 outputs are exactly 16 full periods (Skeptic, P17).
+- **status history:**
 
 ### CLM-C16-18: Maximal Fibonacci periods of small groups
 
@@ -3784,14 +3834,17 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **improvement:** MIXED
 - **statement:**
 
-  On cyclic groups, anchored tables, random magmas and their one-entry corruptions (n = 32..512), Light's test with a greedy generating set uses 23-614 times fewer table probes than the exhaustive n^3 check (generating-set cost included) and the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.
+  Certification (associative inputs, n = 32..512) - Light's test with a greedy generating set uses 23-383 times (cyclic groups) and 38-614 times (anchored tables) fewer table probes than the exhaustive n^3 check (generating-set cost included), the anchored test 2n^2 probes; on left-zero bands the gain is only 1.7x. Refutation (one-entry corruptions, random magmas) - an exhaustive check that stops at the first violating triple is about as cheap as Light's test or much cheaper (4 probes on random magmas against about 9e5; 0.1-1.1x Light's probes on corruptions), so the gains concern certification only. The randomised test (40 rounds) made no error; random-triple sampling with n^2/16 samples missed 27 of 30 near-associative inputs.
 
 - **evidence:** EXP-C17-01
 - **novelty_basis:** The algorithms are classical (Light; Rajagopalan-Schulman); the benchmark is ours. Timings were measured on a shared, loaded machine and are indicative only; probe counts are exact.
-- **limitations:** Families chosen to include worst cases for each method; no comparison with optimised C implementations.
+- **limitations:**
+
+  Families chosen to include worst cases for each method; no comparison with optimised C implementations. The first version reported 23-77x gains on corrupted and random inputs too; the Skeptic showed those ratios measured an accounting artefact (the exhaustive check was charged a whole 64-row slab as soon as the slab contained a violation). Fixed in systems/law_testing.naive and re-measured.
+
 - **status history:**
 
-### CLM-C17-05: The anchor instance of left-distributivity singles out the Laver tables (N <= 10)
+### CLM-C17-05: The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096)
 
 - **cycle:** C17
 - **type:** observation
@@ -3800,11 +3853,12 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **novelty:** NOT ASSESSED
 - **statement:**
 
-  For 2 <= N <= 10, an anchored magma satisfies x*(y+1) = (x*y)*(x+1) for all x, y mod N exactly when N is 2, 4 or 8 and the magma is the Laver table; so for these N, left-distributivity of an anchored table is decided by an O(N^2) check.
+  For every N, the instances y <= N - 2 of x*(y+1) = (x*y)*(x+1) force at most one anchored table (Laver's recursion; written proof in proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which satisfies the full instance including the wrap-around y = N - 1. For every N <= 4096 (EXP-C17-03, and independently the Skeptic's C program) the full instance has a model exactly at the powers of 2, so for these N left-distributivity of an anchored table is decided by an O(N^2) check.
 
-- **evidence:** EXP-C17-02
+- **evidence:** EXP-C17-03; EXP-C17-02
 - **novelty_basis:** Probably a consequence of known Laver-table theory (row N is the identity and p*N = N exactly for powers of 2); not checked against the literature.
-- **limitations:** Complete SAT enumeration for N <= 10 only.
+- **limitations:** Uniqueness is proved for every N; the exclusion of non-powers of 2 is computational (N <= 4096) and open in general.
+- **status history:**
 
 ### CLM-C17-06: H-C17-1: Light's test beats the exhaustive check by a factor >= n/10 on every family (refuted)
 
@@ -3817,8 +3871,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C17-01
 - **counterexample:**
 
-  Left-zero band x*y = x (n generators needed): ratio 1.7 at n = 512; also one-entry corruptions of cyclic groups (ratio 47.9 < 51.2 at n = 512, because the exhaustive check stops at the first violation).
+  Left-zero band x*y = x (associative; n generators needed) - exhaustive/Light probe ratio 1.71 at n = 512 (EXP-C17-01). The first version also cited one-entry corruptions of cyclic groups (ratio 47.9 at n = 512); that number was an artefact of the probe accounting (Skeptic review, P1). With correct accounting an early-exit exhaustive check is about as cheap as Light's test on corruptions and far cheaper on random magmas, so the hypothesis fails on non-associative inputs as well.
 
+- **status history:**
 
 ### CLM-C17-07: H-C17-2: for anchored magmas the z = 0 instance of a law decides the law (refuted)
 
@@ -3831,8 +3886,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C17-02
 - **counterexample:**
 
-  18 laws, e.g. x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). It does hold for associativity and (N <= 10) for left-distributivity.
+  43 of the 382 laws (first violating anchored model at N = 3 for 33 laws, at N = 4 for 10), e.g. x(yz) = x(zy) (54 violating models among 82 at N = 3), x(yz) = y(y(xz)) (two violating models among 11 at N = 4), x(yz) = x((xy)z), (xy)z = (zy)x, (xy)z = (x(zz))y (EXP-C17-02). For the other 339 laws the instance decides the law for N <= 5, among them associativity, and (N <= 10) left-distributivity. The first version reported 18 insufficient and 31 undecided laws because of a classification bug - a law whose enumeration was capped at one N was counted as undecided even when a violation had been found at another N; the Skeptic's independent census gives the same 339 / 43 / 0 as the corrected experiment.
 
+- **status history:**
 
 ### CLM-C18-01: e-transformations are bijections of strings of fixed length
 
@@ -3990,12 +4046,16 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-B
 - **verification:** INCONCLUSIVE
 - **novelty:** NOT ASSESSED
-- **statement:** Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square in the same construction.
+- **statement:**
+
+  Every structured quasigroup tested (affine, XOR, x + c(y), (x + 1) XOR y) gives a larger maximal avalanche bias than the random Latin square, in the reverse-pass (p2+rev) construction. (As first worded - 'in the same construction' - the hypothesis is false for the forward-only construction, where the random Latin square and x + c(y) both have bias exactly 1/2 by CLM-C18-02; the experiment compared every structured variant with QG-LS p2+rev.)
+
 - **evidence:** EXP-C18-02
 - **limitations:**
 
   Proved (bias 1/2) for the T-function and GF(2)-affine quasigroups (CLM-C18-04, CLM-C18-05). For x + c(y) with a reverse pass the difference (0.043 versus 0.041) is within sampling noise; its defect shows in bit independence instead (CLM-C18-06), which the hypothesis did not measure.
 
+- **status history:**
 
 ### CLM-C18-10: H-C18-3: the nimber-field quasigroup gives a hash competitive with FNV-1a (refuted)
 
@@ -4004,15 +4064,13 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-B
 - **verification:** REFUTED
 - **novelty:** NOT ASSESSED
-- **statement:**
-
-  QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64 and, like FNV-1a, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.
-
+- **statement:** QG-NIMINV p2+rev (x*y = (x XOR y)^-1 in the nimber field of order 256) has avalanche at least as good as FNV-1a-64, |chi-square z| <= 3 and a bucket-collision ratio within 2% on all four key sets.
 - **evidence:** EXP-C18-02; EXP-C18-03
 - **counterexample:**
 
-  Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions (FNV-1a: z = -9.8, ratio 0.995, 0 full collisions) - the tail-information bound (CLM-C18-03).
+  Avalanche is better than FNV-1a's (max bias 0.0415 vs 0.5), but on the decimal strings 0..65535 the 1024-bucket z-score is 1084 and the bucket-collision ratio 2.62, and near-duplicate keys give 32,624 full 64-bit collisions - the tail-information bound (CLM-C18-03). (FNV-1a itself has z = -9.8 there - more uniform than random, bucket-collision ratio 0.995 - and 0 full collisions; the first wording wrongly attributed |z| <= 3 on all four key sets to FNV-1a.)
 
+- **status history:**
 
 ### CLM-C18-11: H-C18-8: the 8-pass cascade over LS, ISO and NIMINV passes every test (refuted)
 
@@ -4028,8 +4086,9 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C18-05
 - **counterexample:**
 
-  QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell) and z = -3.21 (1021 buckets) on synthetic words; QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05).
+  QC-NIMINV d8 - maximal avalanche bias 0.0845 against 0.045 for BLAKE2b (about 7 standard deviations of a cell; the Skeptic's replication with new keys - 0.0735, against a null maximum of 0.048; worst cell key byte 15, bit 0 -> top bit of s1). QC-LS d8 and QC-ISO d8 pass every test (EXP-C18-05). (A z = -3.21 on synthetic words was also cited at first; it is 1 of 48 z-scores and in the benign direction - more uniform than random - so the refutation rests on the avalanche bias alone.)
 
+- **status history:**
 
 ### CLM-C18-12: H-C18-9: the cascade over x + c(y) still fails bit independence (refuted)
 
@@ -4042,7 +4101,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C18-05
 - **counterexample:** QC-ARP d8 has maximal correlation 0.176 (noise level about 0.11) - the cascade removes the perfect correlation of QG-ARP p2+rev, although 5 avalanche cells still exceed bias 0.1 (EXP-C18-05).
 
-### CLM-C18-13: Quasigroup hashes against non-cryptographic baselines - no improvement
+### CLM-C18-13: Quasigroup hashes against non-cryptographic baselines - no significant improvement
 
 - **cycle:** C18
 - **type:** algorithmic
@@ -4052,7 +4111,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **improvement:** NO IMPROVEMENT
 - **statement:**
 
-  Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves on the best baseline in any measured dimension.
+  Among 13 tail-output quasigroup hashes and 4 cascades, measured against FNV-1a-64, MX64 (multiply-xorshift with the splitmix64 finaliser), BLAKE2b-64 and CRC32 on avalanche, bit independence, chi-square, collisions and throughput, no quasigroup construction improves significantly on the best baseline in any measured dimension (some have numerically smaller maximal bias or bit-independence values, within noise).
 
 - **evidence:** EXP-C18-02; EXP-C18-03; EXP-C18-04; EXP-C18-05
 - **novelty_basis:**
@@ -4060,6 +4119,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   Quasigroup string processing for cryptographic primitives and pseudo-random generators is established (Markovski et al.; Gligoroski, Candidate one-way functions and one-way permutations based on quasigroup string transformations, https://ia.cr/2005/352; Edon-R); the benchmark against these baselines is ours.
 
 - **limitations:** Python/numpy implementations on a shared machine (times indicative); a small subset of SMHasher-style tests; one random Latin square (not uniformly sampled); 16-byte keys for avalanche.
+- **status history:**
 
 ### CLM-C19-01: Every Zeckendorf game has length B(n) - sum_{i>=2} (i-1) MC_i
 
@@ -4310,7 +4370,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent); verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review
+  written proof (proofs/paper/C20.md Theorem 1 - run encoding, journeys of surplus a's under the rightmost strategy, doubling bound, random descent from the Lean-verified C04 theorem unbordered_random_descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); verified on all words of length <= 12 (EXP-C20-01); the Skeptic - exhaustive derivation graphs for n <= 10 and three strategies on all words of length <= 18
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -4323,6 +4383,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Termination is a rediscovery - the rule is right barren in McNaughton's sense (OVL(r,l) = {a}, r_alpha = abab; OVL(l,r) = {ab}, l_beta = a, never a suffix of (abab)^k), and every non-overlapping left/right barren one-rule system terminates (R. McNaughton, RPI tech. reports 94-18 and 95-15; A. Geser, ICASE Report 2002-33, Thm 3.2/3.3, https://ntrs.nasa.gov/api/citations/20020088729/downloads/20020088729.pdf). The exact complexity 2^(n-2) - 1 was not found in the sources read (the report proves linear lengths only for its non-barren case).
 
+- **status history:**
 
 ### CLM-C20-02: aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b)/2) - 1)
 
@@ -4332,7 +4393,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C20.md Theorem 2 - a pair of a's travels to the last run in d steps, doubling d; random descent); per-word formula and D(n) verified on all words of length <= 12 (EXP-C20-01); awaiting independent skeptic review
+  written proof (proofs/paper/C20.md Theorem 2 - a pair of a's travels to the last run in d steps, doubling d; random descent), skeptic-reviewed 2026-10-18 (reviews/skeptic_C07_C17_C20.md); per-word formula and D(n) verified on all words of length <= 12 (EXP-C20-01); the Skeptic - exhaustive graphs for n <= 15, its own implementation of the per-word formula on all words of length <= 21
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -4340,7 +4401,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   The one-rule system aab -> babaa (and its symmetric images) terminates. For w = a^(x_0) b a^(x_1) b ... b a^(x_m),
   every maximal derivation has length sum_{k=m-1..0} d_k (2^floor(x_k/2) - 1) with d_k = (m - k) + (steps
   contributed by the runs right of k); the derivational complexity is D(n) = max_{1<=b<=n} b(2^floor((n-b)/2) - 1),
-  attained by a^(n-b) b^b.
+  attained by a^(n-b) b^b; explicitly D(n) = 2^(n/2) - 2 for even n >= 2 and 3*2^((n-3)/2) - 3 for odd n >= 5.
 
 - **proof:** proofs/paper/C20.md#theorem-2-clm-c20-02--aab--babaa-terminates-an-exact-formula-for-dw
 - **evidence:** EXP-C20-01
@@ -4348,6 +4409,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
   Termination follows from the right-barren criterion (OVL(r,l) = {a, aa} with r_alpha in {baba, bab}; OVL(l,r) = {b}, l_beta = aa, never a suffix) - a rediscovery; the exact per-word formula and the complexity were not found in McNaughton's or Geser's reports (searches 2026-10-18). Small.
 
+- **status history:**
 
 ### CLM-C20-03: The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r| <= 5 terminate
 
@@ -4375,7 +4437,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **novelty:** REDISCOVERY
 - **statement:**
 
-  The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem.
+  The lab's Conjecture 4.6 (CLM-C03-10) on termination of 0^p 1^q -> 1^r 0^s is equivalent to Zantema-Geser Theorem 1.1 (terminating iff p >= s, or q >= r, or p < s < 2p and q does not divide r, or q < r < 2q and p does not divide s); hence it is a published theorem. (Equivalent, not verbatim - Theorem 1.1 characterises termination and the conjecture non-termination; the conjecture's cases are exactly the non-terminating cases listed on p. 2 of the report.)
 
 - **proof:** reviews/historian_C03_C10.md#20-the-zantemageser-theorem-verbatim-statement-and-comparison-priority-item
 - **evidence:** EXP-C03-01
@@ -6368,7 +6430,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C14-03
-- **runs:** 2; last 2026-10-18T08:41:26Z (1.008 s), results sha256 `9bbb02dc8486fdf1…`, code `experiments/C14/E02_iso_vs_strict.py`
+- **runs:** 3; last 2026-10-18T18:37:12Z (1.107 s), results sha256 `9bbb02dc8486fdf1…`, code `experiments/C14/E02_iso_vs_strict.py`
 
 ### EXP-C14-03: Multiplicative and additive Kronecker characters of local graph products
 
@@ -6690,7 +6752,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **counterexamples:** x*y = 1 - y on {0,1}: period 4 = n^2, not a quasigroup (H-C16-1 refuted)
 - **verification:** PROVEN
 - **related:** CLM-C16-01; CLM-C16-02; CLM-C16-03
-- **runs:** 2; last 2026-10-18T17:45:57Z (3.23 s), results sha256 `0f06a8f1a8fc6661…`, code `experiments/C16/E01_small_magmas.py`
+- **runs:** 3; last 2026-10-18T18:37:16Z (3.402 s), results sha256 `41ed9ae6a4537f5f…`, code `experiments/C16/E01_small_magmas.py`
 
 ### EXP-C16-02: Quasigroups whose Fibonacci pair map is a single cycle through all n^2 pairs
 
@@ -6839,21 +6901,22 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
   - families: cyclic group Z_n, anchored x+y+1, left-zero band x*y = x (needs all n generators), the first two with one corrupted entry, random magmas
 - **methodology:**
 
-  Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs.
+  Run every algorithm on every instance; record verdict, probes, time; compare with the exhaustive verdict; for random triples use a budget of n^2/16 samples to expose its failure mode on near-associative inputs. The exhaustive check is charged the probes of a sequential check that stops at the first violating triple (revised after the Skeptic's review - the first version charged a whole 64-row slab, so its ratios on non-associative inputs measured the slab size). Probe ratios are reported separately for associative inputs (certification, where every test must do its full work) and non-associative inputs (refutation).
 
 - **falsification:** H-C17-1: a family where Light's test costs more than 10/n of the exhaustive probes. H-C17-3: a wrong verdict of the randomised test.
 - **summary:**
   - wrong verdicts: Light 0, anchored 0, RS(40) 0, random triples (n^2/16 samples) 27
-  - exhaustive/Light probe ratio (incl. generating set) at n = 512: cyclic: 383.16, anchored: 613.68, left_zero: 1.71, cyclic+1err: 47.89, anchored+1err: 76.67, random: 73.53
-  - H-C17-1 fails for: ['cyclic+1err', 'left_zero']
+  - certification (associative inputs) - exhaustive/Light probe ratio incl. generating set at n = 512: anchored: 613.68, cyclic: 383.16, left_zero: 1.71
+  - refutation (non-associative inputs, exhaustive check stopping at the first violation) - ratio at n = 512: anchored+1err: 0.15, cyclic+1err: 1.07, random: 0.0
+  - H-C17-1 fails for: ['anchored+1err', 'cyclic+1err', 'left_zero', 'random']
 - **analysis:**
 
-  All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). In table probes the exhaustive check costs 23-614 times more than Light's test with a greedy generating set (generating-set cost included), except on left-zero bands (x*y = x, every element is a generator), where the ratio is only 1.7. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.4-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.2 s.
+  All Light, anchored and Rajagopalan-Schulman (40 rounds) verdicts are correct on 90 instances (n = 32..512). Certification of associative inputs - the exhaustive check costs 23-383 (cyclic) and 38-614 (anchored) times more table probes than Light's test with a greedy generating set (generating-set cost included), but only 1.7 times more on left-zero bands (x*y = x, every element is a generator). Refutation - an exhaustive check stopping at the first violating triple needs 4 probes on random magmas and 0.1-1.1 times Light's probes on one-entry corruptions. Random-triple sampling with n^2/16 samples misses 27 of the 30 inputs that differ from an associative table in one entry (about 4n bad triples out of n^3). At n = 512 (shared machine, indicative) - exhaustive 1.3-1.7 s for associative inputs, Light 2-3 ms + 3 ms for the generating set, anchored test 3 ms, RS(40) 0.15 s. (Re-run after the Skeptic's review with corrected probe accounting; the first version charged the exhaustive check a whole 64-row slab on non-associative inputs.)
 
 - **counterexamples:** left-zero band x*y = x: Light's test needs n generators and is only 1.7x cheaper than the exhaustive check (H-C17-1 refuted)
 - **verification:** COMPUTATIONALLY SUPPORTED
 - **related:** CLM-C17-04; CLM-C17-06
-- **runs:** 2; last 2026-10-18T17:52:04Z (31.896 s), results sha256 `37d6185d5af8141e…`, code `experiments/C17/E01_assoc_benchmark.py`
+- **runs:** 3; last 2026-10-18T18:18:47Z (27.326 s), results sha256 `51c925a7bef6b358…`, code `experiments/C17/E01_assoc_benchmark.py`
 
 ### EXP-C17-02: The anchor instance of a law: when is the O(n^2) check at z = 0 a decision procedure?
 
@@ -6863,21 +6926,44 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 - **hypothesis:** H-C17-2 (bold): for every law of the C06 family (x(yz) = t or (xy)z = t, t with 3-4 leaves over x, y, z), every anchored magma satisfying the z = 0 instance satisfies the law (N <= 5).
 - **assumptions:**
   - N = 2..5 for the census; left-distributivity additionally for N = 2..10
-  - models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; otherwise the law is reported as 'too many models' (not decided)
-- **methodology:** For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model.
+  - models of {anchor, z = 0 instance} enumerated completely when there are at most 3000 of them; where the enumeration is capped, a SAT query asks directly for an anchored model of the instance that violates the law (conflict budget 10^6)
+- **methodology:**
+
+  For each of the 382 laws: substitute z := 0 in both sides, enumerate the anchored models of that two-variable identity with MagmaSAT, and test the full law on each model; a law is 'insufficient' as soon as one violating model is found at some N, 'decides' when no violating model exists at any N = 2..5. (Revised after the Skeptic's review: the first version counted a law with a capped enumeration at one N as undecided even when a violation had been found at another N.)
+
 - **falsification:** Any law with an anchored model of its z = 0 instance that violates the law.
 - **summary:**
-  - 382 laws, N = 2..5: z=0 instance decides the law for 333, is insufficient for 18, undecided (too many models) for 31
+  - 382 laws, N = 2..5: z=0 instance decides the law for 339, is insufficient for 43 (first violating model at N = 3: 33 laws, 4: 10 laws), not decided for 0
   - associativity: {'2': {'models_of_instance': 1, 'violating_full_law': 0}, '3': {'models_of_instance': 1, 'violating_full_law': 0}, '4': {'models_of_instance': 1, 'violating_full_law': 0}, '5': {'models_of_instance': 1, 'violating_full_law': 0}}
   - LD wrap-around instance x*(y+1) = (x*y)*(x+1), N = 2..10, models (violating LD): 2: 1 (0), 3: 0 (0), 4: 1 (0), 5: 0 (0), 6: 0 (0), 7: 0 (0), 8: 1 (0), 9: 0 (0), 10: 0 (0)
 - **analysis:**
 
-  For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 333 laws, is insufficient for 18, and could not be decided by enumeration for 31 (more than 3000 models). Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table.
+  For the 382 laws of C06, the instance z = 0 of the law (with the anchor) implies the full law in every anchored model for N = 2..5 for 339 laws and is insufficient for 43 (first violating model at N = 3 for 33 laws, N = 4 for 10); where the enumeration exceeds 3000 models a SAT query for a violating model decides the case, so no law is left undecided. Associativity - the instance alone forces x*y = x + y + 1. Left-distributivity - the wrap-around instance x*(y+1) = (x*y)*(x+1) has solutions only for N = 2, 4, 8 (N <= 10), each the Laver table. (Corrected after the Skeptic's review - the first version reported 333 / 18 / 31 because of a classification bug.)
 
 - **counterexamples:** x(yz) = y(y(xz)): the anchor instance has 11 anchored models at N = 4, two of which violate the law (190 models, 114 violating, at N = 5)
 - **verification:** REFUTED
 - **related:** CLM-C17-02; CLM-C17-05; CLM-C17-07
-- **runs:** 3; last 2026-10-18T17:53:21Z (73.781 s), results sha256 `f4c5466ad1841f84…`, code `experiments/C17/E02_anchor_instance.py`
+- **runs:** 5; last 2026-10-18T18:20:16Z (69.125 s), results sha256 `a49afd99bdbfc75a…`, code `experiments/C17/E02_anchor_instance.py`
+
+### EXP-C17-03: Forced anchored tables of the left-distributive anchor instance, N <= 4096
+
+- **cycle:** C17
+- **agent:** Mathematical Explorer
+- **question:** For which N does the anchor instance of left-distributivity have a model, and is it the Laver table?
+- **hypothesis:** The instance has a model exactly when N is a power of 2, and then it is the Laver table A_n (CLM-C17-05, previously checked by SAT for N <= 10).
+- **assumptions:** the forced-table construction of proofs/paper/C17.md (uniqueness); N = 1..4096; left-distributivity checked exhaustively (N^3 triples) for the powers of 2 up to 512
+- **methodology:** Build the forced table row by row from N-1 down to 0; test the wrap-around instance; for powers of 2 compare with systems.laver.laver_table and test x*(y*z) = (x*y)*(x*z) on all triples.
+- **falsification:** A non-power of 2 with a model, a power of 2 without one, or a forced table at a power of 2 that differs from the Laver table or is not left-distributive.
+- **summary:**
+  - N = 1..4096: the forced table exists for every N (undetermined entries: 0); the wrap-around instance holds exactly for N in [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+  - non-powers of 2 with a model: 0; powers of 2 without a model: []
+  - powers of 2 <= 512: forced table = Laver table and left-distributive: 1: True, 2: True, 4: True, 8: True, 16: True, 32: True, 64: True, 128: True, 256: True, 512: True
+- **analysis:**
+
+  After the Skeptic's review - for every N <= 4096 the forced table of the anchor instance (rows from N - 1 down, Laver's recursion) exists with no undetermined entry, and the wrap-around instance holds exactly at N = 1, 2, 4, ..., 4096; at every power of 2 up to 512 the forced table equals the Laver table and is left-distributive (all N^3 triples). Runtime 30 minutes in pure Python; the Skeptic's C program gives the same set.
+
+- **related:** CLM-C17-05
+- **runs:** 1; last 2026-10-18T19:01:47Z (1814.293 s), results sha256 `66021a2f969b8574…`, code `experiments/C17/E03_forced_anchor_tables.py`
 
 ### EXP-C18-01: Seven quasigroups of order 256: Latin property, T-function and GF(2)-affinity tests, bijectivity of e-transformations, difference propagation, and the structural predictions of the written theorems
 
@@ -7168,7 +7254,7 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
 - **falsification:** A word whose strategies give different lengths (would contradict random descent), a word whose derivation does not end within 10^6 steps, or any mismatch with the formulas.
 - **summary:**
-  - 8 rules (2 classes): words of length <= 12 - non-terminating within 10^6 steps: 0; rightmost vs leftmost mismatches: 0; vs exhaustive maximum (n <= 8): 0
+  - 8 rules (2 classes): words of length <= 12 - non-terminating within 10^6 steps: 0; rightmost vs leftmost mismatches: 0; vs exhaustive maximum (n <= 8): 0 (words skipped for a reachable set above 300000: 0)
   - aab -> ababa D(n), n = 1..12: [0, 0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023]; = 2^(n-2) - 1: True
   - aab -> babaa D(n): [0, 0, 1, 2, 3, 6, 9, 14, 21, 30, 45, 62]; = max_b b(2^floor((n-b)/2) - 1): True; per-word formula mismatches: 0
 - **analysis:**
@@ -7177,5 +7263,5 @@ _Generated 2026-10-18T18:17:35Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C20-01; CLM-C20-02; CLM-C20-03
-- **runs:** 2; last 2026-10-18T17:51:30Z (0.757 s), results sha256 `ca16de94a06cb31d…`, code `experiments/C20/E01_last_one_rule_cases.py`
+- **runs:** 3; last 2026-10-18T18:35:12Z (0.507 s), results sha256 `0790374e70694307…`, code `experiments/C20/E01_last_one_rule_cases.py`
 

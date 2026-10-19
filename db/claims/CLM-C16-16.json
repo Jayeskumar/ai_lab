@@ -9,12 +9,21 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:10:10Z"
+    },
+    {
+      "actor": "sync:C16",
+      "event": "changed",
+      "field": "statement",
+      "new": "The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10 (the Skeptic - every n = 4, ..., 13).",
+      "old": "The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.",
+      "reason": "Skeptic review 2026-10-18 - extended to n = 13",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C16-16",
   "limitations": "No explanation; the proof of CLM-C16-15 only gives the bound N.",
   "novelty": "NOT ASSESSED",
-  "statement": "The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10.",
+  "statement": "The longest transient of the Laver pair map (steps until the state contains the top element) is 1, 3, 3 for n = 1, 2, 3 and exactly 5 for every n = 4, ..., 10 (the Skeptic - every n = 4, ..., 13).",
   "system": "SYS-E",
   "title": "Fibonacci orbits in Laver tables reach the top element within 5 steps (n <= 10)",
   "type": "observation",

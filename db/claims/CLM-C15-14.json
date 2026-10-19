@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T16:55:13Z"
+    },
+    {
+      "actor": "sync:C15",
+      "event": "changed",
+      "field": "statement",
+      "new": "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is about two orders of magnitude faster than direct simulation at t = 10^5 (62-100x; the Skeptic's re-run 79-97x) but no faster around t = 10^3 (0.5-1.0x) for L >= 1024, and equal for t < 2L (where it falls back to simulation).",
+      "old": "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation).",
+      "reason": "Skeptic review 2026-10-18 (P4) - re-run figures recorded",
+      "ts": "2026-10-19T14:24:53Z"
     }
   ],
   "id": "CLM-C15-14",
   "improvement": "MIXED",
   "improvement_detail": "wins only for t much larger than L; the O(L^2) product step dominates for moderate t",
   "novelty": "NOT ASSESSED",
-  "statement": "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is 62-100x faster than direct simulation at t = 10^5 but 0.5-0.9x (slower) around t = 10^3 for L >= 1024, and equal for t < 2L (where it falls back to simulation).",
+  "statement": "The exponent-arithmetic fast-forward (Theorem 3) is exact; at L = 1024 it is about two orders of magnitude faster than direct simulation at t = 10^5 (62-100x; the Skeptic's re-run 79-97x) but no faster around t = 10^3 (0.5-1.0x) for L >= 1024, and equal for t < 2L (where it falls back to simulation).",
   "system": "SYS-E",
   "title": "Commutative-semigroup fast-forward by exponent arithmetic",
   "type": "algorithmic",

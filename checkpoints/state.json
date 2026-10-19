@@ -566,7 +566,7 @@
     ],
     "CLM-C14-06": [
       "PROVEN",
-      "POTENTIALLY NOVEL"
+      "REDISCOVERY"
     ],
     "CLM-C14-07": [
       "PROVEN",
@@ -1015,13 +1015,14 @@
     "EXP-C15-03": "60337b19e325b45873eb1c0fb43195ffbe656fe4152d00e73965517f0d3a8bbb",
     "EXP-C15-04": "e2a0d442418ecca98be790f3b18e52a9f8e7b61c5cb6585a3b0a816e7aa8c226",
     "EXP-C15-05": "e298d006e6541e19c16faebd026e1babff4a27b4e2f9f2e3b342db6177a932ae",
-    "EXP-C16-01": "0f06a8f1a8fc6661966c69c9874f526e1065173397c8df724f6d04190fde0a15",
+    "EXP-C16-01": "41ed9ae6a4537f5f7fe464713d143f08e26b03518ebdc0cc1e2fa259175069a0",
     "EXP-C16-02": "054116983d84654527486cd1e8225025cd05677598cb95aadee9db15d48098af",
     "EXP-C16-03": "dc9afab6824db2ab618907e5db01aaa95b52adc5952b801621ec832108fbd672",
     "EXP-C16-04": "815066cf04de7b6de4ac7271dc5386fe9f4e010076e92d8c8404525bf1f5d4eb",
     "EXP-C16-05": "ab2230f26a5d73bf517343e33648afd7cc256424d3336c504ca0cabb83c95bcb",
-    "EXP-C17-01": "37d6185d5af8141e3f86ddf58bc6f993f8d2e1e6778bd76be844a210cd07aae4",
-    "EXP-C17-02": "f4c5466ad1841f84b0890b0b8ca0f1165e3a2b81894a394e143b0f616e4ea1a4",
+    "EXP-C17-01": "51c925a7bef6b358e7013f4cfd037e7e2e6aa145cbc9259bb3b6e7f17dee7622",
+    "EXP-C17-02": "a49afd99bdbfc75ac6612c8b91d80e22b61dbf7c400297ea811c9a033d3112d8",
+    "EXP-C17-03": "66021a2f969b8574c87b3f2dbfb7d3a549a4aed1e281bf8e9a64e638ac139bbe",
     "EXP-C18-01": "393d97c570b911b4e0a4a2aeea76f427b8cab604a5419cfcbe8cfb2f3ceb503b",
     "EXP-C18-02": "f07d330c4df32579c093196809e5cbe1833f819367ad265c2a09e5e2c289a4ed",
     "EXP-C18-03": "4f66fa5fac9a7cff31d92b5518c0d2018539f5d7c48fee97c6712d1280ac7613",
@@ -1031,7 +1032,7 @@
     "EXP-C19-02": "f4aa28e4b7690df527e658c5ef7a0a281dce33a233aacaa53257e1b7da89f10f",
     "EXP-C19-03": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
     "EXP-C19-04": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
-    "EXP-C20-01": "ca16de94a06cb31d7f07d1e82454245eb60b32d2fda85fae228a717ac9d2b2a3"
+    "EXP-C20-01": "0790374e706943076d03f2f7aea19c2183acda4107e88b464eae81d18c8a8198"
   },
   "lean": {
     "proofs/lean/Infinity/C00_Smoke.lean": true,
@@ -1083,5 +1084,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-18T18:17:36Z"
+  "updated": "2026-10-19T14:25:23Z"
 }

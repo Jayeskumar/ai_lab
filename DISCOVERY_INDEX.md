@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-18T18:17:35Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-19T14:25:22Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -16,8 +16,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 102 |
-| POTENTIALLY NOVEL | 53 |
+| REDISCOVERY | 103 |
+| POTENTIALLY NOVEL | 52 |
 | NOT ASSESSED | 69 |
 
 ## 1. Verified theorems (PROVEN)
@@ -110,7 +110,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C14-03 | For local graph products, associativity and commutativity up to isomorphism are no weaker… | computer-assisted - explicit witnesses for all 236 + 224 co… | NOT ASSESSED | EXP-C14-02, EXP-C14-06 |
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | written case analysis (proofs/paper/C14.md Theorem 4); poly… | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | written proof (proofs/paper/C14.md Theorem 5); sympy over C… | POTENTIALLY NOVEL | EXP-C14-03 |
-| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | written proof (proofs/paper/C14.md Theorem 6); entry-level … | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |
+| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | written proof (proofs/paper/C14.md Theorem 6); entry-level … | REDISCOVERY | EXP-C14-03, EXP-C14-06 |
 | CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | written proof (proofs/paper/C14.md Theorem 7; (c) via twin … | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | written proof (proofs/paper/C14.md Theorem 9) relying on th… | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | computer-assisted exact census (all prime factorisations of… | POTENTIALLY NOVEL | EXP-C14-04 |
@@ -195,9 +195,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C16-04 |
 | CLM-C16-19 | Random sampling finds full-period quasigroups where exact search fails | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-05, EXP-C16-02 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
-| CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (N <= 10) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-02 |
+| CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-03, EXP-C17-02 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
-| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
+| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 | CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04 |
 | CLM-C19-06 | The deficit of a two-summand number depends only on the lower level and the parity of the… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03 |
 | CLM-C19-09 | D(n) <= floor(j^2/4) for top level j, and L is strictly increasing | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C19-03 |
@@ -245,7 +245,6 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | PROVEN | POTENTIALLY NOVEL | EXP-C13-01, EXP-C13-09 |
 | CLM-C14-04 | Exactly six local products are Kronecker products in disguise (multiplicative characters) | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
 | CLM-C14-05 | Additive characters: only the Cartesian product and its complement-dual; every non-trivia… | PROVEN | POTENTIALLY NOVEL | EXP-C14-03 |
-| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | POTENTIALLY NOVEL | EXP-C14-03, EXP-C14-06 |
 | CLM-C14-07 | Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching | PROVEN | POTENTIALLY NOVEL | EXP-C14-05, EXP-C14-06 |
 | CLM-C14-10 | Numbers of prime graphs (all graphs) for the unital associative products, orders <= 15 | PROVEN | POTENTIALLY NOVEL | EXP-C14-04 |
 | CLM-C14-13 | H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronec… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C14-05 |
@@ -345,6 +344,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C12-12 | Subtract-a-prime has Grundy values at most 11 | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C12-03, EXP-C12-01 |
 | CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | PROVEN | REDISCOVERY | EXP-C13-01 |
 | CLM-C14-02 | Exactly 20 of the 256 local graph products are associative, 10 commutative, 8 with unit K… | PROVEN | REDISCOVERY | EXP-C14-01, EXP-C14-06 |
+| CLM-C14-06 | The symmetric-difference product is the Kronecker product of Seidel matrices; it acts on … | PROVEN | REDISCOVERY | EXP-C14-03, EXP-C14-06 |
 | CLM-C14-09 | The Cartesian and strong product monoids of all finite graphs are isomorphic graded monoi… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C14-11 | The lexicographic product has non-unique factorisation already at order 10 (different mul… | PROVEN | REDISCOVERY | EXP-C14-04 |
 | CLM-C15-01 | Light cones of semigroups - the popcount word, Pascal exponents, bounded streaming width | PROVEN | REDISCOVERY | EXP-C15-02, EXP-C15-03 |
@@ -381,7 +381,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C15-16 | Cycle detection as a generic fast-forward | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C15-04 |
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C16-04 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C17-01 |
-| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no improvement | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
+| CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 | CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C19-04 |
 
 ## 6. Refuted hypotheses
