@@ -11,6 +11,21 @@ Everything is reproducible and append-only: experiments are deterministic
 scripts with hashed results, every change to a claim's status is kept in an
 audit log, and refuted hypotheses are preserved alongside proven theorems.
 
+## Batch 1 at a glance (cycles C01–C20)
+
+| | |
+|---|---|
+| research cycles | 20, over five foundational systems (A–E) |
+| experiments | 112 deterministic scripts, 200 recorded runs |
+| claims | 224 — 129 PROVEN, 40 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED, 2 INCONCLUSIVE |
+| novelty | 103 REDISCOVERY, 52 POTENTIALLY NOVEL (not a priority claim), 69 not assessed |
+| formal proofs | 194 Lean 4 + Mathlib theorems in 15 files, standard axioms only |
+| independent review | Skeptic verdicts on 189 claims; 2 of the lab's own claims refuted, 1 withdrawn, 1 novelty downgraded |
+| textbook | *Beyond Conventional Mathematics*, version 1: 21 chapters in 10 volumes (`textbook/build/book.pdf`) |
+
+The full report, with the ten required items and an honest list of
+limitations, is [`reports/RESEARCH_REPORT_batch1.md`](reports/RESEARCH_REPORT_batch1.md).
+
 ## Where to look
 
 | What | Where |
