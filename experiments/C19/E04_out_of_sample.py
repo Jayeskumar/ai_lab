@@ -50,7 +50,7 @@ def run():
             mism.append(n)
     t_tests = time.perf_counter() - t0
     # speed
-    bench = []
+    bench, bench_times = [], {}
     for n in (10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7):
         a = time.perf_counter()
         g = greedy_length_fast(n)
@@ -58,7 +58,11 @@ def run():
         a = time.perf_counter()
         r = longest_rec(n)
         tr = time.perf_counter() - a
-        bench.append({"n": n, "L": g, "agree": g == r, "greedy_s": round(tg, 4), "recursion_s": round(tr, 6)})
+        # wall-clock times go under "timings" (not hashed); before batch 1.1 they were stored here, so no re-run
+        # could reproduce the result hash
+        bench.append({"n": n, "L": g, "agree": g == r})
+        bench_times[f"{n}/greedy_s"] = round(tg, 4)
+        bench_times[f"{n}/recursion_s"] = round(tr, 6)
     huge = {str(10 ** e): longest_rec(10 ** e) for e in (12, 18, 30)}
     # OEIS
     Ls = [longest_rec(n) for n in range(1, 41)]
@@ -88,12 +92,12 @@ def run():
         "L_huge_conjectural": huge,
         "oeis": look,
         "asymptotics": asym,
-        "timings": {"tests_s": round(t_tests, 1), "greedy_total_s": round(greedy_time, 1)},
+        "timings": {"tests_s": round(t_tests, 1), "greedy_total_s": round(greedy_time, 1), **bench_times},
         "summary": [
             f"recursion vs greedy on {len(tests)} out-of-sample n (all of [30000, 36000), 200 random < 1e6, "
             f"12 random < 2e7, 60 of the form F_j + m): {len(mism)} mismatches",
-            "speed: " + "; ".join(f"n=1e{len(str(b['n'])) - 1}: greedy {b['greedy_s']} s, recursion "
-                                  f"{b['recursion_s']} s" for b in bench),
+            "benchmark n = 1e4..1e7: recursion and greedy simulation agree: " + str(all(b["agree"] for b in bench)) +
+            " (wall-clock times under 'timings')",
             "OEIS: " + "; ".join(f"{k}: {v['status']}" for k, v in look.items()),
             f"(phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: {[a['(phi^2 n - L)/(log_phi n)^2'] for a in asym]}",
         ],

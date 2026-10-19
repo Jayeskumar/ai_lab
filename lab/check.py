@@ -38,6 +38,13 @@ CLAIM_ID = re.compile(r"^CLM-(C\d\d)-\d\d$")
 EXP_ID = re.compile(r"^EXP-(C\d\d)-\d\d$")
 
 
+def _rel(path) -> str:
+    try:
+        return rel(path)
+    except ValueError:      # outside the repository (tests)
+        return str(path)
+
+
 @dataclass
 class Report:
     errors: list[str] = field(default_factory=list)
@@ -135,13 +142,13 @@ def check_records(rep: Report) -> dict:
         try:
             rec = load_strict(f.read_text(encoding="utf-8"))
         except yaml.YAMLError as exc:
-            rep.error(f"{rel(f)}: {exc}")
+            rep.error(f"{_rel(f)}: {exc}")
             continue
         if not isinstance(rec, dict) or not rec.get("cycle"):
-            rep.error(f"{rel(f)}: no 'cycle' field")
+            rep.error(f"{_rel(f)}: no 'cycle' field")
             continue
         if not d.name.startswith(rec["cycle"] + "_"):
-            rep.error(f"{rel(f)}: cycle {rec['cycle']} does not match the directory name")
+            rep.error(f"{_rel(f)}: cycle {rec['cycle']} does not match the directory name")
         parsed.append((f, rec))
 
     scripts = runner.discover()
@@ -152,19 +159,19 @@ def check_records(rep: Report) -> dict:
             cid = c.get("id", "")
             m = CLAIM_ID.match(cid)
             if not m:
-                rep.error(f"{rel(f)}: malformed claim id {cid!r}")
+                rep.error(f"{_rel(f)}: malformed claim id {cid!r}")
                 continue
             if m.group(1) != rec["cycle"]:
-                rep.error(f"{rel(f)}: claim {cid} filed under cycle {rec['cycle']}")
+                rep.error(f"{_rel(f)}: claim {cid} filed under cycle {rec['cycle']}")
             if cid in claims:
-                rep.error(f"{rel(f)}: duplicate claim id {cid}")
+                rep.error(f"{_rel(f)}: duplicate claim id {cid}")
             fields = {k: records._strip(c[k]) for k in records.CLAIM_FIELDS if k in c}
             fields.setdefault("novelty", "NOT ASSESSED")
             claims[cid] = (rec["cycle"], fields)
             try:
                 db.validate_claim({**fields, "id": cid})
             except db.ValidationError as exc:
-                rep.error(f"{rel(f)}: {exc}")
+                rep.error(f"{_rel(f)}: {exc}")
 
     cache: dict = {}
     journal_keys: set[str] = set()
@@ -187,16 +194,16 @@ def check_records(rep: Report) -> dict:
                     rep.error(f"{cid}.lean: missing file {ref}")
         for e in rec.get("experiments") or []:
             if e.get("id") not in experiments:
-                rep.warn(f"{rel(f)}: experiment {e.get('id')} interpreted but never run")
+                rep.warn(f"{_rel(f)}: experiment {e.get('id')} interpreted but never run")
             for ref in e.get("related") or []:
                 _check_reference(str(ref), f"{e.get('id')}.related", rep, set(claims), experiments, cache)
         for j in rec.get("journal") or []:
             key = j.get("key")
             if key in journal_keys:
-                rep.error(f"{rel(f)}: duplicate journal key {key}")
+                rep.error(f"{_rel(f)}: duplicate journal key {key}")
             journal_keys.add(key)
             if j.get("kind") not in records.JOURNAL_KINDS:
-                rep.error(f"{rel(f)}: journal {key}: unknown kind {j.get('kind')!r}")
+                rep.error(f"{_rel(f)}: journal {key}: unknown kind {j.get('kind')!r}")
             for ref in j.get("refs") or []:
                 _check_reference(str(ref), f"journal {key}", rep, set(claims), experiments, cache)
     return claims
@@ -257,6 +264,29 @@ def results_hash_matches(results: dict, stored: str, max_ambiguous: int = 10) ->
     return any(sha256_obj(convert(stable, c)) == stored for c in choices)
 
 
+_TIMING_KEY = re.compile(r"(_s|_ms|_sec|_secs|_seconds|seconds|runtime|elapsed|wall_time)$", re.I)
+
+
+def _timing_like(results: dict) -> list[str]:
+    """Paths of float fields whose names look like durations, outside the unhashed 'timings' entry."""
+    found = set()
+
+    def walk(o, path):
+        if isinstance(o, dict):
+            for k, v in o.items():
+                if path == "" and k in runner.VOLATILE_KEYS:
+                    continue
+                if isinstance(v, float) and _TIMING_KEY.search(str(k)):
+                    found.add(f"{path}/{k}")
+                walk(v, f"{path}/{k}")
+        elif isinstance(o, list):
+            for v in o:
+                walk(v, path + "[]")
+
+    walk(results, "")
+    return sorted(found)
+
+
 def check_results(rep: Report) -> None:
     scripts = runner.discover()
     for e in db.all_records("experiment"):
@@ -266,6 +296,9 @@ def check_results(rep: Report) -> None:
         if data is None:
             rep.error(f"{eid}: recorded but results/{eid}.json is missing")
             continue
+        for where in _timing_like((data.get("results") or {})):
+            rep.warn(f"results/{eid}.json: {where} looks like a wall-clock time inside the hashed results "
+                     f"(put it under 'timings')")
         if not results_hash_matches(data.get("results") or {}, data.get("results_sha256")):
             rep.error(f"results/{eid}.json: stored hash does not match its results (file edited by hand?)")
         last = (e.get("runs") or [{}])[-1]
@@ -277,7 +310,7 @@ def check_results(rep: Report) -> None:
         if script is None:
             rep.warn(f"{eid}: recorded, but its script is gone")
         elif (data.get("code") or {}).get("sha256") != sha256_file(script):
-            rep.warn(f"{eid}: script changed since the recorded run ({rel(script)}); re-run or verify it")
+            rep.warn(f"{eid}: script changed since the recorded run ({_rel(script)}); re-run or verify it")
     recorded = {e["id"] for e in db.all_records("experiment")}
     for eid in sorted(set(scripts) - recorded):
         rep.warn(f"{eid}: script never run with recording")

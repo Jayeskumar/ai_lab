@@ -136,6 +136,29 @@
         "length_changing_unique"
       ]
     },
+    "proofs/lean/Infinity/C05_Law1313.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-19T23:19:07Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C05.law1313_left_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.law1313_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.law1313_not_right_projection' does not depend on any axioms\n'Infinity.C05.law677_left_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.law677_not_right_projection' does not depend on any axioms\n",
+      "seconds": 6.58,
+      "sha256": "615d0d3cfc0996a4b14df75d4c71b42a186e2fe80ba227fc3846dd3307a229cb",
+      "sorry": false,
+      "theorems": [
+        "law1313_left_bijective",
+        "law1313_right_bijective",
+        "law1313_not_right_projection",
+        "law677_left_bijective",
+        "law677_not_right_projection"
+      ]
+    },
     "proofs/lean/Infinity/C05_Magmas.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -663,5 +686,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-19T22:54:53Z"
+  "updated": "2026-10-19T23:19:07Z"
 }

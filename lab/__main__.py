@@ -31,17 +31,23 @@ def cmd_verify(args):
     """Re-run every experiment and compare result hashes with the last recorded run."""
     scripts = runner.discover()
     ids = sorted(scripts) if not args.cycle else [i for i in sorted(scripts) if i.startswith(f"EXP-{args.cycle}-")]
-    changed, errors = [], []
+    changed, errors, skipped = [], [], []
     for i in ids:
         rec = db.load("experiment", i)
-        before = rec and (rec.get("runs") or [{}])[-1].get("results_sha256")
+        if rec is None:
+            # nothing to compare with; record it with `lab run` first
+            skipped.append(i)
+            print(f"{i}: never recorded, skipped")
+            continue
+        before = (rec.get("runs") or [{}])[-1].get("results_sha256")
         out = runner.run(i, record=not args.dry, quiet=True)
         if out["error"]:
             errors.append(i)
         elif before and before != out["results_sha256"]:
             changed.append(i)
         print(f"{i}: {'ERROR' if out['error'] else ('same' if before == out['results_sha256'] else 'CHANGED' if before else 'new')}")
-    print(f"verify: {len(ids)} experiments, {len(changed)} changed, {len(errors)} errors")
+    print(f"verify: {len(ids) - len(skipped)} experiments, {len(changed)} changed, {len(errors)} errors"
+          + (f", {len(skipped)} never recorded (skipped)" if skipped else ""))
     return 1 if (changed or errors) else 0
 
 
