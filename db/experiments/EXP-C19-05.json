@@ -1,0 +1,89 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "After the Skeptic's review - the lazy-representation method L(n) = Psi(lazy(n)) + (second phase) agrees with full simulation of the strategy game for every n < 20,000; the conjectured recursion CLM-C19-05 agrees with it on all 103,799 tested n (all n < 10^5, 3000 random n < 10^15, 800 numbers F_j + m with j = 30..69); the second phase has at most B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 moves on every tested n (largest ratio to the bound 0.476); 26, 53, 81 and 109 second-phase moves at n = 10^6, 10^9, 10^15, 10^18.",
+  "assumptions": [
+    "the strategy game is optimal (Cusenza et al. 2022, Thm 1.2) - needed only to call its length L(n); the identity with the simulated strategy game is unconditional",
+    "random samples with a fixed seed"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C19-05",
+    "file": "experiments/C19/E05_lazy_method.py",
+    "sha256": "41ebed31c347ef1f4e88e7e786fd64627bbb60438d2423648fe4ab0de464183b",
+    "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+  },
+  "cycle": "C19",
+  "falsification": "Any mismatch with full simulation (would contradict Theorems 1-2), any violated bound, or any n where the recursion and the method disagree (would refute CLM-C19-05).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-19T14:39:16Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "analysis",
+      "new": "After the Skeptic's review - the lazy-representation method L(n) = Psi(lazy(n)) + (second phase) agrees with full simulation of the strategy game for every n < 20,000; the conjectured recursion CLM-C19-05 agrees with it on all 103,799 tested n (all n < 10^5, 3000 random n < 10^15, 800 numbers F_j + m with j = 30..69); the second phase has at most B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 moves on every tested n (largest ratio to the bound 0.476); 26, 53, 81 and 109 second-phase moves at n = 10^6, 10^9, 10^15, 10^18.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C19-05",
+        "CLM-C19-09",
+        "CLM-C19-14",
+        "CLM-C19-15"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:44:17Z"
+    }
+  ],
+  "hypothesis": "Theorem 7 of proofs/paper/C19.md: the method equals the strategy game length for every n, with at most 1 + (t + 1)(t + 6)/2 second-phase moves; CLM-C19-05 (conjecture) agrees with it everywhere.",
+  "id": "EXP-C19-05",
+  "methodology": "Compare with greedy_length_fast for every n < 20000; compare longest_rec (the recursion) with the method for every n < 100000, 3000 random n in [1e6, 1e15) and 800 n = F_j + m (j = 30..69, m < F_(j-1)); check second-phase moves <= B(n) - Psi(lazy(n)) <= 1 + (t + 1)(t + 6)/2 on all tested n; time the method, the recursion and (n <= 1e7) full simulation.",
+  "question": "Does L(n) = Psi(lazy(n)) + (second phase from lazy(n)) agree with full simulation, does the move bound hold, and does the conjectured recursion agree with this provably correct method on far more n than before?",
+  "related": [
+    "CLM-C19-05",
+    "CLM-C19-09",
+    "CLM-C19-14",
+    "CLM-C19-15"
+  ],
+  "results_file": "results/EXP-C19-05.json",
+  "results_sha256": "6661ee8cb35b2e8b7b94849c24093a2fa8103e1d057b591d623b960714e59a9e",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C19-05",
+        "file": "experiments/C19/E05_lazy_method.py",
+        "sha256": "41ebed31c347ef1f4e88e7e786fd64627bbb60438d2423648fe4ab0de464183b",
+        "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+      },
+      "error": false,
+      "finished": "2026-10-19T14:39:15Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C19-05.json",
+      "results_sha256": "6661ee8cb35b2e8b7b94849c24093a2fa8103e1d057b591d623b960714e59a9e",
+      "runtime_s": 180.249,
+      "started": "2026-10-19T14:36:15Z",
+      "summary": [
+        "method vs full simulation, every n < 20000: 0 mismatches",
+        "recursion CLM-C19-05 vs the method on 103799 n (all n < 1e5, 3000 random n < 1e15, 800 F_j + m): 0 mismatches",
+        "second-phase moves <= B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 on every tested n: violations 0; largest B - Psi(lazy) relative to the bound 0.476 (n = 89287158190794)",
+        "second-phase moves at n = 1e6, 1e9, 1e15, 1e18: 26, 53, 81, 109"
+      ]
+    }
+  ],
+  "summary": [
+    "method vs full simulation, every n < 20000: 0 mismatches",
+    "recursion CLM-C19-05 vs the method on 103799 n (all n < 1e5, 3000 random n < 1e15, 800 F_j + m): 0 mismatches",
+    "second-phase moves <= B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 on every tested n: violations 0; largest B - Psi(lazy) relative to the bound 0.476 (n = 89287158190794)",
+    "second-phase moves at n = 1e6, 1e9, 1e15, 1e18: 26, 53, 81, 109"
+  ],
+  "title": "The lazy-representation method for the longest Zeckendorf game: correctness checks, the move bound, and the recursion CLM-C19-05 tested against it"
+}

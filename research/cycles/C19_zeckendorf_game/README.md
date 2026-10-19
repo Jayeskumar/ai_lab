@@ -54,6 +54,7 @@ system.
 | EXP-C19-02 | identity |G| = B(n) − Σ(i−1)MC_i: 0 violations (greedy n < 1500, 1500 random games); split phase ends at the lazy representation for all n < 5000, independent of firing order; H-C19-4 fails for 288/300 |
 | EXP-C19-03 | D(F) = ⌊j²/4⌋ for j ≤ 33; two-summand law for 276 pairs; H-C19-1, -2, -3 refuted; recursion matches all n < 30000; D(n) ≤ ⌊j²/4⌋, L strictly increasing |
 | EXP-C19-04 | recursion vs simulation on 6,272 out-of-sample n: 0 mismatches; L(10^7) in 9·10^-5 s vs 8.3 s; L, D, L(F_k), ρ not in the OEIS |
+| EXP-C19-05 | (after the review) the lazy-representation method of Theorem 7 equals full simulation for every n < 20,000; the recursion equals the method on 103,799 n up to 10^15; second-phase moves 26 / 53 / 81 / 109 at n = 10^6 / 10^9 / 10^15 / 10^18 |
 
 Process notes: a first version of EXP-C19-02 was stopped (a quadratic
 simulation up to n = 20000) and rescaled; a first run of EXP-C19-04 crashed at
@@ -68,13 +69,16 @@ its last step because the Fibonacci table ended near 5·10^19 — fixed and re-r
   holds at most one chip — and always arrives at the *lazy* Fibonacci
   representation — and only then normalises to Zeckendorf form. All of the
   deficit is created in the second phase.
-* **Fibonacci inputs.** For n = F_k the second phase is a single carry cascade
-  C_j, C_{j−2}, …, whose weights add up to the quarter-square ⌊(k−1)²/4⌋.
+* **Fibonacci inputs.** For n = F_k the second phase is a single upward carry
+  cascade C_2, C_4, …, C_j (j even) or C_3, C_5, …, C_j (j odd), whose weights
+  add up to the quarter-square ⌊(k−1)²/4⌋.
 * **General n.** Lower summands save combines in a way that depends on the
   parity of the gaps: the saving of the top summand depends only on the rest m
   and on the parity of the top level, and is computed by two auxiliary
   sequences ρ₀, ρ₁ with a self-similar block structure.
-* L(n)/n → φ² (known); numerically (φ²n − L(n))/(log_φ n)² ∈ [0.34, 0.38].
+* L(n)/n → φ² (known); in fact L(n) = φ²n − O(log² n), proved after the review
+  (Theorem 8: D(n) ≤ 1 + (t+1)(t+6)/2); numerically
+  (φ²n − L(n))/(log_φ n)² ∈ [0.34, 0.38].
 
 ## Step 7 — Proofs and counterexamples
 
@@ -98,8 +102,8 @@ sums behind Theorem 4. Counterexamples: n = 12 (H-C19-1), levels (4, 2)
 * A. Cusenza et al., *Bounds on Zeckendorf games*, Fibonacci Quart. 60 (2022),
   [arXiv:2009.09510](https://arxiv.org/abs/2009.09510) — the split-first
   strategy is longest (Thm 1.2), the bound B(n) (Thm 1.3), equality iff
-  n = F_k − 1 (Thm 1.4). **Our Theorem 1 is implicit there; Corollary 3 reproves
-  their Theorem 1.4.**
+  n = F_k − 1 (Thm 1.4). **Our Theorem 1 is their eq. (3.16) ("the exact game
+  length"); Corollary 3 reproves their Theorem 1.4.**
 * J. Cheigh et al., *Towards the Gaussianity of random Zeckendorf games*,
   CANT VI, Springer 2025, doi:10.1007/978-3-031-65064-2_4
   ([arXiv:2210.11038](https://arxiv.org/abs/2210.11038)) — every length between
@@ -117,9 +121,12 @@ the recursion POTENTIALLY NOVEL (small; the recursion unproven).
 
 ## Step 9 — Applications
 
-The recursion (if true) computes L(n) with O(log² n) operations, against
-Θ(n) moves for playing the published strategy: at n = 10^7 about 9·10^-5 s
-against 8.3 s (CLM-C19-14; correctness conditional on CLM-C19-05). No other
+L(n) can be computed with O(log² n) moves, against Θ(n) moves for playing
+the published strategy: by Theorems 1–2 the first phase has exactly
+Ψ(lazy(n)) moves and need not be played, and the second phase has at most
+1 + (t+1)(t+6)/2 moves (Theorem 7, CLM-C19-14, PROVEN given [C, Thm 1.2];
+pointed out by the Skeptic). At n = 10^7 about 10^-4 s against 8 s. The
+conjectured recursion gives the same values at the same speed. No other
 application is claimed.
 
 ## Step 10 — Documentation

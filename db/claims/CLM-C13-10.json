@@ -9,10 +9,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Supported by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}. The Skeptic extended the check to all 2,080 one-variable laws with <= 6 leaves (N <= 12) - spectra {1}, all N, Div(2), Div(3), Div(4), Div(5), or all N except {2}, {3}, {2,3}, {2,4}, {4} or {2,3,4}; nothing neither finite nor cofinite.",
+      "old": "Supported only by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}.",
+      "reason": "Skeptic review 2026-10-18 - evidence extended to 6 leaves",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C13-10",
-  "limitations": "Supported only by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}.",
+  "limitations": "Supported by the 253 laws with <= 5 leaves per side and N <= 12 - every observed spectrum is {1}, Div(2), Div(3), Div(4), or all N up to 12 except at most {2}, {3} or {2,3}. The Skeptic extended the check to all 2,080 one-variable laws with <= 6 leaves (N <= 12) - spectra {1}, all N, Div(2), Div(3), Div(4), Div(5), or all N except {2}, {3}, {2,3}, {2,4}, {4} or {2,3,4}; nothing neither finite nor cofinite.",
   "novelty": "NOT ASSESSED",
   "statement": "Every one-variable law t1(x) = t2(x) has an anchored spectrum that is either finite or contains all sufficiently large N.",
   "system": "SYS-B",

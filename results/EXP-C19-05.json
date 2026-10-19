@@ -1,0 +1,101 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C19-05",
+    "file": "experiments/C19/E05_lazy_method.py",
+    "sha256": "41ebed31c347ef1f4e88e7e786fd64627bbb60438d2423648fe4ab0de464183b",
+    "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+  },
+  "env": {
+    "git_head": "fd0b63a5fcfd2517f6327e17cddc80c0145b449b",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-19T14:39:15Z",
+  "id": "EXP-C19-05",
+  "meta": {
+    "agent": "Mathematical Explorer",
+    "assumptions": [
+      "the strategy game is optimal (Cusenza et al. 2022, Thm 1.2) - needed only to call its length L(n); the identity with the simulated strategy game is unconditional",
+      "random samples with a fixed seed"
+    ],
+    "cycle": "C19",
+    "falsification": "Any mismatch with full simulation (would contradict Theorems 1-2), any violated bound, or any n where the recursion and the method disagree (would refute CLM-C19-05).",
+    "hypothesis": "Theorem 7 of proofs/paper/C19.md: the method equals the strategy game length for every n, with at most 1 + (t + 1)(t + 6)/2 second-phase moves; CLM-C19-05 (conjecture) agrees with it everywhere.",
+    "id": "EXP-C19-05",
+    "methodology": "Compare with greedy_length_fast for every n < 20000; compare longest_rec (the recursion) with the method for every n < 100000, 3000 random n in [1e6, 1e15) and 800 n = F_j + m (j = 30..69, m < F_(j-1)); check second-phase moves <= B(n) - Psi(lazy(n)) <= 1 + (t + 1)(t + 6)/2 on all tested n; time the method, the recursion and (n <= 1e7) full simulation.",
+    "question": "Does L(n) = Psi(lazy(n)) + (second phase from lazy(n)) agree with full simulation, does the move bound hold, and does the conjectured recursion agree with this provably correct method on far more n than before?",
+    "seed": 1905,
+    "title": "The lazy-representation method for the longest Zeckendorf game: correctness checks, the move bound, and the recursion CLM-C19-05 tested against it"
+  },
+  "results": {
+    "bound_violations": [],
+    "full_simulation_mismatches_n_lt_20000": [],
+    "large_n": {
+      "1000000": {
+        "L": 2617743,
+        "full_simulation_agrees": true,
+        "recursion_agrees": true,
+        "second_phase_moves": 26
+      },
+      "10000000": {
+        "L": 26179925,
+        "full_simulation_agrees": true,
+        "recursion_agrees": true,
+        "second_phase_moves": 29
+      },
+      "1000000000": {
+        "L": 2618033300,
+        "recursion_agrees": true,
+        "second_phase_moves": 53
+      },
+      "1000000000000000": {
+        "L": 2618033988748096,
+        "recursion_agrees": true,
+        "second_phase_moves": 81
+      },
+      "1000000000000000000": {
+        "L": 2618033988749891985,
+        "recursion_agrees": true,
+        "second_phase_moves": 109
+      }
+    },
+    "largest_gap_over_bound": {
+      "n": 89287158190794,
+      "ratio": 0.4757
+    },
+    "max_second_phase_moves": 205,
+    "n_recursion_mismatches": 0,
+    "n_tested_against_recursion": 103799,
+    "recursion_mismatches": [],
+    "summary": [
+      "method vs full simulation, every n < 20000: 0 mismatches",
+      "recursion CLM-C19-05 vs the method on 103799 n (all n < 1e5, 3000 random n < 1e15, 800 F_j + m): 0 mismatches",
+      "second-phase moves <= B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 on every tested n: violations 0; largest B - Psi(lazy) relative to the bound 0.476 (n = 89287158190794)",
+      "second-phase moves at n = 1e6, 1e9, 1e15, 1e18: 26, 53, 81, 109"
+    ],
+    "timings": {
+      "1000000/full_simulation_s": 0.845,
+      "1000000/lazy_method_s": 5.4e-05,
+      "1000000/recursion_s": 2.4e-05,
+      "10000000/full_simulation_s": 7.972,
+      "10000000/lazy_method_s": 9.3e-05,
+      "10000000/recursion_s": 5e-05,
+      "1000000000/lazy_method_s": 0.000153,
+      "1000000000/recursion_s": 7.1e-05,
+      "1000000000000000/lazy_method_s": 0.000192,
+      "1000000000000000/recursion_s": 8.9e-05,
+      "1000000000000000000/lazy_method_s": 0.000285,
+      "1000000000000000000/recursion_s": 0.000155
+    }
+  },
+  "results_sha256": "6661ee8cb35b2e8b7b94849c24093a2fa8103e1d057b591d623b960714e59a9e",
+  "runtime_s": 180.249,
+  "started": "2026-10-19T14:36:15Z"
+}

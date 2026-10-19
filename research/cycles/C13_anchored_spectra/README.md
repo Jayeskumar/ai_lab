@@ -15,7 +15,7 @@ products. Which sets of integers are spectra?*
 | ID | Hypothesis | Proposer | Outcome |
 |---|---|---|---|
 | H-C13-1 | *(bold)* Every anchored spectrum is closed under divisors. | Inventor | **refuted** — x = x(x(xx)) has models of every size except 2 (Lean); violations are common |
-| H-C13-2 | *(bold)* Laws with an infinite, non-trivial affine spectrum are affinely rigid. | Inventor | **refuted** — 198 of 199 tested laws have non-affine models |
+| H-C13-2 | *(bold)* Laws with an infinite, non-trivial affine spectrum are affinely rigid. | Inventor | **refuted** — 146 of 147 tested laws from infinite classes have non-affine models |
 | H-C13-3 | Affine spectra are root sets of polynomial systems: divisor- and CRT-closed, finite ones are divisor sets, infinite ones classical. | Explorer | **proved** (Theorem 1); 152 spectra, no exception |
 | H-C13-4 | The W-family (xy)z = x(y W(z)) is rigid with spectrum {N : a·c_W(a) ≡ 1 solvable}. | Formal Verifier | **proved in Lean** for every W; 0 mismatches for 23 terms, N ≤ 9 |
 | H-C13-5 | *(bold)* A one-variable law has spectrum {1} or a cofinite spectrum. | Skeptic | **refuted** — x = (xx)x has spectrum {1, 2} |
@@ -44,8 +44,8 @@ divisors already have models (no violation is then possible).
 
 | Experiment | Outcome |
 |---|---|
-| EXP-C13-01 | 18,581 laws (3 variables, ≤ 4 leaves/side) → 2,400 affine systems → 27 spectra; 75,625 laws (2 variables, ≤ 5 leaves) → 3,631 systems → 125 spectra. Every finite spectrum is Div(L) (80 values of L ≤ 328). Infinite ones: odd numbers, 3 ∤ N, −1/2/3 squares (A008784, A057126, A057125), A034017, A089270, A004613, A058529, A192453, A354467, forms of discriminant −7, −11, 13; 29 conditions (plastic, tribonacci, tetranacci, Φ₅, …) give sequences **not in the OEIS** |
-| EXP-C13-02 | 199 laws (3 shortest per infinite class), N ≤ 8, affine tables blocked: **198 have non-affine models**; 190 of them have models at every N = 6, 7, 8; 12 UNKNOWN |
+| EXP-C13-01 | 18,581 laws (3 variables, ≤ 4 leaves/side) → 2,400 affine systems → 27 spectra; 75,625 laws (2 variables, ≤ 5 leaves) → 3,631 systems → 125 spectra. Every finite spectrum is Div(L) (80 values of L ≤ 328). Infinite ones: odd numbers, 3 ∤ N, −1/2/3 squares (A008784, A057126, A057125), A034017, A089270, A004613, A058529, A192453, A354467, forms of discriminant −7, −11, 13; 29 conditions (plastic, tribonacci, tetranacci, Φ₅, …; four of them quadratic) give sequences **not in the OEIS** |
+| EXP-C13-02 | 147 laws (3 shortest per infinite class, classes selected by the ℚ-gcd), N ≤ 8, affine tables blocked: **146 have non-affine models**, all at every N = 6, 7, 8; 0 UNKNOWN. (First run: a faulty filter also let in 52 laws from finite classes and reported 198 of 199 — corrected after the Skeptic's review.) |
 | EXP-C13-03 | W-family: 23 terms, N ≤ 9: model counts = root counts, all models affine (0 mismatches); 16 polynomials c_W |
 | EXP-C13-04 | the 17 laws of CLM-C06-10, N ≤ 12: all spectra as conjectured; only non-affine model: x(yz) = y((yx)z) at N = 2 |
 | EXP-C13-05 | 300 random 2-variable laws, N ≤ 9: **81 violate divisor-closure**; pairs (8,2), (6,3), (6,2), (9,3), (4,2), (8,4); 9 laws with UNKNOWN |
@@ -71,8 +71,9 @@ reproducible.
   (−1, 2, 3 squares; golden ratio; Eisenstein), cyclotomic sets (prime factors
   1 mod 4, ±1 mod 8, 1 mod 12; −1 a fourth power) and cubic/quartic sets that
   the OEIS does not list.
-* **But affine spectra are only lower bounds.** Short laws are weak; 198 of 199
-  have non-affine models, usually at every size beyond a small threshold.
+* **But affine spectra are only lower bounds.** Short laws are weak; 146 of the
+  147 tested laws from infinite classes have non-affine models, usually at every
+  size beyond a small threshold.
 * **Rigidity comes from a right-normed shape.** If the law is
   (xy)z = x V(y, z), the substitution z = 0 gives x ⋆ σ(y) = x ⋆ y + 1, and an
   orbit-counting argument forces a translation table (Theorem 2). For
@@ -81,8 +82,9 @@ reproducible.
   constant term 1 occurs. This generalises C06's golden law to n-bonacci laws.
 * **Divisor-closure fails, and fails often.** The anchor pins only column 0;
   a one-variable law can be blocked at N = 2 by the row of 0 alone while every
-  larger size has room for a model (Theorem 5). In random samples a quarter of
-  the laws with models violate divisor-closure. What survives is closure under
+  larger size has room for a model (Theorem 5). In random samples a third to a
+  half of the laws with a non-trivial model violate divisor-closure (81 of 251,
+  29 of 62, 17 of 34 pairs). What survives is closure under
   coprime products (C06 Theorem 8) and divisor-closure for rigid laws.
 * **Finite spectra can be proved mechanically.** The hand proofs of Theorem 4
   use only law instances at small elements, the anchor and functionality of the

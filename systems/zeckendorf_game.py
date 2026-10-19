@@ -360,3 +360,54 @@ def split_phase_fast(n: int):
         else:
             k += 1
     return _trim(c), steps
+
+
+# ------------------------------------------------------------------ a provably correct O(log^2 n)-move method (C19)
+def chip_weight(k: int) -> int:
+    """a_{k+1} = F_{k+3} - (k + 1) - 2: the potential of one chip on level k (proofs/paper/C19.md Theorem 1)."""
+    return FIB[k + 2] - k - 3
+
+
+def potential(c) -> int:
+    """Psi(c) = sum_k c_k a_{k+1}; Psi(n chips on level 0) = 0, Psi(Zeckendorf(n)) = B(n)."""
+    return sum(x * chip_weight(k) for k, x in enumerate(c))
+
+
+def strategy_length_from(c) -> int:
+    """Length of the strategy game of Cusenza et al. (the rule of greedy_game) started from configuration c."""
+    c = list(c) + [0, 0, 0, 0]
+    length = 0
+    while True:
+        if c[-1] or c[-2]:
+            c.extend([0, 0])
+        k = next((j for j, x in enumerate(c) if x >= 2), None)
+        if k is not None:
+            c[k] -= 2
+            if k == 0:
+                c[1] += 1
+            elif k == 1:
+                c[2] += 1
+                c[0] += 1
+            else:
+                c[k + 1] += 1
+                c[k - 2] += 1
+        else:
+            k = next((j for j in range(len(c) - 1) if c[j] and c[j + 1]), None)
+            if k is None:
+                return length
+            c[k] -= 1
+            c[k + 1] -= 1
+            c[k + 2] += 1
+        length += 1
+
+
+def longest_via_lazy(n: int):
+    """L(n) = Psi(lazy(n)) + (strategy game from lazy(n)), proofs/paper/C19.md Theorem 7.
+
+    The split phase of the strategy game ends at the lazy representation (Theorem 2) after exactly Psi(lazy(n))
+    moves (each split or combine-1 raises Psi by 1, Theorem 1); only the second phase is played, and it has at most
+    B(n) - Psi(lazy(n)) <= 1 + (t + 1)(t + 6)/2 moves (t the top level of lazy(n)). Correct whenever the strategy
+    is optimal (Cusenza et al. 2022, Thm 1.2), like Theorem 4. Returns (L(n), number of second-phase moves)."""
+    lz = lazy_digits(n)
+    second = strategy_length_from(lz)
+    return potential(lz) + second, second

@@ -54,7 +54,7 @@ contents of elementary number theory:
 | $a^4 + 1 = 0$ | $-1$ is a fourth power mod $N$ | A192453 | (5 leaves) |
 | $a^4 - a^2 + 1 = 0$ | all prime factors $\equiv 1 \bmod 12$ | A354467 | (5 leaves) |
 
-Of the 45 infinite affine spectra found, 29 have **no match in the OEIS** at
+Of the 45 infinite affine spectra found (one of them all of ℕ), 29 have **no match in the OEIS** at
 all; most come from cubic and quartic conditions — the plastic number
 ($a^3 - a - 1$), the tribonacci and tetranacci polynomials, the fifth
 cyclotomic polynomial. Spot checks against the direct definitions up to
@@ -65,9 +65,11 @@ $N = 1000$ (for example "$-1$ is a square modulo $N$") found no discrepancy
 
 *H-C13-2 [REFUTED].* "Every law with an infinite, non-trivial affine spectrum is
 affinely rigid." The laboratory blocked all affine tables and asked a SAT
-solver for any other model (EXP-C13-02). Of 199 laws — the three shortest of
-every class — **198 have non-affine models**, most of them at every size from
-3 to 8. The shortest laws in each class are weak (for example $x = x(x(xx))$
+solver for any other model (EXP-C13-02). Of the 147 laws tested from infinite
+classes — the three shortest of every class — **146 have non-affine models**,
+all of them at every size from 6 to 8. (The first run reported 198 of 199: a
+faulty filter had also admitted 52 laws from finite classes. The Skeptic found
+it, and the experiment was corrected and re-run.) The shortest laws in each class are weak (for example $x = x(x(xx))$
 only constrains each element's own diagonal), and weak laws have many models:
 the affine spectrum of $x = x(x(xx))$ is the Eisenstein set A034017, but its
 true spectrum turns out to be every $N$ except 2 (Theorem 8.6 below).
@@ -170,7 +172,7 @@ products (Theorem 7.8), and divisor-closed whenever the law is affinely rigid.
 | Experiment | Question | Result |
 |---|---|---|
 | EXP-C13-01 | affine spectra of 94,206 laws | 27 + 125 spectra; finite ones are $\mathrm{Div}(L)$; classical sets |
-| EXP-C13-02 | are infinite affine classes rigid? | 198 of 199 laws have non-affine models (H-C13-2 refuted) |
+| EXP-C13-02 | are infinite affine classes rigid? | 146 of 147 laws from infinite classes have non-affine models (H-C13-2 refuted) |
 | EXP-C13-03 | the W-family | 23 terms, $N \le 9$: model counts = root counts |
 | EXP-C13-04 | the 17 laws of CLM-C06-10 | spectra agree for $N \le 12$ |
 | EXP-C13-05 | divisor-closure, 300 random 2-variable laws | 81 violations |

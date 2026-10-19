@@ -9,10 +9,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Finite range (the Skeptic - every n < 10^5; among n < 400 equality D = floor(j^2/4) > 0 occurs only at Fibonacci numbers); both statements would follow from CLM-C19-05 only with further work. A weaker bound, D(n) <= 1 + (t+1)(t+6)/2 with t the top level of lazy(n), is proved (CLM-C19-15).",
+      "old": "Finite range; both statements would follow from CLM-C19-05 only with further work.",
+      "reason": "Skeptic review 2026-10-18 - weaker bound proved (CLM-C19-15); range extended",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C19-09",
-  "limitations": "Finite range; both statements would follow from CLM-C19-05 only with further work.",
+  "limitations": "Finite range (the Skeptic - every n < 10^5; among n < 400 equality D = floor(j^2/4) > 0 occurs only at Fibonacci numbers); both statements would follow from CLM-C19-05 only with further work. A weaker bound, D(n) <= 1 + (t+1)(t+6)/2 with t the top level of lazy(n), is proved (CLM-C19-15).",
   "novelty": "NOT ASSESSED",
   "statement": "For 1 <= n < 30000, the deficit satisfies D(n) <= floor(j^2/4) where j is the top Zeckendorf level of n (equality at the Fibonacci numbers), and L(n+1) > L(n).",
   "system": "SYS-D",

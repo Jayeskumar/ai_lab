@@ -52,7 +52,7 @@ A003107), up to 910,775 positions for $n = 150$.
 ## Every game has the same "budget"
 
 **Theorem 16.3** *[PROVEN — written; arithmetic core in Lean:
-`length_identity`; REDISCOVERY (implicit in Cusenza et al.)]*. Every game $G$
+`length_identity`; REDISCOVERY — Cusenza et al., eq. (3.16)]*. Every game $G$
 on $n$ satisfies
 $$|G| \;=\; B(n) \;-\; \sum_{i \ge 2} (i - 1)\, MC_i(G).$$
 
@@ -133,8 +133,13 @@ $h(k) = \lfloor k^2/4 \rfloor$. For $p \in \{0, 1\}$ define $\rho_p(0) = 0$ and,
 for $m = F_{i+1} + t$ with Zeckendorf top index $i + 1$,
 $$\rho_p(m) = r_p(i) + [\,i \equiv p\,]\cdot \max\bigl(0,\ \rho_p(t) - h(i-2)\bigr),$$
 with $r_p(0) = 1$, $r_p(i) = h(i) + 2$ if $i \equiv p \pmod 2$ ($i \ge 1$), and
-$r_p(i) = h(i+1) + 1$ otherwise. Then
-$$D(F_{j+1} + m) = h(j) + D(m) - \rho_{j \bmod 2}(m), \qquad L(n) = B(n) - D(n).$$
+$r_p(i) = h(i+1) + 1$ otherwise (with $0 \le t < F_i$). Then for every
+$n = F_{j+1} + m$ with $0 \le m < F_j$ (so that $F_{j+1}$ is the largest
+Zeckendorf term of $n$),
+$$D(n) = h(j) + D(m) - \rho_{j \bmod 2}(m), \qquad D(0) = 0, \qquad L(n) = B(n) - D(n).$$
+(The first version of this statement omitted the range condition, without which
+it is false — for $j = 2$, $m = 2$ it would give $D(5) = -1$; found by the
+Skeptic.)
 
 The recursion was read off all $n < 30000$. It was then tested on 6,272
 numbers it had not seen, including every $n$ in $[30000, 36000)$ and random
@@ -146,6 +151,39 @@ gaps $\ge 2$, $D(F_{j+1} + F_{i+1}) = h(j) + h(i) - R(j, i)$ with
 $R(j, i) = \lfloor (i+1)^2/4 \rfloor + 1$ when $j - i$ is odd,
 $\lfloor i^2/4 \rfloor + 2$ when $j - i$ is even ($i \ge 1$), and $R(j, 0) = 1$
 (all 276 pairs with $j \le 24$).
+
+## Computing the longest game fast — with a proof
+
+The recursion is fast but unproved. The Skeptic noticed that Theorems 16.3 and
+16.4 already give a fast method that is *proved*: the strategy's first phase
+is the lazy phase, whose length the potential tells us without playing it.
+
+**Theorem 16.9** *[PROVEN — written, using the strategy theorem of Cusenza et
+al.; improvement over simulation]*. $L(n) = \Psi(\mathrm{lazy}(n)) + \lambda^*(n)$,
+where $\Psi$ is the potential of Theorem 16.3 and $\lambda^*(n)$ is the length
+of the strategy game started at the lazy representation. That second phase has
+at most $1 + (t+1)(t+6)/2$ moves, $t$ the top level of $\mathrm{lazy}(n)$; so
+$L(n)$ is computed with $O(\log^2 n)$ moves instead of $\approx 2.618\,n$.
+
+*Proof idea.* The first phase consists of split moves, each raising $\Psi$ by
+exactly 1, and ends at the lazy representation (Theorem 16.4): it has
+$\Psi(\mathrm{lazy}(n))$ moves. Every later move raises $\Psi$ by at least 1, and
+$\Psi$ ends at $B(n)$. Writing the token weight as
+$\varphi^2 F_{k+1} + \psi^{k+2} - k - 3$ shows
+$B(n) - \Psi(\mathrm{lazy}(n)) \le 1 + (t+1)(t+6)/2$. ∎
+
+At $n = 10^{18}$ the second phase has 109 moves and takes about $3 \cdot 10^{-4}$ s.
+On 103,799 tested $n$ (all $n < 10^5$, random $n$ up to $10^{15}$) the method
+and the recursion of Conjecture 16.7 agree exactly (EXP-C19-05), so the
+conjecture is now tested against a proved method rather than against
+simulation.
+
+**Theorem 16.10** *[PROVEN — written]*. Without any optimality theorem,
+$D(n) \le 1 + (t+1)(t+6)/2$; hence $L(n) = \varphi^2 n - O(\log^2 n)$.
+
+*Proof idea.* Playing the lazy phase and then any legal moves is a game on
+$n$, so $L(n) \ge \Psi(\mathrm{lazy}(n))$, and the bound of Theorem 16.9
+applies. ∎
 
 ## Experiments
 
@@ -164,19 +202,21 @@ $3n - 3Z(n) - IZ(n) + 1$. Cusenza et al. (*Fibonacci Quarterly* 60, 2022)
 proved that the split-first strategy is longest, that $L(n) \le B(n)$, and that
 equality holds iff $n = F_k - 1$. Cheigh et al. (2025) proved that every length
 between the shortest and longest game occurs, and stated that a convenient
-closed form for non-Fibonacci inputs is open. Theorem 16.3 is implicit in
-Cusenza et al.'s argument, and Corollary 16.5 reproves their Theorem 1.4. We
+closed form for non-Fibonacci inputs is open. Theorem 16.3 is Cusenza et
+al.'s eq. (3.16), which they call the exact game length (our potential gives it
+in one line), and Corollary 16.5 reproves their Theorem 1.4. We
 found no earlier statement of the lazy phase, of the formula for $L(F_k)$, or
 of a recursion for general $n$. The sequences $L(n)$ and $L(F_k)$ are not in
 the OEIS.
 
 ## Applications and limitations
 
-If Conjecture 16.7 holds, $L(n)$ can be computed with $O(\log^2 n)$ arithmetic
-operations instead of playing $\approx 2.618\,n$ moves. At $n = 10^7$ the
-recursion takes $9 \cdot 10^{-5}$ s against 8.3 s for playing the game. That
-speed-up rests on an unproved recursion. All data beyond $n = 150$ rely on the
-published optimality of the split-first strategy.
+$L(n)$ can be computed with $O(\log^2 n)$ moves instead of playing
+$\approx 2.618\,n$ moves (Theorem 16.9): at $n = 10^7$ about $10^{-4}$ s
+against 8 s for playing the whole game. The first version of this chapter
+rested the speed-up on the unproved recursion; Theorem 16.9 needs only the
+published optimality of the split-first strategy, which also underlies all data
+beyond exhaustive search ($n \le 233$).
 
 ## Open questions
 
@@ -184,6 +224,6 @@ published optimality of the split-first strategy.
    phase from the lazy representation.
 2. Prove that $D(n) \le \lfloor j^2/4 \rfloor$, where $j$ is the level of the
    largest term, and that $L$ is strictly increasing (both hold for
-   $n < 30000$).
+   $n < 10^5$). Theorem 16.10 gives the weaker $D(n) \le 1 + (t+1)(t+6)/2$.
 3. Do the lazy phase and the Fibonacci-input formula extend to the generalised
    Zeckendorf games built on other linear recurrences?

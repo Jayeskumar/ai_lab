@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-19T14:26:15Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-19T14:44:30Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,8 +8,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 129 |
-| COMPUTATIONALLY SUPPORTED | 40 |
+| PROVEN | 131 |
+| COMPUTATIONALLY SUPPORTED | 39 |
 | CONJECTURE | 4 |
 | REFUTED | 49 |
 | INCONCLUSIVE | 2 |
@@ -18,7 +18,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 |---|---|
 | REDISCOVERY | 103 |
 | POTENTIALLY NOVEL | 52 |
-| NOT ASSESSED | 69 |
+| NOT ASSESSED | 70 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -101,7 +101,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C13-01 | Affine anchored spectra are root sets of polynomial systems - divisor-closed, CRT-closed,… | written proof (proofs/paper/C13.md Theorem 1; Chinese remai… | REDISCOVERY | EXP-C13-01 |
 | CLM-C13-02 | Right-normed laws (xy)z = x V(y,z) have only translation models | Lean 4 + Mathlib (translation_form, right_normed_translatio… | POTENTIALLY NOVEL | EXP-C13-03 |
 | CLM-C13-03 | The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1 | Lean 4 + Mathlib for the model correspondence for every W (… | POTENTIALLY NOVEL | EXP-C13-03, EXP-C13-09 |
-| CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | Lean 4 + Mathlib (law13_size_dvd_three, law13_model_three, … | POTENTIALLY NOVEL | EXP-C13-04 |
+| CLM-C13-04 | Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x | Lean 4 + Mathlib for N | 3 resp. N | 2 and for the existenc… | POTENTIALLY NOVEL | EXP-C13-04 |
 | CLM-C13-05 | The law x = x(x(xx)) has anchored models of every size except 2 | Lean 4 + Mathlib (cube_law_no_two, cubeOp_model with an exp… | NOT ASSESSED | EXP-C13-07, EXP-C13-09 |
 | CLM-C13-06 | Offset congruence closure is a sound prover of finite anchored spectra; it settles 16 of … | written soundness proof (proofs/paper/C13.md Theorem 6); ap… | NOT ASSESSED | EXP-C13-08, EXP-C13-04 |
 | CLM-C13-11 | Single laws whose affine spectra are classical arithmetic sets | affine systems computed mechanically (EXP-C13-01) and Theor… | POTENTIALLY NOVEL | EXP-C13-01, EXP-C13-09 |
@@ -149,6 +149,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C19-04 | A short proof that only n = F_k - 1 can be played with split moves alone (Cusenza et al.,… | written proof (proofs/paper/C19.md Corollary 3, from CLM-C1… | REDISCOVERY | EXP-C19-01, EXP-C19-02 |
 | CLM-C19-07 | Exact longest games for n <= 150 and independent confirmation of the split-first strategy | computer-assisted - exhaustive longest-path dynamic program… | REDISCOVERY | EXP-C19-01 |
 | CLM-C19-08 | Every multiset of Fibonacci numbers with sum n is a reachable game position | written proof (proofs/paper/C19.md Proposition 6 - undoing … | NOT ASSESSED | EXP-C19-01 |
+| CLM-C19-14 | Computing the longest game with O(log^2 n) moves instead of Theta(n) | written proof (proofs/paper/C19.md Theorem 7, from Theorems… | POTENTIALLY NOVEL | EXP-C19-05, EXP-C19-04 |
+| CLM-C19-15 | The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L… | written proof (proofs/paper/C19.md Theorem 8 - the split ph… | NOT ASSESSED | EXP-C19-05 |
 | CLM-C20-01 | aab -> ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1 | written proof (proofs/paper/C20.md Theorem 1 - run encoding… | REDISCOVERY | EXP-C20-01 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | written proof (proofs/paper/C20.md Theorem 2 - a pair of a'… | POTENTIALLY NOVEL | EXP-C20-01 |
 | CLM-C20-03 | The C04 extended termination census is complete - 480 of the 868 rules with |l| <= 3, |r|… | computer-assisted certificates for 860 rules (EXP-C04-02, C… | NOT ASSESSED | EXP-C04-02, EXP-C20-01 |
@@ -198,10 +200,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C17-03, EXP-C17-02 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
-| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04 |
+| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04, EXP-C19-05 |
 | CLM-C19-06 | The deficit of a two-summand number depends only on the lower level and the parity of the… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03 |
 | CLM-C19-09 | D(n) <= floor(j^2/4) for top level j, and L is strictly increasing | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C19-03 |
-| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-04 |
 
 ## 3. Potentially novel ideas
 
@@ -257,9 +258,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C16-15 | Laver tables: every Fibonacci orbit ends in the fixed point or one of the N - 1 two-cycle… | PROVEN | POTENTIALLY NOVEL | EXP-C16-03 |
 | CLM-C19-02 | The split phase of the longest game ends at the lazy Fibonacci representation | PROVEN | POTENTIALLY NOVEL | EXP-C19-02 |
 | CLM-C19-03 | Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2 - floor((… | PROVEN | POTENTIALLY NOVEL | EXP-C19-01, EXP-C19-03 |
-| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04 |
+| CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04, EXP-C19-05 |
 | CLM-C19-06 | The deficit of a two-summand number depends only on the lower level and the parity of the… | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03 |
-| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-04 |
+| CLM-C19-14 | Computing the longest game with O(log^2 n) moves instead of Theta(n) | PROVEN | POTENTIALLY NOVEL | EXP-C19-05, EXP-C19-04 |
 | CLM-C20-02 | aab -> babaa terminates; exact per-word derivation length and D(n) = max_b b(2^floor((n-b… | PROVEN | POTENTIALLY NOVEL | EXP-C20-01 |
 
 ## 4. Rediscovered existing mathematics
@@ -382,7 +383,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C16-04 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | MIXED | COMPUTATIONALLY SUPPORTED | EXP-C17-01 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | NO IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
-| CLM-C19-14 | Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves | IMPROVEMENT | COMPUTATIONALLY SUPPORTED | EXP-C19-04 |
+| CLM-C19-14 | Computing the longest game with O(log^2 n) moves instead of Theta(n) | IMPROVEMENT | PROVEN | EXP-C19-05, EXP-C19-04 |
 
 ## 6. Refuted hypotheses
 

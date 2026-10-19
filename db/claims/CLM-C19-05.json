@@ -2,7 +2,8 @@
   "cycle": "C19",
   "evidence": [
     "EXP-C19-03",
-    "EXP-C19-04"
+    "EXP-C19-04",
+    "EXP-C19-05"
   ],
   "history": [
     {
@@ -10,10 +11,35 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C19-03",
+        "EXP-C19-04",
+        "EXP-C19-05"
+      ],
+      "old": [
+        "EXP-C19-03",
+        "EXP-C19-04"
+      ],
+      "reason": "Skeptic review 2026-10-18 (C9) - now tested against the provably correct method of Theorem 7 on many more n",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Inferred from all n < 30000 (in-sample) and confirmed out of sample on 6,272 further n up to 2*10^7 (EXP-C19-04) and on 103,799 n - all n < 10^5, 3000 random n < 10^15 and 800 numbers F_j + m - against the provably correct lazy-representation method (EXP-C19-05, Theorem 7); the Skeptic also checked it against strategy-free exhaustive search for n <= 200 and n = 233. No proof. The data beyond exhaustive search rely on the published optimality of the strategy (Cusenza et al., Thm 1.2).",
+      "old": "Inferred from all n < 30000 (in-sample) and confirmed on 6,272 further n up to 2*10^7 (out of sample); no proof. The data rely on the published optimality of the split-first strategy (confirmed independently only for n <= 150).",
+      "reason": "Skeptic review 2026-10-18 (C9) - now tested against the provably correct method of Theorem 7 on many more n",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C19-05",
-  "limitations": "Inferred from all n < 30000 (in-sample) and confirmed on 6,272 further n up to 2*10^7 (out of sample); no proof. The data rely on the published optimality of the split-first strategy (confirmed independently only for n <= 150).",
+  "limitations": "Inferred from all n < 30000 (in-sample) and confirmed out of sample on 6,272 further n up to 2*10^7 (EXP-C19-04) and on 103,799 n - all n < 10^5, 3000 random n < 10^15 and 800 numbers F_j + m - against the provably correct lazy-representation method (EXP-C19-05, Theorem 7); the Skeptic also checked it against strategy-free exhaustive search for n <= 200 and n = 233. No proof. The data beyond exhaustive search rely on the published optimality of the strategy (Cusenza et al., Thm 1.2).",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Cheigh et al. (CANT VI, Springer 2025) state that a convenient closed form for the longest game on non-Fibonacci inputs is open; no such formula found in the papers above or the OEIS (L(n) has no OEIS entry, EXP-C19-04).",
   "statement": "Let h(k) = floor(k^2/4) and define rho_p (p = 0, 1) by rho_p(0) = 0 and, for m = F_{i+1} + t with Zeckendorf top\nlevel i (0 <= t < F_i): rho_p(m) = r_p(i) + [i = p mod 2] * max(0, rho_p(t) - h(i-2)), where r_p(0) = 1,\nr_p(i) = h(i) + 2 for i >= 1, i = p mod 2, and r_p(i) = h(i+1) + 1 otherwise. Then D(0) = 0 and\nD(F_{j+1} + m) = h(j) + D(m) - rho_{j mod 2}(m) for 0 <= m < F_j, and L(n) = B(n) - D(n).",

@@ -9,16 +9,16 @@ database records in `db/claims/` and `db/experiments/`.*
 ## Summary
 
 Twenty research cycles were run across five foundational systems. They
-produced 112 deterministic experiments (200 recorded runs) and 224 claims:
-129 PROVEN, 40 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED and
+produced 113 deterministic experiments (203 recorded runs) and 225 claims:
+131 PROVEN, 39 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED and
 2 INCONCLUSIVE. 103 claims are rediscoveries of known mathematics, 52 are
 "potentially novel" (nothing equivalent was found in the sources searched —
-this is **not** a claim of priority), and 69 were not assessed. Lean 4 +
+this is **not** a claim of priority), and 70 were not assessed. Lean 4 +
 Mathlib checks 194 theorems in 15 files with only the standard axioms.
-Independent Skeptic reviews gave a verdict on 189 of the 224 claims. They
+Independent Skeptic reviews gave a verdict on 217 of the 225 claims. They
 refuted two of the laboratory's own claims outright (CLM-C05-09 and
-CLM-C08-05), forced a third to be withdrawn (CLM-C08-07), exposed two code
-bugs that had changed stated numbers (C17), and downgraded one "potentially
+CLM-C08-05), forced a third to be withdrawn (CLM-C08-07), exposed three code
+bugs that had changed stated numbers (two in C17, one in C13), and downgraded one "potentially
 novel" result to a rediscovery (CLM-C14-06). All of these corrections are in
 the records, with the failed versions kept.
 
@@ -34,8 +34,8 @@ The batch produced no breakthrough. What it did produce:
 | | count |
 |---|---|
 | research cycles | 20 (all complete) |
-| experiment scripts (EXP-Cnn-mm, deterministic, hashed results) | 112 |
-| recorded runs (first runs, reproducibility re-runs, corrected re-runs) | 200 |
+| experiment scripts (EXP-Cnn-mm, deterministic, hashed results) | 113 |
+| recorded runs (first runs, reproducibility re-runs, corrected re-runs) | 203 |
 | independent check scripts written by the Skeptic and Historian agents (`reviews/*_checks/`) | 86 |
 
 Per-cycle counts are in `REPORT_DATA.md` §1. Every run stores its code hash,
@@ -82,7 +82,7 @@ in one line each:
 
 ## 3. Verified theorems
 
-**129 claims are PROVEN.** The kind of evidence is read from each claim's
+**131 claims are PROVEN.** The kind of evidence is read from each claim's
 `proof_check`:
 
 | evidence | claims |
@@ -90,16 +90,16 @@ in one line each:
 | Lean 4 + Mathlib, nothing else listed | 14 |
 | Lean core plus written or computational parts | 36 |
 | computer-assisted (exhaustive search or certificates, stated trust base) | 15 |
-| written proof only | 62 |
+| written proof only | 64 |
 | published proof read in the literature | 2 |
 
-Of the 115 PROVEN claims that are not fully formal, 100 were re-checked by an
+Of the 117 PROVEN claims that are not fully formal, 115 were re-checked by an
 independent Skeptic agent (UPHELD in a review table or marked in
-`proof_check`). Four await review: CLM-C13-01, CLM-C13-06, CLM-C19-02 and
-CLM-C19-03, whose review was interrupted by a rate limit and resumed. For 11
-the record names no reviewer. These are mostly claims added after their
-cycle's review, for example CLM-C05-10, or derivations from published
-theorems, for example CLM-C01-09.
+`proof_check`). The other two were added after their cycle's review:
+
+- CLM-C05-10, a simple exhaustive search;
+- CLM-C19-15, whose argument came from the Skeptic and was written out by
+  the Director, so a third check is still missing.
 
 Selected theorems, the most substantial first:
 
@@ -117,15 +117,16 @@ Selected theorems, the most substantial first:
 | CLM-C15-04 | the "fuse" magma automaton has linearly growing streaming width yet an O(L) fast-forward for every t | written, reviewed | potentially novel |
 | CLM-C16-05, -07, -09, -15 | full-period quasigroups (every pair occurs once at distance 1 and once at distance 2); none of order 2–4, 3360 of order 5; no isotope of an even-order group qualifies; Fibonacci orbits in Laver tables | written + exhaustive, reviewed | potentially novel |
 | CLM-C17-05 (with proof of uniqueness) | the anchor instance x⋆(y+1) = (x⋆y)⋆(x+1) forces at most one table for every N; for N ≤ 4096 a model exists exactly at powers of 2 (the Laver table) | uniqueness written (Skeptic's argument), existence pattern computed (EXP-C17-03) | not assessed |
-| CLM-C19-02, -03 | the split phase of the longest Zeckendorf game ends at the lazy Fibonacci representation; L(F_k) = F_{k+2} − k − 2 − ⌊(k−1)²/4⌋ | written (review pending), arithmetic core in Lean | potentially novel |
+| CLM-C19-02, -03 | the split phase of the longest Zeckendorf game ends at the lazy Fibonacci representation; L(F_k) = F_{k+2} − k − 2 − ⌊(k−1)²/4⌋ | written, reviewed (exhaustive check to F_12 = 233), arithmetic core in Lean | potentially novel |
+| CLM-C19-14, -15 | L(n) is computed with O(log² n) moves from the lazy representation; D(n) ≤ 1 + (t+1)(t+6)/2 unconditionally, so L(n) = φ²n − O(log² n) | written (argument by the Skeptic, written out by the Director) | potentially novel / not assessed |
 | CLM-C20-01, -02, -03 | aab → ababa has D(n) = 2^{n−2} − 1; aab → babaa has an exact per-word length; with them all 868 one-rule systems with \|l\| ≤ 3, \|r\| ≤ 5 are classified (480 terminate) | written, reviewed | termination rediscovered (barren rules); complexities potentially novel |
 
-The full list of 129 is in `REPORT_DATA.md` §3, and Volume 6 of the textbook
+The full list of 131 is in `REPORT_DATA.md` §3, and Volume 6 of the textbook
 prints the catalogue.
 
 ## 4. Conjectures
 
-**4 CONJECTURE** and **40 COMPUTATIONALLY SUPPORTED** claims. Every
+**4 CONJECTURE** and **39 COMPUTATIONALLY SUPPORTED** claims. Every
 supported claim states its tested range, and none of them is presented as a
 theorem.
 
@@ -152,8 +153,9 @@ Notable supported claims include:
 - CLM-C16-13: the maximal affine period equals the order of a 3×3 matrix —
   exhaustive for N ≤ 60.
 - CLM-C19-05: a two-sequence recursion for the longest Zeckendorf game,
-  inferred from all n < 30,000 and confirmed on 6,272 further n up to 2·10⁷
-  (the data rely on the published optimality of the split-first strategy).
+  inferred from all n < 30,000. It is confirmed on 103,799 further n up to
+  10¹⁵ against the provably correct method of CLM-C19-14, and against
+  strategy-free exhaustive search for n ≤ 233.
 
 ## 5. Refuted hypotheses
 
@@ -242,10 +244,10 @@ judgement:
 8. **The fuse automaton** (CLM-C15-04): unbounded streaming width with an
    O(L) fast-forward, separating two notions of "predictability".
 9. **The longest Zeckendorf game**:
-   - the lazy-phase theorem and the closed form L(F_k) (CLM-C19-02/03;
-     review pending);
-   - a conjectured recursion (CLM-C19-05) with an O(log² n) evaluation
-     (CLM-C19-14).
+   - the lazy-phase theorem and the closed form L(F_k) (CLM-C19-02/03);
+   - a proved O(log² n)-move method (CLM-C19-14);
+   - an unconditional O(log² n) bound on the deficit (CLM-C19-15);
+   - a conjectured recursion (CLM-C19-05).
 10. **New ETP spectrum data** (CLM-C05-07/08/10): small, and ETP
     participants could easily have them.
 
@@ -262,7 +264,7 @@ shared, loaded machine and are meaningful only to their order of magnitude.
 
 | claim | method vs baseline | result |
 |---|---|---|
-| CLM-C19-14 | longest Zeckendorf game via the (conjectured) recursion vs greedy simulation of Θ(n) moves | n = 10⁷: 9.3·10⁻⁵ s vs 8.3 s. Correct on all tested n; correctness in general rests on CLM-C19-05 |
+| CLM-C19-14 | longest Zeckendorf game from the lazy representation (proved, given Cusenza et al.'s strategy theorem) vs simulation of Θ(n) moves | n = 10⁷: 9.3·10⁻⁵ s vs 8.0 s; 109 moves at n = 10¹⁸. The first version rested on the conjectured recursion; the Skeptic showed that the lab's own theorems give a provable method |
 | CLM-C15-13 | affine automaton fast-forward (operator powers, FFT) vs direct numpy simulation | about 10³× at t = 10⁵ (L = 1024); t = 10⁹ in milliseconds; **loses for t ≲ 20** |
 | CLM-C15-15 | fuse automaton burn-time fast-forward vs simulation | about 10³× at t = 10⁵ (4,021× first run, 1,363× on re-run); **loses for t ≲ 20–70** |
 | CLM-C15-14 | commutative-semigroup exponent arithmetic vs simulation | ~10²× at t = 10⁵, no gain near t = 10³ — MIXED |
@@ -320,7 +322,7 @@ Ranked by expected value per unit of effort:
    - the C07 Jacobsthal row;
    - the C09 window obstruction.
 
-   62 PROVEN claims rest on written proofs alone, and each was reviewed by
+   64 PROVEN claims rest on written proofs alone, and each was reviewed by
    one agent at most.
 2. **Replace threshold searches by window computations** (C08). Computing the
    greedy windows (Rauzy-type fractals) exactly would settle CLM-C08-02, -04
@@ -349,7 +351,7 @@ Ranked by expected value per unit of effort:
   separate contexts and instructions. No human reviewed any result. The
   reviews did catch real errors (§5, §8, §9). But two instances of one model
   can share a blind spot.
-- **Written proofs.** 62 PROVEN claims rest on written proofs only, and 36
+- **Written proofs.** 64 PROVEN claims rest on written proofs only, and 36
   have formal cores with written parts. "PROVEN" means a proof was written
   and, in most cases, checked once by an independent agent. It does not mean
   peer-reviewed.
@@ -368,10 +370,10 @@ Ranked by expected value per unit of effort:
 
 | deliverable | location |
 |---|---|
-| research journal (append-only, 244 entries) | `journal/JOURNAL.md`, `journal/entries.jsonl` |
+| research journal (append-only, 255 entries) | `journal/JOURNAL.md`, `journal/entries.jsonl` |
 | discovery database and audit log | `db/claims/`, `db/experiments/`, `db/audit_log.jsonl`, `db/DATABASE.md`, `DISCOVERY_INDEX.md` |
 | research cycles (ten-step reports + machine-readable records) | `research/cycles/*/README.md`, `record.yaml` |
-| reproducible code | `systems/` (mathematical systems), `experiments/` (112 scripts), `lab/` (infrastructure) |
+| reproducible code | `systems/` (mathematical systems), `experiments/` (113 scripts), `lab/` (infrastructure) |
 | raw results and benchmarks | `results/EXP-*.json` |
 | proofs | `proofs/lean/Infinity/*.lean` (194 theorems), `proofs/lean_results.json`, `proofs/paper/C01.md … C20.md` |
 | independent reviews and their check code | `reviews/skeptic_*.md`, `reviews/historian_*.md`, `reviews/*_checks/` |

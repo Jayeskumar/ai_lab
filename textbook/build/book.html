@@ -42,7 +42,7 @@ math { font-size: 1.05em; }
 <p class="subtitle">An Experimental Journey into AI-Discovered
 Mathematical Systems</p>
 <p class="date">Version 1.0 (research batch 1, cycles C01-C20) — built
-2026-10-19T14:33:01Z</p>
+2026-10-19T14:45:51Z</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -292,58 +292,60 @@ game</a></li>
 <li><a href="#fibonacci-inputs" id="toc-fibonacci-inputs"><span class="toc-section-number">16.6</span> Fibonacci inputs</a></li>
 <li><a href="#four-failed-guesses" id="toc-four-failed-guesses"><span class="toc-section-number">16.7</span> Four failed guesses</a></li>
 <li><a href="#a-recursion-for-all-n" id="toc-a-recursion-for-all-n"><span class="toc-section-number">16.8</span> A recursion for all n</a></li>
-<li><a href="#experiments-8" id="toc-experiments-8"><span class="toc-section-number">16.9</span> Experiments</a></li>
-<li><a href="#comparison-with-existing-mathematics-11" id="toc-comparison-with-existing-mathematics-11"><span class="toc-section-number">16.10</span> Comparison with existing
+<li><a href="#computing-the-longest-game-fast-with-a-proof" id="toc-computing-the-longest-game-fast-with-a-proof"><span class="toc-section-number">16.9</span> Computing the longest game fast —
+with a proof</a></li>
+<li><a href="#experiments-8" id="toc-experiments-8"><span class="toc-section-number">16.10</span> Experiments</a></li>
+<li><a href="#comparison-with-existing-mathematics-11" id="toc-comparison-with-existing-mathematics-11"><span class="toc-section-number">16.11</span> Comparison with existing
 mathematics</a></li>
-<li><a href="#applications-and-limitations-9" id="toc-applications-and-limitations-9"><span class="toc-section-number">16.11</span> Applications and
+<li><a href="#applications-and-limitations-9" id="toc-applications-and-limitations-9"><span class="toc-section-number">16.12</span> Applications and
 limitations</a></li>
-<li><a href="#open-questions-12" id="toc-open-questions-12"><span class="toc-section-number">16.12</span> Open questions</a></li>
+<li><a href="#open-questions-12" id="toc-open-questions-12"><span class="toc-section-number">16.13</span> Open questions</a></li>
 </ul></li>
 <li><a href="#volume-6-new-conjectures-and-verified-theorems" id="toc-volume-6-new-conjectures-and-verified-theorems">Volume 6 — New
 Conjectures and Verified Theorems</a></li>
 <li><a href="#catalogue-of-results" id="toc-catalogue-of-results">Catalogue of results</a>
 <ul>
-<li><a href="#c01-quantity-as-the-complete-invariant-of-rewriting" id="toc-c01-quantity-as-the-complete-invariant-of-rewriting"><span class="toc-section-number">16.13</span> C01 — Quantity as the complete
+<li><a href="#c01-quantity-as-the-complete-invariant-of-rewriting" id="toc-c01-quantity-as-the-complete-invariant-of-rewriting"><span class="toc-section-number">16.14</span> C01 — Quantity as the complete
 invariant of rewriting</a></li>
-<li><a href="#c02-exchange-systems-positional-numeration-as-normal-forms" id="toc-c02-exchange-systems-positional-numeration-as-normal-forms"><span class="toc-section-number">16.14</span> C02 — Exchange systems:
+<li><a href="#c02-exchange-systems-positional-numeration-as-normal-forms" id="toc-c02-exchange-systems-positional-numeration-as-normal-forms"><span class="toc-section-number">16.15</span> C02 — Exchange systems:
 positional numeration as normal forms</a></li>
-<li><a href="#c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s" id="toc-c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s"><span class="toc-section-number">16.15</span> C03 — Termination of one-rule
+<li><a href="#c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s" id="toc-c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s"><span class="toc-section-number">16.16</span> C03 — Termination of one-rule
 string rewriting 0^p 1^q -&gt; 1^r 0^s</a></li>
-<li><a href="#c04-derivation-lengths-random-descent-and-rewriting-games" id="toc-c04-derivation-lengths-random-descent-and-rewriting-games"><span class="toc-section-number">16.16</span> C04 — Derivation lengths, random
+<li><a href="#c04-derivation-lengths-random-descent-and-rewriting-games" id="toc-c04-derivation-lengths-random-descent-and-rewriting-games"><span class="toc-section-number">16.17</span> C04 — Derivation lengths, random
 descent and rewriting games</a></li>
-<li><a href="#c05-spectra-of-single-identity-magma-varieties" id="toc-c05-spectra-of-single-identity-magma-varieties"><span class="toc-section-number">16.17</span> C05 — Spectra of single-identity
+<li><a href="#c05-spectra-of-single-identity-magma-varieties" id="toc-c05-spectra-of-single-identity-magma-varieties"><span class="toc-section-number">16.18</span> C05 — Spectra of single-identity
 magma varieties</a></li>
-<li><a href="#c06-successor-anchored-magmas-spectra-of-composition-laws" id="toc-c06-successor-anchored-magmas-spectra-of-composition-laws"><span class="toc-section-number">16.18</span> C06 — Successor-anchored magmas:
+<li><a href="#c06-successor-anchored-magmas-spectra-of-composition-laws" id="toc-c06-successor-anchored-magmas-spectra-of-composition-laws"><span class="toc-section-number">16.19</span> C06 — Successor-anchored magmas:
 spectra of composition laws</a></li>
-<li><a href="#c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations" id="toc-c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations"><span class="toc-section-number">16.19</span> C07 — Arithmetic from the
+<li><a href="#c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations" id="toc-c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations"><span class="toc-section-number">16.20</span> C07 — Arithmetic from the
 minimal excludant: a census of mex-defined operations</a></li>
-<li><a href="#c08-circle-multiplications-on-recurrence-numeration-systems" id="toc-c08-circle-multiplications-on-recurrence-numeration-systems"><span class="toc-section-number">16.20</span> C08 — Circle multiplications on
+<li><a href="#c08-circle-multiplications-on-recurrence-numeration-systems" id="toc-c08-circle-multiplications-on-recurrence-numeration-systems"><span class="toc-section-number">16.21</span> C08 — Circle multiplications on
 recurrence numeration systems</a></li>
-<li><a href="#c09-arithmetic-of-knuths-circle-semigroup" id="toc-c09-arithmetic-of-knuths-circle-semigroup"><span class="toc-section-number">16.21</span> C09 — Arithmetic of Knuth’s
+<li><a href="#c09-arithmetic-of-knuths-circle-semigroup" id="toc-c09-arithmetic-of-knuths-circle-semigroup"><span class="toc-section-number">16.22</span> C09 — Arithmetic of Knuth’s
 circle semigroup</a></li>
-<li><a href="#c10-the-cost-of-counting-across-representations" id="toc-c10-the-cost-of-counting-across-representations"><span class="toc-section-number">16.22</span> C10 — The cost of counting
+<li><a href="#c10-the-cost-of-counting-across-representations" id="toc-c10-the-cost-of-counting-across-representations"><span class="toc-section-number">16.23</span> C10 — The cost of counting
 across representations</a></li>
-<li><a href="#c11-pattern-terminated-universal-integer-codes" id="toc-c11-pattern-terminated-universal-integer-codes"><span class="toc-section-number">16.23</span> C11 — Pattern-terminated
+<li><a href="#c11-pattern-terminated-universal-integer-codes" id="toc-c11-pattern-terminated-universal-integer-codes"><span class="toc-section-number">16.24</span> C11 — Pattern-terminated
 universal integer codes</a></li>
-<li><a href="#c12-relational-one-heap-games" id="toc-c12-relational-one-heap-games"><span class="toc-section-number">16.24</span> C12 — Relational one-heap
+<li><a href="#c12-relational-one-heap-games" id="toc-c12-relational-one-heap-games"><span class="toc-section-number">16.25</span> C12 — Relational one-heap
 games</a></li>
-<li><a href="#c13-anchored-spectra-ii-which-sets-of-integers-are-spectra" id="toc-c13-anchored-spectra-ii-which-sets-of-integers-are-spectra"><span class="toc-section-number">16.25</span> C13 — Anchored spectra II: which
+<li><a href="#c13-anchored-spectra-ii-which-sets-of-integers-are-spectra" id="toc-c13-anchored-spectra-ii-which-sets-of-integers-are-spectra"><span class="toc-section-number">16.26</span> C13 — Anchored spectra II: which
 sets of integers are spectra?</a></li>
-<li><a href="#c14-graphs-as-quantities-the-256-local-graph-products" id="toc-c14-graphs-as-quantities-the-256-local-graph-products"><span class="toc-section-number">16.26</span> C14 — Graphs as quantities: the
+<li><a href="#c14-graphs-as-quantities-the-256-local-graph-products" id="toc-c14-graphs-as-quantities-the-256-local-graph-products"><span class="toc-section-number">16.27</span> C14 — Graphs as quantities: the
 256 local graph products</a></li>
-<li><a href="#c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding" id="toc-c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding"><span class="toc-section-number">16.27</span> C15 — Magma cellular automata:
+<li><a href="#c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding" id="toc-c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding"><span class="toc-section-number">16.28</span> C15 — Magma cellular automata:
 light cones, streaming width and fast-forwarding</a></li>
-<li><a href="#c16-fibonacci-dynamics-in-invented-finite-algebras" id="toc-c16-fibonacci-dynamics-in-invented-finite-algebras"><span class="toc-section-number">16.28</span> C16 — Fibonacci dynamics in
+<li><a href="#c16-fibonacci-dynamics-in-invented-finite-algebras" id="toc-c16-fibonacci-dynamics-in-invented-finite-algebras"><span class="toc-section-number">16.29</span> C16 — Fibonacci dynamics in
 invented finite algebras</a></li>
-<li><a href="#c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check" id="toc-c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check"><span class="toc-section-number">16.29</span> C17 — Deciding laws of finite
+<li><a href="#c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check" id="toc-c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check"><span class="toc-section-number">16.30</span> C17 — Deciding laws of finite
 magmas: generator, anchor and randomised tests against the exhaustive
 check</a></li>
-<li><a href="#c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes" id="toc-c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="toc-section-number">16.30</span> C18 — Invented operations as
+<li><a href="#c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes" id="toc-c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="toc-section-number">16.31</span> C18 — Invented operations as
 mixing primitives: quasigroup string transformations versus standard
 hashes</a></li>
-<li><a href="#c19-the-longest-zeckendorf-game" id="toc-c19-the-longest-zeckendorf-game"><span class="toc-section-number">16.31</span> C19 — The longest Zeckendorf
+<li><a href="#c19-the-longest-zeckendorf-game" id="toc-c19-the-longest-zeckendorf-game"><span class="toc-section-number">16.32</span> C19 — The longest Zeckendorf
 game</a></li>
-<li><a href="#c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03" id="toc-c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03"><span class="toc-section-number">16.32</span> C20 — Open problems revisited:
+<li><a href="#c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03" id="toc-c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03"><span class="toc-section-number">16.33</span> C20 — Open problems revisited:
 the last one-rule systems of C04, and a literature check for
 C03</a></li>
 </ul></li>
@@ -3156,9 +3158,9 @@ is a fourth power mod
 </tr>
 </tbody>
 </table>
-<p>Of the 45 infinite affine spectra found, 29 have <strong>no match in
-the OEIS</strong> at all; most come from cubic and quartic conditions —
-the plastic number
+<p>Of the 45 infinite affine spectra found (one of them all of ℕ), 29
+have <strong>no match in the OEIS</strong> at all; most come from cubic
+and quartic conditions — the plastic number
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>a</mi><mn>3</mn></msup><mo>−</mo><mi>a</mi><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">a^3 - a - 1</annotation></semantics></math>),
 the tribonacci and tetranacci polynomials, the fifth cyclotomic
 polynomial. Spot checks against the direct definitions up to
@@ -3172,10 +3174,13 @@ found no discrepancy (EXP-C13-09).</p>
 rigid</h2>
 <p><em>H-C13-2 [REFUTED].</em> “Every law with an infinite, non-trivial
 affine spectrum is affinely rigid.” The laboratory blocked all affine
-tables and asked a SAT solver for any other model (EXP-C13-02). Of 199
-laws — the three shortest of every class — <strong>198 have non-affine
-models</strong>, most of them at every size from 3 to 8. The shortest
-laws in each class are weak (for example
+tables and asked a SAT solver for any other model (EXP-C13-02). Of the
+147 laws tested from infinite classes — the three shortest of every
+class — <strong>146 have non-affine models</strong>, all of them at
+every size from 6 to 8. (The first run reported 198 of 199: a faulty
+filter had also admitted 52 laws from finite classes. The Skeptic found
+it, and the experiment was corrected and re-run.) The shortest laws in
+each class are weak (for example
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x = x(x(xx))</annotation></semantics></math>
 only constrains each element’s own diagonal), and weak laws have many
 models: the affine spectrum of
@@ -3388,7 +3393,8 @@ classical sets</td>
 <tr class="even">
 <td>EXP-C13-02</td>
 <td>are infinite affine classes rigid?</td>
-<td>198 of 199 laws have non-affine models (H-C13-2 refuted)</td>
+<td>146 of 147 laws from infinite classes have non-affine models
+(H-C13-2 refuted)</td>
 </tr>
 <tr class="odd">
 <td>EXP-C13-03</td>
@@ -6131,8 +6137,8 @@ into Fibonacci parts (OEIS A003107), up to 910,775 positions for
 <h2 data-number="16.4" id="every-game-has-the-same-budget"><span class="header-section-number">16.4</span> Every game has the same
 “budget”</h2>
 <p><strong>Theorem 16.3</strong> <em>[PROVEN — written; arithmetic core
-in Lean: <code>length_identity</code>; REDISCOVERY (implicit in Cusenza
-et al.)]</em>. Every game
+in Lean: <code>length_identity</code>; REDISCOVERY — Cusenza et al., eq.
+(3.16)]</em>. Every game
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
 on
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
@@ -6287,8 +6293,24 @@ if
 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi><mo>≥</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">i \ge 1</annotation></semantics></math>),
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>r</mi><mi>p</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>i</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">r_p(i) = h(i+1) + 1</annotation></semantics></math>
-otherwise. Then
-<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>F</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>ρ</mi><mrow><mi>j</mi><mrow><mspace width="0.222em"></mspace><mo>mod</mo><mspace width="0.222em"></mspace><mn>2</mn></mrow></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">D(F_{j+1} + m) = h(j) + D(m) - \rho_{j \bmod 2}(m), \qquad L(n) = B(n) - D(n).</annotation></semantics></math></p>
+otherwise (with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>t</mi><mo>&lt;</mo><msub><mi>F</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">0 \le t &lt; F_i</annotation></semantics></math>).
+Then for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msub><mi>F</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">n = F_{j+1} + m</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>≤</mo><mi>m</mi><mo>&lt;</mo><msub><mi>F</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">0 \le m &lt; F_j</annotation></semantics></math>
+(so that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>F</mi><mrow><mi>j</mi><mo>+</mo><mn>1</mn></mrow></msub><annotation encoding="application/x-tex">F_{j+1}</annotation></semantics></math>
+is the largest Zeckendorf term of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>),
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>h</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mi>ρ</mi><mrow><mi>j</mi><mrow><mspace width="0.222em"></mspace><mo>mod</mo><mspace width="0.222em"></mspace><mn>2</mn></mrow></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>m</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="2.0em"></mspace><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>.</mi></mrow><annotation encoding="application/x-tex">D(n) = h(j) + D(m) - \rho_{j \bmod 2}(m), \qquad D(0) = 0, \qquad L(n) = B(n) - D(n).</annotation></semantics></math>
+(The first version of this statement omitted the range condition,
+without which it is false — for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">j = 2</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">m = 2</annotation></semantics></math>
+it would give
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>5</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">D(5) = -1</annotation></semantics></math>;
+found by the Skeptic.)</p>
 <p>The recursion was read off all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><mn>30000</mn></mrow><annotation encoding="application/x-tex">n &lt; 30000</annotation></semantics></math>.
 It was then tested on 6,272 numbers it had not seen, including every
@@ -6318,7 +6340,75 @@ and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>j</mi><mo>,</mo><mn>0</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">R(j, 0) = 1</annotation></semantics></math>
 (all 276 pairs with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>≤</mo><mn>24</mn></mrow><annotation encoding="application/x-tex">j \le 24</annotation></semantics></math>).</p>
-<h2 data-number="16.9" id="experiments-8"><span class="header-section-number">16.9</span> Experiments</h2>
+<h2 data-number="16.9" id="computing-the-longest-game-fast-with-a-proof"><span class="header-section-number">16.9</span> Computing the longest game
+fast — with a proof</h2>
+<p>The recursion is fast but unproved. The Skeptic noticed that Theorems
+16.3 and 16.4 already give a fast method that is <em>proved</em>: the
+strategy’s first phase is the lazy phase, whose length the potential
+tells us without playing it.</p>
+<p><strong>Theorem 16.9</strong> <em>[PROVEN — written, using the
+strategy theorem of Cusenza et al.; improvement over simulation]</em>.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>Ψ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">y</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><msup><mi>λ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n) = \Psi(\mathrm{lazy}(n)) + \lambda^*(n)</annotation></semantics></math>,
+where
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ψ</mi><annotation encoding="application/x-tex">\Psi</annotation></semantics></math>
+is the potential of Theorem 16.3 and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mo>*</mo></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lambda^*(n)</annotation></semantics></math>
+is the length of the strategy game started at the lazy representation.
+That second phase has at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">1 + (t+1)(t+6)/2</annotation></semantics></math>
+moves,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>
+the top level of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">y</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{lazy}(n)</annotation></semantics></math>;
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n)</annotation></semantics></math>
+is computed with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mo>log</mo><mn>2</mn></msup><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(\log^2 n)</annotation></semantics></math>
+moves instead of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>2.618</mn><mspace width="0.167em"></mspace><mi>n</mi></mrow><annotation encoding="application/x-tex">\approx 2.618\,n</annotation></semantics></math>.</p>
+<p><em>Proof idea.</em> The first phase consists of split moves, each
+raising
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ψ</mi><annotation encoding="application/x-tex">\Psi</annotation></semantics></math>
+by exactly 1, and ends at the lazy representation (Theorem 16.4): it has
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Ψ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">y</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\Psi(\mathrm{lazy}(n))</annotation></semantics></math>
+moves. Every later move raises
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ψ</mi><annotation encoding="application/x-tex">\Psi</annotation></semantics></math>
+by at least 1, and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Ψ</mi><annotation encoding="application/x-tex">\Psi</annotation></semantics></math>
+ends at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">B(n)</annotation></semantics></math>.
+Writing the token weight as
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>φ</mi><mn>2</mn></msup><msub><mi>F</mi><mrow><mi>k</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>+</mo><msup><mi>ψ</mi><mrow><mi>k</mi><mo>+</mo><mn>2</mn></mrow></msup><mo>−</mo><mi>k</mi><mo>−</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">\varphi^2 F_{k+1} + \psi^{k+2} - k - 3</annotation></semantics></math>
+shows
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>B</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>Ψ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">y</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>1</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">B(n) - \Psi(\mathrm{lazy}(n)) \le 1 + (t+1)(t+6)/2</annotation></semantics></math>.
+∎</p>
+<p>At
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mn>10</mn><mn>18</mn></msup></mrow><annotation encoding="application/x-tex">n = 10^{18}</annotation></semantics></math>
+the second phase has 109 moves and takes about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>⋅</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup></mrow><annotation encoding="application/x-tex">3 \cdot 10^{-4}</annotation></semantics></math>
+s. On 103,799 tested
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+(all
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n &lt; 10^5</annotation></semantics></math>,
+random
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>
+up to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mn>15</mn></msup><annotation encoding="application/x-tex">10^{15}</annotation></semantics></math>)
+the method and the recursion of Conjecture 16.7 agree exactly
+(EXP-C19-05), so the conjecture is now tested against a proved method
+rather than against simulation.</p>
+<p><strong>Theorem 16.10</strong> <em>[PROVEN — written]</em>. Without
+any optimality theorem,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>1</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">D(n) \le 1 + (t+1)(t+6)/2</annotation></semantics></math>;
+hence
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>φ</mi><mn>2</mn></msup><mi>n</mi><mo>−</mo><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mo>log</mo><mn>2</mn></msup><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n) = \varphi^2 n - O(\log^2 n)</annotation></semantics></math>.</p>
+<p><em>Proof idea.</em> Playing the lazy phase and then any legal moves
+is a game on
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≥</mo><mi>Ψ</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mi mathvariant="normal">l</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">y</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n) \ge \Psi(\mathrm{lazy}(n))</annotation></semantics></math>,
+and the bound of Theorem 16.9 applies. ∎</p>
+<h2 data-number="16.10" id="experiments-8"><span class="header-section-number">16.10</span> Experiments</h2>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -6362,7 +6452,7 @@ three additive models refuted</td>
 </tr>
 </tbody>
 </table>
-<h2 data-number="16.10" id="comparison-with-existing-mathematics-11"><span class="header-section-number">16.10</span> Comparison with existing
+<h2 data-number="16.11" id="comparison-with-existing-mathematics-11"><span class="header-section-number">16.11</span> Comparison with existing
 mathematics</h2>
 <p>The game and its shortest length are due to Baird-Smith, Epstein,
 Flynt and Miller (2020). Li et al. (2020) bounded the longest game by
@@ -6374,9 +6464,10 @@ and that equality holds iff
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msub><mi>F</mi><mi>k</mi></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">n = F_k - 1</annotation></semantics></math>.
 Cheigh et al. (2025) proved that every length between the shortest and
 longest game occurs, and stated that a convenient closed form for
-non-Fibonacci inputs is open. Theorem 16.3 is implicit in Cusenza et
-al.’s argument, and Corollary 16.5 reproves their Theorem 1.4. We found
-no earlier statement of the lazy phase, of the formula for
+non-Fibonacci inputs is open. Theorem 16.3 is Cusenza et al.’s eq.
+(3.16), which they call the exact game length (our potential gives it in
+one line), and Corollary 16.5 reproves their Theorem 1.4. We found no
+earlier statement of the lazy phase, of the formula for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(F_k)</annotation></semantics></math>,
 or of a recursion for general
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.
@@ -6385,23 +6476,23 @@ The sequences
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>F</mi><mi>k</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(F_k)</annotation></semantics></math>
 are not in the OEIS.</p>
-<h2 data-number="16.11" id="applications-and-limitations-9"><span class="header-section-number">16.11</span> Applications and
+<h2 data-number="16.12" id="applications-and-limitations-9"><span class="header-section-number">16.12</span> Applications and
 limitations</h2>
-<p>If Conjecture 16.7 holds,
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n)</annotation></semantics></math>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n)</annotation></semantics></math>
 can be computed with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mo>log</mo><mn>2</mn></msup><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(\log^2 n)</annotation></semantics></math>
-arithmetic operations instead of playing
+moves instead of playing
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>≈</mo><mn>2.618</mn><mspace width="0.167em"></mspace><mi>n</mi></mrow><annotation encoding="application/x-tex">\approx 2.618\,n</annotation></semantics></math>
-moves. At
+moves (Theorem 16.9): at
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mn>10</mn><mn>7</mn></msup></mrow><annotation encoding="application/x-tex">n = 10^7</annotation></semantics></math>
-the recursion takes
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>9</mn><mo>⋅</mo><msup><mn>10</mn><mrow><mo>−</mo><mn>5</mn></mrow></msup></mrow><annotation encoding="application/x-tex">9 \cdot 10^{-5}</annotation></semantics></math>
-s against 8.3 s for playing the game. That speed-up rests on an unproved
-recursion. All data beyond
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>150</mn></mrow><annotation encoding="application/x-tex">n = 150</annotation></semantics></math>
-rely on the published optimality of the split-first strategy.</p>
-<h2 data-number="16.12" id="open-questions-12"><span class="header-section-number">16.12</span> Open questions</h2>
+about
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mn>10</mn><mrow><mo>−</mo><mn>4</mn></mrow></msup><annotation encoding="application/x-tex">10^{-4}</annotation></semantics></math>
+s against 8 s for playing the whole game. The first version of this
+chapter rested the speed-up on the unproved recursion; Theorem 16.9
+needs only the published optimality of the split-first strategy, which
+also underlies all data beyond exhaustive search
+(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>233</mn></mrow><annotation encoding="application/x-tex">n \le 233</annotation></semantics></math>).</p>
+<h2 data-number="16.13" id="open-questions-12"><span class="header-section-number">16.13</span> Open questions</h2>
 <ol type="1">
 <li>Prove Conjecture 16.7, for instance by following the carries of the
 second phase from the lazy representation.</li>
@@ -6412,7 +6503,9 @@ where
 is the level of the largest term, and that
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>
 is strictly increasing (both hold for
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><mn>30000</mn></mrow><annotation encoding="application/x-tex">n &lt; 30000</annotation></semantics></math>).</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><msup><mn>10</mn><mn>5</mn></msup></mrow><annotation encoding="application/x-tex">n &lt; 10^5</annotation></semantics></math>).
+Theorem 16.10 gives the weaker
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>1</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">D(n) \le 1 + (t+1)(t+6)/2</annotation></semantics></math>.</li>
 <li>Do the lazy phase and the Fibonacci-input formula extend to the
 generalised Zeckendorf games built on other linear recurrences?</li>
 </ol>
@@ -6431,7 +6524,7 @@ links to its record in <code>db/claims/</code>.</em></p>
 program; <strong>written</strong> — a complete written proof in
 <code>proofs/paper/</code>. Novelty labels are those of the Historian’s
 audit; <em>rediscovery</em> means the result is in the literature.</p>
-<h2 data-number="16.13" id="c01-quantity-as-the-complete-invariant-of-rewriting"><span class="header-section-number">16.13</span> C01 — Quantity as the
+<h2 data-number="16.14" id="c01-quantity-as-the-complete-invariant-of-rewriting"><span class="header-section-number">16.14</span> C01 — Quantity as the
 complete invariant of rewriting</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6466,7 +6559,7 @@ Gray-Steinberg 2022).</li>
 containment: u -&gt; v (|u| = |v|) is confluent iff Borders(u) is
 contained in Borders(v).</li>
 </ul>
-<h2 data-number="16.14" id="c02-exchange-systems-positional-numeration-as-normal-forms"><span class="header-section-number">16.14</span> C02 — Exchange systems:
+<h2 data-number="16.15" id="c02-exchange-systems-positional-numeration-as-normal-forms"><span class="header-section-number">16.15</span> C02 — Exchange systems:
 positional numeration as normal forms</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6497,7 +6590,7 @@ Longest Fibonacci exchange derivations (longest Zeckendorf games) for n
 Termination classification of carry rules: terminating from every unary
 start iff sum b &lt; m.</li>
 </ul>
-<h2 data-number="16.15" id="c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s"><span class="header-section-number">16.15</span> C03 — Termination of one-rule
+<h2 data-number="16.16" id="c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s"><span class="header-section-number">16.16</span> C03 — Termination of one-rule
 string rewriting 0^p 1^q -&gt; 1^r 0^s</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6524,7 +6617,7 @@ characterization of termination for 0^p 1^q -&gt; 1^r 0^s
 <li><strong>CLM-C03-11</strong>, rediscovery: Loop lengths in the base
 family grow like k^q.</li>
 </ul>
-<h2 data-number="16.16" id="c04-derivation-lengths-random-descent-and-rewriting-games"><span class="header-section-number">16.16</span> C04 — Derivation lengths,
+<h2 data-number="16.17" id="c04-derivation-lengths-random-descent-and-rewriting-games"><span class="header-section-number">16.17</span> C04 — Derivation lengths,
 random descent and rewriting games</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6570,7 +6663,7 @@ closed forms of the 162 terminating rules with |l|, |r| &lt;= 3.</li>
 games of aa -&gt; ab (Officers), aaa -&gt; b (0.007) and aaa -&gt; ab
 (0.06) ultimately periodic?.</li>
 </ul>
-<h2 data-number="16.17" id="c05-spectra-of-single-identity-magma-varieties"><span class="header-section-number">16.17</span> C05 — Spectra of
+<h2 data-number="16.18" id="c05-spectra-of-single-identity-magma-varieties"><span class="header-section-number">16.18</span> C05 — Spectra of
 single-identity magma varieties</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6595,7 +6688,7 @@ open laws have a model x*y = ax + by over GF(q).</li>
 nontrivial two-variable identities t = x with 2-4 operations (n &lt;= 6,
 restricted ones to n &lt;= 8).</li>
 </ul>
-<h2 data-number="16.18" id="c06-successor-anchored-magmas-spectra-of-composition-laws"><span class="header-section-number">16.18</span> C06 — Successor-anchored
+<h2 data-number="16.19" id="c06-successor-anchored-magmas-spectra-of-composition-laws"><span class="header-section-number">16.19</span> C06 — Successor-anchored
 magmas: spectra of composition laws</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6627,7 +6720,7 @@ anchored spectra {1, 2} and {1, 3}.</li>
 <li><strong>CLM-C06-11</strong>, potentially novel: Mirror twins of the
 golden and odd laws.</li>
 </ul>
-<h2 data-number="16.19" id="c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations"><span class="header-section-number">16.19</span> C07 — Arithmetic from the
+<h2 data-number="16.20" id="c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations"><span class="header-section-number">16.20</span> C07 — Arithmetic from the
 minimal excludant: a census of mex-defined operations</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6646,7 +6739,7 @@ blocks [2^k - J_k, 2^k) and [2^k, 2^k + J_k).</li>
 <li><strong>CLM-C07-08</strong>, not assessed: Additive periodicity is
 the exception among mex operations.</li>
 </ul>
-<h2 data-number="16.20" id="c08-circle-multiplications-on-recurrence-numeration-systems"><span class="header-section-number">16.20</span> C08 — Circle multiplications
+<h2 data-number="16.21" id="c08-circle-multiplications-on-recurrence-numeration-systems"><span class="header-section-number">16.21</span> C08 — Circle multiplications
 on recurrence numeration systems</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6667,7 +6760,7 @@ associative-shift sets require a negative conjugate root.</li>
 after the targeted search - certified lower bounds, no failure up to s =
 16.</li>
 </ul>
-<h2 data-number="16.21" id="c09-arithmetic-of-knuths-circle-semigroup"><span class="header-section-number">16.21</span> C09 — Arithmetic of Knuth’s
+<h2 data-number="16.22" id="c09-arithmetic-of-knuths-circle-semigroup"><span class="header-section-number">16.22</span> C09 — Arithmetic of Knuth’s
 circle semigroup</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6688,7 +6781,7 @@ Factorisation statistics of the circle semigroup up to 2e5.</li>
 <li><strong>CLM-C09-05</strong>, potentially novel: The density of
 circle irreducibles is exactly 1/phi^2.</li>
 </ul>
-<h2 data-number="16.22" id="c10-the-cost-of-counting-across-representations"><span class="header-section-number">16.22</span> C10 — The cost of counting
+<h2 data-number="16.23" id="c10-the-cost-of-counting-across-representations"><span class="header-section-number">16.23</span> C10 — The cost of counting
 across representations</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6709,7 +6802,7 @@ counting has worst-case cost 2 and average 3/2.</li>
 <li><strong>CLM-C10-06</strong>, potentially novel: Multi-offset
 exchange rules have rule-specific average counting costs.</li>
 </ul>
-<h2 data-number="16.23" id="c11-pattern-terminated-universal-integer-codes"><span class="header-section-number">16.23</span> C11 — Pattern-terminated
+<h2 data-number="16.24" id="c11-pattern-terminated-universal-integer-codes"><span class="header-section-number">16.24</span> C11 — Pattern-terminated
 universal integer codes</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6738,7 +6831,7 @@ longer than C1 except at n = 1.</li>
 codes beat classical universal codes on heavy-tailed and wide-range
 sources (mixed result).</li>
 </ul>
-<h2 data-number="16.24" id="c12-relational-one-heap-games"><span class="header-section-number">16.24</span> C12 — Relational one-heap
+<h2 data-number="16.25" id="c12-relational-one-heap-games"><span class="header-section-number">16.25</span> C12 — Relational one-heap
 games</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6776,7 +6869,7 @@ Grundy values at most 11.</li>
 <li><strong>CLM-C12-13</strong>, not assessed:
 Subtract-a-Fibonacci-number has bounded Grundy values.</li>
 </ul>
-<h2 data-number="16.25" id="c13-anchored-spectra-ii-which-sets-of-integers-are-spectra"><span class="header-section-number">16.25</span> C13 — Anchored spectra II:
+<h2 data-number="16.26" id="c13-anchored-spectra-ii-which-sets-of-integers-are-spectra"><span class="header-section-number">16.26</span> C13 — Anchored spectra II:
 which sets of integers are spectra?</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6806,7 +6899,7 @@ laws are finite or cofinite.</li>
 typically exist for all sizes beyond a small threshold; no Laver-like
 sparse spectrum found.</li>
 </ul>
-<h2 data-number="16.26" id="c14-graphs-as-quantities-the-256-local-graph-products"><span class="header-section-number">16.26</span> C14 — Graphs as quantities:
+<h2 data-number="16.27" id="c14-graphs-as-quantities-the-256-local-graph-products"><span class="header-section-number">16.27</span> C14 — Graphs as quantities:
 the 256 local graph products</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6850,7 +6943,7 @@ difference on co-connected graphs).</li>
 form a free commutative monoid under the symmetric-difference
 (Kronecker) product.</li>
 </ul>
-<h2 data-number="16.27" id="c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding"><span class="header-section-number">16.27</span> C15 — Magma cellular
+<h2 data-number="16.28" id="c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding"><span class="header-section-number">16.28</span> C15 — Magma cellular
 automata: light cones, streaming width and fast-forwarding</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6890,7 +6983,7 @@ lab as automata.</li>
 <li><strong>CLM-C15-18</strong>, not assessed: Bounded streaming width
 implies a fast-forward.</li>
 </ul>
-<h2 data-number="16.28" id="c16-fibonacci-dynamics-in-invented-finite-algebras"><span class="header-section-number">16.28</span> C16 — Fibonacci dynamics in
+<h2 data-number="16.29" id="c16-fibonacci-dynamics-in-invented-finite-algebras"><span class="header-section-number">16.29</span> C16 — Fibonacci dynamics in
 invented finite algebras</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -6937,7 +7030,7 @@ are not competitive pseudo-random generators.</li>
 <li><strong>CLM-C16-19</strong>, not assessed: Random sampling finds
 full-period quasigroups where exact search fails.</li>
 </ul>
-<h2 data-number="16.29" id="c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check"><span class="header-section-number">16.29</span> C17 — Deciding laws of finite
+<h2 data-number="16.30" id="c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check"><span class="header-section-number">16.30</span> C17 — Deciding laws of finite
 magmas: generator, anchor and randomised tests against the exhaustive
 check</h2>
 <p><strong>Theorems.</strong></p>
@@ -6957,7 +7050,7 @@ anchor tests versus the exhaustive check.</li>
 left-distributivity singles out the Laver tables (every N &lt;=
 4096).</li>
 </ul>
-<h2 data-number="16.30" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="header-section-number">16.30</span> C18 — Invented operations as
+<h2 data-number="16.31" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="header-section-number">16.31</span> C18 — Invented operations as
 mixing primitives: quasigroup string transformations versus standard
 hashes</h2>
 <p><strong>Theorems.</strong></p>
@@ -6989,7 +7082,7 @@ passes and a reverse pass has BLAKE2b-level avalanche.</li>
 <li><strong>CLM-C18-13</strong>, not assessed: Quasigroup hashes against
 non-cryptographic baselines - no significant improvement.</li>
 </ul>
-<h2 data-number="16.31" id="c19-the-longest-zeckendorf-game"><span class="header-section-number">16.31</span> C19 — The longest Zeckendorf
+<h2 data-number="16.32" id="c19-the-longest-zeckendorf-game"><span class="header-section-number">16.32</span> C19 — The longest Zeckendorf
 game</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
@@ -7009,6 +7102,11 @@ longest games for n &lt;= 150 and independent confirmation of the
 split-first strategy.</li>
 <li><strong>CLM-C19-08</strong> (written), not assessed: Every multiset
 of Fibonacci numbers with sum n is a reachable game position.</li>
+<li><strong>CLM-C19-14</strong> (written), potentially novel: Computing
+the longest game with O(log^2 n) moves instead of Theta(n).</li>
+<li><strong>CLM-C19-15</strong> (written), not assessed: The deficit of
+the longest Zeckendorf game is O(log^2 n) - D(n) &lt;= 1 + (t+1)(t+6)/2,
+so L(n) = phi^2 n - O(log^2 n).</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
@@ -7019,11 +7117,8 @@ two-summand number depends only on the lower level and the parity of the
 gap.</li>
 <li><strong>CLM-C19-09</strong>, not assessed: D(n) &lt;= floor(j^2/4)
 for top level j, and L is strictly increasing.</li>
-<li><strong>CLM-C19-14</strong>, potentially novel: Computing the
-longest game in O(log^2 n) operations instead of simulating Theta(n)
-moves.</li>
 </ul>
-<h2 data-number="16.32" id="c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03"><span class="header-section-number">16.32</span> C20 — Open problems
+<h2 data-number="16.33" id="c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03"><span class="header-section-number">16.33</span> C20 — Open problems
 revisited: the last one-rule systems of C04, and a literature check for
 C03</h2>
 <p><strong>Theorems.</strong></p>
@@ -8650,10 +8745,13 @@ none at N = 2, 3, 4, 5.</li>
 <li><strong>CLM-C13-08</strong> (refuted). <em>Claimed:</em> For every
 law with at most 4 leaves per side (3 variables) or 5 leaves per side (2
 variables) whose affine spectrum is infinite and not all N, every
-anchored model is affine. <em>Counterexample:</em> 198 of the 199 laws
-tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine
-spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y
-(non-affine models for N = 2..8).</li>
+anchored model is affine. <em>Counterexample:</em> 146 of the 147 laws
+tested from infinite non-trivial affine classes have non-affine models
+(EXP-C13-02, corrected run), all at every N = 6, 7, 8; e.g. x = x(x(xx))
+(affine spectrum A034017, non-affine models for N = 3..8) and (xx)x =
+(yy)y (non-affine models for N = 2..8). (The first run also tested 52
+laws from finite classes Div(L), L &gt;= 61, through a faulty filter -
+they are all non-rigid too.)</li>
 <li><strong>CLM-C13-09</strong> (refuted). <em>Claimed:</em> Every law
 t1(x) = t2(x) in one variable has anchored spectrum {1} or contains all
 sufficiently large N. <em>Counterexample:</em> x = (xx)x has spectrum
@@ -9178,12 +9276,12 @@ are bounded; the observed maximum is 14 for n &lt;= 2e5.
 one-variable law t1(x) = t2(x) has an anchored spectrum that is either
 finite or contains all sufficiently large N. <em>Evidence:</em>
 EXP-C13-07.</li>
-<li><strong>CLM-C13-12</strong> (computationally supported): Among the
-198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N =
-6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law
-other than left-distributivity was found whose non-affine models occur
-only at sparse sizes such as powers of two. <em>Evidence:</em>
-EXP-C13-02, EXP-C13-05, EXP-C13-06.</li>
+<li><strong>CLM-C13-12</strong> (computationally supported): All 146
+non-rigid laws from infinite affine classes in EXP-C13-02 have
+non-affine anchored models at every N = 6, 7, 8; no law other than
+left-distributivity was found whose non-affine models occur only at
+sparse sizes such as powers of two. <em>Evidence:</em> EXP-C13-02,
+EXP-C13-05, EXP-C13-06.</li>
 <li><strong>CLM-C14-12</strong> (computationally supported): Every
 connected graph has exactly one factorisation into connected primes with
 respect to the product (g,h) ~ (g’,h’) iff (EA, AE, AA or NN);
@@ -9306,7 +9404,7 @@ r_p(i) + [i = p mod 2] * max(0, rho_p(t) - h(i-2)), where r_p(0) = 1,
 r_p(i) = h(i) + 2 for i &gt;= 1, i = p mod 2, and r_p(i) = h(i+1) + 1
 otherwise. Then D(0) = 0 and D(F_{j+1} + m) = h(j) + D(m) - rho_{j mod
 2}(m) for 0 &lt;= m &lt; F_j, and L(n) = B(n) - D(n). <em>Evidence:</em>
-EXP-C19-03, EXP-C19-04.</li>
+EXP-C19-03, EXP-C19-04, EXP-C19-05.</li>
 <li><strong>CLM-C19-06</strong> (computationally supported): For levels
 j &gt;= i + 2, D(F_{j+1} + F_{i+1}) = floor(j^2/4) + floor(i^2/4) -
 R(j,i) with R(j,0) = 1, R(j,i) = floor((i+1)^2/4) + 1 if j - i is odd
@@ -9316,11 +9414,6 @@ and R(j,i) = floor(i^2/4) + 2 if j - i is even (i &gt;= 1).
 n &lt; 30000, the deficit satisfies D(n) &lt;= floor(j^2/4) where j is
 the top Zeckendorf level of n (equality at the Fibonacci numbers), and
 L(n+1) &gt; L(n). <em>Evidence:</em> EXP-C19-03.</li>
-<li><strong>CLM-C19-14</strong> (computationally supported): The
-recursion of CLM-C19-05 evaluates L(n) with O(log^2 n) arithmetic
-operations; the published method (playing the split-first game) needs
-L(n) ~ phi^2 n moves. On the tested range both agree. <em>Evidence:</em>
-EXP-C19-04.</li>
 </ul>
 <h2 data-number="21.7" id="directions-proposed-by-the-research-cycles"><span class="header-section-number">21.7</span> Directions proposed by the
 research cycles</h2>

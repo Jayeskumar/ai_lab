@@ -1,6 +1,7 @@
 {
   "cycle": "C19",
   "evidence": [
+    "EXP-C19-05",
     "EXP-C19-04"
   ],
   "history": [
@@ -9,17 +10,96 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "title",
+      "new": "Computing the longest game with O(log^2 n) moves instead of Theta(n)",
+      "old": "Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves",
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "statement",
+      "new": "The longest game can be computed with O(log^2 n) moves: L(n) = Psi(lazy(n)) + (length of the strategy game of Cusenza et al. started at the lazy representation), whose second phase has at most B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 moves (t the top level of lazy(n)); correct whenever [C, Thm 1.2] is (like Theorem 4). The published method plays about phi^2 n moves. The conjectured recursion (CLM-C19-05) gives the same values at the same speed.",
+      "old": "The recursion of CLM-C19-05 evaluates L(n) with O(log^2 n) arithmetic operations; the published method (playing the split-first game) needs L(n) ~ phi^2 n moves. On the tested range both agree.",
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": "COMPUTATIONALLY SUPPORTED",
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "proof",
+      "new": "proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog²-n-move-method-for-ln",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C19-05",
+        "EXP-C19-04"
+      ],
+      "old": [
+        "EXP-C19-04"
+      ],
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Correct as far as [C, Thm 1.2] is; that theorem was independently confirmed only for n <= 233 (exhaustive search).",
+      "old": "Conditional on CLM-C19-05.",
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05)",
+      "old": null,
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "improvement_detail",
+      "new": "Against simulating the strategy game (about phi^2 n moves) - the second phase has 26, 53, 81 and 109 moves at n = 10^6, 10^9, 10^15, 10^18, about 1e-4 s in CPython; full simulation takes about 0.8 s at 10^6 and 8 s at 10^7 (EXP-C19-04/05; loaded machine, order of magnitude only). Asymptotically O(log^2 n) moves vs Theta(n). The first version of this claim rested on the conjectured recursion; the method of Theorem 7 is provably correct (given [C, Thm 1.2]) and as fast.",
+      "old": "n = 10^7 - simulation 8.28 s, recursion 9.3e-5 s; n = 10^6 - 0.85 s vs 7.1e-5 s (CPython, loaded machine; order of magnitude only). Correctness of the recursion beyond the tested n is conjectural (CLM-C19-05); the simulation remains the reference method.",
+      "reason": "Skeptic review 2026-10-18 (C9) - restated on the provably correct method of Theorem 7; COMPUTATIONALLY SUPPORTED -> PROVEN",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C19-14",
   "improvement": "IMPROVEMENT",
-  "improvement_detail": "n = 10^7 - simulation 8.28 s, recursion 9.3e-5 s; n = 10^6 - 0.85 s vs 7.1e-5 s (CPython, loaded machine; order of magnitude only). Correctness of the recursion beyond the tested n is conjectural (CLM-C19-05); the simulation remains the reference method.",
-  "limitations": "Conditional on CLM-C19-05.",
+  "improvement_detail": "Against simulating the strategy game (about phi^2 n moves) - the second phase has 26, 53, 81 and 109 moves at n = 10^6, 10^9, 10^15, 10^18, about 1e-4 s in CPython; full simulation takes about 0.8 s at 10^6 and 8 s at 10^7 (EXP-C19-04/05; loaded machine, order of magnitude only). Asymptotically O(log^2 n) moves vs Theta(n). The first version of this claim rested on the conjectured recursion; the method of Theorem 7 is provably correct (given [C, Thm 1.2]) and as fast.",
+  "limitations": "Correct as far as [C, Thm 1.2] is; that theorem was independently confirmed only for n <= 233 (exhaustive search).",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No sublinear method for the longest game was found in the literature listed under CLM-C19-05.",
-  "statement": "The recursion of CLM-C19-05 evaluates L(n) with O(log^2 n) arithmetic operations; the published method (playing the split-first game) needs L(n) ~ phi^2 n moves. On the tested range both agree.",
+  "proof": "proofs/paper/C19.md#theorem-7-clm-c19-14--an-olog²-n-move-method-for-ln",
+  "proof_check": "written proof (proofs/paper/C19.md Theorem 7, from Theorems 1-2; the method was pointed out by the Skeptic in its review and written out and checked by the Director); conditional on the published optimality of the strategy (Cusenza et al. 2022, Thm 1.2), like Theorem 4; agrees with full simulation of the strategy game for every n < 20000 and with the recursion on 103,799 n (EXP-C19-05)",
+  "statement": "The longest game can be computed with O(log^2 n) moves: L(n) = Psi(lazy(n)) + (length of the strategy game of Cusenza et al. started at the lazy representation), whose second phase has at most B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 moves (t the top level of lazy(n)); correct whenever [C, Thm 1.2] is (like Theorem 4). The published method plays about phi^2 n moves. The conjectured recursion (CLM-C19-05) gives the same values at the same speed.",
   "system": "SYS-D",
-  "title": "Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves",
+  "title": "Computing the longest game with O(log^2 n) moves instead of Theta(n)",
   "type": "algorithmic",
-  "verification": "COMPUTATIONALLY SUPPORTED"
+  "verification": "PROVEN"
 }

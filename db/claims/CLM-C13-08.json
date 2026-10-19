@@ -1,5 +1,5 @@
 {
-  "counterexample": "198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8).",
+  "counterexample": "146 of the 147 laws tested from infinite non-trivial affine classes have non-affine models (EXP-C13-02, corrected run), all at every N = 6, 7, 8; e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8). (The first run also tested 52 laws from finite classes Div(L), L >= 61, through a faulty filter - they are all non-rigid too.)",
   "cycle": "C13",
   "evidence": [
     "EXP-C13-02"
@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "146 of the 147 laws tested from infinite non-trivial affine classes have non-affine models (EXP-C13-02, corrected run), all at every N = 6, 7, 8; e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8). (The first run also tested 52 laws from finite classes Div(L), L >= 61, through a faulty filter - they are all non-rigid too.)",
+      "old": "198 of the 199 laws tested have non-affine models (EXP-C13-02), e.g. x = x(x(xx)) (affine spectrum A034017, non-affine models for N = 3..8) and (xx)x = (yy)y (non-affine models for N = 2..8).",
+      "reason": "Skeptic review 2026-10-18 (C1) - EXP-C13-02 re-run with the correct class selection",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C13-08",

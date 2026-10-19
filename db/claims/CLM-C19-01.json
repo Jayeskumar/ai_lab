@@ -9,6 +9,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:45:11Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "novelty_basis",
+      "new": "Stated as the exact game length in A. Cusenza, A. Dunkelberg, K. Huffman, D. Ke, M. McClatchey, S. J. Miller, C. Mizgerd, V. Tiwari, J. Ye, X. Zheng, Bounds on Zeckendorf games, Fibonacci Quart. 60 (2022), no. 1, 57-71, eq. (3.16) (derived by linear algebra and then weakened to obtain their Thm 1.3; arXiv:2009.09510); also used as an inequality step in J. Cheigh et al., Towards the Gaussianity of random Zeckendorf games, CANT VI, Springer 2025. The one-line potential proof for every game is ours.",
+      "old": "Implicit in the linear-algebra proof of the upper bound of A. Cusenza et al., Bounds on Zeckendorf games, Fibonacci Quart. 60 (2022), arXiv:2009.09510 (Thm 1.3), and used as an inequality step ('subtract the excess MC2 + 2MC3 + ...') in J. Cheigh et al., Towards the Gaussianity of random Zeckendorf games, CANT VI, Springer 2025, doi 10.1007/978-3-031-65064-2_4. The one-line potential proof is ours.",
+      "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C13_C19.md, C8) - the identity is stated explicitly in Cusenza et al., eq. (3.16); proof upheld",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C19-01",
@@ -16,7 +25,7 @@
     "proofs/lean/Infinity/C19_Zeckendorf.lean"
   ],
   "novelty": "REDISCOVERY",
-  "novelty_basis": "Implicit in the linear-algebra proof of the upper bound of A. Cusenza et al., Bounds on Zeckendorf games, Fibonacci Quart. 60 (2022), arXiv:2009.09510 (Thm 1.3), and used as an inequality step ('subtract the excess MC2 + 2MC3 + ...') in J. Cheigh et al., Towards the Gaussianity of random Zeckendorf games, CANT VI, Springer 2025, doi 10.1007/978-3-031-65064-2_4. The one-line potential proof is ours.",
+  "novelty_basis": "Stated as the exact game length in A. Cusenza, A. Dunkelberg, K. Huffman, D. Ke, M. McClatchey, S. J. Miller, C. Mizgerd, V. Tiwari, J. Ye, X. Zheng, Bounds on Zeckendorf games, Fibonacci Quart. 60 (2022), no. 1, 57-71, eq. (3.16) (derived by linear algebra and then weakened to obtain their Thm 1.3; arXiv:2009.09510); also used as an inequality step in J. Cheigh et al., Towards the Gaussianity of random Zeckendorf games, CANT VI, Springer 2025. The one-line potential proof for every game is ours.",
   "proof": "proofs/paper/C19.md#theorem-1-clm-c19-01--an-exact-length-identity",
   "proof_check": "written proof (proofs/paper/C19.md Theorem 1; potential Psi(c) = sum c_i a_i); the per-move changes of Psi and their sum over an arbitrary move list are Lean-verified (dPsi_C1, dPsi_S2, dPsi_split, dPsi_combine, length_identity; standard axioms only); checked on all greedy games n < 1500 and 1500 random games (EXP-C19-02)",
   "statement": "For every game G on n (from n copies of F_1 to the Zeckendorf representation), |G| = B(n) - sum_{i>=2} (i-1) MC_i(G),\nwhere B(n) = sum_i (F_{i+2} - i - 2) delta_i is the bound of Cusenza et al. and MC_i counts the combines\nF_{i-1} + F_i -> F_{i+1}. Hence a game is longest iff it minimises the weighted number of such combines, and\nL(n) = B(n) - D(n) with D(n) = min_G sum (i-1) MC_i(G).",

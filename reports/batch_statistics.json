@@ -10,23 +10,23 @@
     "CLM-C18-13": "NO IMPROVEMENT",
     "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 224,
+  "claims": 225,
   "claims_by_system": {
     "SYS-A": 39,
     "SYS-B": 62,
-    "SYS-C": 41,
+    "SYS-C": 42,
     "SYS-D": 45,
     "SYS-E": 37
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 200,
-  "experiments": 112,
-  "generated": "2026-10-19T14:28:40Z",
+  "experiment_runs": 203,
+  "experiments": 113,
+  "generated": "2026-10-19T14:44:32Z",
   "lean_files_verified": 15,
   "lean_theorems": 194,
   "novelty": {
-    "NOT ASSESSED": 69,
+    "NOT ASSESSED": 70,
     "POTENTIALLY NOVEL": 52,
     "REDISCOVERY": 103
   },
@@ -283,8 +283,8 @@
     ],
     [
       "CLM-C19-14",
-      "Computing the longest game in O(log^2 n) operations instead of simulating Theta(n) moves",
-      "COMPUTATIONALLY SUPPORTED"
+      "Computing the longest game with O(log^2 n) moves instead of Theta(n)",
+      "PROVEN"
     ],
     [
       "CLM-C20-02",
@@ -297,15 +297,14 @@
     "Lean + written or computational parts": 36,
     "computer-assisted": 15,
     "published proof (literature)": 2,
-    "written proof": 62
+    "written proof": 64
   },
   "proven_not_fully_formal_by_review": {
-    "awaiting independent review": 4,
-    "independently reviewed": 101,
-    "no review recorded": 10
+    "independently reviewed": 115,
+    "no review recorded": 2
   },
   "skeptic_verdicts": {
-    "claims_with_a_verdict": 191,
+    "claims_with_a_verdict": 217,
     "claims_without_a_verdict": [
       "CLM-C01-09",
       "CLM-C01-10",
@@ -314,44 +313,19 @@
       "CLM-C05-10",
       "CLM-C08-07",
       "CLM-C08-08",
-      "CLM-C13-01",
-      "CLM-C13-02",
-      "CLM-C13-03",
-      "CLM-C13-04",
-      "CLM-C13-05",
-      "CLM-C13-06",
-      "CLM-C13-07",
-      "CLM-C13-08",
-      "CLM-C13-09",
-      "CLM-C13-10",
-      "CLM-C13-11",
-      "CLM-C13-12",
-      "CLM-C19-01",
-      "CLM-C19-02",
-      "CLM-C19-03",
-      "CLM-C19-04",
-      "CLM-C19-05",
-      "CLM-C19-06",
-      "CLM-C19-07",
-      "CLM-C19-08",
-      "CLM-C19-09",
-      "CLM-C19-10",
-      "CLM-C19-11",
-      "CLM-C19-12",
-      "CLM-C19-13",
-      "CLM-C19-14"
+      "CLM-C19-15"
     ],
     "latest_verdicts": {
       "REFUTED": 2,
-      "UPHELD": 166,
-      "UPHELD WITH CAVEATS": 23
+      "UPHELD": 188,
+      "UPHELD WITH CAVEATS": 27
     }
   },
   "verification": {
-    "COMPUTATIONALLY SUPPORTED": 40,
+    "COMPUTATIONALLY SUPPORTED": 39,
     "CONJECTURE": 4,
     "INCONCLUSIVE": 2,
-    "PROVEN": 129,
+    "PROVEN": 131,
     "REFUTED": 49
   }
 }

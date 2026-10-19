@@ -2,11 +2,11 @@
   "code": {
     "command": "python -m lab run EXP-C19-02",
     "file": "experiments/C19/E02_anatomy.py",
-    "sha256": "2966a9706fab4b74e34c0d16ee0db93b3c71c52d9f73a9f2d2b6528f04361f66",
-    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+    "sha256": "801d22a1a8a41d1e9a30b7473a530db9fbcd51c3cb0d59ec654f28ec585cf0e0",
+    "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
   },
   "env": {
-    "git_head": "c3ca1e1ef90945b78f8a1e2f007ba5ec1943e3e6",
+    "git_head": "fd0b63a5fcfd2517f6327e17cddc80c0145b449b",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +17,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-18T17:20:04Z",
+  "finished": "2026-10-19T14:41:35Z",
   "id": "EXP-C19-02",
   "meta": {
     "agent": "Formal Verifier",
@@ -35,7 +35,7 @@
     "title": "Anatomy of the longest Zeckendorf game: the identity L = B - W, the lazy split phase, insertion"
   },
   "results": {
-    "identity_greedy_violations_n_lt_5000": [],
+    "identity_greedy_violations_n_lt_1500": [],
     "identity_random_game_violations": [],
     "insertion_counterexamples": [
       {
@@ -84,7 +84,7 @@
       "H-C19-4 (L(m+1) = L(m) + lambda(m)) fails for 288 of 300 m, first: [{'m': 3, 'L(m+1)': 3, 'L(m)': 2, 'lambda': 0}, {'m': 5, 'L(m+1)': 6, 'L(m)': 5, 'lambda': 0}]"
     ]
   },
-  "results_sha256": "f4aa28e4b7690df527e658c5ef7a0a281dce33a233aacaa53257e1b7da89f10f",
-  "runtime_s": 12.526,
-  "started": "2026-10-18T17:19:51Z"
+  "results_sha256": "298a000a14593c43d2e403e432faa9021e2acf0dde17ade6a27bcbd216e6a311",
+  "runtime_s": 11.109,
+  "started": "2026-10-19T14:41:24Z"
 }

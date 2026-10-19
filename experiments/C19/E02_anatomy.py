@@ -89,7 +89,7 @@ def run():
             if len(first) < 5:
                 first.append({"m": m, "L(m+1)": lengths[m + 1], "L(m)": lengths[m], "lambda": lam})
     return {
-        "identity_greedy_violations_n_lt_5000": bad_greedy,
+        "identity_greedy_violations_n_lt_1500": bad_greedy,          # (key renamed after the Skeptic review - the loop is n < 1500)
         "identity_random_game_violations": bad_random,
         "random_games": 1500,
         "random_length_range": [min(rand_lengths), max(rand_lengths)],

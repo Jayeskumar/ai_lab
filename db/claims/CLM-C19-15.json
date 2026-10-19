@@ -1,0 +1,24 @@
+{
+  "cycle": "C19",
+  "evidence": [
+    "EXP-C19-05"
+  ],
+  "history": [
+    {
+      "actor": "sync:C19",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:44:17Z"
+    }
+  ],
+  "id": "CLM-C19-15",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "The asymptotics L(n) ~ phi^2 n are known (Cusenza et al.); an explicit O(log^2 n) error bound was not looked for in the literature.",
+  "proof": "proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog²-n-unconditionally",
+  "proof_check": "written proof (proofs/paper/C19.md Theorem 8 - the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)); then the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3); the argument is the Skeptic's (reviews/skeptic_C13_C19.md, C9), written out and checked by the Director; the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)",
+  "statement": "For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed.",
+  "system": "SYS-C",
+  "title": "The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L(n) = phi^2 n - O(log^2 n)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

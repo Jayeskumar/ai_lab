@@ -11,12 +11,21 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "statement",
+      "new": "All 146 non-rigid laws from infinite affine classes in EXP-C13-02 have non-affine anchored models at every N = 6, 7, 8; no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.",
+      "old": "Among the 198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N = 6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.",
+      "reason": "Skeptic review 2026-10-18 (C1) - counts corrected after the re-run of EXP-C13-02 (the first run's 198 laws included 52 from finite classes)",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C13-12",
   "limitations": "Sizes N <= 8-9 only; a sparse infinite spectrum cannot be recognised from so few sizes. Question 3 of the cycle remains open.",
   "novelty": "NOT ASSESSED",
-  "statement": "Among the 198 non-rigid laws of EXP-C13-02, 190 have anchored models at every N = 6, 7, 8 (the others have UNKNOWN instances or small exceptions); no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.",
+  "statement": "All 146 non-rigid laws from infinite affine classes in EXP-C13-02 have non-affine anchored models at every N = 6, 7, 8; no law other than left-distributivity was found whose non-affine models occur only at sparse sizes such as powers of two.",
   "system": "SYS-B",
   "title": "Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found",
   "type": "observation",

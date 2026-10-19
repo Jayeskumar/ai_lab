@@ -4,6 +4,8 @@ import time
 
 from systems.anchored import affine_classes, law_from_key, law_size, law_str, pstr, rigidity_profile
 
+from experiments.C13.E01_affine_atlas import classify
+
 META = {
     "id": "EXP-C13-02",
     "cycle": "C13",
@@ -14,7 +16,10 @@ META = {
                 "table x*y = x + a*y + 1? If so, the true spectrum agrees with the arithmetic set for N <= 8.",
     "hypothesis": "H-C13-2 (bold): for every law with at most 4 leaves per side (3 variables) or 5 leaves per side "
                   "(2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.",
-    "assumptions": ["the 3 shortest laws of every such affine class (3var<=4 and 2var<=5 families of EXP-C13-01)",
+    "assumptions": ["the 3 shortest laws (from infinite systems) of every affine class that contains an infinite "
+                    "system - non-constant Q-gcd, classify() of EXP-C13-01 - and is not all N (3var<=4 and 2var<=5 "
+                    "families of EXP-C13-01); revised after the Skeptic's review, which found that the first filter "
+                    "(spectrum up to 120 reaching 60) also let in 52 laws from finite classes Div(L), L >= 61",
                     "N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded",
                     "a first run (4 laws per class, N <= 9, budget 2,000,000) was stopped after 17 CPU-minutes"],
     "methodology": "For each selected law and N, add one blocking clause per affine table x + a*y + 1 to the "
@@ -30,9 +35,10 @@ def run():
     for fam, (vars_, ml) in {"3var_le4": (("x", "y", "z"), 4), "2var_le5": (("x", "y"), 5)}.items():
         classes = affine_classes(vars_, ml, nmax=120)
         for spec, items in classes.items():
-            if len(spec) == 120 or spec[-1] < 60:      # all N, or finite (handled in EXP-C13-03)
+            infinite = [ks for sysm, ks in items if classify(sysm)["kind"] == "infinite"]
+            if len(spec) == 120 or not infinite:      # all N, or finite (handled in EXP-C13-03)
                 continue
-            keys = sorted((k for _, ks in items for k in ks), key=lambda k: (law_size(k), k))[:3]
+            keys = sorted((k for ks in infinite for k in ks), key=lambda k: (law_size(k), k))[:3]
             for k in keys:
                 selected.append((fam, spec, k))
     rows = []

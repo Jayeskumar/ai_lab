@@ -24,6 +24,15 @@
       ],
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:27:51Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv), skeptic-reviewed 2026-10-18 (reviews/skeptic_C13_C19.md); the Skeptic confirmed (iv) for all trees with up to 16 leaves); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)",
+      "old": "Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv)); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)",
+      "reason": "Skeptic review 2026-10-18 - written part (iv) upheld",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "id": "CLM-C13-03",
@@ -33,7 +42,7 @@
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Searched (2026-10-18) - anchored/successor-anchored magmas (only Laver tables), spectra of varieties (Taylor 1980; Kearnes), roots of the tribonacci polynomial mod p (Klaska-Skula, Fibonacci Quart. 2010; Moree-Noubissie arXiv:2205.06685); no correspondence between magma laws and n-bonacci congruences found. The number theory of the resulting sets is classical.",
   "proof": "proofs/paper/C13.md#theorem-3-clm-c13-03--the-w-family-polynomial-spectra-apa--1",
-  "proof_check": "Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv)); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)",
+  "proof_check": "Lean 4 + Mathlib for the model correspondence for every W (w_family_models, w_family_model_of_root, linear_of_shift, T1.eval_affine, T1.cpoly_eq; standard axioms only); the characterisation of the occurring c_W by written proof (proofs/paper/C13.md Theorem 3 (iv), skeptic-reviewed 2026-10-18 (reviews/skeptic_C13_C19.md); the Skeptic confirmed (iv) for all trees with up to 16 leaves); 0 mismatches on 23 terms for N <= 9 (EXP-C13-03)",
   "statement": "For every one-variable term W(z), the anchored models of (x*y)*z = x*(y*W(z)) are exactly the affine tables\nx*y = x + 1 + a*y with a*c_W(a) = 1 (mod N), c_W(a) the sum over the leaves of W of a^(number of right steps);\ndistinct roots give distinct models. The occurring polynomials c_W are exactly those with non-negative integer\ncoefficients, constant term 1 and no gaps. In particular the right comb with n leaves gives the spectrum of the\nn-bonacci polynomial (golden law for n = 2, tribonacci law for n = 3) and the left comb with k + 1 leaves the\ncondition k*a^2 + a - 1 = 0.",
   "system": "SYS-B",
   "title": "The W-family: anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a) = 1",

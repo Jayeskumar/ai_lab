@@ -1732,3 +1732,63 @@ Independent review (reviews/skeptic_C14_C15_C16_C18.md) - no claim refuted; the 
 
 *Evidence:* EXP-C06-03, EXP-C06-04
 
+
+## C03
+
+### [2026-10-19T14:44:16Z] Formal Verifier — revision (`C03-14#rev14`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-19T14:44:16Z] Formal Verifier — revision (`C06-11#rev14`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+
+
+## C13
+
+### [2026-10-19T14:44:17Z] Mathematical Skeptic — review (`C13-10`)
+
+Independent review (reviews/skeptic_C13_C19.md) - no claim refuted; the written proofs of Theorems 1, 3 (iv) and 6 are correct and the closure code implements Theorem 6 (an independent closure proves the same 16 laws). Corrections - EXP-C13-02 selected 52 laws from finite classes (re-run - 146 of 147 infinite-class laws non-rigid); CLM-C13-11 cited a part of Theorem 1 that did not exist (part (f) added); Lean coverage of C13-02/04 stated more broadly than it is.
+
+*Evidence:* CLM-C13-01, CLM-C13-06, CLM-C13-08, CLM-C13-11, EXP-C13-02, reviews/skeptic_C13_C19.md
+
+
+## C19
+
+### [2026-10-19T14:44:17Z] Mathematical Skeptic — review (`C19-08`)
+
+Independent review (reviews/skeptic_C13_C19.md) - no claim refuted; the written proofs of Theorems 2 and 4 are correct and complete, and Cusenza et al.'s Thm 1.2 says exactly what Theorem 4 uses (read in the arXiv and published versions). Corrections - Theorem 1 is stated in Cusenza et al. as eq. (3.16), not just implicit; Theorems 1-2 already give a provably correct O(log^2 n)-move method and an unconditional bound D(n) = O(log^2 n) (now Theorems 7-8); the textbook's statement of the recursion lacked its range condition; the carry cascade of entry C19-05 is played bottom-up (C_2, C_4, ... or C_3, C_5, ...), not top-down.
+
+*Evidence:* CLM-C19-01, CLM-C19-14, CLM-C19-15, reviews/skeptic_C13_C19.md
+
+### [2026-10-19T14:44:17Z] Mathematical Explorer — result (`C19-09`)
+
+EXP-C19-05 - the lazy-representation method agrees with full simulation for every n < 20,000; the conjectured recursion agrees with this provably correct method on 103,799 n up to 10^15, so the recursion is now tested against a proof-backed reference rather than against the Theta(n) simulation.
+
+*Evidence:* EXP-C19-05, CLM-C19-05, CLM-C19-14
+
+
+## C03
+
+### [2026-10-19T14:44:30Z] Formal Verifier — revision (`C03-14#rev15`)
+
+[revision of C03-14] Correction of journal entry C03-11 - the larger matrix-interpretation tiers it mentions (upper-triangular d = 3 entries <= 5, d = 4 entries <= 2, full d = 3 entries <= 1) were searched outside the committed experiments and are not reproducible from the repository; only the tiers listed in the README are recorded evidence. The claim records do not rely on the unrecorded searches.
+
+*Evidence:* reviews/skeptic_C03_C04_C06.md
+
+
+## C06
+
+### [2026-10-19T14:44:30Z] Formal Verifier — revision (`C06-11#rev15`)
+
+[revision of C06-11] EXP-C06-03 and EXP-C06-04 stored a wall-clock runtime inside the hashed results, so every re-run looked like a changed result; the audit-log entry 'reproduced: false' for EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime now lives under 'timings' and both experiments were re-run.
+
+*Evidence:* EXP-C06-03, EXP-C06-04
+

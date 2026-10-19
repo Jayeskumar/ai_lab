@@ -323,13 +323,14 @@ Proof kinds: **Lean** — machine-checked; **computer-assisted** — a finite ce
 * **CLM-C19-04** (written), rediscovery: A short proof that only n = F\_k - 1 can be played with split moves alone (Cusenza et al., Thm 1.4).
 * **CLM-C19-07** (computer-assisted), rediscovery: Exact longest games for n \<= 150 and independent confirmation of the split-first strategy.
 * **CLM-C19-08** (written), not assessed: Every multiset of Fibonacci numbers with sum n is a reachable game position.
+* **CLM-C19-14** (written), potentially novel: Computing the longest game with O(log\^2 n) moves instead of Theta(n).
+* **CLM-C19-15** (written), not assessed: The deficit of the longest Zeckendorf game is O(log\^2 n) - D(n) \<= 1 + (t+1)(t+6)/2, so L(n) = phi\^2 n - O(log\^2 n).
 
 **Computationally supported.**
 
 * **CLM-C19-05**, potentially novel: A two-sequence recursion for the longest Zeckendorf game on every n.
 * **CLM-C19-06**, potentially novel: The deficit of a two-summand number depends only on the lower level and the parity of the gap.
 * **CLM-C19-09**, not assessed: D(n) \<= floor(j\^2/4) for top level j, and L is strictly increasing.
-* **CLM-C19-14**, potentially novel: Computing the longest game in O(log\^2 n) operations instead of simulating Theta(n) moves.
 
 ## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03
 

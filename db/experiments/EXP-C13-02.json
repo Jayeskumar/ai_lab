@@ -1,16 +1,16 @@
 {
   "agent": "Mathematical Skeptic",
-  "analysis": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
+  "analysis": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (147 laws from the 56 classes, selected by the Q-gcd of the affine system), all affine tables blocked, N = 2..8. 146 laws have non-affine anchored models, all at every N = 6, 7, 8; only x((yz)z) = z((yx)x) (affine system 2a^2 - 1) is rigid on the tested range; 0 UNKNOWN instances. H-C13-2 refuted. (Corrected after the Skeptic's review - the first run selected classes by a spectrum heuristic that also let in 52 laws from 23 finite classes Div(L), L >= 61, and reported 198 of 199 non-rigid with 12 UNKNOWN instances, all of them in finite-class laws.) The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
   "assumptions": [
-    "the 3 shortest laws of every such affine class (3var<=4 and 2var<=5 families of EXP-C13-01)",
+    "the 3 shortest laws (from infinite systems) of every affine class that contains an infinite system - non-constant Q-gcd, classify() of EXP-C13-01 - and is not all N (3var<=4 and 2var<=5 families of EXP-C13-01); revised after the Skeptic's review, which found that the first filter (spectrum up to 120 reaching 60) also let in 52 laws from finite classes Div(L), L >= 61",
     "N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded",
     "a first run (4 laws per class, N <= 9, budget 2,000,000) was stopped after 17 CPU-minutes"
   ],
   "code": {
     "command": "python -m lab run EXP-C13-02",
     "file": "experiments/C13/E02_rigidity_infinite.py",
-    "sha256": "f7a45b3bcc0d2cf20149849ca89e93310a1f1e519d5ea3a2b06069a1db2f1b42",
-    "systems_sha256": "5370a94e74bf8382b727a9f88ffdd987b73d5c212eb2aaa9f7ef02273c0d73d4"
+    "sha256": "4a7e4566ee98077e61d8bdd1f01197cc20c488c93b4dcf2196b96e6c2a17c579",
+    "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
   },
   "counterexamples": [
     "x = x(x(xx)): affine spectrum A034017 (1, 3, 7, 13, ...) but non-affine anchored models for N = 3..8"
@@ -63,6 +63,32 @@
       "old": null,
       "reason": "cycle record sync",
       "ts": "2026-10-18T17:12:39Z"
+    },
+    {
+      "actor": "runner",
+      "event": "changed",
+      "field": "assumptions",
+      "new": [
+        "the 3 shortest laws (from infinite systems) of every affine class that contains an infinite system - non-constant Q-gcd, classify() of EXP-C13-01 - and is not all N (3var<=4 and 2var<=5 families of EXP-C13-01); revised after the Skeptic's review, which found that the first filter (spectrum up to 120 reaching 60) also let in 52 laws from finite classes Div(L), L >= 61",
+        "N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded",
+        "a first run (4 laws per class, N <= 9, budget 2,000,000) was stopped after 17 CPU-minutes"
+      ],
+      "old": [
+        "the 3 shortest laws of every such affine class (3var<=4 and 2var<=5 families of EXP-C13-01)",
+        "N = 2..8; SAT with all affine tables blocked; conflict budget 300,000; UNKNOWN recorded",
+        "a first run (4 laws per class, N <= 9, budget 2,000,000) was stopped after 17 CPU-minutes"
+      ],
+      "reason": "experiment META changed in script",
+      "ts": "2026-10-19T14:36:28Z"
+    },
+    {
+      "actor": "sync:C13",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (147 laws from the 56 classes, selected by the Q-gcd of the affine system), all affine tables blocked, N = 2..8. 146 laws have non-affine anchored models, all at every N = 6, 7, 8; only x((yz)z) = z((yx)x) (affine system 2a^2 - 1) is rigid on the tested range; 0 UNKNOWN instances. H-C13-2 refuted. (Corrected after the Skeptic's review - the first run selected classes by a spectrum heuristic that also let in 52 laws from 23 finite classes Div(L), L >= 61, and reported 198 of 199 non-rigid with 12 UNKNOWN instances, all of them in finite-class laws.) The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
+      "old": "Rigidity test - the 3 shortest laws of every infinite non-trivial affine class (199 laws), all affine tables blocked, N = 2..8. 198 laws have non-affine anchored models (most at every N from 3 to 8); only x((yz)z) = z((yx)x) is rigid on the tested range; 12 UNKNOWN instances (N = 7, 8). H-C13-2 refuted. 190 of the 198 non-rigid laws have models at every N = 6, 7, 8. The short laws of each class are weak (e.g. x = x(x(xx)) constrains only diagonals). A first run with 4 laws per class, N <= 9 and budget 2,000,000 was stopped after 17 CPU-minutes.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T14:44:17Z"
     }
   ],
   "hypothesis": "H-C13-2 (bold): for every law with at most 4 leaves per side (3 variables) or 5 leaves per side (2 variables) whose affine spectrum is infinite and not all N, every anchored model is affine.",
@@ -73,7 +99,7 @@
     "CLM-C13-08"
   ],
   "results_file": "results/EXP-C13-02.json",
-  "results_sha256": "303383d15aaff0e966920ca7d7432fd2f68f371a6b16eb01aeb3316b8b5ce34e",
+  "results_sha256": "0d6ec4e99fc7254d21acc67a32aa9e92e1567a46b83b972f7b97ce8cb9d99d39",
   "runs": [
     {
       "code": {
@@ -116,13 +142,34 @@
         "non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
         "UNKNOWN instances: 12"
       ]
+    },
+    {
+      "code": {
+        "command": "python -m lab run EXP-C13-02",
+        "file": "experiments/C13/E02_rigidity_infinite.py",
+        "sha256": "4a7e4566ee98077e61d8bdd1f01197cc20c488c93b4dcf2196b96e6c2a17c579",
+        "systems_sha256": "638d61bd54af41c4583a1a5dabae2efcbd2a8be6c2daaca1d15a604c0550cba2"
+      },
+      "error": false,
+      "finished": "2026-10-19T14:36:26Z",
+      "reproduced": false,
+      "results_file": "results/EXP-C13-02.json",
+      "results_sha256": "0d6ec4e99fc7254d21acc67a32aa9e92e1567a46b83b972f7b97ce8cb9d99d39",
+      "runtime_s": 61.242,
+      "started": "2026-10-19T14:35:25Z",
+      "summary": [
+        "147 laws from infinite non-trivial affine classes tested for N = 2..8",
+        "rigid (no non-affine model, no UNKNOWN): 1",
+        "non-rigid: 146 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
+        "UNKNOWN instances: 0"
+      ]
     }
   ],
   "summary": [
-    "199 laws from infinite non-trivial affine classes tested for N = 2..8",
+    "147 laws from infinite non-trivial affine classes tested for N = 2..8",
     "rigid (no non-affine model, no UNKNOWN): 1",
-    "non-rigid: 198 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
-    "UNKNOWN instances: 12"
+    "non-rigid: 146 e.g. [('x = x(x(xx))', [3, 4, 5, 6, 7, 8]), ('x = x(y(yy))', [3, 4, 5, 6, 7, 8]), ('x = y(y(yx))', [4, 5, 6, 7, 8]), ('x = x((xx)x)', [3, 4, 5, 6, 7, 8]), ('x = x((yy)y)', [3, 4, 5, 6, 7, 8]), ('(xx)x = (yy)y', [2, 3, 4, 5, 6, 7, 8])]",
+    "UNKNOWN instances: 0"
   ],
   "title": "Affine rigidity of laws with infinite non-trivial affine spectra",
   "verification": "REFUTED"
