@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-19T23:21:56Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1233,6 +1233,86 @@ _Generated 2026-10-19T23:21:56Z from `db/`. The JSON records are authoritative; 
   Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05).
 
 - **limitations:** Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
+
+### CLM-C05-11: Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified)
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+
+- **novelty:** REDISCOVERY
+- **statement:** No magma of order 8 satisfies x = y(x((yx)y)) (ETP equation 677).
+- **proof:** proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted
+- **evidence:** EXP-C05-08
+- **novelty_basis:**
+
+  The ETP paper (Bolan et al., arXiv:2512.07087, section 7.3.1) reports that Mace4 exhausts size 8 for equation 677 in 1.5 s. The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim).
+
+- **related:** CLM-C05-12; CLM-C05-09
+
+### CLM-C05-12: Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:** No magma of order 10 satisfies x = y(x((yx)y)) (ETP equation 677). With CLM-C05-07, CLM-C05-08, CLM-C05-11 and the ETP notes, the orders n <= 10 of finite models of 677 are exactly 1, 5, 7 and 9.
+- **proof:** proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted
+- **evidence:** EXP-C05-08
+- **novelty_basis:**
+
+  Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10.
+
+- **related:** CLM-C05-11; CLM-C05-13; CLM-C05-09; CLM-C05-10
+
+### CLM-C05-13: Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:** No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-03, the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9.
+- **proof:** proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted
+- **evidence:** EXP-C05-08
+- **novelty_basis:**
+
+  Not stated in the sources read: B. Le Floch's notes 'Spectra of equational laws' (ETP, 2025) list 1313 as 'unknown spectrum starting with 1,5,7'; the ETP paper (arXiv:2512.07087) does not discuss 1313 in the parts read. ETP members may hold unpublished searches, so novelty is relative to these sources.
+
+- **related:** CLM-C05-12; CLM-C05-14; CLM-C05-07; CLM-C05-09
+
+### CLM-C05-14: Finite models of law 1313 are quasigroups (Lean)
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 (complete) - law1313_left_bijective, law1313_right_bijective, law677_left_bijective (proofs/lean/Infinity/C05_Law1313.lean, standard axioms only); the statement about non-right-cancellative models of 677 is cited from the ETP blueprint, not proved here
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  In every finite magma satisfying x = y(((yx)x)y) (ETP 1313), all left and all right translations are bijections, so the Cayley table is a Latin square. For law 677 the left translations are bijections; finite models of 677 that are not right-cancellative exist (ETP blueprint, equation 677 chapter, section 13.1).
+
+- **proof:** proofs/paper/C05.md#lemma-7--finite-models-of-law-1313-are-quasigroups-lean
+- **lean:** proofs/lean/Infinity/C05_Law1313.lean
+- **novelty_basis:** A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature.
+- **related:** CLM-C05-13; CLM-C05-05
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5374,6 +5454,36 @@ _Generated 2026-10-19T23:21:56Z from `db/`. The JSON records are authoritative; 
 
 - **related:** CLM-C05-09; CLM-C05-10
 - **runs:** 1; last 2026-10-18T18:02:24Z (0.958 s), results sha256 `8a9a46b752bbcc71…`, code `experiments/C05/E07_finite_field_models.py`
+
+### EXP-C05-08: Laws 677 and 1313 at orders 8 and 10: complete case split on the cycle type of one row, UNSAT cases certified by drat-trim
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Do x = y(x((yx)y)) (ETP 677) and x = y(((yx)x)y) (ETP 1313) have models of order 8 or 10, the two orders EXP-C05-03 left UNKNOWN?
+- **hypothesis:** H-C05-G: neither law has a model of order 8 or 10 (both have models of orders 5, 7, 9 and 16, none of orders 2, 3, 4, 6).
+- **assumptions:**
+  - rows are permutations for both laws (Lean: left_mul_bijective_of_law); columns are permutations for 1313 (proofs/paper/C05.md, Lemma 7)
+  - the case split of proofs/paper/C05.md, Lemma 8 (idempotent / non-idempotent, cycle type of the row of an element with fewest fixed points) is complete
+  - implied division clauses: for x = y*T, y*a = x forces T = a; for 677 (T = x*S) also x*a = T forces S = a; for 1313 (T = S*y) also a*y = T forces S = a
+  - CaDiCaL 1.5.3 (pysat) with proof logging; the conflict budget per instance is fixed, an exhausted budget is reported UNKNOWN
+  - drat-trim (github.com/marijnheule/drat-trim), found via DRAT_TRIM or the scratchpad build path
+  - orders 5, 6, 7 are re-decided as a control (models known at 5 and 7, none at 6)
+- **methodology:**
+
+  For each law and n in (5, 6, 7, 8, 10), enumerate the cases (idempotent, lam, 1) for the partitions lam of n with a part 1 and (non-idempotent, lam, ell) for every part ell >= 2 of every lam; build the CNF (law, Latin rows, Latin columns for 1313, row 0 = pi(lam, ell), fixed-point bounds, idempotency where applicable, division clauses); solve with CaDiCaL under a fixed conflict budget (2 worker processes); verify every UNSAT proof with drat-trim and every SAT table with the law.
+
+- **falsification:** A verified model of order 8 or 10 refutes H-C05-G; a control order that disagrees with EXP-C05-03 (SAT at 5, 7; UNSAT at 6) or a proof drat-trim rejects would expose an error.
+- **summary:**
+  - verdicts: 677/5: model found; 677/6: no model (every case certified); 677/7: model found; 677/8: no model (every case certified); 677/10: no model (every case certified); 1313/5: model found; 1313/6: no model (every case certified); 1313/7: model found; 1313/8: no model (every case certified); 1313/10: no model (every case certified)
+  - 406 instances; UNSAT certified by drat-trim: 401; SAT (model re-checked): 5; UNKNOWN: 0; rejected proofs: 0
+  - UNKNOWN instances: none
+- **analysis:**
+
+  Batch 1.1 (G4) - laws 677 and 1313 at orders 8 and 10, left UNKNOWN by EXP-C05-03, decided by a complete case split (proofs/paper/C05.md Lemma 8: idempotent or not, cycle type of the row of an element with the fewest fixed points; 45 CNFs per law at n = 8, 97 at n = 10) with implied division clauses (Lemma 9) and, for 1313, Latin columns (Lemma 7, Lean). All 284 CNFs at n = 8 and 10 are UNSAT and every DRAT proof (40.5 million lines in total) was VERIFIED by drat-trim; 406 instances with the controls, 0 UNKNOWN, 0 rejected proofs. The controls reproduce EXP-C05-03 (models at 5 and 7, none at 6). Hardest case: 677, n = 10, non-idempotent, row 0 of type (6, 4) with 0 in the 4-cycle, 1.33 million conflicts. A first split on the cycle type of row 0 alone had left 41 of the 97 order-10 cases of 677 undecided at 300,000 conflicts, nearly all with 0 idempotent.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-11; CLM-C05-12; CLM-C05-13; CLM-C05-14
+- **runs:** 1; last 2026-10-19T23:52:29Z (1542.451 s), results sha256 `6280be640085641a…`, code `experiments/C05/E08_orders_8_10.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 

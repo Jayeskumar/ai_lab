@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    }
+  ],
+  "id": "CLM-C05-14",
+  "lean": [
+    "proofs/lean/Infinity/C05_Law1313.lean"
+  ],
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature.",
+  "proof": "proofs/paper/C05.md#lemma-7--finite-models-of-law-1313-are-quasigroups-lean",
+  "proof_check": "Lean 4 (complete) - law1313_left_bijective, law1313_right_bijective, law677_left_bijective (proofs/lean/Infinity/C05_Law1313.lean, standard axioms only); the statement about non-right-cancellative models of 677 is cited from the ETP blueprint, not proved here",
+  "related": [
+    "CLM-C05-13",
+    "CLM-C05-05"
+  ],
+  "statement": "In every finite magma satisfying x = y(((yx)x)y) (ETP 1313), all left and all right translations are bijections, so the Cayley table is a Latin square. For law 677 the left translations are bijections; finite models of 677 that are not right-cancellative exist (ETP blueprint, equation 677 chapter, section 13.1).",
+  "system": "SYS-B",
+  "title": "Finite models of law 1313 are quasigroups (Lean)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

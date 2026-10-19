@@ -52,7 +52,7 @@ laws fall into 15 patterns:
 | 10011??1 | 1 | $x = (yx)(xy)$ (167) | $n \equiv 0, 1 \pmod 4$ (Theorem 6.2, which also settles the two ? as absent) |
 | 11011011 | 8 | $x = y((xy)(yy))$ (883) | contains $n \equiv 1, 2 \pmod 3$ |
 | 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open |
-| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; order 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted |
+| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted |
 | 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open |
 | 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; known sizes 1, 3, 7, 9, 13 |
 | 10011001 | 2 | $x = y(y(x(xy)))$ (501) | open |
@@ -210,8 +210,50 @@ on its full table, and Lean's kernel checks the tables `E677_order16_law`,
 
 Because direct products of models are models, the spectra of 677 and 1313
 now contain every product of the orders 5, 7, 9, 16, … — including all
-$16 \cdot m$ with $m$ in the spectrum. Which even orders below 16 occur (8,
-10, 12, 14) is open.
+$16 \cdot m$ with $m$ in the spectrum. Which even orders below 16 occur was
+left open; the next section settles 8 and 10.
+
+## Orders 8 and 10 (version 1.1)
+
+A direct SAT search with Latin rows and the symmetry break $0 \star 0 \in
+\{0, 1\}$ (EXP-C05-03) could not decide the two laws at $n = 8$ and $10$. Two
+observations make the search small enough to finish *and* to certify.
+
+**Lemma 6.11a** *[PROVEN — Lean: `C05_Law1313.lean`]*. Every finite model of
+law 1313 is a quasigroup. *Proof.* Rows are permutations because the law has
+the form $x = y \star T$. Given $w$, put $x = y \star w$; the law gives
+$y \star T = y \star w$ with $T = ((y \star x) \star x) \star y$, so $T = w$ and
+the column of $y$ takes the value $w$. ∎ For 677 only the rows are known to be
+permutations; finite models of 677 that are not right-cancellative exist (ETP
+blueprint), so no column constraint may be used there.
+
+*A case split guided by the hard cases.* Relabel so that some element is 0
+and row 0 is a fixed permutation of a given cycle type. A first split on the
+cycle type alone left 41 of the 97 order-10 cases of 677 undecided at 300,000
+conflicts each — almost all of them cases where 0 is idempotent. So we split
+first on idempotency: either every element is idempotent, or 0 can be chosen
+non-idempotent; in both cases 0 is chosen with the fewest fixed points in its
+row (among the non-idempotent elements in the second case), which gives every
+competing row at least as many fixed points. Implied "division" clauses (if
+$y \star a = x$ then the inner term $T$ equals $a$) shorten the search further.
+The split is complete (Lemma 8 of `proofs/paper/C05.md`): 45 cases for $n = 8$
+and 97 for $n = 10$.
+
+**Theorem 6.11** *[PROVEN — computer-assisted; 677 at order 8: REDISCOVERY
+(Mace4, ETP paper); the rest POTENTIALLY NOVEL]*. Neither law 677 nor law 1313
+has a model of order 8 or 10. Consequently the orders $n \le 10$ of their
+models are exactly 1, 5, 7 and 9, for both laws.
+
+*Proof.* All 284 case CNFs are unsatisfiable (EXP-C05-08). Each refutation is a
+DRAT proof from CaDiCaL that drat-trim verified — 40.5 million proof lines in
+all, the hardest case of 677 needing 1.33 million conflicts. The same pipeline
+finds models at orders 5 and 7 and none at 6, as the direct search did. ∎
+
+Law 677 matters beyond this chapter: whether it implies $x = ((x \star x) \star
+x) \star x$ (law 255) in finite magmas is the last implication between laws of
+order at most 4 that the Equational Theories Project could not settle. A
+finite counterexample would have to be a model of 677, so Theorem 6.11 rules
+out orders 8 and 10 — a small, certified data point, nothing more.
 
 ## Experiments
 
@@ -224,6 +266,7 @@ $16 \cdot m$ with $m$ in the spectrum. Which even orders below 16 occur (8,
 | EXP-C05-05 | affine models over $\mathbb{Z}/n$, $n \le 6$ | H-C05-A refuted by 4 laws |
 | EXP-C05-06 | DRUP proofs for the gaps | 48 of 48 verified by drat-trim |
 | EXP-C05-07 | linear models over $\mathrm{GF}(q)$, $q \le 128$ (after the review) | 0 conflicts; order 16 for laws 677 and 1313 (Theorem 6.10) |
+| EXP-C05-08 | 677 and 1313 at orders 8 and 10: complete case split, DRAT proofs (version 1.1) | 284 of 284 case CNFs UNSAT, all proofs verified (Theorem 6.11) |
 
 ## Comparison with existing mathematics
 
@@ -277,9 +320,9 @@ tables, so its count is not used.
 
 ## Open questions
 
-1. Decide laws 677 and 1313 at orders 8, 10, 12 and 14 (Conjecture 6.6 is
-   refuted at 16), and law 1286 at orders 8 and 10, with stronger symmetry
-   breaking.
+1. Decide laws 677 and 1313 at orders 12 and 14 (8 and 10 are excluded by
+   Theorem 6.11, 16 occurs), and law 1286 at orders 8 and 10, with the case
+   split of Theorem 6.11.
 2. Is the spectrum of law 115 all $n \ne 2, 6$, as the notes conjecture? Our
    data agree up to $n = 8$.
 3. Direct products of models are models, so every spectrum is closed under

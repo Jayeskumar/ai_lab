@@ -69,6 +69,22 @@ def perm_of(lam, ell, n):
             p[start + i] = start + (i + 1) % L
         start += L
     assert start == n and sorted(p) == list(range(n))
+    # self-check: cycle type and the length of the cycle of 0
+    seen, ct = set(), []
+    for s0 in range(n):
+        if s0 in seen:
+            continue
+        L, z = 0, s0
+        while z not in seen:
+            seen.add(z)
+            z = p[z]
+            L += 1
+        ct.append(L)
+    L0, z = 1, p[0]
+    while z != 0:
+        z = p[z]
+        L0 += 1
+    assert sorted(ct) == sorted(lam) and L0 == ell, (lam, ell, p)
     return p
 
 
@@ -162,6 +178,49 @@ def solve(F, solver="cadical195", budget=None):
         st = s.accum_stats()
         model = s.get_model() if ok else None
     return ok, st.get("conflicts"), model
+
+
+DRAT = "/tmp/claude-0/-home-user-ai-lab/5e93bf16-791a-5608-a61f-d865140bf384/scratchpad/drat/drat-trim"
+SCRATCH = "/tmp/claude-0/-home-user-ai-lab/5e93bf16-791a-5608-a61f-d865140bf384/scratchpad/c05cert"
+
+
+def certify_case(law, n, case, i, solver="cadical195"):
+    """Solve with DRAT proof logging and check the proof with drat-trim (files kept in the scratchpad)."""
+    import hashlib
+    import subprocess
+    os.makedirs(SCRATCH, exist_ok=True)
+    F = build(law, n, case)
+    t0 = time.time()
+    with Solver(name=solver, bootstrap_with=F.cl, with_proof=True) as s:
+        ok = s.solve()
+        conf = s.accum_stats().get("conflicts")
+        proof = s.get_proof() if ok is False else None
+        model = s.get_model() if ok else None
+    r = {"i": i, "lam": list(case[0]), "ell": case[1], "status": "SAT" if ok else "UNSAT", "conflicts": conf,
+         "solve_s": round(time.time() - t0, 1)}
+    if ok:
+        T = table_from_model(model, n)
+        r["model_ok"] = holds(T, law)
+        r["model"] = T
+        return r
+    base = os.path.join(SCRATCH, f"{law}_n{n}_case{i}")
+    nv = n ** 3
+    with open(base + ".cnf", "w") as fh:
+        fh.write(f"p cnf {nv} {len(F.cl)}\n")
+        for c in F.cl:
+            fh.write(" ".join(map(str, c)) + " 0\n")
+    with open(base + ".drat", "w") as fh:
+        fh.write("\n".join(proof) + "\n")
+    r["cnf_sha256"] = hashlib.sha256(open(base + ".cnf", "rb").read()).hexdigest()
+    r["proof_lines"] = len(proof)
+    t1 = time.time()
+    res = subprocess.run([DRAT, base + ".cnf", base + ".drat"], capture_output=True, text=True, timeout=3600)
+    lines = [l for l in res.stdout.splitlines() if l.startswith("s ")]
+    r["drat_trim"] = lines
+    r["verified"] = lines == ["s VERIFIED"]
+    r["check_s"] = round(time.time() - t1, 1)
+    os.remove(base + ".drat")
+    return r
 
 
 def run_law(law, n, solver="cadical195", budget=None, lo=0, hi=None):
@@ -328,6 +387,40 @@ def validate():
 
 
 if __name__ == "__main__":
+    if sys.argv[1] == "plain":
+        # no case split: Latin rows (+ columns for 1313) and either no symmetry break ("none") or 0*0 in {0, 1} ("00")
+        law, n, sb = int(sys.argv[2]), int(sys.argv[3]), sys.argv[4]
+        budget = int(sys.argv[5]) if len(sys.argv) > 5 else None
+        F = build(law, n)
+        if sb == "00":
+            F.cl.append([F.m(0, 0, 0), F.m(0, 0, 1)])
+        t0 = time.time()
+        ok, conf, model = solve(F, "cadical195", budget)
+        r = {"law": law, "n": n, "sb": sb, "status": {True: "SAT", False: "UNSAT", None: "UNKNOWN"}[ok],
+             "conflicts": conf, "seconds": round(time.time() - t0, 1)}
+        if ok:
+            T = table_from_model(model, n)
+            r["model_ok"] = holds(T, law)
+            r["model"] = T
+        print(json.dumps(r))
+        json.dump(r, open(os.path.join(HERE, f"c05_plain_{law}_n{n}_{sb}.json"), "w"), indent=1)
+        sys.exit()
+    if sys.argv[1] == "certify":
+        law, n = int(sys.argv[2]), int(sys.argv[3])
+        out = {"law": law, "n": n, "results": []}
+        t0 = time.time()
+        for i, case in enumerate(my_cases(n)):
+            r = certify_case(law, n, case, i)
+            out["results"].append(r)
+            print(json.dumps({k: v for k, v in r.items() if k != "model"}), flush=True)
+            if r["status"] == "SAT":
+                break
+        out["seconds"] = round(time.time() - t0, 1)
+        out["all_unsat_verified"] = all(r.get("verified") for r in out["results"]) and len(out["results"]) == len(my_cases(n))
+        json.dump(out, open(os.path.join(HERE, f"c05_certify_{law}_n{n}.json"), "w"), indent=1)
+        print(json.dumps({"law": law, "n": n, "cases": len(out["results"]), "all_unsat_verified": out["all_unsat_verified"],
+                          "seconds": out["seconds"]}))
+        sys.exit()
     if sys.argv[1] == "validate":
         r = validate()
         print(json.dumps(r, indent=1))

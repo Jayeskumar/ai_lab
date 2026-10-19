@@ -1,0 +1,30 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    }
+  ],
+  "id": "CLM-C05-12",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10.",
+  "proof": "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted",
+  "proof_check": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)",
+  "related": [
+    "CLM-C05-11",
+    "CLM-C05-13",
+    "CLM-C05-09",
+    "CLM-C05-10"
+  ],
+  "statement": "No magma of order 10 satisfies x = y(x((yx)y)) (ETP equation 677). With CLM-C05-07, CLM-C05-08, CLM-C05-11 and the ETP notes, the orders n <= 10 of finite models of 677 are exactly 1, 5, 7 and 9.",
+  "system": "SYS-B",
+  "title": "Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

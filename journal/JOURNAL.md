@@ -1615,3 +1615,12 @@ Batch 1.1 - the arithmetic core of Theorems 7-8 (the weight identity and the bou
 
 *Evidence:* CLM-C19-14, CLM-C19-15, reviews/historian_C11_C20.md
 
+
+## C05
+
+### [2026-10-19T23:54:21Z] Formal Verifier — result (`C05-16`)
+
+Batch 1.1 (G4) - EXP-C05-08 decides the two open orders of laws 677 and 1313 left by EXP-C05-03: neither law has a model of order 8 or 10. A complete case split (Lemma 8: idempotent or not, cycle type of one row) gives 45 and 97 CNFs per law; all 284 are UNSAT and every DRAT proof was verified by drat-trim. So both laws have exactly the orders 1, 5, 7, 9 up to 10, and 16 is the only even order known for either. 677 at order 8 was already known (Mace4, ETP paper section 7.3.1); 677 at 10 and 1313 at 8 and 10 were not found in the sources read. Law 677 is the premise of the ETP's last open finite implication (677 => 255).
+
+*Evidence:* EXP-C05-08, CLM-C05-11, CLM-C05-12, CLM-C05-13
+

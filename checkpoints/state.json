@@ -236,6 +236,22 @@
       "PROVEN",
       "NOT ASSESSED"
     ],
+    "CLM-C05-11": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
+    "CLM-C05-12": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C05-13": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
+    "CLM-C05-14": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
     "CLM-C06-01": [
       "PROVEN",
       "REDISCOVERY"
@@ -965,6 +981,7 @@
     "EXP-C05-05": "21216128a8bf6abe9060c9cb7b6c75e4d58e16e6fdf191527737766bc8e1fd73",
     "EXP-C05-06": "ebeff4aa1d7fb9d4f7a3533ced8ecd2ccd034fbe6f7bf16aefe1fdf957cfdce1",
     "EXP-C05-07": "8a9a46b752bbcc718a90ee58aae177fd488c00ed57d8d11a71f7dbdccca49368",
+    "EXP-C05-08": "6280be640085641ac9a3644f0f84e3d08bad2245b409bb67c722d1dba97dd26e",
     "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
     "EXP-C06-02": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
     "EXP-C06-03": "600036cb0b6a407141af975ccb520c58a061428cf17479294c15fec8437da968",
@@ -1098,5 +1115,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-19T23:21:57Z"
+  "updated": "2026-10-19T23:54:22Z"
 }

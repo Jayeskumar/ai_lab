@@ -153,6 +153,18 @@ the order-2 gaps and 883's order-3 gap as new.)
   `left_mul_bijective_of_law`). Other UNSAT entries of EXP-C05-01/02
   (e.g. in the pattern table) are solver-trusted only.
 
+**Batch 1.1 update (2026-10-19) — orders 8 and 10 of laws 677 and 1313.** EXP-C05-08 decides both
+orders for both laws: no models (Theorem 10 of [proofs/paper/C05.md](../../../proofs/paper/C05.md)). A complete
+case split (Lemma 8: idempotent or not, then the cycle type of the row of an element with the fewest fixed
+points) gives 45 CNFs per law at n = 8 and 97 at n = 10; with implied division clauses (Lemma 9) and, for 1313,
+Latin columns (Lemma 7 — finite models of 1313 are quasigroups, proved in Lean), all 284 are UNSAT and every DRAT
+proof (40.5 million lines) was verified by drat-trim. So both laws have exactly the orders 1, 5, 7, 9 up to 10
+(CLM-C05-12, CLM-C05-13). 677 at order 8 was already known — Mace4 exhausts size 8 (ETP paper,
+[arXiv:2512.07087](https://arxiv.org/abs/2512.07087) §7.3.1) — so CLM-C05-11 is a rediscovery with a new
+certificate. Law 677 is the premise of the ETP's last open finite implication, 677 ⇒ 255
+([blueprint chapter](https://teorth.github.io/equational_theories/blueprint/677-chapter.html)); there is no
+counterexample of order 8 or 10.
+
 ## Step 8 — Comparison with existing mathematics (Historian)
 
 * **Spectra of order ≤ 4 laws were studied by the Equational Theories

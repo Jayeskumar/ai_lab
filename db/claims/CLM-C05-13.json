@@ -1,0 +1,30 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    }
+  ],
+  "id": "CLM-C05-13",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Not stated in the sources read: B. Le Floch's notes 'Spectra of equational laws' (ETP, 2025) list 1313 as 'unknown spectrum starting with 1,5,7'; the ETP paper (arXiv:2512.07087) does not discuss 1313 in the parts read. ETP members may hold unpublished searches, so novelty is relative to these sources.",
+  "proof": "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted",
+  "proof_check": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)",
+  "related": [
+    "CLM-C05-12",
+    "CLM-C05-14",
+    "CLM-C05-07",
+    "CLM-C05-09"
+  ],
+  "statement": "No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-03, the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9.",
+  "system": "SYS-B",
+  "title": "Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

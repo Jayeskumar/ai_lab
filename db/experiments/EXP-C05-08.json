@@ -1,0 +1,101 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "Batch 1.1 (G4) - laws 677 and 1313 at orders 8 and 10, left UNKNOWN by EXP-C05-03, decided by a complete case split (proofs/paper/C05.md Lemma 8: idempotent or not, cycle type of the row of an element with the fewest fixed points; 45 CNFs per law at n = 8, 97 at n = 10) with implied division clauses (Lemma 9) and, for 1313, Latin columns (Lemma 7, Lean). All 284 CNFs at n = 8 and 10 are UNSAT and every DRAT proof (40.5 million lines in total) was VERIFIED by drat-trim; 406 instances with the controls, 0 UNKNOWN, 0 rejected proofs. The controls reproduce EXP-C05-03 (models at 5 and 7, none at 6). Hardest case: 677, n = 10, non-idempotent, row 0 of type (6, 4) with 0 in the 4-cycle, 1.33 million conflicts. A first split on the cycle type of row 0 alone had left 41 of the 97 order-10 cases of 677 undecided at 300,000 conflicts, nearly all with 0 idempotent.",
+  "assumptions": [
+    "rows are permutations for both laws (Lean: left_mul_bijective_of_law); columns are permutations for 1313 (proofs/paper/C05.md, Lemma 7)",
+    "the case split of proofs/paper/C05.md, Lemma 8 (idempotent / non-idempotent, cycle type of the row of an element with fewest fixed points) is complete",
+    "implied division clauses: for x = y*T, y*a = x forces T = a; for 677 (T = x*S) also x*a = T forces S = a; for 1313 (T = S*y) also a*y = T forces S = a",
+    "CaDiCaL 1.5.3 (pysat) with proof logging; the conflict budget per instance is fixed, an exhausted budget is reported UNKNOWN",
+    "drat-trim (github.com/marijnheule/drat-trim), found via DRAT_TRIM or the scratchpad build path",
+    "orders 5, 6, 7 are re-decided as a control (models known at 5 and 7, none at 6)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-08",
+    "file": "experiments/C05/E08_orders_8_10.py",
+    "sha256": "fb5822a27b860213cdc7f637d8fc960cc7f40e91597d8b2dc72a440a74658a9d",
+    "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+  },
+  "cycle": "C05",
+  "falsification": "A verified model of order 8 or 10 refutes H-C05-G; a control order that disagrees with EXP-C05-03 (SAT at 5, 7; UNSAT at 6) or a proof drat-trim rejects would expose an error.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-19T23:52:29Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.1 (G4) - laws 677 and 1313 at orders 8 and 10, left UNKNOWN by EXP-C05-03, decided by a complete case split (proofs/paper/C05.md Lemma 8: idempotent or not, cycle type of the row of an element with the fewest fixed points; 45 CNFs per law at n = 8, 97 at n = 10) with implied division clauses (Lemma 9) and, for 1313, Latin columns (Lemma 7, Lean). All 284 CNFs at n = 8 and 10 are UNSAT and every DRAT proof (40.5 million lines in total) was VERIFIED by drat-trim; 406 instances with the controls, 0 UNKNOWN, 0 rejected proofs. The controls reproduce EXP-C05-03 (models at 5 and 7, none at 6). Hardest case: 677, n = 10, non-idempotent, row 0 of type (6, 4) with 0 in the 4-cycle, 1.33 million conflicts. A first split on the cycle type of row 0 alone had left 41 of the 97 order-10 cases of 677 undecided at 300,000 conflicts, nearly all with 0 idempotent.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-11",
+        "CLM-C05-12",
+        "CLM-C05-13",
+        "CLM-C05-14"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    }
+  ],
+  "hypothesis": "H-C05-G: neither law has a model of order 8 or 10 (both have models of orders 5, 7, 9 and 16, none of orders 2, 3, 4, 6).",
+  "id": "EXP-C05-08",
+  "methodology": "For each law and n in (5, 6, 7, 8, 10), enumerate the cases (idempotent, lam, 1) for the partitions lam of n with a part 1 and (non-idempotent, lam, ell) for every part ell >= 2 of every lam; build the CNF (law, Latin rows, Latin columns for 1313, row 0 = pi(lam, ell), fixed-point bounds, idempotency where applicable, division clauses); solve with CaDiCaL under a fixed conflict budget (2 worker processes); verify every UNSAT proof with drat-trim and every SAT table with the law.",
+  "question": "Do x = y(x((yx)y)) (ETP 677) and x = y(((yx)x)y) (ETP 1313) have models of order 8 or 10, the two orders EXP-C05-03 left UNKNOWN?",
+  "related": [
+    "CLM-C05-11",
+    "CLM-C05-12",
+    "CLM-C05-13",
+    "CLM-C05-14"
+  ],
+  "results_file": "results/EXP-C05-08.json",
+  "results_sha256": "6280be640085641ac9a3644f0f84e3d08bad2245b409bb67c722d1dba97dd26e",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-08",
+        "file": "experiments/C05/E08_orders_8_10.py",
+        "sha256": "fb5822a27b860213cdc7f637d8fc960cc7f40e91597d8b2dc72a440a74658a9d",
+        "systems_sha256": "262f12905b6788fef2300c92553de7853d43644f7686640d6078d9f2f6934046"
+      },
+      "error": false,
+      "finished": "2026-10-19T23:52:29Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-08.json",
+      "results_sha256": "6280be640085641ac9a3644f0f84e3d08bad2245b409bb67c722d1dba97dd26e",
+      "runtime_s": 1542.451,
+      "started": "2026-10-19T23:26:46Z",
+      "summary": [
+        "verdicts: 677/5: model found; 677/6: no model (every case certified); 677/7: model found; 677/8: no model (every case certified); 677/10: no model (every case certified); 1313/5: model found; 1313/6: no model (every case certified); 1313/7: model found; 1313/8: no model (every case certified); 1313/10: no model (every case certified)",
+        "406 instances; UNSAT certified by drat-trim: 401; SAT (model re-checked): 5; UNKNOWN: 0; rejected proofs: 0",
+        "UNKNOWN instances: none"
+      ]
+    }
+  ],
+  "summary": [
+    "verdicts: 677/5: model found; 677/6: no model (every case certified); 677/7: model found; 677/8: no model (every case certified); 677/10: no model (every case certified); 1313/5: model found; 1313/6: no model (every case certified); 1313/7: model found; 1313/8: no model (every case certified); 1313/10: no model (every case certified)",
+    "406 instances; UNSAT certified by drat-trim: 401; SAT (model re-checked): 5; UNKNOWN: 0; rejected proofs: 0",
+    "UNKNOWN instances: none"
+  ],
+  "title": "Laws 677 and 1313 at orders 8 and 10: complete case split on the cycle type of one row, UNSAT cases certified by drat-trim",
+  "verification": "PROVEN"
+}

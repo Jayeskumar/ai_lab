@@ -1,0 +1,904 @@
+{
+ "law": 677,
+ "n": 8,
+ "results": [
+  {
+   "i": 0,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "solve_s": 0.0,
+   "cnf_sha256": "59cada6047cb63aeb28a988ba348ef2b0108b9714620fd97520209314d4f26df",
+   "proof_lines": 1082,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 1,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 4,
+   "solve_s": 0.0,
+   "cnf_sha256": "0f4d3c1f1bab1ce27be550e5ab5ba3b6d04c8cabfc8067e3f581b61fb58b7837",
+   "proof_lines": 1302,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 2,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "115f0afe9af3aa6d9d3cfec128aa9ff268adc04e1a4dd928bd0fd3f50bbe4536",
+   "proof_lines": 1439,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 3,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 200,
+   "solve_s": 0.0,
+   "cnf_sha256": "e8c6d4d0fdd51ca69dbdaa6c5dd12cd8184126eb85a5befaebb06fc7b2c94e32",
+   "proof_lines": 1649,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 4,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "ae78b1eff927a748798326c227f289c91f4769c662b2dda8dee9f6b94c0b357e",
+   "proof_lines": 1437,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 5,
+   "lam": [
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 2324,
+   "solve_s": 0.1,
+   "cnf_sha256": "a37c5ecf10f77dd73c059ce21f883f1becf48515a6940de0c6a3a96faabe91a0",
+   "proof_lines": 27400,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 6,
+   "lam": [
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "3e9138dbd0b6abfa0d412a91eba5a4b2c7e9563ac94667e97f86b070b3f5e384",
+   "proof_lines": 1099,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 7,
+   "lam": [
+    2,
+    2,
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "50268a944d9ba67fc0b4ccc16f7657fc8dfaaf6059cd884683b994bcdc216780",
+   "proof_lines": 1041,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 8,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 46,
+   "solve_s": 0.0,
+   "cnf_sha256": "2a7c2866a6fec43d17b71ea9c21f68a8cf3fce1961b052993d8df342e5ef4b30",
+   "proof_lines": 1465,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 9,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "e2066b16e8f06d8c0e0e6659e0e90f1cdd701ab862adf999e7557de4bbd54c9e",
+   "proof_lines": 1609,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 10,
+   "lam": [
+    1,
+    1,
+    1,
+    2,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 1165,
+   "solve_s": 0.1,
+   "cnf_sha256": "e16e9375ca9b4954ce5479725b7356265bfc70c955abab000bda83dbbe13f4f9",
+   "proof_lines": 16600,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 11,
+   "lam": [
+    1,
+    1,
+    1,
+    2,
+    3
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "1dfc1be3eab63666498a363de95a717b2c1c4a0e28a63574265ca090bf591e9e",
+   "proof_lines": 1240,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 12,
+   "lam": [
+    1,
+    1,
+    1,
+    2,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 58,
+   "solve_s": 0.0,
+   "cnf_sha256": "f6c5428de860b93b4ae464a1b2b192b79e155f9d27cb0bfeb4f82b490b783d01",
+   "proof_lines": 1393,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 13,
+   "lam": [
+    1,
+    2,
+    2,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 31695,
+   "solve_s": 1.1,
+   "cnf_sha256": "707e17bdc67df198b074f416a4587709fe3e746ae6411febe1416449602355c4",
+   "proof_lines": 143495,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.8
+  },
+  {
+   "i": 14,
+   "lam": [
+    1,
+    2,
+    2,
+    3
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "c8fc8a8cac3bc7b03cdd2adc02332acdfc7dfab4fd188af8c599dad2651a826a",
+   "proof_lines": 1049,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 15,
+   "lam": [
+    1,
+    2,
+    2,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 119,
+   "solve_s": 0.0,
+   "cnf_sha256": "54ed4b7e3d08aa1074ca4f14fe6d7e4bc590c30f0cf7bb1df0829a04c932f04f",
+   "proof_lines": 1201,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 16,
+   "lam": [
+    1,
+    1,
+    3,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 2409,
+   "solve_s": 0.1,
+   "cnf_sha256": "02fab8d7f333631c58f846b84e6d8bdb5dfc7704449093a0fd331287f3481704",
+   "proof_lines": 25594,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 17,
+   "lam": [
+    1,
+    1,
+    3,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 126,
+   "solve_s": 0.0,
+   "cnf_sha256": "8ed59bf8dc956850bd5632a9cad7987b30c638d947f061841ac0b17eb7b9d642",
+   "proof_lines": 1320,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 18,
+   "lam": [
+    2,
+    3,
+    3
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "15e357d43e8e770dd0ffba93cf70365d3ef6518ee792e68927716c60757228e5",
+   "proof_lines": 1041,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 19,
+   "lam": [
+    2,
+    3,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 109,
+   "solve_s": 0.0,
+   "cnf_sha256": "fea743f39088c7d287cbf90a5e1435b2468bf358a90f98b5c3af2257036444d7",
+   "proof_lines": 1225,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 20,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    4
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 308,
+   "solve_s": 0.0,
+   "cnf_sha256": "66d1205ec767ba5f705afd549a5b559224b8e2fc37b1c75217d8748bc43b2e63",
+   "proof_lines": 18310,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 21,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 37,
+   "solve_s": 0.0,
+   "cnf_sha256": "4184bb1ac466838e95ae5949f0c64a356da80523fa7827afb5578c115170fb07",
+   "proof_lines": 1767,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 22,
+   "lam": [
+    1,
+    1,
+    2,
+    4
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 6468,
+   "solve_s": 0.2,
+   "cnf_sha256": "617bc0ea781e2a9377f1abbac6a68fe29b6f3044ed6fdd24b17a5f5f3b07ca41",
+   "proof_lines": 39241,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 23,
+   "lam": [
+    1,
+    1,
+    2,
+    4
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "d97e9fc8b07ff9150f3d8c3e463464495c9adba4845c66dedc91864d8b16047a",
+   "proof_lines": 1099,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 24,
+   "lam": [
+    1,
+    1,
+    2,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 1103,
+   "solve_s": 0.1,
+   "cnf_sha256": "955e3e892f6bcc9fae280611997d1861aec5cf0d763326730685589e6dae4f2e",
+   "proof_lines": 25179,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 25,
+   "lam": [
+    2,
+    2,
+    4
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "c912214c633c280527a7c9abf9f63fe47a152807ea0b2c1058b686207bb63ba9",
+   "proof_lines": 1041,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 26,
+   "lam": [
+    2,
+    2,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 5299,
+   "solve_s": 0.2,
+   "cnf_sha256": "c4442df0547c314afb72e9a5dd63ad5725eae84a9449fe8b0670ecacd3baf1ac",
+   "proof_lines": 47714,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 27,
+   "lam": [
+    1,
+    3,
+    4
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 31905,
+   "solve_s": 1.2,
+   "cnf_sha256": "13b1cec74ddc3c855e59c03bdefb699085d484beebe3842e75df10f55249697f",
+   "proof_lines": 141930,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.8
+  },
+  {
+   "i": 28,
+   "lam": [
+    1,
+    3,
+    4
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 75,
+   "solve_s": 0.0,
+   "cnf_sha256": "c418b98bd11c26b10210ffadb215d95ba4cad55786310daa5f329cfa56aa486a",
+   "proof_lines": 1180,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 29,
+   "lam": [
+    1,
+    3,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 3158,
+   "solve_s": 0.1,
+   "cnf_sha256": "d4717b54da6805fe1491b120f554da70ce45d6187ac92bd5d94e86d877d41b2d",
+   "proof_lines": 30509,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 30,
+   "lam": [
+    4,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 7975,
+   "solve_s": 0.3,
+   "cnf_sha256": "acb64198001019601621cf7c402eed5ea394785f094937d685fa42a8b020441f",
+   "proof_lines": 45048,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 31,
+   "lam": [
+    1,
+    1,
+    1,
+    5
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 539,
+   "solve_s": 0.0,
+   "cnf_sha256": "69df2de140c701fe56365ef186aed5486cf6973b3986630cc56c9519110b55ef",
+   "proof_lines": 14887,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 32,
+   "lam": [
+    1,
+    1,
+    1,
+    5
+   ],
+   "ell": 5,
+   "status": "UNSAT",
+   "conflicts": 218,
+   "solve_s": 0.0,
+   "cnf_sha256": "e5ccbb37cc5e95c8cb5d2c799b145dae68649a4e2146322ff4e437c128efbd42",
+   "proof_lines": 1671,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 33,
+   "lam": [
+    1,
+    2,
+    5
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 36387,
+   "solve_s": 1.3,
+   "cnf_sha256": "4cd0b0e9bf8cf1854eb1be4c28022a461bb271fe070f512ae45954bf979909c2",
+   "proof_lines": 155158,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.9
+  },
+  {
+   "i": 34,
+   "lam": [
+    1,
+    2,
+    5
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "abd63ee562a296d9a83debe4960bcc4c1cdfa459f7433f809dd11bcc6abea075",
+   "proof_lines": 1049,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 35,
+   "lam": [
+    1,
+    2,
+    5
+   ],
+   "ell": 5,
+   "status": "UNSAT",
+   "conflicts": 5462,
+   "solve_s": 0.2,
+   "cnf_sha256": "8ebc682afad1fe2f397fa10108ee0930c1c82cd04362528f343a6bf4167b6a28",
+   "proof_lines": 42380,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 36,
+   "lam": [
+    3,
+    5
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 89,
+   "solve_s": 0.0,
+   "cnf_sha256": "de8af2871728b9b79ea007288fcebb1e0f4a9ca882aecfd0d9a2b1c3287e5372",
+   "proof_lines": 1163,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 37,
+   "lam": [
+    3,
+    5
+   ],
+   "ell": 5,
+   "status": "UNSAT",
+   "conflicts": 7282,
+   "solve_s": 0.3,
+   "cnf_sha256": "8dbca95336658c15a96402c35064b5320e075ff117a97848c1d6209dd9c0c521",
+   "proof_lines": 60806,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 38,
+   "lam": [
+    1,
+    1,
+    6
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 3728,
+   "solve_s": 0.1,
+   "cnf_sha256": "0edaedb027f57f8a0fbe1bbc941a9996d604cf0a3fb89ce1d7507741d7b31d10",
+   "proof_lines": 28579,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 39,
+   "lam": [
+    1,
+    1,
+    6
+   ],
+   "ell": 6,
+   "status": "UNSAT",
+   "conflicts": 3733,
+   "solve_s": 0.1,
+   "cnf_sha256": "5c1ca37ae03f2bf4060d42f2e2621db2c795da67bcfdef2a97ad0f24443bb1f0",
+   "proof_lines": 27420,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 40,
+   "lam": [
+    2,
+    6
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "solve_s": 0.0,
+   "cnf_sha256": "c2564308a29a1daff06055434f414d5fca3b7b3cb5b5bd07e01e4765e5c31d11",
+   "proof_lines": 1041,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.1
+  },
+  {
+   "i": 41,
+   "lam": [
+    2,
+    6
+   ],
+   "ell": 6,
+   "status": "UNSAT",
+   "conflicts": 8182,
+   "solve_s": 0.3,
+   "cnf_sha256": "2e879d67a236b6529db5f23f15ad07cd60a364694afb0e74a48b8250a30bc97b",
+   "proof_lines": 60511,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.3
+  },
+  {
+   "i": 42,
+   "lam": [
+    1,
+    7
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 37746,
+   "solve_s": 1.4,
+   "cnf_sha256": "b6d77a9ca5d87be3f6b16ceb3183c8ee461e29a1a8eebfd7a42c502c59d57000",
+   "proof_lines": 151188,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 1.0
+  },
+  {
+   "i": 43,
+   "lam": [
+    1,
+    7
+   ],
+   "ell": 7,
+   "status": "UNSAT",
+   "conflicts": 6107,
+   "solve_s": 0.3,
+   "cnf_sha256": "215f9aab99d3bea388bbc36bcb8f2ecd3e0aba388c3eba56ecebc0c17f2f883d",
+   "proof_lines": 42079,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  },
+  {
+   "i": 44,
+   "lam": [
+    8
+   ],
+   "ell": 8,
+   "status": "UNSAT",
+   "conflicts": 7014,
+   "solve_s": 0.3,
+   "cnf_sha256": "70b3803eac1b01f720ca5a844e891c25742f4c58a8952811b77cb6c38f4ae321",
+   "proof_lines": 54609,
+   "drat_trim": [
+    "s VERIFIED"
+   ],
+   "verified": true,
+   "check_s": 0.2
+  }
+ ],
+ "seconds": 18.4,
+ "all_unsat_verified": true
+}

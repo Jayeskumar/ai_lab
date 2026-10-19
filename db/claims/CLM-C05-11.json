@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-19T23:54:21Z"
+    }
+  ],
+  "id": "CLM-C05-11",
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "The ETP paper (Bolan et al., arXiv:2512.07087, section 7.3.1) reports that Mace4 exhausts size 8 for equation 677 in 1.5 s. The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim).",
+  "proof": "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted",
+  "proof_check": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)",
+  "related": [
+    "CLM-C05-12",
+    "CLM-C05-09"
+  ],
+  "statement": "No magma of order 8 satisfies x = y(x((yx)y)) (ETP equation 677).",
+  "system": "SYS-B",
+  "title": "Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified)",
+  "type": "theorem",
+  "verification": "PROVEN"
+}
