@@ -1,0 +1,245 @@
+{
+ "law": 1313,
+ "n": 6,
+ "solver": "cadical195",
+ "cases_total": 19,
+ "cases_run": [
+  0,
+  19
+ ],
+ "results": [
+  {
+   "i": 0,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 1,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 2,
+   "lam": [
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 3,
+   "lam": [
+    1,
+    1,
+    2,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 6,
+   "seconds": 0.0
+  },
+  {
+   "i": 4,
+   "lam": [
+    1,
+    1,
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 5,
+   "lam": [
+    2,
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 6,
+   "lam": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "seconds": 0.0
+  },
+  {
+   "i": 7,
+   "lam": [
+    1,
+    1,
+    1,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 8,
+   "lam": [
+    1,
+    2,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 57,
+   "seconds": 0.0
+  },
+  {
+   "i": 9,
+   "lam": [
+    1,
+    2,
+    3
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 10,
+   "lam": [
+    1,
+    2,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 46,
+   "seconds": 0.0
+  },
+  {
+   "i": 11,
+   "lam": [
+    3,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 34,
+   "seconds": 0.0
+  },
+  {
+   "i": 12,
+   "lam": [
+    1,
+    1,
+    4
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 7,
+   "seconds": 0.0
+  },
+  {
+   "i": 13,
+   "lam": [
+    1,
+    1,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 14,
+   "lam": [
+    2,
+    4
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 15,
+   "lam": [
+    2,
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 16,
+   "lam": [
+    1,
+    5
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 54,
+   "seconds": 0.0
+  },
+  {
+   "i": 17,
+   "lam": [
+    1,
+    5
+   ],
+   "ell": 5,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 18,
+   "lam": [
+    6
+   ],
+   "ell": 6,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  }
+ ],
+ "seconds": 0.1
+}
