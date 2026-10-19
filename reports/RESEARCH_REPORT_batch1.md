@@ -377,7 +377,7 @@ Ranked by expected value per unit of effort:
 | raw results and benchmarks | `results/EXP-*.json` |
 | proofs | `proofs/lean/Infinity/*.lean` (194 theorems), `proofs/lean_results.json`, `proofs/paper/C01.md … C20.md` |
 | independent reviews and their check code | `reviews/skeptic_*.md`, `reviews/historian_*.md`, `reviews/*_checks/` |
-| textbook *Beyond Conventional Mathematics*, version 1 | `textbook/build/book.pdf` (121 pages), `book.html`; sources `textbook/src/`; 21 chapters in 10 volumes |
+| textbook *Beyond Conventional Mathematics*, version 1 | `textbook/build/book.pdf` (120 pages), `book.html`; sources `textbook/src/`; 21 chapters in 10 volumes |
 | statistics and tables for this report | `reports/batch_statistics.json`, `reports/REPORT_DATA.md` |
 | continuation instructions | `CONTINUATION.md`, `checkpoints/state.json` |
 
