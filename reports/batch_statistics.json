@@ -10,25 +10,25 @@
     "CLM-C18-13": "NO IMPROVEMENT",
     "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 225,
+  "claims": 230,
   "claims_by_system": {
     "SYS-A": 39,
-    "SYS-B": 62,
+    "SYS-B": 67,
     "SYS-C": 42,
     "SYS-D": 45,
     "SYS-E": 37
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 203,
-  "experiments": 113,
-  "generated": "2026-10-19T14:44:32Z",
-  "lean_files_verified": 15,
-  "lean_theorems": 194,
+  "experiment_runs": 204,
+  "experiments": 114,
+  "generated": "2026-10-19T23:55:54Z",
+  "lean_files_verified": 20,
+  "lean_theorems": 313,
   "novelty": {
     "NOT ASSESSED": 70,
-    "POTENTIALLY NOVEL": 52,
-    "REDISCOVERY": 103
+    "POTENTIALLY NOVEL": 51,
+    "REDISCOVERY": 109
   },
   "potentially_novel": [
     [
@@ -79,6 +79,16 @@
     [
       "CLM-C05-08",
       "New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-12",
+      "Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-13",
+      "Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
       "PROVEN"
     ],
     [
@@ -162,18 +172,8 @@
       "COMPUTATIONALLY SUPPORTED"
     ],
     [
-      "CLM-C11-04",
-      "T_011 is never longer than the Fibonacci code for n >= 5 and one bit shorter on all but L values per level",
-      "PROVEN"
-    ],
-    [
       "CLM-C11-07",
       "The average gain oscillates between (2-lambda)/(lambda-1)^2 and lambda(2-lambda)/(lambda-1)",
-      "PROVEN"
-    ],
-    [
-      "CLM-C11-09",
-      "T_011 is never longer than Fraenkel-Klein's C3 except at n = 2, 4, 8; C3 is never longer than C1 except at n = 1",
       "PROVEN"
     ],
     [
@@ -209,11 +209,6 @@
     [
       "CLM-C14-05",
       "Additive characters: only the Cartesian product and its complement-dual; every non-trivial commutative associative product has a character",
-      "PROVEN"
-    ],
-    [
-      "CLM-C14-07",
-      "Complete bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel switching",
       "PROVEN"
     ],
     [
@@ -293,13 +288,14 @@
     ]
   ],
   "proven_by_check": {
-    "Lean (complete)": 14,
-    "Lean + written or computational parts": 36,
+    "Lean (complete)": 17,
+    "Lean + written or computational parts": 42,
     "computer-assisted": 15,
-    "published proof (literature)": 2,
-    "written proof": 64
+    "published proof (literature)": 3,
+    "written proof": 60
   },
   "proven_not_fully_formal_by_review": {
+    "awaiting independent review": 3,
     "independently reviewed": 115,
     "no review recorded": 2
   },
@@ -311,8 +307,13 @@
       "CLM-C01-11",
       "CLM-C02-11",
       "CLM-C05-10",
+      "CLM-C05-11",
+      "CLM-C05-12",
+      "CLM-C05-13",
+      "CLM-C05-14",
       "CLM-C08-07",
       "CLM-C08-08",
+      "CLM-C17-08",
       "CLM-C19-15"
     ],
     "latest_verdicts": {
@@ -322,10 +323,10 @@
     }
   },
   "verification": {
-    "COMPUTATIONALLY SUPPORTED": 39,
+    "COMPUTATIONALLY SUPPORTED": 38,
     "CONJECTURE": 4,
     "INCONCLUSIVE": 2,
-    "PROVEN": 131,
+    "PROVEN": 137,
     "REFUTED": 49
   }
 }
