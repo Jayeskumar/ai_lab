@@ -58,7 +58,7 @@
     - Exhaustive tables at N = 2, 3 for all 18,581 laws, plus 28,890 SAT instances at N = 4…7, give 0 contradictions for either implementation.
   - **CLM-C19-02 (Theorem 2, lazy split phase):** correct. Verified exhaustively from *every* position of value ≤ 200.
   - **CLM-C19-03 (Theorem 4, L(F_k)):** correct given [C, Thm 1.2].
-    - I read that theorem in the arXiv and the published version. It says exactly what the proof uses, and its Lemmas 2.1–2.3 even hold "starting from any game state".
+    - I read that theorem in the arXiv and the published version. It says exactly what the proof uses, and its Lemmas 2.1–2.3 are stated "starting from any game state".
     - Strategy-free exhaustive confirmation now extends to F_12 = 233 (L = 566, 13.8 M positions).
 - **Lean:** both files compile (exit 0) and use only `propext`, `Classical.choice` and `Quot.sound`; there is no `sorry`, `admit` or `native_decide`. The formal statements say what the claims say, with these coverage caveats (C5):
   - the uniqueness parts of CLM-C13-04 and the κ-equation of CLM-C13-02 are written, not formal;
@@ -67,7 +67,7 @@
   - **CLM-C19-05 (recursion):** agrees with exhaustive search for n ≤ 200 and n = 233 (independent of Cusenza's theorem), with the strategy for every n < 100,000, and with a second-phase simulation for 3,800 n up to 10^15.
   - **CLM-C19-06:** holds for 1,770 pairs (j ≤ 60).
   - **CLM-C19-09:** holds for n < 100,000.
-  - **CLM-C13-10:** holds for 253 laws up to N = 16 and for 2,080 six-leaf laws up to N = 12. The six-leaf laws show new exception sets {2,4}, {4} and {2,3,4}.
+  - **CLM-C13-10:** holds for the 253 laws with ≤ 5 leaves per side up to N = 16, and for all 2,080 laws with ≤ 6 leaves per side up to N = 12. The six-leaf laws show new exception sets {2,4}, {4} and {2,3,4}.
 - **New observations:**
   - Cusenza's strategy is optimal from every position of value ≤ 200, not only from n·F_1.
   - The lab's own Theorems 1 and 2 already give a *provably correct* algorithm with O(log² n) moves: L(n) = Ψ(lazy(n)) + the length of the second phase (C9). The second phase takes 26, 53 and 81 moves for n = 10^6, 10^9 and 10^15. This supersedes the conjectural basis of the speed-up claim CLM-C19-14.

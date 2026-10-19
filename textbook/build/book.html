@@ -42,7 +42,7 @@ math { font-size: 1.05em; }
 <p class="subtitle">An Experimental Journey into AI-Discovered
 Mathematical Systems</p>
 <p class="date">Version 1.0 (research batch 1, cycles C01-C20) — built
-2026-10-19T14:26:34Z</p>
+2026-10-19T14:33:01Z</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -2541,6 +2541,14 @@ models up to isomorphism for
 <td>EXP-C05-06</td>
 <td>DRUP proofs for the gaps</td>
 <td>48 of 48 verified by drat-trim</td>
+</tr>
+<tr class="odd">
+<td>EXP-C05-07</td>
+<td>linear models over
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">G</mi><mi mathvariant="normal">F</mi></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>q</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{GF}(q)</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>≤</mo><mn>128</mn></mrow><annotation encoding="application/x-tex">q \le 128</annotation></semantics></math>
+(after the review)</td>
+<td>0 conflicts; order 16 for laws 677 and 1313 (Theorem 6.10)</td>
 </tr>
 </tbody>
 </table>
@@ -8993,27 +9001,43 @@ judgement:</p>
 <li><strong>Common borders</strong> (Chapter 2): the class-count formula
 with two or more common borders — and, in the one-border case, the
 injectivity lemma that would finish the proof.</li>
-<li><strong>Finite spectra</strong> (Chapter 7): laws whose anchored
-models exist only for
+<li><strong>Finite spectra</strong> (Chapters 7–8): of the 17 laws whose
+anchored models seemed to exist only for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">N \in \{1, 2\}</annotation></semantics></math>
 or
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1, 3\}</annotation></semantics></math>
-— checked to
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>16</mn></mrow><annotation encoding="application/x-tex">N = 16</annotation></semantics></math>,
-unproved.</li>
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>3</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1, 3\}</annotation></semantics></math>,
+16 are now proved (Chapter 8);
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x(yz) = y((yx)z)</annotation></semantics></math>
+remains open (spectrum
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">{</mo><mn>1</mn><mo>,</mo><mn>2</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">\{1, 2\}</annotation></semantics></math>
+supported up to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>12</mn></mrow><annotation encoding="application/x-tex">N = 12</annotation></semantics></math>).</li>
 <li><strong>The anchor instance of left-distributivity</strong> (Chapter
-19): does
+19): the instance
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \star (y+1) = (x \star y) \star (x+1)</annotation></semantics></math>
-single out the Laver tables for all
-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>?</li>
+forces at most one table for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>,
+and for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>
+a model exists exactly at the powers of 2. Prove that it never exists
+otherwise.</li>
 <li><strong>Rows of mex operations</strong> (Chapter 14): the structure
 beyond the Jacobsthal row.</li>
 <li><strong>Octal games</strong> (Chapter 5): the periodicity of 0.06
 and Officers (famous and hard).</li>
 <li><strong>Circle-product thresholds</strong> (Chapter 9): the exact
 associativity thresholds, e.g. whether tribonacci is associative at
-shift 4 or 5 — the first version of the book got four of them
-wrong.</li>
+shift 4 or 5. The first version of the book got five of them wrong, and
+the laboratory’s first correction two more; only lower bounds are
+certified.</li>
+<li><strong>Spectra of ETP laws 677 and 1313</strong> (Chapter 6): which
+even orders below 16 occur, and which odd ones — the conjectured answer
+of the first version was refuted by models of order 16.</li>
+<li><strong>The longest Zeckendorf game</strong> (Chapter 16): prove the
+recursion that predicts
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n)</annotation></semantics></math>
+for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics></math>.</li>
 </ol>
 <h1 class="unnumbered" id="open-problems">Open problems</h1>
 <p><em>Volume 10 — Open problems and future research. Generated from the

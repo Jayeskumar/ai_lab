@@ -90,15 +90,24 @@ database. The most interesting ones, in the laboratory's judgement:
 1. **Common borders** (Chapter 2): the class-count formula with two or more
    common borders — and, in the one-border case, the injectivity lemma that
    would finish the proof.
-2. **Finite spectra** (Chapter 7): laws whose anchored models exist only for
-   $N \in \{1, 2\}$ or $\{1, 3\}$ — checked to $N = 16$, unproved.
-3. **The anchor instance of left-distributivity** (Chapter 19): does
-   $x \star (y+1) = (x \star y) \star (x+1)$ single out the Laver tables
-   for all $N$?
+2. **Finite spectra** (Chapters 7–8): of the 17 laws whose anchored models
+   seemed to exist only for $N \in \{1, 2\}$ or $\{1, 3\}$, 16 are now
+   proved (Chapter 8); $x(yz) = y((yx)z)$ remains open (spectrum $\{1, 2\}$
+   supported up to $N = 12$).
+3. **The anchor instance of left-distributivity** (Chapter 19): the instance
+   $x \star (y+1) = (x \star y) \star (x+1)$ forces at most one table for every
+   $N$, and for $N \le 4096$ a model exists exactly at the powers of 2. Prove
+   that it never exists otherwise.
 4. **Rows of mex operations** (Chapter 14): the structure beyond the
    Jacobsthal row.
 5. **Octal games** (Chapter 5): the periodicity of 0.06 and Officers
    (famous and hard).
 6. **Circle-product thresholds** (Chapter 9): the exact associativity
-   thresholds, e.g. whether tribonacci is associative at shift 4 or 5 — the
-   first version of the book got four of them wrong.
+   thresholds, e.g. whether tribonacci is associative at shift 4 or 5. The
+   first version of the book got five of them wrong, and the laboratory's
+   first correction two more; only lower bounds are certified.
+7. **Spectra of ETP laws 677 and 1313** (Chapter 6): which even orders below
+   16 occur, and which odd ones — the conjectured answer of the first version
+   was refuted by models of order 16.
+8. **The longest Zeckendorf game** (Chapter 16): prove the recursion that
+   predicts $L(n)$ for every $n$.
