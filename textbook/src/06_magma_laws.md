@@ -107,8 +107,8 @@ it), are *sound* extra constraints for the solver. With them we decided the
 UNKNOWN sizes, with no disagreement with any size stated in the notes. What
 is new relative to the notes:
 
-**Theorem 6.4** *[PROVEN — Lean `decide` certificates; POTENTIALLY NOVEL
-relative to the ETP notes]*. Law 677, $x = y(x((yx)y))$, has models of
+**Theorem 6.4** *[PROVEN — Lean `decide` certificates; for 677 and 1516 a
+REDISCOVERY (ETP Zulip, 2024); 1286 and 1313 POTENTIALLY NOVEL]*. Law 677, $x = y(x((yx)y))$, has models of
 orders 5, 7 and 9. Laws 1286, $x = y(((xy)x)y)$; 1313, $x = y(((yx)x)y)$;
 and 1516, $x = (yy)(x(xy))$, each have a model of order 9.
 
@@ -122,8 +122,9 @@ new: the notes construct models of 467 on $\mathbb{Z}[i]/(k + il)$ whenever
 $k^2 + l^2$ is odd, and $9 = 3^2 + 0^2$. We first missed this and recorded
 it as new; a second reading corrected it.
 
-**Theorem 6.5** *[PROVEN — computer-assisted, drat-trim-verified; POTENTIALLY
-NOVEL for $n \ge 5$]*. The following laws have no model of the given orders:
+**Theorem 6.5** *[PROVEN — computer-assisted, drat-trim-verified; the gaps of 677
+are a REDISCOVERY (ETP Zulip, 2024); the others POTENTIALLY NOVEL for
+$n \ge 5$]*. The following laws have no model of the given orders:
 law 501, $x = y(y(x(xy)))$, orders 6 and 7; law 677, order 6;
 law 883, $x = y((xy)(yy))$, order 6; law 1076, $x = y((x(xy))y)$, order 8;
 law 1083, $x = y((x(yx))y)$, orders 5 and 6. The same holds for 501 at
@@ -241,8 +242,9 @@ $y \star a = x$ then the inner term $T$ equals $a$) shorten the search further.
 The split is complete (Lemma 8 of `proofs/paper/C05.md`): 45 cases for $n = 8$
 and 97 for $n = 10$.
 
-**Theorem 6.11** *[PROVEN — computer-assisted; 677 at order 8: REDISCOVERY
-(Mace4, ETP paper); the rest POTENTIALLY NOVEL]*. Neither law 677 nor law 1313
+**Theorem 6.11** *[PROVEN — computer-assisted; for 677 a REDISCOVERY (Mace4:
+order 8, ETP paper; order 10, ETP Zulip, January 2025) with the first checkable
+certificate; for 1313 POTENTIALLY NOVEL]*. Neither law 677 nor law 1313
 has a model of order 8 or 10. Consequently the orders $n \le 10$ of their
 models are exactly 1, 5, 7 and 9, for both laws.
 
@@ -298,11 +300,14 @@ a long literature, for example Bennett and Mendelsohn on Stein quasigroups.
 *Not new here:* Observation 6.1 as a whole; Theorem 6.2 (our addition is the
 Lean proof); Theorem 6.3; the Mendelsohn spectrum of law 66; all gaps at
 order 2 and law 883's gap at order 3, which the notes list; law 467 at
-order 9. *New relative to the notes:* the memberships in Theorem 6.4 and the
-gaps in Theorem 6.5, of which those at $n \ge 5$ are the plausible additions.
-We retrieved the ETP paper only partly, and its model searches may already
-contain these facts, so the novelty is relative to the sources we read. The
-three refuted hypotheses were our own.
+order 9. *Found later on the ETP Zulip* (the topics "FINITE: 677 -> 255" and
+"1516 -> 255", 2024–2026; the Historian's second audit): the models of 677 of
+orders 5, 7, 9 and its gaps at 2, 3, 4, 6, 8 and 10 (the last by 39 hours of
+Mace4, January 2025), and the model of 1516 of order 9. *Not found in any
+source read:* the models of 1286 and 1313 of order 9, the other gaps of
+Theorem 6.5, and 1313 at orders 8 and 10. ETP members may hold unpublished
+searches, so the novelty is relative to these sources. The three refuted
+hypotheses were our own.
 
 ## Applications and limitations
 
