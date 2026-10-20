@@ -258,8 +258,7 @@ claims:
     novelty_basis: "A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature."
     related: [CLM-C05-13, CLM-C05-05]
     notes: "The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6). Sources: the smallest known non-right-cancellative model of 677 has order 25 (an idempotent model on F_25, M. Reinke, ETP Zulip topic 'FINITE: 677 -> 255', Nov 26, 2025, msg 560418876, called 'the smallest known example that is not right cancellative' in msg 564499852; earlier constructions had orders 496 (T. Tao, Dec 2024) and 77, 55 (B. Le Floch, Nov 22, 2025), https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and every model of order <= 11 in the eq677 database is a Latin square (Historian audits 2026-10-20, reviews/historian_spectra_2026.md and reviews/historian_677_nonqg.md)."
-    change_reason: "Historian audit of non-right-cancellative 677 models (2026-10-20): the smallest known such model has order 25, not 55 as stated before"
-    change_reason: "Historian spectrum audit 2026-10-20 - citations added"
+    change_reason: "Historian audit of non-right-cancellative 677 models (2026-10-20, reviews/historian_677_nonqg.md): the smallest known such model has order 25, not 55 as stated before (earlier change: Historian spectrum audit 2026-10-20 - citations added)"
 
   - id: CLM-C05-15
     type: theorem
