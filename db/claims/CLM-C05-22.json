@@ -60,6 +60,15 @@
       "old": "Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).",
       "reason": "Historian novelty check 2026-10-20 (reviews/historian_501.md)",
       "ts": "2026-10-20T16:40:05Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "statement",
+      "new": "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n = 1 mod 4) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).",
+      "old": "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).",
+      "reason": "Historian novelty check 2026-10-20 (reviews/historian_501.md)",
+      "ts": "2026-10-20T16:47:03Z"
     }
   ],
   "id": "CLM-C05-22",
@@ -78,7 +87,7 @@
     "CLM-C05-08",
     "CLM-C05-04"
   ],
-  "statement": "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).",
+  "statement": "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n = 1 mod 4) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).",
   "system": "SYS-B",
   "title": "The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}",
   "type": "theorem",

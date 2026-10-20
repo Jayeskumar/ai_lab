@@ -1693,3 +1693,15 @@ Batch 1.2 - while probing the open orders 11-13 of the laws that are not forced 
 
 *Evidence:* CLM-C05-22, CLM-C05-23, EXP-C05-15
 
+### [2026-10-20T16:48:30Z] Formal Verifier — result (`C05-24`)
+
+Batch 1.2 - law 677 at order 12. Splitting each of the 57 hard cases by right cancellation (EXP-C05-13) refutes all 57 quasigroup parts within 276,023 conflicts: 677 has no quasigroup model of order 12 (CLM-C05-24). The non-quasigroup parts carry the difficulty; 6 fall (exactly the hard non-idempotent cases with two fixed points in row 0) and 51 remain. A model of order 12, if any, would be the smallest known non-right-cancellative model of 677 (smallest known: order 25).
+
+*Evidence:* EXP-C05-13, CLM-C05-24
+
+### [2026-10-20T16:48:30Z] Formal Verifier — result (`C05-25`)
+
+Batch 1.2 - laws 467 and 704 have no model of order 12 (EXP-C05-14, CLM-C05-25), which completes their spectra up to 13. The other open orders 11-13 of the laws that are not forced to be quasigroups were probed first: 501 at 12 has a model (CLM-C05-22), 670 at 12 and 13, 883 at 12 and 907 at 12 have hard cases and are handed on.
+
+*Evidence:* EXP-C05-14, CLM-C05-25, CLM-C05-22
+

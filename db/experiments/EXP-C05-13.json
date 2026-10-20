@@ -1,0 +1,93 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - law 677 at order 12. Each of the 57 hard cases of EXP-C05-11 (CNF hashes re-checked) was split by right cancellation. All 57 quasigroup parts are UNSAT with drat-trim-verified proofs (at most 276,023 conflicts, 13.2 million proof lines), so with EXP-C05-11 law 677 has no quasigroup model of order 12. Of the 57 non-quasigroup parts (triage budget 1,000,000 conflicts) 6 are refuted with verified proofs - exactly the hard non-idempotent cases whose row 0 has two fixed points - and 51 remain open (14 idempotent, 37 non-idempotent with at most one fixed point in row 0); no model. H-C05-K confirmed.",
+  "assumptions": [
+    "Lemma 8 and Lemma 9 of proofs/paper/C05.md; EXP-C05-11 for the other 138 cases",
+    "the 57 cases are rebuilt by systems.magma_split.build and must match the SHA-256 hashes listed by EXP-C05-11",
+    "CaDiCaL 1.5.3, 4,000,000 conflicts per quasigroup part and 1,000,000 per non-quasigroup part (triage); drat-trim for every UNSAT",
+    "per-part checkpoints (EXP_CHECKPOINT) may be used to resume"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-13",
+    "file": "experiments/C05/E13_law677_order12_split.py",
+    "sha256": "3f35a52e636e59cd981cfa569cbc47fee781044ee5ab07ad8ed3579b5a35276c",
+    "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+  },
+  "cycle": "C05",
+  "falsification": "A verified model (677 would have a model of order 12), a rejected proof, or a quasigroup part left UNKNOWN.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T16:46:58Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - law 677 at order 12. Each of the 57 hard cases of EXP-C05-11 (CNF hashes re-checked) was split by right cancellation. All 57 quasigroup parts are UNSAT with drat-trim-verified proofs (at most 276,023 conflicts, 13.2 million proof lines), so with EXP-C05-11 law 677 has no quasigroup model of order 12. Of the 57 non-quasigroup parts (triage budget 1,000,000 conflicts) 6 are refuted with verified proofs - exactly the hard non-idempotent cases whose row 0 has two fixed points - and 51 remain open (14 idempotent, 37 non-idempotent with at most one fixed point in row 0); no model. H-C05-K confirmed.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-24",
+        "CLM-C05-20"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    }
+  ],
+  "hypothesis": "H-C05-K: every quasigroup part is refuted with a certificate (so 677 has no quasigroup model of order 12); the non-quasigroup parts are open.",
+  "id": "EXP-C05-13",
+  "methodology": "For each hard case of EXP-C05-11 check the hash of its rebuilt CNF, then solve its two parts (3 worker processes, fixed order of results); certify UNSAT parts; verify any model on its table.",
+  "question": "Are the 57 case CNFs that EXP-C05-11 left undecided refuted once each is split into its quasigroup part (Latin columns) and its non-quasigroup part (a value missing from some column)?",
+  "related": [
+    "CLM-C05-24",
+    "CLM-C05-20"
+  ],
+  "results_file": "results/EXP-C05-13.json",
+  "results_sha256": "12870134699696a91531daf7dbf3f10f0b3cd04bd58f987af7af674d1e4cbb6f",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-13",
+        "file": "experiments/C05/E13_law677_order12_split.py",
+        "sha256": "3f35a52e636e59cd981cfa569cbc47fee781044ee5ab07ad8ed3579b5a35276c",
+        "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+      },
+      "error": false,
+      "finished": "2026-10-20T16:46:58Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-13.json",
+      "results_sha256": "12870134699696a91531daf7dbf3f10f0b3cd04bd58f987af7af674d1e4cbb6f",
+      "runtime_s": 3393.697,
+      "started": "2026-10-20T15:50:24Z",
+      "summary": [
+        "57 hard cases x 2 parts: quasigroup parts refuted and certified 57 of 57; non-quasigroup parts refuted and certified 6 of 57; models: 0; parts not refuted: 51",
+        "with EXP-C05-11, 677 has no quasigroup model of order 12; non-quasigroup parts remain open"
+      ]
+    }
+  ],
+  "summary": [
+    "57 hard cases x 2 parts: quasigroup parts refuted and certified 57 of 57; non-quasigroup parts refuted and certified 6 of 57; models: 0; parts not refuted: 51",
+    "with EXP-C05-11, 677 has no quasigroup model of order 12; non-quasigroup parts remain open"
+  ],
+  "title": "Law 677 at order 12: the 57 hard cases of EXP-C05-11 split into quasigroup and non-quasigroup parts",
+  "verification": "PROVEN"
+}

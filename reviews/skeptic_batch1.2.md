@@ -5,16 +5,19 @@ checked by me; where I could not check something I say so (§8).
 
 **Scope.** The original brief covered CLM-C05-15 to -21 as committed at `3c88c05`. The coordinator later added
 CLM-C05-22 (Theorem 14, law 501), CLM-C05-23 (Lemma 7″, laws 704 and 883) and the refutation of CLM-C05-18. I
-read those at `093d2bf`, `8e01251`, `d22d2e7` and `23b6176` (the HEAD when I finished). Other agents were
-committing to the repository while I worked. Line numbers below refer to `23b6176`.
+read those at `093d2bf`, `8e01251`, `d22d2e7` and `23b6176`. Other agents were committing to the repository
+while I worked. Line numbers below refer to `23b6176`. The Historian's commit `248d25b` (16:40) changed C05.md
+after line 388 (lines there move down by 10), touched record.yaml, and also committed an earlier draft of this
+file.
 
 **Method and constraints.** I used one process at a time (EXP-C05-13 and -14 were running on the other cores),
 about 25 CPU-minutes in all. My scripts and outputs are in
 `/tmp/claude-0/-home-user-ai-lab/5e93bf16-791a-5608-a61f-d865140bf384/scratchpad/skeptic12/` (listed in §9). They
 are outside the repository because the brief allowed me to change only this file. The independent encoder
-(`indep.py`) does not import `systems.*`, `lab.*` or any experiment. Only three audit scripts import
-`systems.magma_split`, and they do so on purpose: they rebuild the lab's CNFs, compare their hashes and test the
-lab's encoding on known models.
+(`indep.py`) does not import `systems.*`, `lab.*` or any experiment. Only four audit scripts (`rehash.py`,
+`resample_e10.py`, `resample_e10_hard.py`, `lab_admits_test.py`) import `systems.magma_split`, and they do so on
+purpose: they rebuild the lab's CNFs, compare their hashes, re-solve sampled cases and test the lab's encoding on
+known models.
 
 ## 0. Verdicts
 
@@ -27,7 +30,7 @@ lab's encoding on known models.
 | CLM-C05-19 (laws x = y∗(S∗y) have only quasigroup models) | **UPHELD** | Proof read line by line. I compiled `C05_QuasigroupLaws.lean` (exit 0, standard axioms only). The six instances match the ETP equations (checked against the ETP equation list). | none |
 | CLM-C05-20 (677 at order 12 ⇔ one of 57 CNFs is satisfiable) | **UPHELD** | I re-derived every count and both structural consequences from EXP-C05-11 (§3.2). 25 rebuilt CNFs have identical hashes. | none (optional: archive the 57 CNFs, §7 P9) |
 | CLM-C05-21 (conjecture: no model of order ≡ 2 mod 4) | **stays CONJECTURE**, no counterexample | The affine search over Z_14, Z_18, Z_22, Z_26 and Z_6 × Z_3 found nothing, and **can never succeed**: such a model would have a quotient of order 2 (§4). An orbit-SAT search at order 14 with prescribed automorphisms found no model (§4). | limitations (record.yaml:337): fix one sentence and add the quotient remark (§7 P6). |
-| CLM-C05-22 (spectrum of 501 = {n ≡ 0, 1 mod 4}) | **UPHELD** (minor wording) | Every step of the written proof checked (§5.1). I compiled `C05_Law501.lean` (exit 0, standard axioms only) and read it against the paper. I rebuilt the construction my own way for all 50 orders up to 100, and checked the sign identity on every semi-symmetric quasigroup of orders 2–5 and on 227 more. The identity is a special case of a general parity relation for Latin squares (§5.1, remark). | wording (§7 P7); novelty: the Historian should check the Latin-square parity literature. |
+| CLM-C05-22 (spectrum of 501 = {n ≡ 0, 1 mod 4}) | **UPHELD** (minor wording) | Every step of the written proof checked (§5.1). I compiled `C05_Law501.lean` (exit 0, standard axioms only) and read it against the paper. I rebuilt the construction my own way for all 50 orders up to 100, and checked the sign identity on every semi-symmetric quasigroup of orders 2–5 and on 227 more. The identity is a special case of a general parity relation for Latin squares (§5.1, remark). | wording (§7 P7); novelty of the sign lemma: see reviews/historian_501.md (Janssen–Zappa), consistent with my remark in §5.1. |
 | CLM-C05-23 (704 and 883 are quasigroup laws) | **UPHELD** | Both arguments checked. The Lean statements say what the claim says, and the file compiles. | none |
 
 Nothing is refuted. **I found no unsound clause, off-by-one or wrong variable in the encoding** (§1). The
@@ -150,8 +153,8 @@ excludes a legitimate model.
 | 1286/8 | no model | 45/45 | 45/45 | 731; 229 | 7.8 | no model (EXP-C05-09) | 2,457 | 3 |
 | 1076/9 | no model | 67/67 | 67/67 | 2,498; 1,549 | 11.9 | no model (EXP-C05-09) | 4,698 | 4 |
 | 883/9 | no model | 67/67 | 67/67 | 192,295; 23,828 | 55.9 | no model (EXP-C05-09) | 448,150 | 47 |
-| 1083/9 | **model** (my case 22) | 22/67 | 21/21 | 5,497; 3,720 | 6.2 | model (EXP-C05-09 control) | 261 | 0 |
-| 1110/9 | **model** (my case 42) | 42/67 | 41/41 | 461; 182 | 10.1 | model (EXP-C05-09 control) | 9,637 | 6 |
+| 1083/9 | **model** (22nd of my cases) | 22/67 | 21/21 | 5,497; 3,720 | 6.2 | model (EXP-C05-09 control) | 261 | 0 |
+| 1110/9 | **model** (42nd of my cases) | 42/67 | 41/41 | 461; 182 | 10.1 | model (EXP-C05-09 control) | 9,637 | 6 |
 | 1279/10 | no model | 97/97 | 97/97 | 31,617; 2,896 | 37.1 | no model (EXP-C05-09) | 24,942 | 10 |
 | 1110/10 | no model | 97/97 | 97/97 | 40,205; 6,037 | 35.9 | no model (EXP-C05-09) | 43,371 | 13 |
 | 1083/10 | no model | 97/97 | 97/97 | 388,887; 98,936 | 84.1 | no model (EXP-C05-09) | 382,031 | 47 |
@@ -167,8 +170,8 @@ excludes a legitimate model.
 | 501/8 | **model** (table in §9) | 35/45 | not logged | 11,004 | 0.8 | no stored table (§3.1) | – | – |
 
 * Both models (1083/9 and 1110/9) were re-checked on the law with my own pure-Python evaluator.
-* Every UNSAT answer in the table carries a Glucose DRUP proof that drat-trim verified, except 501/6 and 501/7,
-  which I ran without proof logging.
+* Every UNSAT answer in the table carries a Glucose DRUP proof that drat-trim verified, except 501/6, 501/7 and
+  the 34 cases before the 501/8 model, which I ran without proof logging.
 * **CLM-C05-15 coverage.** 13 of the 15 pairs (all except 501/10 and 670/10) were decided independently, with
   the same answer and with proofs. 501/10 also follows from Theorem 14.
 * **CLM-C05-16 coverage.** 3 of the 9 pairs were decided independently.
@@ -362,7 +365,8 @@ I read it against the paper:
 * `sign_prodComm` uses `sign_of_pow_two_eq_one` with the fixed points identified with the diagonal.
 * `law501_card_mod_four` assumes only `[Fintype α] [DecidableEq α]`, so it covers every finite magma.
 
-This mechanises the necessity completely. The paper's Theorem 14 does not yet mention the Lean proof (§7 P7).
+This mechanises the necessity completely. At `23b6176` the paper's Theorem 14 did not mention the Lean proof;
+`248d25b` adds it (§7 P7).
 
 **Computations (`law501.py`, `law501.json`, about 3 s).**
 1. **My own rebuild of the construction.** I paired the 2-cycles in a different order and used the opposite
@@ -401,10 +405,10 @@ Then π_r·π_c·π_s = (−1)^{n(n−1)/2}. **Proof**, the paper's argument wit
 
 In a semi-symmetric quasigroup, y□z = x ⇔ x□y = z ⇔ z□x = y. So the column permutations are the inverses of the
 rows, and the symbol permutations are the rows. Hence π_r = π_c = π_s, and π_r = (−1)^{n(n−1)/2}. I checked the
-general relation on 330 random Latin squares of orders 2–12 with no violation. I believe it is in the
-literature on even and odd Latin squares, but I did not verify any citation. Candidate places to look are
-Derienko (1988) and J. Janssen, "On even and odd Latin squares" (JCTA 1995). This bears on the novelty of the
-*lemma*, not of the spectrum theorem.
+general relation on 330 random Latin squares of orders 2–12 with no violation. The Historian's note
+(reviews/historian_501.md, committed in `248d25b` while I was finishing) attributes it to J. C. M. Janssen
+(JCTA 69, 1995) and P. Zappa. I did not read those sources. This bears on the novelty of the *lemma*, not of the
+spectrum theorem.
 
 **E15 code review** (experiments/C05/E15_law501_spectrum.py).
 * The construction (l. 71–83), the 4-cycle (a c b d) with (a c b d)² = (a b)(c d), and the sign function are
@@ -461,7 +465,7 @@ added.
 | P4 | provenance | systems/magma_split.py:206–212, 239, 37 | Checkpoints are trusted without provenance or integrity checks. Proofs are discarded. The drat-trim binary is unversioned. | §3.3 (i)–(iv). Record the drat-trim SHA-256 in `env`. |
 | P5 | auditability | experiments/C05/E12_small_orders_certified.py:43–45 | No per-case records (CNF hashes, conflicts, drat verdicts) are stored. | Store `records` as EXP-C05-09 does. |
 | P6 | wording / limitations | record.yaml:337 (CLM-C05-21) | "the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided)" repeats the first clause. | Say instead that every order up to 13 of these laws is decided (CLM-C05-16), so 14 is their first open order ≡ 2 (mod 4). Add: "a counterexample has no congruence of index 2, so no affine or group-endomorphism construction (any group of order ≡ 2 mod 4) can give one (Skeptic batch 1.2 §4)". |
-| P7 | wording (CLM-C05-22) | C05.md:365–415; record.yaml:344 | The paper does not cite the Lean necessity proof `law501_card_mod_four` (an uncommitted edit adding it was in the working tree at 16:39). "Z_n (n odd)" in the statement should be "Z_n (n ≡ 1 mod 4)". "all 39 … that a SAT search enumerated" is a sample, not an enumeration. E15's docstring (l. 14) cites experiments the code does not read. | Edit the wording. Optionally add the Latin-square parity remark of §5.1 with an attribution check by the Historian. |
+| P7 | wording (CLM-C05-22) | C05.md:365–415; record.yaml:344 | At `23b6176` the paper did not cite the Lean necessity proof `law501_card_mod_four`; commit `248d25b` adds that citation and the Janssen–Zappa attribution, which settles this part. Still open: "Z_n (n odd)" in the statement should be "Z_n (n ≡ 1 mod 4)". "all 39 … that a SAT search enumerated" is a sample, not an enumeration. E15's docstring (l. 14) cites experiments the code does not read. | Edit the wording. Optionally add the Latin-square parity remark of §5.1, with the Historian's attribution. |
 | P8 | written proof | C05.md:183–190, 233–240 | Lemma 9 states the division clauses only for 677 and 1313. The generalised descent of magma_split.py (left factor: L_A injective; right factor: R_B injective, Lemma 7′) is described only in prose. | Add a two-line Lemma 9′ with the general clause "N = A∗B, N(x,y) = t, A∗b = t ⇒ B(x,y) = b (A a variable)", and its mirror image. |
 | P9 | reproducibility | CLM-C05-20; results/EXP-C05-11.json | The 57 hard CNFs are identified by SHA-256 of `build`'s output, which depends on pysat's encoders. It is pinned (requirements-lock.txt: python-sat==1.9.dev16), but a future pysat would change every hash. | Archive the 57 CNFs (gzip) in results/artifacts/EXP-C05-11/, or note the pin in the claim. |
 | P10 | test quality | tests/test_magma_split.py:33–44 | The test asserts that the case is invariant under relabelling, which is false in general (tied minimisers). It passes because linear models have rows of one cycle type. | Rename it, or test the real property: the relabelled model satisfies the CNF of its case, which `admits` already does. |
@@ -481,7 +485,8 @@ None of these changes a mathematical conclusion.
 * **Not tried:** order 18 and above for the falsification search, and automorphism types other than the two I
   tried at order 14.
 * **Not reviewed:** EXP-C05-13 and EXP-C05-14 (running, not run by me), the textbook chapters, the reports, and
-  novelty or literature. For the Latin-square parity remark the Historian should look.
+  novelty or literature (the Historian's reviews/historian_501.md appeared as I finished; I read only its
+  attribution of the parity relation).
 * **Lean.** I compiled `C05_QuasigroupLaws.lean` and `C05_Law501.lean`. The certificates in `C05_Magmas.lean`
   (E474, E501_order12) I compared by eye with the records but did not compile; the lab records them as
   checked in `proofs/lean_results.json`.
@@ -503,8 +508,8 @@ copied into the repository; copying them to `reviews/skeptic_checks/batch1.2/` w
 * `law501.py` → `law501.json`: §5.1.
 * `summarize.py`: the table of §2.
 
-**A model of law 501 of order 8** (rows 0–7; Latin rows, not a quasigroup). Found by my case split in case 35 of
-45 and re-checked with my evaluator:
+**A model of law 501 of order 8** (rows 0–7; Latin rows, not a quasigroup). Found by my case split in the 35th of its
+45 cases and re-checked with my evaluator:
 
 ```
 1 0 3 2 5 4 7 6

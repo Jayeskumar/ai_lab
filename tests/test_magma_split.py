@@ -30,7 +30,9 @@ def test_number_of_cases_is_sum_of_partition_numbers():
         assert len(cases(n)) == expected == sum(p[:n])
 
 
-def test_canonical_form_is_invariant_under_relabelling():
+def test_canonical_form_relabels_row_0_and_keeps_the_law():
+    # For linear models all rows have one cycle type, so the case cannot depend on the labelling; in general ties
+    # between elements with the fewest fixed points may give different (equally valid) cases.
     rng = np.random.default_rng(0)
     for law, q in [(LAW_1313, 7), (LAW_677, 7), (LAW_1313, 5)]:
         for T in _linear_models(law, q):

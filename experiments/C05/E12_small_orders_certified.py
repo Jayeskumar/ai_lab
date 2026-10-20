@@ -42,7 +42,9 @@ def run():
                 "UNSAT" if summary["verdict"] == "no model (every case certified)" else "UNDECIDED")
             out[key] = {"verdict": summary["verdict"], "cases_run": summary["cases_run"],
                         "model": next((r["model"] for r in records if r["status"] == "SAT"), None),
-                        "proof_lines": summary["proof_lines"]}
+                        "proof_lines": summary["proof_lines"],
+                        "records": [{k: r.get(k) for k in ("index", "case", "lam", "ell", "cnf_sha256", "status",
+                                                          "conflicts", "proof_lines", "drat_trim")} for r in records]}
             timings[key] = sum(x.get("solve_s", 0) + x.get("check_s", 0) for x in times)
             if mine != e03[num][str(n)]:
                 disagreements.append((key, mine, e03[num][str(n)]))

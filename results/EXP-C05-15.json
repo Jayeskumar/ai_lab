@@ -2,11 +2,12 @@
   "code": {
     "command": "python -m lab run EXP-C05-15",
     "file": "experiments/C05/E15_law501_spectrum.py",
-    "sha256": "dc7271324401d09f39b86dfb9d8eddc74a2049f371aa1665770606bff62dea0e",
-    "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+    "sha256": "75b64da55636ccb76d5eb7f1c58fb6ff58d9d0ea255b8034643ef224c1734a9a",
+    "systems_sha256": "2c5d83d3ae6ea9e91199d8b34b9b3d2a667c12a3a7cd61054a81bccde088bc8e"
   },
   "env": {
-    "git_head": "02c729cba9e7a403890e9c542c9dbed041089c14",
+    "drat_trim_sha256": "fcc6f026604615b98830dc70e62dcea2518a0437c6df3673ffa0d41e473cd9d7",
+    "git_head": "248d25befefc851d58f00b75de82a00f7fe61bf1",
     "networkx": "3.7",
     "numpy": "2.5.3",
     "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
@@ -17,7 +18,7 @@
     "z3": "5.3.1"
   },
   "error": null,
-  "finished": "2026-10-20T16:16:04Z",
+  "finished": "2026-10-20T16:45:42Z",
   "id": "EXP-C05-15",
   "meta": {
     "agent": "Mathematical Explorer",
@@ -526,6 +527,6 @@
     ]
   },
   "results_sha256": "fa1e4f79096a02105a7ce2c1136ffd2aebb1fc1a3537d9128de5f94d87f74048",
-  "runtime_s": 9.149,
-  "started": "2026-10-20T16:15:55Z"
+  "runtime_s": 8.622,
+  "started": "2026-10-20T16:45:33Z"
 }

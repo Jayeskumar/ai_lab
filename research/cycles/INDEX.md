@@ -6,7 +6,7 @@
 | [C02](C02_exchange/README.md) | Exchange systems: positional numeration as normal forms | A-C | complete | 7 | 11 |
 | [C03](C03_one_rule_termination/README.md) | Termination of one-rule string rewriting 0^p 1^q -> 1^r 0^s | A | complete | 4 | 11 |
 | [C04](C04_derivations_games/README.md) | Derivation lengths, random descent and rewriting games | A-D | complete | 10 | 16 |
-| [C05](C05_magma_spectra/README.md) | Spectra of single-identity magma varieties | B | complete | 13 | 23 |
+| [C05](C05_magma_spectra/README.md) | Spectra of single-identity magma varieties | B | complete | 15 | 25 |
 | [C06](C06_successor_anchored/README.md) | Successor-anchored magmas: spectra of composition laws | B | complete | 4 | 12 |
 | [C07](C07_mex_arithmetic/README.md) | Arithmetic from the minimal excludant: a census of mex-defined operations | B-D | complete | 3 | 8 |
 | [C08](C08_circle_products/README.md) | Circle multiplications on recurrence numeration systems | C | complete | 7 | 8 |

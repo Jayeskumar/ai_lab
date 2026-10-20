@@ -9,10 +9,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "limitations",
+      "new": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed. The CNFs are identified by the SHA-256 of the output of systems.magma_split.build, which depends on the cardinality encoders of pysat (pinned: python-sat==1.9.dev16 in requirements-lock.txt); a different pysat version would change the hashes, not the CNFs' meaning.",
+      "old": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:47:03Z"
     }
   ],
   "id": "CLM-C05-20",
-  "limitations": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.",
+  "limitations": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed. The CNFs are identified by the SHA-256 of the output of systems.magma_split.build, which depends on the cardinality encoders of pysat (pinned: python-sat==1.9.dev16 in requirements-lock.txt); a different pysat version would change the hashes, not the CNFs' meaning.",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No source reports a partial result for 677 at order 12: the ETP Zulip topic 'FINITE: 677 -> 255' (to Feb 28, 2026) says exhaustive search is the only known method, and orders 12 and 14 are open in every source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#proposition-13-clm-c05-20--law-677-at-order-12-reduction-to-57-case-cnfs-computer-assisted",

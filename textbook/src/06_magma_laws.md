@@ -328,7 +328,7 @@ models of orders 3 and 4. ∎
 
 *A sharper control.* A decision procedure is usually checked by letting it find
 models it should find; at orders 11–13 that can take a day (the known model of
-1083 of order 12 lies in case 189 of 195). So we also check the encoding
+1083 of order 12 lies in the 190th of the 195 cases). So we also check the encoding
 directly: each of the 21 known models at these orders, relabelled as in the case
 split, must satisfy the formula of its own case. All 21 do, and the procedure
 itself finds models of 1110 and 1279 at order 11.

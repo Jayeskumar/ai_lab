@@ -105,6 +105,12 @@ def env_info() -> dict:
         "platform": platform.platform(),
         "git_head": git_head(),
     }
+    try:                                     # the external proof checker of the C05 case splits, if present
+        from systems.magma_split import _sha256_file, drat_path
+        checker = drat_path()
+        info["drat_trim_sha256"] = _sha256_file(checker) if checker else None
+    except Exception:
+        info["drat_trim_sha256"] = None
     for mod in ("numpy", "sympy", "scipy", "networkx", "pysat", "z3"):
         try:
             m = __import__(mod)

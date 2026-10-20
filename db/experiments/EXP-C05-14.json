@@ -1,0 +1,95 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - laws 467 and 704 have no model of order 12: all 195 case CNFs of each pair are UNSAT with drat-trim-verified proofs (467: hardest 118,325 conflicts, 21.2 million proof lines; 704: hardest 679,608, 37.2 million). Controls: models found for 467 and 704 at order 11 (case index 12); all 24 linear models of the six laws 467, 501, 670, 704, 883, 907 over GF(11) and GF(13) satisfy the CNF of their case. H-C05-L confirmed for the two pairs kept after the probes.",
+  "assumptions": [
+    "Lemma 8 and Lemma 9 of proofs/paper/C05.md (Latin rows; no column constraint)",
+    "orders with a linear model over GF(q) (EXP-C05-07) are members and are not re-decided",
+    "spectra are closed under direct products (any equational law)",
+    "CaDiCaL 1.5.3, 4,000,000 conflicts per case; drat-trim for every UNSAT; per-case checkpoints (EXP_CHECKPOINT) may be used to resume"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-14",
+    "file": "experiments/C05/E14_laws_467_704_order12.py",
+    "sha256": "b8102b2fb89471911534fb32686775c655cfdf23a3b9a3b425184a377f714bf0",
+    "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+  },
+  "cycle": "C05",
+  "falsification": "A decision control without a model, a known model excluded by its case CNF, a rejected proof, or an UNKNOWN case (which leaves its pair undecided).",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T16:42:47Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - laws 467 and 704 have no model of order 12: all 195 case CNFs of each pair are UNSAT with drat-trim-verified proofs (467: hardest 118,325 conflicts, 21.2 million proof lines; 704: hardest 679,608, 37.2 million). Controls: models found for 467 and 704 at order 11 (case index 12); all 24 linear models of the six laws 467, 501, 670, 704, 883, 907 over GF(11) and GF(13) satisfy the CNF of their case. H-C05-L confirmed for the two pairs kept after the probes.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-25"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    }
+  ],
+  "hypothesis": "H-C05-L: neither has a model of order 12, and the case split decides both within 4 million conflicts per case; the decision controls have models and every known model at orders 11 and 13 of the six laws satisfies the CNF of its case.",
+  "id": "EXP-C05-14",
+  "methodology": "Decide each pair with systems.magma_split.decide (cases of Lemma 8 in their fixed order, stop at the first verified model, otherwise every case refuted with a drat-trim-verified DRAT proof); 3 worker processes. Known-model controls with systems.magma_split.admits.",
+  "question": "Do the ETP laws 467, x = y(x(x(yy))), and 704, x = y(y((xx)y)), have models of order 12?",
+  "related": [
+    "CLM-C05-25"
+  ],
+  "results_file": "results/EXP-C05-14.json",
+  "results_sha256": "5d2190a447453c2982942f7b2fe9577210053cf62695d6805464f92790b304ed",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-14",
+        "file": "experiments/C05/E14_laws_467_704_order12.py",
+        "sha256": "b8102b2fb89471911534fb32686775c655cfdf23a3b9a3b425184a377f714bf0",
+        "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+      },
+      "error": false,
+      "finished": "2026-10-20T16:42:47Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-14.json",
+      "results_sha256": "5d2190a447453c2982942f7b2fe9577210053cf62695d6805464f92790b304ed",
+      "runtime_s": 1702.193,
+      "started": "2026-10-20T16:14:24Z",
+      "summary": [
+        "targets: 467/12: no model (every case certified); 704/12: no model (every case certified)",
+        "decision controls agreeing with their known answers: 2 of 2",
+        "known models at orders 11 and 13 satisfying the CNF of their case: 24 of 24",
+        "cases run: 416; UNSAT cases certified by drat-trim: 414; rejected proofs: 0; UNKNOWN cases: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "targets: 467/12: no model (every case certified); 704/12: no model (every case certified)",
+    "decision controls agreeing with their known answers: 2 of 2",
+    "known models at orders 11 and 13 satisfying the CNF of their case: 24 of 24",
+    "cases run: 416; UNSAT cases certified by drat-trim: 414; rejected proofs: 0; UNKNOWN cases: 0"
+  ],
+  "title": "Order 12 of the ETP laws 467 and 704 (certified case split, Latin rows only)",
+  "verification": "PROVEN"
+}

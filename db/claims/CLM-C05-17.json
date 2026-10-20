@@ -4,8 +4,9 @@
     "EXP-C05-12",
     "EXP-C05-09",
     "EXP-C05-08",
-    "EXP-C05-03",
-    "EXP-C05-07"
+    "EXP-C05-07",
+    "EXP-C05-04",
+    "EXP-C05-15"
   ],
   "history": [
     {
@@ -13,13 +14,44 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C05-12",
+        "EXP-C05-09",
+        "EXP-C05-08",
+        "EXP-C05-07",
+        "EXP-C05-04",
+        "EXP-C05-15"
+      ],
+      "old": [
+        "EXP-C05-12",
+        "EXP-C05-09",
+        "EXP-C05-08",
+        "EXP-C05-03",
+        "EXP-C05-07"
+      ],
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:47:03Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - every member has an explicit table re-checked on the law (n <= 7: EXP-C05-12; n = 8-10: the linear models of EXP-C05-07, the models of the controls of EXP-C05-09, the Lean certificates of EXP-C05-04 such as 883 at order 10, and for 501 at order 8 the construction of EXP-C05-15); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); upheld with this correction by the Skeptic (reviews/skeptic_batch1.2.md: EXP-C05-03 stores no tables, so 501 at order 8 needed another source)",
+      "old": "computer-assisted - every member has an explicit table re-checked on the law (EXP-C05-03, -04, -07, -12 and the controls of EXP-C05-09); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:47:03Z"
     }
   ],
   "id": "CLM-C05-17",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Partly known: for 677 the whole list is on the ETP Zulip (2024-2025), and the orders stated in Le Floch's notes are known; the complete lists for the other 12 laws were not found in any source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#theorem-11-clm-c05-15--17--the-orders-n--10-of-the-laws-x--yt-computer-assisted",
-  "proof_check": "computer-assisted - every member has an explicit table re-checked on the law (EXP-C05-03, -04, -07, -12 and the controls of EXP-C05-09); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); awaiting independent review",
+  "proof_check": "computer-assisted - every member has an explicit table re-checked on the law (n <= 7: EXP-C05-12; n = 8-10: the linear models of EXP-C05-07, the models of the controls of EXP-C05-09, the Lean certificates of EXP-C05-04 such as 883 at order 10, and for 501 at order 8 the construction of EXP-C05-15); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); upheld with this correction by the Skeptic (reviews/skeptic_batch1.2.md: EXP-C05-03 stores no tables, so 501 at order 8 needed another source)",
   "related": [
     "CLM-C05-15",
     "CLM-C05-07",

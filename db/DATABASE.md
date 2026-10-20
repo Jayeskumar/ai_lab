@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1393,7 +1393,7 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - every member has an explicit table re-checked on the law (EXP-C05-03, -04, -07, -12 and the controls of EXP-C05-09); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); awaiting independent review
+  computer-assisted - every member has an explicit table re-checked on the law (n <= 7: EXP-C05-12; n = 8-10: the linear models of EXP-C05-07, the models of the controls of EXP-C05-09, the Lean certificates of EXP-C05-04 such as 883 at order 10, and for 501 at order 8 the construction of EXP-C05-15); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); upheld with this correction by the Skeptic (reviews/skeptic_batch1.2.md: EXP-C05-03 stores no tables, so 501 at order 8 needed another source)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1401,12 +1401,13 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
   The orders n <= 10 of finite models are exactly: 467 {1,5,7,8,9}; 501 {1,4,5,8,9}; 670 {1,4,5,9}; 677 {1,5,7,9}; 704 {1,5,7,8}; 883 {1,2,4,5,7,8,10}; 907 {1,3,7,9}; 1076 {1,5}; 1083 {1,3,4,7,8,9}; 1110 {1,4,5,7,8,9}; 1279 {1,5,7,8}; 1286 {1,7,9}; 1313 {1,5,7,9}.
 
 - **proof:** proofs/paper/C05.md#theorem-11-clm-c05-15--17--the-orders-n--10-of-the-laws-x--yt-computer-assisted
-- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-03; EXP-C05-07
+- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-07; EXP-C05-04; EXP-C05-15
 - **novelty_basis:**
 
   Partly known: for 677 the whole list is on the ETP Zulip (2024-2025), and the orders stated in Le Floch's notes are known; the complete lists for the other 12 laws were not found in any source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
 - **related:** CLM-C05-15; CLM-C05-07; CLM-C05-08; CLM-C05-11; CLM-C05-12; CLM-C05-13
+- **status history:**
 
 ### CLM-C05-18: H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) (refuted)
 
@@ -1470,9 +1471,10 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 
 - **limitations:**
 
-  A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.
+  A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed. The CNFs are identified by the SHA-256 of the output of systems.magma_split.build, which depends on the cardinality encoders of pysat (pinned: python-sat==1.9.dev16 in requirements-lock.txt); a different pysat version would change the hashes, not the CNFs' meaning.
 
 - **related:** CLM-C05-12; CLM-C05-17
+- **status history:**
 
 ### CLM-C05-21: H-C05-J': none of the 12 open ETP laws x = y*T without a model of order 2 has a model of order n = 2 (mod 4)
 
@@ -1485,7 +1487,7 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-10
 - **limitations:**
 
-  Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.
+  Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17); for the quasigroup laws 1076, 1110, 1279, 1286 and 1313 every order up to 13 is decided (CLM-C05-16), so 14 is their first open order = 2 (mod 4). A counterexample cannot come from group endomorphisms: in a group of order = 2 (mod 4) the elements of odd order form a subgroup of index 2 preserved by every endomorphism, so such a model would have a quotient of order 2, a model of order 2 (reviews/skeptic_batch1.2.md, section 4). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.
 
 - **related:** CLM-C05-18; CLM-C05-17
 - **status history:**
@@ -1503,7 +1505,7 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
-  A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).
+  A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n = 1 mod 4) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).
 
 - **proof:** proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4
 - **lean:** proofs/lean/Infinity/C05_Law501.lean; proofs/lean/Infinity/C05_Magmas.lean
@@ -1535,6 +1537,53 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
   Partial - the ETP commentary states that squaring is injective for 704 (reviews/historian_spectra_2026.md, section 6); quasigroup forcing for 704 and 883 was not found in the sources read, but the arguments are two lines long and probably known to ETP contributors.
 
 - **related:** CLM-C05-19; CLM-C05-17
+
+### CLM-C05-24: Law 677 has no quasigroup model of order 12; a model of order 12 exists iff one of 51 explicit non-quasigroup case CNFs is satisfiable
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); awaiting independent review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  No quasigroup of order 12 satisfies law 677, x = y(x((yx)y)): every finite model of order 12, if one exists, is not right-cancellative. Moreover 677 has a model of order 12 iff one of the 51 non-quasigroup part CNFs listed in results/EXP-C05-13.json is satisfiable; so such a model is either idempotent with a row having exactly one fixed point, or has a non-idempotent element a with the fewest fixed points whose row has at most one fixed point and moves a in a cycle of length at least 4.
+
+- **proof:** proofs/paper/C05.md#theorem-15-clm-c05-24--law-677-has-no-quasigroup-model-of-order-12-computer-assisted
+- **evidence:** EXP-C05-13; EXP-C05-11
+- **novelty_basis:**
+
+  No complete or quasigroup-only search of 677 at order 12 is reported in the sources read (reviews/historian_677_nonqg.md, Q4): anti-255 searches at order 12 never terminated (J. Hyun, Oct 30, 2025) and restricted searches covered other classes; the eq677 database has no model of order 12 and calls orders 12 and 14 open. The smallest known non-right-cancellative model has order 25 (M. Reinke, Nov 26, 2025).
+
+- **limitations:**
+
+  Order 12 itself stays open: 51 non-quasigroup CNFs were undecided after 1,000,000 conflicts each, and the hardest survived further probes (with a missing-value split and with implied 'star' clauses). A model of order 12 would be the smallest non-right-cancellative model of 677 known.
+
+- **related:** CLM-C05-20; CLM-C05-12; CLM-C05-14
+
+### CLM-C05-25: Laws 467 and 704 have no model of order 12; their spectra up to order 13 are complete
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; awaiting independent review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:** No magma of order 12 satisfies 467, x = y(x(x(yy))), or 704, x = y(y((xx)y)). Hence the orders n <= 13 with a model are exactly 467 {1,5,7,8,9,11,13} and 704 {1,5,7,8,11,13}.
+- **proof:** proofs/paper/C05.md#theorem-16-clm-c05-25--laws-467-and-704-at-order-12-computer-assisted
+- **evidence:** EXP-C05-14; EXP-C05-07; EXP-C05-09
+- **novelty_basis:**
+
+  Not found in the sources read: B. Le Floch's notes give 467 'unknown spectrum containing' its Gaussian-integer orders and 704 'no 9'; B. Gunby-Mann (July 14, 2025) shows both contain every sufficiently large order, without an effective bound; order 12 is not addressed (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+
+- **related:** CLM-C05-15; CLM-C05-17; CLM-C05-23
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5810,7 +5859,51 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C05-17
-- **runs:** 1; last 2026-10-20T15:26:37Z (78.406 s), results sha256 `a9b4e9e2d5a54f4a…`, code `experiments/C05/E12_small_orders_certified.py`
+- **runs:** 2; last 2026-10-20T16:46:53Z (70.381 s), results sha256 `731801ad68ba246d…`, code `experiments/C05/E12_small_orders_certified.py`
+
+### EXP-C05-13: Law 677 at order 12: the 57 hard cases of EXP-C05-11 split into quasigroup and non-quasigroup parts
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Are the 57 case CNFs that EXP-C05-11 left undecided refuted once each is split into its quasigroup part (Latin columns) and its non-quasigroup part (a value missing from some column)?
+- **hypothesis:** H-C05-K: every quasigroup part is refuted with a certificate (so 677 has no quasigroup model of order 12); the non-quasigroup parts are open.
+- **assumptions:** Lemma 8 and Lemma 9 of proofs/paper/C05.md; EXP-C05-11 for the other 138 cases; the 57 cases are rebuilt by systems.magma_split.build and must match the SHA-256 hashes listed by EXP-C05-11; CaDiCaL 1.5.3, 4,000,000 conflicts per quasigroup part and 1,000,000 per non-quasigroup part (triage); drat-trim for every UNSAT; per-part checkpoints (EXP_CHECKPOINT) may be used to resume
+- **methodology:** For each hard case of EXP-C05-11 check the hash of its rebuilt CNF, then solve its two parts (3 worker processes, fixed order of results); certify UNSAT parts; verify any model on its table.
+- **falsification:** A verified model (677 would have a model of order 12), a rejected proof, or a quasigroup part left UNKNOWN.
+- **summary:**
+  - 57 hard cases x 2 parts: quasigroup parts refuted and certified 57 of 57; non-quasigroup parts refuted and certified 6 of 57; models: 0; parts not refuted: 51
+  - with EXP-C05-11, 677 has no quasigroup model of order 12; non-quasigroup parts remain open
+- **analysis:**
+
+  Batch 1.2 - law 677 at order 12. Each of the 57 hard cases of EXP-C05-11 (CNF hashes re-checked) was split by right cancellation. All 57 quasigroup parts are UNSAT with drat-trim-verified proofs (at most 276,023 conflicts, 13.2 million proof lines), so with EXP-C05-11 law 677 has no quasigroup model of order 12. Of the 57 non-quasigroup parts (triage budget 1,000,000 conflicts) 6 are refuted with verified proofs - exactly the hard non-idempotent cases whose row 0 has two fixed points - and 51 remain open (14 idempotent, 37 non-idempotent with at most one fixed point in row 0); no model. H-C05-K confirmed.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-24; CLM-C05-20
+- **runs:** 1; last 2026-10-20T16:46:58Z (3393.697 s), results sha256 `12870134699696a9…`, code `experiments/C05/E13_law677_order12_split.py`
+
+### EXP-C05-14: Order 12 of the ETP laws 467 and 704 (certified case split, Latin rows only)
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Do the ETP laws 467, x = y(x(x(yy))), and 704, x = y(y((xx)y)), have models of order 12?
+- **hypothesis:**
+
+  H-C05-L: neither has a model of order 12, and the case split decides both within 4 million conflicts per case; the decision controls have models and every known model at orders 11 and 13 of the six laws satisfies the CNF of its case.
+
+- **assumptions:** Lemma 8 and Lemma 9 of proofs/paper/C05.md (Latin rows; no column constraint); orders with a linear model over GF(q) (EXP-C05-07) are members and are not re-decided; spectra are closed under direct products (any equational law); CaDiCaL 1.5.3, 4,000,000 conflicts per case; drat-trim for every UNSAT; per-case checkpoints (EXP_CHECKPOINT) may be used to resume
+- **methodology:**
+
+  Decide each pair with systems.magma_split.decide (cases of Lemma 8 in their fixed order, stop at the first verified model, otherwise every case refuted with a drat-trim-verified DRAT proof); 3 worker processes. Known-model controls with systems.magma_split.admits.
+
+- **falsification:** A decision control without a model, a known model excluded by its case CNF, a rejected proof, or an UNKNOWN case (which leaves its pair undecided).
+- **summary:** targets: 467/12: no model (every case certified); 704/12: no model (every case certified); decision controls agreeing with their known answers: 2 of 2; known models at orders 11 and 13 satisfying the CNF of their case: 24 of 24; cases run: 416; UNSAT cases certified by drat-trim: 414; rejected proofs: 0; UNKNOWN cases: 0
+- **analysis:**
+
+  Batch 1.2 - laws 467 and 704 have no model of order 12: all 195 case CNFs of each pair are UNSAT with drat-trim-verified proofs (467: hardest 118,325 conflicts, 21.2 million proof lines; 704: hardest 679,608, 37.2 million). Controls: models found for 467 and 704 at order 11 (case index 12); all 24 linear models of the six laws 467, 501, 670, 704, 883, 907 over GF(11) and GF(13) satisfy the CNF of their case. H-C05-L confirmed for the two pairs kept after the probes.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-25
+- **runs:** 1; last 2026-10-20T16:42:47Z (1702.193 s), results sha256 `5d2190a447453c29…`, code `experiments/C05/E14_laws_467_704_order12.py`
 
 ### EXP-C05-15: Law 501, x = y(y(x(xy))): the spectrum is exactly the n = 0, 1 (mod 4)
 
@@ -5835,7 +5928,7 @@ _Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; 
 
 - **verification:** PROVEN
 - **related:** CLM-C05-22
-- **runs:** 1; last 2026-10-20T16:16:04Z (9.149 s), results sha256 `fa1e4f79096a0210…`, code `experiments/C05/E15_law501_spectrum.py`
+- **runs:** 2; last 2026-10-20T16:45:42Z (8.622 s), results sha256 `fa1e4f79096a0210…`, code `experiments/C05/E15_law501_spectrum.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 

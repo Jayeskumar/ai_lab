@@ -1,0 +1,31 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-14",
+    "EXP-C05-07",
+    "EXP-C05-09"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:48:30Z"
+    }
+  ],
+  "id": "CLM-C05-25",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "Not found in the sources read: B. Le Floch's notes give 467 'unknown spectrum containing' its Gaussian-integer orders and 704 'no 9'; B. Gunby-Mann (July 14, 2025) shows both contain every sufficiently large order, without an effective bound; order 12 is not addressed (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
+  "proof": "proofs/paper/C05.md#theorem-16-clm-c05-25--laws-467-and-704-at-order-12-computer-assisted",
+  "proof_check": "computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; awaiting independent review",
+  "related": [
+    "CLM-C05-15",
+    "CLM-C05-17",
+    "CLM-C05-23"
+  ],
+  "statement": "No magma of order 12 satisfies 467, x = y(x(x(yy))), or 704, x = y(y((xx)y)). Hence the orders n <= 13 with a model are exactly 467 {1,5,7,8,9,11,13} and 704 {1,5,7,8,11,13}.",
+  "system": "SYS-B",
+  "title": "Laws 467 and 704 have no model of order 12; their spectra up to order 13 are complete",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

@@ -11,7 +11,9 @@ square root sigma_x (pair the 2-cycles into 4-cycles), and x * y = sigma_x(y) sa
 This experiment checks the computational side: (a) the sign identity on semi-symmetric quasigroups of orders 3-9
 enumerated by SAT (a check of the lemma, not needed for the proof); (b) the construction for every n = 0, 1 (mod 4)
 up to 100, each table verified on the law; (c) a model of order 12 found by the case split (case 0), which is not
-of the group form (it is idempotent); (d) agreement with every order already certified (EXP-C05-03, -06, -09, -12).
+of the group form (it is idempotent); (d) agreement with the orders of 501 decided with certificates by EXP-C05-09
+and EXP-C05-12. The semi-symmetric quasigroups of (a) are a sample (the first six models CaDiCaL returns for each
+order, each blocked once found), not an enumeration.
 """
 
 import itertools

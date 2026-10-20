@@ -1,0 +1,3267 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-13",
+    "file": "experiments/C05/E13_law677_order12_split.py",
+    "sha256": "3f35a52e636e59cd981cfa569cbc47fee781044ee5ab07ad8ed3579b5a35276c",
+    "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+  },
+  "env": {
+    "git_head": "248d25befefc851d58f00b75de82a00f7fe61bf1",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-20T16:46:58Z",
+  "id": "EXP-C05-13",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "Lemma 8 and Lemma 9 of proofs/paper/C05.md; EXP-C05-11 for the other 138 cases",
+      "the 57 cases are rebuilt by systems.magma_split.build and must match the SHA-256 hashes listed by EXP-C05-11",
+      "CaDiCaL 1.5.3, 4,000,000 conflicts per quasigroup part and 1,000,000 per non-quasigroup part (triage); drat-trim for every UNSAT",
+      "per-part checkpoints (EXP_CHECKPOINT) may be used to resume"
+    ],
+    "cycle": "C05",
+    "falsification": "A verified model (677 would have a model of order 12), a rejected proof, or a quasigroup part left UNKNOWN.",
+    "hypothesis": "H-C05-K: every quasigroup part is refuted with a certificate (so 677 has no quasigroup model of order 12); the non-quasigroup parts are open.",
+    "id": "EXP-C05-13",
+    "methodology": "For each hard case of EXP-C05-11 check the hash of its rebuilt CNF, then solve its two parts (3 worker processes, fixed order of results); certify UNSAT parts; verify any model on its table.",
+    "question": "Are the 57 case CNFs that EXP-C05-11 left undecided refuted once each is split into its quasigroup part (Latin columns) and its non-quasigroup part (a value missing from some column)?",
+    "title": "Law 677 at order 12: the 57 hard cases of EXP-C05-11 split into quasigroup and non-quasigroup parts"
+  },
+  "results": {
+    "budget": {
+      "non-quasigroup": 1000000,
+      "quasigroup": 4000000
+    },
+    "law": "x = y(x((yx)y))",
+    "models": [],
+    "n": 12,
+    "open_parts": [
+      {
+        "case": "idempotent",
+        "cnf_sha256": "c74e726bca1607b95f34b573f8a91c3c3f51eab976987d5603991d2d280432eb",
+        "ell": 1,
+        "index": 0,
+        "lam": [
+          11,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "1ddaeca9e6f0fdd0e5f2b65dafdb6412b634f7da919c4de2f2cccf3c5decab76",
+        "ell": 1,
+        "index": 2,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "01c10adbe7b2a25c04c48b41975b370195f0702755ab0dcb6cab83d16f1b43d9",
+        "ell": 1,
+        "index": 4,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "4a393e3f47e4370cf01340543138aafa7dfd271b9dc347908acf97dce541671e",
+        "ell": 1,
+        "index": 7,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "8da035ca8efdd90f64810fcf87bf2b151d278bb0104128e19cf946cca0dd1127",
+        "ell": 1,
+        "index": 9,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "2f0ecaee628efa43a3ef4ac77fd941e6405fb3c03292349fcd6a848ef0a025fa",
+        "ell": 1,
+        "index": 12,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "bf597c90be2f06bb6825d9649d216c91cb153a2ce95343e2e25fd1124aed9108",
+        "ell": 1,
+        "index": 14,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "5b9bed643c2bf554db6481817d1bdc5316102855c046c6c332670c8cac14991e",
+        "ell": 1,
+        "index": 20,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "fa741fedede5052c8aa24b6ce40b0ae861ab9467f966e249e28f7643c127092c",
+        "ell": 1,
+        "index": 22,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "6935cb217a0407ca51a6f75bfa2f53a914f50d6e229d871f6a816b7a2b772352",
+        "ell": 1,
+        "index": 25,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "fc84b745ed3ad9453dc503cb94950c0218790718e88707315aa4c0741cf68f44",
+        "ell": 1,
+        "index": 29,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "b347a16fd78bb494d6c7c88c375eb96868fbe1dddeaef31a8033efea9cc59147",
+        "ell": 1,
+        "index": 33,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "e554b4bed235362f1c12a6bbf7486b07fa6e97f556fc33d02c942dc957f1a0f0",
+        "ell": 1,
+        "index": 40,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "78471ecec8ec5960546ca75832de2490e9779d069850c688ad5f798a34371ade",
+        "ell": 1,
+        "index": 45,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "d9386bd5dccb7e55401620a8700982b366947a5fe25d37860743e4693216476c",
+        "ell": 12,
+        "index": 56,
+        "lam": [
+          12
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "2b5be53831d31a400633741b6f5d36f6bbb3785d7971361be19367427117e867",
+        "ell": 11,
+        "index": 57,
+        "lam": [
+          11,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e3bbe75cfae97958d2543cf696ec278070aa531d95c15a005341e4ad4a9d4e55",
+        "ell": 10,
+        "index": 59,
+        "lam": [
+          10,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "d5960053de015b0b6a12a332ca7a263f03d653b9ff222b66e689fe0ed2ef5d76",
+        "ell": 9,
+        "index": 62,
+        "lam": [
+          9,
+          3
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "f7d2d754d1bdbe2459b92894863762b81aea84c980e767844c8b8b3043d067de",
+        "ell": 9,
+        "index": 64,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "6b6d3ab634a120f62b737b10fb0964d6710bd1be430ef38c3e81f395cdc8b2ba",
+        "ell": 4,
+        "index": 66,
+        "lam": [
+          8,
+          4
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "7bd84223f5feadff3b151699a8c408ec77538edd96bf501be02c78c789df5236",
+        "ell": 8,
+        "index": 67,
+        "lam": [
+          8,
+          4
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "4cef850457b2e5ad868d9a7fbf2e2e36f75bbf9142de852f47dcc5b7579c2964",
+        "ell": 8,
+        "index": 69,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "441abd1d1cd17bdda324dcd1a83ef65c33d06331ed5e1039000268e874b5cb87",
+        "ell": 8,
+        "index": 71,
+        "lam": [
+          8,
+          2,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "90de7231d4ba479304be9785bf4fa69738b85f30b25262e2590e9ab375d321a5",
+        "ell": 5,
+        "index": 75,
+        "lam": [
+          7,
+          5
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "8a8f9b455a42c8328f01cc9157f49dc30f9c549bae626fc3d596c8467bb50340",
+        "ell": 7,
+        "index": 76,
+        "lam": [
+          7,
+          5
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "c3a364bf4a452e7def056f59db8041a7b4f5017f075ccc0aae477bc8c91e995b",
+        "ell": 4,
+        "index": 77,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "34b8e9869355dc0c48586076d4b65dad6ec1b0a3de7c25be18a24cdfbeb4bd24",
+        "ell": 7,
+        "index": 78,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "46aeb6082df715d64998627bd60eb3345b9eb9bfe56494b24f26baca80408dd2",
+        "ell": 7,
+        "index": 81,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "7b652d691e763d28498b27e688a719d5d57c2c6c29f6571ca452b3c1927356bb",
+        "ell": 7,
+        "index": 85,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "dffe528f2cf88d01e87d3706b823996d4ac6dce3ad6afc42942c60cabf64607b",
+        "ell": 6,
+        "index": 89,
+        "lam": [
+          6,
+          6
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "af103079197fb5f79b34c19e86a99c9907c025ed72b5800b719c03069ebdb232",
+        "ell": 5,
+        "index": 90,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e78107f6682d7ba3b3b61124889a070d71f9376af00a7d495da79e15fb1034fc",
+        "ell": 6,
+        "index": 91,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e9afe4504c2ccf59c4c9dda0d19dfc3d0a0d0f0c685e216e93086d8f51deb8c1",
+        "ell": 4,
+        "index": 93,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "996d9ca0b1928511f591175553b8d153dcc6d188407eac86a4a11ecca007b739",
+        "ell": 6,
+        "index": 94,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "6bad135ccf86ff8479f566effda7c9bc12472bfa70994bbe45907b59a8ab902c",
+        "ell": 6,
+        "index": 98,
+        "lam": [
+          6,
+          3,
+          3
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "8b8277c9c951554ef793b71e5491fb4cc3f0e8d2a60315f09f1a7bf3540f3ce8",
+        "ell": 6,
+        "index": 101,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e7a2616eb21496a841732adffd3961568f5d80cb567205a4265d69bf4e5fa86b",
+        "ell": 6,
+        "index": 105,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1804ee40ff438a4dc2a5f297472b53232246ab19a0fb8dfa1b6d7549fed9fbfb",
+        "ell": 5,
+        "index": 112,
+        "lam": [
+          5,
+          5,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "b4f1f07b6da0f90ec8b09b288d21648fea3e8780613d1d65d629c8c8f4c90459",
+        "ell": 4,
+        "index": 115,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "cf49c0687dc2d909eb2141fe409e43b08bd416caca6ff2eb55b58684da389bb2",
+        "ell": 5,
+        "index": 116,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "4facfc99940dd343f3a6a46de479784ed79bff6c7ea06dacf3ab7e1b463df443",
+        "ell": 4,
+        "index": 118,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "523fb3425002d75158175684ef4f2b46995b1a2e34f2bc1eae7ee9e1de23b0b4",
+        "ell": 5,
+        "index": 119,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1a723373e0a60cc0d0146780f1a98ad91c52f12335f46d54ba05a1fcdcf52059",
+        "ell": 5,
+        "index": 123,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e477c874004c1c1f7e3d0c09d7262481e0b832e5ad875488db238941755120ae",
+        "ell": 5,
+        "index": 126,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "48e0bb7ced97646ac85a69b3c5282631c748c4972e77720acf619bfb4812ee39",
+        "ell": 5,
+        "index": 133,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "8be3ed60f4c832c1b58445ec44d07c6e787f3a339fcc9459333457025213fbeb",
+        "ell": 4,
+        "index": 139,
+        "lam": [
+          4,
+          4,
+          4
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "67b02f6cea481480b6b295c651eb82b88078337b1db83b0219b95f242d7fcfa8",
+        "ell": 4,
+        "index": 141,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "9d80cd6b2b32d45c0ec35373e59420d64486dd5d43b8ac0117f2215885b1cd02",
+        "ell": 4,
+        "index": 143,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "d2a446203e4b6474569c040d19813fb0f7a9a88dca2ebd0f37be8046c7bd7d9f",
+        "ell": 4,
+        "index": 149,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "76368d95dddc6f64f95805eabd102d4bd430c932e8b09e854af24d6a036b151c",
+        "ell": 4,
+        "index": 154,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "3887f4ca7fa88d5f15684aa0e6a9c130b04e5b85927f59c88bdb8cf79119c8ee",
+        "ell": 4,
+        "index": 161,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      }
+    ],
+    "records": [
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "ee1cd4a3c46e24f43aede7c7c4192c10efd825657e3a1a209935ab972c7ad90a",
+        "conflicts": 202354,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 0,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 730053,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "c74e726bca1607b95f34b573f8a91c3c3f51eab976987d5603991d2d280432eb",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 0,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "dbf64ce8a6f1bb562e154fd45250a5b3c532215630febf26a15adfaf50ac6f51",
+        "conflicts": 155544,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 2,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 631306,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "1ddaeca9e6f0fdd0e5f2b65dafdb6412b634f7da919c4de2f2cccf3c5decab76",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 2,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "83e86dd87ca40ae84db451751995b3c2baad350a33c87f6a8edfd5d6b121a93b",
+        "conflicts": 276023,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 4,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 908224,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "01c10adbe7b2a25c04c48b41975b370195f0702755ab0dcb6cab83d16f1b43d9",
+        "conflicts": 1000002,
+        "ell": 1,
+        "index": 4,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "0e38af2a681c94df4fb9f5ee017ec9656040e3a6c746e1b56585357131eb8b36",
+        "conflicts": 217715,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 7,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 739575,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "4a393e3f47e4370cf01340543138aafa7dfd271b9dc347908acf97dce541671e",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 7,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "dc96f8b27d35ab017510bd3bf31ee351e4b324d80117667f3bfc11a71ae4e5f8",
+        "conflicts": 110319,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 9,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 492448,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "8da035ca8efdd90f64810fcf87bf2b151d278bb0104128e19cf946cca0dd1127",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 9,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "a6117feb28c296dc299153068219ee8ec5a0415900505dd41899d76110981a6f",
+        "conflicts": 209959,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 12,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 747529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "2f0ecaee628efa43a3ef4ac77fd941e6405fb3c03292349fcd6a848ef0a025fa",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 12,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "752c2613c6af4803ac74ec299c46c3aa361b1fee69ffffdb06b12893056d8cf6",
+        "conflicts": 158679,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 14,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 633384,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "bf597c90be2f06bb6825d9649d216c91cb153a2ce95343e2e25fd1124aed9108",
+        "conflicts": 1000002,
+        "ell": 1,
+        "index": 14,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "27a8c1a3b78ebc0a37dbe7071d4bf622a5e0ed68bec2d9aea6fec334d406880e",
+        "conflicts": 123973,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 20,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 550804,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "5b9bed643c2bf554db6481817d1bdc5316102855c046c6c332670c8cac14991e",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 20,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "12a6dc7c95fa88939d06ebbb1efef1df25bfb0345c79b104cea4604de769a6b1",
+        "conflicts": 217113,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 22,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 748299,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "fa741fedede5052c8aa24b6ce40b0ae861ab9467f966e249e28f7643c127092c",
+        "conflicts": 1000001,
+        "ell": 1,
+        "index": 22,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "f36c1d01286dda4c9caa4b393487d5bcfeb380e25196c113e08e1aad67c9119d",
+        "conflicts": 42903,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 25,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 360994,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "6935cb217a0407ca51a6f75bfa2f53a914f50d6e229d871f6a816b7a2b772352",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 25,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "591ccc6cfb9d8d71ed3c10a1647e1485537745cfd02fc573240e1b15623c55bd",
+        "conflicts": 272775,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 29,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 895431,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "fc84b745ed3ad9453dc503cb94950c0218790718e88707315aa4c0741cf68f44",
+        "conflicts": 1000001,
+        "ell": 1,
+        "index": 29,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "27bcd823dbbebd17442e86c771ed667aa43e2c2c5fe11aedeb6826f4f6fcd57d",
+        "conflicts": 105505,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 33,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 518646,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "b347a16fd78bb494d6c7c88c375eb96868fbe1dddeaef31a8033efea9cc59147",
+        "conflicts": 1000002,
+        "ell": 1,
+        "index": 33,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "d06c11ab9145050be9317245260a0f68ad75444481712b1bac36a751f3910531",
+        "conflicts": 132661,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 40,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 560380,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "e554b4bed235362f1c12a6bbf7486b07fa6e97f556fc33d02c942dc957f1a0f0",
+        "conflicts": 1000000,
+        "ell": 1,
+        "index": 40,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 174275,
+        "cnf_sha256": "5160799069d9e9015ca7a38927ec811a3c5273072687a69a2c36c6efd3b4cf80",
+        "conflicts": 6919,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 45,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 193359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 145620,
+        "cnf_sha256": "78471ecec8ec5960546ca75832de2490e9779d069850c688ad5f798a34371ade",
+        "conflicts": 1000002,
+        "ell": 1,
+        "index": 45,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "86a7fab95a80251c6805ee3dbe7c000936261e6597a000fff91017b301b4796d",
+        "conflicts": 17973,
+        "drat_trim": "VERIFIED",
+        "ell": 12,
+        "index": 56,
+        "lam": [
+          12
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 214064,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "d9386bd5dccb7e55401620a8700982b366947a5fe25d37860743e4693216476c",
+        "conflicts": 1000002,
+        "ell": 12,
+        "index": 56,
+        "lam": [
+          12
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "4afea4a3257958fff8e940563e1e68bd818160fd610ffbd902cf8dd3c3574006",
+        "conflicts": 8776,
+        "drat_trim": "VERIFIED",
+        "ell": 11,
+        "index": 57,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 170188,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "2b5be53831d31a400633741b6f5d36f6bbb3785d7971361be19367427117e867",
+        "conflicts": 1000000,
+        "ell": 11,
+        "index": 57,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "65a1064cc385864c9c5de818b2007aec5d7fa1787208dbe0b6976700aa12b858",
+        "conflicts": 8045,
+        "drat_trim": "VERIFIED",
+        "ell": 10,
+        "index": 59,
+        "lam": [
+          10,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 166691,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "e3bbe75cfae97958d2543cf696ec278070aa531d95c15a005341e4ad4a9d4e55",
+        "conflicts": 1000000,
+        "ell": 10,
+        "index": 59,
+        "lam": [
+          10,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "95492e3e0733f2f17f557f8492275d5d5a06eed605e27880cd6090b3d6dde8a2",
+        "conflicts": 3909,
+        "drat_trim": "VERIFIED",
+        "ell": 10,
+        "index": 60,
+        "lam": [
+          10,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 96622,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "54e0f00d5317801e491eeb7c59dfe423843088f5ee6d6b8f6cf5c96e3f3d3298",
+        "conflicts": 249223,
+        "drat_trim": "VERIFIED",
+        "ell": 10,
+        "index": 60,
+        "lam": [
+          10,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 1023019,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "89f61a93c251af551c988bf4fa49e87c60832c512f806331c1ad9a13587a70d9",
+        "conflicts": 19730,
+        "drat_trim": "VERIFIED",
+        "ell": 9,
+        "index": 62,
+        "lam": [
+          9,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 257084,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "d5960053de015b0b6a12a332ca7a263f03d653b9ff222b66e689fe0ed2ef5d76",
+        "conflicts": 1000000,
+        "ell": 9,
+        "index": 62,
+        "lam": [
+          9,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "d4d1ad6fc6adbae25bc8f6719b6efe3dad424ba0474b46737e3148bdcfc3901a",
+        "conflicts": 5892,
+        "drat_trim": "VERIFIED",
+        "ell": 9,
+        "index": 64,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 151778,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "f7d2d754d1bdbe2459b92894863762b81aea84c980e767844c8b8b3043d067de",
+        "conflicts": 1000002,
+        "ell": 9,
+        "index": 64,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "deab1110cf017f80d42f4071a64738f326f6ece09663ed00a371eeab911806a6",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 66,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "6b6d3ab634a120f62b737b10fb0964d6710bd1be430ef38c3e81f395cdc8b2ba",
+        "conflicts": 1000000,
+        "ell": 4,
+        "index": 66,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "2c2de8247b011ed138094f063bf574f997157262cd5e364ebb63d01d6f8f775f",
+        "conflicts": 18870,
+        "drat_trim": "VERIFIED",
+        "ell": 8,
+        "index": 67,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 252580,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "7bd84223f5feadff3b151699a8c408ec77538edd96bf501be02c78c789df5236",
+        "conflicts": 1000001,
+        "ell": 8,
+        "index": 67,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "84c5231a47297062c3bdbee307a65d3a238f065fecf873e001d7252fd3ea1824",
+        "conflicts": 11271,
+        "drat_trim": "VERIFIED",
+        "ell": 8,
+        "index": 69,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 196495,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "4cef850457b2e5ad868d9a7fbf2e2e36f75bbf9142de852f47dcc5b7579c2964",
+        "conflicts": 1000000,
+        "ell": 8,
+        "index": 69,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "7be2fb73a9fb739ff5a4a169a39820fa29dcd5a0ab8d37f39c81ff30db0ff783",
+        "conflicts": 6950,
+        "drat_trim": "VERIFIED",
+        "ell": 8,
+        "index": 71,
+        "lam": [
+          8,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 177480,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "441abd1d1cd17bdda324dcd1a83ef65c33d06331ed5e1039000268e874b5cb87",
+        "conflicts": 1000002,
+        "ell": 8,
+        "index": 71,
+        "lam": [
+          8,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "6d97837b82cae72fdb54c007b4f80598326ba7c2242aa139b8a88e9c6f4e660d",
+        "conflicts": 63,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 75,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16065,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "90de7231d4ba479304be9785bf4fa69738b85f30b25262e2590e9ab375d321a5",
+        "conflicts": 1000000,
+        "ell": 5,
+        "index": 75,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "c4657b03e58ee684cd307a9722c3e2511ffea2be7dd11fe2a96cef1e93e2fa05",
+        "conflicts": 16582,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 76,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 254150,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "8a8f9b455a42c8328f01cc9157f49dc30f9c549bae626fc3d596c8467bb50340",
+        "conflicts": 1000009,
+        "ell": 7,
+        "index": 76,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "b35329ed5d94e832e4d02fe0e4d4b915b92b52bb5fb0fa3a6b16e8dc871a7e02",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 77,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45370,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "c3a364bf4a452e7def056f59db8041a7b4f5017f075ccc0aae477bc8c91e995b",
+        "conflicts": 1000002,
+        "ell": 4,
+        "index": 77,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "e9450d051ce15fcaa1d852ceb7671fd4f239f6fbd121aaf02dbf59db450801da",
+        "conflicts": 10638,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 78,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 182101,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "34b8e9869355dc0c48586076d4b65dad6ec1b0a3de7c25be18a24cdfbeb4bd24",
+        "conflicts": 1000000,
+        "ell": 7,
+        "index": 78,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "496f5ee262e447a71179395a46bcca0a4c7a77fd353c3aea3da68816563e088a",
+        "conflicts": 5959,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 81,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 148236,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "46aeb6082df715d64998627bd60eb3345b9eb9bfe56494b24f26baca80408dd2",
+        "conflicts": 1000000,
+        "ell": 7,
+        "index": 81,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "70f6a6c14486a4fa12c6a876241b9ca067cb752c9151adfb54e3eb8623d53836",
+        "conflicts": 2238,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 83,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 110695,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "40b967e5ae2b5efe9e8906c82323d0d10821f99d587f4cdb8115d635230212ad",
+        "conflicts": 182769,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 83,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 839540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "e545e1062cdf4cd07ee3e322ab240a72b6ee0a6bf4d2e426db633df70b60c4b6",
+        "conflicts": 6016,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 85,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 152654,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "7b652d691e763d28498b27e688a719d5d57c2c6c29f6571ca452b3c1927356bb",
+        "conflicts": 1000000,
+        "ell": 7,
+        "index": 85,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "7c054dce01df1e92f1fa1a50aa0d11cfa3bc5a9d60d6f3ecd96a8482e511442c",
+        "conflicts": 16251,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 89,
+        "lam": [
+          6,
+          6
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 240476,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "dffe528f2cf88d01e87d3706b823996d4ac6dce3ad6afc42942c60cabf64607b",
+        "conflicts": 1000001,
+        "ell": 6,
+        "index": 89,
+        "lam": [
+          6,
+          6
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "438f5811d2f517d2fcdc81a5c1b56341bb1d7315355ea551fc6cfece0c45a6eb",
+        "conflicts": 209,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 90,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16205,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "af103079197fb5f79b34c19e86a99c9907c025ed72b5800b719c03069ebdb232",
+        "conflicts": 1000000,
+        "ell": 5,
+        "index": 90,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "e454792da08280cf2209dea22d967cefa846be8b685d3c5c00cacbe8df7b9d74",
+        "conflicts": 9025,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 91,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 166437,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "e78107f6682d7ba3b3b61124889a070d71f9376af00a7d495da79e15fb1034fc",
+        "conflicts": 1000001,
+        "ell": 6,
+        "index": 91,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "9691de72c9725435515f4b611e9fcd9bef91ca690fc3298781df5b413ad2f444",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 93,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "e9afe4504c2ccf59c4c9dda0d19dfc3d0a0d0f0c685e216e93086d8f51deb8c1",
+        "conflicts": 1000000,
+        "ell": 4,
+        "index": 93,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "d458f1fef6a4fe74ec22868bc8f4b6ab4b8b983cebced6c3f05137688559de0a",
+        "conflicts": 4995,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 94,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 122577,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "996d9ca0b1928511f591175553b8d153dcc6d188407eac86a4a11ecca007b739",
+        "conflicts": 1000000,
+        "ell": 6,
+        "index": 94,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "b6439e78bbc6f68293481440e71c3d4bf2d050dcd680daa9c7349a277599eada",
+        "conflicts": 13093,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 98,
+        "lam": [
+          6,
+          3,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 185919,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "6bad135ccf86ff8479f566effda7c9bc12472bfa70994bbe45907b59a8ab902c",
+        "conflicts": 1000003,
+        "ell": 6,
+        "index": 98,
+        "lam": [
+          6,
+          3,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "4f5773d73a33dac22c64df347c79ef8d7ca26995c479bb2f87c3fb94a7b0b137",
+        "conflicts": 6679,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 101,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 151378,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "8b8277c9c951554ef793b71e5491fb4cc3f0e8d2a60315f09f1a7bf3540f3ce8",
+        "conflicts": 1000001,
+        "ell": 6,
+        "index": 101,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "02ecae3fdffaedc6c5b3fee09245bba9c4e0be6e12c08b354a0a43e2dfe1ad16",
+        "conflicts": 5384,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 105,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 156485,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "e7a2616eb21496a841732adffd3961568f5d80cb567205a4265d69bf4e5fa86b",
+        "conflicts": 1000002,
+        "ell": 6,
+        "index": 105,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "a50a64a719320769cc684d1d69c2f04ce7aa8edf80bdee986b9af9bbb2baad76",
+        "conflicts": 3540,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 107,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 95767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "fbb7b73714129a0e9e641962792789c1256f94b8f4425f76090496d9f665661b",
+        "conflicts": 303389,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 107,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 1057092,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "188332e1818eb1c7ee31d8e76fea040a753d06a6c20472d9de4d0659f674f8a5",
+        "conflicts": 53,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 112,
+        "lam": [
+          5,
+          5,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 15998,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "1804ee40ff438a4dc2a5f297472b53232246ab19a0fb8dfa1b6d7549fed9fbfb",
+        "conflicts": 1000001,
+        "ell": 5,
+        "index": 112,
+        "lam": [
+          5,
+          5,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "47c83d77c9801e631113334ab1388c2218ce8676bdc9e29222dd2021514b4b79",
+        "conflicts": 1031,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 113,
+        "lam": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 89402,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "ab68ea7ee800cff016866ae844622d303667d75fb21283a2f485c6d70e7acad9",
+        "conflicts": 173247,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 113,
+        "lam": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 811046,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "cd3dd412f8d0e2aecb07d359623791ff599bbe702cd04810f2ed60b27b55e6b0",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 115,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "b4f1f07b6da0f90ec8b09b288d21648fea3e8780613d1d65d629c8c8f4c90459",
+        "conflicts": 1000001,
+        "ell": 4,
+        "index": 115,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "e468e1c5b9d736d9d89170a8ca7948ca9197fa4a73baa2f984478fcebc6b213d",
+        "conflicts": 71,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 116,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16081,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "cf49c0687dc2d909eb2141fe409e43b08bd416caca6ff2eb55b58684da389bb2",
+        "conflicts": 1000001,
+        "ell": 5,
+        "index": 116,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "43e6bab82a187a0e60fa2e4767e58c2c6c5d0139ed8de5b1b64423bf2691b061",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 118,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45370,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "4facfc99940dd343f3a6a46de479784ed79bff6c7ea06dacf3ab7e1b463df443",
+        "conflicts": 1000001,
+        "ell": 4,
+        "index": 118,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "b59f7869c6d1956a8e70afd0f7ae02f7f2220a07ef5870dc9cd4dfd122bead28",
+        "conflicts": 269,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 119,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16309,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "523fb3425002d75158175684ef4f2b46995b1a2e34f2bc1eae7ee9e1de23b0b4",
+        "conflicts": 1000000,
+        "ell": 5,
+        "index": 119,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "741c4f8e2239d08c61b4d7a9312217aa81be8acd6fd35cfd40447613bc5f563c",
+        "conflicts": 132,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 123,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16115,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "1a723373e0a60cc0d0146780f1a98ad91c52f12335f46d54ba05a1fcdcf52059",
+        "conflicts": 1000002,
+        "ell": 5,
+        "index": 123,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "1eaed839e0899c665be47ab752c3786eaa1e3ae79a66d228cda46e0a7b37e07e",
+        "conflicts": 290,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 126,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16272,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "e477c874004c1c1f7e3d0c09d7262481e0b832e5ad875488db238941755120ae",
+        "conflicts": 1000004,
+        "ell": 5,
+        "index": 126,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "f41d98b44e50f75a80aa0f2bdccda72d10b2c400d97a65951a36d2992e9aaaf1",
+        "conflicts": 87,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 133,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 16068,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "48e0bb7ced97646ac85a69b3c5282631c748c4972e77720acf619bfb4812ee39",
+        "conflicts": 1000000,
+        "ell": 5,
+        "index": 133,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "da045836b511a253c929bf1ca1487bf9f7ab880c5a624754a35045a7a4717a4a",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 139,
+        "lam": [
+          4,
+          4,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "8be3ed60f4c832c1b58445ec44d07c6e787f3a339fcc9459333457025213fbeb",
+        "conflicts": 1000002,
+        "ell": 4,
+        "index": 139,
+        "lam": [
+          4,
+          4,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "7c48b562d9d7df590dc414c761aae428a6b9b7ca86b123e3995972cea17854d8",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 141,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45370,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "67b02f6cea481480b6b295c651eb82b88078337b1db83b0219b95f242d7fcfa8",
+        "conflicts": 1000003,
+        "ell": 4,
+        "index": 141,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "8cd10531c81ae6905c4a31d2d9dc7a943cd1b7bb220dab89904059ab2299299a",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 143,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "9d80cd6b2b32d45c0ec35373e59420d64486dd5d43b8ac0117f2215885b1cd02",
+        "conflicts": 1000000,
+        "ell": 4,
+        "index": 143,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "9d2590d1d380f4faa4b4ca1b25177978f2754687a069aacca3167fa1714f29ed",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 145,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45711,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "0d63447a03352bf12b3caaa0ee483725987c63ad9209c05f58c71a404b05ad45",
+        "conflicts": 145975,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 145,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 705239,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "8fa2dfd00415f7cb74c9ab2893617276ca4b63cee93758878fb9ccabcb47685b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 149,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "d2a446203e4b6474569c040d19813fb0f7a9a88dca2ebd0f37be8046c7bd7d9f",
+        "conflicts": 1000001,
+        "ell": 4,
+        "index": 149,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174263,
+        "cnf_sha256": "0362de95ce335406e814ea8317bd9ebfe885fed41c0f8022df5d4e2209010672",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 154,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45370,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145608,
+        "cnf_sha256": "76368d95dddc6f64f95805eabd102d4bd430c932e8b09e854af24d6a036b151c",
+        "conflicts": 1000002,
+        "ell": 4,
+        "index": 154,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174252,
+        "cnf_sha256": "cb00e546356563d95d72bfd15579431986ca8666525854e82185c3bd9485468f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 161,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45359,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145597,
+        "cnf_sha256": "3887f4ca7fa88d5f15684aa0e6a9c130b04e5b85927f59c88bdb8cf79119c8ee",
+        "conflicts": 1000001,
+        "ell": 4,
+        "index": 161,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 174604,
+        "cnf_sha256": "87a2ee5e4eddd4478b37fffa582838ae2d42c7aff7c12145b4ff46aac403f4d2",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 163,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "quasigroup",
+        "proof_lines": 45711,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 145949,
+        "cnf_sha256": "2939f2288719b0af5138c584cbc71d5dfe31e6cb098b477a68be2866f243bc4f",
+        "conflicts": 246553,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 163,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "part": "non-quasigroup",
+        "proof_lines": 968627,
+        "status": "UNSAT"
+      }
+    ],
+    "summary": [
+      "57 hard cases x 2 parts: quasigroup parts refuted and certified 57 of 57; non-quasigroup parts refuted and certified 6 of 57; models: 0; parts not refuted: 51",
+      "with EXP-C05-11, 677 has no quasigroup model of order 12; non-quasigroup parts remain open"
+    ],
+    "timings": {
+      "0/non-quasigroup": {
+        "solve_s": 139.22
+      },
+      "0/quasigroup": {
+        "check_s": 22.49,
+        "solve_s": 20.1
+      },
+      "101/non-quasigroup": {
+        "solve_s": 192.65
+      },
+      "101/quasigroup": {
+        "check_s": 0.57,
+        "solve_s": 1.37
+      },
+      "105/non-quasigroup": {
+        "solve_s": 196.42
+      },
+      "105/quasigroup": {
+        "check_s": 0.62,
+        "solve_s": 1.33
+      },
+      "107/non-quasigroup": {
+        "check_s": 16.7,
+        "solve_s": 42.58
+      },
+      "107/quasigroup": {
+        "check_s": 0.64,
+        "solve_s": 0.48
+      },
+      "112/non-quasigroup": {
+        "solve_s": 196.02
+      },
+      "112/quasigroup": {
+        "check_s": 0.42,
+        "solve_s": 0.17
+      },
+      "113/non-quasigroup": {
+        "check_s": 7.54,
+        "solve_s": 26.7
+      },
+      "113/quasigroup": {
+        "check_s": 0.37,
+        "solve_s": 0.51
+      },
+      "115/non-quasigroup": {
+        "solve_s": 173.71
+      },
+      "115/quasigroup": {
+        "check_s": 0.34,
+        "solve_s": 0.27
+      },
+      "116/non-quasigroup": {
+        "solve_s": 169.51
+      },
+      "116/quasigroup": {
+        "check_s": 0.3,
+        "solve_s": 0.28
+      },
+      "118/non-quasigroup": {
+        "solve_s": 143.04
+      },
+      "118/quasigroup": {
+        "check_s": 0.26,
+        "solve_s": 0.17
+      },
+      "119/non-quasigroup": {
+        "solve_s": 139.41
+      },
+      "119/quasigroup": {
+        "check_s": 0.23,
+        "solve_s": 0.12
+      },
+      "12/non-quasigroup": {
+        "solve_s": 140.37
+      },
+      "12/quasigroup": {
+        "check_s": 22.41,
+        "solve_s": 20.76
+      },
+      "123/non-quasigroup": {
+        "solve_s": 149.43
+      },
+      "123/quasigroup": {
+        "check_s": 0.26,
+        "solve_s": 0.11
+      },
+      "126/non-quasigroup": {
+        "solve_s": 135.09
+      },
+      "126/quasigroup": {
+        "check_s": 0.26,
+        "solve_s": 0.16
+      },
+      "133/non-quasigroup": {
+        "solve_s": 128.27
+      },
+      "133/quasigroup": {
+        "check_s": 0.23,
+        "solve_s": 0.17
+      },
+      "139/non-quasigroup": {
+        "solve_s": 134.79
+      },
+      "139/quasigroup": {
+        "check_s": 0.23,
+        "solve_s": 0.15
+      },
+      "14/non-quasigroup": {
+        "solve_s": 145.22
+      },
+      "14/quasigroup": {
+        "check_s": 12.81,
+        "solve_s": 14.39
+      },
+      "141/non-quasigroup": {
+        "solve_s": 129.09
+      },
+      "141/quasigroup": {
+        "check_s": 0.25,
+        "solve_s": 0.15
+      },
+      "143/non-quasigroup": {
+        "solve_s": 134.44
+      },
+      "143/quasigroup": {
+        "check_s": 0.21,
+        "solve_s": 0.14
+      },
+      "145/non-quasigroup": {
+        "check_s": 2.96,
+        "solve_s": 14.53
+      },
+      "145/quasigroup": {
+        "check_s": 0.25,
+        "solve_s": 0.19
+      },
+      "149/non-quasigroup": {
+        "solve_s": 137.51
+      },
+      "149/quasigroup": {
+        "check_s": 0.21,
+        "solve_s": 0.15
+      },
+      "154/non-quasigroup": {
+        "solve_s": 131.5
+      },
+      "154/quasigroup": {
+        "check_s": 0.32,
+        "solve_s": 0.13
+      },
+      "161/non-quasigroup": {
+        "solve_s": 132.24
+      },
+      "161/quasigroup": {
+        "check_s": 0.3,
+        "solve_s": 0.15
+      },
+      "163/non-quasigroup": {
+        "check_s": 9.72,
+        "solve_s": 24.12
+      },
+      "163/quasigroup": {
+        "check_s": 0.29,
+        "solve_s": 0.24
+      },
+      "2/non-quasigroup": {
+        "solve_s": 139.19
+      },
+      "2/quasigroup": {
+        "check_s": 12.6,
+        "solve_s": 14.19
+      },
+      "20/non-quasigroup": {
+        "solve_s": 147.05
+      },
+      "20/quasigroup": {
+        "check_s": 9.66,
+        "solve_s": 11.24
+      },
+      "22/non-quasigroup": {
+        "solve_s": 145.03
+      },
+      "22/quasigroup": {
+        "check_s": 28.64,
+        "solve_s": 23.04
+      },
+      "25/non-quasigroup": {
+        "solve_s": 141.59
+      },
+      "25/quasigroup": {
+        "check_s": 3.05,
+        "solve_s": 4.28
+      },
+      "29/non-quasigroup": {
+        "solve_s": 156.94
+      },
+      "29/quasigroup": {
+        "check_s": 32.41,
+        "solve_s": 30.1
+      },
+      "33/non-quasigroup": {
+        "solve_s": 154.12
+      },
+      "33/quasigroup": {
+        "check_s": 8.42,
+        "solve_s": 10.32
+      },
+      "4/non-quasigroup": {
+        "solve_s": 139.41
+      },
+      "4/quasigroup": {
+        "check_s": 30.95,
+        "solve_s": 29.42
+      },
+      "40/non-quasigroup": {
+        "solve_s": 152.65
+      },
+      "40/quasigroup": {
+        "check_s": 11.28,
+        "solve_s": 11.97
+      },
+      "45/non-quasigroup": {
+        "solve_s": 160.51
+      },
+      "45/quasigroup": {
+        "check_s": 0.42,
+        "solve_s": 0.86
+      },
+      "56/non-quasigroup": {
+        "solve_s": 248.62
+      },
+      "56/quasigroup": {
+        "check_s": 2.45,
+        "solve_s": 3.81
+      },
+      "57/non-quasigroup": {
+        "solve_s": 274.98
+      },
+      "57/quasigroup": {
+        "check_s": 1.0,
+        "solve_s": 1.26
+      },
+      "59/non-quasigroup": {
+        "solve_s": 347.85
+      },
+      "59/quasigroup": {
+        "check_s": 1.05,
+        "solve_s": 2.65
+      },
+      "60/non-quasigroup": {
+        "check_s": 24.4,
+        "solve_s": 66.5
+      },
+      "60/quasigroup": {
+        "check_s": 0.84,
+        "solve_s": 1.31
+      },
+      "62/non-quasigroup": {
+        "solve_s": 276.21
+      },
+      "62/quasigroup": {
+        "check_s": 5.02,
+        "solve_s": 6.02
+      },
+      "64/non-quasigroup": {
+        "solve_s": 259.66
+      },
+      "64/quasigroup": {
+        "check_s": 0.92,
+        "solve_s": 2.05
+      },
+      "66/non-quasigroup": {
+        "solve_s": 246.74
+      },
+      "66/quasigroup": {
+        "check_s": 0.79,
+        "solve_s": 0.42
+      },
+      "67/non-quasigroup": {
+        "solve_s": 284.62
+      },
+      "67/quasigroup": {
+        "check_s": 4.9,
+        "solve_s": 6.51
+      },
+      "69/non-quasigroup": {
+        "solve_s": 270.44
+      },
+      "69/quasigroup": {
+        "check_s": 2.05,
+        "solve_s": 2.44
+      },
+      "7/non-quasigroup": {
+        "solve_s": 136.85
+      },
+      "7/quasigroup": {
+        "check_s": 23.41,
+        "solve_s": 24.17
+      },
+      "71/non-quasigroup": {
+        "solve_s": 258.67
+      },
+      "71/quasigroup": {
+        "check_s": 1.17,
+        "solve_s": 2.03
+      },
+      "75/non-quasigroup": {
+        "solve_s": 236.84
+      },
+      "75/quasigroup": {
+        "check_s": 0.48,
+        "solve_s": 0.28
+      },
+      "76/non-quasigroup": {
+        "solve_s": 228.62
+      },
+      "76/quasigroup": {
+        "check_s": 4.22,
+        "solve_s": 4.69
+      },
+      "77/non-quasigroup": {
+        "solve_s": 192.71
+      },
+      "77/quasigroup": {
+        "check_s": 0.51,
+        "solve_s": 0.35
+      },
+      "78/non-quasigroup": {
+        "solve_s": 169.91
+      },
+      "78/quasigroup": {
+        "check_s": 1.05,
+        "solve_s": 1.46
+      },
+      "81/non-quasigroup": {
+        "solve_s": 168.78
+      },
+      "81/quasigroup": {
+        "check_s": 1.42,
+        "solve_s": 1.48
+      },
+      "83/non-quasigroup": {
+        "check_s": 6.16,
+        "solve_s": 19.63
+      },
+      "83/quasigroup": {
+        "check_s": 0.63,
+        "solve_s": 0.42
+      },
+      "85/non-quasigroup": {
+        "solve_s": 181.66
+      },
+      "85/quasigroup": {
+        "check_s": 0.59,
+        "solve_s": 0.86
+      },
+      "89/non-quasigroup": {
+        "solve_s": 180.66
+      },
+      "89/quasigroup": {
+        "check_s": 2.94,
+        "solve_s": 3.35
+      },
+      "9/non-quasigroup": {
+        "solve_s": 138.79
+      },
+      "9/quasigroup": {
+        "check_s": 8.86,
+        "solve_s": 10.03
+      },
+      "90/non-quasigroup": {
+        "solve_s": 167.82
+      },
+      "90/quasigroup": {
+        "check_s": 0.38,
+        "solve_s": 0.23
+      },
+      "91/non-quasigroup": {
+        "solve_s": 171.44
+      },
+      "91/quasigroup": {
+        "check_s": 0.87,
+        "solve_s": 1.28
+      },
+      "93/non-quasigroup": {
+        "solve_s": 205.04
+      },
+      "93/quasigroup": {
+        "check_s": 0.49,
+        "solve_s": 0.21
+      },
+      "94/non-quasigroup": {
+        "solve_s": 195.99
+      },
+      "94/quasigroup": {
+        "check_s": 0.86,
+        "solve_s": 1.22
+      },
+      "98/non-quasigroup": {
+        "solve_s": 209.14
+      },
+      "98/quasigroup": {
+        "check_s": 2.03,
+        "solve_s": 2.75
+      }
+    }
+  },
+  "results_sha256": "12870134699696a91531daf7dbf3f10f0b3cd04bd58f987af7af674d1e4cbb6f",
+  "runtime_s": 3393.697,
+  "started": "2026-10-20T15:50:24Z"
+}

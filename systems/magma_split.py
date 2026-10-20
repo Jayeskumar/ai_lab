@@ -14,7 +14,9 @@ The method of EXP-C05-08 (proofs/paper/C05.md, Lemmas 7-9), for any law of the f
 
 ``decide`` runs the cases of one (law, n) in a fixed order and stops at the first verified model; an UNSAT case
 carries a DRAT proof from CaDiCaL that drat-trim must verify. Per-case results can be checkpointed to a directory
-so that an interrupted run resumes; every case is deterministic, so a resumed run gives the same results.
+so that an interrupted run resumes; every case is deterministic, so a resumed run gives the same results. A
+checkpoint is reused only if it was written by the same version of this module with the same drat-trim binary
+(SHA-256 of both, stored with it).
 """
 
 from __future__ import annotations
@@ -198,6 +200,20 @@ def _cnf_text(sat) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _sha256_file(path):
+    h = hashlib.sha256()
+    with open(path, "rb") as fh:
+        for block in iter(lambda: fh.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
+def _provenance(checker):
+    """What a checkpointed case result depends on besides its CNF and budget: this module and the proof checker."""
+    return {"magma_split_sha256": _sha256_file(__file__),
+            "drat_trim_sha256": _sha256_file(checker) if checker else None}
+
+
 def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None, part=None):
     """Decide one case; returns (record, timings). With a checkpoint directory, a finished case is reused."""
     sat, identity = build(law, n, case, lam, ell, part)
@@ -209,7 +225,8 @@ def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None, part=No
         if os.path.exists(f):
             with open(f) as fh:
                 saved = json.load(fh)
-            return saved["record"], dict(saved["timings"], from_checkpoint=True)
+            if saved.get("provenance") == _provenance(checker):     # same code and checker, else solve again
+                return saved["record"], dict(saved["timings"], from_checkpoint=True)
     rec = {"law": law, "n": n, "case": case, "lam": list(lam), "ell": ell, "cnf_sha256": cnf_sha,
            "clauses": len(sat.clauses)}
     if part:
@@ -247,7 +264,7 @@ def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None, part=No
         os.makedirs(checkpoint, exist_ok=True)
         tmp = os.path.join(checkpoint, key + ".tmp")
         with open(tmp, "w") as fh:
-            json.dump({"record": rec, "timings": times}, fh)
+            json.dump({"record": rec, "timings": times, "provenance": _provenance(checker)}, fh)
         os.replace(tmp, os.path.join(checkpoint, key + ".json"))
     return rec, times
 
