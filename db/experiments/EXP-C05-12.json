@@ -1,0 +1,55 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "as EXP-C05-09",
+    "conflict budget 200,000 per case (EXP-C05-03 decided all these orders)"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-12",
+    "file": "experiments/C05/E12_small_orders_certified.py",
+    "sha256": "fa953612cf98b858d64bdd3cc5b134a0f2a99798b27d1240736dbe5a663ae383",
+    "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+  },
+  "cycle": "C05",
+  "falsification": "A disagreement with EXP-C05-03, a rejected proof or an UNKNOWN case.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T15:26:38Z"
+    }
+  ],
+  "hypothesis": "Yes: the same orders are found, with every gap certified.",
+  "id": "EXP-C05-12",
+  "methodology": "decide(law, n) for n = 2..7 and every law x = y*T of EXP-C05-03; compare with its statuses.",
+  "question": "Do the certified case split and EXP-C05-03 agree on every order 2..7 of the 13 laws, and can every gap be given a DRAT certificate?",
+  "results_file": "results/EXP-C05-12.json",
+  "results_sha256": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-12",
+        "file": "experiments/C05/E12_small_orders_certified.py",
+        "sha256": "fa953612cf98b858d64bdd3cc5b134a0f2a99798b27d1240736dbe5a663ae383",
+        "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+      },
+      "error": false,
+      "finished": "2026-10-20T15:26:37Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-12.json",
+      "results_sha256": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
+      "runtime_s": 78.406,
+      "started": "2026-10-20T15:25:19Z",
+      "summary": [
+        "78 pairs (13 laws, n = 2..7): 50 gaps, every one certified by drat-trim: True; 28 members with a re-checked model",
+        "disagreements with EXP-C05-03: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "78 pairs (13 laws, n = 2..7): 50 gaps, every one certified by drat-trim: True; 28 members with a re-checked model",
+    "disagreements with EXP-C05-03: 0"
+  ],
+  "title": "Certified decisions for every order n <= 7 of the 13 open ETP laws x = y*T"
+}

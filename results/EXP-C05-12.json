@@ -1,0 +1,1764 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-12",
+    "file": "experiments/C05/E12_small_orders_certified.py",
+    "sha256": "fa953612cf98b858d64bdd3cc5b134a0f2a99798b27d1240736dbe5a663ae383",
+    "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+  },
+  "env": {
+    "git_head": "d20706dbb7fcd23dc76e29f1faa40778ca3e664f",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-20T15:26:37Z",
+  "id": "EXP-C05-12",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "as EXP-C05-09",
+      "conflict budget 200,000 per case (EXP-C05-03 decided all these orders)"
+    ],
+    "cycle": "C05",
+    "falsification": "A disagreement with EXP-C05-03, a rejected proof or an UNKNOWN case.",
+    "hypothesis": "Yes: the same orders are found, with every gap certified.",
+    "id": "EXP-C05-12",
+    "methodology": "decide(law, n) for n = 2..7 and every law x = y*T of EXP-C05-03; compare with its statuses.",
+    "question": "Do the certified case split and EXP-C05-03 agree on every order 2..7 of the 13 laws, and can every gap be given a DRAT certificate?",
+    "title": "Certified decisions for every order n <= 7 of the 13 open ETP laws x = y*T"
+  },
+  "results": {
+    "disagreements_with_EXP_C05_03": [],
+    "pairs": {
+      "1076/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 137,
+        "verdict": "no model (every case certified)"
+      },
+      "1076/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 1040,
+        "verdict": "no model (every case certified)"
+      },
+      "1076/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 4915,
+        "verdict": "no model (every case certified)"
+      },
+      "1076/5": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            1,
+            4,
+            2,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            4,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            1,
+            0,
+            4
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "1076/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 55208,
+        "verdict": "no model (every case certified)"
+      },
+      "1076/7": {
+        "cases_run": 30,
+        "model": null,
+        "proof_lines": 153334,
+        "verdict": "no model (every case certified)"
+      },
+      "1083/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 137,
+        "verdict": "no model (every case certified)"
+      },
+      "1083/3": {
+        "cases_run": 4,
+        "model": [
+          [
+            1,
+            0,
+            2
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            1
+          ]
+        ],
+        "proof_lines": 845,
+        "verdict": "model found"
+      },
+      "1083/4": {
+        "cases_run": 6,
+        "model": [
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            3,
+            2,
+            1,
+            0
+          ]
+        ],
+        "proof_lines": 3657,
+        "verdict": "model found"
+      },
+      "1083/5": {
+        "cases_run": 12,
+        "model": null,
+        "proof_lines": 18775,
+        "verdict": "no model (every case certified)"
+      },
+      "1083/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 54166,
+        "verdict": "no model (every case certified)"
+      },
+      "1083/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            6,
+            1,
+            5,
+            0,
+            2,
+            4,
+            3
+          ],
+          [
+            4,
+            0,
+            2,
+            6,
+            1,
+            3,
+            5
+          ],
+          [
+            5,
+            4,
+            0,
+            3,
+            6,
+            2,
+            1
+          ],
+          [
+            2,
+            3,
+            6,
+            5,
+            4,
+            1,
+            0
+          ],
+          [
+            3,
+            6,
+            1,
+            4,
+            0,
+            5,
+            2
+          ],
+          [
+            1,
+            5,
+            4,
+            2,
+            3,
+            0,
+            6
+          ]
+        ],
+        "proof_lines": 21899,
+        "verdict": "model found"
+      },
+      "1110/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 131,
+        "verdict": "no model (every case certified)"
+      },
+      "1110/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 1066,
+        "verdict": "no model (every case certified)"
+      },
+      "1110/4": {
+        "cases_run": 6,
+        "model": [
+          [
+            1,
+            0,
+            3,
+            2
+          ],
+          [
+            3,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "proof_lines": 3661,
+        "verdict": "model found"
+      },
+      "1110/5": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            1,
+            4,
+            2,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            4,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            1,
+            0,
+            4
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "1110/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 56482,
+        "verdict": "no model (every case certified)"
+      },
+      "1110/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            2,
+            1,
+            4,
+            6,
+            0,
+            3,
+            5
+          ],
+          [
+            3,
+            4,
+            2,
+            5,
+            6,
+            0,
+            1
+          ],
+          [
+            1,
+            6,
+            5,
+            3,
+            2,
+            4,
+            0
+          ],
+          [
+            5,
+            0,
+            6,
+            2,
+            4,
+            1,
+            3
+          ],
+          [
+            6,
+            3,
+            0,
+            4,
+            1,
+            5,
+            2
+          ],
+          [
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ]
+        ],
+        "proof_lines": 24426,
+        "verdict": "model found"
+      },
+      "1279/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 131,
+        "verdict": "no model (every case certified)"
+      },
+      "1279/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 1059,
+        "verdict": "no model (every case certified)"
+      },
+      "1279/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 5236,
+        "verdict": "no model (every case certified)"
+      },
+      "1279/5": {
+        "cases_run": 3,
+        "model": [
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            1,
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1,
+            4
+          ]
+        ],
+        "proof_lines": 3522,
+        "verdict": "model found"
+      },
+      "1279/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 54400,
+        "verdict": "no model (every case certified)"
+      },
+      "1279/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            2,
+            1,
+            4,
+            6,
+            0,
+            3,
+            5
+          ],
+          [
+            3,
+            4,
+            2,
+            5,
+            6,
+            0,
+            1
+          ],
+          [
+            1,
+            6,
+            5,
+            3,
+            2,
+            4,
+            0
+          ],
+          [
+            5,
+            0,
+            6,
+            2,
+            4,
+            1,
+            3
+          ],
+          [
+            6,
+            3,
+            0,
+            4,
+            1,
+            5,
+            2
+          ],
+          [
+            4,
+            5,
+            1,
+            0,
+            3,
+            2,
+            6
+          ]
+        ],
+        "proof_lines": 24294,
+        "verdict": "model found"
+      },
+      "1286/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 140,
+        "verdict": "no model (every case certified)"
+      },
+      "1286/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 1051,
+        "verdict": "no model (every case certified)"
+      },
+      "1286/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 5177,
+        "verdict": "no model (every case certified)"
+      },
+      "1286/5": {
+        "cases_run": 12,
+        "model": null,
+        "proof_lines": 19356,
+        "verdict": "no model (every case certified)"
+      },
+      "1286/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 55263,
+        "verdict": "no model (every case certified)"
+      },
+      "1286/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            4,
+            1,
+            6,
+            0,
+            3,
+            2,
+            5
+          ],
+          [
+            5,
+            0,
+            2,
+            4,
+            6,
+            1,
+            3
+          ],
+          [
+            6,
+            5,
+            0,
+            3,
+            1,
+            4,
+            2
+          ],
+          [
+            1,
+            6,
+            5,
+            2,
+            4,
+            3,
+            0
+          ],
+          [
+            2,
+            3,
+            4,
+            6,
+            0,
+            5,
+            1
+          ],
+          [
+            3,
+            4,
+            1,
+            5,
+            2,
+            0,
+            6
+          ]
+        ],
+        "proof_lines": 21808,
+        "verdict": "model found"
+      },
+      "1313/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 138,
+        "verdict": "no model (every case certified)"
+      },
+      "1313/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 1047,
+        "verdict": "no model (every case certified)"
+      },
+      "1313/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 5046,
+        "verdict": "no model (every case certified)"
+      },
+      "1313/5": {
+        "cases_run": 3,
+        "model": [
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            3,
+            1,
+            4,
+            0,
+            2
+          ],
+          [
+            4,
+            3,
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            4,
+            0,
+            3,
+            1
+          ],
+          [
+            1,
+            0,
+            3,
+            2,
+            4
+          ]
+        ],
+        "proof_lines": 3401,
+        "verdict": "model found"
+      },
+      "1313/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 57447,
+        "verdict": "no model (every case certified)"
+      },
+      "1313/7": {
+        "cases_run": 22,
+        "model": [
+          [
+            1,
+            2,
+            0,
+            4,
+            5,
+            3,
+            6
+          ],
+          [
+            6,
+            1,
+            4,
+            2,
+            3,
+            0,
+            5
+          ],
+          [
+            3,
+            5,
+            1,
+            6,
+            4,
+            2,
+            0
+          ],
+          [
+            5,
+            6,
+            2,
+            1,
+            0,
+            4,
+            3
+          ],
+          [
+            4,
+            0,
+            5,
+            3,
+            1,
+            6,
+            2
+          ],
+          [
+            0,
+            3,
+            6,
+            5,
+            2,
+            1,
+            4
+          ],
+          [
+            2,
+            4,
+            3,
+            0,
+            6,
+            5,
+            1
+          ]
+        ],
+        "proof_lines": 113947,
+        "verdict": "model found"
+      },
+      "467/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 130,
+        "verdict": "no model (every case certified)"
+      },
+      "467/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 917,
+        "verdict": "no model (every case certified)"
+      },
+      "467/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 4165,
+        "verdict": "no model (every case certified)"
+      },
+      "467/5": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            4,
+            1
+          ],
+          [
+            2,
+            1,
+            4,
+            0,
+            3
+          ],
+          [
+            3,
+            4,
+            2,
+            1,
+            0
+          ],
+          [
+            4,
+            0,
+            1,
+            3,
+            2
+          ],
+          [
+            1,
+            3,
+            0,
+            2,
+            4
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "467/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 48596,
+        "verdict": "no model (every case certified)"
+      },
+      "467/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            4,
+            1,
+            6,
+            0,
+            3,
+            2,
+            5
+          ],
+          [
+            5,
+            0,
+            2,
+            4,
+            6,
+            1,
+            3
+          ],
+          [
+            6,
+            5,
+            0,
+            3,
+            1,
+            4,
+            2
+          ],
+          [
+            1,
+            6,
+            5,
+            2,
+            4,
+            3,
+            0
+          ],
+          [
+            2,
+            3,
+            4,
+            6,
+            0,
+            5,
+            1
+          ],
+          [
+            3,
+            4,
+            1,
+            5,
+            2,
+            0,
+            6
+          ]
+        ],
+        "proof_lines": 24452,
+        "verdict": "model found"
+      },
+      "501/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 130,
+        "verdict": "no model (every case certified)"
+      },
+      "501/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 937,
+        "verdict": "no model (every case certified)"
+      },
+      "501/4": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1
+          ],
+          [
+            3,
+            1,
+            0,
+            2
+          ],
+          [
+            1,
+            3,
+            2,
+            0
+          ],
+          [
+            2,
+            0,
+            1,
+            3
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "501/5": {
+        "cases_run": 7,
+        "model": [
+          [
+            1,
+            2,
+            3,
+            0,
+            4
+          ],
+          [
+            2,
+            1,
+            3,
+            4,
+            0
+          ],
+          [
+            0,
+            3,
+            1,
+            4,
+            2
+          ],
+          [
+            4,
+            3,
+            2,
+            0,
+            1
+          ],
+          [
+            2,
+            0,
+            4,
+            3,
+            1
+          ]
+        ],
+        "proof_lines": 9597,
+        "verdict": "model found"
+      },
+      "501/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 54434,
+        "verdict": "no model (every case certified)"
+      },
+      "501/7": {
+        "cases_run": 30,
+        "model": null,
+        "proof_lines": 185291,
+        "verdict": "no model (every case certified)"
+      },
+      "670/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 101,
+        "verdict": "no model (every case certified)"
+      },
+      "670/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 794,
+        "verdict": "no model (every case certified)"
+      },
+      "670/4": {
+        "cases_run": 4,
+        "model": [
+          [
+            1,
+            2,
+            3,
+            0
+          ],
+          [
+            2,
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            1,
+            2
+          ]
+        ],
+        "proof_lines": 1481,
+        "verdict": "model found"
+      },
+      "670/5": {
+        "cases_run": 6,
+        "model": [
+          [
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          [
+            3,
+            4,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4,
+            0,
+            1
+          ],
+          [
+            4,
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "proof_lines": 5021,
+        "verdict": "model found"
+      },
+      "670/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 34905,
+        "verdict": "no model (every case certified)"
+      },
+      "670/7": {
+        "cases_run": 30,
+        "model": null,
+        "proof_lines": 140054,
+        "verdict": "no model (every case certified)"
+      },
+      "677/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 101,
+        "verdict": "no model (every case certified)"
+      },
+      "677/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 750,
+        "verdict": "no model (every case certified)"
+      },
+      "677/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 3371,
+        "verdict": "no model (every case certified)"
+      },
+      "677/5": {
+        "cases_run": 3,
+        "model": [
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            1,
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1,
+            4
+          ]
+        ],
+        "proof_lines": 1922,
+        "verdict": "model found"
+      },
+      "677/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 33290,
+        "verdict": "no model (every case certified)"
+      },
+      "677/7": {
+        "cases_run": 12,
+        "model": [
+          [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            0
+          ],
+          [
+            5,
+            6,
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6,
+            0,
+            1
+          ],
+          [
+            6,
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          [
+            3,
+            4,
+            5,
+            6,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          [
+            4,
+            5,
+            6,
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "proof_lines": 65809,
+        "verdict": "model found"
+      },
+      "704/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 99,
+        "verdict": "no model (every case certified)"
+      },
+      "704/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 707,
+        "verdict": "no model (every case certified)"
+      },
+      "704/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 3120,
+        "verdict": "no model (every case certified)"
+      },
+      "704/5": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            4,
+            1
+          ],
+          [
+            3,
+            1,
+            4,
+            2,
+            0
+          ],
+          [
+            4,
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            4,
+            0,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            1,
+            0,
+            4
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "704/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 30839,
+        "verdict": "no model (every case certified)"
+      },
+      "704/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            2,
+            1,
+            6,
+            5,
+            3,
+            4,
+            0
+          ],
+          [
+            3,
+            6,
+            2,
+            4,
+            0,
+            1,
+            5
+          ],
+          [
+            1,
+            5,
+            4,
+            3,
+            6,
+            0,
+            2
+          ],
+          [
+            5,
+            3,
+            0,
+            6,
+            4,
+            2,
+            1
+          ],
+          [
+            6,
+            4,
+            1,
+            0,
+            2,
+            5,
+            3
+          ],
+          [
+            4,
+            0,
+            5,
+            2,
+            1,
+            3,
+            6
+          ]
+        ],
+        "proof_lines": 14319,
+        "verdict": "model found"
+      },
+      "883/2": {
+        "cases_run": 2,
+        "model": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "proof_lines": 45,
+        "verdict": "model found"
+      },
+      "883/3": {
+        "cases_run": 4,
+        "model": null,
+        "proof_lines": 413,
+        "verdict": "no model (every case certified)"
+      },
+      "883/4": {
+        "cases_run": 4,
+        "model": [
+          [
+            1,
+            2,
+            3,
+            0
+          ],
+          [
+            2,
+            3,
+            0,
+            1
+          ],
+          [
+            3,
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "proof_lines": 693,
+        "verdict": "model found"
+      },
+      "883/5": {
+        "cases_run": 3,
+        "model": [
+          [
+            0,
+            2,
+            1,
+            4,
+            3
+          ],
+          [
+            4,
+            1,
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            4,
+            2,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            1,
+            4
+          ]
+        ],
+        "proof_lines": 909,
+        "verdict": "model found"
+      },
+      "883/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 12599,
+        "verdict": "no model (every case certified)"
+      },
+      "883/7": {
+        "cases_run": 5,
+        "model": [
+          [
+            0,
+            2,
+            3,
+            1,
+            5,
+            6,
+            4
+          ],
+          [
+            2,
+            1,
+            5,
+            4,
+            6,
+            0,
+            3
+          ],
+          [
+            3,
+            5,
+            2,
+            6,
+            1,
+            4,
+            0
+          ],
+          [
+            1,
+            4,
+            6,
+            3,
+            0,
+            2,
+            5
+          ],
+          [
+            5,
+            6,
+            1,
+            0,
+            4,
+            3,
+            2
+          ],
+          [
+            6,
+            0,
+            4,
+            2,
+            3,
+            5,
+            1
+          ],
+          [
+            4,
+            3,
+            0,
+            5,
+            2,
+            1,
+            6
+          ]
+        ],
+        "proof_lines": 4553,
+        "verdict": "model found"
+      },
+      "907/2": {
+        "cases_run": 2,
+        "model": null,
+        "proof_lines": 81,
+        "verdict": "no model (every case certified)"
+      },
+      "907/3": {
+        "cases_run": 1,
+        "model": [
+          [
+            0,
+            2,
+            1
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            2
+          ]
+        ],
+        "proof_lines": 0,
+        "verdict": "model found"
+      },
+      "907/4": {
+        "cases_run": 7,
+        "model": null,
+        "proof_lines": 1709,
+        "verdict": "no model (every case certified)"
+      },
+      "907/5": {
+        "cases_run": 12,
+        "model": null,
+        "proof_lines": 4888,
+        "verdict": "no model (every case certified)"
+      },
+      "907/6": {
+        "cases_run": 19,
+        "model": null,
+        "proof_lines": 13097,
+        "verdict": "no model (every case certified)"
+      },
+      "907/7": {
+        "cases_run": 8,
+        "model": [
+          [
+            0,
+            2,
+            1,
+            4,
+            3,
+            6,
+            5
+          ],
+          [
+            2,
+            1,
+            0,
+            5,
+            6,
+            3,
+            4
+          ],
+          [
+            1,
+            0,
+            2,
+            6,
+            5,
+            4,
+            3
+          ],
+          [
+            4,
+            5,
+            6,
+            3,
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            6,
+            5,
+            0,
+            4,
+            2,
+            1
+          ],
+          [
+            6,
+            3,
+            4,
+            1,
+            2,
+            5,
+            0
+          ],
+          [
+            5,
+            4,
+            3,
+            2,
+            1,
+            0,
+            6
+          ]
+        ],
+        "proof_lines": 55028,
+        "verdict": "model found"
+      }
+    },
+    "summary": [
+      "78 pairs (13 laws, n = 2..7): 50 gaps, every one certified by drat-trim: True; 28 members with a re-checked model",
+      "disagreements with EXP-C05-03: 0"
+    ],
+    "timings": {
+      "seconds_per_pair": {
+        "1076/2": 0.14,
+        "1076/3": 0.35000000000000003,
+        "1076/4": 0.73,
+        "1076/5": 0.01,
+        "1076/6": 2.05,
+        "1076/7": 3.84,
+        "1083/2": 0.2,
+        "1083/3": 0.31,
+        "1083/4": 0.51,
+        "1083/5": 1.21,
+        "1083/6": 2.15,
+        "1083/7": 0.57,
+        "1110/2": 0.23,
+        "1110/3": 0.34,
+        "1110/4": 0.43000000000000005,
+        "1110/5": 0.01,
+        "1110/6": 1.94,
+        "1110/7": 0.43,
+        "1279/2": 0.14,
+        "1279/3": 0.31000000000000005,
+        "1279/4": 0.64,
+        "1279/5": 0.15000000000000002,
+        "1279/6": 2.14,
+        "1279/7": 0.41000000000000003,
+        "1286/2": 0.14,
+        "1286/3": 0.36,
+        "1286/4": 0.68,
+        "1286/5": 1.1099999999999999,
+        "1286/6": 1.96,
+        "1286/7": 0.53,
+        "1313/2": 0.14,
+        "1313/3": 0.28,
+        "1313/4": 0.49000000000000005,
+        "1313/5": 0.18,
+        "1313/6": 2.53,
+        "1313/7": 2.83,
+        "467/2": 0.19,
+        "467/3": 0.35,
+        "467/4": 0.64,
+        "467/5": 0.0,
+        "467/6": 2.2,
+        "467/7": 0.49,
+        "501/2": 0.15000000000000002,
+        "501/3": 0.39,
+        "501/4": 0.0,
+        "501/5": 0.64,
+        "501/6": 1.78,
+        "501/7": 4.43,
+        "670/2": 0.2,
+        "670/3": 0.4,
+        "670/4": 0.30000000000000004,
+        "670/5": 0.4,
+        "670/6": 2.35,
+        "670/7": 3.84,
+        "677/2": 0.2,
+        "677/3": 0.41000000000000003,
+        "677/4": 0.76,
+        "677/5": 0.22000000000000003,
+        "677/6": 2.19,
+        "677/7": 1.6099999999999999,
+        "704/2": 0.2,
+        "704/3": 0.37,
+        "704/4": 0.5700000000000001,
+        "704/5": 0.0,
+        "704/6": 1.92,
+        "704/7": 0.42,
+        "883/2": 0.07,
+        "883/3": 0.28,
+        "883/4": 0.21000000000000002,
+        "883/5": 0.16999999999999998,
+        "883/6": 2.12,
+        "883/7": 0.5,
+        "907/2": 0.14,
+        "907/3": 0.0,
+        "907/4": 0.65,
+        "907/5": 1.13,
+        "907/6": 2.18,
+        "907/7": 1.02
+      }
+    }
+  },
+  "results_sha256": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
+  "runtime_s": 78.406,
+  "started": "2026-10-20T15:25:19Z"
+}
