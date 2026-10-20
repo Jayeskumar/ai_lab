@@ -1,0 +1,25 @@
+[
+ {
+  "i": 96,
+  "lam": [
+   10
+  ],
+  "ell": 10,
+  "division": false,
+  "status": "UNSAT",
+  "conflicts": 2164855,
+  "seconds": 164.0
+ },
+ {
+  "i": 70,
+  "lam": [
+   5,
+   5
+  ],
+  "ell": 5,
+  "division": false,
+  "status": "UNSAT",
+  "conflicts": 2163991,
+  "seconds": 161.8
+ }
+]

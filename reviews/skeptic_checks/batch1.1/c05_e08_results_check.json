@@ -1,0 +1,113 @@
+{
+ "case_list_mismatch": [],
+ "duplicates": [],
+ "sat_problems": [],
+ "unverified_unsat": [],
+ "verdicts": {
+  "677/5": {
+   "cases": 12,
+   "expected_cases": 12,
+   "SAT": 1,
+   "UNSAT_verified": 11,
+   "lab_verdict": "model found",
+   "my_verdict": "model found"
+  },
+  "677/6": {
+   "cases": 19,
+   "expected_cases": 19,
+   "SAT": 0,
+   "UNSAT_verified": 19,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  },
+  "677/7": {
+   "cases": 30,
+   "expected_cases": 30,
+   "SAT": 2,
+   "UNSAT_verified": 28,
+   "lab_verdict": "model found",
+   "my_verdict": "model found"
+  },
+  "677/8": {
+   "cases": 45,
+   "expected_cases": 45,
+   "SAT": 0,
+   "UNSAT_verified": 45,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  },
+  "677/10": {
+   "cases": 97,
+   "expected_cases": 97,
+   "SAT": 0,
+   "UNSAT_verified": 97,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  },
+  "1313/5": {
+   "cases": 12,
+   "expected_cases": 12,
+   "SAT": 1,
+   "UNSAT_verified": 11,
+   "lab_verdict": "model found",
+   "my_verdict": "model found"
+  },
+  "1313/6": {
+   "cases": 19,
+   "expected_cases": 19,
+   "SAT": 0,
+   "UNSAT_verified": 19,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  },
+  "1313/7": {
+   "cases": 30,
+   "expected_cases": 30,
+   "SAT": 1,
+   "UNSAT_verified": 29,
+   "lab_verdict": "model found",
+   "my_verdict": "model found"
+  },
+  "1313/8": {
+   "cases": 45,
+   "expected_cases": 45,
+   "SAT": 0,
+   "UNSAT_verified": 45,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  },
+  "1313/10": {
+   "cases": 97,
+   "expected_cases": 97,
+   "SAT": 0,
+   "UNSAT_verified": 97,
+   "lab_verdict": "no model (every case certified)",
+   "my_verdict": "no model (every case certified)"
+  }
+ },
+ "proof_lines_total": 40809939,
+ "proof_lines_by": {
+  "677/5": 10966,
+  "677/6": 33630,
+  "677/7": 125138,
+  "677/8": 577051,
+  "677/10": 37460526,
+  "1313/5": 10512,
+  "1313/6": 34884,
+  "1313/7": 91720,
+  "1313/8": 243973,
+  "1313/10": 2221539
+ },
+ "max_conflicts_by": {
+  "677/5": 16,
+  "677/6": 116,
+  "677/7": 880,
+  "677/8": 9151,
+  "677/10": 1327284,
+  "1313/5": 5,
+  "1313/6": 24,
+  "1313/7": 77,
+  "1313/8": 372,
+  "1313/10": 8517
+ }
+}

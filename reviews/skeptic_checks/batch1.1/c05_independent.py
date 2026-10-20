@@ -448,6 +448,77 @@ if __name__ == "__main__":
         print(json.dumps(r, indent=1))
         json.dump(r, open(os.path.join(HERE, "c05_validate.json"), "w"), indent=1)
         sys.exit()
+    if sys.argv[1] == "noncancel":
+        # search a model of 677 of order n that is NOT right-cancellative (some column has a repeated value)
+        law, n = int(sys.argv[2]), int(sys.argv[3])
+        budget = int(sys.argv[4]) if len(sys.argv) > 4 and sys.argv[4] != "0" else None
+        F = build(law, n, columns=False)
+        F.cl.append([F.m(0, 0, 0), F.m(0, 0, 1)])          # 0*0 in {0,1}: sound relabelling (Lemma 4(b))
+        top = n ** 3
+        zs = []
+        for b in range(n):
+            for a1 in range(n):
+                for a2 in range(a1 + 1, n):
+                    for c in range(n):
+                        top += 1
+                        zs.append(top)
+                        F.cl.append([-top, F.m(a1, b, c)])
+                        F.cl.append([-top, F.m(a2, b, c)])
+        F.cl.append(zs)
+        t0 = time.time()
+        ok, conf, model = solve(F, "cadical195", budget)
+        r = {"law": law, "n": n, "status": {True: "SAT", False: "UNSAT", None: "UNKNOWN"}[ok], "conflicts": conf,
+             "seconds": round(time.time() - t0, 1)}
+        if ok:
+            T = table_from_model(model, n)
+            r["model_ok"] = holds(T, law)
+            r["right_cancellative"] = all(len({T[a][b] for a in range(n)}) == n for b in range(n))
+            r["model"] = T
+        print(json.dumps(r))
+        json.dump(r, open(os.path.join(HERE, f"c05_noncancel_{law}_n{n}.json"), "w"), indent=1)
+        sys.exit()
+    if sys.argv[1] == "lemma8":
+        # The lab's case split (proofs/paper/C05.md Lemma 8, verified in the report), implemented in MY encoding:
+        #   idempotent (lam with a part 1, ell = 1): row 0 = perm_of(lam, 1), every a*a = a, rows >= k fixed points;
+        #   non-idempotent (ell >= 2 a part of lam): row 0 = perm_of(lam, ell), for a >= 1: a*a = a or >= k fixed pts
+        # (aux-free: the literal m(a,a,a) is added to each subset clause).  Division clauses if SKEPTIC_DIV=1.
+        law, n = int(sys.argv[2]), int(sys.argv[3])
+        cs = [("idempotent", tuple(sorted(lam)), 1) for lam in partitions(n) if 1 in lam]
+        cs += [("non-idempotent", tuple(sorted(lam)), ell) for lam in partitions(n) for ell in sorted(set(lam)) if ell >= 2]
+        idx = list(range(len(cs))) if sys.argv[4] == "all" else [int(z) for z in sys.argv[4].split(",")]
+        budget = int(sys.argv[5]) if len(sys.argv) > 5 and sys.argv[5] != "0" else None
+        res = []
+        for i in idx:
+            kind, lam, ell = cs[i]
+            F = build(law, n)
+            p = perm_of(lam, ell, n)
+            for b in range(n):
+                F.cl.append([F.m(0, b, p[b])])
+            k = list(lam).count(1)
+            if kind == "idempotent":
+                for a in range(n):
+                    F.cl.append([F.m(a, a, a)])
+            if k:
+                for a in range(1, n):
+                    for U in itertools.combinations(range(n), n - k + 1):
+                        cl = [F.m(a, b, b) for b in U]
+                        if kind != "idempotent" and a not in U:
+                            cl.append(F.m(a, a, a))
+                        F.cl.append(cl)
+            t0 = time.time()
+            ok, conf, model = solve(F, "cadical195", budget)
+            r = {"i": i, "case": kind, "lam": list(lam), "ell": ell, "division": DIVISION,
+                 "status": {True: "SAT", False: "UNSAT", None: "UNKNOWN"}[ok], "conflicts": conf,
+                 "seconds": round(time.time() - t0, 1)}
+            if ok:
+                T = table_from_model(model, n)
+                r["model_ok"] = holds(T, law)
+                r["model"] = T
+            res.append(r)
+            print(json.dumps({k2: v for k2, v in r.items() if k2 != "model"}), flush=True)
+        tag = f"c05_lemma8_{law}_n{n}_{'div' if DIVISION else 'plain'}_{idx[0]}-{idx[-1]}"
+        json.dump({"cases_total": len(cs), "results": res}, open(os.path.join(HERE, tag + ".json"), "w"), indent=1)
+        sys.exit()
     if sys.argv[1] == "cases":
         # python c05_independent.py cases <law> <n> <i1,i2,...> [budget]   (no early stop)
         law, n = int(sys.argv[2]), int(sys.argv[3])
