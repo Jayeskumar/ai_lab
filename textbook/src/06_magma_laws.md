@@ -50,18 +50,18 @@ laws fall into 15 patterns:
 | 10111011 | 16 | $x = y(x(xy))$ (63), $x = y((xx)y)$ (115) | 115: conjectured all $n \ne 2, 6$ |
 | 10110010 | 4 | $x = y(x(yy))$ (66) | $n \equiv 0, 1 \pmod 3$, $n \ne 6$ (Mendelsohn) |
 | 10011??1 | 1 | $x = (yx)(xy)$ (167) | $n \equiv 0, 1 \pmod 4$ (Theorem 6.2, which also settles the two ? as absent) |
-| 11011011 | 8 | $x = y((xy)(yy))$ (883) | contains $n \equiv 1, 2 \pmod 3$ |
-| 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open |
-| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted |
-| 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open |
-| 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; known sizes 1, 3, 7, 9, 13 |
-| 10011001 | 2 | $x = y(y(x(xy)))$ (501) | open |
-| 10011011 | 2 | $x = y((y(xx))y)$ (1110) | open |
-| 100110?? | 2 | $x = y(x((xy)y))$ (670) | open |
-| 10110011 | 2 | $x = y((x(yx))y)$ (1083) | open |
+| 11011011 | 8 | $x = y((xy)(yy))$ (883) | contains $n \equiv 1, 2 \pmod 3$; for 883 up to 10 exactly 1, 2, 4, 5, 7, 8, 10 (Theorem 6.14) |
+| 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open; up to 10 for 467, 704, 1279 in Theorem 6.14 |
+| 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted; 1313 up to 13: 1, 5, 7, 9, 13 (Theorem 6.15) |
+| 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open; up to 13 exactly 1, 5, 13 (Theorem 6.15) |
+| 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; up to 10 exactly 1, 3, 7, 9 (Theorem 6.14); 13 occurs |
+| 10011001 | 2 | $x = y(y(x(xy)))$ (501) | open; up to 10 exactly 1, 4, 5, 8, 9 |
+| 10011011 | 2 | $x = y((y(xx))y)$ (1110) | open; up to 13 exactly 1, 4, 5, 7, 8, 9, 11 |
+| 100110?? | 2 | $x = y(x((xy)y))$ (670) | open; up to 10 exactly 1, 4, 5, 9 |
+| 10110011 | 2 | $x = y((x(yx))y)$ (1083) | open; up to 13 exactly 1, 3, 4, 7, 8, 9, 11, 12, 13 |
 | 10101111 | 4 | $x = y(x(y(xy)))$ (474) | all $n \ne 2, 4$ |
 | 10111111 | 4 | $x = (yx)((xy)y)$ (1685) | all $n \ne 2$ |
-| 1000001? | 2 | $x = y(((xy)x)y)$ (1286) | open; smallest nontrivial model has order 7 |
+| 1000001? | 2 | $x = y(((xy)x)y)$ (1286) | open; up to 13 exactly 1, 7, 9, 11, 13 (Theorem 6.15) |
 
 The last column comes from the ETP sources under *Comparison*; our data
 agree with every size stated there. The 16 Dupont-type laws have one model up
@@ -259,6 +259,112 @@ order at most 4 that the Equational Theories Project could not settle. A
 finite counterexample would have to be a model of 677, so Theorem 6.11 rules
 out orders 8 and 10 — a small, certified data point, nothing more.
 
+## All orders up to 10, and the next ones (version 1.2)
+
+The case split that settled 677 and 1313 needs only that every row is a
+permutation, which holds for every law of the form $x = y \star T$
+(Theorem 6.3). Thirteen of the fifteen open laws have this form, and the direct
+search had left 15 of their orders $n \le 10$ undecided. Batch 1.2 generalised
+the split, including the division clauses, to every such law
+(`systems/magma_split.py`) and ran it on all of them.
+
+**Lemma 6.12** *[PROVEN — Lean: `right_mul_bijective_of_law`; for law 1076 a
+REDISCOVERY (ETP commentary)]*. If a finite magma satisfies a law
+$x = y \star (s(x, y) \star y)$, it is a quasigroup. *Proof.* Rows are
+permutations by Theorem 6.3. Given $w$, put $x = y \star w$; the law gives
+$y \star (s \star y) = y \star w$, hence $s \star y = w$, so the column of $y$
+contains $w$. ∎ Laws 1076, 1083, 1110, 1279, 1286 and 1313 have this form, so
+their searches may use Latin columns and divide on both sides.
+
+**Theorem 6.13** *[PROVEN — computer-assisted, every case refuted by a
+drat-trim-verified proof; POTENTIALLY NOVEL]*. The following laws have no model
+of the given orders: 467, 501, 704, 1083, 1110 and 1279 at order 10; 670, 907
+and 1286 at orders 8 and 10; 1076 at orders 9 and 10; 883 at order 9.
+
+*Proof.* EXP-C05-09 refutes all 1,239 case formulas of the 15 pairs; each
+refutation is a DRAT proof that drat-trim verified (124 million proof lines;
+the hardest case, 670 at order 10, needs 1.65 million conflicts). ∎ Thirteen
+controls of known answer at orders 8 and 9 — three gaps and ten models — come
+out right.
+
+**Theorem 6.14** *[PROVEN — computer-assisted; for 677 a REDISCOVERY (ETP
+Zulip)]*. For the 13 laws $x = y \star T$ the orders $n \le 10$ with a model are
+exactly:
+
+| law | $T$ | orders $n \le 10$ with a model |
+|---|---|---|
+| 467 | $x(x(yy))$ | 1, 5, 7, 8, 9 |
+| 501 | $y(x(xy))$ | 1, 4, 5, 8, 9 |
+| 670 | $x((xy)y)$ | 1, 4, 5, 9 |
+| 677 | $x((yx)y)$ | 1, 5, 7, 9 |
+| 704 | $y((xx)y)$ | 1, 5, 7, 8 |
+| 883 | $(xy)(yy)$ | 1, 2, 4, 5, 7, 8, 10 |
+| 907 | $(yx)(xy)$ | 1, 3, 7, 9 |
+| 1076 | $(x(xy))y$ | 1, 5 |
+| 1083 | $(x(yx))y$ | 1, 3, 4, 7, 8, 9 |
+| 1110 | $(y(xx))y$ | 1, 4, 5, 7, 8, 9 |
+| 1279 | $((xx)y)y$ | 1, 5, 7, 8 |
+| 1286 | $((xy)x)y$ | 1, 7, 9 |
+| 1313 | $((yx)x)y$ | 1, 5, 7, 9 |
+
+*Proof.* Every order $2 \le n \le 7$ was decided again with the same pipeline
+(EXP-C05-12: 78 pairs, 50 gaps with verified proofs, 28 models re-checked, no
+disagreement with the direct search); orders 8–10 are Theorems 6.11 and 6.13
+together with the models found by EXP-C05-03, EXP-C05-07 and the controls of
+EXP-C05-09. ∎
+
+**Theorem 6.15** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Law 1076
+has no model of order 11 or 12; laws 1110 and 1279 none of order 12 or 13; law
+1286 none of order 12; law 1313 none of order 11 or 12. Hence, up to order 13,
+the spectra of the six laws of Lemma 6.12 are: 1076 {1, 5, 13}; 1083 {1, 3, 4, 7,
+8, 9, 11, 12, 13}; 1110 {1, 4, 5, 7, 8, 9, 11}; 1279 {1, 5, 7, 8, 11}; 1286 {1,
+7, 9, 11, 13}; 1313 {1, 5, 7, 9, 13}.
+
+*Proof.* EXP-C05-10 refutes all 1,797 case formulas of the nine pairs (Latin
+rows and columns), each with a verified proof (206 million proof lines). The
+members of orders 11–13 are linear models over $\mathrm{GF}(11)$ and
+$\mathrm{GF}(13)$ (EXP-C05-07) and, for 1083 at order 12, the product of its
+models of orders 3 and 4. ∎
+
+*A sharper control.* A decision procedure is usually checked by letting it find
+models it should find; at orders 11–13 that can take a day (the known model of
+1083 of order 12 lies in case 189 of 195). So we also check the encoding
+directly: each of the 21 known models at these orders, relabelled as in the case
+split, must satisfy the formula of its own case. All 21 do, and the procedure
+itself finds models of 1110 and 1279 at order 11.
+
+*A conjecture refuted the same day.* None of the twelve laws without a model of
+order 2 has one of order 6 or 10, and products cannot create an order
+$\equiv 2 \pmod 4$ (a product has such an order only if a factor has). We first
+stated this for all laws of the same shape:
+
+**Conjecture 6.16** *[REFUTED — by the lab's own census]*. "A law
+$x = y \star T$ without a model of order 2 has no model of any order
+$n \equiv 2 \pmod 4$."
+
+Law 474, $x = y(x(y(xy)))$, is a counterexample: it has no model of order 2 and
+a model of order 6 (EXP-C05-01; the table is recorded with CLM-C05-18). The
+census had contained the answer all along — the conjecture had been drawn from
+the twelve open laws alone, and was tested against all 21 laws of the same shape
+without a model of order 2 only after it was written down. What remains is a
+statement about twelve laws, on thin evidence:
+
+**Conjecture 6.17** *[CONJECTURE]*. None of the laws 467, 501, 670, 677, 704,
+907, 1076, 1083, 1110, 1279, 1286 and 1313 has a model of order
+$n \equiv 2 \pmod 4$.
+
+**Proposition 6.18** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Law 677
+has a model of order 12 if and only if one of 57 explicit case formulas is
+satisfiable. In particular such a model, if it exists, either is idempotent with
+some row having exactly one fixed point, or has a non-idempotent element $a$
+with the fewest fixed points whose row has at most two fixed points and moves
+$a$ in a cycle of length at least 4.
+
+*Proof.* EXP-C05-11 refutes the other 138 of the 195 case formulas, each with a
+verified proof (10.5 million proof lines). ∎ This decides nothing about order
+12, which is open in every source we found; it is the starting point of the
+next step.
+
 ## Experiments
 
 | Experiment | Question | Result |
@@ -271,6 +377,10 @@ out orders 8 and 10 — a small, certified data point, nothing more.
 | EXP-C05-06 | DRUP proofs for the gaps | 48 of 48 verified by drat-trim |
 | EXP-C05-07 | linear models over $\mathrm{GF}(q)$, $q \le 128$ (after the review) | 0 conflicts; order 16 for laws 677 and 1313 (Theorem 6.10) |
 | EXP-C05-08 | 677 and 1313 at orders 8 and 10: complete case split, DRAT proofs (version 1.1) | 284 of 284 case CNFs UNSAT, all proofs verified (Theorem 6.11) |
+| EXP-C05-09 | the 15 open orders $n \le 10$ of the 13 laws $x = y \star T$ (version 1.2) | all 15 without a model; 1,239 case CNFs, all proofs verified; 13 of 13 controls (Theorem 6.13) |
+| EXP-C05-10 | orders 11–13 of the quasigroup laws (version 1.2) | 9 of 9 pairs without a model; 1,797 case CNFs, all proofs verified; 21 of 21 known models admitted (Theorem 6.15) |
+| EXP-C05-11 | law 677 at order 12 (version 1.2) | 138 of 195 case CNFs refuted with verified proofs, 57 undecided (Proposition 6.18) |
+| EXP-C05-12 | every order $n \le 7$ of the 13 laws, again with certificates (version 1.2) | 78 pairs, 0 disagreements; 50 gaps certified (Theorem 6.14) |
 
 ## Comparison with existing mathematics
 
@@ -305,7 +415,12 @@ order 9. *Found later on the ETP Zulip* (the topics "FINITE: 677 -> 255" and
 orders 5, 7, 9 and its gaps at 2, 3, 4, 6, 8 and 10 (the last by 39 hours of
 Mace4, January 2025), and the model of 1516 of order 9. *Not found in any
 source read:* the models of 1286 and 1313 of order 9, the other gaps of
-Theorem 6.5, and 1313 at orders 8 and 10. ETP members may hold unpublished
+Theorem 6.5, 1313 at orders 8 and 10, the 24 gaps of Theorems 6.13 and 6.15, the
+complete lists of Theorem 6.14 for the twelve laws other than 677 (the
+Historian's spectrum audit, `reviews/historian_spectra_2026.md`, read Le Floch's
+notes, the ETP paper and repository, the Zulip archive to February 2026, the
+eq677 database and arXiv), and Proposition 6.18 (orders 12 and 14 of 677 are
+open in every source). ETP members may hold unpublished
 searches, so the novelty is relative to these sources. The three refuted
 hypotheses were our own.
 
@@ -327,9 +442,9 @@ tables, so its count is not used.
 
 ## Open questions
 
-1. Decide laws 677 and 1313 at orders 12 and 14 (8 and 10 are excluded by
-   Theorem 6.11, 16 occurs), and law 1286 at orders 8 and 10, with the case
-   split of Theorem 6.11.
+1. Decide law 677 at orders 12 and 14 (Proposition 6.18 reduces order 12 to
+   57 formulas) and law 1313 at order 14. Is Conjecture 6.17 true, and what
+   separates the twelve laws from law 474?
 2. Is the spectrum of law 115 all $n \ne 2, 6$, as the notes conjecture? Our
    data agree up to $n = 8$.
 3. Direct products of models are models, so every spectrum is closed under

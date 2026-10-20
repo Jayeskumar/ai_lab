@@ -10,25 +10,25 @@
     "CLM-C18-13": "NO IMPROVEMENT",
     "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 230,
+  "claims": 237,
   "claims_by_system": {
     "SYS-A": 39,
-    "SYS-B": 67,
+    "SYS-B": 74,
     "SYS-C": 42,
     "SYS-D": 45,
     "SYS-E": 37
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 205,
-  "experiments": 114,
-  "generated": "2026-10-20T02:04:45Z",
-  "lean_files_verified": 21,
-  "lean_theorems": 334,
+  "experiment_runs": 209,
+  "experiments": 118,
+  "generated": "2026-10-20T15:58:58Z",
+  "lean_files_verified": 22,
+  "lean_theorems": 342,
   "novelty": {
-    "NOT ASSESSED": 70,
-    "POTENTIALLY NOVEL": 51,
-    "REDISCOVERY": 109
+    "NOT ASSESSED": 71,
+    "POTENTIALLY NOVEL": 52,
+    "REDISCOVERY": 114
   },
   "potentially_novel": [
     [
@@ -72,23 +72,28 @@
       "REFUTED"
     ],
     [
-      "CLM-C05-07",
-      "New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9",
-      "PROVEN"
-    ],
-    [
-      "CLM-C05-08",
-      "New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6",
-      "PROVEN"
-    ],
-    [
-      "CLM-C05-12",
-      "Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
-      "PROVEN"
-    ],
-    [
       "CLM-C05-13",
       "Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-15",
+      "Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-16",
+      "Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279, 1286, 1313; complete spectra up to 13 for the six laws x = y*(S*y)",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-17",
+      "Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-20",
+      "Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable",
       "PROVEN"
     ],
     [
@@ -288,13 +293,14 @@
     ]
   ],
   "proven_by_check": {
-    "Lean (complete)": 17,
-    "Lean + written or computational parts": 43,
-    "computer-assisted": 15,
+    "Lean (complete)": 18,
+    "Lean + written or computational parts": 45,
+    "computer-assisted": 17,
     "published proof (literature)": 3,
     "written proof": 60
   },
   "proven_not_fully_formal_by_review": {
+    "awaiting independent review": 4,
     "independently reviewed": 121
   },
   "skeptic_verdicts": {
@@ -304,6 +310,13 @@
       "CLM-C01-10",
       "CLM-C01-11",
       "CLM-C02-11",
+      "CLM-C05-15",
+      "CLM-C05-16",
+      "CLM-C05-17",
+      "CLM-C05-18",
+      "CLM-C05-19",
+      "CLM-C05-20",
+      "CLM-C05-21",
       "CLM-C08-07",
       "CLM-C08-08"
     ],
@@ -316,9 +329,9 @@
   },
   "verification": {
     "COMPUTATIONALLY SUPPORTED": 37,
-    "CONJECTURE": 4,
+    "CONJECTURE": 5,
     "INCONCLUSIVE": 2,
-    "PROVEN": 138,
-    "REFUTED": 49
+    "PROVEN": 143,
+    "REFUTED": 50
   }
 }

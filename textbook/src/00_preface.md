@@ -71,3 +71,11 @@ experiment, and a certified computation on two open spectrum questions of
 Chapter 6. Every change this caused to a claim's status, label or statement is
 listed, with its reason, in the generated *Corrections log* at the end of the
 book.
+
+*Version 1.2.* Asked to "find more", the laboratory then went back to one open
+front, the spectra of the Equational Theories Project's open laws (Chapter 6):
+every order up to 10 of the 13 laws $x = y \star T$ is now decided with a
+certificate, 24 orders that no source we found states are shown to have no
+model, and the open question of law 677 at order 12 is cut down to explicit
+pieces. A conjecture drawn from the new data was refuted by the laboratory's own
+census within a day; it is kept, with the refutation, in Chapter 6.
