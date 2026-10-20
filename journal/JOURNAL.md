@@ -1624,3 +1624,27 @@ Batch 1.1 (G4) - EXP-C05-08 decides the two open orders of laws 677 and 1313 lef
 
 *Evidence:* EXP-C05-08, CLM-C05-11, CLM-C05-12, CLM-C05-13
 
+### [2026-10-20T02:03:31Z] Mathematical Skeptic — review (`C05-17`)
+
+Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md) - Lemmas 7-9 and the encoding of EXP-C05-08 are correct and the code matches them; all 401 CNFs rebuilt with matching hashes; laws 677 and 1313 re-decided at orders 8 and 10 with an encoding written from scratch and a different case split, every case UNSAT with DRAT proofs verified by drat-trim (677 at order 10 twice). CLM-C05-11, -12, -14 upheld; CLM-C05-13 upheld with a citation correction (EXP-C05-06 certifies the gaps 2, 3, 4, 6); CLM-C05-10 upheld with a correction (EXP-C05-07 re-checks one model per (law, q); the Skeptic's computation re-checks all and reproduces every order list). Every model of 677 of order <= 10 is a quasigroup (SAT, uncertified).
+
+*Evidence:* CLM-C05-10, CLM-C05-11, CLM-C05-12, CLM-C05-13, CLM-C05-14, reviews/skeptic_batch1.1.md
+
+
+## C17
+
+### [2026-10-20T02:03:31Z] Mathematical Skeptic — review (`C17-06`)
+
+Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md) - the Historian's row-period argument for CLM-C17-08 is correct once the row structure of the forced table (rows are periodic, with period the first index of the top element) and the top-element case of the induction are written out; the Skeptic did so and machine-checked the whole argument: C17_RowPeriod.lean proves, for every N, that the full anchor instance has a model iff N is a power of 2, from Laver's theorem taken as an explicit hypothesis (used only at order 2^(v2(N)+1)). CLM-C17-08 becomes PROVEN; the literature chain through Dehornoy's book is no longer needed. CLM-C17-05 upheld.
+
+*Evidence:* CLM-C17-08, CLM-C17-05, reviews/skeptic_batch1.1.md
+
+
+## C19
+
+### [2026-10-20T02:03:31Z] Mathematical Skeptic — review (`C19-11`)
+
+Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.2) - the written steps of Theorem 8 (CLM-C19-15) that are not in Lean are correct; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound; the Lean core and the Lean part of CLM-C19-14 are faithful.
+
+*Evidence:* CLM-C19-15, CLM-C19-14, reviews/skeptic_batch1.1.md
+

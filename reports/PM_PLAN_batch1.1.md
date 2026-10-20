@@ -36,7 +36,11 @@ research cycle starts.
 
 - **G7 — independent review of the sprint's results** (Skeptic, agent): the row-period proof for CLM-C17-08,
   Lemmas 7–9 and the encoding of EXP-C05-08 with an independent re-computation, the two PROVEN claims that had no
-  independent review (CLM-C05-10, CLM-C19-15), and the fidelity of the new Lean statements. In progress.
+  independent review (CLM-C05-10, CLM-C19-15), and the fidelity of the new Lean statements. **Done**
+  ([skeptic_batch1.1.md](../reviews/skeptic_batch1.1.md)): nothing refuted, no gap; the row-period proof completed
+  and machine-checked (CLM-C17-08 → PROVEN, `C17_RowPeriod.lean`); 677 and 1313 re-decided independently; two
+  record corrections (CLM-C05-13 citation, CLM-C05-10 re-check wording). The review was interrupted once by a
+  container restart and resumed from its transcript.
 
 ## Not in this sprint (and why)
 

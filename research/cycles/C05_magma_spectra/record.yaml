@@ -163,12 +163,13 @@ claims:
     title: "Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a model x*y = ax + by over GF(q)"
     statement: "For each of the 15 open ETP laws of EXP-C05-03 the prime powers q <= 128 admitting a linear model x*y = ax + by over GF(q) are exactly those listed in results/EXP-C05-07.json. In particular laws 670, 677, 1076, 1286 and 1313 have models of order 16 (1286 also of order 32), law 670 has a model of order 9, and no law has a linear model at an order excluded by the SAT search, the DRUP certificates (CLM-C05-08) or the ETP notes."
     verification: PROVEN
-    proof_check: "computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); every model found re-checked on its full table with the generic evaluator; three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)"
+    proof_check: "computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); one model per (law, q) re-checked on its full table with the generic evaluator in EXP-C05-07; every solution re-checked by full-table evaluation in the Skeptic's independent computation, which reproduces every order list and solution count for all 15 laws and all 44 prime powers q <= 128 with a different representation of GF(q) (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 3.1); three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)"
     proof: "proofs/paper/C05.md#theorem-6-clm-c05-10--linear-models-over-finite-fields-computer-assisted"
     evidence: [EXP-C05-07]
     novelty: NOT ASSESSED
     novelty_basis: "Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05)."
     limitations: Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.1) - upheld with a correction: EXP-C05-07 re-checks one model per (law, q), not every solution; the Skeptic's computation re-checks all"
 
   - id: CLM-C05-11
     type: theorem
@@ -177,11 +178,12 @@ claims:
     statement: "No magma of order 8 satisfies x = y(x((yx)y)) (ETP equation 677)."
     verification: PROVEN
     proof: "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted"
-    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)"
+    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 8 with a different case split, 45/45 cases UNSAT"
     evidence: [EXP-C05-08]
     novelty: REDISCOVERY
     novelty_basis: "The ETP paper (Bolan et al., arXiv:2512.07087, section 7.3.1) reports that Mace4 exhausts size 8 for equation 677 in 1.5 s. The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim)."
     related: [CLM-C05-12, CLM-C05-09]
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 2) - upheld; independent re-decision recorded"
 
   - id: CLM-C05-12
     type: theorem
@@ -190,24 +192,26 @@ claims:
     statement: "No magma of order 10 satisfies x = y(x((yx)y)) (ETP equation 677). With CLM-C05-07, CLM-C05-08, CLM-C05-11 and the ETP notes, the orders n <= 10 of finite models of 677 are exactly 1, 5, 7 and 9."
     verification: PROVEN
     proof: "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted"
-    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)"
+    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 10 twice, with the case split of Lemma 8 and with the Skeptic's own split, 97/97 cases UNSAT each"
     evidence: [EXP-C05-08]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10."
     related: [CLM-C05-11, CLM-C05-13, CLM-C05-09, CLM-C05-10]
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 2) - upheld; independent re-decision recorded"
 
   - id: CLM-C05-13
     type: theorem
     system: SYS-B
     title: "Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9"
-    statement: "No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-03, the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9."
+    statement: "No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-06 (DRUP-certified gaps at 2, 3, 4, 6), the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9."
     verification: PROVEN
     proof: "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted"
-    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)"
+    proof_check: "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 8 is UNSAT even without symmetry breaking (Latin square only); orders 8 and 10 with the Skeptic's split, 45 + 97 cases UNSAT"
     evidence: [EXP-C05-08]
     novelty: POTENTIALLY NOVEL
     novelty_basis: "Not stated in the sources read: B. Le Floch's notes 'Spectra of equational laws' (ETP, 2025) list 1313 as 'unknown spectrum starting with 1,5,7'; the ETP paper (arXiv:2512.07087) does not discuss 1313 in the parts read. ETP members may hold unpublished searches, so novelty is relative to these sources."
     related: [CLM-C05-12, CLM-C05-14, CLM-C05-07, CLM-C05-09]
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 2) - upheld with a correction: the gaps 2, 3, 4, 6 are certified by EXP-C05-06, not EXP-C05-03 (solver results only); independent re-decision recorded"
 
   - id: CLM-C05-14
     type: theorem
@@ -221,6 +225,8 @@ claims:
     novelty: NOT ASSESSED
     novelty_basis: "A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature."
     related: [CLM-C05-13, CLM-C05-05]
+    notes: "The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6)."
+    change_reason: "Skeptic review of batch 1.1 - upheld; observation on non-right-cancellative models of 677 added"
 
 journal:
   - key: C05-01
@@ -304,6 +310,11 @@ journal:
     kind: result
     text: "Batch 1.1 (G4) - EXP-C05-08 decides the two open orders of laws 677 and 1313 left by EXP-C05-03: neither law has a model of order 8 or 10. A complete case split (Lemma 8: idempotent or not, cycle type of one row) gives 45 and 97 CNFs per law; all 284 are UNSAT and every DRAT proof was verified by drat-trim. So both laws have exactly the orders 1, 5, 7, 9 up to 10, and 16 is the only even order known for either. 677 at order 8 was already known (Mace4, ETP paper section 7.3.1); 677 at 10 and 1313 at 8 and 10 were not found in the sources read. Law 677 is the premise of the ETP's last open finite implication (677 => 255)."
     refs: [EXP-C05-08, CLM-C05-11, CLM-C05-12, CLM-C05-13]
+  - key: C05-17
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md) - Lemmas 7-9 and the encoding of EXP-C05-08 are correct and the code matches them; all 401 CNFs rebuilt with matching hashes; laws 677 and 1313 re-decided at orders 8 and 10 with an encoding written from scratch and a different case split, every case UNSAT with DRAT proofs verified by drat-trim (677 at order 10 twice). CLM-C05-11, -12, -14 upheld; CLM-C05-13 upheld with a citation correction (EXP-C05-06 certifies the gaps 2, 3, 4, 6); CLM-C05-10 upheld with a correction (EXP-C05-07 re-checks one model per (law, q); the Skeptic's computation re-checks all and reproduces every order list). Every model of 677 of order <= 10 is a quasigroup (SAT, uncertified)."
+    refs: [CLM-C05-10, CLM-C05-11, CLM-C05-12, CLM-C05-13, CLM-C05-14, reviews/skeptic_batch1.1.md]
 
 next_directions:
   - "C05: decide laws 677 and 1313 at orders 12 and 14, and law 1286 at 8 and 10, with the case split of EXP-C05-08 (Lemma 8); certify"

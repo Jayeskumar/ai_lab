@@ -1,0 +1,15 @@
+{"i": 39, "mode": "sbmin", "case": "sbmin", "lam": [2, 2, 2, 4], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 103471, "solve_s": 7.0}
+{"i": 46, "mode": "sbmin", "case": "sbmin", "lam": [1, 2, 3, 4], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 119111, "solve_s": 8.5}
+{"i": 48, "mode": "sbmin", "case": "sbmin", "lam": [3, 3, 4], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 869038, "solve_s": 76.8}
+{"i": 52, "mode": "sbmin", "case": "sbmin", "lam": [2, 4, 4], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 244533, "solve_s": 19.5}
+{"i": 66, "mode": "sbmin", "case": "sbmin", "lam": [2, 3, 5], "ell": 5, "division": true, "status": "UNSAT", "conflicts": 354360, "solve_s": 25.7}
+{"i": 68, "mode": "sbmin", "case": "sbmin", "lam": [1, 4, 5], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 157227, "solve_s": 10.5}
+{"i": 69, "mode": "sbmin", "case": "sbmin", "lam": [1, 4, 5], "ell": 5, "division": true, "status": "UNSAT", "conflicts": 192545, "solve_s": 13.3}
+{"i": 77, "mode": "sbmin", "case": "sbmin", "lam": [2, 2, 6], "ell": 6, "division": true, "status": "UNSAT", "conflicts": 132339, "solve_s": 9.3}
+{"i": 80, "mode": "sbmin", "case": "sbmin", "lam": [1, 3, 6], "ell": 6, "division": true, "status": "UNSAT", "conflicts": 175337, "solve_s": 12.5}
+{"i": 81, "mode": "sbmin", "case": "sbmin", "lam": [4, 6], "ell": 4, "division": true, "status": "UNSAT", "conflicts": 900850, "solve_s": 79.2}
+{"i": 82, "mode": "sbmin", "case": "sbmin", "lam": [4, 6], "ell": 6, "division": true, "status": "UNSAT", "conflicts": 799134, "solve_s": 66.6}
+{"i": 87, "mode": "sbmin", "case": "sbmin", "lam": [1, 2, 7], "ell": 7, "division": true, "status": "UNSAT", "conflicts": 93459, "solve_s": 6.2}
+{"i": 89, "mode": "sbmin", "case": "sbmin", "lam": [3, 7], "ell": 7, "division": true, "status": "UNSAT", "conflicts": 972836, "solve_s": 83.2}
+{"i": 93, "mode": "sbmin", "case": "sbmin", "lam": [2, 8], "ell": 8, "division": true, "status": "UNSAT", "conflicts": 285882, "solve_s": 20.9}
+{"i": 95, "mode": "sbmin", "case": "sbmin", "lam": [1, 9], "ell": 9, "division": true, "status": "UNSAT", "conflicts": 161779, "solve_s": 11.3}

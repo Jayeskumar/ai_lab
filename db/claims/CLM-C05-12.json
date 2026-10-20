@@ -9,13 +9,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-19T23:54:21Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 10 twice, with the case split of Lemma 8 and with the Skeptic's own split, 97/97 cases UNSAT each",
+      "old": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)",
+      "reason": "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 2) - upheld; independent re-decision recorded",
+      "ts": "2026-10-20T02:03:31Z"
     }
   ],
   "id": "CLM-C05-12",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10.",
   "proof": "proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted",
-  "proof_check": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)",
+  "proof_check": "computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 10 twice, with the case split of Lemma 8 and with the Skeptic's own split, 97/97 cases UNSAT each",
   "related": [
     "CLM-C05-11",
     "CLM-C05-13",

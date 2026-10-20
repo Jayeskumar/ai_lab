@@ -74,12 +74,12 @@ claims:
     evidence: [EXP-C17-03, EXP-C17-02]
     novelty: "REDISCOVERY"
     novelty_basis: "Uniqueness for every N: Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2; Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.1 (https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf). Non-existence of a model of the full instance for N not a power of 2: Biane's footnote 1 ('(2.2) for all p, q ... if N is not a power of 2 this is not true', credited to A. Lewandowski); Aguilera-Iannella (arXiv:2610.06106, 2026) state it as Biane's observation, and it follows from their Prop. 2.5 (the instance at (a, N) holds iff a * N = N) together with Dehornoy's Lemma X.1.7 and Prop. X.1.6. So the statement holds for every N (CLM-C17-08) (Historian audit 2026-10-19, reviews/historian_C11_C20.md)."
-    limitations: "Uniqueness and existence are Lean-checked for every N; the exclusion of non-powers of 2 is computational here (N <= 4096). For every N it is published (CLM-C17-08)."
+    limitations: "Uniqueness and existence are Lean-checked for every N; that non-powers of 2 have no model is checked here for N <= 4096 and proved for every N in CLM-C17-08 (Lean, from Laver's theorem)."
     proof: "proofs/paper/C17.md#observation-4-clm-c17-05--the-anchor-instance-of-left-distributivity"
     lean: [proofs/lean/Infinity/C17_ForcedTable.lean]
-    proof_check: "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5)"
+    proof_check: "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md, the Lean statements are faithful)"
     references: [https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf, https://arxiv.org/abs/2610.06106]
-    change_reason: "Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED -> PROVEN; Historian audit 2026-10-19: NOT ASSESSED -> REDISCOVERY"
+    change_reason: "Skeptic review of batch 1.1 - upheld; limitation points to CLM-C17-08"
   - id: CLM-C17-06
     type: hypothesis
     system: SYS-B
@@ -104,16 +104,20 @@ claims:
   - id: CLM-C17-08
     type: theorem
     system: SYS-B
-    title: "For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N <= 4096)"
+    title: "For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; Lean, from Laver's theorem)"
     statement: "For every N >= 1, an anchored table (x*0 = x + 1 mod N) satisfies x*(y+1) = (x*y)*(x+1) for all x and y, the wrap-around y = N - 1 included, iff N is a power of 2; it is then the Laver table A_n. Equivalently (CLM-C17-05), left-distributivity of an anchored table of any order is decided by an O(N^2) comparison with the forced table."
-    verification: COMPUTATIONALLY SUPPORTED
+    verification: "PROVEN"
     evidence: [EXP-C17-03]
     novelty: REDISCOVERY
     novelty_basis: "Stated in Biane, Sem. Lothar. Combin. 80 (2019) B80c, section 2.1, footnote 1 (credited to A. Lewandowski) and, as Biane's observation, in Aguilera-Iannella, 'Non-dyadic Laver algebras', arXiv:2610.06106 (2026), section 2.2. A proof: their Prop. 2.5 (read; the instance at (a, N) holds iff a * N = N) with Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.7 (left-distributive iff a * N = N for every a) and Prop. X.1.6 (no such left-distributive table unless N is a power of 2), the last two read only as cited by Aguilera-Iannella (Historian audit 2026-10-19, reviews/historian_C11_C20.md, section 'The CLM-C17-05 question')."
     references: ["https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf", "https://arxiv.org/abs/2610.06106"]
     related: [CLM-C17-05, CLM-C06-01]
-    limitations: "The lab has checked the statement for N <= 4096 only (EXP-C17-03). The published proof rests on two results of Dehornoy's book that the lab read only as cited; an independent argument through row periods (Historian report, section 4: rows s+1..N-1 of the forced table are shifted copies of rows of A_(k+1), with s = N - 2^(k+1) and k = v_2(N), so row s has period 2^(k+1), which does not divide N) uses only Laver's periodicity theorem and awaits independent review."
+    limitations: "Conditional on Laver's theorem (published); the lab checks the Laver tables only computationally (A_n left-distributive for n <= 12 in EXP-C06-01). The literature chain through Dehornoy's book (read only as cited) is no longer needed."
     notes: "Answers the first of the C17 next directions ('prove the LD anchor-instance characterisation for all N') from the literature."
+    proof: "proofs/paper/C17.md#theorem-5-clm-c17-08--the-full-anchor-instance-has-a-model-iff-n-is-a-power-of-2"
+    lean: [proofs/lean/Infinity/C17_RowPeriod.lean]
+    proof_check: "Lean 4 proof for every N with Laver's theorem as an explicit hypothesis - proofs/lean/Infinity/C17_RowPeriod.lean, full_instance_iff_pow_two and only_powers_of_two (standard axioms only): if for every j some anchored table of order 2^j satisfies the full instance (Laver's published theorem that A_n is left-distributive, the input of CLM-C06-01 and CLM-C17-05, used only at order 2^(v2(N)+1)), then an anchored table of order N satisfies it iff N is a power of 2; written proof proofs/paper/C17.md Theorem 5 (the Historian's row-period argument, completed by the Skeptic, reviews/skeptic_batch1.1.md section 1.2, which also wrote the Lean file); numerically checked for every N <= 4096 (EXP-C17-03 and both reviewers' scripts)"
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 1) - the Historian's row-period proof completed and machine-checked (C17_RowPeriod.lean, conditional on Laver's theorem): COMPUTATIONALLY SUPPORTED -> PROVEN"
 
 journal:
   - key: C17-01
@@ -141,8 +145,13 @@ journal:
     kind: novelty
     text: "Historian audit 2026-10-19 (reviews/historian_C11_C20.md) - the anchor-instance question of CLM-C17-05 is answered in the literature for every N: uniqueness is Dehornoy's Lemma X.1.2 (also Biane, SLC 80 (2019) section 2.1), and the full instance fails for every N that is not a power of 2 (Biane's footnote 1; Aguilera-Iannella, arXiv:2610.06106, Prop. 2.5 with Dehornoy's Lemma X.1.7 and Prop. X.1.6). Several surveys, including Biane's arXiv v1 cited in C06, state the recursion for all q, which is false already at N = 3; the lab's C17 correction of its own C06 paraphrase is the correction Biane made in the published version. With the new Lean file C17_ForcedTable.lean (uniqueness, existence, reduction to the wrap-around equations for every N), CLM-C17-05 becomes PROVEN (computer-assisted, N <= 4096) and REDISCOVERY; the all-N statement is recorded as CLM-C17-08 (REDISCOVERY, COMPUTATIONALLY SUPPORTED until an independent proof check)."
     refs: [CLM-C17-05, CLM-C17-08, reviews/historian_C11_C20.md]
+  - key: C17-06
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md) - the Historian's row-period argument for CLM-C17-08 is correct once the row structure of the forced table (rows are periodic, with period the first index of the top element) and the top-element case of the induction are written out; the Skeptic did so and machine-checked the whole argument: C17_RowPeriod.lean proves, for every N, that the full anchor instance has a model iff N is a power of 2, from Laver's theorem taken as an explicit hypothesis (used only at order 2^(v2(N)+1)). CLM-C17-08 becomes PROVEN; the literature chain through Dehornoy's book is no longer needed. CLM-C17-05 upheld."
+    refs: [CLM-C17-08, CLM-C17-05, reviews/skeptic_batch1.1.md]
 
 next_directions:
-  - "C17: the all-N statement is published (CLM-C17-08, batch 1.1); remaining - an independent check of the row-period proof and a reading of Dehornoy, Braids and Self-Distributivity, Ch. X (Lemma 1.7, Prop. 1.6)"
+  - "C17: formalise the existence of the Laver tables (Laver's theorem) in Lean, which would make CLM-C17-08 and CLM-C17-05 unconditional"
   - "C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?"
   - "C17: benchmark against optimised C implementations and against SAT-based model checkers"

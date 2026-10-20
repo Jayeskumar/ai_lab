@@ -113,9 +113,24 @@ fails when $N$ is not a power of 2 (a correction credited to A. Lewandowski),
 and Aguilera and Iannella (2026) prove that the wrap-around equation at $x$
 holds iff row $x$ ends in the top element; with Dehornoy's criterion — the
 table is left-distributive iff every row ends in the top element — this
-settles every $N$ (CLM-C17-08). We have read the last step only as cited, so
-the all-$N$ statement stays computationally supported in our records until an
-independent proof (by row periods) has been checked.
+settles every $N$. The Historian also sketched a direct argument, and the
+Skeptic completed it and checked it in Lean:
+
+**Theorem 19.5** *[PROVEN — Lean, from Laver's theorem; REDISCOVERY: Biane,
+Aguilera–Iannella]*. For every $N \ge 1$ the identity
+$x \star (y + 1) = (x \star y) \star (x + 1)$, wrap-around included, has an
+anchored solution iff $N$ is a power of 2.
+
+*Proof idea.* Every row of the forced table is periodic, with period the first
+column at which it reaches the top element, and the wrap-around equation holds
+in row $x$ iff that period divides $N$. Write $N = 2^k r$ with $r \ge 3$ odd and
+$s = N - 2^{k+1}$. Using only that the Laver table of order $2^{k+1}$ satisfies
+the identity (Laver's theorem), the rows $s, \ldots, N - 2$ of the forced table
+of order $N$ are shifted copies of rows of that Laver table, and row $s - 1$ is
+$s, s + 1, \ldots$ with period $2^{k+1}$, which does not divide $N$. ∎ The Lean
+file `C17_RowPeriod.lean` proves the equivalence for every $N$ with Laver's
+theorem as its only hypothesis; the details are Theorem 5 of
+`proofs/paper/C17.md`.
 
 This experiment also corrected the laboratory's own citation of Laver's
 theorem in Chapter 7: the classical recursion is imposed only for $q < N$;
@@ -136,6 +151,7 @@ with model checkers.
 
 ## Open questions
 
-1. Prove Observation 19.4 for all $N$: show that the forced table fails the
-   wrap-around equations whenever $N$ is not a power of 2.
+1. *(Answered in version 1.1 by Theorem 19.5.)* What remains is to prove
+   Laver's theorem itself in Lean, which would make Theorem 19.5
+   unconditional.
 2. Which other laws admit a Light-type reduction to generators?

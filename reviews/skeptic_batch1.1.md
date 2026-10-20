@@ -4,20 +4,22 @@ Independent Skeptic, 2026-10-20. I did not produce any of the results under revi
 checked by me; where I could not check something I say so. My scripts and small outputs are in
 `reviews/skeptic_checks/batch1.1/`. None of them imports `systems/`, `lab/` or the experiment builders, except
 `c05_e08_dimacs_check.py`, which imports the EXP-C05-08 builder *on purpose* (to re-generate the certified CNFs
-and compare their hashes). All runs used `nice -n 15`, one process at a time.
+and compare their hashes). Until the container restart at 01:03 UTC all runs used `nice -n 15`, one process at a
+time; afterwards, as the coordinator allowed, at most three detached processes at `nice -n 10`, each writing
+its results case by case.
 
 ## Verdicts
 
 | Claim | Verdict | Evidence | Recommended record change |
 |---|---|---|---|
-| CLM-C17-08 (full anchor instance of LD has a model iff N is a power of 2, every N) | **UPHELD** | The Historian's row-period argument (b) is correct and complete up to routine details, which I wrote out (§1.2) and machine-checked: `C17_RowPeriod.lean` proves, for every N ≥ 1, "a model of the full instance on Fin N exists ⇔ N is a power of 2" from one explicit hypothesis, Laver's theorem (a model exists on every Fin 2^j); standard axioms only, no sorry. Laver's theorem is used only at 2^(v₂(N)+1). Numerically: all lemmas hold for N ≤ 1000 (whole table) and the block lemmas for all non-powers of 2 up to 4096. The literature chain (a) is logically valid as quoted. | verification COMPUTATIONALLY SUPPORTED → PROVEN; proof: the written proof of §1.2 (to be copied to C17.md) plus the Lean file (move to `proofs/lean/Infinity/` and register); proof_check: "Lean: only-if direction and the iff, conditional on Laver's theorem (published: A_n is left-distributive), which is also the input of CLM-C17-05"; drop the limitation "checked for N ≤ 4096 only". |
+| CLM-C17-08 (full anchor instance of LD has a model iff N is a power of 2, every N) | **UPHELD** | The Historian's row-period argument (b) is correct and complete up to routine details, which I wrote out (§1.2) and machine-checked: `C17_RowPeriod.lean` proves, for every N ≥ 1, "a model of the full instance on Fin N exists ⇔ N is a power of 2" from one explicit hypothesis, Laver's theorem (a model exists on every Fin 2^j); standard axioms only, no sorry. Laver's theorem is used only at 2^(v₂(N)+1). Numerically: all lemmas hold for N ≤ 1000 (whole table) and the block lemmas for all non-powers of 2 up to 4096. The literature chain (a) is logically valid as quoted. | verification COMPUTATIONALLY SUPPORTED → PROVEN; proof: the written proof of §1.2 (to be copied to C17.md) plus the Lean file (move to `proofs/lean/Infinity/` and register); proof_check: "written proof (Skeptic, reviews/skeptic_batch1.1.md §1.2) and Lean (C17_RowPeriod.lean: the iff for every N ≥ 1), conditional on Laver's theorem (published: A_n is left-distributive), which is also the input of CLM-C17-05"; limitations: replace the present text (N ≤ 4096; unread book results; awaiting review) by "conditional on Laver's theorem, used only at 2^(v₂(N)+1), an explicit hypothesis in the Lean file"; title: drop "computational here for N <= 4096". |
 | CLM-C17-05 (anchor instance forces one table; Laver tables; N ≤ 4096) | **UPHELD** | `C17_ForcedTable.lean` states uniqueness, existence and the reduction to the wrap-around equations faithfully (§4). The bounded statement is now a special case of CLM-C17-08. | limitations: replace "the exclusion of non-powers of 2 is computational here (N <= 4096)" by a pointer to CLM-C17-08 (proved for every N). |
 | CLM-C05-11 (677 has no model of order 8) | **UPHELD** | Lemma 8 (case split) and Lemma 9 (division clauses) are correct, and so is the encoding of "a∗a = a or ≥ k fixed points"; code review found no error (§2.1–2.3). Independent decision with my own aux-free encoding and a *different* case split (SB-min, §2.4): all 45 cases UNSAT, all 45 DRAT proofs verified by drat-trim. | proof_check: add "independently re-decided and DRAT-certified with a different encoding and case split (reviews/skeptic_batch1.1.md §2.4)". |
-| CLM-C05-12 (677 has no model of order 10; orders ≤ 10 exactly 1, 5, 7, 9) | **UPHELD** | Lab: 97/97 cases UNSAT, all DRAT-verified (results file checked, §2.5). Independent: my SB-min split, all 97 cases UNSAT (TODO-677-10). Sizes 2, 3, 4, 6 (EXP-C05-06, certified), 5, 7, 9 (Lean tables) re-checked by my encoding. | proof_check: add the independent re-decision (§2.4). |
+| CLM-C05-12 (677 has no model of order 10; orders ≤ 10 exactly 1, 5, 7, 9) | **UPHELD** | Lab: 97/97 cases UNSAT, all DRAT-verified (results file checked, §2.5). Independent, my own encoding (§2.4): (a) Lemma 8's split with my own division clauses, 97/97 UNSAT, all 97 DRAT proofs verified by drat-trim; (b) my SB-min split with tie-break R1, 97/97 UNSAT, all 97 DRAT proofs verified as well. The 401 CNFs the lab certified are byte-for-byte those of the reviewed builder (hashes). Sizes 2, 3, 4, 6 (EXP-C05-06, certified) and 5, 7, 9 (Lean tables) re-decided by my encoding. | proof_check: add "independently re-decided with a different encoding (and a second case split), DRAT-certified (reviews/skeptic_batch1.1.md §2.4)". |
 | CLM-C05-13 (1313 has no model of order 8 or 10; orders ≤ 10 exactly 1, 5, 7, 9) | **UPHELD WITH CORRECTIONS** | Independent: order 8 UNSAT even with no symmetry breaking at all (Latin square only, 39 s); orders 8 and 10 with my SB-min split, 45 + 97 cases UNSAT, all DRAT-verified. Correction: the statement cites EXP-C05-03 for the gaps 2, 3, 4, 6, which are solver results there; the certificates are EXP-C05-06. | statement/proof_check: cite EXP-C05-06 (DRUP-certified) for the orders 2, 3, 4, 6; add the independent re-decision. |
-| CLM-C05-14 (finite models of 1313 are quasigroups; Lean) | **UPHELD** | `C05_Law1313.lean` states exactly the ETP laws 1313 and 677 and proves left/right bijectivity; no sorry/axiom (§4). The sentence on non-right-cancellative models of 677 is cited, not checked (TODO-677-noncancel). | none (keep the citation marked as cited). |
+| CLM-C05-14 (finite models of 1313 are quasigroups; Lean) | **UPHELD** | `C05_Law1313.lean` states exactly the ETP laws 1313 and 677 and proves left/right bijectivity; no sorry/axiom (§4). The cited sentence on non-right-cancellative finite models of 677 is in the ETP blueprint (§13.1: a construction from fields of sizes 16 and 31, "this gives a finite 677 magma that is not right-cancellative"; read on the web page, construction not checked). My SAT searches find no non-right-cancellative model of order ≤ 10: every model of 677 of order ≤ 10 is a quasigroup (§2.6; solver results, not certified). | none (the citation is correct; one could add that such a model needs order ≥ 11). |
 | CLM-C05-10 (linear models over GF(q), q ≤ 128) | **UPHELD WITH CORRECTIONS** | Theorem 6 is correct. My own GF(q) arithmetic with a *different* modulus (last instead of first irreducible) and two methods (coefficients; brute-force evaluation of the whole table for all q² pairs (a, b)) reproduces every order list and every solution count of EXP-C05-07 for all 15 laws and all 44 prime powers q ≤ 128; 0 conflicts with SAT gaps, certified gaps or notes. Correction: the paper and proof_check say "every solution is re-checked on its full table"; EXP-C05-07 re-checks only the first solution per (law, q). | proof_check / C05.md Theorem 6: "one model per (law, q) re-checked in EXP-C05-07; all solutions re-checked by full-table evaluation in the Skeptic's independent computation (reviews/skeptic_batch1.1.md §3.1)". |
-| CLM-C19-15 (deficit D(n) ≤ 1 + (t+1)(t+6)/2, L(n) = φ²n − O(log² n)) | **UPHELD** | The written steps not in Lean are correct (§3.2): the split phase reaches lazy(n) after Ψ(lazy(n)) moves (Theorems 1–2, both PROVEN and previously reviewed), continuing arbitrarily gives L(n) ≥ Ψ(lazy(n)), Ψ(Zeckendorf(n)) = B(n) by definition. Brute force (TODO-C19). Lean core faithful (indexing checked). | none. |
+| CLM-C19-15 (deficit D(n) ≤ 1 + (t+1)(t+6)/2, L(n) = φ²n − O(log² n)) | **UPHELD** | The written steps not in Lean are correct (§3.2): the split phase reaches lazy(n) after Ψ(lazy(n)) moves (Theorems 1–2, both PROVEN and previously reviewed), continuing arbitrarily gives L(n) ≥ Ψ(lazy(n)), Ψ(Zeckendorf(n)) = B(n) by definition. My exhaustive longest games for n ≤ 100 (equal to the lab's L_exact) satisfy L(n) ≥ Ψ(lazy(n)) and D(n) ≤ B(n) − Ψ(lazy(n)) ≤ bound; Theorem 2 checked over all split sequences for n ≤ 60; the arithmetic bound for all n ≤ 10^5. Lean core faithful (indexing checked). | none. |
 | CLM-C19-14 (O(log² n)-move method; Lean part) | **UPHELD** | Only the Lean citation was in scope: `deficit_bound` is exactly the arithmetic of the move bound; nothing else is claimed to be formalised. | none. |
 | CLM-C10-07 (skew binary counting; Lean) | **UPHELD** | `C10_SkewBinary.lean` states the claim faithfully (canonical form, cost = changed positions, average with explicit O(log N/N) constant); no trivialising definition found (§4). | none. |
 | CLM-C13-01 (structure of affine spectra; Lean) | **UPHELD** | `C13_AffineStructure.lean` states (a)–(f) faithfully; the uncovered remarks (resultant in the ideal; construction of G′) are disclosed in the proof_check (§4). | none. |
@@ -48,10 +50,10 @@ The argument uses exactly these facts:
   Historian's sketch takes for granted.
 * **One fact about Laver tables, at one order:** for B = 2^(k+1), k = v₂(N), the forced table F_B satisfies
   the wrap-around equations. In 1-based terms: u⋆B = B for every u in A_(k+1), equivalently every row period
-  of A_(k+1) is a power of 2 (= Laver's periodicity statement, Dehornoy–Lebed Thm 1.1(ii)), equivalently
-  A_(k+1) satisfies the full instance — which follows from "A_(k+1) is left-distributive" (Laver's
-  theorem; its existence half suffices, the large-cardinal part is not needed). The lab already relies on
-  this published theorem in CLM-C17-05.
+  of A_(k+1) is a power of 2 (the periodicity statement the Historian read in Dehornoy–Lebed, Thm 1.1(ii); I
+  did not read that source), equivalently A_(k+1) satisfies the full instance — which follows from
+  "A_(k+1) is left-distributive", the existence of the finite Laver tables (the large-cardinal results about
+  the growth of the periods are not used). The lab already relies on this published theorem in CLM-C17-05.
 
 ### 1.2 The complete proof (0-based)
 
@@ -84,10 +86,10 @@ So s ≥ m ≥ 1 and m | s. Then
 (iii) the wrap-around equation fails at x = s−1 (1-based p = s).
 
 *Proof of (i).* Descending induction on x from N−2 to s; for fixed x, ascending induction on y. Put u = x−s,
-so 0 ≤ u ≤ B−2. For y = 0: x⋆0 = x+1 = s+(u+1) = s + u⋆_B 0. Step y → y+1 (y ≤ N−2): let r = y mod m and, by
-the induction hypothesis on y, w = x⋆_N y = s + u′ with u′ = u⋆_B r ∈ [u+1, B−1].
-* Right-hand side. Since r+1 ≤ m < B and (y+1) mod m ≡ r+1 (mod m), (P) and the recursion of F_B at column
-  r ≤ B−2 give u⋆_B((y+1) mod m) = u⋆_B(r+1) = u′⋆_B(u+1).
+so 0 ≤ u ≤ B−2. For y = 0: x⋆0 = x+1 = s+(u+1) = s + u⋆_B 0. Step y → y+1 (y ≤ N−2): let c = y mod m and, by
+the induction hypothesis on y, w = x⋆_N y = s + u′ with u′ = u⋆_B c ∈ [u+1, B−1].
+* Right-hand side. Since c+1 ≤ m < B and (y+1) mod m ≡ c+1 (mod m), (P) and the recursion of F_B at column
+  c ≤ B−2 give u⋆_B((y+1) mod m) = u⋆_B(c+1) = u′⋆_B(u+1).
 * Left-hand side: x⋆_N(y+1) = w⋆_N(x+1).
   - *Top element*, u′ = B−1: then w = N−1, so w⋆_N(x+1) = x+1 (row N−1 of F_N is the identity), and
     u′⋆_B(u+1) = u+1 (row B−1 of F_B is the identity); both sides are s+u+1 = x+1.
@@ -139,7 +141,8 @@ So (b) is a complete and correct proof once Lemma A is stated; no idea is missin
     `full_instance_iff_pow_two (laver : ∀ j, ∃ op : Fin (2^j) → Fin (2^j) → Fin (2^j), (∀ x, op x 0 = x + 1) ∧ ∀ x y, op x (y + 1) = op (op x y) (x + 1)) (N) [NeZero N] : (∃ op : Fin N → …, anchor ∧ full instance) ↔ ∃ j, N = 2 ^ j`
     — in exactly the formulation of `C17_ForcedTable.lean` (the five Fin lemmas of that file are copied so
     that the file only imports Mathlib). The only non-Lean input is the hypothesis `laver`, i.e. the
-    existence of the Laver tables, which is true (Laver; and checked by the lab up to 2^9 and by me up to 2^10).
+    existence of the Laver tables, which is true (Laver; the full instance at 2^j is also checked numerically
+    for 2^j ≤ 4096 by EXP-C17-03 and for 2^j ≤ 1024 by me).
 * **Numerics** (`c17_row_period.py`, my own forced-table code): Lemmas A, B and "full instance iff power of
   2" on the whole table for every N ≤ 1000 and N = 1024; (i), (ii), (iii) and (P) for all 4,083
   non-powers of 2 with 3 ≤ N ≤ 4096 (including 3·2^10, 7·2^9, 15·2^8, 4095); 0 failures; 60 s.
@@ -197,8 +200,12 @@ literal v[a,a,a] to every clause encodes exactly "a∗a = a or ≥ k fixed point
 encoding has fresh auxiliary variables. I checked pysat 1.9.dev16's `CardEnc.atleast(..., vpool=...)`: it
 starts from `vpool.top` and afterwards sets `vpool.top = ret.nv`, so every call gets fresh variables and the
 later `IDPool.id` calls (value variables of `_encode`) cannot collide with them. (The seqcounter at-least-k is
-at-most-(n−k) of the negated literals, a standard encoding.) Semantic test (`c05_e08_dimacs_check.py`): the
-lab's CNF of the right case accepts every relabelled linear model of orders 5, 7, 9 (TODO-sem).
+at-most-(n−k) of the negated literals, a standard encoding.) Semantic test (`c05_e08_dimacs_check.py`): I
+relabelled every linear model of orders 5, 7 and 9 of both laws by Lemma 8, once for *each* admissible choice of
+the element sent to 0, and gave the table as assumptions to the lab's CNF of its case: all 66 relabellings are
+accepted. They fall into 7 different cases, 5 of them non-idempotent with an active conditional bound, e.g.
+(non-idempotent, (6,1), 6) for 677 at 7 and (non-idempotent, (3,3,1), 3) for 1313 at 7, so the
+"v[a,a,a] ∨ seqcounter" clauses and the division clauses do not exclude genuine models.
 
 ### 2.2 Lemma 9 (division clauses) and Lemma 7 / Lean (Latin columns for 1313 only)
 
@@ -221,7 +228,11 @@ x = y∗w and injectivity of L_y). For 677 only rows are used. Sound.
   and values of its variables in order of first occurrence), and those value variables are exact (Lemma 0:
   forward clauses plus at-most-one force them to the true value), so the division clauses constrain the
   real values of T and S. The clause shapes match Lemma 9 exactly.
-* DIMACS: header `p cnf top m`, every clause terminated by 0. TODO-dimacs.
+* DIMACS: header `p cnf top m`, every clause terminated by 0. I re-generated, with the experiment's own
+  `build()`, all 401 UNSAT CNFs of the results file (n = 5, 6, 7, 8 and 10, both laws) and wrote them exactly
+  as `solve_case` does: every sha256 equals the recorded `cnf_sha256` (401/401), the largest literal never
+  exceeds the header's variable count, and no clause is empty or contains 0. So the certified CNFs are exactly
+  the CNFs of the reviewed code.
 * drat-trim parsing: `"s VERIFIED" in stdout`. "s NOT VERIFIED" does not contain that substring. I ran the
   binary on a correct proof (`s VERIFIED`, exit 0), a wrong one and an empty one (`s NOT VERIFIED`, exit 1).
   Its lines start with a carriage return, which a `grep '^s '` would miss but the substring test does not.
@@ -230,35 +241,50 @@ x = y∗w and injectivity of L_y). For 677 only rows are used. Sound.
   order UNDECIDED; a SAT answer counts only if the table satisfies the law. The proof is checked against the
   same clause list that was given to the solver. Correct and conservative.
 
-### 2.4 Independent computation (my encoding, my case split)
+### 2.4 Independent computation (my encoding; my split SB-min, and Lemma 8's split)
 
 `c05_independent.py`, written from scratch. Encoding: exactly-one per cell (pairwise), Latin rows (Lean),
 Latin columns for 1313 only (Lean), and the law **without auxiliary variables**: n⁵ clauses
 ¬(y∗x=c) ∨ ¬(c∗y=d) ∨ ¬(x∗d=e) ∨ (y∗e=x) for 677 and ¬(y∗x=c) ∨ ¬(c∗x=d) ∨ ¬(d∗y=e) ∨ (y∗e=x) for 1313 (in a
 functional table the premise holds exactly for the true inner values, so these clauses are the law). No
-division clauses.
+division clauses unless stated.
 
 My symmetry break **SB-min** (not Lemma 8): pick a with fix(a) minimal over *all* elements; relabel as in
 §2.1 so that row 0 is a fixed permutation of cycle type λ with 0 in a cycle of length ℓ; then *every* row
 has ≥ k = λ.count(1) fixed points. Cases: every partition λ and every distinct part ℓ of λ (45 for n = 8,
 97 for n = 10). Completeness: the relabelling argument of §2.1 with the minimum over all elements
 (σ(a) = 0, fix′(σb) = fix(b) ≥ fix(a) = k for every b). The at-least-k constraint is encoded without
-auxiliary variables: every set of n−k+1 columns contains a b with a∗b = b. Solver: CaDiCaL 1.9.5 (pysat
-`cadical195`; the lab used 1.5.3); DRAT proofs from the same solver, checked by drat-trim.
+auxiliary variables: every set of n−k+1 columns contains a b with a∗b = b (λ is written in decreasing order
+below, as in the lab's files).
+
+*Tie-break R1* (used for 677 at order 10): among the elements of minimal fix,
+take a non-idempotent one if there is one. Then a case with ℓ = 1 arises only if every element of minimal
+fix is idempotent, so in it every non-idempotent row has ≥ k+1 fixed points (clauses "a∗a = a or ≥ k+1 fixed
+points", again aux-free). R1 only adds constraints to cases with ℓ = 1, so cases already refuted without it
+stay refuted. *My division clauses* (optional, aux-free, same content as Lemma 9): y∗a = x ∧ y∗x = c ∧ c∗y = d
+→ x∗d = a and y∗d = x ∧ x∗a = d ∧ y∗x = c → c∗y = a for 677; for 1313 the analogues with T = d∗y, d = c∗x and
+right injectivity. *Lemma 8 in my encoding:* row 0 = my permutation of type λ, idempotency of all elements in
+the idempotent cases, and "a∗a = a or ≥ k fixed points" written as the subset clauses plus the literal a∗a = a.
+For cases with k ≤ 1 its non-idempotent CNFs coincide with my SB-min CNFs (a∗a = a already makes a a fixed
+point of L_a), so the two splits differ in the cases with ℓ = 1 or k ≥ 2.
+Solver: CaDiCaL 1.9.5 (pysat `cadical195`; the lab used 1.5.3); DRAT proofs from the same solver, checked by
+the same drat-trim binary.
 Validation of the encoding: every linear model over GF(5), GF(7), GF(9), GF(16) satisfies my plain CNF and,
 after SB-min relabelling with *each* admissible choice of a, the CNF of its case (including ℓ ≥ 2 cases
 such as ((3,3,1),3) for 1313 at 7, ((7),7) and ((6,1),6) for 677 at 7, ((3,3,3),3) for 1313 at 9); 200
-random row-permutation tables of order 5 are accepted iff they satisfy the law.
+random row-permutation tables of order 5 are accepted iff they satisfy the law. The same holds with my division
+clauses switched on, and for my Lemma-8 CNFs with division clauses (66/66 relabellings of the linear models
+of orders 5, 7, 9 accepted, 7 different cases).
 
 | law | order | result | detail |
 |---|---|---|---|
-| 677 | 2, 3, 4, 6 | no model | TODO-small |
-| 677 | 5, 7 | model found | found by the search (cases ((2,2,1),1) and ((6,1),1)), re-checked by evaluation |
+| 677 | 2, 3, 4, 6 | no model | SB-min: all cases UNSAT (2, 4, 7 and 19 cases) |
+| 677 | 5, 7, 9 | model found | found by the search (cases ((2,2,1),1), ((6,1),1), ((8,1),1)), re-checked by evaluation |
 | 677 | 8 | **no model** | 45/45 cases UNSAT, ≤ 37,746 conflicts each, all 45 DRAT proofs `s VERIFIED` (18 s in all) |
 | 677 | 8 | (plain) | Latin rows + 0∗0 ∈ {0,1} only: not finished in 18 min (as EXP-C05-03 found) |
-| 677 | 10 | **no model** | TODO-677-10 |
-| 1313 | 2, 3, 4, 6 | no model | TODO-small |
-| 1313 | 5, 7 | model found | cases ((2,2,1),1) and ((3,3,1),1), re-checked |
+| 677 | 10 | **no model** | (a) Lemma 8's split in my encoding plus my division clauses: 97/97 UNSAT, all 97 DRAT proofs `s VERIFIED` (34.6 M proof lines; 807 s solving, 991 s checking; hardest case (non-idempotent, (7,3), 7), 972,836 conflicts). (b) SB-min with tie-break R1, with my division clauses in every case: 97/97 UNSAT, all 97 DRAT proofs `s VERIFIED` (40.8 M proof lines; 908 s solving, 1,069 s checking; hardest (7,3), ℓ = 7, 972,836 conflicts). Earlier solver-only runs of SB-min agree (72 cases within 300,000 conflicts with the plain encoding, 3 more unbounded with ≤ 2.16 M conflicts, the rest with division clauses and, for ℓ = 1, R1); plain SB-min without R1 and division clauses left ((3,3,3,1),1) open after 10 min |
+| 1313 | 2, 3, 4, 6 | no model | SB-min: all cases UNSAT (2, 4, 7 and 19 cases) |
+| 1313 | 5, 7, 9 | model found | cases ((2,2,1),1), ((3,3,1),1), ((3,3,3),3), re-checked |
 | 1313 | 8 | **no model** | Latin square only, **no symmetry breaking at all**: UNSAT in 39 s (800,663 conflicts); SB-min: 45/45 UNSAT, all DRAT-verified |
 | 1313 | 10 | **no model** | SB-min: 97/97 UNSAT (27 s; most cases by unit propagation), all 97 DRAT proofs `s VERIFIED`; Latin square without symmetry breaking: not finished in 10 min |
 
@@ -286,8 +312,18 @@ as stated.
   Lean tables (CLM-C05-07), 8 and 10 here.
 * CLM-C05-13 cites "the ETP notes and EXP-C05-03" for 1313 at 2, 3, 4, 6. EXP-C05-03 is solver-trusted; the
   DRUP certificates for (1313, n), n = 2, 3, 4, 6, are in EXP-C05-06 (all VERIFIED). Cite EXP-C05-06.
-* CLM-C05-14, second sentence (non-right-cancellative finite models of 677 exist): a citation of the ETP
-  blueprint, which I did not read. TODO-677-noncancel.
+* CLM-C05-14, second sentence (non-right-cancellative finite models of 677 exist): the ETP blueprint page
+  (https://teorth.github.io/equational_theories/blueprint/677-chapter.html, read 2026-10-20 through a web fetch)
+  has it in §13.1 — an extension construction with a field M of size 16 and a field G of size 31, ending
+  "Since ◇⁰ is not right-cancellative, this gives a finite 677 magma that is not right-cancellative." I did not
+  check the construction. My own searches for a model of 677 with some column containing a repeated value
+  are UNSAT at order 5 (1,532 conflicts) and order 7 (697,884 conflicts) with only Latin rows and 0∗0 ∈ {0, 1}
+  (`c05_independent.py noncancel`), and at order 9 in all 67 cases of my SB-min split with R1 and my
+  division clauses, which use only *left* injectivity (`c05_certify_runner.py sbmin-r1-noncancel`, 36 s,
+  ≤ 40,424 conflicts per case; the same split at order 7 also gives 30/30 UNSAT; the plain order-9 search
+  had not finished after 25 min). So every model of 677 of order ≤ 10 is a quasigroup, and a
+  non-right-cancellative finite model, which exists by the blueprint, has order ≥ 11 (solver results, no
+  proofs; a positive control — Latin rows plus the repeated-column clause, without the law — is SAT).
 * Novelty: CLM-C05-11 as REDISCOVERY (Mace4, ETP paper §7.3.1) matches the task context. I did not re-check
   the ETP sources about order 10, so POTENTIALLY NOVEL for CLM-C05-12/13 rests on the Historian.
 
@@ -347,7 +383,21 @@ full-table check covers every pair), but the wording should be corrected.
    Zeckendorf top level, and L(n) ≤ B(n) (Theorem 1); with D(n) = O(t²), t = O(log n) (a lazy string with top
    t has value ≥ F_(t+2) − 1), L(n) = φ²n − O(log² n). Correct.
 
-*Numerical check* (`c19_checks.py`, written from scratch): TODO-C19.
+*Numerical check* (`c19_checks.py`, written from scratch; 17 s):
+* every move changes Ψ by the amounts of Theorem 1 (C1: +1, C_i: +i for i = 2..11, S_i: +1 for i = 2..9, as
+  observed in 894 random games, three for each 2 ≤ n < 300), every random game ends at the Zeckendorf representation, and
+  |G| = B(n) − Σ_(i≥2)(i−1)MC_i(G) holds in all of them;
+* lazy(n), computed by brute force over all sets of levels, is unique for n < 400 and equals my fast
+  construction;
+* Theorem 2, exhaustively: for every n ≤ 60 *all* maximal split-only sequences from n·e₀ end at lazy(n) and
+  have exactly Ψ(lazy(n)) moves;
+* the longest game L(n) by exhaustive search over all positions for n ≤ 100 (1.68 million position
+  evaluations): identical to the lab's `L_exact` (EXP-C19-01) for every n ≤ 100; for every n ≤ 100,
+  L(n) ≥ Ψ(lazy(n)) and 0 ≤ D(n) ≤ B(n) − Ψ(lazy(n)) ≤ 1 + (t+1)(t+6)/2 (D(n) = B(n) − Ψ(lazy(n)) exactly at
+  n = 1, 2, 4, 7, 12, 20, 33, 54, 88, the numbers F_k − 1, as Corollary 3 predicts; largest D = 20, largest
+  B − Ψ(lazy) = 24);
+* the arithmetic part B(n) − Ψ(lazy(n)) ≤ 1 + (t+1)(t+6)/2 for every n ≤ 100,000 (largest ratio 0.443; the
+  lab reports 0.476 on a larger sample).
 
 ---
 
@@ -356,7 +406,10 @@ full-table check covers every pair), but the wording should be corrected.
 All five files: the sha256 of the files on disk equals the one recorded in `proofs/lean_results.json`
 (compiled 2026-10-19, exit 0, "nonstandard_axioms": []); `grep` finds no `sorry`, `admit`, `native_decide`,
 `axiom`, `unsafe`, `implemented_by`, `opaque`, `@[extern]` or `set_option`; each main theorem is followed by
-`#print axioms`. TODO-recompile.
+`#print axioms`. I recompiled all five files myself after the container restart (`lake env lean`, Lean
+4.35.0): exit 0, no errors, no warnings; every `#print axioms` line reports `[propext, Classical.choice,
+Quot.sound]` or `[propext, Quot.sound]` (C05_Law1313: 3 + 2 theorems with no axioms at all; C10: 19;
+C13: 24; C17: 6; C19: 6 theorems listed).
 
 **`C10_SkewBinary.lean` ↔ CLM-C10-07.** `Canon` = digits 0/1/2, the first non-zero digit ≤ 2 and all later
 digits ≤ 1 — exactly "only the lowest non-zero digit may be 2"; `val` uses w_i = 2^(i+1) − 1; `changes`
@@ -373,7 +426,7 @@ x⋆y = x + a·y + 1 (C_(st) = C_s + a·C_t, D_(st) = D_s + a·D_t + 1); `sysLaw
 set of N ≥ 1 with an affine anchored model, and `affine_anchored` shows every anchored table αx+βy+γ is of
 that form, so `affModels_eq` is (a)+(b). (c) `aff_of_dvd`, `aff_mul_of_coprime`, `mem_aff_iff_primePow`;
 (d) `aff_structure_of_no_common_factor` — hypothesis "every common divisor in ℚ[X] has degree ≤ 0", which is
-false for S = ∅ (X divides nothing-to-check) and for S = {0}, so these fall correctly under (e)
+false for S = ∅ (vacuously every g, e.g. X, is a common divisor) and for S = {0}, so these fall correctly under (e)
 (`aff_infinite`, `aff_empty`); (f) as disclosed (G and the cofactors are hypotheses). Polynomials are
 evaluated in `ZMod N` with N ≥ 1 enforced in `Aff`. Faithful; the uncovered remarks are listed in the
 proof_check.
@@ -406,14 +459,43 @@ assumed. The "not right projection" lemmas need two distinct elements, as stated
 |---|---|
 | `C17_RowPeriod.lean` | Lean proof of CLM-C17-08 from Laver's theorem (§1.4); compile with `cd proofs/lean && lake env lean ../../reviews/skeptic_checks/batch1.1/C17_RowPeriod.lean` |
 | `c17_row_period.py`, `c17_row_period.json` | numerical checks of Lemmas A, B and (i)–(iii) (§1.4) |
-| `c05_independent.py` | my encoding and case splits for 677/1313 (modes: per-law SB-min run, `certify` (DRAT), `plain`, `cases`, `lemma8`, `noncancel`, `validate`) |
-| `c05_certify_{677,1313}_n{8,10}.json`, `c05_*_n*.json` | per-case results, DRAT verdicts, CNF hashes |
+| `c05_independent.py` | my encoding and case splits for 677/1313 (modes: per-law SB-min run, `certify` (DRAT), `plain`, `cases`, `lemma8`, `noncancel`, `validate`, `validate_lemma8`) |
+| `c05_certify_runner.py` | restartable runner (one JSON line per finished case): `lemma8-cert` (DRAT), `sbmin`, `sbmin-r1` |
+| `c05_{677,1313}_n{2..10}_cadical195_0_end.json` | SB-min runs per law and order (n = 10 for 677: 300,000-conflict budget) |
+| `c05_certify_677_n8.json`, `c05_certify_1313_n8.json`, `c05_certify_1313_n10.json` | SB-min with DRAT proofs: per-case status, CNF sha256, drat-trim line |
+| `c05_lemma8_677_n10_div_0-96.json` | Lemma-8 split in my encoding, 677 at 10 (solver run) |
+| `c05_cert_lemma8_677_n10_{even,odd}.jsonl` | the same 97 CNFs with DRAT proofs checked by drat-trim |
+| `c05_cert_sbminr1_677_n10_{even,odd}.jsonl` | SB-min with R1 and division clauses, 677 at 10: 97 DRAT-certified cases |
+| `c05_cases_*.json`, `c05_sbmin_677_n10_rest_lge2.jsonl`, `c05_sbmin_r1_677_n10_l1.jsonl` | the SB-min cases of 677 at 10 left open at 300,000 conflicts |
+| `c05_plain_1313_n8_none.json`, `c05_noncancel_677_n*.json`, `c05_noncancel_split_677_n9_{even,odd}.jsonl`, `c05_validate_*.json` | runs without symmetry breaking, the searches for non-right-cancellative models of 677 (orders 5, 7; order 9 by the split), encoding validations |
 | `c05_e08_results_check.py` / `.json` | check of `results/EXP-C05-08.json` (§2.5) |
-| `c05_e08_dimacs_check.py` / `.json` | re-generation of the lab's CNFs, hash comparison, DIMACS sanity, semantic acceptance test (§2.3) |
+| `c05_e08_dimacs_check.py`, `c05_e08_dimacs_check_5_6_7_8.json`, `c05_e08_dimacs_check_10.json` | re-generation of the lab's CNFs, hash comparison, DIMACS sanity, semantic acceptance test (§2.1, §2.3) |
 | `c05_linear_gf.py` / `.json` | CLM-C05-10 recomputation (§3.1) |
 | `c19_checks.py` / `.json` | C19 Theorems 1, 2, 8 checks (§3.2) |
 
 The DRAT proofs and CNFs were written to the session scratchpad (not kept in the repository); the JSON files
 record the CNF sha256 and the drat-trim status line of every certified case.
 
-TODO-REST
+---
+
+## Summary
+
+* **CLM-C17-08: UPHELD; PROVEN is justified** on the Historian's row-period proof, which I completed (Lemma A on
+  the row structure of the forced table, the top-element case of the induction) and machine-checked:
+  `C17_RowPeriod.lean` proves "model of the full instance on Fin N ⇔ N is a power of 2" for every N ≥ 1 from
+  Laver's theorem as an explicit hypothesis (used only at 2^(v₂(N)+1)). The literature chain is logically valid
+  but no longer needed.
+* **EXP-C05-08 / CLM-C05-11, -12, -13: UPHELD** (CLM-C05-13 with a citation correction). Lemma 8 is complete,
+  Lemma 9 and Lemma 7 are sound, the conditional cardinality encoding is correct, the code implements the lemmas,
+  the certified CNFs are exactly those of the reviewed builder, and my own encoding re-decides 677 and 1313 at
+  orders 8 and 10 (and the controls) — at 8 and for 1313 at 10 with a different case split and DRAT proofs, for
+  677 at 10 both with Lemma 8's split and with my own split (SB-min with tie-break R1), every case of both
+  DRAT-certified.
+* **CLM-C05-14: UPHELD**; its citation (non-right-cancellative finite models of 677) is in the ETP blueprint
+  §13.1; by my (uncertified) searches there are none of order ≤ 10, so such a model has order ≥ 11.
+* **CLM-C05-10: UPHELD WITH CORRECTIONS** — the computation is reproduced exactly; only the wording "every
+  solution is re-checked on its full table" is wrong (EXP-C05-07 re-checks one per (law, q)).
+* **CLM-C19-15: UPHELD** (the written steps are correct; exhaustive games for n ≤ 100 agree).
+* **Lean files (CLM-C10-07, CLM-C13-01, CLM-C17-05, CLM-C19-14/-15, CLM-C05-14): faithful**; no sorry, admit,
+  native_decide or axiom; recompiled.
+* Nothing REFUTED, no GAP.

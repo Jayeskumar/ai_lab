@@ -603,6 +603,45 @@
         "forced_existsUnique"
       ]
     },
+    "proofs/lean/Infinity/C17_RowPeriod.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-20T02:02:27Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C17.RowPeriod.wrap_fails' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C17.RowPeriod.only_powers_of_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C17.RowPeriod.full_instance_iff_pow_two' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 30.52,
+      "sha256": "52b794f3a206af4740729d57723929db47e600f36685b09fc6f7257d17081ace",
+      "sorry": false,
+      "theorems": [
+        "Forced.restart",
+        "Forced.shift",
+        "Forced.mod_period",
+        "Forced.lt_succ",
+        "Forced.exists_top",
+        "Forced.period_dvd",
+        "Forced.top_of_wrap",
+        "Forced.mod_half",
+        "shift_copy",
+        "row_below",
+        "wrap_fails",
+        "val_add_one",
+        "add_one_eq_zero",
+        "row_induction",
+        "row_last",
+        "row_gt",
+        "natOp_eq",
+        "forced_natOp",
+        "wrap_natOp",
+        "only_powers_of_two",
+        "full_instance_iff_pow_two"
+      ]
+    },
     "proofs/lean/Infinity/C18_Quasigroups.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -686,5 +725,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-19T23:19:07Z"
+  "updated": "2026-10-20T02:02:27Z"
 }

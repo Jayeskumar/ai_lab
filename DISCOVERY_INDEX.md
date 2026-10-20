@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-19T23:54:21Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-20T02:03:31Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,8 +8,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 137 |
-| COMPUTATIONALLY SUPPORTED | 38 |
+| PROVEN | 138 |
+| COMPUTATIONALLY SUPPORTED | 37 |
 | CONJECTURE | 4 |
 | REFUTED | 49 |
 | INCONCLUSIVE | 2 |
@@ -142,6 +142,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C17-02 | Associativity of an anchored magma is decided by one O(n^2) identity | written proof (proofs/paper/C17.md Corollary 2) from C06 Th… | NOT ASSESSED | EXP-C17-01, EXP-C17-02 |
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | one-sidedness proved (proofs/paper/C17.md Theorem 3, biline… | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | computer-assisted - for every N, uniqueness and existence o… | REDISCOVERY | EXP-C17-03, EXP-C17-02 |
+| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | Lean 4 proof for every N with Laver's theorem as an explici… | REDISCOVERY | EXP-C17-03 |
 | CLM-C18-01 | e-transformations are bijections of strings of fixed length | Lean 4 + Mathlib (eT_injective, eT_length; standard axioms … | REDISCOVERY | EXP-C18-01 |
 | CLM-C18-02 | Differences propagate forward only; forward-only tail hashes fail the strict avalanche cr… | Lean 4 + Mathlib for the persistence of differences (eT_ne_… | NOT ASSESSED | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-03 | The tail-information bound: an e-transformation tail carries one byte of state | Lean 4 + Mathlib for the factorisation of the tail through … | NOT ASSESSED | EXP-C18-03, EXP-C18-05 |
@@ -202,7 +203,6 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C16-17 | Magma Fibonacci generators are not competitive pseudo-random generators | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C16-04 |
 | CLM-C16-19 | Random sampling finds full-period quasigroups where exact search fails | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C16-05, EXP-C16-02 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
-| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-03 |
 | CLM-C18-08 | H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02 |
 | CLM-C18-13 | Quasigroup hashes against non-cryptographic baselines - no significant improvement | COMPUTATIONALLY SUPPORTED | NOT ASSESSED | EXP-C18-02, EXP-C18-03, EXP-C18-04, EXP-C18-05 |
 | CLM-C19-05 | A two-sequence recursion for the longest Zeckendorf game on every n | COMPUTATIONALLY SUPPORTED | POTENTIALLY NOVEL | EXP-C19-03, EXP-C19-04, EXP-C19-05 |
@@ -371,7 +371,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C17-03 | The Rajagopalan-Schulman randomised associativity test is one-sided | PROVEN | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-04 | Benchmark - generator and anchor tests versus the exhaustive check | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-01 |
 | CLM-C17-05 | The anchor instance of left-distributivity singles out the Laver tables (every N <= 4096) | PROVEN | REDISCOVERY | EXP-C17-03, EXP-C17-02 |
-| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | COMPUTATIONALLY SUPPORTED | REDISCOVERY | EXP-C17-03 |
+| CLM-C17-08 | For every N, the full anchor instance of left-distributivity has a model iff N is a power… | PROVEN | REDISCOVERY | EXP-C17-03 |
 | CLM-C18-01 | e-transformations are bijections of strings of fixed length | PROVEN | REDISCOVERY | EXP-C18-01 |
 | CLM-C18-04 | T-function quasigroups (affine mod 256, XOR, (x + 1) XOR y) cannot mix high input bits in… | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |
 | CLM-C18-05 | GF(2)-affine quasigroups give GF(2)-affine hashes with key-independent differences | PROVEN | REDISCOVERY | EXP-C18-01, EXP-C18-02 |

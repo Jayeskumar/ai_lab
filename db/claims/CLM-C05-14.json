@@ -6,12 +6,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-19T23:54:21Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "notes",
+      "new": "The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6).",
+      "old": null,
+      "reason": "Skeptic review of batch 1.1 - upheld; observation on non-right-cancellative models of 677 added",
+      "ts": "2026-10-20T02:03:31Z"
     }
   ],
   "id": "CLM-C05-14",
   "lean": [
     "proofs/lean/Infinity/C05_Law1313.lean"
   ],
+  "notes": "The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6).",
   "novelty": "NOT ASSESSED",
   "novelty_basis": "A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature.",
   "proof": "proofs/paper/C05.md#lemma-7--finite-models-of-law-1313-are-quasigroups-lean",

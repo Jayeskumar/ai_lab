@@ -38,6 +38,15 @@
       "old": "written proof (proofs/paper/C19.md Theorem 8 - the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)); then the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3); the argument is the Skeptic's (reviews/skeptic_C13_C19.md, C9), written out and checked by the Director; the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)",
       "reason": "Batch 1.1 (G2) - arithmetic core of the bound formalised in Lean (C19_DeficitBound.lean)",
       "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C19",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md section 3.2: the written steps checked; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound)",
+      "old": "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)",
+      "reason": "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.2) - upheld",
+      "ts": "2026-10-20T02:03:31Z"
     }
   ],
   "id": "CLM-C19-15",
@@ -47,7 +56,7 @@
   "novelty": "NOT ASSESSED",
   "novelty_basis": "The asymptotics L(n) ~ phi^2 n are known (Cusenza et al.); an explicit O(log^2 n) error bound was not looked for in the literature.",
   "proof": "proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog-n-unconditionally",
-  "proof_check": "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)",
+  "proof_check": "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md section 3.2: the written steps checked; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound)",
   "statement": "For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed.",
   "system": "SYS-C",
   "title": "The deficit of the longest Zeckendorf game is O(log^2 n) - D(n) <= 1 + (t+1)(t+6)/2, so L(n) = phi^2 n - O(log^2 n)",

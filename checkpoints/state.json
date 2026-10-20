@@ -789,7 +789,7 @@
       "NOT ASSESSED"
     ],
     "CLM-C17-08": [
-      "COMPUTATIONALLY SUPPORTED",
+      "PROVEN",
       "REDISCOVERY"
     ],
     "CLM-C18-01": [
@@ -1056,7 +1056,7 @@
     "EXP-C19-01": "786fcf38637144937f08d29810b78cac253d0e900e1a1df1e233b2cf610bbf1e",
     "EXP-C19-02": "298a000a14593c43d2e403e432faa9021e2acf0dde17ade6a27bcbd216e6a311",
     "EXP-C19-03": "d5da7b0e3e1522a9d6450b9c536b80b22aae76fe4cc4770ace6d16d03ea78109",
-    "EXP-C19-04": "62fc7be3688506db0171c122e3896891931f589d8def010f827c1bec917d71c2",
+    "EXP-C19-04": "7076e77995397cb1a90c761eb30f8e816a7a1903cb724c6ea061296e5d90fa6d",
     "EXP-C19-05": "6661ee8cb35b2e8b7b94849c24093a2fa8103e1d057b591d623b960714e59a9e",
     "EXP-C20-01": "0790374e706943076d03f2f7aea19c2183acda4107e88b464eae81d18c8a8198"
   },
@@ -1079,6 +1079,7 @@
     "proofs/lean/Infinity/C15_MagmaCA.lean": true,
     "proofs/lean/Infinity/C16_Dynamics.lean": true,
     "proofs/lean/Infinity/C17_ForcedTable.lean": true,
+    "proofs/lean/Infinity/C17_RowPeriod.lean": true,
     "proofs/lean/Infinity/C18_Quasigroups.lean": true,
     "proofs/lean/Infinity/C19_DeficitBound.lean": true,
     "proofs/lean/Infinity/C19_Zeckendorf.lean": true
@@ -1102,7 +1103,7 @@
     "C16: count full-period quasigroups of order 6 (a partial DFS found 1136 normalised cycles within 2e7 nodes without finishing) and compare with L(6)/36",
     "C16: prove CLM-C16-13 (affine maximal period = order of the 3x3 matrix) and explain the Laver transient bound 5",
     "C16: which laws force short periods? (idempotency gives n fixed points; left-distributivity with an anchor forces period <= 2)",
-    "C17: the all-N statement is published (CLM-C17-08, batch 1.1); remaining - an independent check of the row-period proof and a reading of Dehornoy, Braids and Self-Distributivity, Ch. X (Lemma 1.7, Prop. 1.6)",
+    "C17: formalise the existence of the Laver tables (Laver's theorem) in Lean, which would make CLM-C17-08 and CLM-C17-05 unconditional",
     "C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?",
     "C17: benchmark against optimised C implementations and against SAT-based model checkers",
     "C18: wide-state quasigroup cascades with larger quasigroups (e.g. order 2^16) and an optimised C implementation, run through a full SMHasher-style suite before any claim of usefulness",
@@ -1115,5 +1116,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-19T23:54:22Z"
+  "updated": "2026-10-20T02:03:32Z"
 }

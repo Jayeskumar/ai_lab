@@ -77,9 +77,11 @@ question is answered in the literature for every N. Uniqueness is Dehornoy's Lem
 A. Lewandowski; Aguilera–Iannella, [arXiv:2610.06106](https://arxiv.org/abs/2610.06106), Prop. 2.5 with Dehornoy's
 Lemma X.1.7 and Prop. X.1.6). The forcing argument, the existence of the forced table and the reduction to the
 wrap-around equations are now Lean-checked for every N (proofs/lean/Infinity/C17_ForcedTable.lean), so
-CLM-C17-05 (N ≤ 4096) is PROVEN (computer-assisted) and a REDISCOVERY; the all-N statement is CLM-C17-08
-(REDISCOVERY; computationally supported here until an independent proof is checked). This answers next
-direction 1.
+CLM-C17-05 (N ≤ 4096) is PROVEN (computer-assisted) and a REDISCOVERY. The all-N statement is CLM-C17-08
+(REDISCOVERY): the Historian sketched a direct proof by row periods, and the Skeptic's review of batch 1.1
+([skeptic_batch1.1.md](../../../reviews/skeptic_batch1.1.md) §1) completed it and machine-checked it in Lean
+(proofs/lean/Infinity/C17_RowPeriod.lean: the equivalence for every N, from Laver's theorem as the only
+hypothesis), so CLM-C17-08 is PROVEN (Theorem 5 of proofs/paper/C17.md). This answers next direction 1.
 
 ## Step 9 — Applications
 

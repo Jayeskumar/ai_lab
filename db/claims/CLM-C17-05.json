@@ -128,17 +128,35 @@
       "old": null,
       "reason": "Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED -> PROVEN; Historian audit 2026-10-19: NOT ASSESSED -> REDISCOVERY",
       "ts": "2026-10-19T23:04:05Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Uniqueness and existence are Lean-checked for every N; that non-powers of 2 have no model is checked here for N <= 4096 and proved for every N in CLM-C17-08 (Lean, from Laver's theorem).",
+      "old": "Uniqueness and existence are Lean-checked for every N; the exclusion of non-powers of 2 is computational here (N <= 4096). For every N it is published (CLM-C17-08).",
+      "reason": "Skeptic review of batch 1.1 - upheld; limitation points to CLM-C17-08",
+      "ts": "2026-10-20T02:03:31Z"
+    },
+    {
+      "actor": "sync:C17",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md, the Lean statements are faithful)",
+      "old": "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5)",
+      "reason": "Skeptic review of batch 1.1 - upheld; limitation points to CLM-C17-08",
+      "ts": "2026-10-20T02:03:31Z"
     }
   ],
   "id": "CLM-C17-05",
   "lean": [
     "proofs/lean/Infinity/C17_ForcedTable.lean"
   ],
-  "limitations": "Uniqueness and existence are Lean-checked for every N; the exclusion of non-powers of 2 is computational here (N <= 4096). For every N it is published (CLM-C17-08).",
+  "limitations": "Uniqueness and existence are Lean-checked for every N; that non-powers of 2 have no model is checked here for N <= 4096 and proved for every N in CLM-C17-08 (Lean, from Laver's theorem).",
   "novelty": "REDISCOVERY",
   "novelty_basis": "Uniqueness for every N: Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2; Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.1 (https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf). Non-existence of a model of the full instance for N not a power of 2: Biane's footnote 1 ('(2.2) for all p, q ... if N is not a power of 2 this is not true', credited to A. Lewandowski); Aguilera-Iannella (arXiv:2610.06106, 2026) state it as Biane's observation, and it follows from their Prop. 2.5 (the instance at (a, N) holds iff a * N = N) together with Dehornoy's Lemma X.1.7 and Prop. X.1.6. So the statement holds for every N (CLM-C17-08) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).",
   "proof": "proofs/paper/C17.md#observation-4-clm-c17-05--the-anchor-instance-of-left-distributivity",
-  "proof_check": "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5)",
+  "proof_check": "computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md, the Lean statements are faithful)",
   "references": [
     "https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf",
     "https://arxiv.org/abs/2610.06106"

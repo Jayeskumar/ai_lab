@@ -204,8 +204,10 @@ over $\mathrm{GF}(q)$ are those listed in EXP-C05-07. In particular:
 
 *Proof.* The search is exhaustive over $\mathrm{GF}(q)^2$, and
 $\mathrm{GF}(q)$ is unique up to isomorphism, so "no linear model of order
-$q$" does not depend on the representation. Every model found was re-checked
-on its full table, and Lean's kernel checks the tables `E677_order16_law`,
+$q$" does not depend on the representation. One model per law and order was
+re-checked on its full table (the Skeptic's independent computation re-checked
+all of them, with a different representation of the fields), and Lean's kernel
+checks the tables `E677_order16_law`,
 `E1313_order16_law` and `E670_order9_law`. ∎
 
 Because direct products of models are models, the spectra of 677 and 1313

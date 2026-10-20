@@ -206,12 +206,12 @@ claims:
     statement: "For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed."
     verification: PROVEN
     proof: "proofs/paper/C19.md#theorem-8-clm-c19-15--the-deficit-is-olog-n-unconditionally"
-    proof_check: "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)"
+    proof_check: "written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md section 3.2: the written steps checked; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound)"
     evidence: [EXP-C19-05]
     novelty: NOT ASSESSED
     novelty_basis: "The asymptotics L(n) ~ phi^2 n are known (Cusenza et al.); an explicit O(log^2 n) error bound was not looked for in the literature."
     lean: [proofs/lean/Infinity/C19_DeficitBound.lean]
-    change_reason: "Batch 1.1 (G2) - arithmetic core of the bound formalised in Lean (C19_DeficitBound.lean)"
+    change_reason: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.2) - upheld"
 
 journal:
   - key: C19-01
@@ -264,6 +264,11 @@ journal:
     kind: proof
     text: "Batch 1.1 - the arithmetic core of Theorems 7-8 (the weight identity and the bound 1 + (t+1)(t+6)/2 for any two 0/1 strings of equal value) is proved in Lean (proofs/lean/Infinity/C19_DeficitBound.lean); the game-theoretic steps remain a written proof. Historian audit 2026-10-19: all arXiv Zeckendorf-game papers to 2026-10-07 checked; the C19 labels stand."
     refs: [CLM-C19-14, CLM-C19-15, reviews/historian_C11_C20.md]
+  - key: C19-11
+    agent: Mathematical Skeptic
+    kind: review
+    text: "Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.2) - the written steps of Theorem 8 (CLM-C19-15) that are not in Lean are correct; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound; the Lean core and the Lean part of CLM-C19-14 are faithful."
+    refs: [CLM-C19-15, CLM-C19-14, reviews/skeptic_batch1.1.md]
 
 next_directions:
   - "C19: prove the recursion CLM-C19-05 by analysing the normalisation phase from the lazy representation (carries through alternating blocks)"

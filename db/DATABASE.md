@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T02:03:31Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1219,7 +1219,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); every model found re-checked on its full table with the generic evaluator; three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)
+  computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); one model per (law, q) re-checked on its full table with the generic evaluator in EXP-C05-07; every solution re-checked by full-table evaluation in the Skeptic's independent computation, which reproduces every order list and solution count for all 15 laws and all 44 prime powers q <= 128 with a different representation of GF(q) (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 3.1); three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)
 
 - **novelty:** NOT ASSESSED
 - **statement:**
@@ -1233,6 +1233,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05).
 
 - **limitations:** Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
+- **status history:**
 
 ### CLM-C05-11: Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified)
 
@@ -1242,7 +1243,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 8 with a different case split, 45/45 cases UNSAT
 
 - **novelty:** REDISCOVERY
 - **statement:** No magma of order 8 satisfies x = y(x((yx)y)) (ETP equation 677).
@@ -1253,6 +1254,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   The ETP paper (Bolan et al., arXiv:2512.07087, section 7.3.1) reports that Mace4 exhausts size 8 for equation 677 in 1.5 s. The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim).
 
 - **related:** CLM-C05-12; CLM-C05-09
+- **status history:**
 
 ### CLM-C05-12: Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9
 
@@ -1262,7 +1264,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 10 twice, with the case split of Lemma 8 and with the Skeptic's own split, 97/97 cases UNSAT each
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:** No magma of order 10 satisfies x = y(x((yx)y)) (ETP equation 677). With CLM-C05-07, CLM-C05-08, CLM-C05-11 and the ETP notes, the orders n <= 10 of finite models of 677 are exactly 1, 5, 7 and 9.
@@ -1273,6 +1275,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10.
 
 - **related:** CLM-C05-11; CLM-C05-13; CLM-C05-09; CLM-C05-10
+- **status history:**
 
 ### CLM-C05-13: Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9
 
@@ -1282,10 +1285,13 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; awaiting independent review (Skeptic, batch 1.1)
+  computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law1313_left_bijective) and Latin columns (Lean: law1313_right_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (45 + 97 CNFs; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 8 is UNSAT even without symmetry breaking (Latin square only); orders 8 and 10 with the Skeptic's split, 45 + 97 cases UNSAT
 
 - **novelty:** POTENTIALLY NOVEL
-- **statement:** No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-03, the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9.
+- **statement:**
+
+  No magma of order 8 or 10 satisfies x = y(((yx)x)y) (ETP equation 1313). With CLM-C05-07, the ETP notes and EXP-C05-06 (DRUP-certified gaps at 2, 3, 4, 6), the orders n <= 10 of finite models of 1313 are exactly 1, 5, 7 and 9.
+
 - **proof:** proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted
 - **evidence:** EXP-C05-08
 - **novelty_basis:**
@@ -1293,6 +1299,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   Not stated in the sources read: B. Le Floch's notes 'Spectra of equational laws' (ETP, 2025) list 1313 as 'unknown spectrum starting with 1,5,7'; the ETP paper (arXiv:2512.07087) does not discuss 1313 in the parts read. ETP members may hold unpublished searches, so novelty is relative to these sources.
 
 - **related:** CLM-C05-12; CLM-C05-14; CLM-C05-07; CLM-C05-09
+- **status history:**
 
 ### CLM-C05-14: Finite models of law 1313 are quasigroups (Lean)
 
@@ -1313,6 +1320,11 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **lean:** proofs/lean/Infinity/C05_Law1313.lean
 - **novelty_basis:** A two-line consequence of the law (as for left translations, ETP blueprint Lemma 13.1 for 677); not checked against the quasigroup literature.
 - **related:** CLM-C05-13; CLM-C05-05
+- **notes:**
+
+  The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6).
+
+- **status history:**
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -3987,7 +3999,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5)
+  computer-assisted - for every N, uniqueness and existence of the table forced by the instances y <= N - 2, and the fact that it satisfies the full instance iff the wrap-around equations hold, are Lean-checked (proofs/lean/Infinity/C17_ForcedTable.lean: row_last, row_gt, forced_unique, forced_existsUnique, full_instance_iff; standard axioms); the wrap-around equations were evaluated on the forced table for every N <= 4096 (EXP-C17-03, recorded run; the Skeptic's independent C program agrees); at N = 2^n the forced table is A_n because A_n is left-distributive (Laver's theorem, published) and so satisfies the instances. The written uniqueness argument is the Skeptic's (reviews/skeptic_C07_C17_C20.md A.5); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md, the Lean statements are faithful)
 
 - **novelty:** REDISCOVERY
 - **statement:**
@@ -4002,7 +4014,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   Uniqueness for every N: Dehornoy, Braids and Self-Distributivity (2000), Lemma X.1.2; Biane, Sem. Lothar. Combin. 80 (2019) B80c section 2.1 (https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf). Non-existence of a model of the full instance for N not a power of 2: Biane's footnote 1 ('(2.2) for all p, q ... if N is not a power of 2 this is not true', credited to A. Lewandowski); Aguilera-Iannella (arXiv:2610.06106, 2026) state it as Biane's observation, and it follows from their Prop. 2.5 (the instance at (a, N) holds iff a * N = N) together with Dehornoy's Lemma X.1.7 and Prop. X.1.6. So the statement holds for every N (CLM-C17-08) (Historian audit 2026-10-19, reviews/historian_C11_C20.md).
 
 - **references:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf; https://arxiv.org/abs/2610.06106
-- **limitations:** Uniqueness and existence are Lean-checked for every N; the exclusion of non-powers of 2 is computational here (N <= 4096). For every N it is published (CLM-C17-08).
+- **limitations:** Uniqueness and existence are Lean-checked for every N; that non-powers of 2 have no model is checked here for N <= 4096 and proved for every N in CLM-C17-08 (Lean, from Laver's theorem).
 - **status history:**
   - 2026-10-19T23:04:05Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C17; Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED …)
   - 2026-10-19T23:04:05Z novelty: NOT ASSESSED → REDISCOVERY (sync:C17; Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED …)
@@ -4037,17 +4049,23 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 
 - **status history:**
 
-### CLM-C17-08: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N <= 4096)
+### CLM-C17-08: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; Lean, from Laver's theorem)
 
 - **cycle:** C17
 - **type:** theorem
 - **system:** SYS-B
-- **verification:** COMPUTATIONALLY SUPPORTED
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 proof for every N with Laver's theorem as an explicit hypothesis - proofs/lean/Infinity/C17_RowPeriod.lean, full_instance_iff_pow_two and only_powers_of_two (standard axioms only): if for every j some anchored table of order 2^j satisfies the full instance (Laver's published theorem that A_n is left-distributive, the input of CLM-C06-01 and CLM-C17-05, used only at order 2^(v2(N)+1)), then an anchored table of order N satisfies it iff N is a power of 2; written proof proofs/paper/C17.md Theorem 5 (the Historian's row-period argument, completed by the Skeptic, reviews/skeptic_batch1.1.md section 1.2, which also wrote the Lean file); numerically checked for every N <= 4096 (EXP-C17-03 and both reviewers' scripts)
+
 - **novelty:** REDISCOVERY
 - **statement:**
 
   For every N >= 1, an anchored table (x*0 = x + 1 mod N) satisfies x*(y+1) = (x*y)*(x+1) for all x and y, the wrap-around y = N - 1 included, iff N is a power of 2; it is then the Laver table A_n. Equivalently (CLM-C17-05), left-distributivity of an anchored table of any order is decided by an O(N^2) comparison with the forced table.
 
+- **proof:** proofs/paper/C17.md#theorem-5-clm-c17-08--the-full-anchor-instance-has-a-model-iff-n-is-a-power-of-2
+- **lean:** proofs/lean/Infinity/C17_RowPeriod.lean
 - **evidence:** EXP-C17-03
 - **novelty_basis:**
 
@@ -4056,10 +4074,12 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **references:** https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf; https://arxiv.org/abs/2610.06106
 - **limitations:**
 
-  The lab has checked the statement for N <= 4096 only (EXP-C17-03). The published proof rests on two results of Dehornoy's book that the lab read only as cited; an independent argument through row periods (Historian report, section 4: rows s+1..N-1 of the forced table are shifted copies of rows of A_(k+1), with s = N - 2^(k+1) and k = v_2(N), so row s has period 2^(k+1), which does not divide N) uses only Laver's periodicity theorem and awaits independent review.
+  Conditional on Laver's theorem (published); the lab checks the Laver tables only computationally (A_n left-distributive for n <= 12 in EXP-C06-01). The literature chain through Dehornoy's book (read only as cited) is no longer needed.
 
 - **related:** CLM-C17-05; CLM-C06-01
 - **notes:** Answers the first of the C17 next directions ('prove the LD anchor-instance characterisation for all N') from the literature.
+- **status history:**
+  - 2026-10-20T02:03:31Z verification: COMPUTATIONALLY SUPPORTED → PROVEN (sync:C17; Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 1) - the Historian's row-period proof completed and machine-checked (C17_RowPeriod.lean, conditional on Laver's theorem): COMPUTATION…)
 
 ### CLM-C18-01: e-transformations are bijections of strings of fixed length
 
@@ -4561,7 +4581,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476)
+  written proof with a Lean-checked arithmetic core - proofs/paper/C19.md Theorem 8: the split phase reaches lazy(n) after Psi(lazy(n)) moves, so L(n) >= Psi(lazy(n)) and D(n) <= B(n) - Psi(lazy(n)) (written; the argument is the Skeptic's, reviews/skeptic_C13_C19.md C9, written out and checked by the Director); the estimate B(n) - Psi(lazy(n)) <= 1 + (t+1)(t+6)/2 - the weight identity a_(k+1) = phi^2 F_(k+1) + psi^(k+2) - k - 3 and the bound for any two 0/1 strings of equal value with the second one vanishing above t - is Lean-checked (proofs/lean/Infinity/C19_DeficitBound.lean: weight_identity, deficit_bound, deficit_bound_int; standard axioms only); the bound holds on all 103,799 n of EXP-C19-05 (largest ratio 0.476); skeptic-reviewed 2026-10-19 (reviews/skeptic_batch1.1.md section 3.2: the written steps checked; exhaustive longest games for n <= 100 agree with the lab's values and satisfy the bound)
 
 - **novelty:** NOT ASSESSED
 - **statement:** For every n, D(n) = B(n) - L(n) <= 1 + (t+1)(t+6)/2, where t is the top level of the lazy Fibonacci representation of n; consequently L(n) = phi^2 n - O(log^2 n). No optimality theorem is needed.
@@ -7470,7 +7490,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
 - **falsification:** Any tested n with longest_rec(n) != greedy length.
 - **summary:**
   - recursion vs greedy on 6272 out-of-sample n (all of [30000, 36000), 200 random < 1e6, 12 random < 2e7, 60 of the form F_j + m): 0 mismatches
-  - speed: n=1e4: greedy 0.0115 s, recursion 7.1e-05 s; n=1e5: greedy 0.102 s, recursion 6.2e-05 s; n=1e6: greedy 0.8548 s, recursion 7.1e-05 s; n=1e7: greedy 8.2811 s, recursion 9.3e-05 s
+  - benchmark n = 1e4..1e7: recursion and greedy simulation agree: True (wall-clock times under 'timings')
   - OEIS: L(n), n>=1: NO MATCH; D(n), n>=1: NO MATCH; L(F_j), j>=0: NO MATCH; rho_0(m), m>=1: NO MATCH; rho_1(m), m>=1: NO MATCH
   - (phi^2 n - L(n)) / (log_phi n)^2 at n = 1e3..1e18: [0.3399, 0.3776, 0.3798, 0.353, 0.3698, 0.3714, 0.3409, 0.3451]
 - **analysis:**
@@ -7478,7 +7498,7 @@ _Generated 2026-10-19T23:54:21Z from `db/`. The JSON records are authoritative; 
   Out of sample, the recursion agrees with the greedy simulation on all 6,272 tested n (every n in [30000, 36000), 200 random n < 10^6, 12 random n < 2*10^7, 60 numbers F_j + m). It evaluates L(10^7) in 9.3e-5 s against 8.3 s for the simulation. L(n), D(n), L(F_j) and the two rho sequences are not in the OEIS. (phi^2 n - L(n)) / (log_phi n)^2 stays between 0.34 and 0.38 for n = 10^3 ... 10^18.
 
 - **related:** CLM-C19-05; CLM-C19-14
-- **runs:** 2; last 2026-10-18T17:40:15Z (393.334 s), results sha256 `62fc7be3688506db…`, code `experiments/C19/E04_out_of_sample.py`
+- **runs:** 3; last 2026-10-19T23:58:32Z (330.854 s), results sha256 `7076e77995397cb1…`, code `experiments/C19/E04_out_of_sample.py`
 
 ### EXP-C19-05: The lazy-representation method for the longest Zeckendorf game: correctness checks, the move bound, and the recursion CLM-C19-05 tested against it
 

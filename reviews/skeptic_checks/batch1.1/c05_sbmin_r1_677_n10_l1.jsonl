@@ -1,0 +1,7 @@
+{"i": 28, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 3, 3, 3], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 561418, "solve_s": 36.6}
+{"i": 43, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 2, 3, 4], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 318389, "solve_s": 19.3}
+{"i": 58, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 2, 2, 5], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 240156, "solve_s": 13.9}
+{"i": 67, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 4, 5], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 638127, "solve_s": 40.3}
+{"i": 78, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 3, 6], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 642434, "solve_s": 42.5}
+{"i": 85, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 2, 7], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 249361, "solve_s": 15.4}
+{"i": 94, "mode": "sbmin-r1", "case": "sbmin", "lam": [1, 9], "ell": 1, "division": true, "status": "UNSAT", "conflicts": 690338, "solve_s": 45.9}
