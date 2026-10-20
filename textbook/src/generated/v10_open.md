@@ -2,7 +2,7 @@
 
 *Volume 10 — Open problems and future research. Generated from the claim database and the cycle records.*
 
-## Unproven claims
+## Unproven claims {.unnumbered}
 
 Each of these is supported by the evidence cited in its record but has no proof. A proof or a counterexample would settle it.
 
@@ -49,7 +49,7 @@ Each of these is supported by the evidence cited in its record but has no proof.
 * **CLM-C19-06** (computationally supported): For levels j \>= i + 2, D(F\_{j+1} + F\_{i+1}) = floor(j\^2/4) + floor(i\^2/4) - R(j,i) with R(j,0) = 1, R(j,i) = floor((i+1)\^2/4) + 1 if j - i is odd and R(j,i) = floor(i\^2/4) + 2 if j - i is even (i \>= 1). *Evidence:* EXP-C19-03.
 * **CLM-C19-09** (computationally supported): For 1 \<= n \< 30000, the deficit satisfies D(n) \<= floor(j\^2/4) where j is the top Zeckendorf level of n (equality at the Fibonacci numbers), and L(n+1) \> L(n). *Evidence:* EXP-C19-03.
 
-## Directions proposed by the research cycles
+## Directions proposed by the research cycles {.unnumbered}
 
 **C01 — Quantity as the complete invariant of rewriting.**
 
@@ -80,7 +80,8 @@ Each of these is supported by the evidence cited in its record but has no proof.
 
 **C05 — Spectra of single-identity magma varieties.**
 
-* C05: decide law 1286 at orders 8, 10 and laws 677/1313 at 8, 10, 12, 14 with stronger symmetry breaking; certify
+* C05: decide laws 677 and 1313 at orders 12 and 14, and law 1286 at 8 and 10, with the case split of EXP-C05-08 (Lemma 8); certify
+* C05: a certified search for finite models of 677 that violate 255 (x = ((xx)x)x), the ETP's open finite implication, at the next orders with models
 * C05: which odd orders are in the spectra of 677 and 1313? (677 has no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime power)
 * C05: extend the census to order-5 laws and three-variable identities
 * C05: Lean-formalise orbit-counting arguments for other laws with a finite-order pair map
@@ -162,7 +163,7 @@ Each of these is supported by the evidence cited in its record but has no proof.
 
 **C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check.**
 
-* C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance =\> Laver table, N a power of 2)
+* C17: the all-N statement is published (CLM-C17-08, batch 1.1); remaining - an independent check of the row-period proof and a reading of Dehornoy, Braids and Self-Distributivity, Ch. X (Lemma 1.7, Prop. 1.6)
 * C17: generator-based tests for other laws (left-distributivity, mediality) - which laws admit a Light-type reduction?
 * C17: benchmark against optimised C implementations and against SAT-based model checkers
 

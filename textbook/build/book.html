@@ -41,8 +41,8 @@ math { font-size: 1.05em; }
 <h1 class="title">Beyond Conventional Mathematics</h1>
 <p class="subtitle">An Experimental Journey into AI-Discovered
 Mathematical Systems</p>
-<p class="date">Version 1.0 (research batch 1, cycles C01-C20) — built
-2026-10-19T14:45:51Z</p>
+<p class="date">Version 1.1 (research batch 1, cycles C01-C20, with the
+batch 1.1 corrections) — built 2026-10-20T00:04:40Z</p>
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
@@ -124,12 +124,14 @@ Spectra of magma identities</a>
 fail</a></li>
 <li><a href="#after-the-review-linear-models-over-finite-fields" id="toc-after-the-review-linear-models-over-finite-fields"><span class="toc-section-number">6.7</span> After the review: linear models
 over finite fields</a></li>
-<li><a href="#experiments-2" id="toc-experiments-2"><span class="toc-section-number">6.8</span> Experiments</a></li>
-<li><a href="#comparison-with-existing-mathematics-3" id="toc-comparison-with-existing-mathematics-3"><span class="toc-section-number">6.9</span> Comparison with existing
+<li><a href="#orders-8-and-10-version-1.1" id="toc-orders-8-and-10-version-1.1"><span class="toc-section-number">6.8</span> Orders 8 and 10 (version
+1.1)</a></li>
+<li><a href="#experiments-2" id="toc-experiments-2"><span class="toc-section-number">6.9</span> Experiments</a></li>
+<li><a href="#comparison-with-existing-mathematics-3" id="toc-comparison-with-existing-mathematics-3"><span class="toc-section-number">6.10</span> Comparison with existing
 mathematics</a></li>
-<li><a href="#applications-and-limitations-2" id="toc-applications-and-limitations-2"><span class="toc-section-number">6.10</span> Applications and
+<li><a href="#applications-and-limitations-2" id="toc-applications-and-limitations-2"><span class="toc-section-number">6.11</span> Applications and
 limitations</a></li>
-<li><a href="#open-questions-3" id="toc-open-questions-3"><span class="toc-section-number">6.11</span> Open questions</a></li>
+<li><a href="#open-questions-3" id="toc-open-questions-3"><span class="toc-section-number">6.12</span> Open questions</a></li>
 </ul></li>
 <li><a href="#ch-anchored" id="toc-ch-anchored"><span class="toc-section-number">7</span> Anchored operations and arithmetic
 spectra</a>
@@ -489,6 +491,54 @@ the Historian</a></li>
 <li><a href="#directions-proposed-by-the-research-cycles" id="toc-directions-proposed-by-the-research-cycles"><span class="toc-section-number">21.7</span> Directions proposed by the
 research cycles</a></li>
 </ul></li>
+<li><a href="#appendix-corrections-log" id="toc-appendix-corrections-log">Appendix — Corrections log</a>
+<ul>
+<li><a href="#c01-quantity-as-the-complete-invariant-of-rewriting-2" id="toc-c01-quantity-as-the-complete-invariant-of-rewriting-2"><span class="toc-section-number">21.8</span> C01 — Quantity as the complete
+invariant of rewriting</a></li>
+<li><a href="#c02-exchange-systems-positional-numeration-as-normal-forms-2" id="toc-c02-exchange-systems-positional-numeration-as-normal-forms-2"><span class="toc-section-number">21.9</span> C02 — Exchange systems:
+positional numeration as normal forms</a></li>
+<li><a href="#c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s-2" id="toc-c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s-2"><span class="toc-section-number">21.10</span> C03 — Termination of one-rule
+string rewriting 0^p 1^q -&gt; 1^r 0^s</a></li>
+<li><a href="#c04-derivation-lengths-random-descent-and-rewriting-games-2" id="toc-c04-derivation-lengths-random-descent-and-rewriting-games-2"><span class="toc-section-number">21.11</span> C04 — Derivation lengths, random
+descent and rewriting games</a></li>
+<li><a href="#c05-spectra-of-single-identity-magma-varieties-2" id="toc-c05-spectra-of-single-identity-magma-varieties-2"><span class="toc-section-number">21.12</span> C05 — Spectra of single-identity
+magma varieties</a></li>
+<li><a href="#c06-successor-anchored-magmas-spectra-of-composition-laws-2" id="toc-c06-successor-anchored-magmas-spectra-of-composition-laws-2"><span class="toc-section-number">21.13</span> C06 — Successor-anchored magmas:
+spectra of composition laws</a></li>
+<li><a href="#c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations-2" id="toc-c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations-2"><span class="toc-section-number">21.14</span> C07 — Arithmetic from the
+minimal excludant: a census of mex-defined operations</a></li>
+<li><a href="#c08-circle-multiplications-on-recurrence-numeration-systems-2" id="toc-c08-circle-multiplications-on-recurrence-numeration-systems-2"><span class="toc-section-number">21.15</span> C08 — Circle multiplications on
+recurrence numeration systems</a></li>
+<li><a href="#c09-arithmetic-of-knuths-circle-semigroup-2" id="toc-c09-arithmetic-of-knuths-circle-semigroup-2"><span class="toc-section-number">21.16</span> C09 — Arithmetic of Knuth’s
+circle semigroup</a></li>
+<li><a href="#c10-the-cost-of-counting-across-representations-2" id="toc-c10-the-cost-of-counting-across-representations-2"><span class="toc-section-number">21.17</span> C10 — The cost of counting
+across representations</a></li>
+<li><a href="#c11-pattern-terminated-universal-integer-codes-2" id="toc-c11-pattern-terminated-universal-integer-codes-2"><span class="toc-section-number">21.18</span> C11 — Pattern-terminated
+universal integer codes</a></li>
+<li><a href="#c13-anchored-spectra-ii-which-sets-of-integers-are-spectra-2" id="toc-c13-anchored-spectra-ii-which-sets-of-integers-are-spectra-2"><span class="toc-section-number">21.19</span> C13 — Anchored spectra II: which
+sets of integers are spectra?</a></li>
+<li><a href="#c14-graphs-as-quantities-the-256-local-graph-products-2" id="toc-c14-graphs-as-quantities-the-256-local-graph-products-2"><span class="toc-section-number">21.20</span> C14 — Graphs as quantities: the
+256 local graph products</a></li>
+<li><a href="#c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding-2" id="toc-c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding-2"><span class="toc-section-number">21.21</span> C15 — Magma cellular automata:
+light cones, streaming width and fast-forwarding</a></li>
+<li><a href="#c16-fibonacci-dynamics-in-invented-finite-algebras-2" id="toc-c16-fibonacci-dynamics-in-invented-finite-algebras-2"><span class="toc-section-number">21.22</span> C16 — Fibonacci dynamics in
+invented finite algebras</a></li>
+<li><a href="#c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check-2" id="toc-c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check-2"><span class="toc-section-number">21.23</span> C17 — Deciding laws of finite
+magmas: generator, anchor and randomised tests against the exhaustive
+check</a></li>
+<li><a href="#c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes-2" id="toc-c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes-2"><span class="toc-section-number">21.24</span> C18 — Invented operations as
+mixing primitives: quasigroup string transformations versus standard
+hashes</a></li>
+<li><a href="#c19-the-longest-zeckendorf-game-2" id="toc-c19-the-longest-zeckendorf-game-2"><span class="toc-section-number">21.25</span> C19 — The longest Zeckendorf
+game</a></li>
+<li><a href="#c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03-1" id="toc-c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03-1"><span class="toc-section-number">21.26</span> C20 — Open problems revisited:
+the last one-rule systems of C04, and a literature check for
+C03</a></li>
+<li><a href="#experiment-results-that-changed-on-a-re-run" id="toc-experiment-results-that-changed-on-a-re-run"><span class="toc-section-number">21.27</span> Experiment results that changed
+on a re-run</a></li>
+<li><a href="#corrections-recorded-in-the-journal" id="toc-corrections-recorded-in-the-journal"><span class="toc-section-number">21.28</span> Corrections recorded in the
+journal</a></li>
+</ul></li>
 </ul>
 </nav>
 <h1 class="unnumbered" id="preface">Preface</h1>
@@ -593,6 +643,13 @@ repository; <code>python -m lab run EXP-C01-05</code> re-runs it and
 checks the recorded result hash. Every claim identifier (CLM-C08-01, …)
 has a record in <code>db/claims/</code> with its full status history.
 Lean theorem names refer to <code>proofs/lean/Infinity/</code>.</p>
+<p><em>Version 1.1.</em> After the first edition the laboratory ran a
+hardening sprint instead of new research: an audit of the novelty labels
+of Chapters 12–21, Lean proofs of four theorems that had only written
+proofs, a re-run of every experiment, and a certified computation on two
+open spectrum questions of Chapter 6. Every change this caused to a
+claim’s status, label or statement is listed, with its reason, in the
+generated <em>Corrections log</em> at the end of the book.</p>
 <h1 data-number="1" id="how-the-laboratory-works"><span class="header-section-number">1</span> How the laboratory works</h1>
 <h2 data-number="1.1" id="minimal-assumptions-stated-twice"><span class="header-section-number">1.1</span> Minimal assumptions, stated
 twice</h2>
@@ -2122,8 +2179,8 @@ the 63 non-full laws fall into 15 patterns:</p>
 (677),
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x = y(((yx)x)y)</annotation></semantics></math>
 (1313)</td>
-<td>open; order 16 occurs (Theorem 6.10), so Conjecture 6.6 is
-refuted</td>
+<td>open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16
+occurs (Theorem 6.10), so Conjecture 6.6 is refuted</td>
 </tr>
 <tr class="odd">
 <td>10001000</td>
@@ -2484,9 +2541,78 @@ all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>16</mn><mo>⋅</mo><mi>m</mi></mrow><annotation encoding="application/x-tex">16 \cdot m</annotation></semantics></math>
 with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>
-in the spectrum. Which even orders below 16 occur (8, 10, 12, 14) is
-open.</p>
-<h2 data-number="6.8" id="experiments-2"><span class="header-section-number">6.8</span> Experiments</h2>
+in the spectrum. Which even orders below 16 occur was left open; the
+next section settles 8 and 10.</p>
+<h2 data-number="6.8" id="orders-8-and-10-version-1.1"><span class="header-section-number">6.8</span> Orders 8 and 10 (version
+1.1)</h2>
+<p>A direct SAT search with Latin rows and the symmetry break
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mo>⋆</mo><mn>0</mn><mo>∈</mo><mo stretchy="false" form="prefix">{</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">}</mo></mrow><annotation encoding="application/x-tex">0 \star 0 \in \{0, 1\}</annotation></semantics></math>
+(EXP-C05-03) could not decide the two laws at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n = 8</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>10</mn><annotation encoding="application/x-tex">10</annotation></semantics></math>.
+Two observations make the search small enough to finish <em>and</em> to
+certify.</p>
+<p><strong>Lemma 6.11a</strong> <em>[PROVEN — Lean:
+<code>C05_Law1313.lean</code>]</em>. Every finite model of law 1313 is a
+quasigroup. <em>Proof.</em> Rows are permutations because the law has
+the form
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mo>⋆</mo><mi>T</mi></mrow><annotation encoding="application/x-tex">x = y \star T</annotation></semantics></math>.
+Given
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>,
+put
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mi>y</mi><mo>⋆</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">x = y \star w</annotation></semantics></math>;
+the law gives
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>⋆</mo><mi>T</mi><mo>=</mo><mi>y</mi><mo>⋆</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">y \star T = y \star w</annotation></semantics></math>
+with
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>⋆</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">T = ((y \star x) \star x) \star y</annotation></semantics></math>,
+so
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mi>w</mi></mrow><annotation encoding="application/x-tex">T = w</annotation></semantics></math>
+and the column of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>
+takes the value
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>w</mi><annotation encoding="application/x-tex">w</annotation></semantics></math>.
+∎ For 677 only the rows are known to be permutations; finite models of
+677 that are not right-cancellative exist (ETP blueprint), so no column
+constraint may be used there.</p>
+<p><em>A case split guided by the hard cases.</em> Relabel so that some
+element is 0 and row 0 is a fixed permutation of a given cycle type. A
+first split on the cycle type alone left 41 of the 97 order-10 cases of
+677 undecided at 300,000 conflicts each — almost all of them cases where
+0 is idempotent. So we split first on idempotency: either every element
+is idempotent, or 0 can be chosen non-idempotent; in both cases 0 is
+chosen with the fewest fixed points in its row (among the non-idempotent
+elements in the second case), which gives every competing row at least
+as many fixed points. Implied “division” clauses (if
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>⋆</mo><mi>a</mi><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">y \star a = x</annotation></semantics></math>
+then the inner term
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>
+equals
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>)
+shorten the search further. The split is complete (Lemma 8 of
+<code>proofs/paper/C05.md</code>): 45 cases for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>8</mn></mrow><annotation encoding="application/x-tex">n = 8</annotation></semantics></math>
+and 97 for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n = 10</annotation></semantics></math>.</p>
+<p><strong>Theorem 6.11</strong> <em>[PROVEN — computer-assisted; 677 at
+order 8: REDISCOVERY (Mace4, ETP paper); the rest POTENTIALLY
+NOVEL]</em>. Neither law 677 nor law 1313 has a model of order 8 or 10.
+Consequently the orders
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">n \le 10</annotation></semantics></math>
+of their models are exactly 1, 5, 7 and 9, for both laws.</p>
+<p><em>Proof.</em> All 284 case CNFs are unsatisfiable (EXP-C05-08).
+Each refutation is a DRAT proof from CaDiCaL that drat-trim verified —
+40.5 million proof lines in all, the hardest case of 677 needing 1.33
+million conflicts. The same pipeline finds models at orders 5 and 7 and
+none at 6, as the direct search did. ∎</p>
+<p>Law 677 matters beyond this chapter: whether it implies
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">x = ((x \star x) \star x) \star x</annotation></semantics></math>
+(law 255) in finite magmas is the last implication between laws of order
+at most 4 that the Equational Theories Project could not settle. A
+finite counterexample would have to be a model of 677, so Theorem 6.11
+rules out orders 8 and 10 — a small, certified data point, nothing
+more.</p>
+<h2 data-number="6.9" id="experiments-2"><span class="header-section-number">6.9</span> Experiments</h2>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -2552,9 +2678,15 @@ models up to isomorphism for
 (after the review)</td>
 <td>0 conflicts; order 16 for laws 677 and 1313 (Theorem 6.10)</td>
 </tr>
+<tr class="even">
+<td>EXP-C05-08</td>
+<td>677 and 1313 at orders 8 and 10: complete case split, DRAT proofs
+(version 1.1)</td>
+<td>284 of 284 case CNFs UNSAT, all proofs verified (Theorem 6.11)</td>
+</tr>
 </tbody>
 </table>
-<h2 data-number="6.9" id="comparison-with-existing-mathematics-3"><span class="header-section-number">6.9</span> Comparison with existing
+<h2 data-number="6.10" id="comparison-with-existing-mathematics-3"><span class="header-section-number">6.10</span> Comparison with existing
 mathematics</h2>
 <p><em>Classical spectra.</em> Steiner triple systems exist exactly for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≡</mo><mn>1</mn><mo>,</mo><mn>3</mn><mrow><mspace width="0.222em"></mspace><mo stretchy="false" form="prefix">(</mo><mo>mod</mo><mspace width="0.222em"></mspace><mn>6</mn><mo stretchy="false" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">n \equiv 1, 3 \pmod 6</annotation></semantics></math>
@@ -2594,7 +2726,7 @@ are the plausible additions. We retrieved the ETP paper only partly, and
 its model searches may already contain these facts, so the novelty is
 relative to the sources we read. The three refuted hypotheses were our
 own.</p>
-<h2 data-number="6.10" id="applications-and-limitations-2"><span class="header-section-number">6.10</span> Applications and
+<h2 data-number="6.11" id="applications-and-limitations-2"><span class="header-section-number">6.11</span> Applications and
 limitations</h2>
 <p>The reusable output is a certification pipeline for finite algebra: a
 model becomes a table checked by Lean’s <code>decide</code>, a
@@ -2615,11 +2747,11 @@ non-existence results of the census are trusted from the solver</strong>
 — only the 48 frontier instances are independently checked. An
 isomorphism-grouping step of EXP-C05-02 compared non-canonical tables,
 so its count is not used.</p>
-<h2 data-number="6.11" id="open-questions-3"><span class="header-section-number">6.11</span> Open questions</h2>
+<h2 data-number="6.12" id="open-questions-3"><span class="header-section-number">6.12</span> Open questions</h2>
 <ol type="1">
-<li>Decide laws 677 and 1313 at orders 8, 10, 12 and 14 (Conjecture 6.6
-is refuted at 16), and law 1286 at orders 8 and 10, with stronger
-symmetry breaking.</li>
+<li>Decide laws 677 and 1313 at orders 12 and 14 (8 and 10 are excluded
+by Theorem 6.11, 16 occurs), and law 1286 at orders 8 and 10, with the
+case split of Theorem 6.11.</li>
 <li>Is the spectrum of law 115 all
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≠</mo><mn>2</mn><mo>,</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">n \ne 2, 6</annotation></semantics></math>,
 as the notes conjecture? Our data agree up to
@@ -2673,9 +2805,9 @@ left-distributivity</h2>
 <p>For the left-distributive law
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>⋆</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>z</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \star (y \star z) = (x \star y) \star (x \star z)</annotation></semantics></math>
 the anchor produces the famous <strong>Laver tables</strong>.</p>
-<p><strong>Theorem 7.1</strong> <em>[REDISCOVERY: Laver; Drápal —
-COMPUTATIONALLY SUPPORTED in the lab]</em>. An anchored
-left-distributive magma of size
+<p><strong>Theorem 7.1</strong> <em>[PROVEN — published theorem (Laver;
+Dehornoy, Prop. X.1.6); REDISCOVERY]</em>. An anchored left-distributive
+magma of size
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
 exists iff
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
@@ -2691,7 +2823,11 @@ at the powers of two up to 64 (EXP-C06-01). Lean checks the table
 and the non-existence for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">N = 3</annotation></semantics></math>.
 The general theorem is published (Laver; elementary proof by Drápal;
-Dehornoy’s book) and we do not re-prove it.</p>
+Dehornoy’s book) and we do not re-prove it; we read its statement in
+Biane’s refereed survey (Sém. Lothar. Combin. 80, 2019, §2.2), whose
+published version restricts the recursion to
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mo>&lt;</mo><mi>N</mi></mrow><annotation encoding="application/x-tex">q &lt; N</annotation></semantics></math>
+— the correction of the arXiv version that Chapter 19 rediscovers.</p>
 <h2 data-number="7.4" id="when-the-anchor-pins-everything"><span class="header-section-number">7.4</span> When the anchor pins
 everything</h2>
 <p><strong>Theorem 7.2</strong> <em>[PROVEN — Lean:
@@ -3036,9 +3172,9 @@ a law is <em>affinely rigid</em> if every anchored model is affine, so
 that the two coincide.</p>
 <h2 data-number="8.3" id="affine-spectra-are-arithmetic"><span class="header-section-number">8.3</span> Affine spectra are
 arithmetic</h2>
-<p><strong>Theorem 8.1</strong> <em>[PROVEN — written]</em>. Affine
-spectra are closed under divisors and under coprime products, so
-membership of
+<p><strong>Theorem 8.1</strong> <em>[PROVEN — Lean:
+<code>C13_AffineStructure.lean</code>]</em>. Affine spectra are closed
+under divisors and under coprime products, so membership of
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
 depends only on the prime powers dividing
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>.
@@ -3911,7 +4047,14 @@ respectively
 <p>Measured over
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>&lt;</mo><msup><mn>10</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">n &lt; 10^6</annotation></semantics></math>
 (EXP-C10-01): binary 1.999988, factorial 1.7182767, Gray 1.0, skew
-binary 1.4999955 with worst case 2.</p>
+binary 1.4999955 with worst case 2. For skew binary both numbers are
+proved in Lean (<code>C10_SkewBinary.lean</code>): every increment
+changes at most two digits, and the average over the first
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+increments is within
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mo stretchy="false" form="prefix">⌊</mo><msub><mo>log</mo><mn>2</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="false" form="postfix">⌋</mo><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mrow><mo stretchy="true" form="prefix">(</mo><mn>2</mn><mi>N</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">(\lfloor \log_2(N+1) \rfloor + 1)/(2N)</annotation></semantics></math>
+of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">3/2</annotation></semantics></math>.</p>
 <h2 data-number="11.3" id="zeckendorf-counts-like-binary"><span class="header-section-number">11.3</span> Zeckendorf counts like
 binary</h2>
 <p>The Inventor guessed that the sparse Zeckendorf system (no two
@@ -4200,8 +4343,10 @@ gives
 for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo>,</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">k = 2, 3, 4</annotation></semantics></math>
 (EXP-C11-02, EXP-C11-06).</p>
-<p><strong>Corollary 12.4</strong> <em>[PROVEN — written; POTENTIALLY
-NOVEL (low confidence)]</em>. With
+<p><strong>Corollary 12.4</strong> <em>[PROVEN — written; partly
+REDISCOVERY:
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>011</mn></msub><annotation encoding="application/x-tex">T_{011}</annotation></semantics></math>
+is Capocelli’s code C(3)]</em>. With
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mn>1</mn></msub><mo>=</mo><msub><mi>F</mi><mn>2</mn></msub><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">F_1 = F_2 = 1</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi></mrow><mn>11</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>F</mi><mrow><mi>L</mi><mo>+</mo><mn>1</mn></mrow></msub><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\mathrm{cum}_{11}(L) = F_{L+1} - 1</annotation></semantics></math>
 and
@@ -4305,8 +4450,8 @@ C3 is uniquely decipherable and complete but <em>not</em> prefix-free:
 its decoder searches for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>011</mn><annotation encoding="application/x-tex">011</annotation></semantics></math>
 and reads one bit of the next codeword.</p>
-<p><strong>Corollary 12.6</strong> <em>[PROVEN — written; POTENTIALLY
-NOVEL (low confidence)]</em>. C3 has
+<p><strong>Corollary 12.6</strong> <em>[PROVEN — written; partly
+REDISCOVERY: Fraenkel–Klein]</em>. C3 has
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><msub><mi>F</mi><mrow><mi>r</mi><mo>−</mo><mn>2</mn></mrow></msub></mrow><annotation encoding="application/x-tex">2F_{r-2}</annotation></semantics></math>
 codewords of length
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo>≥</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">r \ge 3</annotation></semantics></math>,
@@ -4324,7 +4469,7 @@ and
 (The count and the comparison with C1 are Fraenkel and Klein’s; the
 comparison with
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>011</mn></msub><annotation encoding="application/x-tex">T_{011}</annotation></semantics></math>
-is ours.)</p>
+was not found in the sources we read.)</p>
 <p><em>Proof.</em> As
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>F</mi><mrow><mi>L</mi><mo>+</mo><mn>2</mn></mrow></msub><mo>−</mo><mn>2</mn><msub><mi>F</mi><mi>L</mi></msub><mo>=</mo><msub><mi>F</mi><mrow><mi>L</mi><mo>−</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">F_{L+2} - 2F_L = F_{L-1}</annotation></semantics></math>,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi></mrow><mn>011</mn></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><msub><mrow><mi mathvariant="normal">c</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">m</mi></mrow><mrow><mi>C</mi><mn>3</mn></mrow></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msub><mi>F</mi><mrow><mi>L</mi><mo>−</mo><mn>1</mn></mrow></msub><mo>−</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{cum}_{011}(L) - \mathrm{cum}_{C3}(L) = F_{L-1} - (L - 1)</annotation></semantics></math>,
@@ -4600,11 +4745,21 @@ codes, unbordered markers
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>⋯</mi><mn>10</mn></mrow><annotation encoding="application/x-tex">1\cdots10</annotation></semantics></math>
 are optimal at finite lengths (Gilbert; Guibas and Odlyzko), the
 phenomenon of Theorem 12.3 in another setting; the multi-delimiter codes
-of Anisimov and Zavadskyi are reported to beat Fibonacci codes. We found
-no statement of Corollaries 12.4 and 12.6 or Proposition 12.5; our
-confidence in their novelty is low, given C3, the multi-delimiter codes
-and the generic nature of log-periodic oscillations like Proposition
-12.5’s.</p>
+of Anisimov and Zavadskyi are reported to beat Fibonacci codes. The
+Historian’s second audit found that
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>011</mn></msub><annotation encoding="application/x-tex">T_{011}</annotation></semantics></math>
+itself is Capocelli’s code C(3) (IEEE Trans. Inform. Theory 35, 1989:
+the words in which 011 occurs only as a suffix), that the codes
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mi>p</mi></msub><annotation encoding="application/x-tex">T_p</annotation></semantics></math>
+in general are Lakshmanan’s pattern codes (1981; Fraenkel and Klein
+1996, §3), and that Lima and da Rocha (2013) tabulate C(3) against the
+Fibonacci code, one bit shorter at the tabulated
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><msup><mn>2</mn><mi>t</mi></msup></mrow><annotation encoding="application/x-tex">n = 2^t</annotation></semantics></math>.
+The exact comparisons of Corollaries 12.4 and 12.6 were not found
+(Capocelli’s paper could not be read), so both are recorded as partial
+rediscoveries; our confidence in the novelty of Proposition 12.5 is low,
+given the multi-delimiter codes and the generic nature of log-periodic
+oscillations.</p>
 <ul>
 <li>P. Elias, “Universal codeword sets and representations of the
 integers”, IEEE Trans. Inform. Theory 21 (1975) 194–203.</li>
@@ -5837,7 +5992,8 @@ is compatible with switching: it is a multiplication of two-graphs.</p>
 — but it changes how one should think about
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>⊕</mo><annotation encoding="application/x-tex">\oplus</annotation></semantics></math>:
 it only half-sees graphs.</p>
-<p><strong>Theorem 15.7</strong> <em>[PROVEN — written]</em>. (a)
+<p><strong>Theorem 15.7</strong> <em>[PROVEN — written; (b) is a
+REDISCOVERY: Oh, Yoo and Yun 2013]</em>. (a)
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow></msub><mo>⊕</mo><msub><mi>K</mi><mrow><mi>c</mi><mo>,</mo><mi>d</mi></mrow></msub><mo>≅</mo><msub><mi>K</mi><mrow><mi>a</mi><mi>c</mi><mo>+</mo><mi>b</mi><mi>d</mi><mo>,</mo><mspace width="0.167em"></mspace><mi>a</mi><mi>d</mi><mo>+</mo><mi>b</mi><mi>c</mi></mrow></msub></mrow><annotation encoding="application/x-tex">K_{a,b} \oplus K_{c,d} \cong K_{ac+bd,\,ad+bc}</annotation></semantics></math>:
 on complete bipartite graphs the order and the <em>imbalance</em>
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="true" form="prefix">|</mo><mi>a</mi><mo>−</mo><mi>b</mi><mo stretchy="true" form="postfix">|</mo></mrow><annotation encoding="application/x-tex">|a - b|</annotation></semantics></math>
@@ -5848,6 +6004,12 @@ iff
 and
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Y</mi><annotation encoding="application/x-tex">Y</annotation></semantics></math>
 are switching-equivalent.</p>
+<p>Part (b) is a theorem of Oh, Yoo and Yun (SIAM J. Discrete Math. 27,
+2013), whose <em>rainbow graph</em> of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>G</mi><annotation encoding="application/x-tex">G</annotation></semantics></math>
+is
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mn>2</mn></msub><mo>⊕</mo><mi>G</mi></mrow><annotation encoding="application/x-tex">K_2 \oplus G</annotation></semantics></math>;
+only the multiplication rule (a) was not found in the literature.</p>
 <h2 data-number="15.5" id="a-bold-hypothesis-that-failed"><span class="header-section-number">15.5</span> A bold hypothesis that
 failed</h2>
 <p>For the Cartesian and strong products every connected graph factors
@@ -6397,8 +6559,9 @@ up to
 the method and the recursion of Conjecture 16.7 agree exactly
 (EXP-C19-05), so the conjecture is now tested against a proved method
 rather than against simulation.</p>
-<p><strong>Theorem 16.10</strong> <em>[PROVEN — written]</em>. Without
-any optimality theorem,
+<p><strong>Theorem 16.10</strong> <em>[PROVEN — written; arithmetic core
+in Lean: <code>C19_DeficitBound.lean</code>]</em>. Without any
+optimality theorem,
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>D</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>≤</mo><mn>1</mn><mo>+</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>t</mi><mo>+</mo><mn>6</mn><mo stretchy="true" form="postfix">)</mo></mrow><mi>/</mi><mn>2</mn></mrow><annotation encoding="application/x-tex">D(n) \le 1 + (t+1)(t+6)/2</annotation></semantics></math>;
 hence
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>φ</mi><mn>2</mn></msup><mi>n</mi><mo>−</mo><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><msup><mo>log</mo><mn>2</mn></msup><mi>n</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">L(n) = \varphi^2 n - O(\log^2 n)</annotation></semantics></math>.</p>
@@ -6519,11 +6682,14 @@ results</h1>
 <p><em>Volume 6 — New conjectures and verified theorems. Generated from
 the claim database (<code>python -m lab catalogue</code>); every entry
 links to its record in <code>db/claims/</code>.</em></p>
-<p>Proof kinds: <strong>Lean</strong> — machine-checked;
+<p>Proof kinds: <strong>Lean</strong> — machine-checked; <strong>Lean +
+written</strong> — a written proof whose core steps are machine-checked;
 <strong>computer-assisted</strong> — a finite certificate checked by a
 program; <strong>written</strong> — a complete written proof in
-<code>proofs/paper/</code>. Novelty labels are those of the Historian’s
-audit; <em>rediscovery</em> means the result is in the literature.</p>
+<code>proofs/paper/</code>; <strong>literature</strong> — a published
+theorem whose statement the lab read. Novelty labels are those of the
+Historian’s audit; <em>rediscovery</em> means the result is in the
+literature.</p>
 <h2 data-number="16.14" id="c01-quantity-as-the-complete-invariant-of-rewriting"><span class="header-section-number">16.14</span> C01 — Quantity as the
 complete invariant of rewriting</h2>
 <p><strong>Theorems.</strong></p>
@@ -6538,9 +6704,9 @@ one-symbol relations have index min m_i and period gcd(n_i - m_i).</li>
 <li><strong>CLM-C01-04</strong> (written), rediscovery: Multiplication
 emerges as composition of substitutions; with two symbols it is
 non-commutative.</li>
-<li><strong>CLM-C01-06</strong> (written), rediscovery:
+<li><strong>CLM-C01-06</strong> (Lean + written), rediscovery:
 Border-containment theorem for one length-preserving relation.</li>
-<li><strong>CLM-C01-07</strong> (computer-assisted), rediscovery:
+<li><strong>CLM-C01-07</strong> (Lean + written), rediscovery:
 Common-border formula proved for 1632 specific relations by verified
 finite completions.</li>
 <li><strong>CLM-C01-09</strong> (written), rediscovery: Common-border
@@ -6575,9 +6741,9 @@ glider).</li>
 <li><strong>CLM-C02-05</strong> (computer-assisted), potentially novel:
 Termination classification for all 189 small carry rules
 (computer-assisted).</li>
-<li><strong>CLM-C02-07</strong> (Lean), rediscovery: Uniqueness of
-representations when the reduced carry polynomial is primitive and
-irreducible.</li>
+<li><strong>CLM-C02-07</strong> (Lean + written), rediscovery:
+Uniqueness of representations when the reduced carry polynomial is
+primitive and irreducible.</li>
 <li><strong>CLM-C02-08</strong> (written), rediscovery: Exchange
 representations respect the radix order.</li>
 <li><strong>CLM-C02-09</strong> (written), rediscovery: The Fibonacci
@@ -6596,19 +6762,20 @@ string rewriting 0^p 1^q -&gt; 1^r 0^s</h2>
 <ul>
 <li><strong>CLM-C03-01</strong> (Lean), rediscovery: A one-rule system
 that decreases the count of some letter terminates.</li>
-<li><strong>CLM-C03-02</strong> (written), rediscovery: Conserving rules
-terminate (s = p or r = q).</li>
+<li><strong>CLM-C03-02</strong> (Lean + written), rediscovery:
+Conserving rules terminate (s = p or r = q).</li>
 <li><strong>CLM-C03-03</strong> (Lean), rediscovery: Self-embedding
 derivations prove non-termination; the doubling region r &gt;= 2q, s
 &gt;= 2p always loops.</li>
 <li><strong>CLM-C03-04</strong> (Lean), rediscovery: 011 -&gt; 11100 is
 non-terminating although r &lt; 2q.</li>
-<li><strong>CLM-C03-05</strong> (Lean), rediscovery: Lifting lemma -
-loops transfer along letter morphisms (explains divisibility).</li>
+<li><strong>CLM-C03-05</strong> (Lean + written), rediscovery: Lifting
+lemma - loops transfer along letter morphisms (explains
+divisibility).</li>
 <li><strong>CLM-C03-06</strong> (computer-assisted), rediscovery:
 Classification of 601 of the 625 rules with p, q, r, s &lt;= 5
 (computer-assisted).</li>
-<li><strong>CLM-C03-10</strong> (written), rediscovery: Divisibility
+<li><strong>CLM-C03-10</strong> (literature), rediscovery: Divisibility
 characterization of termination for 0^p 1^q -&gt; 1^r 0^s
 (H-C03-4).</li>
 </ul>
@@ -6627,17 +6794,17 @@ non-terminating iff l is a factor of r.</li>
 <li><strong>CLM-C04-03</strong> (written), rediscovery: The rules aab
 -&gt; ababa and aab -&gt; babaa (and their six symmetric images)
 terminate.</li>
-<li><strong>CLM-C04-04</strong> (Lean), rediscovery: ab -&gt; ba: every
-derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions = even
-inversion count.</li>
+<li><strong>CLM-C04-04</strong> (Lean + written), rediscovery: ab -&gt;
+ba: every derivation has inv(w) steps, D(n) = floor(n^2/4), P-positions
+= even inversion count.</li>
 <li><strong>CLM-C04-05</strong> (Lean), rediscovery: One-rule systems
 with an unbordered left-hand side have random descent
 (Lean-verified).</li>
-<li><strong>CLM-C04-06</strong> (written), rediscovery: Every one-rule
-system has a constant-step potential; for terminating ones confluence is
-equivalent to random descent.</li>
-<li><strong>CLM-C04-08</strong> (written), rediscovery: Rewriting games
-of random-descent rules are parity games (Grundy value = D(w) mod
+<li><strong>CLM-C04-06</strong> (Lean + written), rediscovery: Every
+one-rule system has a constant-step potential; for terminating ones
+confluence is equivalent to random descent.</li>
+<li><strong>CLM-C04-08</strong> (Lean + written), rediscovery: Rewriting
+games of random-descent rules are parity games (Grundy value = D(w) mod
 2).</li>
 <li><strong>CLM-C04-09</strong> (written), potentially novel: The rule
 aab -&gt; ba has derivational complexity D(n) = n - 1 - min{k : 2^k + k
@@ -6669,18 +6836,30 @@ single-identity magma varieties</h2>
 <ul>
 <li><strong>CLM-C05-04</strong> (Lean), rediscovery: Law 167, x =
 (y*x)*(x*y): every finite model has order 0 or 1 mod 4.</li>
-<li><strong>CLM-C05-05</strong> (Lean), rediscovery: Identities x =
-y*s(x, y) make every left translation of a finite model bijective.</li>
+<li><strong>CLM-C05-05</strong> (Lean + written), rediscovery:
+Identities x = y*s(x, y) make every left translation of a finite model
+bijective.</li>
 <li><strong>CLM-C05-07</strong> (Lean), potentially novel: New spectrum
 memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286,
 1313 and 1516 have models of order 9.</li>
-<li><strong>CLM-C05-08</strong> (computer-assisted), potentially novel:
-New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models
-of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083
+<li><strong>CLM-C05-08</strong> (Lean + written), potentially novel: New
+spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of
+orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083
 none of 5, 6.</li>
-<li><strong>CLM-C05-10</strong> (computer-assisted), not assessed:
-Linear models over finite fields: the orders q &lt;= 128 at which the 15
-open laws have a model x*y = ax + by over GF(q).</li>
+<li><strong>CLM-C05-10</strong> (Lean + written), not assessed: Linear
+models over finite fields: the orders q &lt;= 128 at which the 15 open
+laws have a model x*y = ax + by over GF(q).</li>
+<li><strong>CLM-C05-11</strong> (Lean + written), rediscovery: Law 677,
+x = y(x((yx)y)), has no model of order 8 (rediscovery;
+DRAT-certified).</li>
+<li><strong>CLM-C05-12</strong> (Lean + written), potentially novel: Law
+677 has no model of order 10 (DRAT-certified); its orders up to 10 are
+exactly 1, 5, 7, 9.</li>
+<li><strong>CLM-C05-13</strong> (Lean + written), potentially novel: Law
+1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified);
+its orders up to 10 are exactly 1, 5, 7, 9.</li>
+<li><strong>CLM-C05-14</strong> (Lean), not assessed: Finite models of
+law 1313 are quasigroups (Lean).</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
@@ -6692,20 +6871,23 @@ restricted ones to n &lt;= 8).</li>
 magmas: spectra of composition laws</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
+<li><strong>CLM-C06-01</strong> (literature), rediscovery:
+Left-distributivity with a successor anchor: the Laver tables
+(rediscovery).</li>
 <li><strong>CLM-C06-02</strong> (Lean), rediscovery: Anchored
 associativity forces x*y = x + y + 1, for every N.</li>
-<li><strong>CLM-C06-03</strong> (Lean), rediscovery: Anchored
+<li><strong>CLM-C06-03</strong> (Lean + written), rediscovery: Anchored
 right-distributivity forces x*y = x + 1, for every N.</li>
 <li><strong>CLM-C06-05</strong> (written), rediscovery: Anchored
 right-permutable magmas are x*y = x + c(y); there are N^(N-1) of
 them.</li>
-<li><strong>CLM-C06-06</strong> (Lean), potentially novel: An ‘odd’ law:
-(xy)z = x((yz)z) has an anchored model exactly for odd N, and it is
-unique.</li>
-<li><strong>CLM-C06-07</strong> (written), potentially novel: A ‘golden’
-law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a
-= 1 mod N.</li>
-<li><strong>CLM-C06-08</strong> (Lean), rediscovery: Anchored
+<li><strong>CLM-C06-06</strong> (Lean + written), potentially novel: An
+‘odd’ law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and
+it is unique.</li>
+<li><strong>CLM-C06-07</strong> (Lean + written), potentially novel: A
+‘golden’ law: anchored models of (xy)z = x(y(zz)) correspond to roots of
+a^2 + a = 1 mod N.</li>
+<li><strong>CLM-C06-08</strong> (Lean + written), rediscovery: Anchored
 left-permutable magmas are commutative monoids in disguise (counted by
 OEIS A058156).</li>
 <li><strong>CLM-C06-12</strong> (written), rediscovery: Anchored spectra
@@ -6713,8 +6895,6 @@ are closed under coprime products.</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
-<li><strong>CLM-C06-01</strong>, rediscovery: Left-distributivity with a
-successor anchor: the Laver tables (rediscovery).</li>
 <li><strong>CLM-C06-10</strong>, potentially novel: Laws with finite
 anchored spectra {1, 2} and {1, 3}.</li>
 <li><strong>CLM-C06-11</strong>, potentially novel: Mirror twins of the
@@ -6794,7 +6974,7 @@ fire 1/(m - sum b) times per increment on average.</li>
 <li><strong>CLM-C10-05</strong> (written), rediscovery: Single-offset
 exchange rules cost exactly firings + 1 per increment (average 1 + 1/(m
 - q)).</li>
-<li><strong>CLM-C10-07</strong> (written), rediscovery: Skew binary
+<li><strong>CLM-C10-07</strong> (Lean), rediscovery: Skew binary
 counting has worst-case cost 2 and average 3/2.</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
@@ -6806,7 +6986,7 @@ exchange rules have rule-specific average counting costs.</li>
 universal integer codes</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C11-01</strong> (written), rediscovery:
+<li><strong>CLM-C11-01</strong> (Lean + written), rediscovery:
 Pattern-terminated codes T_p are complete prefix codes with counts x^k /
 (x^k + (1-2x) c_p(x)); T_11 is the Fibonacci code.</li>
 <li><strong>CLM-C11-02</strong> (written), rediscovery: The all-ones
@@ -6815,14 +6995,14 @@ length-k patterns.</li>
 <li><strong>CLM-C11-03</strong> (written), rediscovery: Unbordered
 terminators: F_u = x/(1-x) F_(1^k), so codeword counts are partial sums
 of the all-ones counts.</li>
-<li><strong>CLM-C11-04</strong> (written), potentially novel: T_011 is
-never longer than the Fibonacci code for n &gt;= 5 and one bit shorter
-on all but L values per level.</li>
+<li><strong>CLM-C11-04</strong> (written), rediscovery: T_011 is never
+longer than the Fibonacci code for n &gt;= 5 and one bit shorter on all
+but L values per level.</li>
 <li><strong>CLM-C11-07</strong> (written), potentially novel: The
 average gain oscillates between (2-lambda)/(lambda-1)^2 and
 lambda(2-lambda)/(lambda-1).</li>
-<li><strong>CLM-C11-09</strong> (written), potentially novel: T_011 is
-never longer than Fraenkel-Klein’s C3 except at n = 2, 4, 8; C3 is never
+<li><strong>CLM-C11-09</strong> (written), rediscovery: T_011 is never
+longer than Fraenkel-Klein’s C3 except at n = 2, 4, 8; C3 is never
 longer than C1 except at n = 1.</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
@@ -6844,15 +7024,15 @@ g(2k) = k - 1.</li>
 <li><strong>CLM-C12-03</strong> (Lean), rediscovery: P-positions of the
 deleting-divisors game (subtract d | n with 1 &lt; d &lt; n): 0, odd
 numbers, 2^(2j+1).</li>
-<li><strong>CLM-C12-04</strong> (computer-assisted), potentially novel:
+<li><strong>CLM-C12-04</strong> (Lean + written), potentially novel:
 Grundy function of the deleting-divisors game: v2(n) except on odd parts
 &lt;= 15.</li>
 <li><strong>CLM-C12-05</strong> (written), rediscovery: Bitwise and
 quotient games: popcount, floor(log2((n+1)/3)) + 1 and floor(log2
 n).</li>
-<li><strong>CLM-C12-06</strong> (written), rediscovery: Residue lemma;
-subtract-a-power-of-k has the Grundy function of the subtraction game
-{1, k}.</li>
+<li><strong>CLM-C12-06</strong> (Lean + written), rediscovery: Residue
+lemma; subtract-a-power-of-k has the Grundy function of the subtraction
+game {1, k}.</li>
 <li><strong>CLM-C12-07</strong> (Lean), rediscovery: Splitting games in
 which every heap can be split have g(n) = [n even].</li>
 <li><strong>CLM-C12-08</strong> (written), rediscovery:
@@ -6873,18 +7053,19 @@ Subtract-a-Fibonacci-number has bounded Grundy values.</li>
 which sets of integers are spectra?</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C13-01</strong> (written), rediscovery: Affine anchored
+<li><strong>CLM-C13-01</strong> (Lean), rediscovery: Affine anchored
 spectra are root sets of polynomial systems - divisor-closed,
 CRT-closed, finite ones are divisor sets.</li>
-<li><strong>CLM-C13-02</strong> (Lean), potentially novel: Right-normed
-laws (xy)z = x V(y,z) have only translation models.</li>
-<li><strong>CLM-C13-03</strong> (Lean), potentially novel: The W-family:
-anchored models of (xy)z = x(y W(z)) are the affine tables with a*c_W(a)
-= 1.</li>
-<li><strong>CLM-C13-04</strong> (Lean), potentially novel: Exact finite
-spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) = ((xy)z)x.</li>
-<li><strong>CLM-C13-05</strong> (Lean), not assessed: The law x =
-x(x(xx)) has anchored models of every size except 2.</li>
+<li><strong>CLM-C13-02</strong> (Lean + written), potentially novel:
+Right-normed laws (xy)z = x V(y,z) have only translation models.</li>
+<li><strong>CLM-C13-03</strong> (Lean + written), potentially novel: The
+W-family: anchored models of (xy)z = x(y W(z)) are the affine tables
+with a*c_W(a) = 1.</li>
+<li><strong>CLM-C13-04</strong> (Lean + written), potentially novel:
+Exact finite spectra {1,3} and {1,2} for x(yz) = ((zx)x)y and x(yz) =
+((xy)z)x.</li>
+<li><strong>CLM-C13-05</strong> (Lean + written), not assessed: The law
+x = x(x(xx)) has anchored models of every size except 2.</li>
 <li><strong>CLM-C13-06</strong> (computer-assisted), not assessed:
 Offset congruence closure is a sound prover of finite anchored spectra;
 it settles 16 of the 17 laws of CLM-C06-10.</li>
@@ -6903,25 +7084,25 @@ sparse spectrum found.</li>
 the 256 local graph products</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C14-01</strong> (Lean), not assessed: Associativity of a
-local graph product is a finite identity on relations, detected by P3 x
-P3 x P3 (Lean).</li>
+<li><strong>CLM-C14-01</strong> (Lean + written), not assessed:
+Associativity of a local graph product is a finite identity on
+relations, detected by P3 x P3 x P3 (Lean).</li>
 <li><strong>CLM-C14-02</strong> (Lean), rediscovery: Exactly 20 of the
 256 local graph products are associative, 10 commutative, 8 with unit K1
 (Lean decide).</li>
 <li><strong>CLM-C14-03</strong> (computer-assisted), not assessed: For
 local graph products, associativity and commutativity up to isomorphism
 are no weaker than the strict notions.</li>
-<li><strong>CLM-C14-04</strong> (written), potentially novel: Exactly
-six local products are Kronecker products in disguise (multiplicative
-characters).</li>
+<li><strong>CLM-C14-04</strong> (Lean + written), potentially novel:
+Exactly six local products are Kronecker products in disguise
+(multiplicative characters).</li>
 <li><strong>CLM-C14-05</strong> (written), potentially novel: Additive
 characters: only the Cartesian product and its complement-dual; every
 non-trivial commutative associative product has a character.</li>
-<li><strong>CLM-C14-06</strong> (written), rediscovery: The
+<li><strong>CLM-C14-06</strong> (Lean + written), rediscovery: The
 symmetric-difference product is the Kronecker product of Seidel
 matrices; it acts on two-graphs.</li>
-<li><strong>CLM-C14-07</strong> (written), potentially novel: Complete
+<li><strong>CLM-C14-07</strong> (written), rediscovery: Complete
 bipartite graphs multiply as (order, imbalance); K2 absorbs Seidel
 switching.</li>
 <li><strong>CLM-C14-09</strong> (written), rediscovery: The Cartesian
@@ -6947,9 +7128,9 @@ form a free commutative monoid under the symmetric-difference
 automata: light cones, streaming width and fast-forwarding</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C15-01</strong> (Lean), rediscovery: Light cones of
-semigroups - the popcount word, Pascal exponents, bounded streaming
-width.</li>
+<li><strong>CLM-C15-01</strong> (Lean + written), rediscovery: Light
+cones of semigroups - the popcount word, Pascal exponents, bounded
+streaming width.</li>
 <li><strong>CLM-C15-02</strong> (written), rediscovery: Affine magmas -
 binomial light cone and an O(L log L log t) fast-forward.</li>
 <li><strong>CLM-C15-03</strong> (written), not assessed: Commutative
@@ -6987,9 +7168,9 @@ implies a fast-forward.</li>
 invented finite algebras</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C16-01</strong> (Lean), rediscovery: The Fibonacci pair
-map of a magma is a permutation iff every left translation is a
-bijection.</li>
+<li><strong>CLM-C16-01</strong> (Lean + written), rediscovery: The
+Fibonacci pair map of a magma is a permutation iff every left
+translation is a bijection.</li>
 <li><strong>CLM-C16-03</strong> (written), rediscovery: Full-period
 magmas are de Bruijn cycles: there are (n!)^n / n^2 of them.</li>
 <li><strong>CLM-C16-04</strong> (written), not assessed: A parity
@@ -7006,14 +7187,14 @@ of full-period magmas of coprime orders are full-period.</li>
 of a group of even order has a full-period Fibonacci pair map.</li>
 <li><strong>CLM-C16-11</strong> (Lean), not assessed: Fixed points of
 the pair map are idempotents.</li>
-<li><strong>CLM-C16-12</strong> (written), rediscovery: Affine magmas:
-periods are orders of companion matrices; the anchored magma x + y + 1
-is the Fibonacci sequence mod N.</li>
+<li><strong>CLM-C16-12</strong> (Lean + written), rediscovery: Affine
+magmas: periods are orders of companion matrices; the anchored magma x +
+y + 1 is the Fibonacci sequence mod N.</li>
 <li><strong>CLM-C16-14</strong> (written), rediscovery: Fibonacci
 sequences of nimbers: maximal period pi(2^(2^k) - 1).</li>
-<li><strong>CLM-C16-15</strong> (written), potentially novel: Laver
-tables: every Fibonacci orbit ends in the fixed point or one of the N -
-1 two-cycles through the top element.</li>
+<li><strong>CLM-C16-15</strong> (Lean + written), potentially novel:
+Laver tables: every Fibonacci orbit ends in the fixed point or one of
+the N - 1 two-cycles through the top element.</li>
 <li><strong>CLM-C16-18</strong> (computer-assisted), not assessed:
 Maximal Fibonacci periods of small groups.</li>
 </ul>
@@ -7037,30 +7218,34 @@ check</h2>
 <ul>
 <li><strong>CLM-C17-01</strong> (written), rediscovery: Light’s test:
 generators suffice for associativity.</li>
-<li><strong>CLM-C17-02</strong> (written), not assessed: Associativity
-of an anchored magma is decided by one O(n^2) identity.</li>
+<li><strong>CLM-C17-02</strong> (Lean + written), not assessed:
+Associativity of an anchored magma is decided by one O(n^2)
+identity.</li>
 <li><strong>CLM-C17-03</strong> (written), rediscovery: The
 Rajagopalan-Schulman randomised associativity test is one-sided.</li>
+<li><strong>CLM-C17-05</strong> (Lean + written), rediscovery: The
+anchor instance of left-distributivity singles out the Laver tables
+(every N &lt;= 4096).</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
 <li><strong>CLM-C17-04</strong>, rediscovery: Benchmark - generator and
 anchor tests versus the exhaustive check.</li>
-<li><strong>CLM-C17-05</strong>, not assessed: The anchor instance of
-left-distributivity singles out the Laver tables (every N &lt;=
-4096).</li>
+<li><strong>CLM-C17-08</strong>, rediscovery: For every N, the full
+anchor instance of left-distributivity has a model iff N is a power of 2
+(rediscovery; computational here for N &lt;= 4096).</li>
 </ul>
 <h2 data-number="16.31" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes"><span class="header-section-number">16.31</span> C18 — Invented operations as
 mixing primitives: quasigroup string transformations versus standard
 hashes</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C18-01</strong> (Lean), rediscovery: e-transformations
-are bijections of strings of fixed length.</li>
-<li><strong>CLM-C18-02</strong> (Lean), not assessed: Differences
-propagate forward only; forward-only tail hashes fail the strict
-avalanche criterion.</li>
-<li><strong>CLM-C18-03</strong> (Lean), not assessed: The
+<li><strong>CLM-C18-01</strong> (Lean + written), rediscovery:
+e-transformations are bijections of strings of fixed length.</li>
+<li><strong>CLM-C18-02</strong> (Lean + written), not assessed:
+Differences propagate forward only; forward-only tail hashes fail the
+strict avalanche criterion.</li>
+<li><strong>CLM-C18-03</strong> (Lean + written), not assessed: The
 tail-information bound: an e-transformation tail carries one byte of
 state.</li>
 <li><strong>CLM-C18-04</strong> (written), rediscovery: T-function
@@ -7086,14 +7271,14 @@ non-cryptographic baselines - no significant improvement.</li>
 game</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C19-01</strong> (written), rediscovery: Every Zeckendorf
-game has length B(n) - sum_{i&gt;=2} (i-1) MC_i.</li>
+<li><strong>CLM-C19-01</strong> (Lean + written), rediscovery: Every
+Zeckendorf game has length B(n) - sum_{i&gt;=2} (i-1) MC_i.</li>
 <li><strong>CLM-C19-02</strong> (written), potentially novel: The split
 phase of the longest game ends at the lazy Fibonacci
 representation.</li>
-<li><strong>CLM-C19-03</strong> (written), potentially novel: Closed
-form of the longest game on a Fibonacci number: L(F_k) = F_{k+2} - k - 2
-- floor((k-1)^2/4).</li>
+<li><strong>CLM-C19-03</strong> (Lean + written), potentially novel:
+Closed form of the longest game on a Fibonacci number: L(F_k) = F_{k+2}
+- k - 2 - floor((k-1)^2/4).</li>
 <li><strong>CLM-C19-04</strong> (written), rediscovery: A short proof
 that only n = F_k - 1 can be played with split moves alone (Cusenza et
 al., Thm 1.4).</li>
@@ -7102,11 +7287,12 @@ longest games for n &lt;= 150 and independent confirmation of the
 split-first strategy.</li>
 <li><strong>CLM-C19-08</strong> (written), not assessed: Every multiset
 of Fibonacci numbers with sum n is a reachable game position.</li>
-<li><strong>CLM-C19-14</strong> (written), potentially novel: Computing
-the longest game with O(log^2 n) moves instead of Theta(n).</li>
-<li><strong>CLM-C19-15</strong> (written), not assessed: The deficit of
-the longest Zeckendorf game is O(log^2 n) - D(n) &lt;= 1 + (t+1)(t+6)/2,
-so L(n) = phi^2 n - O(log^2 n).</li>
+<li><strong>CLM-C19-14</strong> (Lean + written), potentially novel:
+Computing the longest game with O(log^2 n) moves instead of
+Theta(n).</li>
+<li><strong>CLM-C19-15</strong> (Lean + written), not assessed: The
+deficit of the longest Zeckendorf game is O(log^2 n) - D(n) &lt;= 1 +
+(t+1)(t+6)/2, so L(n) = phi^2 n - O(log^2 n).</li>
 </ul>
 <p><strong>Computationally supported.</strong></p>
 <ul>
@@ -7123,16 +7309,16 @@ revisited: the last one-rule systems of C04, and a literature check for
 C03</h2>
 <p><strong>Theorems.</strong></p>
 <ul>
-<li><strong>CLM-C20-01</strong> (written), rediscovery: aab -&gt; ababa
-terminates, with derivational complexity D(n) = 2^(n-2) - 1.</li>
+<li><strong>CLM-C20-01</strong> (Lean + written), rediscovery: aab -&gt;
+ababa terminates, with derivational complexity D(n) = 2^(n-2) - 1.</li>
 <li><strong>CLM-C20-02</strong> (written), potentially novel: aab -&gt;
 babaa terminates; exact per-word derivation length and D(n) = max_b
 b(2^floor((n-b)/2) - 1).</li>
 <li><strong>CLM-C20-03</strong> (computer-assisted), not assessed: The
 C04 extended termination census is complete - 480 of the 868 rules with
 |l| &lt;= 3, |r| &lt;= 5 terminate.</li>
-<li><strong>CLM-C20-04</strong> (written), rediscovery: C03 Conjecture
-4.6 coincides with the Zantema-Geser characterisation.</li>
+<li><strong>CLM-C20-04</strong> (literature), rediscovery: C03
+Conjecture 4.6 coincides with the Zantema-Geser characterisation.</li>
 </ul>
 <h1 class="unnumbered" id="volume-7-computational-experiments-and-algorithms">Volume 7 —
 Computational Experiments and Algorithms</h1>
@@ -7333,6 +7519,15 @@ when its light-cone complexity is bounded: its width is unbounded, yet
 the future is computable in
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>O</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>L</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">O(L)</annotation></semantics></math>.
 The reverse direction is open (Conjecture CLM-C15-18).</p>
+<p>Both refutations were in effect anticipated: streaming width is
+essentially the one-way communication complexity of the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>-step
+rule used by Dürr, Rapaport and Theyssier (Theoret. Comput. Sci. 322,
+2004), who already give elementary automata of linear complexity with an
+explicit description of the
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>-th
+row (rules 132 and 23). The fuse magma is a new instance, not a new
+phenomenon.</p>
 <h2 data-number="17.8" id="experiments-9"><span class="header-section-number">17.8</span> Experiments</h2>
 <table>
 <colgroup>
@@ -7653,6 +7848,11 @@ POTENTIALLY NOVEL]</em>.</p>
 </tr>
 </tbody>
 </table>
+<p>Klimov (2026) studies full-period tables under the name
+<em>UFS-groupoids</em> and asks (Problems 7.3–7.5) whether one can be
+left-cancellative, a left quasigroup or a quasigroup; Theorem 18.5
+answers all three positively from order 5 on. The distance-2 criterion
+of Theorem 18.4 is not in his paper.</p>
 <p>The counts for
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>≤</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">n \le 5</annotation></semantics></math>
 come from all
@@ -8080,8 +8280,9 @@ fails already at
 classification bug, found by the Skeptic, had counted laws with a
 violation at one size as undecided because the enumeration was capped at
 another.)</p>
-<p><strong>Observation 19.4</strong> <em>[COMPUTATIONALLY SUPPORTED;
-uniqueness PROVEN]</em>. For every
+<p><strong>Observation 19.4</strong> <em>[PROVEN — computer-assisted for
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>,
+forcing argument in Lean; REDISCOVERY]</em>. For every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>,
 the single identity
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>y</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>⋆</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋆</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo>+</mo><mn>1</mn><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">x \star (y + 1) = (x \star y) \star (x + 1)</annotation></semantics></math>
@@ -8113,8 +8314,28 @@ there is at most one candidate, and the question is only whether it
 satisfies the remaining wrap-around equations. Building the candidates
 for every
 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>≤</mo><mn>4096</mn></mrow><annotation encoding="application/x-tex">N \le 4096</annotation></semantics></math>
-(EXP-C17-03) shows they do exactly at the powers of 2; why they never do
-otherwise is open.</p>
+(EXP-C17-03) shows they do exactly at the powers of 2. Lean checks the
+forcing argument, the existence of the candidate and the reduction to
+the wrap-around equations for every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+(<code>C17_ForcedTable.lean</code>).</p>
+<p>The Historian’s second audit found the general case in the
+literature. Biane remarks, in the published version of his survey, that
+the full instance fails when
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+is not a power of 2 (a correction credited to A. Lewandowski), and
+Aguilera and Iannella (2026) prove that the wrap-around equation at
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+holds iff row
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>
+ends in the top element; with Dehornoy’s criterion — the table is
+left-distributive iff every row ends in the top element — this settles
+every
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+(CLM-C17-08). We have read the last step only as cited, so the
+all-<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>N</mi><annotation encoding="application/x-tex">N</annotation></semantics></math>
+statement stays computationally supported in our records until an
+independent proof (by row periods) has been checked.</p>
 <p>This experiment also corrected the laboratory’s own citation of
 Laver’s theorem in Chapter 7: the classical recursion is imposed only
 for
@@ -9181,12 +9402,6 @@ restricted spectra; the 63 non-full ones fall into 15 patterns on n =
 (e.g. 10111011 for 16 identities including the Dupont law, 10110010 =
 Mendelsohn pattern for law 66 and three equivalents, 1010001? for law
 907). <em>Evidence:</em> EXP-C05-01, EXP-C05-02.</li>
-<li><strong>CLM-C06-01</strong> (computationally supported): An anchored
-left-distributive magma (x*0 = x+1 mod N, x(yz) = (xy)(xz)) of size N
-exists exactly for N = 1, 2, 4, 8 among N &lt;= 10 and is then unique
-(the Laver table A_n); Laver’s recursion yields left-distributive tables
-exactly at the powers of 2 up to N = 64 (verified to N = 256
-exhaustively). <em>Evidence:</em> EXP-C06-01, EXP-C06-02.</li>
 <li><strong>CLM-C06-10</strong> (computationally supported): The seven
 laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z =
 y((zx)y), (xy)z = y((zy)x), (xy)z = z((yx)z), (xy)z = z((yz)x) have
@@ -9376,15 +9591,13 @@ corruptions), so the gains concern certification only. The randomised
 test (40 rounds) made no error; random-triple sampling with n^2/16
 samples missed 27 of 30 near-associative inputs. <em>Evidence:</em>
 EXP-C17-01.</li>
-<li><strong>CLM-C17-05</strong> (computationally supported): For every
-N, the instances y &lt;= N - 2 of x*(y+1) = (x*y)*(x+1) force at most
-one anchored table (Laver’s recursion; written proof in
-proofs/paper/C17.md). At N = 2^n it is the Laver table A_n, which
-satisfies the full instance including the wrap-around y = N - 1. For
-every N &lt;= 4096 (EXP-C17-03, and independently the Skeptic’s C
-program) the full instance has a model exactly at the powers of 2, so
-for these N left-distributivity of an anchored table is decided by an
-O(N^2) check. <em>Evidence:</em> EXP-C17-03, EXP-C17-02.</li>
+<li><strong>CLM-C17-08</strong> (computationally supported): For every N
+&gt;= 1, an anchored table (x*0 = x + 1 mod N) satisfies x*(y+1) =
+(x*y)*(x+1) for all x and y, the wrap-around y = N - 1 included, iff N
+is a power of 2; it is then the Laver table A_n. Equivalently
+(CLM-C17-05), left-distributivity of an anchored table of any order is
+decided by an O(N^2) comparison with the forced table.
+<em>Evidence:</em> EXP-C17-03.</li>
 <li><strong>CLM-C18-08</strong> (computationally supported): QG-LS
 p2+rev has mean and maximal avalanche bias within 0.01 of BLAKE2b-64 on
 2000 random 16-byte keys. <em>Evidence:</em> EXP-C18-02.</li>
@@ -9459,8 +9672,11 @@ human decision</li>
 <p><strong>C05 — Spectra of single-identity magma
 varieties.</strong></p>
 <ul>
-<li>C05: decide law 1286 at orders 8, 10 and laws 677/1313 at 8, 10, 12,
-14 with stronger symmetry breaking; certify</li>
+<li>C05: decide laws 677 and 1313 at orders 12 and 14, and law 1286 at 8
+and 10, with the case split of EXP-C05-08 (Lemma 8); certify</li>
+<li>C05: a certified search for finite models of 677 that violate 255 (x
+= ((xx)x)x), the ETP’s open finite implication, at the next orders with
+models</li>
 <li>C05: which odd orders are in the spectra of 677 and 1313? (677 has
 no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime
 power)</li>
@@ -9605,8 +9821,10 @@ points; left-distributivity with an anchor forces period &lt;= 2)</li>
 <p><strong>C17 — Deciding laws of finite magmas: generator, anchor and
 randomised tests against the exhaustive check.</strong></p>
 <ul>
-<li>C17: prove CLM-C17-05 for all N (anchored + wrap-around LD instance
-=&gt; Laver table, N a power of 2)</li>
+<li>C17: the all-N statement is published (CLM-C17-08, batch 1.1);
+remaining - an independent check of the row-period proof and a reading
+of Dehornoy, Braids and Self-Distributivity, Ch. X (Lemma 1.7, Prop.
+1.6)</li>
 <li>C17: generator-based tests for other laws (left-distributivity,
 mediality) - which laws admit a Light-type reduction?</li>
 <li>C17: benchmark against optimised C implementations and against
@@ -9643,6 +9861,738 @@ systems with |l| &lt;= 4 - is it always n - O(1), polynomial or
 2^Theta(n)?</li>
 <li>C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run
 encoding + journeys)</li>
+</ul>
+<h1 class="unnumbered" id="appendix-corrections-log">Appendix —
+Corrections log</h1>
+<p><em>Generated from the append-only audit log
+<code>db/audit_log.jsonl</code>
+(<code>python -m lab catalogue</code>).</em></p>
+<p>Every change of a claim’s verification status, novelty label, type,
+improvement status, title, statement or counterexample made after the
+claim was first recorded: 116 field changes in 92 entries on 81 claims.
+Changes to the supporting texts (analysis, proof notes, novelty bases,
+references) are in the audit log but not listed here.</p>
+<table>
+<thead>
+<tr class="header">
+<th>source of the change</th>
+<th>claims affected</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Historian audit</td>
+<td>47</td>
+</tr>
+<tr class="even">
+<td>Skeptic review</td>
+<td>39</td>
+</tr>
+<tr class="odd">
+<td>research cycle</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="21.8" id="c01-quantity-as-the-complete-invariant-of-rewriting-2"><span class="header-section-number">21.8</span> C01 — Quantity as the complete
+invariant of rewriting</h2>
+<ul>
+<li><strong>CLM-C01-05</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md)</li>
+<li><strong>CLM-C01-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 2)</li>
+<li><strong>CLM-C01-07</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md)</li>
+<li><strong>CLM-C01-07</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 - certificates now stored,
+soundness checked (EXP-C01-07 re-run); independently re-verified by the
+Skeptic</li>
+<li><strong>CLM-C01-09</strong>, 2026-10-18: verification
+COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em> Skeptic check of
+the Historian’s derivation 2026-10-18 (reviews/skeptic_C01_C02.md (d)) -
+every step upheld; upgraded to PROVEN</li>
+</ul>
+<h2 data-number="21.9" id="c02-exchange-systems-positional-numeration-as-normal-forms-2"><span class="header-section-number">21.9</span> C02 — Exchange systems:
+positional numeration as normal forms</h2>
+<ul>
+<li><strong>CLM-C02-03</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+<li><strong>CLM-C02-04</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+<li><strong>CLM-C02-04</strong>, 2026-10-18: type conjecture → theorem;
+verification COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em> Proved
+by the Director (Theorem 9, spectral argument) after the Historian audit
+marked it the only unpublished C02 result</li>
+<li><strong>CLM-C02-04</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Second independent proof (Skeptic, Appendix A) checked
+by the Director; statement made precise for g &gt; 1 (skeptic review
+2026-10-18)</li>
+<li><strong>CLM-C02-05</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+<li><strong>CLM-C02-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+<li><strong>CLM-C02-07</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+<li><strong>CLM-C02-07</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (reviews/skeptic_C01_C02.md)
+- statement restricted, existence needs sum b &lt; m and the converse
+sum b &lt;= m</li>
+<li><strong>CLM-C02-08</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian novelty audit 2026-10-18
+(reviews/historian_C01_C02.md, section 3)</li>
+</ul>
+<h2 data-number="21.10" id="c03-termination-of-one-rule-string-rewriting-0p-1q---1r-0s-2"><span class="header-section-number">21.10</span> C03 — Termination of one-rule
+string rewriting 0^p 1^q -&gt; 1^r 0^s</h2>
+<ul>
+<li><strong>CLM-C03-07</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C03-08</strong>, 2026-10-18: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18 - counterexample count
+corrected (40, not 35)</li>
+<li><strong>CLM-C03-08</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Skeptic review 2026-10-18 - counterexample
+count corrected (40, not 35)</li>
+<li><strong>CLM-C03-09</strong>, 2026-10-18: verification INCONCLUSIVE →
+REFUTED; novelty NOT ASSESSED → REDISCOVERY; counterexample revised.
+<em>Reason:</em> Historian audit 2026-10-18 - refuted by the published
+Zantema-Geser theorem (formerly INCONCLUSIVE)</li>
+<li><strong>CLM-C03-10</strong>, 2026-10-18: type conjecture → theorem;
+verification COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em>
+Historian audit 2026-10-18 - identical to the published Zantema-Geser
+theorem; status PROVEN by literature</li>
+<li><strong>CLM-C03-11</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+</ul>
+<h2 data-number="21.11" id="c04-derivation-lengths-random-descent-and-rewriting-games-2"><span class="header-section-number">21.11</span> C04 — Derivation lengths,
+random descent and rewriting games</h2>
+<ul>
+<li><strong>CLM-C04-01</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-02</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-03</strong>, 2026-10-18: verification
+COMPUTATIONALLY SUPPORTED → PROVEN; novelty NOT ASSESSED → REDISCOVERY.
+<em>Reason:</em> Proved in cycle C20 (CLM-C20-01, CLM-C20-02); the
+Skeptic’s review (which found no loop and no matrix interpretation)
+predates the proof</li>
+<li><strong>CLM-C04-03</strong>, 2026-10-19: type conjecture → theorem.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md, P7) - proof upheld; record hygiene
+(type, proof link to both theorems, limitations)</li>
+<li><strong>CLM-C04-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-07</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-10</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 - proof upheld for n &gt;= 1;
+statement restricted to n &gt;= 1 (false at n = 0)</li>
+<li><strong>CLM-C04-11</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-12</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C04-14</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+</ul>
+<h2 data-number="21.12" id="c05-spectra-of-single-identity-magma-varieties-2"><span class="header-section-number">21.12</span> C05 — Spectra of
+single-identity magma varieties</h2>
+<ul>
+<li><strong>CLM-C05-07</strong>, 2026-10-18: title revised (was: New
+spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have
+models of order 9; 677 has models of orders 5, 7, 9); statement revised.
+<em>Reason:</em> no reason recorded</li>
+<li><strong>CLM-C05-08</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> no reason recorded</li>
+<li><strong>CLM-C05-09</strong>, 2026-10-18: title revised (was: Laws
+677 and 1313 have spectrum {1} together with all odd n &gt;= 5);
+verification CONJECTURE → REFUTED; counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C05_C08_C12.md) - order-16 models refute the
+conjecture</li>
+</ul>
+<h2 data-number="21.13" id="c06-successor-anchored-magmas-spectra-of-composition-laws-2"><span class="header-section-number">21.13</span> C06 — Successor-anchored
+magmas: spectra of composition laws</h2>
+<ul>
+<li><strong>CLM-C06-01</strong>, 2026-10-19: verification
+COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em> Historian audit
+2026-10-19 (reviews/historian_C11_C20.md, note 6) - the statement is a
+published theorem: COMPUTATIONALLY SUPPORTED -&gt; PROVEN (literature);
+citation of Biane’s survey updated to the refereed version</li>
+<li><strong>CLM-C06-03</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-04</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-05</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-08</strong>, 2026-10-18: novelty POTENTIALLY NOVEL →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18 - downgraded
+from POTENTIALLY NOVEL</li>
+<li><strong>CLM-C06-09</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-10</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-11</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C06-12</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 - proof upheld; consequence
+reworded ({1} together with primes)</li>
+<li><strong>CLM-C06-12</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Skeptic review 2026-10-18 - proof upheld;
+consequence reworded ({1} together with primes)</li>
+</ul>
+<h2 data-number="21.14" id="c07-arithmetic-from-the-minimal-excludant-a-census-of-mex-defined-operations-2"><span class="header-section-number">21.14</span> C07 — Arithmetic from the
+minimal excludant: a census of mex-defined operations</h2>
+<ul>
+<li><strong>CLM-C07-01</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md) - written proof upheld and
+strengthened: the 33 further specs define the same operations (exactly
+44 associative specs)</li>
+</ul>
+<h2 data-number="21.15" id="c08-circle-multiplications-on-recurrence-numeration-systems-2"><span class="header-section-number">21.15</span> C08 — Circle multiplications
+on recurrence numeration systems</h2>
+<ul>
+<li><strong>CLM-C08-02</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C08-02</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C05_C08_C12.md, P10) - the statement needs a dominant
+root &gt; 1; evidence extended by EXP-C08-07</li>
+<li><strong>CLM-C08-03</strong>, 2026-10-18: title revised (was: Pisot
+base sequences give associative circle products for all sufficiently
+large shifts); statement revised. <em>Reason:</em> Historian audit
+2026-10-18 - title and statement narrowed to the hypotheses of the cited
+theorem</li>
+<li><strong>CLM-C08-04</strong>, 2026-10-18: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C05_C08_C12.md, P3) - statement restricted to
+non-canonical initial values; evidence replaced by EXP-C08-07</li>
+<li><strong>CLM-C08-05</strong>, 2026-10-18: title revised (was:
+Measured associativity thresholds for 45 base sequences); verification
+COMPUTATIONALLY SUPPORTED → REFUTED; novelty NOT ASSESSED → REDISCOVERY;
+counterexample revised. <em>Reason:</em> Historian audit and certified
+re-test 2026-10-18 - four listed thresholds are wrong</li>
+<li><strong>CLM-C08-05</strong>, 2026-10-18: title revised (was:
+Measured associativity thresholds for 45 base sequences (refuted - four
+thresholds were too small)); counterexample revised. <em>Reason:</em>
+Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md, P2) - a fifth
+wrong threshold; the sequence count is 46, not 45</li>
+<li><strong>CLM-C08-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C08-07</strong>, 2026-10-18: verification
+COMPUTATIONALLY SUPPORTED → REFUTED; counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C05_C08_C12.md) - certified failures inside two of the
+‘no failure found’ ranges</li>
+</ul>
+<h2 data-number="21.16" id="c09-arithmetic-of-knuths-circle-semigroup-2"><span class="header-section-number">21.16</span> C09 — Arithmetic of Knuth’s
+circle semigroup</h2>
+<ul>
+<li><strong>CLM-C09-02</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C09-03</strong>, 2026-10-18: title revised (was: Window
+obstruction: a fixed proportion 1/phi^2 of all integers are
+circle-irreducible). <em>Reason:</em> Skeptic review 2026-10-18 - proof
+upheld; title said ‘a proportion 1/phi^2 are irreducible’, which is
+Conjecture CLM-C09-05; the theorem gives ‘at least’</li>
+<li><strong>CLM-C09-04</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C09-05</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C09-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C09-07</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C09-08</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+</ul>
+<h2 data-number="21.17" id="c10-the-cost-of-counting-across-representations-2"><span class="header-section-number">21.17</span> C10 — The cost of counting
+across representations</h2>
+<ul>
+<li><strong>CLM-C10-03</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C10-04</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C10-05</strong>, 2026-10-18: novelty NOT ASSESSED →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C10-06</strong>, 2026-10-18: novelty NOT ASSESSED →
+POTENTIALLY NOVEL. <em>Reason:</em> Historian audit 2026-10-18
+(reviews/historian_C03_C10.md)</li>
+<li><strong>CLM-C10-07</strong>, 2026-10-18: statement revised;
+verification COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em>
+Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - an
+elementary proof exists; statement made precise</li>
+</ul>
+<h2 data-number="21.18" id="c11-pattern-terminated-universal-integer-codes-2"><span class="header-section-number">21.18</span> C11 — Pattern-terminated
+universal integer codes</h2>
+<ul>
+<li><strong>CLM-C11-04</strong>, 2026-10-19: novelty POTENTIALLY NOVEL →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-19
+(reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -&gt; REDISCOVERY
+(partial: Capocelli’s code C(3), Lima-da Rocha’s table)</li>
+<li><strong>CLM-C11-09</strong>, 2026-10-19: novelty POTENTIALLY NOVEL →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-19
+(reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -&gt; REDISCOVERY
+(partial: Fraenkel-Klein Props 5-6)</li>
+</ul>
+<h2 data-number="21.19" id="c13-anchored-spectra-ii-which-sets-of-integers-are-spectra-2"><span class="header-section-number">21.19</span> C13 — Anchored spectra II:
+which sets of integers are spectra?</h2>
+<ul>
+<li><strong>CLM-C13-01</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (reviews/skeptic_C13_C19.md,
+C3) - written proof upheld; wording of L made precise</li>
+<li><strong>CLM-C13-08</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (C1) - EXP-C13-02 re-run with
+the correct class selection</li>
+<li><strong>CLM-C13-11</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (C2) - statement rested on a
+part of Theorem 1 that did not exist; part (f) added and the statement
+rewritten</li>
+<li><strong>CLM-C13-12</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (C1) - counts corrected after
+the re-run of EXP-C13-02 (the first run’s 198 laws included 52 from
+finite classes)</li>
+</ul>
+<h2 data-number="21.20" id="c14-graphs-as-quantities-the-256-local-graph-products-2"><span class="header-section-number">21.20</span> C14 — Graphs as quantities:
+the 256 local graph products</h2>
+<ul>
+<li><strong>CLM-C14-06</strong>, 2026-10-19: novelty POTENTIALLY NOVEL →
+REDISCOVERY. <em>Reason:</em> Skeptic review 2026-10-18 (P6) - the
+identity is published (Abiad-Butler-Haemers 2018); POTENTIALLY NOVEL
+-&gt; REDISCOVERY</li>
+<li><strong>CLM-C14-07</strong>, 2026-10-19: novelty POTENTIALLY NOVEL →
+REDISCOVERY. <em>Reason:</em> Historian audit 2026-10-19
+(reviews/historian_C11_C20.md) - POTENTIALLY NOVEL -&gt; REDISCOVERY
+(partial: Oh-Yoo-Yun 2013 prove (b) for a = 1 and (c))</li>
+</ul>
+<h2 data-number="21.21" id="c15-magma-cellular-automata-light-cones-streaming-width-and-fast-forwarding-2"><span class="header-section-number">21.21</span> C15 — Magma cellular
+automata: light cones, streaming width and fast-forwarding</h2>
+<ul>
+<li><strong>CLM-C15-11</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P15) - the 5000-step cap
+made explicit</li>
+<li><strong>CLM-C15-12</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P3, P4) - ‘never lose’ was
+false; the refutation rests on the &gt;100x clause</li>
+<li><strong>CLM-C15-13</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P4) - speedups restated as
+orders of magnitude; small-t loss recorded</li>
+<li><strong>CLM-C15-14</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P4) - re-run figures
+recorded</li>
+<li><strong>CLM-C15-15</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P3, P4) - the 4000x figure
+did not reproduce (1,363x); small-t loss recorded</li>
+<li><strong>CLM-C15-17</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P16) - the widths are
+streaming (forward) widths</li>
+</ul>
+<h2 data-number="21.22" id="c16-fibonacci-dynamics-in-invented-finite-algebras-2"><span class="header-section-number">21.22</span> C16 — Fibonacci dynamics in
+invented finite algebras</h2>
+<ul>
+<li><strong>CLM-C16-16</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 - extended to n = 13</li>
+</ul>
+<h2 data-number="21.23" id="c17-deciding-laws-of-finite-magmas-generator-anchor-and-randomised-tests-against-the-exhaustive-check-2"><span class="header-section-number">21.23</span> C17 — Deciding laws of finite
+magmas: generator, anchor and randomised tests against the exhaustive
+check</h2>
+<ul>
+<li><strong>CLM-C17-04</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md, P1) - probe accounting fixed; gains
+restricted to certification</li>
+<li><strong>CLM-C17-05</strong>, 2026-10-19: title revised (was: The
+anchor instance of left-distributivity singles out the Laver tables (N
+&lt;= 10)); statement revised. <em>Reason:</em> Skeptic review
+2026-10-18 (reviews/skeptic_C07_C17_C20.md, A.5) - uniqueness proved for
+every N; range extended by EXP-C17-03</li>
+<li><strong>CLM-C17-05</strong>, 2026-10-19: verification
+COMPUTATIONALLY SUPPORTED → PROVEN; novelty NOT ASSESSED → REDISCOVERY.
+<em>Reason:</em> Batch 1.1 - uniqueness, existence and the reduction to
+the wrap-around equations Lean-checked (C17_ForcedTable.lean), so the
+bounded statement is a computer-assisted proof: COMPUTATIONALLY
+SUPPORTED -&gt; PROVEN; Historian audit 2026-10-19: NOT ASSESSED -&gt;
+REDISCOVERY</li>
+<li><strong>CLM-C17-06</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md, P1) - the second counterexample was an
+accounting artefact</li>
+<li><strong>CLM-C17-07</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md, P2) - counting bug fixed; 43 laws, not
+18</li>
+</ul>
+<h2 data-number="21.24" id="c18-invented-operations-as-mixing-primitives-quasigroup-string-transformations-versus-standard-hashes-2"><span class="header-section-number">21.24</span> C18 — Invented operations as
+mixing primitives: quasigroup string transformations versus standard
+hashes</h2>
+<ul>
+<li><strong>CLM-C18-09</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P8) - statement restricted
+to the reverse-pass construction actually tested</li>
+<li><strong>CLM-C18-10</strong>, 2026-10-19: statement revised;
+counterexample revised. <em>Reason:</em> Skeptic review 2026-10-18 (P7)
+- false clause about FNV-1a removed</li>
+<li><strong>CLM-C18-11</strong>, 2026-10-19: counterexample revised.
+<em>Reason:</em> Skeptic review 2026-10-18 (P7) - refutation based on
+the avalanche bias</li>
+<li><strong>CLM-C18-13</strong>, 2026-10-19: title revised (was:
+Quasigroup hashes against non-cryptographic baselines - no improvement);
+statement revised. <em>Reason:</em> Skeptic review 2026-10-18 (P7, P9) -
+‘no significant improvement’; FNV-1a z-score reading and throughput
+ranges corrected</li>
+</ul>
+<h2 data-number="21.25" id="c19-the-longest-zeckendorf-game-2"><span class="header-section-number">21.25</span> C19 — The longest Zeckendorf
+game</h2>
+<ul>
+<li><strong>CLM-C19-14</strong>, 2026-10-19: title revised (was:
+Computing the longest game in O(log^2 n) operations instead of
+simulating Theta(n) moves); statement revised; verification
+COMPUTATIONALLY SUPPORTED → PROVEN. <em>Reason:</em> Skeptic review
+2026-10-18 (C9) - restated on the provably correct method of Theorem 7;
+COMPUTATIONALLY SUPPORTED -&gt; PROVEN</li>
+</ul>
+<h2 data-number="21.26" id="c20-open-problems-revisited-the-last-one-rule-systems-of-c04-and-a-literature-check-for-c03-1"><span class="header-section-number">21.26</span> C20 — Open problems
+revisited: the last one-rule systems of C04, and a literature check for
+C03</h2>
+<ul>
+<li><strong>CLM-C20-02</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md) - written proof upheld; explicit form
+of D(n) added</li>
+<li><strong>CLM-C20-04</strong>, 2026-10-18: title revised (was: C03
+Conjecture 4.6 versus the Zantema-Geser characterisation - not settled
+(full text inaccessible)); statement revised; verification INCONCLUSIVE
+→ PROVEN; novelty NOT ASSESSED → REDISCOVERY. <em>Reason:</em> Historian
+audit 2026-10-18 - the full text was found on another host and compared
+(formerly INCONCLUSIVE)</li>
+<li><strong>CLM-C20-04</strong>, 2026-10-19: statement revised.
+<em>Reason:</em> Skeptic review 2026-10-18
+(reviews/skeptic_C07_C17_C20.md, P8) - ‘verbatim’ corrected to
+‘equivalent’; equivalence re-checked on all parameters &lt;= 50</li>
+</ul>
+<h2 data-number="21.27" id="experiment-results-that-changed-on-a-re-run"><span class="header-section-number">21.27</span> Experiment results that
+changed on a re-run</h2>
+<p>A re-run whose result hash differs from the previous run of the same
+experiment. The runner records the hash of the script and of
+<code>systems/</code> with every run, so the cause can be read off.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>experiment</th>
+<th>re-run</th>
+<th>what changed since the previous run</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EXP-C01-07</td>
+<td>2026-10-18 08:37</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C02-03</td>
+<td>2026-10-18 06:52</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C02-03</td>
+<td>2026-10-18 08:36</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C02-06</td>
+<td>2026-10-18 07:18</td>
+<td>no code change recorded (external data, e.g. an OEIS lookup)</td>
+</tr>
+<tr class="odd">
+<td>EXP-C03-03</td>
+<td>2026-10-18 07:58</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C04-03</td>
+<td>2026-10-18 07:36</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C04-03</td>
+<td>2026-10-18 07:52</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C04-04</td>
+<td>2026-10-18 07:52</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C04-05</td>
+<td>2026-10-18 07:59</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C04-06</td>
+<td>2026-10-18 08:00</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C04-10</td>
+<td>2026-10-18 08:07</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C06-03</td>
+<td>2026-10-18 09:19</td>
+<td>systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C06-03</td>
+<td>2026-10-18 16:42</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C06-04</td>
+<td>2026-10-18 16:43</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C08-06</td>
+<td>2026-10-18 17:02</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C08-06</td>
+<td>2026-10-18 17:04</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C09-04</td>
+<td>2026-10-18 18:15</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C11-01</td>
+<td>2026-10-18 08:22</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C11-01</td>
+<td>2026-10-18 08:23</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C12-01</td>
+<td>2026-10-18 08:14</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-01</td>
+<td>2026-10-18 08:58</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-01</td>
+<td>2026-10-18 17:17</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-02</td>
+<td>2026-10-18 17:21</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-02</td>
+<td>2026-10-19 14:35</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-03</td>
+<td>2026-10-18 17:11</td>
+<td>systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-03</td>
+<td>2026-10-18 17:14</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-04</td>
+<td>2026-10-18 17:09</td>
+<td>systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-04</td>
+<td>2026-10-18 17:12</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-05</td>
+<td>2026-10-18 17:17</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-06</td>
+<td>2026-10-18 17:16</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-07</td>
+<td>2026-10-18 17:09</td>
+<td>systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-07</td>
+<td>2026-10-18 17:12</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C13-08</td>
+<td>2026-10-18 17:08</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C13-08</td>
+<td>2026-10-18 17:15</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C14-01</td>
+<td>2026-10-18 08:40</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C14-02</td>
+<td>2026-10-18 08:41</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C14-03</td>
+<td>2026-10-18 08:42</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C14-04</td>
+<td>2026-10-18 08:44</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C15-02</td>
+<td>2026-10-18 09:28</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C16-01</td>
+<td>2026-10-18 17:45</td>
+<td>systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C16-01</td>
+<td>2026-10-18 18:37</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C16-03</td>
+<td>2026-10-18 17:03</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C17-01</td>
+<td>2026-10-18 18:18</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C17-02</td>
+<td>2026-10-18 09:19</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C17-02</td>
+<td>2026-10-18 18:18</td>
+<td>script and systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C17-02</td>
+<td>2026-10-18 18:19</td>
+<td>script</td>
+</tr>
+<tr class="odd">
+<td>EXP-C18-03</td>
+<td>2026-10-18 16:45</td>
+<td>script</td>
+</tr>
+<tr class="even">
+<td>EXP-C19-02</td>
+<td>2026-10-19 14:41</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C19-04</td>
+<td>2026-10-18 17:33</td>
+<td>systems/</td>
+</tr>
+<tr class="even">
+<td>EXP-C19-04</td>
+<td>2026-10-19 23:53</td>
+<td>script and systems/</td>
+</tr>
+<tr class="odd">
+<td>EXP-C20-01</td>
+<td>2026-10-18 18:35</td>
+<td>script and systems/</td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="21.28" id="corrections-recorded-in-the-journal"><span class="header-section-number">21.28</span> Corrections recorded in the
+journal</h2>
+<ul>
+<li><strong>C03-14</strong> (C03): Correction of journal entry C03-11 -
+the larger matrix-interpretation tiers it mentions (upper-triangular d =
+3 entries &lt;= 5, d = 4 entries &lt;= 2, full d = 3 entries &lt;= 1)
+were searched outside the committed experiments and are not reproducible
+from the repository; only the tiers listed in the README are recorded
+evidence. The claim records do not rely on the unrecorded searches.</li>
+<li><strong>C06-11</strong> (C06): EXP-C06-03 and EXP-C06-04 stored a
+wall-clock runtime inside the hashed results, so every re-run looked
+like a changed result; the audit-log entry ‘reproduced: false’ for
+EXP-C06-03 (skeptic re-run) reflects only that time stamp. The runtime
+now lives under ‘timings’ and both experiments were re-run.</li>
 </ul>
 </body>
 </html>

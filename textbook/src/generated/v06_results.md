@@ -4,7 +4,7 @@
 
 Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proof whose core steps are machine-checked; **computer-assisted** — a finite certificate checked by a program; **written** — a complete written proof in `proofs/paper/`; **literature** — a published theorem whose statement the lab read. Novelty labels are those of the Historian's audit; *rediscovery* means the result is in the literature.
 
-## C01 — Quantity as the complete invariant of rewriting
+## C01 — Quantity as the complete invariant of rewriting {.unnumbered}
 
 **Theorems.**
 
@@ -22,7 +22,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C01-10**, potentially novel: Common-border formula with exactly one common border (derivation sketch from Gray-Steinberg 2022).
 * **CLM-C01-11**, rediscovery: Converse of border containment: u -\> v (\|u\| = \|v\|) is confluent iff Borders(u) is contained in Borders(v).
 
-## C02 — Exchange systems: positional numeration as normal forms
+## C02 — Exchange systems: positional numeration as normal forms {.unnumbered}
 
 **Theorems.**
 
@@ -37,7 +37,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C02-10** (computer-assisted), rediscovery: Longest Fibonacci exchange derivations (longest Zeckendorf games) for n \<= 40.
 * **CLM-C02-11** (written), potentially novel: Termination classification of carry rules: terminating from every unary start iff sum b \< m.
 
-## C03 — Termination of one-rule string rewriting 0\^p 1\^q -\> 1\^r 0\^s
+## C03 — Termination of one-rule string rewriting 0\^p 1\^q -\> 1\^r 0\^s {.unnumbered}
 
 **Theorems.**
 
@@ -53,7 +53,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C03-11**, rediscovery: Loop lengths in the base family grow like k\^q.
 
-## C04 — Derivation lengths, random descent and rewriting games
+## C04 — Derivation lengths, random descent and rewriting games {.unnumbered}
 
 **Theorems.**
 
@@ -76,7 +76,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C04-16**, rediscovery: Open: are the rewriting games of aa -\> ab (Officers), aaa -\> b (0.007) and aaa -\> ab (0.06) ultimately periodic?.
 
-## C05 — Spectra of single-identity magma varieties
+## C05 — Spectra of single-identity magma varieties {.unnumbered}
 
 **Theorems.**
 
@@ -85,12 +85,16 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C05-07** (Lean), potentially novel: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9.
 * **CLM-C05-08** (Lean + written), potentially novel: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6.
 * **CLM-C05-10** (Lean + written), not assessed: Linear models over finite fields: the orders q \<= 128 at which the 15 open laws have a model x\*y = ax + by over GF(q).
+* **CLM-C05-11** (Lean + written), rediscovery: Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified).
+* **CLM-C05-12** (Lean + written), potentially novel: Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9.
+* **CLM-C05-13** (Lean + written), potentially novel: Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9.
+* **CLM-C05-14** (Lean), not assessed: Finite models of law 1313 are quasigroups (Lean).
 
 **Computationally supported.**
 
 * **CLM-C05-02**, rediscovery: Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n \<= 6, restricted ones to n \<= 8).
 
-## C06 — Successor-anchored magmas: spectra of composition laws
+## C06 — Successor-anchored magmas: spectra of composition laws {.unnumbered}
 
 **Theorems.**
 
@@ -108,7 +112,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C06-10**, potentially novel: Laws with finite anchored spectra {1, 2} and {1, 3}.
 * **CLM-C06-11**, potentially novel: Mirror twins of the golden and odd laws.
 
-## C07 — Arithmetic from the minimal excludant: a census of mex-defined operations
+## C07 — Arithmetic from the minimal excludant: a census of mex-defined operations {.unnumbered}
 
 **Theorems.**
 
@@ -120,7 +124,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C07-08**, not assessed: Additive periodicity is the exception among mex operations.
 
-## C08 — Circle multiplications on recurrence numeration systems
+## C08 — Circle multiplications on recurrence numeration systems {.unnumbered}
 
 **Theorems.**
 
@@ -133,7 +137,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C08-04**, potentially novel: Non-monotone associative-shift sets require a negative conjugate root.
 * **CLM-C08-08**, rediscovery: Associativity thresholds after the targeted search - certified lower bounds, no failure up to s = 16.
 
-## C09 — Arithmetic of Knuth's circle semigroup
+## C09 — Arithmetic of Knuth's circle semigroup {.unnumbered}
 
 **Theorems.**
 
@@ -147,7 +151,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C09-05**, potentially novel: The density of circle irreducibles is exactly 1/phi\^2.
 
-## C10 — The cost of counting across representations
+## C10 — The cost of counting across representations {.unnumbered}
 
 **Theorems.**
 
@@ -161,7 +165,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C10-06**, potentially novel: Multi-offset exchange rules have rule-specific average counting costs.
 
-## C11 — Pattern-terminated universal integer codes
+## C11 — Pattern-terminated universal integer codes {.unnumbered}
 
 **Theorems.**
 
@@ -176,7 +180,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C11-08**, not assessed: Fixed pattern-terminated codes beat classical universal codes on heavy-tailed and wide-range sources (mixed result).
 
-## C12 — Relational one-heap games
+## C12 — Relational one-heap games {.unnumbered}
 
 **Theorems.**
 
@@ -197,7 +201,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C12-13**, not assessed: Subtract-a-Fibonacci-number has bounded Grundy values.
 
-## C13 — Anchored spectra II: which sets of integers are spectra?
+## C13 — Anchored spectra II: which sets of integers are spectra? {.unnumbered}
 
 **Theorems.**
 
@@ -214,7 +218,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C13-10**, not assessed: Spectra of one-variable laws are finite or cofinite.
 * **CLM-C13-12**, not assessed: Non-affine models typically exist for all sizes beyond a small threshold; no Laver-like sparse spectrum found.
 
-## C14 — Graphs as quantities: the 256 local graph products
+## C14 — Graphs as quantities: the 256 local graph products {.unnumbered}
 
 **Theorems.**
 
@@ -234,7 +238,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C14-12**, not assessed: Code 141 (EA AE AA NN) has unique factorisation on connected graphs (equivalently, symmetric difference on co-connected graphs).
 * **CLM-C14-13**, potentially novel: H-C14-4: two-graphs form a free commutative monoid under the symmetric-difference (Kronecker) product.
 
-## C15 — Magma cellular automata: light cones, streaming width and fast-forwarding
+## C15 — Magma cellular automata: light cones, streaming width and fast-forwarding {.unnumbered}
 
 **Theorems.**
 
@@ -258,7 +262,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C15-18**, not assessed: Bounded streaming width implies a fast-forward.
 
-## C16 — Fibonacci dynamics in invented finite algebras
+## C16 — Fibonacci dynamics in invented finite algebras {.unnumbered}
 
 **Theorems.**
 
@@ -283,7 +287,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C16-17**, rediscovery: Magma Fibonacci generators are not competitive pseudo-random generators.
 * **CLM-C16-19**, not assessed: Random sampling finds full-period quasigroups where exact search fails.
 
-## C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check
+## C17 — Deciding laws of finite magmas: generator, anchor and randomised tests against the exhaustive check {.unnumbered}
 
 **Theorems.**
 
@@ -297,7 +301,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C17-04**, rediscovery: Benchmark - generator and anchor tests versus the exhaustive check.
 * **CLM-C17-08**, rediscovery: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N \<= 4096).
 
-## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes
+## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes {.unnumbered}
 
 **Theorems.**
 
@@ -314,7 +318,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C18-08**, not assessed: H-C18-1: QG-LS with 2 passes and a reverse pass has BLAKE2b-level avalanche.
 * **CLM-C18-13**, not assessed: Quasigroup hashes against non-cryptographic baselines - no significant improvement.
 
-## C19 — The longest Zeckendorf game
+## C19 — The longest Zeckendorf game {.unnumbered}
 
 **Theorems.**
 
@@ -333,7 +337,7 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C19-06**, potentially novel: The deficit of a two-summand number depends only on the lower level and the parity of the gap.
 * **CLM-C19-09**, not assessed: D(n) \<= floor(j\^2/4) for top level j, and L is strictly increasing.
 
-## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03
+## C20 — Open problems revisited: the last one-rule systems of C04, and a literature check for C03 {.unnumbered}
 
 **Theorems.**
 

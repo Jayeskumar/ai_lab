@@ -207,6 +207,10 @@ def build() -> list[str]:
     written = []
     for name, text in (("v06_results.md", results_volume(claims)), ("v09_failures.md", failures_volume(claims)),
                        ("v10_open.md", open_volume(claims)), ("appendix_corrections.md", corrections_volume())):
+        # the catalogues are unnumbered chapters; without this their sections would be numbered as sections of the
+        # preceding research chapter ("16.14 C01 - ...")
+        text = "\n".join(line + " {.unnumbered}" if line.startswith("## ") and "{" not in line else line
+                         for line in text.split("\n"))
         p = OUT / name
         p.write_text(text.rstrip() + "\n", encoding="utf-8")
         written.append(str(p.relative_to(TEXTBOOK.parent)))
