@@ -165,6 +165,24 @@ certificate. Law 677 is the premise of the ETP's last open finite implication, 6
 ([blueprint chapter](https://teorth.github.io/equational_theories/blueprint/677-chapter.html)); there is no
 counterexample of order 8 or 10.
 
+**Batch 1.2 update (2026-10-20) — "find more".** Plan and decisions:
+[reports/PM_PLAN_batch1.2.md](../../../reports/PM_PLAN_batch1.2.md); proofs: Theorems 11-14, Proposition 13 and
+Lemmas 7′, 7″ of [proofs/paper/C05.md](../../../proofs/paper/C05.md).
+
+* `systems/magma_split.py` generalises the case split to every law x = y*T (13 of the 15 open laws), with the
+  division clauses descending on both sides and, for laws whose models are quasigroups (Lean:
+  `right_mul_bijective_of_law`, `law883_right_bijective`, `law704_right_bijective`), Latin columns.
+* **Law 501 has exactly the orders n ≡ 0, 1 (mod 4)** (CLM-C05-22, EXP-C05-15): x□y = x(xy) is a semi-symmetric
+  quasigroup with square translations, and a sign count on (x, y) ↦ (y, x□y) (order 3) forces n(n−1)/2 even;
+  square roots of x□y = −x−y over Z_n or Z_2×Z_2×Z_{n/4} give the models.
+* **New certified gaps:** 15 at orders 8-10 (CLM-C05-15, EXP-C05-09), 9 at orders 11-13 for the quasigroup laws
+  (CLM-C05-16, EXP-C05-10), and 467, 704 at order 12 (EXP-C05-14). Spectra are now complete up to 10 for all 13
+  laws (CLM-C05-17) and up to 13 for the six laws x = y*(S*y).
+* **677 at order 12** (open in every source): 138 of 195 cases refuted (EXP-C05-11, CLM-C05-20); the other 57
+  are split by right cancellation in EXP-C05-13.
+* A general conjecture drawn from the data (no model of order 2 mod 4) was refuted by the census the same day
+  (law 474, CLM-C05-18); the restricted form for the 12 laws is CLM-C05-21.
+
 ## Step 8 — Comparison with existing mathematics (Historian)
 
 * **Spectra of order ≤ 4 laws were studied by the Equational Theories
@@ -257,13 +275,16 @@ only over ℤ_n, whose additive group is cyclic.
 
 ## Next directions
 
-1. Decide the remaining sizes (law 1286 at 8 and 10; laws 677 and 1313 at
-   8, 10, 12, 14) with stronger symmetry breaking (fix the cycle type of row
-   0) and certify.
-2. ~~Test the conjecture spec(677) = spec(1313) = {1} ∪ {odd n ≥ 5}~~ —
+1. ~~Decide the remaining sizes up to 10~~ (done in batches 1.1 and 1.2). Next: law 677 at order 12 (the
+   non-quasigroup parts of EXP-C05-13) and 14; 1313 at 14; 670 at 12, 13; 883 and 907 at 12 (hard cases above
+   300,000 conflicts in the probes); law 1516 at 10 (shape x = (yy)*T, needs its own split).
+2. Prove or refute CLM-C05-21 for the 11 laws other than 501; the sign argument of Theorem 14 needs a derived
+   semi-symmetric operation whose translations have known signs, which the simple invariants (signs of rows,
+   columns and squaring over all known models) do not provide.
+3. ~~Test the conjecture spec(677) = spec(1313) = {1} ∪ {odd n ≥ 5}~~ —
    refuted by the Skeptic: both laws have linear models of order 16 over
    GF(16) (CLM-C05-09). Which odd orders occur is open (law 1286 starts
    1, 7, 9).
-3. Order-5 laws and three-variable identities (the ETP notes treat order ≤ 4).
-4. Formalise in Lean the general orbit-counting principle behind law 167
+4. Order-5 laws and three-variable identities (the ETP notes treat order ≤ 4).
+5. Formalise in Lean the general orbit-counting principle behind law 167
    for other laws with a "pair map" of finite order.

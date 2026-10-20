@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:17:46Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:22:23Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1498,7 +1498,7 @@ _Generated 2026-10-20T16:17:46Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review
+  written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); the order-12 model of the case split is Lean-checked (E501_order12_law, proofs/lean/Infinity/C05_Magmas.lean); a Lean proof of the necessity is being written; awaiting independent review
 
 - **novelty:** NOT ASSESSED
 - **statement:**
@@ -1512,6 +1512,7 @@ _Generated 2026-10-20T16:17:46Z from `db/`. The JSON records are authoritative; 
   Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).
 
 - **related:** CLM-C05-21; CLM-C05-17; CLM-C05-15; CLM-C05-08; CLM-C05-04
+- **status history:**
 
 ### CLM-C05-23: Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection
 

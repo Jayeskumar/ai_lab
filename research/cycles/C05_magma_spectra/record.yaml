@@ -344,7 +344,7 @@ claims:
     statement: "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y)."
     verification: PROVEN
     proof: "proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4"
-    proof_check: "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review"
+    proof_check: "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); the order-12 model of the case split is Lean-checked (E501_order12_law, proofs/lean/Infinity/C05_Magmas.lean); a Lean proof of the necessity is being written; awaiting independent review"
     evidence: [EXP-C05-15, EXP-C05-09, EXP-C05-12, EXP-C05-06]
     novelty: NOT ASSESSED
     novelty_basis: "Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md)."
@@ -500,6 +500,8 @@ next_directions:
   - "C05: decide law 677 at order 12 - open in every source - by a finer split (cube and conquer) of the 57 hard case CNFs of CLM-C05-20; then order 14; certify"
   - "C05: test H-C05-J' (CLM-C05-21) for the 12 open laws at order 14, and look for what separates them from law 474 (which has models of order 6); a proof cannot rest on the shape x = y*T alone (CLM-C05-18 refuted)"
   - "C05: law 1313 at order 14 (first case > 4 million conflicts) and law 1516 at order 10 (shape x = (yy)*T, needs its own case split)"
+  - "C05: the open orders 12 of 670, 883 and 907 and 13 of 670 (probes: many case CNFs undecided at 300,000 conflicts, for 883 also at 1,000,000 with Latin columns) - a finer split, or a construction if models exist (501 at 12 had one)"
+  - "C05: look for parity theorems like CLM-C05-22 for other laws: a derived semi-symmetric (or other) operation whose translations have forced signs"
   - "C05: a certified search for finite models of 677 that violate 255 (x = ((xx)x)x), the ETP's open finite implication, at the next orders with models"
   - "C05: which odd orders are in the spectra of 677 and 1313? (677 has no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime power)"
   - "C05: extend the census to order-5 laws and three-variable identities"

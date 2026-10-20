@@ -165,14 +165,14 @@
         "Quot.sound",
         "propext"
       ],
-      "checked": "2026-10-20T16:05:18Z",
+      "checked": "2026-10-20T16:20:37Z",
       "exit_code": 0,
       "native_decide": false,
       "nonstandard_axioms": [],
       "ok": true,
-      "output_tail": "'Infinity.C05.law167_card_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.left_mul_bijective_of_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.T4_law167' depends on axioms: [propext]\n'Infinity.C05.T5_law167' depends on axioms: [propext]\n'Infinity.C05.T4_not_latin' depends on axioms: [propext]\n'Infinity.C05.no_law167_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.no_law66_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.nand2_law' depends on axioms: [propext]\n'Infinity.C05.no_affine_model_mod2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.E467_order9_law' depends on axioms: [propext]\n'Infinity.C05.E677_order5_law' depends on axioms: [propext]\n'Infinity.C05.E677_order7_law' depends on axioms: [propext]\n'Infinity.C05.E677_order9_law' depends on axioms: [propext]\n'Infinity.C05.E883_order10_law' depends on axioms: [propext]\n'Infinity.C05.E1286_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1516_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1719_order10_law' depends on axioms: [propext]\n'Infinity.C05.E677_order16_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order16_law' depends on axioms: [propext]\n'Infinity.C05.E670_order9_law' depends on axioms: [propext]\n'Infinity.C05.E474_order6_law' depends on axioms: [propext]\n'Infinity.C05.E474_no_order2' depends on axioms: [propext]\n",
-      "seconds": 17.83,
-      "sha256": "f9f9a5ceff297bfb122892d5b199034dee7ec68a94a94bcd8eb03446dbf5d740",
+      "output_tail": "'Infinity.C05.law167_card_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.left_mul_bijective_of_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.T4_law167' depends on axioms: [propext]\n'Infinity.C05.T5_law167' depends on axioms: [propext]\n'Infinity.C05.T4_not_latin' depends on axioms: [propext]\n'Infinity.C05.no_law167_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.no_law66_order2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.nand2_law' depends on axioms: [propext]\n'Infinity.C05.no_affine_model_mod2' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.E467_order9_law' depends on axioms: [propext]\n'Infinity.C05.E677_order5_law' depends on axioms: [propext]\n'Infinity.C05.E677_order7_law' depends on axioms: [propext]\n'Infinity.C05.E677_order9_law' depends on axioms: [propext]\n'Infinity.C05.E883_order10_law' depends on axioms: [propext]\n'Infinity.C05.E1286_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1516_order9_law' depends on axioms: [propext]\n'Infinity.C05.E1719_order10_law' depends on axioms: [propext]\n'Infinity.C05.E677_order16_law' depends on axioms: [propext]\n'Infinity.C05.E1313_order16_law' depends on axioms: [propext]\n'Infinity.C05.E670_order9_law' depends on axioms: [propext]\n'Infinity.C05.E474_order6_law' depends on axioms: [propext]\n'Infinity.C05.E474_no_order2' depends on axioms: [propext]\n'Infinity.C05.E501_order12_law' depends on axioms: [propext]\n",
+      "seconds": 20.5,
+      "sha256": "ed408afdb5825af9a27d0bef92b872282b462df0b5c657c9c2fb0be68c77b9a1",
       "sorry": false,
       "theorems": [
         "pairMap_mk",
@@ -202,7 +202,8 @@
         "E1313_order16_law",
         "E670_order9_law",
         "E474_order6_law",
-        "E474_no_order2"
+        "E474_no_order2",
+        "E501_order12_law"
       ]
     },
     "proofs/lean/Infinity/C05_QuasigroupLaws.lean": {
@@ -756,5 +757,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-20T16:09:16Z"
+  "updated": "2026-10-20T16:20:37Z"
 }

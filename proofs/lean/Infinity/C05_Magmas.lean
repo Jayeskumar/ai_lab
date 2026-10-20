@@ -244,6 +244,13 @@ def table2 (a b c d : Fin 2) : Fin 2 → Fin 2 → Fin 2 := fun p q => ![![a, b]
 theorem E474_no_order2 : ∀ a b c d : Fin 2, ¬ ∀ x y : Fin 2,
     table2 a b c d y (table2 a b c d x (table2 a b c d y (table2 a b c d x y))) = x := by decide
 
+/-- A model of ETP law 501, `x = y(y(x(xy)))`, of order 12 (case split, EXP-C05-15): idempotent and not a
+quasigroup. Order 12 is no product of known orders of 501; Theorem 14 of proofs/paper/C05.md gives the whole
+spectrum (the orders `n ≡ 0, 1 mod 4`). -/
+def E501_order12 : Fin 12 → Fin 12 → Fin 12 := fun a b => ![![0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 1], ![2, 1, 10, 7, 3, 11, 4, 0, 9, 6, 5, 8], ![9, 5, 2, 8, 10, 7, 4, 1, 6, 11, 0, 3], ![7, 11, 4, 3, 9, 8, 10, 1, 0, 5, 2, 6], ![10, 11, 7, 0, 4, 6, 3, 8, 1, 5, 2, 9], ![10, 11, 6, 8, 1, 5, 7, 9, 4, 0, 3, 2], ![10, 11, 9, 5, 2, 1, 6, 0, 7, 3, 4, 8], ![6, 8, 3, 1, 9, 11, 5, 7, 4, 10, 0, 2], ![5, 0, 3, 11, 7, 6, 10, 2, 8, 4, 1, 9], ![5, 2, 11, 1, 3, 7, 8, 6, 4, 9, 0, 10], ![7, 6, 1, 9, 5, 3, 0, 8, 4, 11, 10, 2], ![6, 4, 7, 2, 10, 1, 9, 0, 3, 5, 8, 11]] a b
+
+theorem E501_order12_law : ∀ x y : Fin 12, (E501_order12 y (E501_order12 y (E501_order12 x (E501_order12 x y)))) = x := by decide
+
 end Frontier
 
 end Infinity.C05
@@ -271,3 +278,4 @@ end Infinity.C05
 #print axioms Infinity.C05.E670_order9_law
 #print axioms Infinity.C05.E474_order6_law
 #print axioms Infinity.C05.E474_no_order2
+#print axioms Infinity.C05.E501_order12_law
