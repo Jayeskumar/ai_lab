@@ -203,6 +203,32 @@
         "E670_order9_law"
       ]
     },
+    "proofs/lean/Infinity/C05_QuasigroupLaws.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-20T13:47:52Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C05.Quasigroup.left_mul_bijective_of_law'' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.right_mul_bijective_of_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1076_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1083_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1110_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1279_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1286_right_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.Quasigroup.law1313_right_bijective'' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 503.97,
+      "sha256": "55107fcd54d669190189607785e3fa15a853b2861e769c1f27fd393fabab8dfa",
+      "sorry": false,
+      "theorems": [
+        "left_mul_bijective_of_law'",
+        "right_mul_bijective_of_law",
+        "law1076_right_bijective",
+        "law1083_right_bijective",
+        "law1110_right_bijective",
+        "law1279_right_bijective",
+        "law1286_right_bijective",
+        "law1313_right_bijective'"
+      ]
+    },
     "proofs/lean/Infinity/C06_Laver.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -725,5 +751,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-20T02:02:27Z"
+  "updated": "2026-10-20T13:47:52Z"
 }
