@@ -1,0 +1,5252 @@
+{
+  "code": {
+    "command": "python -m lab run EXP-C05-11",
+    "file": "experiments/C05/E11_law677_order12.py",
+    "sha256": "6d8bc9e4481e1b18c831c1e13f964e7e61a86aa55b66860c52edf3beec1c725f",
+    "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+  },
+  "env": {
+    "git_head": "61bc23e4b550cb255a2cb340280b438ed2d3801d",
+    "networkx": "3.7",
+    "numpy": "2.5.3",
+    "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+    "pysat": "1.9.dev16",
+    "python": "3.13.16",
+    "scipy": "1.18.1",
+    "sympy": "1.14.0",
+    "z3": "5.3.1"
+  },
+  "error": null,
+  "finished": "2026-10-20T15:32:26Z",
+  "id": "EXP-C05-11",
+  "meta": {
+    "agent": "Formal Verifier",
+    "assumptions": [
+      "Lemma 8 (complete case split) and Lemma 9 (division clauses) of proofs/paper/C05.md; Latin rows only (finite models of 677 need not be right-cancellative)",
+      "CaDiCaL 1.5.3, 200,000 conflicts per case; drat-trim for every UNSAT",
+      "per-case checkpoints (EXP_CHECKPOINT) may be used to resume"
+    ],
+    "cycle": "C05",
+    "falsification": "A verified model would settle the question (677 would have a model of order 12); a rejected proof would expose an error.",
+    "hypothesis": "No model is found within 200,000 conflicts per case; most cases are refuted and the difficulty is concentrated in a small set (an exploratory triage found 57 hard cases).",
+    "id": "EXP-C05-11",
+    "methodology": "Run all 195 cases (3 worker processes, fixed order of results); certify UNSAT cases; verify any model on its table; list the UNKNOWN cases with their CNF hashes.",
+    "question": "Which of the 195 case CNFs of Lemma 8 for law 677 at order 12 can be refuted cheaply, with a certificate, and which remain?",
+    "title": "Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones"
+  },
+  "results": {
+    "budget": 200000,
+    "hard_cases": [
+      {
+        "case": "idempotent",
+        "cnf_sha256": "f933c1a91a4dc52922dae550823c0e059000025d933bd6ff4893390b9df50285",
+        "ell": 1,
+        "index": 0,
+        "lam": [
+          11,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "2a90afcbf75cf87cb306225b1dd9e93e0f4b428963de01c4abf7af6b830c7430",
+        "ell": 1,
+        "index": 2,
+        "lam": [
+          9,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "b65e649621f893944168c22127e656950a79b0e96b76c15bf18cf744d4294ac2",
+        "ell": 1,
+        "index": 4,
+        "lam": [
+          8,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "855cfb326ccb7f1239d2ae7edb5c8f69b216d43e6c1f5d880b2997fdee745630",
+        "ell": 1,
+        "index": 7,
+        "lam": [
+          7,
+          4,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "7711c710dd1566e096a20f5536888d549a1679ddbedbe8b8c4332ec0ad0088a6",
+        "ell": 1,
+        "index": 9,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "5a7d4d6456b855c68c105cc3e7722784fc262c103afbd0709a5f5cb2766a5adc",
+        "ell": 1,
+        "index": 12,
+        "lam": [
+          6,
+          5,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "0854004e4e0de91da33dc799f06ecb4c1e2b273006d5dc67d9346522cf987551",
+        "ell": 1,
+        "index": 14,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "aacff307f4dda77b571cb3a428b9d6f3624ca9dbb0b6a05407ee62ff5a28dfb7",
+        "ell": 1,
+        "index": 20,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "e92c98ba9205497228f3505f8610d81089c2f35fa15242ca0bba63b2d05f7800",
+        "ell": 1,
+        "index": 22,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "ce17da66e056f001f71bfe6f6b0b2ddc4ca05c02b947d6f7a0147934454b44ff",
+        "ell": 1,
+        "index": 25,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "f2b9b4ed77ecccdf7c2a9010bfd2e73f432d37eea915d014316a0086b7a66090",
+        "ell": 1,
+        "index": 29,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "0f2318c52f2780e41c90737d83992fbda981c812ec34d89f057ecc309220403e",
+        "ell": 1,
+        "index": 33,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "2585a0fefcb17800f1bf2dc0c9711669052487b575fac89d040a0f129a313662",
+        "ell": 1,
+        "index": 40,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "idempotent",
+        "cnf_sha256": "f850378f16c069e5648cc97cead19416e81b818e5ccc8427a775ced4693a9d49",
+        "ell": 1,
+        "index": 45,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "cc7901b667522db89590d8c610d6d1b4e6841d257733b7b9ef8ccd6f613d8e13",
+        "ell": 12,
+        "index": 56,
+        "lam": [
+          12
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "f89a497cd2339d5f2d91255e5a648460d0ffd960bf9238fe32fceeca3137e639",
+        "ell": 11,
+        "index": 57,
+        "lam": [
+          11,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "ef7a6626822383a7a29dbcbeb31cf10f77219918c17e99fd42529be6e06dfd50",
+        "ell": 10,
+        "index": 59,
+        "lam": [
+          10,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "a03372b223f3deb4ad51ba84e8c7efbab9941c89c232196a017d0d8b321ae96f",
+        "ell": 10,
+        "index": 60,
+        "lam": [
+          10,
+          1,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "4c057bb887a0e91157665ac41805a1ec0f6a888fb7f924335ded56fe7c099977",
+        "ell": 9,
+        "index": 62,
+        "lam": [
+          9,
+          3
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "9970165c1ae58888f7d9659969e832ff5acdcbe21ac3ffc1b00823ad0b567146",
+        "ell": 9,
+        "index": 64,
+        "lam": [
+          9,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "ed490570cc9f5455fa9804ea1bd572bfde428c38796a6c83eb2e82de16eef3d0",
+        "ell": 4,
+        "index": 66,
+        "lam": [
+          8,
+          4
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "fea2745277ea7573a4f99f42f3ea123c8544a08b158da9cadcee76c2e7365495",
+        "ell": 8,
+        "index": 67,
+        "lam": [
+          8,
+          4
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "5bbbe2c4ff352a90ade4b4848d4ddf96a189eef928022070607dcece6f42507b",
+        "ell": 8,
+        "index": 69,
+        "lam": [
+          8,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "6a183dbf37e1313025a2e847b635786f42e489c29a4747ba69a537a2f02be935",
+        "ell": 8,
+        "index": 71,
+        "lam": [
+          8,
+          2,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1a9e92f89e1da0bfb100a6c2201f7dc67381616ba27fd75e3e5b0033b0479b1e",
+        "ell": 5,
+        "index": 75,
+        "lam": [
+          7,
+          5
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "655fe8522f8c0f398e3dd7efd706bf7d289b0e044f476b8e192fc2defd26a0d9",
+        "ell": 7,
+        "index": 76,
+        "lam": [
+          7,
+          5
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "999c1430c7ac67fc0ac33e66da5c712598c98aa94dc7ef7506b4cdce49581085",
+        "ell": 4,
+        "index": 77,
+        "lam": [
+          7,
+          4,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "50705ae0a2856761bc1dc21bfde99cbd5fa8064086fb53644866caa96b288e26",
+        "ell": 7,
+        "index": 78,
+        "lam": [
+          7,
+          4,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "31300e520e1414ecc072a531225cf136f10127b31faf2c0a200c9ed4b02c7a5d",
+        "ell": 7,
+        "index": 81,
+        "lam": [
+          7,
+          3,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "04ac468a2971609c1d15758644e1a2966bf45802d43162426fc21683f6c0794f",
+        "ell": 7,
+        "index": 83,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "431a0e53123ca2146b0c030e54f9f5727580ac01e90f497356d04ddb7b88dad9",
+        "ell": 7,
+        "index": 85,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "de53b4e00bdb4d5f0964c18439bfd6ad12f2e69601c0bf7965901c5a700038c6",
+        "ell": 6,
+        "index": 89,
+        "lam": [
+          6,
+          6
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "d18d701a78c7518a2707db1495d2013c64b66a6e3f86bd976dbaae0b0324ef78",
+        "ell": 5,
+        "index": 90,
+        "lam": [
+          6,
+          5,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "509f557e4b589ae5c9201c20eafe9a509fc614c5062a5d1e3b77bd8364c634fc",
+        "ell": 6,
+        "index": 91,
+        "lam": [
+          6,
+          5,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "a58a5e0ed6207911a93e468eeb7eeac442955f65e225062499f395a5b3fa4e87",
+        "ell": 4,
+        "index": 93,
+        "lam": [
+          6,
+          4,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "4ea472c4bbe0e536d71407b9294d15c2d9f8af9738462f6cb89f83dbd3983a40",
+        "ell": 6,
+        "index": 94,
+        "lam": [
+          6,
+          4,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "73007ede08be0100ef4f3129e1447a222ef3453917b64e06f30c06180c7afdc3",
+        "ell": 6,
+        "index": 98,
+        "lam": [
+          6,
+          3,
+          3
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "3d0970af139ef7dee95616883a0b6eccacf4b791f4b83be9d097b2af037f28c6",
+        "ell": 6,
+        "index": 101,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "71c8bbcb35fd66e24306fda8d74d1a4c317b17a24b1546bd1a31a36070c156d9",
+        "ell": 6,
+        "index": 105,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "6aa0128b84e7fff26133eaf9434412782a13ccca668567811264df99959b733d",
+        "ell": 6,
+        "index": 107,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1c0242207598882b58cff032632383d0a1bcd33e89b6a652d0670286e75daf0d",
+        "ell": 5,
+        "index": 112,
+        "lam": [
+          5,
+          5,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e699a98f89c3aef30f20b8e75d2c8cc94894f84d7047cdecbe9b69dcb6389a68",
+        "ell": 5,
+        "index": 113,
+        "lam": [
+          5,
+          5,
+          1,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "4f70178cb8c3dc19133cad05d797e8712c469595f6f1a64545eb76aa569331ab",
+        "ell": 4,
+        "index": 115,
+        "lam": [
+          5,
+          4,
+          3
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1cf4d75739fcb0ef7aaf59754d97feedfaf6956b2f8aa48916fef88b9a373193",
+        "ell": 5,
+        "index": 116,
+        "lam": [
+          5,
+          4,
+          3
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "9601653fd3708726ac7c61c144a788518c76f6da53832daea223eb38a518f62e",
+        "ell": 4,
+        "index": 118,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "b3a9b87cb9a25b4117a54f61a14aefc010cdda4c5631faa950a9a99bf05729c1",
+        "ell": 5,
+        "index": 119,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "ae09c9b9c0ebbdccccf6719e04d3a1634c700656427fe51cfffa5dd4195e3381",
+        "ell": 5,
+        "index": 123,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "9c14cb95709749e497a05aea1a8034e80080d3d70039d0bf3e61b0c305cdaaa5",
+        "ell": 5,
+        "index": 126,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "f7f7d333d779514d8e7508b2ef9e52ce31246ebe117a19704fc1b34dfad7055f",
+        "ell": 5,
+        "index": 133,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "e1272f0872164af9b222156e826a180b9fe142d3cdb54d982bb0c6e9dbc7973c",
+        "ell": 4,
+        "index": 139,
+        "lam": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "3e38f8a00e598df5c1d0a134ffc0e4840337190fc6df943490e231a8ce568d4d",
+        "ell": 4,
+        "index": 141,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "28131f0743eba9a259f1d29c29f60d38e6dc160c8a16c874f5c6617fa9a8dcbd",
+        "ell": 4,
+        "index": 143,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "d73a5739c775d907c7eb9b564bd5a782f7de9679f32439afeeb342817e252769",
+        "ell": 4,
+        "index": 145,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "35edf4440c822e37ef06b014af134352e0e50dbd1f7c9e4a4a6f3e9816c1d44e",
+        "ell": 4,
+        "index": 149,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "0c28dca97a7a5f85da6f3bcf908ceb361da676874a08e0d79871905784866573",
+        "ell": 4,
+        "index": 154,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "1631bbb6b6a3c355e929253a989aee7dd4ec50cb37186c138c24a10fbfecac52",
+        "ell": 4,
+        "index": 161,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "case": "non-idempotent",
+        "cnf_sha256": "718bd01f2750e2c8e68965545c360259deb223dd31f026926fb9e0d28d783192",
+        "ell": 4,
+        "index": 163,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ]
+      }
+    ],
+    "law": "x = y(x((yx)y))",
+    "models": [],
+    "n": 12,
+    "records": [
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "f933c1a91a4dc52922dae550823c0e059000025d933bd6ff4893390b9df50285",
+        "conflicts": 200000,
+        "ell": 1,
+        "index": 0,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "d53f60355f09525676b8e3b29e704f89e376182d3bc2af831d2c8ce930ca980f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 1,
+        "lam": [
+          10,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13530,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "2a90afcbf75cf87cb306225b1dd9e93e0f4b428963de01c4abf7af6b830c7430",
+        "conflicts": 200000,
+        "ell": 1,
+        "index": 2,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "707361f1efe03849a299ed1e8e0b5d11897bf1fb43551b8d86da91dab2f352f3",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 3,
+        "lam": [
+          9,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14738,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "b65e649621f893944168c22127e656950a79b0e96b76c15bf18cf744d4294ac2",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 4,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "331c70a406c1ce4972cb506d2a0f7831006a2eea45081d3562122f81599dc2a3",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 5,
+        "lam": [
+          8,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13574,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "fd99409d4b34a1354d2614fbc6c30c3867204dc8a7583ffc1384a396751e1d7e",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 6,
+        "lam": [
+          8,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 15954,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "855cfb326ccb7f1239d2ae7edb5c8f69b216d43e6c1f5d880b2997fdee745630",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 7,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "bf84b6256172f1ae431c10779f3c862ac7a1fb442df97e45c1ec61dbade9bb68",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 8,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13530,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "7711c710dd1566e096a20f5536888d549a1679ddbedbe8b8c4332ec0ad0088a6",
+        "conflicts": 200002,
+        "ell": 1,
+        "index": 9,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "0ef660e8b458f3ba6ebe8f751a674a7c669ca942e0816c70f133287f4c3fd8e6",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 10,
+        "lam": [
+          7,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14792,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "6a73d4a278e2970afad70130452d47f69de3f6369f262c6d5bf4b45c26419762",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 11,
+        "lam": [
+          7,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 17178,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "5a7d4d6456b855c68c105cc3e7722784fc262c103afbd0709a5f5cb2766a5adc",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 12,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "a843675e9787b6fa085685d6ea47fb0c44b324eca18fb117dda1d5c72143d8cc",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 13,
+        "lam": [
+          6,
+          4,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13530,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "0854004e4e0de91da33dc799f06ecb4c1e2b273006d5dc67d9346522cf987551",
+        "conflicts": 200000,
+        "ell": 1,
+        "index": 14,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "dc7cc55f704f4857252650412c3a8e99419cbc3fa1779b22361b3ce084912c2b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 15,
+        "lam": [
+          6,
+          3,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14738,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "046d66702dd35eae3a912ddbd8c71cfd1dec7a610a77089a26fb9b081dc74bb4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 16,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13618,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "5a1be994a39799e284072450af70489c3301013198e12aa3526d0d9b9210295e",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 17,
+        "lam": [
+          6,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 16018,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "0398dd2fad3376397ef8a1c3b3897678c206fd5d571f0e813eb4621053fd673f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 18,
+        "lam": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 18410,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "43e7326d87aebc45776d779704cdc3c8d87e4cb3c7a07de97a95702de1c52057",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 19,
+        "lam": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13530,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "aacff307f4dda77b571cb3a428b9d6f3624ca9dbb0b6a05407ee62ff5a28dfb7",
+        "conflicts": 200002,
+        "ell": 1,
+        "index": 20,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "df912e457cc40c4e52a2b5b381a53996c84f776f8e5fb49cd632b8b8ae4c857c",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 21,
+        "lam": [
+          5,
+          4,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14738,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "e92c98ba9205497228f3505f8610d81089c2f35fa15242ca0bba63b2d05f7800",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 22,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "3559013fd537f5abd65b46da18e4a1f95f63e1ed0e96a43c65a91db1ce044e9b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 23,
+        "lam": [
+          5,
+          3,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13574,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "2210675d8bc3018cc1b2fc3e8f99ac41e8a7297df2c87c0536f3322d03616294",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 24,
+        "lam": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 15954,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "ce17da66e056f001f71bfe6f6b0b2ddc4ca05c02b947d6f7a0147934454b44ff",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 25,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "985f4c1e8da34fdd6e6d089562dc4bf57ba2bc42acf49ee33c5975c2b3e55f85",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 26,
+        "lam": [
+          5,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14846,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "52e429a1b80e3d9769ae89ac315669ecba8d1354f7e4496e4baffcc291d896f8",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 27,
+        "lam": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 17252,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "aa5b81ed3912b190f5603caf738dbd2a633bdd11b24d66779b16122e470471b4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 28,
+        "lam": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 19645,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "f2b9b4ed77ecccdf7c2a9010bfd2e73f432d37eea915d014316a0086b7a66090",
+        "conflicts": 200000,
+        "ell": 1,
+        "index": 29,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "f7b5a06656dd3b119986ce47a7be0c35347785756252dc97743bcf08e6f539bc",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 30,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13574,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "0d3a15ce8afcdb43f9c6920d42440a2cc83a1fadc016c613bb02427f29e4d4c1",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 31,
+        "lam": [
+          4,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 15954,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "11f02a6dc9ee936a9c09a1d642553aa1fd30c95336d9d68774468abac23d2b6d",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 32,
+        "lam": [
+          4,
+          3,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13530,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "0f2318c52f2780e41c90737d83992fbda981c812ec34d89f057ecc309220403e",
+        "conflicts": 200001,
+        "ell": 1,
+        "index": 33,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "c4128156a68238e43c163bf501bb043f6ecdd61cf8a1e6491353a2df5fa2c80c",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 34,
+        "lam": [
+          4,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14792,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "7e7b3ffb1c5e1a36c91324af691c245032fd32cb50e89ed02265d7dd928314ab",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 35,
+        "lam": [
+          4,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 17178,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "09e8198e4375990d73545afe1e7514ffc4ddedf47807b7cf08350fcc4c273184",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 36,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13662,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "1f35c18b92e9bb1d725db853cdded0f16953483c96d237ba24ef16ec375a5e66",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 37,
+        "lam": [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 16082,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "982cb517d1d8193f467b6cff9e779ec24b3edf4de20c02d64ff3ac3b4d9eeb81",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 38,
+        "lam": [
+          4,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 18489,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "29d79d92b4a93eed8defedaf958b77e69202a3a6d8deabc2a28b4dac55978a04",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 39,
+        "lam": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 20887,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "2585a0fefcb17800f1bf2dc0c9711669052487b575fac89d040a0f129a313662",
+        "conflicts": 200003,
+        "ell": 1,
+        "index": 40,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "309919ca0a39b57634c4f9a5b209f6e27dd348e93a709ac1c8f00fbefe513e03",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 41,
+        "lam": [
+          3,
+          3,
+          3,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14738,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "d1606c4ae248d4b636dac216f40497f9cd10361a2f6fdfd8cf4afb91401455ae",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 42,
+        "lam": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13618,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "04edeb45f74b52c8c51cd90bb4997f17d22dc36d6effb4cd06a77a48abbc3ab4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 43,
+        "lam": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 16018,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "fe5b941e1a42b6e052dbeb48fe0fef1806d94749019f3cd5d17f15fa44fef9c8",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 44,
+        "lam": [
+          3,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 18410,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 143891,
+        "cnf_sha256": "f850378f16c069e5648cc97cead19416e81b818e5ccc8427a775ced4693a9d49",
+        "conflicts": 200000,
+        "ell": 1,
+        "index": 45,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "653bec3d45d9e3fc791d62df56e24ddddcb9a9db32417a1bb05c356a923cdfe1",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 46,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 14900,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "3d78fcf5234d6e345387e01643e195f6d520c52139d6ceb73e8b0de860dbbad6",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 47,
+        "lam": [
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 17321,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "1654491711c636686741822e1fb9179a87c8c6dd309d180f7bfb1b157435146c",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 48,
+        "lam": [
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 19733,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "193863643b9fa4f496ffdadd70846fedc9a948eb1065a0dd4a1095a9abba0010",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 49,
+        "lam": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 22137,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144232,
+        "cnf_sha256": "8e2915da38b679cc5f081ac74aacab3848f5fadcee9004b9168784e6d5927d85",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 50,
+        "lam": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 13745,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144540,
+        "cnf_sha256": "f0d7c039fc5979229f6c3e67cb10a987a63efcaade1144a9612e163b09e6216b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 51,
+        "lam": [
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 16199,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144672,
+        "cnf_sha256": "8ad76e66022a5f19d828ed58f32dacab90758a719f0200d1935887bd1f477389",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 52,
+        "lam": [
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 18645,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144628,
+        "cnf_sha256": "020ba0c97b421f3ff7e1ed3805457b9d4098460393e742e70149e59bc4acd664",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 53,
+        "lam": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 21083,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144408,
+        "cnf_sha256": "3682600dabda75946c4411b2d24c4698da0409f30b7015cacd1a6b4980a7b0f3",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 54,
+        "lam": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 23513,
+        "status": "UNSAT"
+      },
+      {
+        "case": "idempotent",
+        "clauses": 144012,
+        "cnf_sha256": "fd1791ed4717c8daec246f2e2b87c01092950041b4d0838c47ca3856026bfc83",
+        "conflicts": 0,
+        "drat_trim": "VERIFIED",
+        "ell": 1,
+        "index": 55,
+        "lam": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25408,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "cc7901b667522db89590d8c610d6d1b4e6841d257733b7b9ef8ccd6f613d8e13",
+        "conflicts": 200001,
+        "ell": 12,
+        "index": 56,
+        "lam": [
+          12
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "f89a497cd2339d5f2d91255e5a648460d0ffd960bf9238fe32fceeca3137e639",
+        "conflicts": 200001,
+        "ell": 11,
+        "index": 57,
+        "lam": [
+          11,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "b61f7c311e819d2b0595d11871f2a3f7a21bd3e4afc19b1f7b13463ab6347c01",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 58,
+        "lam": [
+          10,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "ef7a6626822383a7a29dbcbeb31cf10f77219918c17e99fd42529be6e06dfd50",
+        "conflicts": 200001,
+        "ell": 10,
+        "index": 59,
+        "lam": [
+          10,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "a03372b223f3deb4ad51ba84e8c7efbab9941c89c232196a017d0d8b321ae96f",
+        "conflicts": 200000,
+        "ell": 10,
+        "index": 60,
+        "lam": [
+          10,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "de82e979e733b815babd8d360a6dc59d4648843b95232ab6fa40d7be6f89eab0",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 61,
+        "lam": [
+          9,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "4c057bb887a0e91157665ac41805a1ec0f6a888fb7f924335ded56fe7c099977",
+        "conflicts": 200000,
+        "ell": 9,
+        "index": 62,
+        "lam": [
+          9,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "7d972dd9d6e4a3fbdbf674fc073ad42fd3d2f7a153469f90d7734d1fd9cfe819",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 63,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "9970165c1ae58888f7d9659969e832ff5acdcbe21ac3ffc1b00823ad0b567146",
+        "conflicts": 200001,
+        "ell": 9,
+        "index": 64,
+        "lam": [
+          9,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "e5d63118e0183b0a436533436b9a31824c5fd7d690cc44d8bf210128e77666a3",
+        "conflicts": 30096,
+        "drat_trim": "VERIFIED",
+        "ell": 9,
+        "index": 65,
+        "lam": [
+          9,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 355205,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "ed490570cc9f5455fa9804ea1bd572bfde428c38796a6c83eb2e82de16eef3d0",
+        "conflicts": 200001,
+        "ell": 4,
+        "index": 66,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "fea2745277ea7573a4f99f42f3ea123c8544a08b158da9cadcee76c2e7365495",
+        "conflicts": 200000,
+        "ell": 8,
+        "index": 67,
+        "lam": [
+          8,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "8f9143c1c488ee56692d6499f977e2209448004f2f167fc0edf05b4730617db6",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 68,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "5bbbe2c4ff352a90ade4b4848d4ddf96a189eef928022070607dcece6f42507b",
+        "conflicts": 200004,
+        "ell": 8,
+        "index": 69,
+        "lam": [
+          8,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "2dd6a6ce154edbcaffec869bd110fee095fb43b696cf6c4d271d27c9de3163d3",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 70,
+        "lam": [
+          8,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "6a183dbf37e1313025a2e847b635786f42e489c29a4747ba69a537a2f02be935",
+        "conflicts": 200001,
+        "ell": 8,
+        "index": 71,
+        "lam": [
+          8,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "67a69d7da37aa145bb9018d44957317c2b9bed67d62182a6f256be5904ded7d7",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 72,
+        "lam": [
+          8,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "fdaf96e431d39843fb43040bcb71ec544aa5082fdff298989beed5133e979d5f",
+        "conflicts": 142262,
+        "drat_trim": "VERIFIED",
+        "ell": 8,
+        "index": 73,
+        "lam": [
+          8,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 703242,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "59e30fd44376f60fb9571f6dd3e0bef2eaf6a9224e86d4443325b42cf4a02eb7",
+        "conflicts": 18873,
+        "drat_trim": "VERIFIED",
+        "ell": 8,
+        "index": 74,
+        "lam": [
+          8,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 261794,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "1a9e92f89e1da0bfb100a6c2201f7dc67381616ba27fd75e3e5b0033b0479b1e",
+        "conflicts": 200000,
+        "ell": 5,
+        "index": 75,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "655fe8522f8c0f398e3dd7efd706bf7d289b0e044f476b8e192fc2defd26a0d9",
+        "conflicts": 200002,
+        "ell": 7,
+        "index": 76,
+        "lam": [
+          7,
+          5
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "999c1430c7ac67fc0ac33e66da5c712598c98aa94dc7ef7506b4cdce49581085",
+        "conflicts": 200001,
+        "ell": 4,
+        "index": 77,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "50705ae0a2856761bc1dc21bfde99cbd5fa8064086fb53644866caa96b288e26",
+        "conflicts": 200000,
+        "ell": 7,
+        "index": 78,
+        "lam": [
+          7,
+          4,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "0ad83411aeff0df102824a8cbc95329ba668f36aff3ab775bfe439e4f873e40b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 79,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "6426adf1c2f6a1f4e2335fdbb4da24b1200b578b44db13fc238aed4b81c7fe23",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 80,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "31300e520e1414ecc072a531225cf136f10127b31faf2c0a200c9ed4b02c7a5d",
+        "conflicts": 200001,
+        "ell": 7,
+        "index": 81,
+        "lam": [
+          7,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "682574289aed9a92ce7bdba2598a43cb803e7dd44a318a9b1c22bd3addb4b2cb",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 82,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24876,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "04ac468a2971609c1d15758644e1a2966bf45802d43162426fc21683f6c0794f",
+        "conflicts": 200000,
+        "ell": 7,
+        "index": 83,
+        "lam": [
+          7,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "5adb9418871486621ac635ff79395e6c0a1b8b01de89598527f693a2cea3e943",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 84,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "431a0e53123ca2146b0c030e54f9f5727580ac01e90f497356d04ddb7b88dad9",
+        "conflicts": 200000,
+        "ell": 7,
+        "index": 85,
+        "lam": [
+          7,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "fa562dc53d26d5d87bb041d4ed0dd0589de2e44680e31a975e0e5fa8a4c10aef",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 86,
+        "lam": [
+          7,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25057,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "6c69fbe59a3431d88105604c3c5521a34beaed8093a477bcf95399eab8cff7ca",
+        "conflicts": 27310,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 87,
+        "lam": [
+          7,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 341913,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "5eb6e984d580c19e2f24c7cd9350ad210fa3c78858a6c155ba1c901392833796",
+        "conflicts": 6209,
+        "drat_trim": "VERIFIED",
+        "ell": 7,
+        "index": 88,
+        "lam": [
+          7,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 107153,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "de53b4e00bdb4d5f0964c18439bfd6ad12f2e69601c0bf7965901c5a700038c6",
+        "conflicts": 200000,
+        "ell": 6,
+        "index": 89,
+        "lam": [
+          6,
+          6
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "d18d701a78c7518a2707db1495d2013c64b66a6e3f86bd976dbaae0b0324ef78",
+        "conflicts": 200003,
+        "ell": 5,
+        "index": 90,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "509f557e4b589ae5c9201c20eafe9a509fc614c5062a5d1e3b77bd8364c634fc",
+        "conflicts": 200003,
+        "ell": 6,
+        "index": 91,
+        "lam": [
+          6,
+          5,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "b788feb40821e206b9447e9e655c7bef0beb3b3b0294a625b9cbc5ae3585fc2b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 92,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "a58a5e0ed6207911a93e468eeb7eeac442955f65e225062499f395a5b3fa4e87",
+        "conflicts": 200002,
+        "ell": 4,
+        "index": 93,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "4ea472c4bbe0e536d71407b9294d15c2d9f8af9738462f6cb89f83dbd3983a40",
+        "conflicts": 200002,
+        "ell": 6,
+        "index": 94,
+        "lam": [
+          6,
+          4,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "271218ec5cebc276446d9f7e8dfc84548cdbbef9c4656f9ea69ab54f6805859c",
+        "conflicts": 166683,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 95,
+        "lam": [
+          6,
+          4,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 771866,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "468005b12f301c94f7f804c035b413eece140366b9d664253de5e398d3561dcf",
+        "conflicts": 131048,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 96,
+        "lam": [
+          6,
+          4,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 688495,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "07f11b155968fe058cffa42df4f6696996eeaac9737d91dbb827d24d73cc6555",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 97,
+        "lam": [
+          6,
+          3,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "73007ede08be0100ef4f3129e1447a222ef3453917b64e06f30c06180c7afdc3",
+        "conflicts": 200000,
+        "ell": 6,
+        "index": 98,
+        "lam": [
+          6,
+          3,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "1bf3233356b299d0ecf8c81e0e1a1de956fe5606c499e749b9daf151498413ac",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 99,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "da914775aa348a55043e363fd795f522863edadb1aeae79f407445b58f9cd0e0",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 100,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "3d0970af139ef7dee95616883a0b6eccacf4b791f4b83be9d097b2af037f28c6",
+        "conflicts": 200005,
+        "ell": 6,
+        "index": 101,
+        "lam": [
+          6,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "add5c5ad10cb61eab9e347b9f43aed895cdd39d09b50fd6150ede7752c1d27b8",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 102,
+        "lam": [
+          6,
+          3,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24924,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "d39af1d901be71792552d34a7f596817edf692011ed0fb27b2431c1d14510797",
+        "conflicts": 29445,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 103,
+        "lam": [
+          6,
+          3,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 353041,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "6c1dacdc2503fa51d526bd74b25412c0a5c3f0e8b50439815d99b57515e5df29",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 104,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "71c8bbcb35fd66e24306fda8d74d1a4c317b17a24b1546bd1a31a36070c156d9",
+        "conflicts": 200001,
+        "ell": 6,
+        "index": 105,
+        "lam": [
+          6,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "a34afcae5879fdd07225e37b9d404ec374c9bc3678cdbe9f580dd0b66dbb0c3e",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 106,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "6aa0128b84e7fff26133eaf9434412782a13ccca668567811264df99959b733d",
+        "conflicts": 200002,
+        "ell": 6,
+        "index": 107,
+        "lam": [
+          6,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "08ec2aa6b86e78fc2c2dab8739eb0833ba2e35ffb8b9207a831b39b1d01f9083",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 108,
+        "lam": [
+          6,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25189,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "0d880347398713921b0d72e3e6131444ec3c2719e31fff8971c6aa708fbffbb5",
+        "conflicts": 18508,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 109,
+        "lam": [
+          6,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 298754,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "c04fabd47e8c4a526e46e7de380121f24da20c20521e5707eabfd5646cd31347",
+        "conflicts": 866,
+        "drat_trim": "VERIFIED",
+        "ell": 6,
+        "index": 110,
+        "lam": [
+          6,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 71522,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "96be66cdaec1ce252200f292af7af74dd9681ab708b003385c12cac81f81c4dd",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 111,
+        "lam": [
+          5,
+          5,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "1c0242207598882b58cff032632383d0a1bcd33e89b6a652d0670286e75daf0d",
+        "conflicts": 200001,
+        "ell": 5,
+        "index": 112,
+        "lam": [
+          5,
+          5,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "e699a98f89c3aef30f20b8e75d2c8cc94894f84d7047cdecbe9b69dcb6389a68",
+        "conflicts": 200003,
+        "ell": 5,
+        "index": 113,
+        "lam": [
+          5,
+          5,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "dfb34ed123936cd7d6eb5029f29054af3170d9b8b30bfb632df9d2cc8dd7a3e9",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 114,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "4f70178cb8c3dc19133cad05d797e8712c469595f6f1a64545eb76aa569331ab",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 115,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "1cf4d75739fcb0ef7aaf59754d97feedfaf6956b2f8aa48916fef88b9a373193",
+        "conflicts": 200000,
+        "ell": 5,
+        "index": 116,
+        "lam": [
+          5,
+          4,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "5f5cada7bec463f01490ed2982c66880f0becb4ad5615157998ccd611ce3a735",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 117,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "9601653fd3708726ac7c61c144a788518c76f6da53832daea223eb38a518f62e",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 118,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "b3a9b87cb9a25b4117a54f61a14aefc010cdda4c5631faa950a9a99bf05729c1",
+        "conflicts": 200000,
+        "ell": 5,
+        "index": 119,
+        "lam": [
+          5,
+          4,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "99a2c3cec95a811dec615ba71a1d7ffd0eb9b61e0d903e6eabde763da2cd72cf",
+        "conflicts": 27419,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 120,
+        "lam": [
+          5,
+          4,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 335547,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "ba8f9db80f106aca462b4cb393d252fc758df4015f2c180c745de9dd9972ddc6",
+        "conflicts": 31168,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 121,
+        "lam": [
+          5,
+          4,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 352643,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "a4ac3fdf6d432089ade47c6e5415914fceec3c81c840eef265b04b310afc517a",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 122,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "ae09c9b9c0ebbdccccf6719e04d3a1634c700656427fe51cfffa5dd4195e3381",
+        "conflicts": 200006,
+        "ell": 5,
+        "index": 123,
+        "lam": [
+          5,
+          3,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "ae822ee1c822b2d649a614f5aee0ec36f6b32f53e6ff3fa0bedc6fa63a463679",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 124,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "9aed9866a8c047dd3f15721a1d95f18d43be81f2133b48d7c5b84d61f6ec1198",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 125,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "9c14cb95709749e497a05aea1a8034e80080d3d70039d0bf3e61b0c305cdaaa5",
+        "conflicts": 200000,
+        "ell": 5,
+        "index": 126,
+        "lam": [
+          5,
+          3,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "deb612c8c949c116430255da487d298cfaf295f5b47b285bf100c150c28b5533",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 127,
+        "lam": [
+          5,
+          3,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "359d13414e80193246124de6e70f2cf13cb957f105ccb444131e36570931961f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 128,
+        "lam": [
+          5,
+          3,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24876,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "5933691bec802ba0da74bad7565b2a60814b3ee93a72f8dfa273991132da7c28",
+        "conflicts": 138969,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 129,
+        "lam": [
+          5,
+          3,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 727958,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "82b6125a91914107b742fff698a0a00345a4a40304634d204ebdc10ea8d387e7",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 130,
+        "lam": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24960,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "d06b6f1d7f9125e415e0b65bfdd91baf1a61bc0b1acc1c029b4504204eb39c7d",
+        "conflicts": 17877,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 131,
+        "lam": [
+          5,
+          3,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 331864,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "65673e6252c71eb52ccb5f022bd9cd9362578a2af19a93b679529d9817cd6d62",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 132,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "f7f7d333d779514d8e7508b2ef9e52ce31246ebe117a19704fc1b34dfad7055f",
+        "conflicts": 200001,
+        "ell": 5,
+        "index": 133,
+        "lam": [
+          5,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "1f828d474ee48411a3b76d205632e94fda99bebfce1c5d4ec00593e492cb2fe5",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 134,
+        "lam": [
+          5,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25057,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "3e7c2214c291a1c209caabb7d594f75b379cc10d461648e878a9eac561db3113",
+        "conflicts": 27603,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 135,
+        "lam": [
+          5,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 316618,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "e299baa44f1c6492667f21a8473f9a49dc32dbfeae9c789da5a1c7f98734b64f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 136,
+        "lam": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25277,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "2194859cdbb686252733104c76e34b576ef70e9258c5c3a58e275e21c0f52785",
+        "conflicts": 6078,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 137,
+        "lam": [
+          5,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 108985,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "f96705d08c09e881030e8c8e26c36fdc12321c50b71caa62b786df172b14e552",
+        "conflicts": 660,
+        "drat_trim": "VERIFIED",
+        "ell": 5,
+        "index": 138,
+        "lam": [
+          5,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 71769,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "e1272f0872164af9b222156e826a180b9fe142d3cdb54d982bb0c6e9dbc7973c",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 139,
+        "lam": [
+          4,
+          4,
+          4
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "f2264431b9be231d0b6711a04b629d663ef3a5e0d815183406fe99e0a8ea9f78",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 140,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "3e38f8a00e598df5c1d0a134ffc0e4840337190fc6df943490e231a8ce568d4d",
+        "conflicts": 200001,
+        "ell": 4,
+        "index": 141,
+        "lam": [
+          4,
+          4,
+          3,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "cb7166f4ed69e8e75a1925aa04f4603504eca10ae25d5a39e7b96f8afcbb9a05",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 142,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "28131f0743eba9a259f1d29c29f60d38e6dc160c8a16c874f5c6617fa9a8dcbd",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 143,
+        "lam": [
+          4,
+          4,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "37148123ef6560db8d7ae8c6b54e8224bbe81eb84e48b81344af867ae20d12c1",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 144,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "d73a5739c775d907c7eb9b564bd5a782f7de9679f32439afeeb342817e252769",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 145,
+        "lam": [
+          4,
+          4,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "4ad34e73e5bae484a8dfa78589b6d416161c2c879dcd601aa269579dea517ce3",
+        "conflicts": 14465,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 146,
+        "lam": [
+          4,
+          4,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 240312,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "1d273621e182af5abd0e41c0b5eded95b69994b2cb5b2d801231bdcdaa023471",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 147,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "d26abf5d091af603b45a5a936393e56c27407289cf5a59fe1380e68351893a88",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 148,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "35edf4440c822e37ef06b014af134352e0e50dbd1f7c9e4a4a6f3e9816c1d44e",
+        "conflicts": 200000,
+        "ell": 4,
+        "index": 149,
+        "lam": [
+          4,
+          3,
+          3,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "339038ea987269c28090aa5bebdac2cbfa12c2d5d6a2c7fd7d00469336b32299",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 150,
+        "lam": [
+          4,
+          3,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24876,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "aa5cc0d6f02c1b6e6d9bcc04277a9bb77e2a896c6946cae3446aa89d37370164",
+        "conflicts": 196580,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 151,
+        "lam": [
+          4,
+          3,
+          3,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 817338,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "b2d9678861c75eac77bec7489d38223d665a4fc07f9eb8610ff818ae8c33ffc1",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 152,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "59fcb5f05a7f3bb57968925db307ed19fcd56a625027202f3824eb90a56eb665",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 153,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "0c28dca97a7a5f85da6f3bcf908ceb361da676874a08e0d79871905784866573",
+        "conflicts": 200001,
+        "ell": 4,
+        "index": 154,
+        "lam": [
+          4,
+          3,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "93c69b1c0b0fc22a741f7dcf4870ee7723a1b6d59456b4778089fe333a222b4b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 155,
+        "lam": [
+          4,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25057,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "6fd7c214927d19eb8e17f03c6c49e116439472b24f304b03e22498787155bed4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 156,
+        "lam": [
+          4,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24924,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "2bec9633804e811f6bed533aa2470469595a58259efe3ae4da870f205bff6c1e",
+        "conflicts": 27715,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 157,
+        "lam": [
+          4,
+          3,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 334756,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "95f21a073c257b8c280a01862a24a482a6ea3497870422fe8fe444ae3b3721da",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 158,
+        "lam": [
+          4,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24984,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "cc3c3cfa877a0ad7e033cb8d95e845af10567f782a8e1ca6a3ca3aaf5deef750",
+        "conflicts": 4888,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 159,
+        "lam": [
+          4,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 83317,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "3b0e4b5fa8466ac8bf2830ad2a7e37a79c3edf9dc8d9b141d76d368db025259d",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 160,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "1631bbb6b6a3c355e929253a989aee7dd4ec50cb37186c138c24a10fbfecac52",
+        "conflicts": 200008,
+        "ell": 4,
+        "index": 161,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "06c4508d0b842be2c452fbe76df87627a8e75f210b7a3e5319501fc840b4a09f",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 162,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "718bd01f2750e2c8e68965545c360259deb223dd31f026926fb9e0d28d783192",
+        "conflicts": 200001,
+        "ell": 4,
+        "index": 163,
+        "lam": [
+          4,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "status": "UNKNOWN"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "1a649e0425b298a85c9457690af0c14d95cc76721093cbb0e182bbbb42d804ac",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 164,
+        "lam": [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25189,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "2f31f7b7c750951f9d68886863a4a5abeabdda940376ae1de7afae2023606a85",
+        "conflicts": 17761,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 165,
+        "lam": [
+          4,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 270407,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "38c33762526f5af816269e8d37fac584695216ef4c8c1081f0da5251c2c45f7c",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 166,
+        "lam": [
+          4,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25321,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "b6d967bcb5009db592023770f7960b0b44e0156b3aa6a6bdc0562810901a715e",
+        "conflicts": 2685,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 167,
+        "lam": [
+          4,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 84197,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "d3b351fb34f57f4b7e8f7eadf0e20b2b66883903b12d0590e58e7f9b51620d68",
+        "conflicts": 164,
+        "drat_trim": "VERIFIED",
+        "ell": 4,
+        "index": 168,
+        "lam": [
+          4,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 7853,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "ef65e024557ef9254c8fbb59bdba464c15c2f3f77c15229aa677dc18e3b86492",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 169,
+        "lam": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "93959d2185abae26c1b7f2e6ee67883419342c895979a25b09fce10e8bacecb7",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 170,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "75d6392c25cfbedc14abc22e7d4590e60747ba544d9c518a6dbecbffdc6f0e61",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 171,
+        "lam": [
+          3,
+          3,
+          3,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "4aecbfea6b8e7869da1a0403ced7d77060caa6375ad45bc784bfdabd06495fb4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 172,
+        "lam": [
+          3,
+          3,
+          3,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24924,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "7b400b71c6253b40078108b5ada13ad7113e578e86deaaff97b0af54fbd34c81",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 173,
+        "lam": [
+          3,
+          3,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "4e30fd281a48af70c9d87304f94920e1ed4cdfa20acdbb599814547cd827617b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 174,
+        "lam": [
+          3,
+          3,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24767,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "00c4508615ddcde84fee20e47ca5cf4836279e1e24595a542ccbcb3a49ea483c",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 175,
+        "lam": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "9da4da76ac61a6dec73b38e9de54a44dbd356bc8d9c64ae4f1503971600fd695",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 176,
+        "lam": [
+          3,
+          3,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24876,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "db12b01aa4b961609c0c72afd89b5f0d7e0570fc83a59ca393c5ae6d40ba1c94",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 177,
+        "lam": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25189,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "f3b83d86dca70451110b5344169991116deecc2e82eddba9a438925f56d33a6b",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 178,
+        "lam": [
+          3,
+          3,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24960,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "047a53ee6cabf8dcd62ca74b1ae736d90cba7d1da1558772726e3330d6d3e445",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 179,
+        "lam": [
+          3,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24994,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "a922392c48ab41357e5d73aa343ec28002808e5a382b9f4d09d22953bbb074e4",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 180,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24540,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143879,
+        "cnf_sha256": "5a14599efe090e8fdd16f3f9bcb60916f77700eeefc46c0ed7fc9e019ff44e95",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 181,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24788,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "6db9a231b02efa427f55f838ffd08eede2cfeba4371e6d3786b7ede7422ccde5",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 182,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25057,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "78b95c4d09e82ab9b66474185fea4d1e452443dd4a87401888c7b2754279c06a",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 183,
+        "lam": [
+          3,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24924,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "8d937a6ebc2a40930519d5b589467bcdf987657667675112198cd163c8987bc5",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 184,
+        "lam": [
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25277,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "735948644642dfd7aa6642c25224294a0c57b82f6a680d101afaf3405b505498",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 185,
+        "lam": [
+          3,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24984,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "93dbc69c29d5cd3c5a49633df0c8b9d82014d32bc60fd534dfcac2c618a690c6",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 186,
+        "lam": [
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25321,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "6bb3d0f46b0699dfe4e0e66cdf69f2a19f0edcd03dcc7b18ccc9608008175cde",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 187,
+        "lam": [
+          3,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24992,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "57d64acb4600236e39e67242ad959c1e9d16a869567e5eb8938cffdb6638c369",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 3,
+        "index": 188,
+        "lam": [
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25053,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 143868,
+        "cnf_sha256": "20e4f4bf646ae9729d06687576b5c4b3eeb26787fe60fe25adf8d21b412b02a3",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 189,
+        "lam": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24529,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144220,
+        "cnf_sha256": "b784d7b36f9352580f0c220dc35ca080b8ca56a57f646f8032f892f003ce380e",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 190,
+        "lam": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 24881,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144528,
+        "cnf_sha256": "a71e91520be947bd0c82adde3809ddd8adc81e42f21cf7ab2b39f5c983d62e06",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 191,
+        "lam": [
+          2,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25189,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144660,
+        "cnf_sha256": "1c137f3d4b401ef962c2cf7275ad201cae89f6f36a3ff2ecd2d812d591125c60",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 192,
+        "lam": [
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25321,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144616,
+        "cnf_sha256": "3f27a0e265c21a0a61abf99538d24e174dff9825eb4b819461758cf1a57bad97",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 193,
+        "lam": [
+          2,
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25277,
+        "status": "UNSAT"
+      },
+      {
+        "case": "non-idempotent",
+        "clauses": 144396,
+        "cnf_sha256": "400a1c63c064271447480a5a5470c687ede95ee673d655bdbb17d578d21a35b2",
+        "conflicts": 1,
+        "drat_trim": "VERIFIED",
+        "ell": 2,
+        "index": 194,
+        "lam": [
+          2,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "law": "y(x((yx)y))",
+        "n": 12,
+        "proof_lines": 25057,
+        "status": "UNSAT"
+      }
+    ],
+    "summary": [
+      "677 at order 12: 195 cases; refuted and certified by drat-trim: 138 of 138 UNSAT; models found: 0; undecided within 200000 conflicts: 57 (14 idempotent, 43 non-idempotent)",
+      "so 677 has a model of order 12 iff one of the listed hard case CNFs is satisfiable"
+    ],
+    "timings": {
+      "0": {
+        "solve_s": 19.97
+      },
+      "1": {
+        "check_s": 0.26,
+        "solve_s": 0.18
+      },
+      "10": {
+        "check_s": 0.19,
+        "solve_s": 0.09
+      },
+      "100": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "101": {
+        "solve_s": 19.81
+      },
+      "102": {
+        "check_s": 0.19,
+        "solve_s": 0.1
+      },
+      "103": {
+        "check_s": 0.95,
+        "solve_s": 3.19
+      },
+      "104": {
+        "check_s": 0.23,
+        "solve_s": 0.09
+      },
+      "105": {
+        "solve_s": 21.29
+      },
+      "106": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "107": {
+        "solve_s": 16.07
+      },
+      "108": {
+        "check_s": 0.19,
+        "solve_s": 0.17
+      },
+      "109": {
+        "check_s": 0.69,
+        "solve_s": 2.86
+      },
+      "11": {
+        "check_s": 0.19,
+        "solve_s": 0.09
+      },
+      "110": {
+        "check_s": 0.33,
+        "solve_s": 0.28
+      },
+      "111": {
+        "check_s": 0.27,
+        "solve_s": 0.18
+      },
+      "112": {
+        "solve_s": 21.87
+      },
+      "113": {
+        "solve_s": 18.44
+      },
+      "114": {
+        "check_s": 0.2,
+        "solve_s": 0.09
+      },
+      "115": {
+        "solve_s": 19.93
+      },
+      "116": {
+        "solve_s": 19.76
+      },
+      "117": {
+        "check_s": 0.19,
+        "solve_s": 0.09
+      },
+      "118": {
+        "solve_s": 20.61
+      },
+      "119": {
+        "solve_s": 20.77
+      },
+      "12": {
+        "solve_s": 21.09
+      },
+      "120": {
+        "check_s": 0.99,
+        "solve_s": 3.82
+      },
+      "121": {
+        "check_s": 1.15,
+        "solve_s": 3.98
+      },
+      "122": {
+        "check_s": 0.28,
+        "solve_s": 0.14
+      },
+      "123": {
+        "solve_s": 19.3
+      },
+      "124": {
+        "check_s": 0.24,
+        "solve_s": 0.11
+      },
+      "125": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "126": {
+        "solve_s": 19.65
+      },
+      "127": {
+        "check_s": 0.26,
+        "solve_s": 0.12
+      },
+      "128": {
+        "check_s": 0.23,
+        "solve_s": 0.2
+      },
+      "129": {
+        "check_s": 2.65,
+        "solve_s": 14.79
+      },
+      "13": {
+        "check_s": 0.25,
+        "solve_s": 0.17
+      },
+      "130": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "131": {
+        "check_s": 0.7,
+        "solve_s": 2.39
+      },
+      "132": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "133": {
+        "solve_s": 19.87
+      },
+      "134": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "135": {
+        "check_s": 0.82,
+        "solve_s": 3.46
+      },
+      "136": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "137": {
+        "check_s": 0.34,
+        "solve_s": 0.86
+      },
+      "138": {
+        "check_s": 0.23,
+        "solve_s": 0.17
+      },
+      "139": {
+        "solve_s": 18.69
+      },
+      "14": {
+        "solve_s": 19.74
+      },
+      "140": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "141": {
+        "solve_s": 17.82
+      },
+      "142": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "143": {
+        "solve_s": 21.59
+      },
+      "144": {
+        "check_s": 0.27,
+        "solve_s": 0.18
+      },
+      "145": {
+        "solve_s": 14.59
+      },
+      "146": {
+        "check_s": 0.75,
+        "solve_s": 1.57
+      },
+      "147": {
+        "check_s": 0.21,
+        "solve_s": 0.11
+      },
+      "148": {
+        "check_s": 0.19,
+        "solve_s": 0.1
+      },
+      "149": {
+        "solve_s": 20.22
+      },
+      "15": {
+        "check_s": 0.18,
+        "solve_s": 0.08
+      },
+      "150": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "151": {
+        "check_s": 6.4,
+        "solve_s": 19.64
+      },
+      "152": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "153": {
+        "check_s": 0.21,
+        "solve_s": 0.15
+      },
+      "154": {
+        "solve_s": 21.09
+      },
+      "155": {
+        "check_s": 0.27,
+        "solve_s": 0.21
+      },
+      "156": {
+        "check_s": 0.23,
+        "solve_s": 0.11
+      },
+      "157": {
+        "check_s": 1.11,
+        "solve_s": 3.92
+      },
+      "158": {
+        "check_s": 0.24,
+        "solve_s": 0.19
+      },
+      "159": {
+        "check_s": 0.36,
+        "solve_s": 0.71
+      },
+      "16": {
+        "check_s": 0.18,
+        "solve_s": 0.08
+      },
+      "160": {
+        "check_s": 0.25,
+        "solve_s": 0.13
+      },
+      "161": {
+        "solve_s": 22.73
+      },
+      "162": {
+        "check_s": 0.27,
+        "solve_s": 0.19
+      },
+      "163": {
+        "solve_s": 16.93
+      },
+      "164": {
+        "check_s": 0.25,
+        "solve_s": 0.13
+      },
+      "165": {
+        "check_s": 0.86,
+        "solve_s": 2.48
+      },
+      "166": {
+        "check_s": 0.22,
+        "solve_s": 0.16
+      },
+      "167": {
+        "check_s": 0.28,
+        "solve_s": 0.3
+      },
+      "168": {
+        "check_s": 0.16,
+        "solve_s": 0.08
+      },
+      "169": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "17": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "170": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "171": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "172": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "173": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "174": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "175": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "176": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "177": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "178": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "179": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "18": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "180": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "181": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "182": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "183": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "184": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "185": {
+        "check_s": 0.21,
+        "solve_s": 0.1
+      },
+      "186": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "187": {
+        "check_s": 0.2,
+        "solve_s": 0.1
+      },
+      "188": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "189": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "19": {
+        "check_s": 0.25,
+        "solve_s": 0.1
+      },
+      "190": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "191": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "192": {
+        "check_s": 0.17,
+        "solve_s": 0.1
+      },
+      "193": {
+        "check_s": 0.19,
+        "solve_s": 0.1
+      },
+      "194": {
+        "check_s": 0.25,
+        "solve_s": 0.11
+      },
+      "2": {
+        "solve_s": 20.62
+      },
+      "20": {
+        "solve_s": 22.65
+      },
+      "21": {
+        "check_s": 0.26,
+        "solve_s": 0.18
+      },
+      "22": {
+        "solve_s": 19.99
+      },
+      "23": {
+        "check_s": 0.17,
+        "solve_s": 0.08
+      },
+      "24": {
+        "check_s": 0.22,
+        "solve_s": 0.1
+      },
+      "25": {
+        "solve_s": 30.08
+      },
+      "26": {
+        "check_s": 0.39,
+        "solve_s": 0.2
+      },
+      "27": {
+        "check_s": 0.45,
+        "solve_s": 0.24
+      },
+      "28": {
+        "check_s": 0.3,
+        "solve_s": 0.18
+      },
+      "29": {
+        "solve_s": 28.72
+      },
+      "3": {
+        "check_s": 0.21,
+        "solve_s": 0.15
+      },
+      "30": {
+        "check_s": 0.49,
+        "solve_s": 0.13
+      },
+      "31": {
+        "check_s": 0.35,
+        "solve_s": 0.22
+      },
+      "32": {
+        "check_s": 0.31,
+        "solve_s": 0.09
+      },
+      "33": {
+        "solve_s": 29.67
+      },
+      "34": {
+        "check_s": 0.33,
+        "solve_s": 0.09
+      },
+      "35": {
+        "check_s": 0.38,
+        "solve_s": 0.19
+      },
+      "36": {
+        "check_s": 0.34,
+        "solve_s": 0.09
+      },
+      "37": {
+        "check_s": 0.39,
+        "solve_s": 0.12
+      },
+      "38": {
+        "check_s": 0.36,
+        "solve_s": 0.09
+      },
+      "39": {
+        "check_s": 0.2,
+        "solve_s": 0.18
+      },
+      "4": {
+        "solve_s": 18.71
+      },
+      "40": {
+        "solve_s": 30.72
+      },
+      "41": {
+        "check_s": 0.32,
+        "solve_s": 0.09
+      },
+      "42": {
+        "check_s": 0.29,
+        "solve_s": 0.17
+      },
+      "43": {
+        "check_s": 0.5,
+        "solve_s": 0.13
+      },
+      "44": {
+        "check_s": 0.4,
+        "solve_s": 0.16
+      },
+      "45": {
+        "solve_s": 33.15
+      },
+      "46": {
+        "check_s": 0.48,
+        "solve_s": 0.25
+      },
+      "47": {
+        "check_s": 0.27,
+        "solve_s": 0.22
+      },
+      "48": {
+        "check_s": 0.47,
+        "solve_s": 0.27
+      },
+      "49": {
+        "check_s": 0.28,
+        "solve_s": 0.11
+      },
+      "5": {
+        "check_s": 0.17,
+        "solve_s": 0.11
+      },
+      "50": {
+        "check_s": 0.31,
+        "solve_s": 0.21
+      },
+      "51": {
+        "check_s": 0.22,
+        "solve_s": 0.08
+      },
+      "52": {
+        "check_s": 0.33,
+        "solve_s": 0.16
+      },
+      "53": {
+        "check_s": 0.33,
+        "solve_s": 0.2
+      },
+      "54": {
+        "check_s": 0.38,
+        "solve_s": 0.32
+      },
+      "55": {
+        "check_s": 0.49,
+        "solve_s": 0.12
+      },
+      "56": {
+        "solve_s": 33.28
+      },
+      "57": {
+        "solve_s": 26.29
+      },
+      "58": {
+        "check_s": 0.28,
+        "solve_s": 0.13
+      },
+      "59": {
+        "solve_s": 27.01
+      },
+      "6": {
+        "check_s": 0.17,
+        "solve_s": 0.08
+      },
+      "60": {
+        "solve_s": 19.32
+      },
+      "61": {
+        "check_s": 0.21,
+        "solve_s": 0.11
+      },
+      "62": {
+        "solve_s": 21.73
+      },
+      "63": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "64": {
+        "solve_s": 20.86
+      },
+      "65": {
+        "check_s": 0.72,
+        "solve_s": 4.08
+      },
+      "66": {
+        "solve_s": 22.21
+      },
+      "67": {
+        "solve_s": 22.05
+      },
+      "68": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "69": {
+        "solve_s": 19.95
+      },
+      "7": {
+        "solve_s": 19.91
+      },
+      "70": {
+        "check_s": 0.28,
+        "solve_s": 0.16
+      },
+      "71": {
+        "solve_s": 23.41
+      },
+      "72": {
+        "check_s": 0.27,
+        "solve_s": 0.19
+      },
+      "73": {
+        "check_s": 3.07,
+        "solve_s": 14.84
+      },
+      "74": {
+        "check_s": 1.02,
+        "solve_s": 2.8
+      },
+      "75": {
+        "solve_s": 23.15
+      },
+      "76": {
+        "solve_s": 21.44
+      },
+      "77": {
+        "solve_s": 21.64
+      },
+      "78": {
+        "solve_s": 22.12
+      },
+      "79": {
+        "check_s": 0.26,
+        "solve_s": 0.19
+      },
+      "8": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "80": {
+        "check_s": 0.22,
+        "solve_s": 0.19
+      },
+      "81": {
+        "solve_s": 22.45
+      },
+      "82": {
+        "check_s": 0.27,
+        "solve_s": 0.2
+      },
+      "83": {
+        "solve_s": 17.32
+      },
+      "84": {
+        "check_s": 0.23,
+        "solve_s": 0.1
+      },
+      "85": {
+        "solve_s": 22.09
+      },
+      "86": {
+        "check_s": 0.18,
+        "solve_s": 0.1
+      },
+      "87": {
+        "check_s": 1.05,
+        "solve_s": 3.43
+      },
+      "88": {
+        "check_s": 0.39,
+        "solve_s": 0.88
+      },
+      "89": {
+        "solve_s": 19.07
+      },
+      "9": {
+        "solve_s": 20.91
+      },
+      "90": {
+        "solve_s": 20.47
+      },
+      "91": {
+        "solve_s": 21.5
+      },
+      "92": {
+        "check_s": 0.18,
+        "solve_s": 0.09
+      },
+      "93": {
+        "solve_s": 20.96
+      },
+      "94": {
+        "solve_s": 21.35
+      },
+      "95": {
+        "check_s": 4.43,
+        "solve_s": 16.63
+      },
+      "96": {
+        "check_s": 2.57,
+        "solve_s": 12.84
+      },
+      "97": {
+        "check_s": 0.17,
+        "solve_s": 0.09
+      },
+      "98": {
+        "solve_s": 19.88
+      },
+      "99": {
+        "check_s": 0.19,
+        "solve_s": 0.11
+      }
+    }
+  },
+  "results_sha256": "44dcc4b069f9586caec5649edaaf1360cf81acdb5b05b2f349bd8ccc95f18c8d",
+  "runtime_s": 489.926,
+  "started": "2026-10-20T15:24:16Z"
+}

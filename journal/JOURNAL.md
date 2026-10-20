@@ -1657,3 +1657,15 @@ Historian spectrum audit 2026-10-20 (reviews/historian_spectra_2026.md) - nothin
 
 *Evidence:* CLM-C05-07, CLM-C05-08, CLM-C05-10, CLM-C05-12, CLM-C05-13, reviews/historian_spectra_2026.md
 
+### [2026-10-20T15:39:55Z] Formal Verifier — result (`C05-19`)
+
+Batch 1.2 (find more) - the case split of EXP-C05-08, generalised to every law x = y*T (systems/magma_split.py, Lean: right_mul_bijective_of_law for the laws x = y*(S*y)), decides all 15 orders n <= 10 that EXP-C05-03 had left UNKNOWN: none has a model (EXP-C05-09; 1,522 drat-trim-verified proofs; 13 of 13 controls agree). With EXP-C05-12, which certifies every order n <= 7 again, the spectra up to 10 of all 13 laws are complete and rest on the lab's own certificates (CLM-C05-17). Pattern recorded as a conjecture: none of these laws without a model of order 2 has one of order 6 or 10 (CLM-C05-18).
+
+*Evidence:* EXP-C05-09, EXP-C05-12, CLM-C05-15, CLM-C05-17, CLM-C05-18, CLM-C05-19
+
+### [2026-10-20T15:39:55Z] Formal Verifier — result (`C05-20`)
+
+Batch 1.2 - law 677 at order 12 (open in every source). The cheap pass of EXP-C05-11 refutes 138 of the 195 case CNFs with verified proofs; the 57 that remain are structured: in the idempotent case exactly the 14 cases whose row 0 has a single fixed point, in the other case only cycles of 0 of length >= 4 with at most 2 fixed points (CLM-C05-20). This is a reduction and a hand-off; the order stays open.
+
+*Evidence:* EXP-C05-11, CLM-C05-20
+

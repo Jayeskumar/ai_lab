@@ -1,0 +1,29 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-11"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    }
+  ],
+  "id": "CLM-C05-20",
+  "limitations": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.",
+  "novelty": "POTENTIALLY NOVEL",
+  "novelty_basis": "No source reports a partial result for 677 at order 12: the ETP Zulip topic 'FINITE: 677 -> 255' (to Feb 28, 2026) says exhaustive search is the only known method, and orders 12 and 14 are open in every source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
+  "proof": "proofs/paper/C05.md#proposition-13-clm-c05-20--law-677-at-order-12-reduction-to-57-case-cnfs-computer-assisted",
+  "proof_check": "computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); awaiting independent review",
+  "related": [
+    "CLM-C05-12",
+    "CLM-C05-17"
+  ],
+  "statement": "Law 677, x = y(x((yx)y)), has a model of order 12 iff one of the 57 case CNFs of Lemma 8 listed in results/EXP-C05-11.json (rebuilt by systems.magma_split.build and identified by SHA-256) is satisfiable. Hence a model of order 12, if one exists, is either idempotent with some row having exactly one fixed point, or not idempotent, and then a non-idempotent element a with the fewest fixed points has at most two fixed points and lies in a cycle of L_a of length at least 4.",
+  "system": "SYS-B",
+  "title": "Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

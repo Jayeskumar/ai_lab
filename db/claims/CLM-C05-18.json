@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-12",
+    "EXP-C05-09",
+    "EXP-C05-08"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    }
+  ],
+  "id": "CLM-C05-18",
+  "limitations": "Evidence: the 12 laws of CLM-C05-17 without a model of order 2 have none of orders 6 and 10 (whether 1313 has a model of order 14 is undecided); spectra are closed under products, and a product reaches an order 2 (mod 4) only through a factor of order 2; all known linear models of these laws have odd order or order 4, 8, 16, .... No proof. The statement is false for laws of other shapes: 1719, x = (yy)((xx)y), has no model of order 2 but one of order 6 (EXP-C05-03). A possible approach is a parity (sign) argument on the translations, as for law 167 (Theorem 2).",
+  "novelty": "NOT ASSESSED",
+  "related": [
+    "CLM-C05-17",
+    "CLM-C05-04"
+  ],
+  "statement": "If a law of the form x = y*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).",
+  "system": "SYS-B",
+  "title": "H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

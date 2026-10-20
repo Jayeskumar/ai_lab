@@ -1,0 +1,90 @@
+{
+  "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - law 677 at order 12, open in every source: of the 195 case CNFs, 138 are refuted within 200,000 conflicts with DRAT proofs that drat-trim verified (10.5 million proof lines); 57 remain undecided - 14 idempotent (exactly those whose row 0 has a single fixed point) and 43 non-idempotent (all with 0 in a cycle of length >= 4 and at most 2 fixed points in row 0); no model. The hypothesis is confirmed. The result is a certified reduction of the question to 57 explicit CNFs, not a decision.",
+  "assumptions": [
+    "Lemma 8 (complete case split) and Lemma 9 (division clauses) of proofs/paper/C05.md; Latin rows only (finite models of 677 need not be right-cancellative)",
+    "CaDiCaL 1.5.3, 200,000 conflicts per case; drat-trim for every UNSAT",
+    "per-case checkpoints (EXP_CHECKPOINT) may be used to resume"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-11",
+    "file": "experiments/C05/E11_law677_order12.py",
+    "sha256": "6d8bc9e4481e1b18c831c1e13f964e7e61a86aa55b66860c52edf3beec1c725f",
+    "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+  },
+  "cycle": "C05",
+  "falsification": "A verified model would settle the question (677 would have a model of order 12); a rejected proof would expose an error.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T15:32:26Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - law 677 at order 12, open in every source: of the 195 case CNFs, 138 are refuted within 200,000 conflicts with DRAT proofs that drat-trim verified (10.5 million proof lines); 57 remain undecided - 14 idempotent (exactly those whose row 0 has a single fixed point) and 43 non-idempotent (all with 0 in a cycle of length >= 4 and at most 2 fixed points in row 0); no model. The hypothesis is confirmed. The result is a certified reduction of the question to 57 explicit CNFs, not a decision.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-20"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    }
+  ],
+  "hypothesis": "No model is found within 200,000 conflicts per case; most cases are refuted and the difficulty is concentrated in a small set (an exploratory triage found 57 hard cases).",
+  "id": "EXP-C05-11",
+  "methodology": "Run all 195 cases (3 worker processes, fixed order of results); certify UNSAT cases; verify any model on its table; list the UNKNOWN cases with their CNF hashes.",
+  "question": "Which of the 195 case CNFs of Lemma 8 for law 677 at order 12 can be refuted cheaply, with a certificate, and which remain?",
+  "related": [
+    "CLM-C05-20"
+  ],
+  "results_file": "results/EXP-C05-11.json",
+  "results_sha256": "44dcc4b069f9586caec5649edaaf1360cf81acdb5b05b2f349bd8ccc95f18c8d",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-11",
+        "file": "experiments/C05/E11_law677_order12.py",
+        "sha256": "6d8bc9e4481e1b18c831c1e13f964e7e61a86aa55b66860c52edf3beec1c725f",
+        "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+      },
+      "error": false,
+      "finished": "2026-10-20T15:32:26Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-11.json",
+      "results_sha256": "44dcc4b069f9586caec5649edaaf1360cf81acdb5b05b2f349bd8ccc95f18c8d",
+      "runtime_s": 489.926,
+      "started": "2026-10-20T15:24:16Z",
+      "summary": [
+        "677 at order 12: 195 cases; refuted and certified by drat-trim: 138 of 138 UNSAT; models found: 0; undecided within 200000 conflicts: 57 (14 idempotent, 43 non-idempotent)",
+        "so 677 has a model of order 12 iff one of the listed hard case CNFs is satisfiable"
+      ]
+    }
+  ],
+  "summary": [
+    "677 at order 12: 195 cases; refuted and certified by drat-trim: 138 of 138 UNSAT; models found: 0; undecided within 200000 conflicts: 57 (14 idempotent, 43 non-idempotent)",
+    "so 677 has a model of order 12 iff one of the listed hard case CNFs is satisfiable"
+  ],
+  "title": "Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones",
+  "verification": "PROVEN"
+}

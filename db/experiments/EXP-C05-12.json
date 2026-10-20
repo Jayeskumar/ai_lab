@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - every order n = 2..7 of the 13 laws x = y*T decided again with the case split: 0 disagreements with EXP-C05-03; all 50 gaps certified by drat-trim, all 28 members with a re-checked table. With EXP-C05-08 and -09 every gap n <= 10 of these laws now has a lab certificate.",
   "assumptions": [
     "as EXP-C05-09",
     "conflict budget 200,000 per case (EXP-C05-03 decided all these orders)"
@@ -18,12 +19,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-20T15:26:38Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - every order n = 2..7 of the 13 laws x = y*T decided again with the case split: 0 disagreements with EXP-C05-03; all 50 gaps certified by drat-trim, all 28 members with a re-checked table. With EXP-C05-08 and -09 every gap n <= 10 of these laws now has a lab certificate.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-17"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
     }
   ],
   "hypothesis": "Yes: the same orders are found, with every gap certified.",
   "id": "EXP-C05-12",
   "methodology": "decide(law, n) for n = 2..7 and every law x = y*T of EXP-C05-03; compare with its statuses.",
   "question": "Do the certified case split and EXP-C05-03 agree on every order 2..7 of the 13 laws, and can every gap be given a DRAT certificate?",
+  "related": [
+    "CLM-C05-17"
+  ],
   "results_file": "results/EXP-C05-12.json",
   "results_sha256": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
   "runs": [
@@ -51,5 +84,6 @@
     "78 pairs (13 laws, n = 2..7): 50 gaps, every one certified by drat-trim: True; 28 members with a re-checked model",
     "disagreements with EXP-C05-03: 0"
   ],
-  "title": "Certified decisions for every order n <= 7 of the 13 open ETP laws x = y*T"
+  "title": "Certified decisions for every order n <= 7 of the 13 open ETP laws x = y*T",
+  "verification": "PROVEN"
 }

@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - the general case split (systems/magma_split.py) decides all 15 orders n <= 10 that EXP-C05-03 left UNKNOWN for the laws x = y*T: none has a model. 1,532 cases, 1,522 UNSAT with DRAT proofs verified by drat-trim (128 million proof lines), 0 UNKNOWN, 0 rejected; hardest case 1.65 million conflicts (670 at order 10). All 13 controls at n = 8, 9 agree with their known answers (3 gaps, 10 models).",
   "assumptions": [
     "rows of finite models of x = y*T are permutations (Lean: left_mul_bijective_of_law); for T = S*y also the columns (Lean: right_mul_bijective_of_law)",
     "the case split of proofs/paper/C05.md Lemma 8 is complete; the division clauses of Lemma 9, generalised in systems/magma_split.py, are implied",
@@ -20,12 +21,46 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-20T15:18:25Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - the general case split (systems/magma_split.py) decides all 15 orders n <= 10 that EXP-C05-03 left UNKNOWN for the laws x = y*T: none has a model. 1,532 cases, 1,522 UNSAT with DRAT proofs verified by drat-trim (128 million proof lines), 0 UNKNOWN, 0 rejected; hardest case 1.65 million conflicts (670 at order 10). All 13 controls at n = 8, 9 agree with their known answers (3 gaps, 10 models).",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-15",
+        "CLM-C05-17"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
     }
   ],
   "hypothesis": "H-C05-H: the case split of EXP-C05-08 decides all 15 open pairs within a budget of 4 million conflicts per case, and agrees with every control.",
   "id": "EXP-C05-09",
   "methodology": "For each pair (targets first, then controls) run the cases of Lemma 8 in their fixed order and stop at the first model (verified on its table); otherwise certify every case UNSAT with drat-trim. 3 worker processes, one pair per worker at a time.",
   "question": "Which of the orders n <= 10 left UNKNOWN by EXP-C05-03 are in the spectra of the open ETP laws 467, 501, 670, 704, 883, 907, 1076, 1083, 1110, 1279, 1286?",
+  "related": [
+    "CLM-C05-15",
+    "CLM-C05-17"
+  ],
   "results_file": "results/EXP-C05-09.json",
   "results_sha256": "589d6bb855280ba5de564be415e53ac1e697b7888ef42aed453001a4815990bb",
   "runs": [
@@ -55,5 +90,6 @@
     "controls agreeing with their known answers: 13 of 13",
     "cases run: 1532; UNSAT cases certified by drat-trim: 1522; rejected proofs: 0; UNKNOWN cases: 0"
   ],
-  "title": "Open orders of the ETP laws x = y*T: certified case split for every (law, n <= 10) left UNKNOWN by EXP-C05-03"
+  "title": "Open orders of the ETP laws x = y*T: certified case split for every (law, n <= 10) left UNKNOWN by EXP-C05-03",
+  "verification": "PROVEN"
 }

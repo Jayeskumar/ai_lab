@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-20T14:17:53Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-20T15:39:55Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 138 |
+| PROVEN | 142 |
 | COMPUTATIONALLY SUPPORTED | 37 |
-| CONJECTURE | 4 |
+| CONJECTURE | 5 |
 | REFUTED | 49 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 113 |
-| POTENTIALLY NOVEL | 48 |
-| NOT ASSESSED | 69 |
+| REDISCOVERY | 114 |
+| POTENTIALLY NOVEL | 51 |
+| NOT ASSESSED | 70 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -67,6 +67,10 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-12 | Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, … | computer-assisted - the CNFs of the case split of proofs/pa… | REDISCOVERY | EXP-C05-08 |
 | CLM-C05-13 | Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up … | computer-assisted - the CNFs of the case split of proofs/pa… | POTENTIALLY NOVEL | EXP-C05-08 |
 | CLM-C05-14 | Finite models of law 1313 are quasigroups (Lean) | Lean 4 (complete) - law1313_left_bijective, law1313_right_b… | NOT ASSESSED |  |
+| CLM-C05-15 | Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10 | computer-assisted - every case CNF of the case split of pro… | POTENTIALLY NOVEL | EXP-C05-09 |
+| CLM-C05-17 | Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T | computer-assisted - every member has an explicit table re-c… | POTENTIALLY NOVEL | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-03, EXP-C05-07 |
+| CLM-C05-19 | Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 107… | Lean 4 (complete) - right_mul_bijective_of_law and left_mul… | REDISCOVERY |  |
+| CLM-C05-20 | Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable | computer-assisted - the other 138 of the 195 case CNFs of L… | POTENTIALLY NOVEL | EXP-C05-11 |
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | published theorem (R. Laver 1992/1995; P. Dehornoy, Braids … | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | REDISCOVERY | EXP-C06-02 |
@@ -168,6 +172,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | Claim | Title | Verification | Novelty | Evidence |
 |---|---|---|---|---|
 | CLM-C04-16 | Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.0… | CONJECTURE | REDISCOVERY | EXP-C04-08, EXP-C04-09 |
+| CLM-C05-18 | H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) | CONJECTURE | NOT ASSESSED | EXP-C05-12, EXP-C05-09, EXP-C05-08 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | POTENTIALLY NOVEL | EXP-C09-04, EXP-C09-01 |
 | CLM-C12-13 | Subtract-a-Fibonacci-number has bounded Grundy values | CONJECTURE | NOT ASSESSED | EXP-C12-03, EXP-C12-01 |
 | CLM-C15-18 | Bounded streaming width implies a fast-forward | CONJECTURE | NOT ASSESSED | EXP-C15-02, EXP-C15-03 |
@@ -224,6 +229,9 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C04-10 | Identity: OEIS A247983 (truncation index of the series for log 2) equals D(n+2) for aab -… | PROVEN | POTENTIALLY NOVEL | EXP-C04-09, EXP-C04-10 |
 | CLM-C04-11 | H-C04-G (second part): every terminating rule has a rational complexity generating functi… | REFUTED | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
 | CLM-C05-13 | Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up … | PROVEN | POTENTIALLY NOVEL | EXP-C05-08 |
+| CLM-C05-15 | Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10 | PROVEN | POTENTIALLY NOVEL | EXP-C05-09 |
+| CLM-C05-17 | Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T | PROVEN | POTENTIALLY NOVEL | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-03, EXP-C05-07 |
+| CLM-C05-20 | Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable | PROVEN | POTENTIALLY NOVEL | EXP-C05-11 |
 | CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-03 |
 | CLM-C06-06 | An 'odd' law: (xy)z = x((yz)z) has an anchored model exactly for odd N, and it is unique | PROVEN | POTENTIALLY NOVEL | EXP-C06-03, EXP-C06-04 |
 | CLM-C06-07 | A 'golden' law: anchored models of (xy)z = x(y(zz)) correspond to roots of a^2 + a = 1 mo… | PROVEN | POTENTIALLY NOVEL | EXP-C06-04 |
@@ -317,6 +325,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C05-10 | Linear models over finite fields: the orders q <= 128 at which the 15 open laws have a mo… | PROVEN | REDISCOVERY | EXP-C05-07 |
 | CLM-C05-11 | Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified) | PROVEN | REDISCOVERY | EXP-C05-08 |
 | CLM-C05-12 | Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, … | PROVEN | REDISCOVERY | EXP-C05-08 |
+| CLM-C05-19 | Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 107… | PROVEN | REDISCOVERY |  |
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | PROVEN | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |

@@ -28,6 +28,7 @@ import sys
 import tempfile
 import time
 
+import numpy as np
 from pysat.card import CardEnc, EncType
 from pysat.solvers import Cadical153
 
@@ -135,6 +136,51 @@ def build(law: str, n: int, case: str, lam, ell):
                 else:
                     break
     return sat, identity
+
+
+def canonical_form(table):
+    """Lemma 8 made explicit for a table whose rows are permutations: its case (case, lam, ell) and the table
+    relabelled so that row 0 is canonical_permutation(lam, ell)."""
+    T = [[int(c) for c in r] for r in table]
+    n = len(T)
+    fix = [sum(T[a][b] == b for b in range(n)) for a in range(n)]
+    idempotent = all(T[a][a] == a for a in range(n))
+    a = min(range(n) if idempotent else [c for c in range(n) if T[c][c] != c], key=lambda c: fix[c])
+    row = T[a]
+
+    def cycle(s):
+        out = [s]
+        while row[out[-1]] != s:
+            out.append(row[out[-1]])
+        return out
+
+    first, others, seen = cycle(a), [], set()
+    seen.update(first)
+    for s in range(n):
+        if s not in seen:
+            others.append(cycle(s))
+            seen.update(others[-1])
+    others.sort(key=len, reverse=True)
+    sigma = {x: i for i, x in enumerate(first + [x for c in others for x in c])}
+    out = [[0] * n for _ in range(n)]
+    for x in range(n):
+        for y in range(n):
+            out[sigma[x]][sigma[y]] = sigma[T[x][y]]
+    lam = tuple(sorted([len(first)] + [len(c) for c in others], reverse=True))
+    return ("idempotent" if idempotent else "non-idempotent"), lam, len(first), out
+
+
+def admits(law: str, table):
+    """Check that the CNF of a known model's case is satisfiable with the relabelled model fixed, i.e. that the
+    encoding with all its extra clauses (Latin rows and columns, fixed-point bounds, division clauses) does not
+    exclude the model."""
+    case, lam, ell, T = canonical_form(table)
+    n = len(T)
+    sat, identity = build(law, n, case, lam, ell)
+    with Cadical153(bootstrap_with=sat.clauses) as s:
+        ok = s.solve(assumptions=[sat.v[a, b, T[a][b]] for a in range(n) for b in range(n)])
+    return {"n": n, "case": case, "lam": list(lam), "ell": ell, "index": cases(n).index((case, lam, ell)),
+            "satisfies_law": bool(satisfies(np.array(T), identity)), "admitted": bool(ok)}
 
 
 def _cnf_text(sat) -> str:

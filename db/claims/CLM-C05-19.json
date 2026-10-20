@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:39:55Z"
+    }
+  ],
+  "id": "CLM-C05-19",
+  "lean": [
+    "proofs/lean/Infinity/C05_QuasigroupLaws.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - for 1076 the ETP commentary (commentary/Equation1076.md) states that finite models are idempotent quasigroups (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md); the general two-line form is folklore level and was not looked up.",
+  "proof": "proofs/paper/C05.md#lemma-7--laws-x--ysy-have-only-quasigroup-models-lean",
+  "proof_check": "Lean 4 (complete) - right_mul_bijective_of_law and left_mul_bijective_of_law' with instances law1076_right_bijective ... law1313_right_bijective' (proofs/lean/Infinity/C05_QuasigroupLaws.lean, standard axioms only)",
+  "related": [
+    "CLM-C05-14",
+    "CLM-C05-15"
+  ],
+  "statement": "If a finite magma satisfies x = y*(s(x,y)*y) for some binary term s, all its left and right translations are bijections, so its table is a Latin square.",
+  "system": "SYS-B",
+  "title": "Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 1076, 1083, 1110, 1279, 1286, 1313",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

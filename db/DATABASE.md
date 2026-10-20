@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T14:17:53Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T15:39:55Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1338,6 +1338,111 @@ _Generated 2026-10-20T14:17:53Z from `db/`. The JSON records are authoritative; 
   The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6). Sources: the smallest known non-right-cancellative model of 677 has order 55 (B. Le Floch, ETP Zulip, Nov 22, 2025; D. Renshaw, Feb 4, 2026, https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and every model of order <= 11 in the eq677 database is a Latin square (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
 - **status history:**
+
+### CLM-C05-15: Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - every case CNF of the case split of proofs/paper/C05.md Lemma 8 (written proof; division clauses of Lemma 9, generalised in systems/magma_split.py; Latin rows by left_mul_bijective_of_law' and, for the laws x = y*(S*y), Latin columns by right_mul_bijective_of_law, proofs/lean/Infinity/C05_QuasigroupLaws.lean) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-09: 1,522 verified proofs, 0 UNKNOWN cases); the controls at the same orders agree with their known answers; awaiting independent review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  No magma of the stated order satisfies the law: 467 x = y(x(x(yy))), 501 x = y(y(x(xy))), 704 x = y(y((xx)y)), 1083 x = y((x(yx))y), 1110 x = y((y(xx))y), 1279 x = y(((xx)y)y) - order 10; 670 x = y(x((xy)y)), 907 x = y((yx)(xy)), 1286 x = y(((xy)x)y) - orders 8 and 10; 1076 x = y((x(xy))y) - orders 9 and 10; 883 x = y((xy)(yy)) - order 9.
+
+- **proof:** proofs/paper/C05.md#theorem-11-clm-c05-15--17--the-orders-n--10-of-the-laws-x--yt-computer-assisted
+- **evidence:** EXP-C05-09
+- **novelty_basis:**
+
+  No source states any of these 15 orders: B. Le Floch's notes (July 1, 10, 14, 2025), the ETP paper (arXiv:2512.07087 v2 and the Sep 2026 build), the ETP commentary files, the ETP Zulip archive to Feb 28, 2026, the eq677 database and arXiv to Oct 2026 were read; the closest item is 'Mace 4 is currently checking order 9' for 1076 (M. Bolan, ETP Zulip, Dec 2, 2024), with no result reported (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md). ETP members may hold unpublished searches.
+
+- **related:** CLM-C05-08; CLM-C05-17; CLM-C05-18
+
+### CLM-C05-17: Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - every member has an explicit table re-checked on the law (EXP-C05-03, -04, -07, -12 and the controls of EXP-C05-09); every gap has a DRAT certificate verified by drat-trim (n <= 7: EXP-C05-12; n = 8-10: EXP-C05-08, -09; earlier also EXP-C05-06); awaiting independent review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  The orders n <= 10 of finite models are exactly: 467 {1,5,7,8,9}; 501 {1,4,5,8,9}; 670 {1,4,5,9}; 677 {1,5,7,9}; 704 {1,5,7,8}; 883 {1,2,4,5,7,8,10}; 907 {1,3,7,9}; 1076 {1,5}; 1083 {1,3,4,7,8,9}; 1110 {1,4,5,7,8,9}; 1279 {1,5,7,8}; 1286 {1,7,9}; 1313 {1,5,7,9}.
+
+- **proof:** proofs/paper/C05.md#theorem-11-clm-c05-15--17--the-orders-n--10-of-the-laws-x--yt-computer-assisted
+- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-03; EXP-C05-07
+- **novelty_basis:**
+
+  Partly known: for 677 the whole list is on the ETP Zulip (2024-2025), and the orders stated in Le Floch's notes are known; the complete lists for the other 12 laws were not found in any source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+
+- **related:** CLM-C05-15; CLM-C05-07; CLM-C05-08; CLM-C05-11; CLM-C05-12; CLM-C05-13
+
+### CLM-C05-18: H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)
+
+- **cycle:** C05
+- **type:** conjecture
+- **system:** SYS-B
+- **verification:** CONJECTURE
+- **novelty:** NOT ASSESSED
+- **statement:** If a law of the form x = y*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).
+- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08
+- **limitations:**
+
+  Evidence: the 12 laws of CLM-C05-17 without a model of order 2 have none of orders 6 and 10 (whether 1313 has a model of order 14 is undecided); spectra are closed under products, and a product reaches an order 2 (mod 4) only through a factor of order 2; all known linear models of these laws have odd order or order 4, 8, 16, .... No proof. The statement is false for laws of other shapes: 1719, x = (yy)((xx)y), has no model of order 2 but one of order 6 (EXP-C05-03). A possible approach is a parity (sign) argument on the translations, as for law 167 (Theorem 2).
+
+- **related:** CLM-C05-17; CLM-C05-04
+
+### CLM-C05-19: Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 1076, 1083, 1110, 1279, 1286, 1313
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  Lean 4 (complete) - right_mul_bijective_of_law and left_mul_bijective_of_law' with instances law1076_right_bijective ... law1313_right_bijective' (proofs/lean/Infinity/C05_QuasigroupLaws.lean, standard axioms only)
+
+- **novelty:** REDISCOVERY
+- **statement:** If a finite magma satisfies x = y*(s(x,y)*y) for some binary term s, all its left and right translations are bijections, so its table is a Latin square.
+- **proof:** proofs/paper/C05.md#lemma-7--laws-x--ysy-have-only-quasigroup-models-lean
+- **lean:** proofs/lean/Infinity/C05_QuasigroupLaws.lean
+- **novelty_basis:**
+
+  Partial - for 1076 the ETP commentary (commentary/Equation1076.md) states that finite models are idempotent quasigroups (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md); the general two-line form is folklore level and was not looked up.
+
+- **related:** CLM-C05-14; CLM-C05-15
+
+### CLM-C05-20: Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); awaiting independent review
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  Law 677, x = y(x((yx)y)), has a model of order 12 iff one of the 57 case CNFs of Lemma 8 listed in results/EXP-C05-11.json (rebuilt by systems.magma_split.build and identified by SHA-256) is satisfiable. Hence a model of order 12, if one exists, is either idempotent with some row having exactly one fixed point, or not idempotent, and then a non-idempotent element a with the fewest fixed points has at most two fixed points and lies in a cycle of L_a of length at least 4.
+
+- **proof:** proofs/paper/C05.md#proposition-13-clm-c05-20--law-677-at-order-12-reduction-to-57-case-cnfs-computer-assisted
+- **evidence:** EXP-C05-11
+- **novelty_basis:**
+
+  No source reports a partial result for 677 at order 12: the ETP Zulip topic 'FINITE: 677 -> 255' (to Feb 28, 2026) says exhaustive search is the only known method, and orders 12 and 14 are open in every source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+
+- **limitations:**
+
+  A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.
+
+- **related:** CLM-C05-12; CLM-C05-17
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5517,6 +5622,75 @@ _Generated 2026-10-20T14:17:53Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **related:** CLM-C05-11; CLM-C05-12; CLM-C05-13; CLM-C05-14
 - **runs:** 1; last 2026-10-19T23:52:29Z (1542.451 s), results sha256 `6280be640085641a…`, code `experiments/C05/E08_orders_8_10.py`
+
+### EXP-C05-09: Open orders of the ETP laws x = y*T: certified case split for every (law, n <= 10) left UNKNOWN by EXP-C05-03
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Which of the orders n <= 10 left UNKNOWN by EXP-C05-03 are in the spectra of the open ETP laws 467, 501, 670, 704, 883, 907, 1076, 1083, 1110, 1279, 1286?
+- **hypothesis:** H-C05-H: the case split of EXP-C05-08 decides all 15 open pairs within a budget of 4 million conflicts per case, and agrees with every control.
+- **assumptions:**
+  - rows of finite models of x = y*T are permutations (Lean: left_mul_bijective_of_law); for T = S*y also the columns (Lean: right_mul_bijective_of_law)
+  - the case split of proofs/paper/C05.md Lemma 8 is complete; the division clauses of Lemma 9, generalised in systems/magma_split.py, are implied
+  - CaDiCaL 1.5.3 with proof logging, fixed conflict budget per case; drat-trim for every UNSAT
+  - per-case results may be resumed from a checkpoint directory (EXP_CHECKPOINT); every case is deterministic, so resuming does not change the results
+- **methodology:**
+
+  For each pair (targets first, then controls) run the cases of Lemma 8 in their fixed order and stop at the first model (verified on its table); otherwise certify every case UNSAT with drat-trim. 3 worker processes, one pair per worker at a time.
+
+- **falsification:** A control that disagrees with its known answer, or a proof that drat-trim rejects, would expose an error; a target with an UNKNOWN case and no model stays undecided.
+- **summary:**
+  - targets: 467/10: no model (every case certified); 501/10: no model (every case certified); 670/10: no model (every case certified); 704/10: no model (every case certified); 907/10: no model (every case certified); 1076/10: no model (every case certified); 1083/10: no model (every case certified); 1110/10: no model (every case certified); 1279/10: no model (every case certified); 1286/10: no model…
+  - controls agreeing with their known answers: 13 of 13
+  - cases run: 1532; UNSAT cases certified by drat-trim: 1522; rejected proofs: 0; UNKNOWN cases: 0
+- **analysis:**
+
+  Batch 1.2 - the general case split (systems/magma_split.py) decides all 15 orders n <= 10 that EXP-C05-03 left UNKNOWN for the laws x = y*T: none has a model. 1,532 cases, 1,522 UNSAT with DRAT proofs verified by drat-trim (128 million proof lines), 0 UNKNOWN, 0 rejected; hardest case 1.65 million conflicts (670 at order 10). All 13 controls at n = 8, 9 agree with their known answers (3 gaps, 10 models).
+
+- **verification:** PROVEN
+- **related:** CLM-C05-15; CLM-C05-17
+- **runs:** 1; last 2026-10-20T15:18:19Z (6000.865 s), results sha256 `589d6bb855280ba5…`, code `experiments/C05/E09_open_orders.py`
+
+### EXP-C05-11: Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Which of the 195 case CNFs of Lemma 8 for law 677 at order 12 can be refuted cheaply, with a certificate, and which remain?
+- **hypothesis:** No model is found within 200,000 conflicts per case; most cases are refuted and the difficulty is concentrated in a small set (an exploratory triage found 57 hard cases).
+- **assumptions:**
+  - Lemma 8 (complete case split) and Lemma 9 (division clauses) of proofs/paper/C05.md; Latin rows only (finite models of 677 need not be right-cancellative)
+  - CaDiCaL 1.5.3, 200,000 conflicts per case; drat-trim for every UNSAT
+  - per-case checkpoints (EXP_CHECKPOINT) may be used to resume
+- **methodology:** Run all 195 cases (3 worker processes, fixed order of results); certify UNSAT cases; verify any model on its table; list the UNKNOWN cases with their CNF hashes.
+- **falsification:** A verified model would settle the question (677 would have a model of order 12); a rejected proof would expose an error.
+- **summary:**
+  - 677 at order 12: 195 cases; refuted and certified by drat-trim: 138 of 138 UNSAT; models found: 0; undecided within 200000 conflicts: 57 (14 idempotent, 43 non-idempotent)
+  - so 677 has a model of order 12 iff one of the listed hard case CNFs is satisfiable
+- **analysis:**
+
+  Batch 1.2 - law 677 at order 12, open in every source: of the 195 case CNFs, 138 are refuted within 200,000 conflicts with DRAT proofs that drat-trim verified (10.5 million proof lines); 57 remain undecided - 14 idempotent (exactly those whose row 0 has a single fixed point) and 43 non-idempotent (all with 0 in a cycle of length >= 4 and at most 2 fixed points in row 0); no model. The hypothesis is confirmed. The result is a certified reduction of the question to 57 explicit CNFs, not a decision.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-20
+- **runs:** 1; last 2026-10-20T15:32:26Z (489.926 s), results sha256 `44dcc4b069f9586c…`, code `experiments/C05/E11_law677_order12.py`
+
+### EXP-C05-12: Certified decisions for every order n <= 7 of the 13 open ETP laws x = y*T
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Do the certified case split and EXP-C05-03 agree on every order 2..7 of the 13 laws, and can every gap be given a DRAT certificate?
+- **hypothesis:** Yes: the same orders are found, with every gap certified.
+- **assumptions:** as EXP-C05-09; conflict budget 200,000 per case (EXP-C05-03 decided all these orders)
+- **methodology:** decide(law, n) for n = 2..7 and every law x = y*T of EXP-C05-03; compare with its statuses.
+- **falsification:** A disagreement with EXP-C05-03, a rejected proof or an UNKNOWN case.
+- **summary:** 78 pairs (13 laws, n = 2..7): 50 gaps, every one certified by drat-trim: True; 28 members with a re-checked model; disagreements with EXP-C05-03: 0
+- **analysis:**
+
+  Batch 1.2 - every order n = 2..7 of the 13 laws x = y*T decided again with the case split: 0 disagreements with EXP-C05-03; all 50 gaps certified by drat-trim, all 28 members with a re-checked table. With EXP-C05-08 and -09 every gap n <= 10 of these laws now has a lab certificate.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-17
+- **runs:** 1; last 2026-10-20T15:26:37Z (78.406 s), results sha256 `a9b4e9e2d5a54f4a…`, code `experiments/C05/E12_small_orders_certified.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 
