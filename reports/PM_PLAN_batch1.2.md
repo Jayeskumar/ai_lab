@@ -38,4 +38,4 @@ undecided. The Historian checked first which of these orders anyone has settled.
   results were unaffected (hash-identical CNFs, read back from checkpoints).
 - Law 677 at order 12: since all 57 hard cases are easy for quasigroups, the open question is whether a model of
   order 12 that is *not* a quasigroup exists. The Historian was asked for structural results on such models
-  (the smallest known has order 55).
+  (the smallest known has order 25, M. Reinke, Nov 2025 — not 55 as our notes said; corrected in CLM-C05-14).

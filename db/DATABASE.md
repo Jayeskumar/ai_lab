@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:22:23Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:27:34Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1335,7 +1335,7 @@ _Generated 2026-10-20T16:22:23Z from `db/`. The JSON records are authoritative; 
 - **related:** CLM-C05-13; CLM-C05-05
 - **notes:**
 
-  The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6). Sources: the smallest known non-right-cancellative model of 677 has order 55 (B. Le Floch, ETP Zulip, Nov 22, 2025; D. Renshaw, Feb 4, 2026, https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and every model of order <= 11 in the eq677 database is a Latin square (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+  The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6). Sources: the smallest known non-right-cancellative model of 677 has order 25 (an idempotent model on F_25, M. Reinke, ETP Zulip topic 'FINITE: 677 -> 255', Nov 26, 2025, msg 560418876, called 'the smallest known example that is not right cancellative' in msg 564499852; earlier constructions had orders 496 (T. Tao, Dec 2024) and 77, 55 (B. Le Floch, Nov 22, 2025), https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and every model of order <= 11 in the eq677 database is a Latin square (Historian audits 2026-10-20, reviews/historian_spectra_2026.md and reviews/historian_677_nonqg.md).
 
 - **status history:**
 
@@ -1498,7 +1498,7 @@ _Generated 2026-10-20T16:22:23Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); the order-12 model of the case split is Lean-checked (E501_order12_law, proofs/lean/Infinity/C05_Magmas.lean); a Lean proof of the necessity is being written; awaiting independent review
+  Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; awaiting independent review
 
 - **novelty:** NOT ASSESSED
 - **statement:**
@@ -1506,6 +1506,7 @@ _Generated 2026-10-20T16:22:23Z from `db/`. The JSON records are authoritative; 
   A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).
 
 - **proof:** proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4
+- **lean:** proofs/lean/Infinity/C05_Law501.lean; proofs/lean/Infinity/C05_Magmas.lean
 - **evidence:** EXP-C05-15; EXP-C05-09; EXP-C05-12; EXP-C05-06
 - **novelty_basis:**
 

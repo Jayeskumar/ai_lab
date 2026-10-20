@@ -159,6 +159,40 @@
         "law677_not_right_projection"
       ]
     },
+    "proofs/lean/Infinity/C05_Law501.lean": {
+      "axioms_used": [
+        "Classical.choice",
+        "Quot.sound",
+        "propext"
+      ],
+      "checked": "2026-10-20T16:22:53Z",
+      "exit_code": 0,
+      "native_decide": false,
+      "nonstandard_axioms": [],
+      "ok": true,
+      "output_tail": "'Infinity.C05.box_semisymm' does not depend on any axioms\n'Infinity.C05.box_semisymm'' does not depend on any axioms\n'Infinity.C05.phiFun_three' depends on axioms: [propext]\n'Infinity.C05.phi_cube' depends on axioms: [propext, Quot.sound]\n'Infinity.C05.phi_eq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.law501_left_bijective' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.boxRight_inv' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.prodComm_sq' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.sign_prodComm' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.mod_four_of_even_half' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.sign_boxRight' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.sign_phi' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.sign_prodComm_eq_one' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.law501_card_mod_four' depends on axioms: [propext, Classical.choice, Quot.sound]\n'Infinity.C05.E501_order4_law' depends on axioms: [propext]\n'Infinity.C05.E501_order5_law' depends on axioms: [propext, Classical.choice, Quot.sound]\n",
+      "seconds": 9.09,
+      "sha256": "49de5909fd675eae1332510747b8a45b9f0bd9a53754055d38afecada03d5131",
+      "sorry": false,
+      "theorems": [
+        "box_semisymm",
+        "box_semisymm'",
+        "phiFun_three",
+        "phi_cube",
+        "phi_eq",
+        "law501_left_bijective",
+        "boxRight_inv",
+        "prodComm_sq",
+        "sign_prodComm",
+        "mod_four_of_even_half",
+        "sign_boxRight",
+        "sign_phi",
+        "sign_prodComm_eq_one",
+        "law501_card_mod_four",
+        "E501_order4_law",
+        "E501_order5_law"
+      ]
+    },
     "proofs/lean/Infinity/C05_Magmas.lean": {
       "axioms_used": [
         "Classical.choice",
@@ -757,5 +791,5 @@
     }
   },
   "toolchain": "leanprover/lean4:v4.35.0",
-  "updated": "2026-10-20T16:20:37Z"
+  "updated": "2026-10-20T16:22:53Z"
 }

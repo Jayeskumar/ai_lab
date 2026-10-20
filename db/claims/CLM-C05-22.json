@@ -21,13 +21,38 @@
       "old": "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review",
       "reason": "cycle record sync",
       "ts": "2026-10-20T16:20:46Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "lean",
+      "new": [
+        "proofs/lean/Infinity/C05_Law501.lean",
+        "proofs/lean/Infinity/C05_Magmas.lean"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:27:34Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; awaiting independent review",
+      "old": "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); the order-12 model of the case split is Lean-checked (E501_order12_law, proofs/lean/Infinity/C05_Magmas.lean); a Lean proof of the necessity is being written; awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:27:34Z"
     }
   ],
   "id": "CLM-C05-22",
+  "lean": [
+    "proofs/lean/Infinity/C05_Law501.lean",
+    "proofs/lean/Infinity/C05_Magmas.lean"
+  ],
   "novelty": "NOT ASSESSED",
   "novelty_basis": "Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4",
-  "proof_check": "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); the order-12 model of the case split is Lean-checked (E501_order12_law, proofs/lean/Infinity/C05_Magmas.lean); a Lean proof of the necessity is being written; awaiting independent review",
+  "proof_check": "Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; awaiting independent review",
   "related": [
     "CLM-C05-21",
     "CLM-C05-17",

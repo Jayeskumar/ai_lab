@@ -1108,6 +1108,7 @@
     "proofs/lean/Infinity/C03_Termination.lean": true,
     "proofs/lean/Infinity/C04_Derivations.lean": true,
     "proofs/lean/Infinity/C05_Law1313.lean": true,
+    "proofs/lean/Infinity/C05_Law501.lean": true,
     "proofs/lean/Infinity/C05_Magmas.lean": true,
     "proofs/lean/Infinity/C05_QuasigroupLaws.lean": true,
     "proofs/lean/Infinity/C06_Laver.lean": true,
@@ -1158,5 +1159,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-20T16:22:24Z"
+  "updated": "2026-10-20T16:27:35Z"
 }
