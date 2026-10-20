@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:27:53Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:40:05Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1500,7 +1500,7 @@ _Generated 2026-10-20T16:27:53Z from `db/`. The JSON records are authoritative; 
 
   Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; awaiting independent review
 
-- **novelty:** NOT ASSESSED
+- **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
   A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).
@@ -1510,10 +1510,11 @@ _Generated 2026-10-20T16:27:53Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-15; EXP-C05-09; EXP-C05-12; EXP-C05-06
 - **novelty_basis:**
 
-  Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).
+  Not found in any source read (reviews/historian_501.md): the ETP commentary file Equation501.md at HEAD (Sep 12, 2026) says 'The finite spectrum ... of this law is unknown'; B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; the only exclusions in the sources are order 2 and idempotent models of order = 2 (mod 3) (B. Gunby-Mann, July 14, 2025); no source mentions orders 10-12. The sign identity used for the necessity is a one-line corollary of the classical parity relation pi_r + pi_c + pi_s = C(n,2) (mod 2) for Latin squares (J. C. M. Janssen, JCTA 69 (1995) 173-181; P. Zappa, Boll. UMI 10-A (1996) 63-69; see N. Francetic, S. Herke, I. M. Wanless, JCTA 155 (2018) 67-99, arXiv:1703.04764), since the row, column and symbol parities of a semi-symmetric quasigroup coincide; the semi-symmetric case was not found stated. ETP members may hold unpublished results.
 
 - **related:** CLM-C05-21; CLM-C05-17; CLM-C05-15; CLM-C05-08; CLM-C05-04
 - **status history:**
+  - 2026-10-20T16:40:05Z novelty: NOT ASSESSED → POTENTIALLY NOVEL (sync:C05; Historian novelty check 2026-10-20 (reviews/historian_501.md))
 
 ### CLM-C05-23: Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection
 

@@ -379,8 +379,8 @@ precisely that $y \square (x \square y) = x$, the *semi-symmetric* law (ETP
 law 14), and the row of $x$ in $\square$ is the square $L_x^2$ of the row of $x$
 in the model.
 
-**Theorem 6.19** *[PROVEN — written proof, computer-checked for $n \le 100$;
-novelty under review]*. Law 501 has a model of order $n$ if and only if
+**Theorem 6.19** *[PROVEN — necessity in Lean (`law501_card_mod_four`),
+sufficiency written and computer-checked for $n \le 100$; POTENTIALLY NOVEL]*. Law 501 has a model of order $n$ if and only if
 $n \equiv 0$ or $1 \pmod 4$.
 
 *Proof.* Necessity: in a finite semi-symmetric quasigroup the right
@@ -403,7 +403,12 @@ the models for every admissible $n \le 100$ and checks them. ∎
 So law 501, listed in the ETP notes with "unknown spectrum containing 1, 4, 5,
 8, 9", has the same spectrum as law 167 (Theorem 6.2), for a different reason:
 there the obstruction was a fixed-point-free involution on pairs, here it is
-the sign of a permutation of order 3. The certified gaps of 501 at 2, 3, 6, 7
+the sign of a permutation of order 3. The sign identity itself is a special
+case of a classical fact: the row, column and symbol parities of any Latin
+square of order $n$ add up to $\binom{n}{2}$ modulo 2 (Janssen 1995; Zappa
+1996), and for a semi-symmetric square the three parities coincide. What we did
+not find in any source is its use for law 501, the construction, or any of the
+orders 10–12 (`reviews/historian_501.md`). The certified gaps of 501 at 2, 3, 6, 7
 and 10 are instances, and order 11, which our probes could not settle, is
 settled by the theorem.
 
