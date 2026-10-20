@@ -166,6 +166,77 @@ def build(law, n, case=None, columns=None, division=None):
     return F
 
 
+def build_lemma8(law, n, kind, lam, ell):
+    """The lab's Lemma 8 case (kind, lam, ell) in MY encoding (see the 'lemma8' mode)."""
+    F = build(law, n)
+    p = perm_of(lam, ell, n)
+    for b in range(n):
+        F.cl.append([F.m(0, b, p[b])])
+    k = list(lam).count(1)
+    if kind == "idempotent":
+        for a in range(n):
+            F.cl.append([F.m(a, a, a)])
+    if k:
+        for a in range(1, n):
+            for U in itertools.combinations(range(n), n - k + 1):
+                cl = [F.m(a, b, b) for b in U]
+                if kind != "idempotent" and a not in U:
+                    cl.append(F.m(a, a, a))
+                F.cl.append(cl)
+    return F
+
+
+def validate_lemma8():
+    """Every linear model of order 5, 7, 9, relabelled by Lemma 8 (each admissible choice of the element sent to
+    0), satisfies MY Lemma-8 CNF of its case (with the division clauses if SKEPTIC_DIV=1)."""
+    out = []
+    for law in (677, 1313):
+        for (p, k, f) in [(5, 1, [0, 1]), (7, 1, [0, 1]), (3, 2, [2, 2, 1])]:
+            for (A, B, T) in linear_models(law, p, k, f):
+                n = len(T)
+                fx = [fixes(T, a) for a in range(n)]
+                if all(T[a][a] == a for a in range(n)):
+                    kind, cand = "idempotent", [a for a in range(n) if fx[a] == min(fx)]
+                else:
+                    ni = [a for a in range(n) if T[a][a] != a]
+                    kind, cand = "non-idempotent", [a for a in ni if fx[a] == min(fx[b] for b in ni)]
+                for a in cand:
+                    sw = list(range(n)); sw[0], sw[a] = sw[a], sw[0]
+                    T0 = [[sw[T[sw[i]][sw[j]]] for j in range(n)] for i in range(n)]   # a -> 0
+                    # relabel_to_case keeps 0 = the first minimal element among ALL; force our choice:
+                    lam, ell = cycle_type_and_ell(T0[0], 0)
+                    target = perm_of(lam, ell, n)
+                    def cyc(pm, first):
+                        seen, cs = set(), []
+                        for s0 in [first] + [z for z in range(n) if z != first]:
+                            if s0 in seen:
+                                continue
+                            c, z = [], s0
+                            while z not in seen:
+                                seen.add(z); c.append(z); z = pm[z]
+                            cs.append(c)
+                        return cs
+                    src, dst = cyc(T0[0], 0), cyc(target, 0)
+                    sigma, used = {}, [False] * len(dst)
+                    for ci, c in enumerate(src):
+                        for j, dd in enumerate(dst):
+                            if not used[j] and len(dd) == len(c) and ((ci == 0) == (dd[0] == 0)):
+                                used[j] = True
+                                sigma.update(zip(c, dd))
+                                break
+                    inv = {v: u for u, v in sigma.items()}
+                    U = [[sigma[T0[inv[i]][inv[j]]] for j in range(n)] for i in range(n)]
+                    assert U[0] == target and holds(U, law)
+                    G = build_lemma8(law, n, kind, lam, ell)
+                    with Solver(name="cadical195", bootstrap_with=G.cl) as s:
+                        ok = s.solve(assumptions=assign_units(G, U))
+                    out.append({"law": law, "q": n, "elem": a, "case": kind, "lam": lam, "ell": ell,
+                                "accepted": bool(ok)})
+    return {"tested": len(out), "accepted": sum(r["accepted"] for r in out), "division": DIVISION,
+            "rejected": [r for r in out if not r["accepted"]],
+            "cases": sorted({(r["law"], r["q"], r["case"], r["lam"], r["ell"]) for r in out})}
+
+
 def table_from_model(model, n):
     pos = set(l for l in model if l > 0)
     T = [[None] * n for _ in range(n)]
@@ -443,6 +514,12 @@ if __name__ == "__main__":
         print(json.dumps({"law": law, "n": n, "cases": len(out["results"]), "all_unsat_verified": out["all_unsat_verified"],
                           "seconds": out["seconds"]}))
         sys.exit()
+    if sys.argv[1] == "validate_lemma8":
+        r = validate_lemma8()
+        print(json.dumps(r, indent=1))
+        json.dump(r, open(os.path.join(HERE, f"c05_validate_lemma8_{'div' if DIVISION else 'plain'}.json"), "w"),
+                  indent=1)
+        sys.exit()
     if sys.argv[1] == "validate":
         r = validate()
         print(json.dumps(r, indent=1))
@@ -490,21 +567,7 @@ if __name__ == "__main__":
         res = []
         for i in idx:
             kind, lam, ell = cs[i]
-            F = build(law, n)
-            p = perm_of(lam, ell, n)
-            for b in range(n):
-                F.cl.append([F.m(0, b, p[b])])
-            k = list(lam).count(1)
-            if kind == "idempotent":
-                for a in range(n):
-                    F.cl.append([F.m(a, a, a)])
-            if k:
-                for a in range(1, n):
-                    for U in itertools.combinations(range(n), n - k + 1):
-                        cl = [F.m(a, b, b) for b in U]
-                        if kind != "idempotent" and a not in U:
-                            cl.append(F.m(a, a, a))
-                        F.cl.append(cl)
+            F = build_lemma8(law, n, kind, lam, ell)
             t0 = time.time()
             ok, conf, model = solve(F, "cadical195", budget)
             r = {"i": i, "case": kind, "lam": list(lam), "ell": ell, "division": DIVISION,

@@ -1,0 +1,81 @@
+{
+ "tested": 66,
+ "accepted": 66,
+ "division": true,
+ "rejected": [],
+ "cases": [
+  [
+   677,
+   5,
+   "idempotent",
+   [
+    1,
+    2,
+    2
+   ],
+   1
+  ],
+  [
+   677,
+   7,
+   "non-idempotent",
+   [
+    1,
+    6
+   ],
+   6
+  ],
+  [
+   677,
+   7,
+   "non-idempotent",
+   [
+    7
+   ],
+   7
+  ],
+  [
+   677,
+   9,
+   "non-idempotent",
+   [
+    1,
+    8
+   ],
+   8
+  ],
+  [
+   1313,
+   5,
+   "idempotent",
+   [
+    1,
+    2,
+    2
+   ],
+   1
+  ],
+  [
+   1313,
+   7,
+   "non-idempotent",
+   [
+    1,
+    3,
+    3
+   ],
+   3
+  ],
+  [
+   1313,
+   9,
+   "non-idempotent",
+   [
+    3,
+    3,
+    3
+   ],
+   3
+  ]
+ ]
+}
