@@ -64,10 +64,20 @@
       "old": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search.",
       "reason": "Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture",
       "ts": "2026-10-18T18:17:35Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "notes",
+      "new": "The refuting order-16 models were known in the ETP community before the lab's conjecture: for 677 a model over a field of size 16 (ETP blueprint, equation 677 chapter; 'Up to size 100, there are linear magmas of sizes ... 16 (two)', B. Le Floch, ETP Zulip, Nov 21, 2025) and for both laws in B. Gunby-Mann's note 'Spectra from clique decompositions of K_n' (Lean Zulip, Jul 14, 2025) (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
+      "old": null,
+      "reason": "Historian spectrum audit 2026-10-20 - note that the refuting models were already known",
+      "ts": "2026-10-20T14:17:53Z"
     }
   ],
   "id": "CLM-C05-09",
   "limitations": "Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10.",
+  "notes": "The refuting order-16 models were known in the ETP community before the lab's conjecture: for 677 a model over a field of size 16 (ETP blueprint, equation 677 chapter; 'Up to size 100, there are linear magmas of sizes ... 16 (two)', B. Le Floch, ETP Zulip, Nov 21, 2025) and for both laws in B. Gunby-Mann's note 'Spectra from clique decompositions of K_n' (Lean Zulip, Jul 14, 2025) (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "novelty": "NOT ASSESSED",
   "statement": "The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n >= 5.",
   "system": "SYS-B",

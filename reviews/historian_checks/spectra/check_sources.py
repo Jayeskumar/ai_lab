@@ -86,6 +86,20 @@ def main():
         out.append(f"[idempotent linear] law {law}, p={p}, b={b}: {'OK' if ok else 'FAIL'}"
                    "   <- B. Gunby-Mann, 'Spectra from clique decompositions of K_n' (Zulip, 2025-07-14)")
 
+    # 2b. law 1110, ETP commentary/Equation1110.md: "x ◇ y = x + a(y-x) where a(1-a)^2 = 1, or ... x ◇ y = ϕx - y
+    #     where ϕ^2 = ϕ + 1".  Test the first family as written, (1-a)x + a*y, and with the roles of x and y swapped,
+    #     a*x + (1-a)y = y + a(x-y); test the second over the primes where ϕ exists.
+    for p in primes(3, 47):
+        roots = [a for a in range(p) if (a * (1 - a) ** 2 - 1) % p == 0]
+        if roots:
+            as_written = [linear_ok(LAWS[1110], p, (1 - a) % p, a) for a in roots]
+            swapped = [linear_ok(LAWS[1110], p, a, (1 - a) % p) for a in roots]
+            out.append(f"[1110 family a(1-a)^2=1] p={p} roots {roots}: as written {as_written}, swapped {swapped}")
+        phis = [f for f in range(p) if (f * f - f - 1) % p == 0]
+        if phis:
+            out.append(f"[1110 family phi*x - y] p={p} phi {phis}: "
+                       f"{[linear_ok(LAWS[1110], p, f, p - 1) for f in phis]}")
+
     # 3. for every law: primes p <= 50 with an idempotent linear model, and with any linear model
     for law in sorted(LAWS):
         idem = [p for p in primes(2, 50) if any(linear_ok(LAWS[law], p, (1 - b) % p, b) for b in range(p))]

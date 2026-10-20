@@ -1648,3 +1648,12 @@ Skeptic review of batch 1.1 (reviews/skeptic_batch1.1.md, section 3.2) - the wri
 
 *Evidence:* CLM-C19-15, CLM-C19-14, reviews/skeptic_batch1.1.md
 
+
+## C05
+
+### [2026-10-20T14:17:53Z] Historian — novelty (`C05-18`)
+
+Historian spectrum audit 2026-10-20 (reviews/historian_spectra_2026.md) - nothing newer than B. Le Floch's July 14, 2025 notes states the spectra of the 15 laws, except for 677, which the ETP Zulip topic 'FINITE: 677 -> 255' and the eq677 model database treat in depth: 677 has no models of orders 2, 3, 4, 6 (Tencer, Dec 7, 2024), 8 (Brox, Dec 7, 2024) or 10 (Brox, Jan 12, 2025, 39 h of Mace4), models of 5, 7, 9, 11, 13, 16, 19, ..., and orders 12 and 14 are open in every source. So CLM-C05-12 is a rediscovery (with the first checkable certificate), CLM-C05-07, -08, -10 are partial rediscoveries, and none of the target pairs of EXP-C05-09 and EXP-C05-10, nor 1313 at 8 and 10, is decided by any source.
+
+*Evidence:* CLM-C05-07, CLM-C05-08, CLM-C05-10, CLM-C05-12, CLM-C05-13, reviews/historian_spectra_2026.md
+

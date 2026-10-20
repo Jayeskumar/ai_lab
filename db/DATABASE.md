@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T14:17:53Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1148,7 +1148,7 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **system:** SYS-B
 - **verification:** PROVEN
 - **proof_check:** Lean 4 kernel decide on explicit tables (E677_order5_law, E677_order7_law, E677_order9_law, E1286_order9_law, E1313_order9_law, E1516_order9_law; also E467_order9_law); only propext
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   Each of the following order-4 laws has a model of the stated order (explicit Cayley tables):
@@ -1161,9 +1161,11 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-03; EXP-C05-04
 - **novelty_basis:**
 
-  Not stated in B. Le Floch's notes 'Spectra of equational laws' (ETP, July 10, 2025), which list 1313 and 1516 as 'starting with' 1,5,7 and 1,5,7,8, 1286 as 'starting with 1,7', and give no sizes for 677. A second reading (2026-10-18) found that the notes' Gaussian-integer models of law 467 (all odd k^2 + l^2 with k, l of different parities) include 9 = 3^2 + 0^2, so 467 is not counted (the check is written out in proofs/paper/C05.md, Remark 5). The ETP paper (arXiv:2512.07087) defers detailed spectra to a forthcoming publication and was only partly retrieved; ETP model searches may already contain these models, so novelty is only relative to the sources read.
+  Partial - the memberships of 677 (orders 5, 7, 9) and of 1516 (order 9) were found earlier on the ETP Zulip: 677 at 5 by T. Tao and at 7 by I. Tencer (Dec 5, 2024), at 9 by J. Brox (Dec 9, 2024, explicit table; also ETP paper arXiv:2512.07087 section 7.3.1), topic 'FINITE: 677 -> 255' (https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html); 1516 at 9 by A. Livne Bar-on (Nov 5, 2024, topic '1516 -> 255', https://leanprover-community.github.io/archive/stream/458659-Equational/topic/1516.20-.3E.20255.html). Not found in any source read: 1286 and 1313 at order 9 (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md). Earlier basis: Not stated in B. Le Floch's notes 'Spectra of equational laws' (ETP, July 10, 2025), which list 1313 and 1516 as 'starting with' 1,5,7 and 1,5,7,8, 1286 as 'starting with 1,7', and give no sizes for 677. A second reading (2026-10-18) found that the notes' Gaussian-integer models of law 467 (all odd k^2 + l^2 with k, l of different parities) include 9 = 3^2 + 0^2, so 467 is not counted (the check is written out in proofs/paper/C05.md, Remark 5). The ETP paper (arXiv:2512.07087) defers detailed spectra to a forthcoming publication and was only partly retrieved; ETP model searches may already contain these models, so novelty is only relative to the sources read.
 
+- **references:** https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html; https://leanprover-community.github.io/archive/stream/458659-Equational/topic/1516.20-.3E.20255.html
 - **status history:**
+  - 2026-10-20T14:17:53Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C05; Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -> REDISCOVERY (partial: 677 at 5, 7, 9 and 1516 at 9 are on the ETP Zulip since 2024; 1286 and 1313 at 9 unmatched))
 
 ### CLM-C05-08: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6
 
@@ -1175,7 +1177,7 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 
   computer-assisted - DRUP refutations from Glucose 4 verified by drat-trim (48/48 instances of EXP-C05-06); trust base = drat-trim, the CNF generator (Lemma 0, brute-force cross-checked) and the soundness of the added constraints (Lemma 4 / Lean left_mul_bijective_of_law). Independently confirmed by the Skeptic - all 15 claimed gaps UNSAT under its own CNF encoding with Kissat 4.0.4, the 13 with n <= 6 also under CaDiCaL 1.9.5 without the extra constraints (reviews/skeptic_C05_C08_C12.md)
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:**
 
   No magma of the stated order satisfies the law. Not stated in Le Floch's notes: 501 x = y(y(x(xy))) - orders
@@ -1187,9 +1189,11 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-03; EXP-C05-06
 - **novelty_basis:**
 
-  Le Floch's notes list the 31 laws without a model of order 2 (including 501, 677, 1083, 1719) and the 14 with a model of order 2 but none of order 3 (including 883); otherwise they say 'containing' for 501, 883, 1083, 'unknown spectrum' for 677 and 'not 6 nor 7' for 1076. The gaps at orders 3 and 4 are small enough that ETP finite-magma searches probably settle them; the plausible additions are the gaps at n >= 5 (501: 6, 7; 677: 6; 883: 6; 1076: 8; 1083: 5, 6).
+  Partial - 677 has no models of orders 2, 3, 4, 6: I. Tencer, ETP Zulip, Dec 7, 2024 ('There are no 677 models of size 2, 3, 4, and 6', https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html). Not found in any source read: 501 at 6, 7; 883 at 6; 1076 at 8; 1083 at 5, 6 (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md). Earlier basis: Le Floch's notes list the 31 laws without a model of order 2 (including 501, 677, 1083, 1719) and the 14 with a model of order 2 but none of order 3 (including 883); otherwise they say 'containing' for 501, 883, 1083, 'unknown spectrum' for 677 and 'not 6 nor 7' for 1076. The gaps at orders 3 and 4 are small enough that ETP finite-magma searches probably settle them; the plausible additions are the gaps at n >= 5 (501: 6, 7; 677: 6; 883: 6; 1076: 8; 1083: 5, 6).
 
+- **references:** https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html
 - **status history:**
+  - 2026-10-20T14:17:53Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C05; Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -> REDISCOVERY (partial: the 677 gaps are on the ETP Zulip since Dec 2024; the other gaps unmatched))
 
 ### CLM-C05-09: Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have models of order 16)
 
@@ -1208,6 +1212,10 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 
   Supported only by n <= 10 with orders 8 and 10 undecided within budget (both laws in 5, 7, 9; out 2, 3, 4, 6); the small models are idempotent quasigroups. Weak evidence; recorded to direct the next search. The search had a blind spot - affine models were tried only over Z_n (cyclic additive group), never over GF(2^k). Whether the odd part holds, and which even orders below 16 occur (8, 10, 12, 14), is open; the Skeptic found no affine model of order 8 over any abelian group of order 8 and none over Z_10.
 
+- **notes:**
+
+  The refuting order-16 models were known in the ETP community before the lab's conjecture: for 677 a model over a field of size 16 (ETP blueprint, equation 677 chapter; 'Up to size 100, there are linear magmas of sizes ... 16 (two)', B. Le Floch, ETP Zulip, Nov 21, 2025) and for both laws in B. Gunby-Mann's note 'Spectra from clique decompositions of K_n' (Lean Zulip, Jul 14, 2025) (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+
 - **status history:**
   - 2026-10-18T18:17:35Z verification: CONJECTURE → REFUTED (sync:C05; Skeptic review 2026-10-18 (reviews/skeptic_C05_C08_C12.md) - order-16 models refute the conjecture)
 
@@ -1221,7 +1229,7 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 
   computer-assisted - exhaustive search over GF(q)^2 for every prime power q <= 128 (EXP-C05-07; GF(q) is unique up to isomorphism, so the absence of a linear model does not depend on the representation); one model per (law, q) re-checked on its full table with the generic evaluator in EXP-C05-07; every solution re-checked by full-table evaluation in the Skeptic's independent computation, which reproduces every order list and solution count for all 15 laws and all 44 prime powers q <= 128 with a different representation of GF(q) (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 3.1); three tables Lean-certified by kernel decide (E677_order16_law, E1313_order16_law, E670_order9_law)
 
-- **novelty:** NOT ASSESSED
+- **novelty:** REDISCOVERY
 - **statement:**
 
   For each of the 15 open ETP laws of EXP-C05-03 the prime powers q <= 128 admitting a linear model x*y = ax + by over GF(q) are exactly those listed in results/EXP-C05-07.json. In particular laws 670, 677, 1076, 1286 and 1313 have models of order 16 (1286 also of order 32), law 670 has a model of order 9, and no law has a linear model at an order excluded by the SAT search, the DRUP certificates (CLM-C05-08) or the ETP notes.
@@ -1230,10 +1238,12 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-07
 - **novelty_basis:**
 
-  Linear models over finite fields are a standard tool of the Equational Theories Project; the specific orders were not compared with the project's data. The membership 670 at n = 9 is not stated in Le Floch's notes (read for C05).
+  Partial - many of the linear models are in earlier sources: 677's prime-field linear models up to 499 (ETP Zulip, Dec 5, 2024) and its linear sizes up to 100 (Nov 21, 2025), https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html; 670 at 11, 16, 29, 1076 at 16, 47, 1313 at 5, 16, 19 (B. Gunby-Mann, 'Spectra from clique decompositions of K_n', Lean Zulip, Jul 14, 2025); 1286 at 7, 11 (ETP paper, Example 5.2); 1516 at 5, 7, 11 (https://leanprover-community.github.io/archive/stream/458659-Equational/topic/1516.20-.3E.20255.html). The complete table for all 15 laws and q <= 128 was not found (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
+- **references:** https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html; https://leanprover-community.github.io/archive/stream/458659-Equational/topic/1516.20-.3E.20255.html
 - **limitations:** Linear models only (no constant term, no non-abelian or non-field structures); they give spectrum members, never gaps.
 - **status history:**
+  - 2026-10-20T14:17:53Z novelty: NOT ASSESSED → REDISCOVERY (sync:C05; Historian spectrum audit 2026-10-20 - NOT ASSESSED -> REDISCOVERY (partial: many linear models are in ETP sources; the complete table was not found))
 
 ### CLM-C05-11: Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified)
 
@@ -1251,8 +1261,9 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-08
 - **novelty_basis:**
 
-  The ETP paper (Bolan et al., arXiv:2512.07087, section 7.3.1) reports that Mace4 exhausts size 8 for equation 677 in 1.5 s. The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim).
+  First found by J. Brox on the ETP Zulip, Dec 7, 2024 ('Mace4 has been able to check in 41min that 677 has NO models of size 8', https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and reported in the ETP paper (arXiv:2512.07087, section 7.3.1: Mace4 exhausts size 8). The lab adds an independently checkable certificate (DRAT proofs verified by drat-trim) (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
+- **references:** https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html
 - **related:** CLM-C05-12; CLM-C05-09
 - **status history:**
 
@@ -1266,16 +1277,18 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 
   computer-assisted - the CNFs of the case split of proofs/paper/C05.md Lemma 8 (written proof), with the implied division clauses of Lemma 9 (written) and Latin rows (Lean: law677_left_bijective), are all UNSAT, each refuted by a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (97 CNFs, 37.5 million proof lines; EXP-C05-08); the controls at n = 5, 6, 7 agree with EXP-C05-03; independently re-decided by the Skeptic with its own encoding written from scratch and DRAT proofs verified by drat-trim, and all 401 CNFs of EXP-C05-08 rebuilt with matching hashes (skeptic-reviewed 2026-10-19, reviews/skeptic_batch1.1.md section 2) - order 10 twice, with the case split of Lemma 8 and with the Skeptic's own split, 97/97 cases UNSAT each
 
-- **novelty:** POTENTIALLY NOVEL
+- **novelty:** REDISCOVERY
 - **statement:** No magma of order 10 satisfies x = y(x((yx)y)) (ETP equation 677). With CLM-C05-07, CLM-C05-08, CLM-C05-11 and the ETP notes, the orders n <= 10 of finite models of 677 are exactly 1, 5, 7 and 9.
 - **proof:** proofs/paper/C05.md#theorem-10-clm-c05-11--12--13--laws-677-and-1313-at-orders-8-and-10-computer-assisted
 - **evidence:** EXP-C05-08
 - **novelty_basis:**
 
-  Low confidence. Not stated in the sources read: the ETP paper (arXiv:2512.07087) reports Mace4 exhausting size 8 (section 7.3.1) and gives exhaustion times for 'certain special E677 models' of sizes 9-19 (Table 4) without defining them; the ETP blueprint chapter on equation 677 (https://teorth.github.io/equational_theories/blueprint/677-chapter.html) has no size results; B. Le Floch's notes give no sizes for 677. The ETP's dedicated EQ677 model searcher and its model database (manual on the Lean Zulip, 2026) may well settle order 10 already. Mainly a certified data point for the open finite implication 677 => 255: there is no counterexample of order 8 or 10.
+  J. Brox, ETP Zulip, Jan 12, 2025: 'There are no models whatsoever of 677 in size 10 (39h in Mace4)' (topic 'FINITE: 677 -> 255', https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html); R. Schneider reported a complete general model search up to n = 11 (Nov 21, 2025, same topic). So the orders <= 10 of 677 (1, 5, 7, 9) were known; the lab adds the first independently checkable certificate (DRAT proofs verified by drat-trim, re-derived by the Skeptic with another encoding) (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
+- **references:** https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html
 - **related:** CLM-C05-11; CLM-C05-13; CLM-C05-09; CLM-C05-10
 - **status history:**
+  - 2026-10-20T14:17:53Z novelty: POTENTIALLY NOVEL → REDISCOVERY (sync:C05; Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -> REDISCOVERY (Brox, ETP Zulip, Jan 12, 2025, Mace4); the certificate is the lab's addition)
 
 ### CLM-C05-13: Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9
 
@@ -1296,7 +1309,7 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-08
 - **novelty_basis:**
 
-  Not stated in the sources read: B. Le Floch's notes 'Spectra of equational laws' (ETP, 2025) list 1313 as 'unknown spectrum starting with 1,5,7'; the ETP paper (arXiv:2512.07087) does not discuss 1313 in the parts read. ETP members may hold unpublished searches, so novelty is relative to these sources.
+  No source states anything about orders 8-14 of 1313: B. Le Floch's notes (July 1, 10, 14, 2025: 'unknown spectrum starting with 1,5,7'), the ETP paper (arXiv:2512.07087 v2 and the Sep 2026 build), the ETP commentary file for equation 1313, the ETP Zulip archive to Feb 28, 2026, and arXiv to Oct 2026 were read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md). ETP members may hold unpublished searches, so novelty is relative to these sources.
 
 - **related:** CLM-C05-12; CLM-C05-14; CLM-C05-07; CLM-C05-09
 - **status history:**
@@ -1322,7 +1335,7 @@ _Generated 2026-10-20T02:06:35Z from `db/`. The JSON records are authoritative; 
 - **related:** CLM-C05-13; CLM-C05-05
 - **notes:**
 
-  The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6).
+  The Skeptic's SAT searches (without certificates) find that every model of 677 of order <= 10 is a quasigroup, so a finite model of 677 that is not right-cancellative has order >= 11 (reviews/skeptic_batch1.1.md section 2.6). Sources: the smallest known non-right-cancellative model of 677 has order 55 (B. Le Floch, ETP Zulip, Nov 22, 2025; D. Renshaw, Feb 4, 2026, https://leanprover-community.github.io/archive/stream/458659-Equational/topic/FINITE.3A.20677.20-.3E.20255.html), and every model of order <= 11 in the eq677 database is a Latin square (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
 - **status history:**
 
