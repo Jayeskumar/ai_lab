@@ -523,7 +523,7 @@ if __name__ == "__main__":
     if sys.argv[1] == "validate":
         r = validate()
         print(json.dumps(r, indent=1))
-        json.dump(r, open(os.path.join(HERE, "c05_validate.json"), "w"), indent=1)
+        json.dump(r, open(os.path.join(HERE, f"c05_validate_{'div' if DIVISION else 'plain'}.json"), "w"), indent=1)
         sys.exit()
     if sys.argv[1] == "noncancel":
         # search a model of 677 of order n that is NOT right-cancellative (some column has a repeated value)

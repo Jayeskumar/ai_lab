@@ -1,0 +1,18 @@
+[
+ {
+  "i": 18,
+  "lam": [
+   1,
+   2,
+   2,
+   2,
+   3
+  ],
+  "ell": 1,
+  "division": false,
+  "status": "UNSAT",
+  "conflicts": 781220,
+  "seconds": 44.6,
+  "note": "SB-min batch 1 (cases 18,28,39,43,46,48, no budget); stopped by me after case 28 ran ~10 min without an answer; only case 18 finished"
+ }
+]

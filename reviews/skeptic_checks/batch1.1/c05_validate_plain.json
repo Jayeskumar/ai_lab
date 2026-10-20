@@ -1,0 +1,76 @@
+[
+ {
+  "law": 677,
+  "q": 5,
+  "linear_models": 1,
+  "tested": 1,
+  "plain_cnf_accepts": 1,
+  "case_cnf_accepts": 1
+ },
+ {
+  "law": 677,
+  "q": 7,
+  "linear_models": 2,
+  "tested": 2,
+  "plain_cnf_accepts": 2,
+  "case_cnf_accepts": 2
+ },
+ {
+  "law": 677,
+  "q": 9,
+  "linear_models": 2,
+  "tested": 2,
+  "plain_cnf_accepts": 2,
+  "case_cnf_accepts": 2
+ },
+ {
+  "law": 677,
+  "q": 16,
+  "linear_models": 8,
+  "tested": 3,
+  "plain_cnf_accepts": 3,
+  "case_cnf_accepts": 3
+ },
+ {
+  "law": 677,
+  "random_row_permutation_tables_n5": 200,
+  "cnf_agrees_with_evaluation": 200
+ },
+ {
+  "law": 1313,
+  "q": 5,
+  "linear_models": 1,
+  "tested": 1,
+  "plain_cnf_accepts": 1,
+  "case_cnf_accepts": 1
+ },
+ {
+  "law": 1313,
+  "q": 7,
+  "linear_models": 2,
+  "tested": 2,
+  "plain_cnf_accepts": 2,
+  "case_cnf_accepts": 2
+ },
+ {
+  "law": 1313,
+  "q": 9,
+  "linear_models": 2,
+  "tested": 2,
+  "plain_cnf_accepts": 2,
+  "case_cnf_accepts": 2
+ },
+ {
+  "law": 1313,
+  "q": 16,
+  "linear_models": 8,
+  "tested": 3,
+  "plain_cnf_accepts": 3,
+  "case_cnf_accepts": 3
+ },
+ {
+  "law": 1313,
+  "random_row_permutation_tables_n5": 200,
+  "cnf_agrees_with_evaluation": 200
+ }
+]

@@ -1,0 +1,93 @@
+{
+ "law": 1313,
+ "n": 4,
+ "solver": "cadical195",
+ "cases_total": 7,
+ "cases_run": [
+  0,
+  7
+ ],
+ "results": [
+  {
+   "i": 0,
+   "lam": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 1,
+   "lam": [
+    1,
+    1,
+    2
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 1,
+   "seconds": 0.0
+  },
+  {
+   "i": 2,
+   "lam": [
+    1,
+    1,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 3,
+   "lam": [
+    2,
+    2
+   ],
+   "ell": 2,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  },
+  {
+   "i": 4,
+   "lam": [
+    1,
+    3
+   ],
+   "ell": 1,
+   "status": "UNSAT",
+   "conflicts": 3,
+   "seconds": 0.0
+  },
+  {
+   "i": 5,
+   "lam": [
+    1,
+    3
+   ],
+   "ell": 3,
+   "status": "UNSAT",
+   "conflicts": 2,
+   "seconds": 0.0
+  },
+  {
+   "i": 6,
+   "lam": [
+    4
+   ],
+   "ell": 4,
+   "status": "UNSAT",
+   "conflicts": 0,
+   "seconds": 0.0
+  }
+ ],
+ "seconds": 0.0
+}
