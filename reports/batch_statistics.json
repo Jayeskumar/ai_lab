@@ -10,24 +10,24 @@
     "CLM-C18-13": "NO IMPROVEMENT",
     "CLM-C19-14": "IMPROVEMENT"
   },
-  "claims": 239,
+  "claims": 241,
   "claims_by_system": {
     "SYS-A": 39,
-    "SYS-B": 76,
+    "SYS-B": 78,
     "SYS-C": 42,
     "SYS-D": 45,
     "SYS-E": 37
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 210,
-  "experiments": 119,
-  "generated": "2026-10-20T16:23:11Z",
+  "experiment_runs": 214,
+  "experiments": 121,
+  "generated": "2026-10-20T16:49:54Z",
   "lean_files_verified": 23,
   "lean_theorems": 364,
   "novelty": {
-    "NOT ASSESSED": 72,
-    "POTENTIALLY NOVEL": 52,
+    "NOT ASSESSED": 71,
+    "POTENTIALLY NOVEL": 55,
     "REDISCOVERY": 115
   },
   "potentially_novel": [
@@ -94,6 +94,21 @@
     [
       "CLM-C05-20",
       "Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-22",
+      "The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-24",
+      "Law 677 has no quasigroup model of order 12; a model of order 12 exists iff one of 51 explicit non-quasigroup case CNFs is satisfiable",
+      "PROVEN"
+    ],
+    [
+      "CLM-C05-25",
+      "Laws 467 and 704 have no model of order 12; their spectra up to order 13 are complete",
       "PROVEN"
     ],
     [
@@ -294,46 +309,41 @@
   ],
   "proven_by_check": {
     "Lean (complete)": 19,
-    "Lean + written or computational parts": 46,
-    "computer-assisted": 17,
+    "Lean + written or computational parts": 47,
+    "computer-assisted": 18,
     "published proof (literature)": 3,
     "written proof": 60
   },
   "proven_not_fully_formal_by_review": {
-    "awaiting independent review": 5,
-    "independently reviewed": 121
+    "awaiting independent review": 6,
+    "independently reviewed": 122
   },
   "skeptic_verdicts": {
-    "claims_with_a_verdict": 224,
+    "claims_with_a_verdict": 233,
     "claims_without_a_verdict": [
       "CLM-C01-09",
       "CLM-C01-10",
       "CLM-C01-11",
       "CLM-C02-11",
-      "CLM-C05-15",
-      "CLM-C05-16",
-      "CLM-C05-17",
-      "CLM-C05-18",
-      "CLM-C05-19",
-      "CLM-C05-20",
-      "CLM-C05-21",
-      "CLM-C05-22",
-      "CLM-C05-23",
+      "CLM-C05-24",
+      "CLM-C05-25",
       "CLM-C08-07",
       "CLM-C08-08"
     ],
     "latest_verdicts": {
       "REFUTED": 2,
-      "UPHELD": 194,
+      "UPHELD": 199,
       "UPHELD WITH CAVEATS": 26,
-      "UPHELD WITH CORRECTIONS": 2
+      "UPHELD WITH CORRECTIONS": 4,
+      "refutation UPHELD": 1,
+      "stays CONJECTURE": 1
     }
   },
   "verification": {
     "COMPUTATIONALLY SUPPORTED": 37,
     "CONJECTURE": 5,
     "INCONCLUSIVE": 2,
-    "PROVEN": 145,
+    "PROVEN": 147,
     "REFUTED": 50
   }
 }

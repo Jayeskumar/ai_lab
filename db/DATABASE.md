@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1347,7 +1347,7 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - every case CNF of the case split of proofs/paper/C05.md Lemma 8 (written proof; division clauses of Lemma 9, generalised in systems/magma_split.py; Latin rows by left_mul_bijective_of_law' and, for the laws x = y*(S*y), Latin columns by right_mul_bijective_of_law, proofs/lean/Infinity/C05_QuasigroupLaws.lean) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-09: 1,522 verified proofs, 0 UNKNOWN cases); the controls at the same orders agree with their known answers; awaiting independent review
+  computer-assisted - every case CNF of the case split of proofs/paper/C05.md Lemma 8 (written proof; division clauses of Lemma 9, generalised in systems/magma_split.py; Latin rows by left_mul_bijective_of_law' and, for the laws x = y*(S*y), Latin columns by right_mul_bijective_of_law, proofs/lean/Infinity/C05_QuasigroupLaws.lean) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-09: 1,522 verified proofs, 0 UNKNOWN cases); the controls at the same orders agree with their known answers; upheld by the independent Skeptic (reviews/skeptic_batch1.2.md: 13 of the 15 pairs re-decided with an independent encoder and Glucose 4, every proof verified)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1361,6 +1361,7 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
   No source states any of these 15 orders: B. Le Floch's notes (July 1, 10, 14, 2025), the ETP paper (arXiv:2512.07087 v2 and the Sep 2026 build), the ETP commentary files, the ETP Zulip archive to Feb 28, 2026, the eq677 database and arXiv to Oct 2026 were read; the closest item is 'Mace 4 is currently checking order 9' for 1076 (M. Bolan, ETP Zulip, Dec 2, 2024), with no result reported (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md). ETP members may hold unpublished searches.
 
 - **related:** CLM-C05-08; CLM-C05-17; CLM-C05-18
+- **status history:**
 
 ### CLM-C05-16: Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279, 1286, 1313; complete spectra up to 13 for the six laws x = y*(S*y)
 
@@ -1370,7 +1371,7 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; awaiting independent review
+  computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; upheld with a correction by the independent Skeptic (reviews/skeptic_batch1.2.md: 3 of the 9 pairs re-decided independently; checkpoint provenance to be stated, see EXP-C05-10)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1384,6 +1385,7 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
   No source read states any order >= 11 of these laws as a gap; B. Le Floch's notes list only small orders, and the ETP Zulip archive (to Feb 28, 2026) treats the spectra of 677 and 1516 but not these laws (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
 - **related:** CLM-C05-15; CLM-C05-17; CLM-C05-19; CLM-C05-10
+- **status history:**
 
 ### CLM-C05-17: Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T
 
@@ -1457,7 +1459,10 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
 - **type:** theorem
 - **system:** SYS-B
 - **verification:** PROVEN
-- **proof_check:** computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); awaiting independent review
+- **proof_check:**
+
+  computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md)
+
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
 
@@ -1500,7 +1505,7 @@ _Generated 2026-10-20T16:48:30Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; awaiting independent review
+  Lean 4 for the necessity - law501_card_mod_four (proofs/lean/Infinity/C05_Law501.lean, standard axioms only): every finite model has order = 0, 1 (mod 4), via sign_prodComm and Equiv.Perm.sign_prodCongrLeft; sufficiency by the written construction (proofs/paper/C05.md, Theorem 14), computer-checked for every n <= 100 (EXP-C05-15), with models of orders 4, 5 (C05_Law501.lean) and 12 (E501_order12_law, C05_Magmas.lean) Lean-checked by decide; upheld by the independent Skeptic (reviews/skeptic_batch1.2.md: every step of the written proof checked, the construction rebuilt independently for all 50 orders up to 100, the Lean file compiled)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**

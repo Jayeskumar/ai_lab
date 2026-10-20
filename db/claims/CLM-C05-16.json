@@ -10,13 +10,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T15:51:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; upheld with a correction by the independent Skeptic (reviews/skeptic_batch1.2.md: 3 of the 9 pairs re-decided independently; checkpoint provenance to be stated, see EXP-C05-10)",
+      "old": "computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:50:34Z"
     }
   ],
   "id": "CLM-C05-16",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No source read states any order >= 11 of these laws as a gap; B. Le Floch's notes list only small orders, and the ETP Zulip archive (to Feb 28, 2026) treats the spectra of 677 and 1516 but not these laws (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#theorem-12-clm-c05-16--orders-11-to-13-of-the-quasigroup-laws-computer-assisted",
-  "proof_check": "computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; awaiting independent review",
+  "proof_check": "computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; upheld with a correction by the independent Skeptic (reviews/skeptic_batch1.2.md: 3 of the 9 pairs re-decided independently; checkpoint provenance to be stated, see EXP-C05-10)",
   "related": [
     "CLM-C05-15",
     "CLM-C05-17",

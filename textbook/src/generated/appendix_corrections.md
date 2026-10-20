@@ -2,13 +2,14 @@
 
 *Generated from the append-only audit log `db/audit_log.jsonl` (`python -m lab catalogue`).*
 
-Every change of a claim's verification status, novelty label, type, improvement status, title, statement or counterexample made after the claim was first recorded: 119 field changes in 94 entries on 83 claims. Changes to the supporting texts (analysis, proof notes, novelty bases, references) are in the audit log but not listed here.
+Every change of a claim's verification status, novelty label, type, improvement status, title, statement or counterexample made after the claim was first recorded: 129 field changes in 102 entries on 87 claims. Changes to the supporting texts (analysis, proof notes, novelty bases, references) are in the audit log but not listed here.
 
 | source of the change | claims affected |
 |---|---|
-| Historian audit | 47 |
+| Historian audit | 52 |
 | Skeptic review | 41 |
 | research cycle | 2 |
+| Director | 1 |
 
 ## C01 — Quantity as the complete invariant of rewriting {.unnumbered}
 
@@ -55,9 +56,17 @@ Every change of a claim's verification status, novelty label, type, improvement 
 ## C05 — Spectra of single-identity magma varieties {.unnumbered}
 
 * **CLM-C05-07**, 2026-10-18: title revised (was: New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9); statement revised. *Reason:* no reason recorded
+* **CLM-C05-07**, 2026-10-20: novelty POTENTIALLY NOVEL → REDISCOVERY. *Reason:* Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -\> REDISCOVERY (partial: 677 at 5, 7, 9 and 1516 at 9 are on the ETP Zulip since 2024; 1286 and 1313 at 9 unmatched)
 * **CLM-C05-08**, 2026-10-18: statement revised. *Reason:* no reason recorded
+* **CLM-C05-08**, 2026-10-20: novelty POTENTIALLY NOVEL → REDISCOVERY. *Reason:* Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -\> REDISCOVERY (partial: the 677 gaps are on the ETP Zulip since Dec 2024; the other gaps unmatched)
 * **CLM-C05-09**, 2026-10-18: title revised (was: Laws 677 and 1313 have spectrum {1} together with all odd n \>= 5); verification CONJECTURE → REFUTED; counterexample revised. *Reason:* Skeptic review 2026-10-18 (reviews/skeptic\_C05\_C08\_C12.md) - order-16 models refute the conjecture
+* **CLM-C05-10**, 2026-10-20: novelty NOT ASSESSED → REDISCOVERY. *Reason:* Historian spectrum audit 2026-10-20 - NOT ASSESSED -\> REDISCOVERY (partial: many linear models are in ETP sources; the complete table was not found)
+* **CLM-C05-12**, 2026-10-20: novelty POTENTIALLY NOVEL → REDISCOVERY. *Reason:* Historian spectrum audit 2026-10-20 - POTENTIALLY NOVEL -\> REDISCOVERY (Brox, ETP Zulip, Jan 12, 2025, Mace4); the certificate is the lab's addition
 * **CLM-C05-13**, 2026-10-20: statement revised. *Reason:* Skeptic review of batch 1.1 (reviews/skeptic\_batch1.1.md, section 2) - upheld with a correction: the gaps 2, 3, 4, 6 are certified by EXP-C05-06, not EXP-C05-03 (solver results only); independent re-decision recorded
+* **CLM-C05-18**, 2026-10-20: title revised (was: H-C05-J: a law x = y\*T without a model of order 2 has no model of any order n = 2 (mod 4)); verification CONJECTURE → REFUTED; counterexample revised. *Reason:* Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it
+* **CLM-C05-18**, 2026-10-20: counterexample revised. *Reason:* Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it
+* **CLM-C05-22**, 2026-10-20: novelty NOT ASSESSED → POTENTIALLY NOVEL. *Reason:* Historian novelty check 2026-10-20 (reviews/historian\_501.md)
+* **CLM-C05-22**, 2026-10-20: statement revised. *Reason:* Historian novelty check 2026-10-20 (reviews/historian\_501.md)
 
 ## C06 — Successor-anchored magmas: spectra of composition laws {.unnumbered}
 
@@ -178,6 +187,7 @@ A re-run whose result hash differs from the previous run of the same experiment.
 | EXP-C04-05 | 2026-10-18 07:59 | script and systems/ |
 | EXP-C04-06 | 2026-10-18 08:00 | script |
 | EXP-C04-10 | 2026-10-18 08:07 | script |
+| EXP-C05-12 | 2026-10-20 16:45 | script and systems/ |
 | EXP-C06-03 | 2026-10-18 09:19 | systems/ |
 | EXP-C06-03 | 2026-10-18 16:42 | script and systems/ |
 | EXP-C06-04 | 2026-10-18 16:43 | script and systems/ |

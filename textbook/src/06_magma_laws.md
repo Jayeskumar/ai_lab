@@ -51,7 +51,7 @@ laws fall into 15 patterns:
 | 10110010 | 4 | $x = y(x(yy))$ (66) | $n \equiv 0, 1 \pmod 3$, $n \ne 6$ (Mendelsohn) |
 | 10011??1 | 1 | $x = (yx)(xy)$ (167) | $n \equiv 0, 1 \pmod 4$ (Theorem 6.2, which also settles the two ? as absent) |
 | 11011011 | 8 | $x = y((xy)(yy))$ (883) | contains $n \equiv 1, 2 \pmod 3$; for 883 up to 10 exactly 1, 2, 4, 5, 7, 8, 10 (Theorem 6.14) |
-| 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open; up to 10 for 467, 704, 1279 in Theorem 6.14 |
+| 10001011 | 8 | $x = y(x(x(yy)))$ (467) | open; up to 10 for 467, 704, 1279 in Theorem 6.14, up to 13 for 467 and 704 in Theorem 6.22 |
 | 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted; 1313 up to 13: 1, 5, 7, 9, 13 (Theorem 6.15) |
 | 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open; up to 13 exactly 1, 5, 13 (Theorem 6.15) |
 | 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; up to 10 exactly 1, 3, 7, 9 (Theorem 6.14); 13 occurs |
@@ -369,6 +369,29 @@ verified proof (10.5 million proof lines). ∎ This decides nothing about order
 12, which is open in every source we found; it is the starting point of the
 next step.
 
+The next step split each of the 57 remaining cases in two: models whose table
+is a Latin square, and models with a value missing from some column. The
+first half collapsed.
+
+**Theorem 6.21** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Law 677 has
+no quasigroup model of order 12. A model of order 12, if one exists, is not
+right-cancellative and satisfies one of 51 explicit formulas.
+
+*Proof.* EXP-C05-13 refutes all 57 quasigroup parts (at most 276,023 conflicts
+each) and 6 of the non-quasigroup parts, every refutation checked by drat-trim;
+51 non-quasigroup parts were undecided after a million conflicts each. ∎
+
+The smallest model of 677 known to be not right-cancellative has order 25
+(M. Reinke, ETP Zulip, November 2025; our notes had said 55 until the
+Historian's audit), so a model of order 12 would be a new smallest one. All the
+difficulty of order 12 now sits in those 51 formulas.
+
+**Theorem 6.22** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Laws 467 and
+704 have no model of order 12; up to 13 their orders are exactly 1, 5, 7, 8, 9,
+11, 13 and 1, 5, 7, 8, 11, 13. *Proof.* EXP-C05-14 refutes all 390 case
+formulas, each with a verified proof. ∎ For laws 670 (orders 12, 13), 883 and
+907 (order 12) the same method met hard cases and they remain open.
+
 ### A complete spectrum: law 501
 
 Probing the open orders 11–13 of the laws that are not forced to be
@@ -434,6 +457,8 @@ is a bijection) and by $(xx)y$. ∎
 | EXP-C05-10 | orders 11–13 of the quasigroup laws (version 1.2) | 9 of 9 pairs without a model; 1,797 case CNFs, all proofs verified; 21 of 21 known models admitted (Theorem 6.15) |
 | EXP-C05-11 | law 677 at order 12 (version 1.2) | 138 of 195 case CNFs refuted with verified proofs, 57 undecided (Proposition 6.18) |
 | EXP-C05-12 | every order $n \le 7$ of the 13 laws, again with certificates (version 1.2) | 78 pairs, 0 disagreements; 50 gaps certified (Theorem 6.14) |
+| EXP-C05-13 | law 677 at order 12: the 57 hard cases split into quasigroup and non-quasigroup parts (version 1.2) | 57 of 57 quasigroup parts and 6 non-quasigroup parts refuted, all proofs verified; 51 open (Theorem 6.21) |
+| EXP-C05-14 | laws 467 and 704 at order 12 (version 1.2) | no model; 390 case CNFs, all proofs verified; 24 of 24 known models admitted (Theorem 6.22) |
 | EXP-C05-15 | law 501: the construction for $n \le 100$, the sign identity, a model of order 12 (version 1.2) | 50 of 50 models valid; 39 of 39 samples; model found (Theorem 6.19) |
 
 ## Comparison with existing mathematics
@@ -473,8 +498,11 @@ Theorem 6.5, 1313 at orders 8 and 10, the 24 gaps of Theorems 6.13 and 6.15, the
 complete lists of Theorem 6.14 for the twelve laws other than 677 (the
 Historian's spectrum audit, `reviews/historian_spectra_2026.md`, read Le Floch's
 notes, the ETP paper and repository, the Zulip archive to February 2026, the
-eq677 database and arXiv), and Proposition 6.18 (orders 12 and 14 of 677 are
-open in every source). ETP members may hold unpublished
+eq677 database and arXiv), Proposition 6.18 and Theorem 6.21 (orders 12 and 14
+of 677 are open in every source, and no quasigroup-only search is reported),
+Theorem 6.22, and the spectrum of law 501 (Theorem 6.19; the ETP commentary on
+501 still called it unknown in September 2026). The sign identity behind
+Theorem 6.19 is a case of the Janssen–Zappa parity relation for Latin squares. ETP members may hold unpublished
 searches, so the novelty is relative to these sources. The three refuted
 hypotheses were our own.
 
@@ -496,15 +524,18 @@ tables, so its count is not used.
 
 ## Open questions
 
-1. Decide law 677 at orders 12 and 14 (Proposition 6.18 reduces order 12 to
-   57 formulas) and law 1313 at order 14. Is Conjecture 6.17 true, and what
-   separates the twelve laws from law 474?
-2. Is the spectrum of law 115 all $n \ne 2, 6$, as the notes conjecture? Our
+1. Decide law 677 at orders 12 and 14 (Theorem 6.21 reduces order 12 to 51
+   formulas about non-quasigroups) and law 1313 at order 14; laws 670 at 12 and
+   13, 883 and 907 at 12. Is Conjecture 6.17 true for the eleven laws other than
+   501, and what separates them from law 474?
+2. Do other laws carry a hidden semi-symmetric structure, as 501 does, that
+   forces a parity condition on their orders?
+3. Is the spectrum of law 115 all $n \ne 2, 6$, as the notes conjecture? Our
    data agree up to $n = 8$.
-3. Direct products of models are models, so every spectrum is closed under
+4. Direct products of models are models, so every spectrum is closed under
    multiplication. Which multiplicatively closed sets arise from a single law
    of small order?
-4. Which laws admit a finite-order "pair map" like $F$ in Theorem 6.2, and
+5. Which laws admit a finite-order "pair map" like $F$ in Theorem 6.2, and
    which congruences do such maps force?
-5. Extend the census to laws of order 5 and to three variables, where the
+6. Extend the census to laws of order 5 and to three variables, where the
    central groupoid law (spectrum: the squares, by Knuth) already appears.

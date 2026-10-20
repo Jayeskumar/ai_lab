@@ -44,6 +44,8 @@ Every bold hypothesis the laboratory proposed and refuted is kept here with the 
   *Counterexample:* x = (y\*x)\*(x\*(y\*y)) has models of every order 1..6 (EXP-C05-01); of order 2 it is satisfied by NAND (Lean: nand2\_law), yet no affine operation over Z\_2 satisfies it (Lean: no\_affine\_model\_mod2); its affine models exist only for n in {1, 5}. Three further identities behave alike (EXP-C05-05).
 * **CLM-C05-09** (refuted). *Claimed:* The finite models of x = y(x((yx)y)) (ETP 677) and of x = y(((yx)x)y) (ETP 1313) have exactly the orders 1 and the odd integers n \>= 5.
   *Counterexample:* Linear models of order 16 (found by the Skeptic, reviews/skeptic\_C05\_C08\_C12.md, Appendix B) - over GF(16) = GF(2)\[t\]/(t\^4 + t + 1), x\*y = (1 + t\^3)x + t\^3 y satisfies law 677 and x\*y = t\^3 x + (1 + t\^3)y satisfies law 1313 (each has 8 such pairs (a, b)). Re-found by EXP-C05-07 and Lean-certified (E677\_order16\_law, E1313\_order16\_law, kernel decide on the 16 x 16 tables).
+* **CLM-C05-18** (refuted). *Claimed:* If a law of the form x = y\*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).
+  *Counterexample:* ETP law 474, x = y(x(y(xy))), has the form x = y\*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n \<= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies, a direct evaluation and in Lean (E474\_order6\_law and E474\_no\_order2, proofs/lean/Infinity/C05\_Magmas.lean, by decide).
 
 ## C06 — Successor-anchored magmas: spectra of composition laws {.unnumbered}
 

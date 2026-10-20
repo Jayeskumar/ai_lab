@@ -13,6 +13,7 @@ Each of these is supported by the evidence cited in its record but has no proof.
 * **CLM-C04-12** (computationally supported): The 162 terminating rules (55 symmetry classes) have derivational complexity linear (144 rules, of which 4 are n - Theta(log n)), quadratic (14: floor(n\^2/4), floor(n(n-1)/6), floor(n\^2/8)) or exponential (4: 2\^(n-1) - 1); for 54 of the 55 classes D(n) = floor((a n\^2 + b n + c)/d) or 2\^(n-1) - 1 on all computed terms. *Evidence:* EXP-C04-03.
 * **CLM-C04-16** (conjecture): The Grundy sequences of the rewriting games of aa -\> ab, aaa -\> b and aaa -\> ab on the words a\^n are ultimately periodic. *Evidence:* EXP-C04-08, EXP-C04-09.
 * **CLM-C05-02** (computationally supported): Of the 115 identities t = x (x occurring in t, neither leftmost nor rightmost), 52 have models of every order 1..6, 2 have none of orders 2..6, and 61 have restricted spectra; the 63 non-full ones fall into 15 patterns on n = 1..8 listed in research/cycles/C05\_magma\_spectra/README.md (e.g. 10111011 for 16 identities including the Dupont law, 10110010 = Mendelsohn pattern for law 66 and three equivalents, 1010001? for law 907). *Evidence:* EXP-C05-01, EXP-C05-02.
+* **CLM-C05-21** (conjecture): The laws 467, 501, 670, 677, 704, 907, 1076, 1083, 1110, 1279, 1286 and 1313 have no finite model of any order n = 2 (mod 4). *Evidence:* EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-10.
 * **CLM-C06-10** (computationally supported): The seven laws x(yz) = ((zx)x)y, x(yz) = ((zx)y)x, x(yz) = ((zy)x)x, (xy)z = y((zx)y), (xy)z = y((zy)x), (xy)z = z((yx)z), (xy)z = z((yz)x) have anchored models exactly for N in {1, 3}; the ten laws x(yz) = y((yx)z), x(yz) = ((xx)y)z, x(yz) = ((xx)z)y, x(yz) = ((xy)x)z, x(yz) = ((xy)y)z, x(yz) = ((xy)z)x, x(yz) = ((xy)z)y, x(yz) = ((xz)x)y, x(yz) = ((xz)y)x, x(yz) = ((xz)y)y have anchored models exactly for N in {1, 2}. *Evidence:* EXP-C06-03, EXP-C06-04.
 * **CLM-C06-11** (computationally supported): (xy)z = x(z(yy)) has the same anchored model counts as the golden law (xy)z = x(y(zz)), and (xy)z = x((zy)y) the same as the odd law (xy)z = x((yz)z), for N \<= 9; their affine spectra coincide for N \<= 40. *Evidence:* EXP-C06-04.
 * **CLM-C07-08** (computationally supported): Among the 134 distinct mex operations, 22 have additively periodic rows a = 1..5 (period \<= 375 within b \< 1500), 40 have none, and the rest are mixed. *Evidence:* EXP-C07-03.
@@ -79,7 +80,11 @@ Each of these is supported by the evidence cited in its record but has no proof.
 
 **C05 — Spectra of single-identity magma varieties.**
 
-* C05: decide laws 677 and 1313 at orders 12 and 14, and law 1286 at 8 and 10, with the case split of EXP-C05-08 (Lemma 8); certify
+* C05: decide law 677 at order 12 - open in every source - by a finer split (cube and conquer) of the 57 hard case CNFs of CLM-C05-20; then order 14; certify
+* C05: test H-C05-J' (CLM-C05-21) for the 12 open laws at order 14, and look for what separates them from law 474 (which has models of order 6); a proof cannot rest on the shape x = y\*T alone (CLM-C05-18 refuted)
+* C05: law 1313 at order 14 (first case \> 4 million conflicts) and law 1516 at order 10 (shape x = (yy)\*T, needs its own case split)
+* C05: the open orders 12 of 670, 883 and 907 and 13 of 670 (probes: many case CNFs undecided at 300,000 conflicts, for 883 also at 1,000,000 with Latin columns) - a finer split, or a construction if models exist (501 at 12 had one)
+* C05: look for parity theorems like CLM-C05-22 for other laws: a derived semi-symmetric (or other) operation whose translations have forced signs
 * C05: a certified search for finite models of 677 that violate 255 (x = ((xx)x)x), the ETP's open finite implication, at the next orders with models
 * C05: which odd orders are in the spectra of 677 and 1313? (677 has no linear model at 17, 23, 29; 1313 none at 11, 29; 15 is not a prime power)
 * C05: extend the census to order-5 laws and three-variable identities

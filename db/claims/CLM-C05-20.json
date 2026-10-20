@@ -18,6 +18,15 @@
       "old": "A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.",
       "reason": "cycle record sync",
       "ts": "2026-10-20T16:47:03Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md)",
+      "old": "computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:50:34Z"
     }
   ],
   "id": "CLM-C05-20",
@@ -25,7 +34,7 @@
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No source reports a partial result for 677 at order 12: the ETP Zulip topic 'FINITE: 677 -> 255' (to Feb 28, 2026) says exhaustive search is the only known method, and orders 12 and 14 are open in every source read (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#proposition-13-clm-c05-20--law-677-at-order-12-reduction-to-57-case-cnfs-computer-assisted",
-  "proof_check": "computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); awaiting independent review",
+  "proof_check": "computer-assisted - the other 138 of the 195 case CNFs of Lemma 8 (written proof) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-11); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md)",
   "related": [
     "CLM-C05-12",
     "CLM-C05-17"

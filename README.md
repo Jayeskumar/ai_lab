@@ -11,17 +11,17 @@ Everything is reproducible and append-only: experiments are deterministic
 scripts with hashed results, every change to a claim's status is kept in an
 audit log, and refuted hypotheses are preserved alongside proven theorems.
 
-## At a glance (cycles C01–C20, after the batch 1.1 sprint)
+## At a glance (cycles C01–C20, after batches 1.1 and 1.2)
 
 | | |
 |---|---|
 | research cycles | 20, over five foundational systems (A–E) |
-| experiments | 114 deterministic scripts, 205 recorded runs; all 113 batch-1 experiments re-run in batch 1.1, 112 identical (the 113th fixed) |
-| claims | 230 — 138 PROVEN, 37 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED, 2 INCONCLUSIVE |
-| novelty | 109 REDISCOVERY, 51 POTENTIALLY NOVEL (not a priority claim), 70 not assessed |
-| formal proofs | 334 Lean 4 + Mathlib theorems in 21 files, standard axioms only |
+| experiments | 121 deterministic scripts, 214 recorded runs; all 113 batch-1 experiments re-run in batch 1.1, 112 identical (the 113th fixed) |
+| claims | 241 — 147 PROVEN, 37 COMPUTATIONALLY SUPPORTED, 5 CONJECTURE, 50 REFUTED, 2 INCONCLUSIVE |
+| novelty | 115 REDISCOVERY, 55 POTENTIALLY NOVEL (not a priority claim), 71 not assessed |
+| formal proofs | 364 Lean 4 + Mathlib theorems in 23 files, standard axioms only |
 | independent review | Skeptic verdicts on 224 of 230 claims; every PROVEN claim that is not fully formal (121) independently reviewed; 2 of the lab's own claims refuted, 1 withdrawn |
-| textbook | *Beyond Conventional Mathematics*, version 1.1: 21 chapters in 10 volumes and a generated corrections log (`textbook/build/book.pdf`) |
+| textbook | *Beyond Conventional Mathematics*, version 1.2: 21 chapters in 10 volumes and a generated corrections log (`textbook/build/book.pdf`) |
 
 **Batch 1.1** (a hardening sprint run by the Director as project manager; plan and outcome in
 [`reports/PM_PLAN_batch1.1.md`](reports/PM_PLAN_batch1.1.md)) decided the two open orders of ETP laws
@@ -30,6 +30,14 @@ proofs in Lean, completed and machine-checked a proof that the anchored left-dis
 powers of 2 (CLM-C17-08, a rediscovery), audited the novelty of C11–C20 (four relabelled rediscoveries), re-ran
 every experiment ([`reports/REPRODUCIBILITY_batch1.1.md`](reports/REPRODUCIBILITY_batch1.1.md)), and added
 `python -m lab check`, which found and fixed five broken proof links and a journal-duplication bug.
+
+**Batch 1.2** ("find more"; plan and outcome in [`reports/PM_PLAN_batch1.2.md`](reports/PM_PLAN_batch1.2.md))
+went back to the open spectra of the Equational Theories Project. It determined the complete spectrum of ETP law
+501, x = y(y(x(xy))): exactly the orders n ≡ 0, 1 (mod 4) (CLM-C05-22; the necessity proved in Lean). It
+certified 26 gaps that no source we found states, at orders 8–13 for twelve laws. It completed the spectra up to
+order 10 of the 13 laws x = y∗T, and up to 13 for eight of them. It showed that law 677 has no quasigroup model
+of order 12, reducing that open order to 51 explicit CNFs. It refuted one of its own conjectures the day it was
+made (law 474). The Skeptic upheld every claim (`reviews/skeptic_batch1.2.md`).
 
 The full report, with the ten required items and an honest list of
 limitations, is [`reports/RESEARCH_REPORT_batch1.md`](reports/RESEARCH_REPORT_batch1.md).

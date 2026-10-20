@@ -82,17 +82,30 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 
 * **CLM-C05-04** (Lean), rediscovery: Law 167, x = (y\*x)\*(x\*y): every finite model has order 0 or 1 mod 4.
 * **CLM-C05-05** (Lean + written), rediscovery: Identities x = y\*s(x, y) make every left translation of a finite model bijective.
-* **CLM-C05-07** (Lean), potentially novel: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9.
-* **CLM-C05-08** (Lean + written), potentially novel: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6.
-* **CLM-C05-10** (Lean + written), not assessed: Linear models over finite fields: the orders q \<= 128 at which the 15 open laws have a model x\*y = ax + by over GF(q).
+* **CLM-C05-07** (Lean), rediscovery: New spectrum memberships for open ETP laws: 677 has models of orders 5, 7, 9; 1286, 1313 and 1516 have models of order 9.
+* **CLM-C05-08** (Lean + written), rediscovery: New spectrum gaps for open ETP laws (certified UNSAT): 501 has no models of orders 6, 7; 677 none of order 6; 883 none of 6; 1076 none of 8; 1083 none of 5, 6.
+* **CLM-C05-10** (Lean + written), rediscovery: Linear models over finite fields: the orders q \<= 128 at which the 15 open laws have a model x\*y = ax + by over GF(q).
 * **CLM-C05-11** (Lean + written), rediscovery: Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified).
-* **CLM-C05-12** (Lean + written), potentially novel: Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9.
+* **CLM-C05-12** (Lean + written), rediscovery: Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9.
 * **CLM-C05-13** (Lean + written), potentially novel: Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, 7, 9.
 * **CLM-C05-14** (Lean), not assessed: Finite models of law 1313 are quasigroups (Lean).
+* **CLM-C05-15** (Lean + written), potentially novel: Fifteen new certified spectrum gaps for open ETP laws x = y\*T at orders 8-10.
+* **CLM-C05-16** (Lean + written), potentially novel: Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279, 1286, 1313; complete spectra up to 13 for the six laws x = y\*(S\*y).
+* **CLM-C05-17** (Lean + written), potentially novel: Complete spectra up to order 10 of the 13 open ETP laws of the form x = y\*T.
+* **CLM-C05-19** (Lean), rediscovery: Finite models of any law x = y\*(S\*y) are quasigroups (Lean); this covers the ETP laws 1076, 1083, 1110, 1279, 1286, 1313.
+* **CLM-C05-20** (computer-assisted), potentially novel: Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable.
+* **CLM-C05-22** (Lean + written), potentially novel: The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}.
+* **CLM-C05-23** (Lean), rediscovery: Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection.
+* **CLM-C05-24** (computer-assisted), potentially novel: Law 677 has no quasigroup model of order 12; a model of order 12 exists iff one of 51 explicit non-quasigroup case CNFs is satisfiable.
+* **CLM-C05-25** (computer-assisted), potentially novel: Laws 467 and 704 have no model of order 12; their spectra up to order 13 are complete.
 
 **Computationally supported.**
 
 * **CLM-C05-02**, rediscovery: Spectrum census of the 115 nontrivial two-variable identities t = x with 2-4 operations (n \<= 6, restricted ones to n \<= 8).
+
+**Conjectures.**
+
+* **CLM-C05-21**, not assessed: H-C05-J': none of the 12 open ETP laws x = y\*T without a model of order 2 has a model of order n = 2 (mod 4).
 
 ## C06 — Successor-anchored magmas: spectra of composition laws {.unnumbered}
 

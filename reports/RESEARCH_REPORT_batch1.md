@@ -8,9 +8,10 @@ database records in `db/claims/` and `db/experiments/`.*
 
 ## Summary
 
-*Update 2026-10-20: the batch 1.1 hardening sprint (next section) changed some of
-these numbers — 230 claims, 138 PROVEN, 334 Lean theorems — and settled two of
-the open problems of section 9.*
+*Update 2026-10-20: the batch 1.1 hardening sprint and batch 1.2 (next sections)
+changed some of these numbers — now 241 claims, 147 PROVEN, 364 Lean theorems —
+settled two of the open problems of section 9, and determined the spectrum of ETP
+law 501.*
 
 Twenty research cycles were run across five foundational systems. They
 produced 113 deterministic experiments (203 recorded runs) and 225 claims:
@@ -139,6 +140,71 @@ Katsura and Shikishima-Tsuji, TCS 262 (2001) for CLM-C20-02 and C04;
 Dehornoy, *Braids and Self-Distributivity*, Ch. X for CLM-C17-08. Whether to
 tell P. Klimov that CLM-C16-07 answers his Problems 7.3–7.5, and whether to
 submit sequences to the OEIS, are human decisions.
+
+## Batch 1.2 — "find more": spectra of the open ETP laws (2026-10-20)
+
+Asked to "find more", the Director (as project manager) took the front where batch 1.1 had left a working,
+certifying method: the spectra (the sets of orders of finite models) of the open laws of the Equational
+Theories Project, cycle C05. The plan, the decisions taken on the way and their reasons are in
+[`PM_PLAN_batch1.2.md`](PM_PLAN_batch1.2.md). Numbers are read from the database after the batch.
+
+| | after batch 1.1 | after batch 1.2 |
+|---|---|---|
+| claims | 230 | 241 (new: CLM-C05-15 … -25) |
+| PROVEN / COMP. SUPPORTED / CONJECTURE / REFUTED / INCONCLUSIVE | 138 / 37 / 4 / 49 / 2 | 147 / 37 / 5 / 50 / 2 |
+| REDISCOVERY / POTENTIALLY NOVEL / NOT ASSESSED | 109 / 51 / 70 | 115 / 55 / 71 |
+| Lean 4 + Mathlib | 334 theorems in 21 files | 364 theorems in 23 files |
+| experiments / recorded runs | 114 / 205 | 121 / 214 |
+
+**What batch 1.2 established.**
+
+1. **The spectrum of law 501, x = y(y(x(xy))), is exactly the orders n ≡ 0, 1 (mod 4)** (CLM-C05-22; textbook
+   Theorem 6.19; `proofs/paper/C05.md`, Theorem 14). The ETP notes list 501 with "unknown spectrum containing
+   1, 4, 5, 8, 9", and its ETP commentary still called the spectrum unknown in September 2026. A probe of the
+   open orders found a model of order 12, which no product of known orders gives, and the model showed the
+   mechanism: x□y = x(xy) is a semi-symmetric quasigroup whose translations are the squares of the model's, and
+   in a finite semi-symmetric quasigroup the product of the signs of the translations is (−1)^{n(n−1)/2}, since
+   (x, y) ↦ (y, x□y) has order 3. (The Historian found this sign identity to be a case of the Janssen–Zappa
+   parity relation for Latin squares; its use for 501 was found nowhere.) Square roots of the translations of
+   x□y = −x−y over Z_n or Z_2×Z_2×Z_{n/4} give models of every admissible order. The necessity is proved in Lean
+   (`law501_card_mod_four`); the construction is checked for every n ≤ 100 (EXP-C05-15).
+2. **26 new certified gaps** at orders 8–13 for twelve laws (CLM-C05-15, -16, -25): for each pair every case CNF
+   of the complete case split (Lemma 8) is refuted by a DRAT proof that drat-trim verified (EXP-C05-09, -10,
+   -14), with controls of known answer. With EXP-C05-11 to -13, about 420 million proof lines were verified.
+3. **Complete spectra** up to order 10 of the 13 laws x = y∗T (CLM-C05-17), every order resting on the lab's own
+   certificate or re-checked model (EXP-C05-12 re-certifies every order n ≤ 7), and up to 13 for 467, 704 and the
+   six laws x = y∗(S∗y) (CLM-C05-16, -25) — e.g. 1076: 1, 5, 13.
+4. **Law 677 at order 12** (open in every source; premise of the ETP's last open finite implication 677 ⇒ 255):
+   there is no quasigroup model (CLM-C05-24). The 195 cases were cut to 57 (EXP-C05-11) and each split by right
+   cancellation (EXP-C05-13): all 57 quasigroup parts fall within 276,023 conflicts, and 51 non-quasigroup
+   CNFs remain. A model of order 12 would be the smallest known non-right-cancellative model (now known:
+   order 25, not 55 as our notes had said).
+5. **Structure, in Lean:** finite models of every law x = y∗(S∗y) are quasigroups (CLM-C05-19), and so are those
+   of 704 and 883 (CLM-C05-23).
+6. **A conjecture refuted the same day.** "A law x = y∗T without a model of order 2 has none of order 2 (mod 4)"
+   (CLM-C05-18) was drawn from the twelve open laws and refuted by the lab's own census: law 474 has a model of
+   order 6 (Lean-certified). The restricted form for the twelve laws is kept as a conjecture (CLM-C05-21), now a
+   theorem for 501.
+
+**Method.** `systems/magma_split.py` generalises the batch-1.1 case split to every law x = y∗T, with division
+clauses on both sides (Lemma 9′), an exhaustive quasigroup / non-quasigroup split of a case, and a new kind of
+control: every known model, relabelled into its case, must satisfy that case's CNF (`admits`), which tests the
+clauses that could wrongly exclude models directly. Checkpoints now carry the hashes of the code and of the
+proof checker.
+
+**What did not work.** 677 at order 12: the non-quasigroup half resisted a split by the missing (column,
+value) pair and implied "star" clauses from the ETP's structure theory. 1313 at 14, 670 at 12 and 13, 883 and
+907 at 12 have hard cases and are handed on. The first decision control of EXP-C05-10 (1083 at 12) would have
+taken a day — its model sits in the 190th of 195 cases — and was replaced by the direct known-model check.
+Simple sign invariants (of rows, columns, squaring) do not extend the 501 argument to other laws.
+
+**Review.** The Skeptic (`reviews/skeptic_batch1.2.md`) re-decided 16 of the 24 pairs of CLM-C05-15/-16 with an
+independent encoder and solver (every proof verified), audited every entry of the spectrum tables, checked the
+proof of Theorem 14 step by step and rebuilt the construction, and found no encoding bug; it upheld every
+claim, two with corrections to their evidence (501 at order 8 had no stored table; EXP-C05-10 had read its
+case results from checkpoints, now re-run clean). The Historian (`reviews/historian_501.md`,
+`reviews/historian_677_nonqg.md`) found none of the new results in the sources read and corrected the lab's
+statement about the smallest non-right-cancellative model of 677.
 
 ## 1. Number of experiments performed
 
@@ -412,7 +478,9 @@ The open claims are listed in the textbook's Volume 10 and in `REPORT_DATA.md`
 4. **Density of circle irreducibles** (CLM-C09-05).
 5. **Spectra of ETP laws 677 and 1313**: the even orders 8–14 and the odd
    orders without linear models (17, 23, 29 for 677). *Batch 1.1: orders 8 and
-   10 excluded for both laws (CLM-C05-11 … -13); 12 and 14 remain.*
+   10 excluded for both laws (CLM-C05-11 … -13); 12 and 14 remain. Batch 1.2:
+   1313 has no model of order 11 or 12; 677 has no quasigroup model of order 12,
+   and the rest of order 12 is reduced to 51 CNFs (CLM-C05-24).*
 6. **The longest Zeckendorf game**: prove the recursion CLM-C19-05 and the
    bound CLM-C19-09.
 7. **Full-period quasigroups for all n ≥ 5** (CLM-C16-10), and the affine

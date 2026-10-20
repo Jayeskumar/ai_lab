@@ -109,7 +109,7 @@ database. The most interesting ones, in the laboratory's judgement:
 7. **Spectra of ETP laws 677 and 1313** (Chapter 6): which even orders below
    16 occur, and which odd ones — the conjectured answer of the first version
    was refuted by models of order 16. Orders 8 and 10 are excluded for both
-   laws, 11 and 12 for 1313; for 677, order 12 is reduced to 57 formulas
-   (Proposition 6.18).
+   laws, 11 and 12 for 1313; for 677 at order 12 no quasigroup model exists and
+   the rest is reduced to 51 formulas (Theorem 6.21).
 8. **The longest Zeckendorf game** (Chapter 16): prove the recursion that
    predicts $L(n)$ for every $n$.
