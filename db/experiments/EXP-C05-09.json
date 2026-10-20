@@ -1,0 +1,59 @@
+{
+  "agent": "Formal Verifier",
+  "assumptions": [
+    "rows of finite models of x = y*T are permutations (Lean: left_mul_bijective_of_law); for T = S*y also the columns (Lean: right_mul_bijective_of_law)",
+    "the case split of proofs/paper/C05.md Lemma 8 is complete; the division clauses of Lemma 9, generalised in systems/magma_split.py, are implied",
+    "CaDiCaL 1.5.3 with proof logging, fixed conflict budget per case; drat-trim for every UNSAT",
+    "per-case results may be resumed from a checkpoint directory (EXP_CHECKPOINT); every case is deterministic, so resuming does not change the results"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-09",
+    "file": "experiments/C05/E09_open_orders.py",
+    "sha256": "9442a46fbeda2e5d45acc3f37c37fe0423a7287671dd3e60613c9c068a8cb29d",
+    "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+  },
+  "cycle": "C05",
+  "falsification": "A control that disagrees with its known answer, or a proof that drat-trim rejects, would expose an error; a target with an UNKNOWN case and no model stays undecided.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T15:18:25Z"
+    }
+  ],
+  "hypothesis": "H-C05-H: the case split of EXP-C05-08 decides all 15 open pairs within a budget of 4 million conflicts per case, and agrees with every control.",
+  "id": "EXP-C05-09",
+  "methodology": "For each pair (targets first, then controls) run the cases of Lemma 8 in their fixed order and stop at the first model (verified on its table); otherwise certify every case UNSAT with drat-trim. 3 worker processes, one pair per worker at a time.",
+  "question": "Which of the orders n <= 10 left UNKNOWN by EXP-C05-03 are in the spectra of the open ETP laws 467, 501, 670, 704, 883, 907, 1076, 1083, 1110, 1279, 1286?",
+  "results_file": "results/EXP-C05-09.json",
+  "results_sha256": "589d6bb855280ba5de564be415e53ac1e697b7888ef42aed453001a4815990bb",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-09",
+        "file": "experiments/C05/E09_open_orders.py",
+        "sha256": "9442a46fbeda2e5d45acc3f37c37fe0423a7287671dd3e60613c9c068a8cb29d",
+        "systems_sha256": "8f7c50e05c65e8ed40dd3331c33cfc36ce2252696bfa9079a0dc014996956d15"
+      },
+      "error": false,
+      "finished": "2026-10-20T15:18:19Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-09.json",
+      "results_sha256": "589d6bb855280ba5de564be415e53ac1e697b7888ef42aed453001a4815990bb",
+      "runtime_s": 6000.865,
+      "started": "2026-10-20T13:38:18Z",
+      "summary": [
+        "targets: 467/10: no model (every case certified); 501/10: no model (every case certified); 670/10: no model (every case certified); 704/10: no model (every case certified); 907/10: no model (every case certified); 1076/10: no model (every case certified); 1083/10: no model (every case certified); 1110/10: no model (every case certified); 1279/10: no model (every case certified); 1286/10: no model (every case certified); 883/9: no model (every case certified); 1076/9: no model (every case certified); 670/8: no model (every case certified); 907/8: no model (every case certified); 1286/8: no model (every case certified)",
+        "controls agreeing with their known answers: 13 of 13",
+        "cases run: 1532; UNSAT cases certified by drat-trim: 1522; rejected proofs: 0; UNKNOWN cases: 0"
+      ]
+    }
+  ],
+  "summary": [
+    "targets: 467/10: no model (every case certified); 501/10: no model (every case certified); 670/10: no model (every case certified); 704/10: no model (every case certified); 907/10: no model (every case certified); 1076/10: no model (every case certified); 1083/10: no model (every case certified); 1110/10: no model (every case certified); 1279/10: no model (every case certified); 1286/10: no model (every case certified); 883/9: no model (every case certified); 1076/9: no model (every case certified); 670/8: no model (every case certified); 907/8: no model (every case certified); 1286/8: no model (every case certified)",
+    "controls agreeing with their known answers: 13 of 13",
+    "cases run: 1532; UNSAT cases certified by drat-trim: 1522; rejected proofs: 0; UNKNOWN cases: 0"
+  ],
+  "title": "Open orders of the ETP laws x = y*T: certified case split for every (law, n <= 10) left UNKNOWN by EXP-C05-03"
+}
