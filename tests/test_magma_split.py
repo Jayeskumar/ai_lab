@@ -1,9 +1,11 @@
 """Tests for the certified case split of systems/magma_split.py (proofs/paper/C05.md, Lemmas 8 and 9)."""
 
 import numpy as np
+import pytest
+from pysat.solvers import Cadical153
 
 from systems.magma import parse, satisfies
-from systems.magma_split import admits, canonical_form, canonical_permutation, cases, decide, partitions
+from systems.magma_split import admits, build, canonical_form, canonical_permutation, cases, decide, partitions
 
 LAW_1313 = "y(((yx)x)y)"
 LAW_677 = "y(x((yx)y))"
@@ -59,3 +61,22 @@ def test_decide_small_orders_of_law_1313():
     assert found["verdict"] == "model found"
     gap, records, _ = decide(LAW_1313, 6, 100_000)        # no checker: UNSAT without proof checking
     assert gap["verdict"] == "no model (not all proofs checked)" and len(records) == len(cases(6))
+
+
+def test_parts_separate_quasigroups_from_the_rest():
+    for T in _linear_models(LAW_677, 7):                     # quasigroups: in the first part only
+        case, lam, ell, C = canonical_form(T)
+        for part, expected in (("quasigroup", True), ("non-quasigroup", False)):
+            sat, _ = build(LAW_677, 7, case, lam, ell, part)
+            with Cadical153(bootstrap_with=sat.clauses) as s:
+                assert s.solve(assumptions=[sat.v[a, b, C[a][b]] for a in range(7) for b in range(7)]) == expected
+    n = 5
+    sat, _ = build(LAW_677, n, "idempotent", (4, 1), 1, "non-quasigroup")
+    extra = sat.clauses[-(n ** 3 + 1):]                      # "some value is missing from some column"
+    cyclic = [[(a + b) % n for b in range(n)] for a in range(n)]
+    projection = [list(range(n)) for _ in range(n)]          # x * y = y: rows are permutations, columns constant
+    for table, expected in ((cyclic, False), (projection, True)):
+        with Cadical153(bootstrap_with=extra) as s:
+            assert s.solve(assumptions=[sat.v[a, b, table[a][b]] for a in range(n) for b in range(n)]) == expected
+    with pytest.raises(AssertionError):
+        build(LAW_1313, n, "idempotent", (4, 1), 1, "non-quasigroup")   # 1313 forces Latin columns

@@ -94,10 +94,15 @@ def _latin(sat, rows: bool):
     return cls
 
 
-def build(law: str, n: int, case: str, lam, ell):
+def build(law: str, n: int, case: str, lam, ell, part=None):
+    """The CNF of one case of Lemma 8. ``part`` restricts it further: "quasigroup" adds Latin columns (and the
+    column division clauses), "non-quasigroup" requires some value to be missing from some column. Every finite
+    magma with Latin rows is in exactly one of the two parts, so a case is refuted iff both parts are."""
+    assert part in (None, "quasigroup", "non-quasigroup")
     T = inner_term(law)
     assert T is not None, f"law {law} is not of the form x = y * T"
-    cols = columns_bijective(law)
+    cols = columns_bijective(law) or part == "quasigroup"
+    assert not (cols and part == "non-quasigroup"), "the law forces Latin columns"
     identity = (parse(law), "x")
     sat = MagmaSAT(n, [identity])
     v = sat.v
@@ -135,6 +140,10 @@ def build(law: str, n: int, case: str, lam, ell):
                     node, w = A, wA
                 else:
                     break
+    if part == "non-quasigroup":
+        missing = {(b, c): sat.pool.id(("missing", b, c)) for b in range(n) for c in range(n)}
+        sat.clauses += [[-missing[b, c], -v[a, b, c]] for b in range(n) for c in range(n) for a in range(n)]
+        sat.clauses.append(list(missing.values()))
     return sat, identity
 
 
@@ -189,9 +198,9 @@ def _cnf_text(sat) -> str:
     return "\n".join(lines) + "\n"
 
 
-def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None):
+def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None, part=None):
     """Decide one case; returns (record, timings). With a checkpoint directory, a finished case is reused."""
-    sat, identity = build(law, n, case, lam, ell)
+    sat, identity = build(law, n, case, lam, ell, part)
     cnf = _cnf_text(sat)
     cnf_sha = hashlib.sha256(cnf.encode()).hexdigest()
     key = f"{cnf_sha}_{budget}"
@@ -203,6 +212,8 @@ def solve_case(law, n, case, lam, ell, budget, checker, checkpoint=None):
             return saved["record"], dict(saved["timings"], from_checkpoint=True)
     rec = {"law": law, "n": n, "case": case, "lam": list(lam), "ell": ell, "cnf_sha256": cnf_sha,
            "clauses": len(sat.clauses)}
+    if part:
+        rec["part"] = part
     t0 = time.perf_counter()
     with Cadical153(bootstrap_with=sat.clauses, with_proof=True) as s:
         s.conf_budget(budget)

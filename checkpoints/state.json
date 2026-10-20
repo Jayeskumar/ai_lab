@@ -1003,6 +1003,7 @@
     "EXP-C05-07": "8a9a46b752bbcc718a90ee58aae177fd488c00ed57d8d11a71f7dbdccca49368",
     "EXP-C05-08": "6280be640085641ac9a3644f0f84e3d08bad2245b409bb67c722d1dba97dd26e",
     "EXP-C05-09": "589d6bb855280ba5de564be415e53ac1e697b7888ef42aed453001a4815990bb",
+    "EXP-C05-10": "58f9c5b93276809494e83a0ce46db980361a0169367e6ef05482d7ff590a01e6",
     "EXP-C05-11": "44dcc4b069f9586caec5649edaaf1360cf81acdb5b05b2f349bd8ccc95f18c8d",
     "EXP-C05-12": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
     "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
@@ -1140,5 +1141,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-20T15:39:56Z"
+  "updated": "2026-10-20T15:50:10Z"
 }

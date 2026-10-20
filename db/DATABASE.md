@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T15:39:55Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -5650,6 +5650,28 @@ _Generated 2026-10-20T15:39:55Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **related:** CLM-C05-15; CLM-C05-17
 - **runs:** 1; last 2026-10-20T15:18:19Z (6000.865 s), results sha256 `589d6bb855280ba5…`, code `experiments/C05/E09_open_orders.py`
+
+### EXP-C05-10: Open orders 11-13 of the quasigroup laws 1076, 1110, 1279, 1286, 1313 (certified case split)
+
+- **cycle:** C05
+- **agent:** Formal Verifier
+- **question:** Do the ETP laws 1076, 1110, 1279, 1286, 1313 - whose finite models are quasigroups - have models of the orders 11-13 that linear models and direct products leave open?
+- **hypothesis:**
+
+  H-C05-I: the case split decides every pair within 4 million conflicts per case; the decision controls 1110 and 1279 at order 11 have models, and every known model at orders 11-13 satisfies the CNF of its case.
+
+- **assumptions:** as EXP-C05-09; Latin columns by right_mul_bijective_of_law; orders with a linear model over GF(q) (EXP-C05-07) are members and are not re-decided; spectra are closed under direct products (any equational law)
+- **methodology:**
+
+  Decide each pair with systems.magma_split.decide (cases of Lemma 8 in their fixed order, stop at the first verified model, otherwise every case refuted with a drat-trim-verified DRAT proof); 3 worker processes; per-case checkpoints (EXP_CHECKPOINT). Known-model controls with systems.magma_split.admits.
+
+- **falsification:** A decision control without a model, a known model excluded by its case CNF, a rejected proof, or an UNKNOWN case.
+- **summary:**
+  - targets: 1076/12: no model (every case certified); 1110/12: no model (every case certified); 1279/12: no model (every case certified); 1286/12: no model (every case certified); 1313/12: no model (every case certified); 1110/13: no model (every case certified); 1279/13: no model (every case certified); 1076/11: no model (every case certified); 1313/11: no model (every case certified)
+  - decision controls agreeing with their known answers: 2 of 2
+  - known models at orders 11-13 satisfying the CNF of their case: 21 of 21
+  - cases run: 1823; UNSAT cases certified by drat-trim: 1821; rejected proofs: 0; UNKNOWN cases: 0
+- **runs:** 1; last 2026-10-20T15:46:04Z (177.089 s), results sha256 `58f9c5b932768094…`, code `experiments/C05/E10_quasigroup_laws_11_14.py`
 
 ### EXP-C05-11: Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones
 
