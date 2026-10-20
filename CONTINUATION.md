@@ -149,7 +149,7 @@ in `reports/PM_PLAN_batch1.1.md`.
   even when the check fails (the pipe's status is `tail`'s); batch 1.2 committed a duplicate YAML key that way
   and fixed it in the next commit. Use `python -m lab check > out; grep -q "check: 0 errors" out && git commit`.
 * **Split a hard search by a structural dichotomy before adding brute force.**
-  The 57 hard cases of law 677 at order 12 all fall within seconds once the
+  The 57 hard cases of law 677 at order 12 all fall (at most 276,023 conflicts each) once the
   table is required to be a Latin square (EXP-C05-13); what is left is the
   non-quasigroup half.
 

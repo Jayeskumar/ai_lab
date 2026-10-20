@@ -310,8 +310,10 @@ exactly:
 *Proof.* Every order $2 \le n \le 7$ was decided again with the same pipeline
 (EXP-C05-12: 78 pairs, 50 gaps with verified proofs, 28 models re-checked, no
 disagreement with the direct search); orders 8–10 are Theorems 6.11 and 6.13
-together with the models found by EXP-C05-03, EXP-C05-07 and the controls of
-EXP-C05-09. ∎
+together with explicit, re-checked models: the linear models of EXP-C05-07, the
+models found by the controls of EXP-C05-09, the Lean certificates of EXP-C05-04
+(among them 883 at order 10) and, for 501 at order 8, the construction of
+Theorem 6.19 (EXP-C05-15). ∎
 
 **Theorem 6.15** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Law 1076
 has no model of order 11 or 12; laws 1110 and 1279 none of order 12 or 13; law
