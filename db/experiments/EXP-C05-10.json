@@ -1,5 +1,6 @@
 {
   "agent": "Formal Verifier",
+  "analysis": "Batch 1.2 - the nine open orders 11-13 of the quasigroup laws have no model: 1076 at 11 and 12, 1110 at 12 and 13, 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12. 1,797 case CNFs, all UNSAT with drat-trim-verified DRAT proofs (206 million proof lines; hardest 812,068 conflicts, 1110 at 13); 0 UNKNOWN, 0 rejected. Controls: models found for 1110 and 1279 at order 11; all 21 known models at orders 11-13 (20 linear models over GF(11), GF(13) and the order-12 product for 1083) satisfy the CNF of their case. H-C05-I confirmed. 1,797 of the 1,823 case results were read from checkpoints written by earlier, interrupted runs of the same pipeline on the same (hash-identical) CNFs; the first decision control, 1083 at order 12, was replaced because its known model lies in case 189 of 195.",
   "assumptions": [
     "as EXP-C05-09; Latin columns by right_mul_bijective_of_law",
     "orders with a linear model over GF(q) (EXP-C05-07) are members and are not re-decided",
@@ -19,12 +20,44 @@
       "event": "created",
       "reason": "first run of experiment script",
       "ts": "2026-10-20T15:46:04Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - the nine open orders 11-13 of the quasigroup laws have no model: 1076 at 11 and 12, 1110 at 12 and 13, 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12. 1,797 case CNFs, all UNSAT with drat-trim-verified DRAT proofs (206 million proof lines; hardest 812,068 conflicts, 1110 at 13); 0 UNKNOWN, 0 rejected. Controls: models found for 1110 and 1279 at order 11; all 21 known models at orders 11-13 (20 linear models over GF(11), GF(13) and the order-12 product for 1083) satisfy the CNF of their case. H-C05-I confirmed. 1,797 of the 1,823 case results were read from checkpoints written by earlier, interrupted runs of the same pipeline on the same (hash-identical) CNFs; the first decision control, 1083 at order 12, was replaced because its known model lies in case 189 of 195.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:51:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:51:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-16"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:51:30Z"
     }
   ],
   "hypothesis": "H-C05-I: the case split decides every pair within 4 million conflicts per case; the decision controls 1110 and 1279 at order 11 have models, and every known model at orders 11-13 satisfies the CNF of its case.",
   "id": "EXP-C05-10",
   "methodology": "Decide each pair with systems.magma_split.decide (cases of Lemma 8 in their fixed order, stop at the first verified model, otherwise every case refuted with a drat-trim-verified DRAT proof); 3 worker processes; per-case checkpoints (EXP_CHECKPOINT). Known-model controls with systems.magma_split.admits.",
   "question": "Do the ETP laws 1076, 1110, 1279, 1286, 1313 - whose finite models are quasigroups - have models of the orders 11-13 that linear models and direct products leave open?",
+  "related": [
+    "CLM-C05-16"
+  ],
   "results_file": "results/EXP-C05-10.json",
   "results_sha256": "58f9c5b93276809494e83a0ce46db980361a0169367e6ef05482d7ff590a01e6",
   "runs": [
@@ -56,5 +89,6 @@
     "known models at orders 11-13 satisfying the CNF of their case: 21 of 21",
     "cases run: 1823; UNSAT cases certified by drat-trim: 1821; rejected proofs: 0; UNKNOWN cases: 0"
   ],
-  "title": "Open orders 11-13 of the quasigroup laws 1076, 1110, 1279, 1286, 1313 (certified case split)"
+  "title": "Open orders 11-13 of the quasigroup laws 1076, 1110, 1279, 1286, 1313 (certified case split)",
+  "verification": "PROVEN"
 }

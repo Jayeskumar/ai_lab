@@ -14,11 +14,11 @@ undecided. The Historian checked first which of these orders anyone has settled.
 
 | id | goal | owner | acceptance criterion | status |
 |---|---|---|---|---|
-| B1 | Decide the 15 open pairs (law, n <= 10) with the general case split, with 13 controls of known answer | Director | EXP-C05-09 recorded; every verdict certified or UNKNOWN; all controls agree | running — 14 of 15 decided (all: no model), 13 of 13 controls agree; 670 at order 10 running |
+| B1 | Decide the 15 open pairs (law, n <= 10) with the general case split, with 13 controls of known answer | Director | EXP-C05-09 recorded; every verdict certified or UNKNOWN; all controls agree | **done** — EXP-C05-09: all 15 pairs have no model (1,239 case CNFs, every proof verified); 13 of 13 controls agree; with EXP-C05-12 (every order n <= 7 re-certified) the spectra up to 10 of all 13 laws are complete (CLM-C05-15, -17) |
 | B2 | Latest state of the literature on these spectra | Historian (agent) | `reviews/historian_spectra_2026.md`; labels updated | **done** — nothing newer than Le Floch's July 2025 notes except for 677 (ETP Zulip): 677 at order 10 was known (Brox, Jan 2025), so CLM-C05-12 is a rediscovery; no source decides any B1/B3 target; 677 at 12 and 14 is open everywhere |
-| B3 | Next orders (11-13) of the quasigroup laws 1076, 1110, 1279, 1286, 1313 | Director | EXP-C05-10 recorded | running — 1076, 1110, 1279, 1313 have no model of order 12 |
-| B4 | Law 677 at order 12 (open in every source; premise of the ETP's last open finite implication) | Director | a certified answer, or the open problem reduced to an explicit list of hard cases | probing — some cases need > 3 million conflicts; next: a cheap triage of all 195 cases, then a finer split of the hard ones |
-| B5 | Record, review (Skeptic spot check), write up | Director, Skeptic | claims, chapter 6, report and README updated | planned |
+| B3 | Next orders (11-13) of the quasigroup laws 1076, 1110, 1279, 1286, 1313 | Director | EXP-C05-10 recorded | **done** — EXP-C05-10: all 9 open pairs have no model (1,797 case CNFs, every proof verified); 2 of 2 decision controls and 21 of 21 known-model checks agree; spectra of the six laws x = y(Sy) complete up to 13 (CLM-C05-16) |
+| B4 | Law 677 at order 12 (open in every source; premise of the ETP's last open finite implication) | Director | a certified answer, or the open problem reduced to an explicit list of hard cases | running — EXP-C05-11 (recorded): 138 of 195 cases refuted, 57 hard (CLM-C05-20); a probe refutes all 57 when the table is also a Latin square, so EXP-C05-13 splits each hard case into its quasigroup and non-quasigroup parts; the non-quasigroup parts are the hard ones |
+| B5 | Record, review (Skeptic spot check), write up | Director, Skeptic | claims, chapter 6, report and README updated | running — claims CLM-C05-15 to -20 recorded, proofs/paper/C05.md Theorems 11, 12, Proposition 13 written |
 
 ## Decisions
 
@@ -27,5 +27,15 @@ undecided. The Historian checked first which of these orders anyone has settled.
 - Laws 1516 and 1719 have another shape (x = (yy)·T); 1516 at order 10 (a caveated "no" on the ETP Zulip, 2024)
   needs a different case split and is not in this batch.
 - A pattern in the data — every law x = y·T here without a model of order 2 has none of orders 6 and 10 either —
-  is recorded as a conjecture (no model of order ≡ 2 mod 4), not as a result. It is false for laws of other
-  shapes: 1719 has no model of order 2 but one of order 6.
+  was first recorded as a general conjecture (no model of order ≡ 2 mod 4 for any law x = y·T without a model of
+  order 2, CLM-C05-18). Checked against the lab's own census the same day, it is false: law 474,
+  x = y(x(y(xy))), has a model of order 6. It is kept as REFUTED, and only the restricted form for the 12 open
+  laws remains a conjecture (CLM-C05-21).
+- The decision control 1083 at order 12 of EXP-C05-10 was replaced after a partial run: the known model (a direct
+  product) lies in case 189 of 195 and the earlier cases need up to 1.6 million conflicts each, about a day in all.
+  It was replaced by a direct check that every known model at orders 11-13 satisfies the CNF of its case
+  (`systems.magma_split.admits`) and by two cheap decision controls (1110 and 1279 at order 11). The targets'
+  results were unaffected (hash-identical CNFs, read back from checkpoints).
+- Law 677 at order 12: since all 57 hard cases are easy for quasigroups, the open question is whether a model of
+  order 12 that is *not* a quasigroup exists. The Historian was asked for structural results on such models
+  (the smallest known has order 55).

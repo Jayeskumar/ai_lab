@@ -1669,3 +1669,21 @@ Batch 1.2 - law 677 at order 12 (open in every source). The cheap pass of EXP-C0
 
 *Evidence:* EXP-C05-11, CLM-C05-20
 
+### [2026-10-20T15:51:30Z] Formal Verifier — result (`C05-21`)
+
+Batch 1.2 - the next open orders of the five quasigroup laws are gaps too: EXP-C05-10 refutes all 1,797 case CNFs of 1076 at 11 and 12, 1110 and 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12 (CLM-C05-16). A new kind of control checks the encoding directly: each of the 21 known models at orders 11-13, relabelled as in Lemma 8, satisfies the CNF of its case (systems.magma_split.admits). The spectra of the six laws x = y*(S*y) are now complete up to 13; for 1076 they are 1, 5, 13.
+
+*Evidence:* EXP-C05-10, CLM-C05-16
+
+### [2026-10-20T15:53:07Z] Formal Verifier — revision (`C05-19#rev1`)
+
+[revision of C05-19] Batch 1.2 (find more) - the case split of EXP-C05-08, generalised to every law x = y*T (systems/magma_split.py, Lean: right_mul_bijective_of_law for the laws x = y*(S*y)), decides all 15 orders n <= 10 that EXP-C05-03 had left UNKNOWN: none has a model (EXP-C05-09; 1,522 drat-trim-verified proofs; 13 of 13 controls agree). With EXP-C05-12, which certifies every order n <= 7 again, the spectra up to 10 of all 13 laws are complete and rest on the lab's own certificates (CLM-C05-17). Pattern: none of these laws without a model of order 2 has one of order 6 or 10; the general conjecture drawn from it (CLM-C05-18) was refuted by the census (law 474) and is kept, restricted to the 12 laws, as CLM-C05-21.
+
+*Evidence:* EXP-C05-09, EXP-C05-12, CLM-C05-15, CLM-C05-17, CLM-C05-18, CLM-C05-19
+
+### [2026-10-20T15:54:12Z] Research Director — rejection (`C05-22`)
+
+H-C05-J (CLM-C05-18) refuted the day it was written: the conjecture 'a law x = y*T without a model of order 2 has none of order 2 mod 4' was drawn from the 12 open laws only. Tested against the lab's own census (EXP-C05-01: 21 laws x = y*T of order <= 4 without a model of order 2), it fails for law 474, x = y(x(y(xy))), which has a model of order 6. Lesson: test a general pattern on all the data at hand before stating it. The restricted form, for the 12 laws, is kept as CLM-C05-21.
+
+*Evidence:* CLM-C05-18, CLM-C05-21, EXP-C05-01
+

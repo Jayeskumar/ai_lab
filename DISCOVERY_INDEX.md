@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-20T15:50:09Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-20T15:54:12Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,17 +8,17 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 142 |
+| PROVEN | 143 |
 | COMPUTATIONALLY SUPPORTED | 37 |
 | CONJECTURE | 5 |
-| REFUTED | 49 |
+| REFUTED | 50 |
 | INCONCLUSIVE | 2 |
 
 | Novelty status | Claims |
 |---|---|
 | REDISCOVERY | 114 |
-| POTENTIALLY NOVEL | 51 |
-| NOT ASSESSED | 70 |
+| POTENTIALLY NOVEL | 52 |
+| NOT ASSESSED | 71 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -68,6 +68,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-13 | Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up … | computer-assisted - the CNFs of the case split of proofs/pa… | POTENTIALLY NOVEL | EXP-C05-08 |
 | CLM-C05-14 | Finite models of law 1313 are quasigroups (Lean) | Lean 4 (complete) - law1313_left_bijective, law1313_right_b… | NOT ASSESSED |  |
 | CLM-C05-15 | Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10 | computer-assisted - every case CNF of the case split of pro… | POTENTIALLY NOVEL | EXP-C05-09 |
+| CLM-C05-16 | Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279… | computer-assisted - every case CNF of Lemma 8 (with Latin c… | POTENTIALLY NOVEL | EXP-C05-10, EXP-C05-07 |
 | CLM-C05-17 | Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T | computer-assisted - every member has an explicit table re-c… | POTENTIALLY NOVEL | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-03, EXP-C05-07 |
 | CLM-C05-19 | Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 107… | Lean 4 (complete) - right_mul_bijective_of_law and left_mul… | REDISCOVERY |  |
 | CLM-C05-20 | Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable | computer-assisted - the other 138 of the 195 case CNFs of L… | POTENTIALLY NOVEL | EXP-C05-11 |
@@ -172,7 +173,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | Claim | Title | Verification | Novelty | Evidence |
 |---|---|---|---|---|
 | CLM-C04-16 | Open: are the rewriting games of aa -> ab (Officers), aaa -> b (0.007) and aaa -> ab (0.0… | CONJECTURE | REDISCOVERY | EXP-C04-08, EXP-C04-09 |
-| CLM-C05-18 | H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) | CONJECTURE | NOT ASSESSED | EXP-C05-12, EXP-C05-09, EXP-C05-08 |
+| CLM-C05-21 | H-C05-J': none of the 12 open ETP laws x = y*T without a model of order 2 has a model of … | CONJECTURE | NOT ASSESSED | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-10 |
 | CLM-C09-05 | The density of circle irreducibles is exactly 1/phi^2 | CONJECTURE | POTENTIALLY NOVEL | EXP-C09-04, EXP-C09-01 |
 | CLM-C12-13 | Subtract-a-Fibonacci-number has bounded Grundy values | CONJECTURE | NOT ASSESSED | EXP-C12-03, EXP-C12-01 |
 | CLM-C15-18 | Bounded streaming width implies a fast-forward | CONJECTURE | NOT ASSESSED | EXP-C15-02, EXP-C15-03 |
@@ -230,6 +231,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C04-11 | H-C04-G (second part): every terminating rule has a rational complexity generating functi… | REFUTED | POTENTIALLY NOVEL | EXP-C04-03, EXP-C04-04 |
 | CLM-C05-13 | Law 1313, x = y(((yx)x)y), has no model of order 8 or 10 (DRAT-certified); its orders up … | PROVEN | POTENTIALLY NOVEL | EXP-C05-08 |
 | CLM-C05-15 | Fifteen new certified spectrum gaps for open ETP laws x = y*T at orders 8-10 | PROVEN | POTENTIALLY NOVEL | EXP-C05-09 |
+| CLM-C05-16 | Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279… | PROVEN | POTENTIALLY NOVEL | EXP-C05-10, EXP-C05-07 |
 | CLM-C05-17 | Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T | PROVEN | POTENTIALLY NOVEL | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-03, EXP-C05-07 |
 | CLM-C05-20 | Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable | PROVEN | POTENTIALLY NOVEL | EXP-C05-11 |
 | CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-03 |
@@ -422,6 +424,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C05-03 | H-C05-Q: nontrivial identities t = x force their finite models to be quasigroups (refuted) | REFUTED | NOT ASSESSED | EXP-C05-01, EXP-C05-02 |
 | CLM-C05-06 | H-C05-A: full spectrum iff affine models over every Z_n (refuted) | REFUTED | NOT ASSESSED | EXP-C05-05, EXP-C05-01 |
 | CLM-C05-09 | Laws 677 and 1313 have spectrum {1} together with all odd n >= 5 (refuted - both have mod… | REFUTED | NOT ASSESSED | EXP-C05-03, EXP-C05-02, EXP-C05-07 |
+| CLM-C05-18 | H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)… | REFUTED | NOT ASSESSED | EXP-C05-01, EXP-C05-12, EXP-C05-09, EXP-C05-08 |
 | CLM-C06-04 | H-C06-2: a restricted anchored spectrum is special to left-distributivity (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-03 |
 | CLM-C06-09 | H-C06-3: anchored spectra are affine spectra (refuted) | REFUTED | POTENTIALLY NOVEL | EXP-C06-04 |
 | CLM-C07-02 | H-C07-1: only nim-sum and nim-product are non-trivially associative (refuted) | REFUTED | NOT ASSESSED | EXP-C07-01 |

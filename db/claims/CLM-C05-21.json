@@ -1,0 +1,29 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-12",
+    "EXP-C05-09",
+    "EXP-C05-08",
+    "EXP-C05-10"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T15:53:07Z"
+    }
+  ],
+  "id": "CLM-C05-21",
+  "limitations": "Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.",
+  "novelty": "NOT ASSESSED",
+  "related": [
+    "CLM-C05-18",
+    "CLM-C05-17"
+  ],
+  "statement": "The laws 467, 501, 670, 677, 704, 907, 1076, 1083, 1110, 1279, 1286 and 1313 have no finite model of any order n = 2 (mod 4).",
+  "system": "SYS-B",
+  "title": "H-C05-J': none of the 12 open ETP laws x = y*T without a model of order 2 has a model of order n = 2 (mod 4)",
+  "type": "conjecture",
+  "verification": "CONJECTURE"
+}

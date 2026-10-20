@@ -1,6 +1,8 @@
 {
+  "counterexample": "ETP law 474, x = y(x(y(xy))), has the form x = y*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n <= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies and a direct evaluation.",
   "cycle": "C05",
   "evidence": [
+    "EXP-C05-01",
     "EXP-C05-12",
     "EXP-C05-09",
     "EXP-C05-08"
@@ -11,18 +13,89 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T15:39:55Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "title",
+      "new": "H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) (refuted)",
+      "old": "H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)",
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "REFUTED",
+      "old": "CONJECTURE",
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "evidence",
+      "new": [
+        "EXP-C05-01",
+        "EXP-C05-12",
+        "EXP-C05-09",
+        "EXP-C05-08"
+      ],
+      "old": [
+        "EXP-C05-12",
+        "EXP-C05-09",
+        "EXP-C05-08"
+      ],
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "counterexample",
+      "new": "ETP law 474, x = y(x(y(xy))), has the form x = y*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n <= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies and a direct evaluation.",
+      "old": null,
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-21",
+        "CLM-C05-17",
+        "CLM-C05-04"
+      ],
+      "old": [
+        "CLM-C05-17",
+        "CLM-C05-04"
+      ],
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "limitations",
+      "new": "The pattern behind the conjecture holds for the 12 open laws of CLM-C05-17 without a model of order 2 (none has a model of order 6 or 10); the general statement was formed from these laws alone and refuted by the lab's own census as soon as it was tested on all 21 laws x = y*T of order <= 4 without a model of order 2. The restricted form is CLM-C05-21.",
+      "old": "Evidence: the 12 laws of CLM-C05-17 without a model of order 2 have none of orders 6 and 10 (whether 1313 has a model of order 14 is undecided); spectra are closed under products, and a product reaches an order 2 (mod 4) only through a factor of order 2; all known linear models of these laws have odd order or order 4, 8, 16, .... No proof. The statement is false for laws of other shapes: 1719, x = (yy)((xx)y), has no model of order 2 but one of order 6 (EXP-C05-03). A possible approach is a parity (sign) argument on the translations, as for law 167 (Theorem 2).",
+      "reason": "Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it",
+      "ts": "2026-10-20T15:53:07Z"
     }
   ],
   "id": "CLM-C05-18",
-  "limitations": "Evidence: the 12 laws of CLM-C05-17 without a model of order 2 have none of orders 6 and 10 (whether 1313 has a model of order 14 is undecided); spectra are closed under products, and a product reaches an order 2 (mod 4) only through a factor of order 2; all known linear models of these laws have odd order or order 4, 8, 16, .... No proof. The statement is false for laws of other shapes: 1719, x = (yy)((xx)y), has no model of order 2 but one of order 6 (EXP-C05-03). A possible approach is a parity (sign) argument on the translations, as for law 167 (Theorem 2).",
+  "limitations": "The pattern behind the conjecture holds for the 12 open laws of CLM-C05-17 without a model of order 2 (none has a model of order 6 or 10); the general statement was formed from these laws alone and refuted by the lab's own census as soon as it was tested on all 21 laws x = y*T of order <= 4 without a model of order 2. The restricted form is CLM-C05-21.",
   "novelty": "NOT ASSESSED",
   "related": [
+    "CLM-C05-21",
     "CLM-C05-17",
     "CLM-C05-04"
   ],
   "statement": "If a law of the form x = y*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).",
   "system": "SYS-B",
-  "title": "H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)",
+  "title": "H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) (refuted)",
   "type": "conjecture",
-  "verification": "CONJECTURE"
+  "verification": "REFUTED"
 }

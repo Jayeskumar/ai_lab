@@ -256,12 +256,16 @@
       "PROVEN",
       "POTENTIALLY NOVEL"
     ],
+    "CLM-C05-16": [
+      "PROVEN",
+      "POTENTIALLY NOVEL"
+    ],
     "CLM-C05-17": [
       "PROVEN",
       "POTENTIALLY NOVEL"
     ],
     "CLM-C05-18": [
-      "CONJECTURE",
+      "REFUTED",
       "NOT ASSESSED"
     ],
     "CLM-C05-19": [
@@ -271,6 +275,10 @@
     "CLM-C05-20": [
       "PROVEN",
       "POTENTIALLY NOVEL"
+    ],
+    "CLM-C05-21": [
+      "CONJECTURE",
+      "NOT ASSESSED"
     ],
     "CLM-C06-01": [
       "PROVEN",
@@ -1141,5 +1149,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-20T15:50:10Z"
+  "updated": "2026-10-20T15:54:13Z"
 }

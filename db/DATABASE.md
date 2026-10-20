@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T15:54:12Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1362,6 +1362,29 @@ _Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; 
 
 - **related:** CLM-C05-08; CLM-C05-17; CLM-C05-18
 
+### CLM-C05-16: Nine new certified spectrum gaps at orders 11-13 for the quasigroup laws 1076, 1110, 1279, 1286, 1313; complete spectra up to 13 for the six laws x = y*(S*y)
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; awaiting independent review
+
+- **novelty:** POTENTIALLY NOVEL
+- **statement:**
+
+  No magma of the stated order satisfies the law: 1076 x = y((x(xy))y) - orders 11, 12; 1110 x = y((y(xx))y) - orders 12, 13; 1279 x = y(((xx)y)y) - orders 12, 13; 1286 x = y(((xy)x)y) - order 12; 1313 x = y(((yx)x)y) - orders 11, 12. Hence the orders n <= 13 with a model are exactly: 1076 {1,5,13}; 1083 {1,3,4,7,8,9,11,12,13}; 1110 {1,4,5,7,8,9,11}; 1279 {1,5,7,8,11}; 1286 {1,7,9,11,13}; 1313 {1,5,7,9,13}.
+
+- **proof:** proofs/paper/C05.md#theorem-12-clm-c05-16--orders-11-to-13-of-the-quasigroup-laws-computer-assisted
+- **evidence:** EXP-C05-10; EXP-C05-07
+- **novelty_basis:**
+
+  No source read states any order >= 11 of these laws as a gap; B. Le Floch's notes list only small orders, and the ETP Zulip archive (to Feb 28, 2026) treats the spectra of 677 and 1516 but not these laws (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
+
+- **related:** CLM-C05-15; CLM-C05-17; CLM-C05-19; CLM-C05-10
+
 ### CLM-C05-17: Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T
 
 - **cycle:** C05
@@ -1385,20 +1408,26 @@ _Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; 
 
 - **related:** CLM-C05-15; CLM-C05-07; CLM-C05-08; CLM-C05-11; CLM-C05-12; CLM-C05-13
 
-### CLM-C05-18: H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4)
+### CLM-C05-18: H-C05-J: a law x = y*T without a model of order 2 has no model of any order n = 2 (mod 4) (refuted)
 
 - **cycle:** C05
 - **type:** conjecture
 - **system:** SYS-B
-- **verification:** CONJECTURE
+- **verification:** REFUTED
 - **novelty:** NOT ASSESSED
 - **statement:** If a law of the form x = y*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).
-- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08
+- **evidence:** EXP-C05-01; EXP-C05-12; EXP-C05-09; EXP-C05-08
+- **counterexample:**
+
+  ETP law 474, x = y(x(y(xy))), has the form x = y*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n <= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies and a direct evaluation.
+
 - **limitations:**
 
-  Evidence: the 12 laws of CLM-C05-17 without a model of order 2 have none of orders 6 and 10 (whether 1313 has a model of order 14 is undecided); spectra are closed under products, and a product reaches an order 2 (mod 4) only through a factor of order 2; all known linear models of these laws have odd order or order 4, 8, 16, .... No proof. The statement is false for laws of other shapes: 1719, x = (yy)((xx)y), has no model of order 2 but one of order 6 (EXP-C05-03). A possible approach is a parity (sign) argument on the translations, as for law 167 (Theorem 2).
+  The pattern behind the conjecture holds for the 12 open laws of CLM-C05-17 without a model of order 2 (none has a model of order 6 or 10); the general statement was formed from these laws alone and refuted by the lab's own census as soon as it was tested on all 21 laws x = y*T of order <= 4 without a model of order 2. The restricted form is CLM-C05-21.
 
-- **related:** CLM-C05-17; CLM-C05-04
+- **related:** CLM-C05-21; CLM-C05-17; CLM-C05-04
+- **status history:**
+  - 2026-10-20T15:53:07Z verification: CONJECTURE → REFUTED (sync:C05; Refuted the same day by the census EXP-C05-01 (law 474), before any write-up used it)
 
 ### CLM-C05-19: Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 1076, 1083, 1110, 1279, 1286, 1313
 
@@ -1443,6 +1472,21 @@ _Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; 
   A reduction, not a decision: whether 677 has a model of order 12 remains open. The 57 remaining CNFs are hard - the first (idempotent, row 0 of cycle type (11, 1)) was undecided after 3 million conflicts in a probe; a finer split is needed.
 
 - **related:** CLM-C05-12; CLM-C05-17
+
+### CLM-C05-21: H-C05-J': none of the 12 open ETP laws x = y*T without a model of order 2 has a model of order n = 2 (mod 4)
+
+- **cycle:** C05
+- **type:** conjecture
+- **system:** SYS-B
+- **verification:** CONJECTURE
+- **novelty:** NOT ASSESSED
+- **statement:** The laws 467, 501, 670, 677, 704, 907, 1076, 1083, 1110, 1279, 1286 and 1313 have no finite model of any order n = 2 (mod 4).
+- **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-10
+- **limitations:**
+
+  Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.
+
+- **related:** CLM-C05-18; CLM-C05-17
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5671,6 +5715,12 @@ _Generated 2026-10-20T15:50:09Z from `db/`. The JSON records are authoritative; 
   - decision controls agreeing with their known answers: 2 of 2
   - known models at orders 11-13 satisfying the CNF of their case: 21 of 21
   - cases run: 1823; UNSAT cases certified by drat-trim: 1821; rejected proofs: 0; UNKNOWN cases: 0
+- **analysis:**
+
+  Batch 1.2 - the nine open orders 11-13 of the quasigroup laws have no model: 1076 at 11 and 12, 1110 at 12 and 13, 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12. 1,797 case CNFs, all UNSAT with drat-trim-verified DRAT proofs (206 million proof lines; hardest 812,068 conflicts, 1110 at 13); 0 UNKNOWN, 0 rejected. Controls: models found for 1110 and 1279 at order 11; all 21 known models at orders 11-13 (20 linear models over GF(11), GF(13) and the order-12 product for 1083) satisfy the CNF of their case. H-C05-I confirmed. 1,797 of the 1,823 case results were read from checkpoints written by earlier, interrupted runs of the same pipeline on the same (hash-identical) CNFs; the first decision control, 1083 at order 12, was replaced because its known model lies in case 189 of 195.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-16
 - **runs:** 1; last 2026-10-20T15:46:04Z (177.089 s), results sha256 `58f9c5b932768094…`, code `experiments/C05/E10_quasigroup_laws_11_14.py`
 
 ### EXP-C05-11: Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones
