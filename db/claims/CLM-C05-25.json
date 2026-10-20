@@ -11,13 +11,22 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts checked; an independent re-decision of 467 at order 12 covered 137 of the 195 cases)",
+      "old": "computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T21:48:14Z"
     }
   ],
   "id": "CLM-C05-25",
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "Not found in the sources read: B. Le Floch's notes give 467 'unknown spectrum containing' its Gaussian-integer orders and 704 'no 9'; B. Gunby-Mann (July 14, 2025) shows both contain every sufficiently large order, without an effective bound; order 12 is not addressed (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).",
   "proof": "proofs/paper/C05.md#theorem-16-clm-c05-25--laws-467-and-704-at-order-12-computer-assisted",
-  "proof_check": "computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; awaiting independent review",
+  "proof_check": "computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts checked; an independent re-decision of 467 at order 12 covered 137 of the 195 cases)",
   "related": [
     "CLM-C05-15",
     "CLM-C05-17",

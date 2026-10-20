@@ -20,9 +20,9 @@
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 214,
+  "experiment_runs": 215,
   "experiments": 121,
-  "generated": "2026-10-20T16:49:54Z",
+  "generated": "2026-10-20T21:48:16Z",
   "lean_files_verified": 23,
   "lean_theorems": 364,
   "novelty": {
@@ -315,24 +315,21 @@
     "written proof": 60
   },
   "proven_not_fully_formal_by_review": {
-    "awaiting independent review": 6,
-    "independently reviewed": 122
+    "independently reviewed": 128
   },
   "skeptic_verdicts": {
-    "claims_with_a_verdict": 233,
+    "claims_with_a_verdict": 235,
     "claims_without_a_verdict": [
       "CLM-C01-09",
       "CLM-C01-10",
       "CLM-C01-11",
       "CLM-C02-11",
-      "CLM-C05-24",
-      "CLM-C05-25",
       "CLM-C08-07",
       "CLM-C08-08"
     ],
     "latest_verdicts": {
       "REFUTED": 2,
-      "UPHELD": 199,
+      "UPHELD": 201,
       "UPHELD WITH CAVEATS": 26,
       "UPHELD WITH CORRECTIONS": 4,
       "refutation UPHELD": 1,

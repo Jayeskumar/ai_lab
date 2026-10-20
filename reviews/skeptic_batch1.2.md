@@ -523,3 +523,89 @@ copied into the repository; copying them to `reviews/skeptic_checks/batch1.2/` w
 ```
 
 **Final runs** (16:39 UTC, HEAD `23b6176`): `python -m lab check` 0 errors and 2 warnings (EXP-C05-13/14 not yet recorded); `python -m pytest -q tests/` 29 passed. My computations used about 25 CPU-minutes, one process at a time.
+
+## 10. Follow-up: EXP-C05-13 and -14
+
+Reviewed at `a567a0c`: `results/EXP-C05-13.json`, `results/EXP-C05-14.json`, C05.md Theorems 15 and 16, and the
+claims CLM-C05-24 and CLM-C05-25. The rules were the same as before: one process at a time, about 10
+CPU-minutes (about 25 minutes of wall-clock time, since my process got roughly half a core), my scripts in
+`skeptic12/` (`qg677.py`, `run_decide.py`, `followup_checks.py`). A clean `lab verify EXP-C05-10` without
+checkpoints was running on the other cores, and I did not run it.
+
+### 10.1 Counts and statements against the JSON
+
+**EXP-C05-13** (15:50–16:47, 3,394 s; no record reused from a checkpoint, 0 of 114).
+* There are 114 part records, one per part for each of the 57 hard cases. Their index set equals EXP-C05-11's
+  57 hard cases.
+* **Quasigroup parts:** 57 of 57 UNSAT, all drat-trim VERIFIED.
+  * At most 276,023 conflicts (index 4, idempotent (8, 3, 1)).
+  * 13,169,219 proof lines, which matches "13.2 million".
+* **Non-quasigroup parts:** 6 UNSAT and VERIFIED.
+  * Indices 60, 83, 107, 113, 145 and 163, all non-idempotent with exactly two fixed points in row 0. They are
+    *all* six hard cases with that property.
+  * 5,404,563 proof lines, which matches "5.4 million"; at most 303,389 conflicts.
+* **Open:** 51 parts UNKNOWN at 1,000,000 conflicts.
+  * 14 idempotent, every one with exactly one fixed point in row 0.
+  * 37 non-idempotent: 22 with no fixed point in row 0 and 15 with one; ℓ ≥ 4 for all of them.
+  * So the structure statement of CLM-C05-24 and Theorem 15 is exactly what the list gives. No model was found.
+* **Hash check against EXP-C05-11.** Before solving, `run()` rebuilds each of the 57 cases with `part=None` and
+  asserts that its SHA-256 equals EXP-C05-11's `hard_cases[*].cnf_sha256` (E13_law677_order12_split.py:56–59).
+  The recorded run ended with `error: None`, so all 57 assertions passed. My own rebuild: 7 of 7 case CNFs
+  (indices 0, 4 and 62 and four random ones) match EXP-C05-11. The 6 part CNFs of indices 0, 4 and 62 match the
+  hashes recorded by EXP-C05-13.
+* **Logic.** Three facts combine:
+  * EXP-C05-11 refutes 138 cases;
+  * the quasigroup / non-quasigroup split is exhaustive (§1(c));
+  * the 57 quasigroup parts are UNSAT.
+
+  Together they give "no quasigroup of order 12 satisfies 677", and "a model of order 12 exists iff one of the 51
+  listed non-quasigroup CNFs is satisfiable". A model with Latin rows that is not a quasigroup is not
+  right-cancellative, so that wording in Theorem 15 is correct too.
+
+**EXP-C05-14** (16:14–16:42, 1,702 s; no record reused from a checkpoint).
+* **467/12:** 195 of 195 UNSAT, all verified; at most 118,325 conflicts; 21,186,005 proof lines.
+* **704/12:** 195 of 195 UNSAT, all verified; at most 679,608 conflicts; 37,216,555 proof lines.
+* That makes 390 CNFs, as claimed.
+* **Controls:** 467/11 and 704/11 each found a verified model in case index 12, idempotent (5, 5, 1). All 24 linear
+  models were admitted by the CNF of their case. My own count of the linear models of the six laws over GF(11) and
+  GF(13): 24, with the same count for every (law, q) as the JSON.
+* **Spectra:** 467 {1, 5, 7, 8, 9, 11, 13} and 704 {1, 5, 7, 8, 11, 13} follow. The orders up to 10 come from
+  CLM-C05-17 (audited in §3.1). Orders 11 and 13 come from linear models; my own GF(11) and GF(13) give them for
+  both laws (§3.1). Order 12 comes from EXP-C05-14.
+
+### 10.2 Independent re-decisions (my encoder, Glucose 4, drat-trim)
+
+For 677 at order 12 I re-decided the quasigroup part of three hard cases with my own encoding:
+* Latin rows and columns;
+* both-direction definitions of the subterm values, and no division clauses;
+* my own row-0 layout and my own fixed-point bounds.
+
+| case (EXP-C05-11 index) | my result | my conflicts | solve s | DRUP proof | lab conflicts (E13) |
+|---|---|---|---|---|---|
+| 0, idempotent (11, 1) | UNSAT | 231,238 | 30.7 | 504,664 lines, VERIFIED (45 s) | 202,354 |
+| 4, idempotent (8, 3, 1), hardest QG part | UNSAT | 259,620 | 35.9 | 564,688 lines, VERIFIED (52 s) | 276,023 |
+| 62, non-idempotent (9, 3)/9, hardest non-idempotent QG part | UNSAT | 21,882 | 1.9 | 77,832 lines, VERIFIED (2 s) | 19,730 |
+
+**467 at order 12: partial.**
+* In my case order, cases 0–136 (137 of 195) were all UNSAT, and drat-trim verified all 137 DRUP proofs
+  (2.66 million conflicts, the largest 592,135 in one case; 6.46 million proof lines).
+* Case 137, non-idempotent λ = (5, 4, 2, 1) with ℓ = 2, was still running after about 11 minutes of wall-clock
+  time, at about half a core. The lab needed 39,931 conflicts for it with CaDiCaL. I stopped the run at the time
+  limit.
+* The remaining 57 cases were not run, so this pair rests on EXP-C05-14.
+
+704/12 was not re-decided: the lab's run took 874 s of solving.
+
+### 10.3 Verdicts
+
+| Claim | Verdict | Reason |
+|---|---|---|
+| CLM-C05-24 (677: no quasigroup model of order 12; a model exists iff one of 51 non-quasigroup CNFs is satisfiable; structure statement) | **UPHELD** | Every count and the structure statement match the JSON. The E13 hash check against EXP-C05-11 is real and passed. The split is exhaustive. Three of the 57 quasigroup parts were re-decided independently with verified proofs: index 0, the hardest quasigroup part (index 4) and the hardest non-idempotent one (index 62). Order 12 itself stays open, as the limitations say. |
+| CLM-C05-25 (467 and 704 have no model of order 12; spectra up to 13) | **UPHELD** (independent check partial) | Every count matches the JSON: 390 of 390 verified, no checkpoint reuse, both controls found models, 24 of 24 linear models admitted. My independent run confirms 137 of the 195 cases of 467/12 with verified proofs and found no model. 704/12 rests on the lab's certified run alone. The spectra up to 13 follow from CLM-C05-17, the linear models over GF(11) and GF(13), and EXP-C05-14. |
+
+Minor points; none affects a verdict:
+* E14_laws_467_704_order12.py:12 still says "case 12 of 139". It is the 0-based index; the paper and record now say
+  "case index 12".
+* Lemma 9′ (C05.md:192 ff.) names Lemma 7″ as a reason the columns may be bijective. `columns_bijective` in fact
+  recognises only T = S∗y, so 704 and 883 get no column clauses (E14 says so). This is harmless: fewer implied
+  clauses, the same answers.

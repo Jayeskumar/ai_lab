@@ -16,11 +16,11 @@ audit log, and refuted hypotheses are preserved alongside proven theorems.
 | | |
 |---|---|
 | research cycles | 20, over five foundational systems (A–E) |
-| experiments | 121 deterministic scripts, 214 recorded runs; all 113 batch-1 experiments re-run in batch 1.1, 112 identical (the 113th fixed) |
+| experiments | 121 deterministic scripts, 215 recorded runs (EXP-C05-10 also re-run without checkpoints, identical); all 113 batch-1 experiments re-run in batch 1.1, 112 identical (the 113th fixed) |
 | claims | 241 — 147 PROVEN, 37 COMPUTATIONALLY SUPPORTED, 5 CONJECTURE, 50 REFUTED, 2 INCONCLUSIVE |
 | novelty | 115 REDISCOVERY, 55 POTENTIALLY NOVEL (not a priority claim), 71 not assessed |
 | formal proofs | 364 Lean 4 + Mathlib theorems in 23 files, standard axioms only |
-| independent review | Skeptic verdicts on 224 of 230 claims; every PROVEN claim that is not fully formal (121) independently reviewed; 2 of the lab's own claims refuted, 1 withdrawn |
+| independent review | Skeptic verdicts on 235 of 241 claims; every PROVEN claim that is not fully formal independently reviewed; 2 of the lab's own claims refuted, 1 withdrawn, 1 self-refuted (CLM-C05-18) |
 | textbook | *Beyond Conventional Mathematics*, version 1.2: 21 chapters in 10 volumes and a generated corrections log (`textbook/build/book.pdf`) |
 
 **Batch 1.1** (a hardening sprint run by the Director as project manager; plan and outcome in

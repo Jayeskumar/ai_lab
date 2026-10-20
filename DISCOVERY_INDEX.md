@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-20T16:52:19Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-20T21:48:46Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 

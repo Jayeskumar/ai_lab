@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T21:48:46Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1371,7 +1371,7 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; upheld with a correction by the independent Skeptic (reviews/skeptic_batch1.2.md: 3 of the 9 pairs re-decided independently; checkpoint provenance to be stated, see EXP-C05-10)
+  computer-assisted - every case CNF of Lemma 8 (with Latin columns by right_mul_bijective_of_law, Lean, and the division clauses of Lemma 9 in both directions) is UNSAT with a DRAT proof from CaDiCaL 1.5.3 that drat-trim verified (EXP-C05-10: 1,797 proofs, 0 UNKNOWN); members at 11, 12, 13 from the linear models of EXP-C05-07 and the product of the models of 1083 of orders 3 and 4; controls agree; upheld with a correction by the independent Skeptic (reviews/skeptic_batch1.2.md: 3 of the 9 pairs re-decided independently; checkpoint provenance), after which a clean re-run of EXP-C05-10 without checkpoints reproduced its result hash exactly
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1551,7 +1551,7 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); awaiting independent review
+  computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts and hashes checked, three quasigroup parts re-decided with an independent encoder and Glucose 4, proofs verified)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:**
@@ -1569,6 +1569,7 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
   Order 12 itself stays open: 51 non-quasigroup CNFs were undecided after 1,000,000 conflicts each, and the hardest survived further probes (with a missing-value split and with implied 'star' clauses). A model of order 12 would be the smallest non-right-cancellative model of 677 known.
 
 - **related:** CLM-C05-20; CLM-C05-12; CLM-C05-14
+- **status history:**
 
 ### CLM-C05-25: Laws 467 and 704 have no model of order 12; their spectra up to order 13 are complete
 
@@ -1578,7 +1579,7 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **proof_check:**
 
-  computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; awaiting independent review
+  computer-assisted - all 390 case CNFs of Lemma 8 (Latin rows, left division clauses) are UNSAT with DRAT proofs from CaDiCaL 1.5.3 verified by drat-trim (EXP-C05-14); members 11 and 13 from the linear models of EXP-C05-07; controls agree; upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts checked; an independent re-decision of 467 at order 12 covered 137 of the 195 cases)
 
 - **novelty:** POTENTIALLY NOVEL
 - **statement:** No magma of order 12 satisfies 467, x = y(x(x(yy))), or 704, x = y(y((xx)y)). Hence the orders n <= 13 with a model are exactly 467 {1,5,7,8,9,11,13} and 704 {1,5,7,8,11,13}.
@@ -1589,6 +1590,7 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
   Not found in the sources read: B. Le Floch's notes give 467 'unknown spectrum containing' its Gaussian-integer orders and 704 'no 9'; B. Gunby-Mann (July 14, 2025) shows both contain every sufficiently large order, without an effective bound; order 12 is not addressed (Historian spectrum audit 2026-10-20, reviews/historian_spectra_2026.md).
 
 - **related:** CLM-C05-15; CLM-C05-17; CLM-C05-23
+- **status history:**
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5819,11 +5821,11 @@ _Generated 2026-10-20T16:52:19Z from `db/`. The JSON records are authoritative; 
   - cases run: 1823; UNSAT cases certified by drat-trim: 1821; rejected proofs: 0; UNKNOWN cases: 0
 - **analysis:**
 
-  Batch 1.2 - the nine open orders 11-13 of the quasigroup laws have no model: 1076 at 11 and 12, 1110 at 12 and 13, 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12. 1,797 case CNFs, all UNSAT with drat-trim-verified DRAT proofs (206 million proof lines; hardest 812,068 conflicts, 1110 at 13); 0 UNKNOWN, 0 rejected. Controls: models found for 1110 and 1279 at order 11; all 21 known models at orders 11-13 (20 linear models over GF(11), GF(13) and the order-12 product for 1083) satisfy the CNF of their case. H-C05-I confirmed. 1,797 of the 1,823 case results were read from checkpoints written by earlier, interrupted runs of the same pipeline on the same (hash-identical) CNFs; the first decision control, 1083 at order 12, was replaced because its known model lies in case 189 of 195.
+  Batch 1.2 - the nine open orders 11-13 of the quasigroup laws have no model: 1076 at 11 and 12, 1110 at 12 and 13, 1279 at 12 and 13, 1286 at 12, 1313 at 11 and 12. 1,797 case CNFs, all UNSAT with drat-trim-verified DRAT proofs (206 million proof lines; hardest 812,068 conflicts, 1110 at 13); 0 UNKNOWN, 0 rejected. Controls: models found for 1110 and 1279 at order 11; all 21 known models at orders 11-13 (20 linear models over GF(11), GF(13) and the order-12 product for 1083) satisfy the CNF of their case. H-C05-I confirmed. 1,797 of the 1,823 case results were read from checkpoints written by earlier, interrupted runs of the same pipeline on the same (hash-identical) CNFs; a clean re-run without checkpoints (python -m lab verify EXP-C05-10, 2026-10-20, 61 minutes) reproduced the result hash exactly. The first decision control, 1083 at order 12, was replaced because its known model lies in the case of index 189 of 195.
 
 - **verification:** PROVEN
 - **related:** CLM-C05-16
-- **runs:** 1; last 2026-10-20T15:46:04Z (177.089 s), results sha256 `58f9c5b932768094…`, code `experiments/C05/E10_quasigroup_laws_11_14.py`
+- **runs:** 2; last 2026-10-20T17:47:58Z (3631.91 s), results sha256 `58f9c5b932768094…`, code `experiments/C05/E10_quasigroup_laws_11_14.py`
 
 ### EXP-C05-11: Law 677 at order 12: certified reduction of the 195 case CNFs to the hard ones
 

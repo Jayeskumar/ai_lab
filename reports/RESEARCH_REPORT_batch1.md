@@ -154,7 +154,7 @@ Theories Project, cycle C05. The plan, the decisions taken on the way and their 
 | PROVEN / COMP. SUPPORTED / CONJECTURE / REFUTED / INCONCLUSIVE | 138 / 37 / 4 / 49 / 2 | 147 / 37 / 5 / 50 / 2 |
 | REDISCOVERY / POTENTIALLY NOVEL / NOT ASSESSED | 109 / 51 / 70 | 115 / 55 / 71 |
 | Lean 4 + Mathlib | 334 theorems in 21 files | 364 theorems in 23 files |
-| experiments / recorded runs | 114 / 205 | 121 / 214 |
+| experiments / recorded runs | 114 / 205 | 121 / 215 |
 
 **What batch 1.2 established.**
 
@@ -202,7 +202,8 @@ Simple sign invariants (of rows, columns, squaring) do not extend the 501 argume
 independent encoder and solver (every proof verified), audited every entry of the spectrum tables, checked the
 proof of Theorem 14 step by step and rebuilt the construction, and found no encoding bug; it upheld every
 claim, two with corrections to their evidence (501 at order 8 had no stored table; EXP-C05-10 had read its
-case results from checkpoints, now re-run clean). The Historian (`reviews/historian_501.md`,
+case results from checkpoints — a clean re-run without them reproduced the result hash exactly), and in a
+follow-up upheld CLM-C05-24 and -25 after re-deciding three quasigroup parts of 677 at order 12 independently. The Historian (`reviews/historian_501.md`,
 `reviews/historian_677_nonqg.md`) found none of the new results in the sources read and corrected the lab's
 statement about the smallest non-right-cancellative model of 677.
 

@@ -10,6 +10,15 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T16:48:30Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "proof_check",
+      "new": "computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts and hashes checked, three quasigroup parts re-decided with an independent encoder and Glucose 4, proofs verified)",
+      "old": "computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); awaiting independent review",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T21:48:14Z"
     }
   ],
   "id": "CLM-C05-24",
@@ -17,7 +26,7 @@
   "novelty": "POTENTIALLY NOVEL",
   "novelty_basis": "No complete or quasigroup-only search of 677 at order 12 is reported in the sources read (reviews/historian_677_nonqg.md, Q4): anti-255 searches at order 12 never terminated (J. Hyun, Oct 30, 2025) and restricted searches covered other classes; the eq677 database has no model of order 12 and calls orders 12 and 14 open. The smallest known non-right-cancellative model has order 25 (M. Reinke, Nov 26, 2025).",
   "proof": "proofs/paper/C05.md#theorem-15-clm-c05-24--law-677-has-no-quasigroup-model-of-order-12-computer-assisted",
-  "proof_check": "computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); awaiting independent review",
+  "proof_check": "computer-assisted - the 138 cases refuted by EXP-C05-11 and, for the other 57 cases of Lemma 8, the quasigroup parts (Latin columns and the column division clauses of Lemma 9') and 6 non-quasigroup parts refuted by EXP-C05-13, every refutation a DRAT proof from CaDiCaL 1.5.3 verified by drat-trim; the split by right cancellation is exhaustive (systems.magma_split.build, tested); upheld by the independent Skeptic (reviews/skeptic_batch1.2.md, section 10: counts and hashes checked, three quasigroup parts re-decided with an independent encoder and Glucose 4, proofs verified)",
   "related": [
     "CLM-C05-20",
     "CLM-C05-12",
