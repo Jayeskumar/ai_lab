@@ -2,12 +2,12 @@
 
 *Generated from the append-only audit log `db/audit_log.jsonl` (`python -m lab catalogue`).*
 
-Every change of a claim's verification status, novelty label, type, improvement status, title, statement or counterexample made after the claim was first recorded: 116 field changes in 92 entries on 81 claims. Changes to the supporting texts (analysis, proof notes, novelty bases, references) are in the audit log but not listed here.
+Every change of a claim's verification status, novelty label, type, improvement status, title, statement or counterexample made after the claim was first recorded: 119 field changes in 94 entries on 83 claims. Changes to the supporting texts (analysis, proof notes, novelty bases, references) are in the audit log but not listed here.
 
 | source of the change | claims affected |
 |---|---|
 | Historian audit | 47 |
-| Skeptic review | 39 |
+| Skeptic review | 41 |
 | research cycle | 2 |
 
 ## C01 — Quantity as the complete invariant of rewriting {.unnumbered}
@@ -57,6 +57,7 @@ Every change of a claim's verification status, novelty label, type, improvement 
 * **CLM-C05-07**, 2026-10-18: title revised (was: New spectrum memberships for open ETP laws: 467, 1286, 1313, 1516 have models of order 9; 677 has models of orders 5, 7, 9); statement revised. *Reason:* no reason recorded
 * **CLM-C05-08**, 2026-10-18: statement revised. *Reason:* no reason recorded
 * **CLM-C05-09**, 2026-10-18: title revised (was: Laws 677 and 1313 have spectrum {1} together with all odd n \>= 5); verification CONJECTURE → REFUTED; counterexample revised. *Reason:* Skeptic review 2026-10-18 (reviews/skeptic\_C05\_C08\_C12.md) - order-16 models refute the conjecture
+* **CLM-C05-13**, 2026-10-20: statement revised. *Reason:* Skeptic review of batch 1.1 (reviews/skeptic\_batch1.1.md, section 2) - upheld with a correction: the gaps 2, 3, 4, 6 are certified by EXP-C05-06, not EXP-C05-03 (solver results only); independent re-decision recorded
 
 ## C06 — Successor-anchored magmas: spectra of composition laws {.unnumbered}
 
@@ -141,6 +142,7 @@ Every change of a claim's verification status, novelty label, type, improvement 
 * **CLM-C17-05**, 2026-10-19: verification COMPUTATIONALLY SUPPORTED → PROVEN; novelty NOT ASSESSED → REDISCOVERY. *Reason:* Batch 1.1 - uniqueness, existence and the reduction to the wrap-around equations Lean-checked (C17\_ForcedTable.lean), so the bounded statement is a computer-assisted proof: COMPUTATIONALLY SUPPORTED -\> PROVEN; Historian audit 2026-10-19: NOT ASSESSED -\> REDISCOVERY
 * **CLM-C17-06**, 2026-10-19: counterexample revised. *Reason:* Skeptic review 2026-10-18 (reviews/skeptic\_C07\_C17\_C20.md, P1) - the second counterexample was an accounting artefact
 * **CLM-C17-07**, 2026-10-19: counterexample revised. *Reason:* Skeptic review 2026-10-18 (reviews/skeptic\_C07\_C17\_C20.md, P2) - counting bug fixed; 43 laws, not 18
+* **CLM-C17-08**, 2026-10-20: title revised (was: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N \<= 4096)); verification COMPUTATIONALLY SUPPORTED → PROVEN. *Reason:* Skeptic review of batch 1.1 (reviews/skeptic\_batch1.1.md, section 1) - the Historian's row-period proof completed and machine-checked (C17\_RowPeriod.lean, conditional on Laver's theorem): COMPUTATIONALLY SUPPORTED -\> PROVEN
 
 ## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes {.unnumbered}
 

@@ -295,11 +295,11 @@ Proof kinds: **Lean** — machine-checked; **Lean + written** — a written proo
 * **CLM-C17-02** (Lean + written), not assessed: Associativity of an anchored magma is decided by one O(n\^2) identity.
 * **CLM-C17-03** (written), rediscovery: The Rajagopalan-Schulman randomised associativity test is one-sided.
 * **CLM-C17-05** (Lean + written), rediscovery: The anchor instance of left-distributivity singles out the Laver tables (every N \<= 4096).
+* **CLM-C17-08** (Lean + written), rediscovery: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; Lean, from Laver's theorem).
 
 **Computationally supported.**
 
 * **CLM-C17-04**, rediscovery: Benchmark - generator and anchor tests versus the exhaustive check.
-* **CLM-C17-08**, rediscovery: For every N, the full anchor instance of left-distributivity has a model iff N is a power of 2 (rediscovery; computational here for N \<= 4096).
 
 ## C18 — Invented operations as mixing primitives: quasigroup string transformations versus standard hashes {.unnumbered}
 

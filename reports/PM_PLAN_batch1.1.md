@@ -57,3 +57,19 @@ research cycle starts.
   their transcripts.
 - CPU: 4 cores are shared by the reproducibility run, the SAT work and the
   agents' checks. Mitigation: `nice`, one heavy job per agent.
+
+## Outcome (2026-10-20)
+
+All seven items are done; the summary with numbers is the section "Batch 1.1" of
+[`RESEARCH_REPORT_batch1.md`](RESEARCH_REPORT_batch1.md). Carried over to batch 2, in the order the
+evidence suggests:
+
+1. Laws 677 and 1313 at orders 12 and 14 (195 and 373 cases per law with the split of EXP-C05-08), and a
+   certified search for finite models of 677 that violate 255 — the ETP's open finite implication.
+2. A Lean proof of Laver's theorem (existence of the Laver tables), which would make CLM-C17-05 and
+   CLM-C17-08 unconditional.
+3. The remaining 60 PROVEN claims with written proofs only, starting with those the textbook builds on.
+4. Rauzy-window computations for C08 and a proof of the Zeckendorf recursion (CLM-C19-05): research items.
+5. For a human: the unread decisive sources (Capocelli 1989, Lakshmanan 1981, Kobayashi–Katsura–Shikishima-Tsuji
+   2001), and the decisions whether to contact P. Klimov about CLM-C16-07 and to submit sequences to the OEIS.
+

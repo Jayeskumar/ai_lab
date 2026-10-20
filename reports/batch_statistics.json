@@ -20,11 +20,11 @@
   },
   "cycles": 20,
   "cycles_complete": 20,
-  "experiment_runs": 204,
+  "experiment_runs": 205,
   "experiments": 114,
-  "generated": "2026-10-19T23:55:54Z",
-  "lean_files_verified": 20,
-  "lean_theorems": 313,
+  "generated": "2026-10-20T02:04:45Z",
+  "lean_files_verified": 21,
+  "lean_theorems": 334,
   "novelty": {
     "NOT ASSESSED": 70,
     "POTENTIALLY NOVEL": 51,
@@ -289,44 +289,36 @@
   ],
   "proven_by_check": {
     "Lean (complete)": 17,
-    "Lean + written or computational parts": 42,
+    "Lean + written or computational parts": 43,
     "computer-assisted": 15,
     "published proof (literature)": 3,
     "written proof": 60
   },
   "proven_not_fully_formal_by_review": {
-    "awaiting independent review": 3,
-    "independently reviewed": 115,
-    "no review recorded": 2
+    "independently reviewed": 121
   },
   "skeptic_verdicts": {
-    "claims_with_a_verdict": 217,
+    "claims_with_a_verdict": 224,
     "claims_without_a_verdict": [
       "CLM-C01-09",
       "CLM-C01-10",
       "CLM-C01-11",
       "CLM-C02-11",
-      "CLM-C05-10",
-      "CLM-C05-11",
-      "CLM-C05-12",
-      "CLM-C05-13",
-      "CLM-C05-14",
       "CLM-C08-07",
-      "CLM-C08-08",
-      "CLM-C17-08",
-      "CLM-C19-15"
+      "CLM-C08-08"
     ],
     "latest_verdicts": {
       "REFUTED": 2,
-      "UPHELD": 188,
-      "UPHELD WITH CAVEATS": 27
+      "UPHELD": 194,
+      "UPHELD WITH CAVEATS": 26,
+      "UPHELD WITH CORRECTIONS": 2
     }
   },
   "verification": {
-    "COMPUTATIONALLY SUPPORTED": 38,
+    "COMPUTATIONALLY SUPPORTED": 37,
     "CONJECTURE": 4,
     "INCONCLUSIVE": 2,
-    "PROVEN": 137,
+    "PROVEN": 138,
     "REFUTED": 49
   }
 }

@@ -8,6 +8,10 @@ database records in `db/claims/` and `db/experiments/`.*
 
 ## Summary
 
+*Update 2026-10-20: the batch 1.1 hardening sprint (next section) changed some of
+these numbers — 230 claims, 138 PROVEN, 334 Lean theorems — and settled two of
+the open problems of section 9.*
+
 Twenty research cycles were run across five foundational systems. They
 produced 113 deterministic experiments (203 recorded runs) and 225 claims:
 131 PROVEN, 39 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED and
@@ -28,6 +32,113 @@ The batch produced no breakthrough. What it did produce:
   systems;
 - a set of honestly negative application results;
 - a reproducible, append-only infrastructure that caught its own mistakes.
+
+## Batch 1.1 — hardening sprint (2026-10-19/20)
+
+After the batch-1 report the Director, acting as project manager, ran a
+sprint that hardened batch 1 instead of starting new cycles. The plan, with
+the reasons for each item and its outcome, is
+[`PM_PLAN_batch1.1.md`](PM_PLAN_batch1.1.md). All numbers in this section are
+read from the database after the sprint; the numbers in sections 1–10 above
+are those of the batch-1 report, kept for the record.
+
+| | batch 1 report | after batch 1.1 |
+|---|---|---|
+| claims | 225 | 230 (new: CLM-C05-11 … -14, CLM-C17-08) |
+| PROVEN / COMP. SUPPORTED / CONJECTURE / REFUTED / INCONCLUSIVE | 131 / 39 / 4 / 49 / 2 | 138 / 37 / 4 / 49 / 2 |
+| REDISCOVERY / POTENTIALLY NOVEL / NOT ASSESSED | 103 / 52 / 70 | 109 / 51 / 70 |
+| PROVEN by kind: Lean complete / Lean + written or computational / computer-assisted / literature / written only | 14 / 36 / 15 / 2 / 64 | 17 / 43 / 15 / 3 / 60 |
+| Lean 4 + Mathlib | 194 theorems in 15 files | 334 theorems in 21 files |
+| experiments / recorded runs | 113 / 203 | 114 / 205 |
+| journal entries | 255 (30 of them duplicate revisions, see item 5) | 239 |
+| PROVEN claims not fully formal with an independent review | 115 of 117 | 121 of 121 |
+| claims with a Skeptic verdict | 217 of 225 | 224 of 230 |
+
+**What the sprint established.**
+
+1. **Laws 677 and 1313 have no models of order 8 or 10** (G4; CLM-C05-11,
+   -12, -13; textbook Theorem 6.11). A complete case split — idempotent or not,
+   then the cycle type of the row of an element with the fewest fixed points
+   (`proofs/paper/C05.md`, Lemma 8) — reduces each question to 45 (n = 8) or
+   97 (n = 10) CNFs. With implied division clauses (Lemma 9) and, for 1313,
+   Latin columns (Lemma 7: finite models of 1313 are quasigroups, proved in
+   Lean), all 284 CNFs are UNSAT, and every DRAT proof — 40.5 million lines —
+   was verified by drat-trim (EXP-C05-08). So both laws have exactly the
+   orders 1, 5, 7, 9 up to 10. Literature: Mace4 already exhausts size 8 for
+   law 677 (ETP paper, §7.3.1), so CLM-C05-11 is a rediscovery with a new
+   certificate; order 10 for 677 and orders 8 and 10 for 1313 were not found
+   in the sources read. Law 677 is the premise of the ETP's last open finite
+   implication, 677 ⇒ 255; there is no counterexample of order 8 or 10.
+2. **Four written proofs are now Lean proofs** (G2): skew-binary counting
+   (CLM-C10-07, now fully formal, including the uniqueness of canonical
+   representations that the paper had cited), the structure of affine spectra
+   (CLM-C13-01, all parts; the infinite case by Gauss's lemma instead of
+   Schur's theorem), the forced anchored table (CLM-C17-05: uniqueness,
+   existence and the reduction to the wrap-around equations for every N), and
+   the arithmetic core of the Zeckendorf deficit bound (CLM-C19-15). Two more
+   Lean files came out of the sprint itself: finite models of law 1313 are
+   quasigroups (CLM-C05-14), and the row-period proof of CLM-C17-08 (item 6).
+3. **The novelty audit of C11–C20** (G1, `reviews/historian_C11_C20.md`)
+   changed four labels and corrected twenty novelty bases:
+   - CLM-C17-05 is a rediscovery, and the all-N statement it left open is
+     published (Biane's refereed survey, footnote 1; Aguilera–Iannella 2026,
+     Prop. 2.5, with Dehornoy's Lemma X.1.7 and Prop. X.1.6) — recorded as
+     CLM-C17-08;
+   - CLM-C11-04 and CLM-C11-09 are partial rediscoveries (T_011 is Capocelli's
+     code C(3), 1989; Fraenkel–Klein 1996);
+   - CLM-C14-07 is a partial rediscovery (Oh–Yoo–Yun 2013 prove part (b));
+   - Klimov (2026) poses as open whether a "UFS-groupoid" can be a
+     quasigroup; CLM-C16-07 answers this positively from order 5 on;
+   - several surveys state Laver's recursion for all q, which is false at
+     N = 3 — the slip the lab corrected in C17, and Biane in his published
+     version. CLM-C06-01 states the published theorem and is now PROVEN
+     (literature).
+4. **Reproducibility** (G3, [`REPRODUCIBILITY_batch1.1.md`](REPRODUCIBILITY_batch1.1.md)):
+   all 113 experiments recorded in batch 1 were re-run with `lab verify --dry`;
+   112 reproduced their result hash exactly. EXP-C19-04 had stored wall-clock
+   benchmark times inside its hashed results, so no re-run could reproduce it;
+   its mathematical results were identical. The times now live under
+   `timings`, the experiment was re-recorded and a second run reproduced the
+   new hash.
+5. **Infrastructure** (G5, G6): `python -m lab check` validates records
+   (duplicate YAML keys rejected), references and proof anchors, the database
+   against the records, every result file's hash, the journal, and flags
+   wall-clock fields inside hashed results. Its first run found five broken
+   proof links and a `sync` bug that had appended the same revision of two
+   journal entries on every run (32 duplicate lines by the time it was found,
+   now removed; the batch-1 journal count of 255 included 30 of them). The
+   textbook has a generated *Corrections log* appendix listing every change of a status, label or
+   statement with its reason. 24 tests, including a regression test for the
+   sync bug.
+6. **Independent review of the sprint** (G7, `reviews/skeptic_batch1.1.md`):
+   nothing was refuted and no gap was found. The Skeptic completed the
+   Historian's row-period argument for CLM-C17-08 and machine-checked it
+   (`C17_RowPeriod.lean`: for every N the full anchor instance has a model iff
+   N is a power of 2, with Laver's theorem as the only hypothesis), so
+   CLM-C17-08 is PROVEN and the literature chain through Dehornoy's book is no
+   longer needed. It rebuilt all 401 CNFs of EXP-C05-08 with matching hashes
+   and re-decided both laws at orders 8 and 10 with its own encoding and a
+   different case split (677 at order 10 twice), every case UNSAT with
+   verified DRAT proofs. It reviewed the two PROVEN claims that had no
+   independent review (CLM-C05-10, CLM-C19-15) and found the new Lean
+   statements faithful. Two corrections: CLM-C05-13 cited the solver run
+   instead of the certified one (EXP-C05-06) for the orders 2, 3, 4, 6, and
+   CLM-C05-10 claimed that every linear model had been re-checked on its full
+   table, while EXP-C05-07 re-checks one per law and order (the Skeptic's
+   computation re-checked all of them).
+
+**Not done, and why.** Rauzy-window computations for C08 and a proof of the
+Zeckendorf recursion (CLM-C19-05) are research, not hardening; orders 12 and
+14 of laws 677 and 1313 are the natural next computation (195 and 373 cases
+per law; the hardest order-10 case of 677 already needed 1.3 million
+conflicts).
+
+**For a human expert** (sources the agents could not read): Capocelli 1989
+and Lakshmanan 1981 (IEEE, blocked) for CLM-C11-04/-09; Kobayashi,
+Katsura and Shikishima-Tsuji, TCS 262 (2001) for CLM-C20-02 and C04;
+Dehornoy, *Braids and Self-Distributivity*, Ch. X for CLM-C17-08. Whether to
+tell P. Klimov that CLM-C16-07 answers his Problems 7.3–7.5, and whether to
+submit sequences to the OEIS, are human decisions.
 
 ## 1. Number of experiments performed
 
@@ -289,7 +400,9 @@ The open claims are listed in the textbook's Volume 10 and in `REPORT_DATA.md`
    case.
 2. **The anchored left-distributive instance** (CLM-C17-05): prove that the
    forced table fails at every N that is not a power of 2. This would give an
-   O(N²) test for left-distributivity of anchored tables.
+   O(N²) test for left-distributivity of anchored tables. *Settled in batch 1.1:
+   published (Biane; Aguilera–Iannella) and proved in Lean from Laver's theorem
+   (CLM-C17-08).*
 3. **Circle products** (C08):
    - exact associativity thresholds — only lower bounds are certified
      (CLM-C08-08);
@@ -298,7 +411,8 @@ The open claims are listed in the textbook's Volume 10 and in `REPORT_DATA.md`
    - all three need exact computations of the fractal windows.
 4. **Density of circle irreducibles** (CLM-C09-05).
 5. **Spectra of ETP laws 677 and 1313**: the even orders 8–14 and the odd
-   orders without linear models (17, 23, 29 for 677).
+   orders without linear models (17, 23, 29 for 677). *Batch 1.1: orders 8 and
+   10 excluded for both laws (CLM-C05-11 … -13); 12 and 14 remain.*
 6. **The longest Zeckendorf game**: prove the recursion CLM-C19-05 and the
    bound CLM-C19-09.
 7. **Full-period quasigroups for all n ≥ 5** (CLM-C16-10), and the affine
@@ -323,14 +437,15 @@ Ranked by expected value per unit of effort:
    - the C09 window obstruction.
 
    64 PROVEN claims rest on written proofs alone, and each was reviewed by
-   one agent at most.
+   one agent at most. *(Batch 1.1 formalised four more theorems; 60 remain.)*
 2. **Replace threshold searches by window computations** (C08). Computing the
    greedy windows (Rauzy-type fractals) exactly would settle CLM-C08-02, -04
    and -08 at once.
 3. **Prove the anchored-LD conjecture** (CLM-C17-05). The forced-table
-   structure is fully explicit.
+   structure is fully explicit. *(Done in batch 1.1, CLM-C17-08; what remains is
+   a Lean proof of Laver's theorem itself.)*
 4. **ETP spectra** (C05): decide 677 and 1313 at orders 8–14 with stronger
-   symmetry breaking and certify; study which laws admit linear models over
+   symmetry breaking and certify (orders 8 and 10 done in batch 1.1); study which laws admit linear models over
    GF(2^k).
 5. **Zeckendorf game** (C19): prove the recursion. Generalise the lazy-phase
    theorem to the generalised Zeckendorf games.
@@ -352,7 +467,7 @@ Ranked by expected value per unit of effort:
   reviews did catch real errors (§5, §8, §9). But two instances of one model
   can share a blind spot.
 - **Written proofs.** 64 PROVEN claims rest on written proofs only, and 36
-  have formal cores with written parts. "PROVEN" means a proof was written
+  have formal cores with written parts (after batch 1.1: 60 and 43). "PROVEN" means a proof was written
   and, in most cases, checked once by an independent agent. It does not mean
   peer-reviewed.
 - **Searches are not proofs.** Every COMPUTATIONALLY SUPPORTED claim states
@@ -370,16 +485,17 @@ Ranked by expected value per unit of effort:
 
 | deliverable | location |
 |---|---|
-| research journal (append-only, 255 entries) | `journal/JOURNAL.md`, `journal/entries.jsonl` |
+| research journal (append-only; 239 entries after batch 1.1, which removed 32 duplicate lines written by a sync bug) | `journal/JOURNAL.md`, `journal/entries.jsonl` |
 | discovery database and audit log | `db/claims/`, `db/experiments/`, `db/audit_log.jsonl`, `db/DATABASE.md`, `DISCOVERY_INDEX.md` |
 | research cycles (ten-step reports + machine-readable records) | `research/cycles/*/README.md`, `record.yaml` |
-| reproducible code | `systems/` (mathematical systems), `experiments/` (113 scripts), `lab/` (infrastructure) |
+| reproducible code | `systems/` (mathematical systems), `experiments/` (114 scripts), `lab/` (infrastructure, incl. `python -m lab check`) |
 | raw results and benchmarks | `results/EXP-*.json` |
-| proofs | `proofs/lean/Infinity/*.lean` (194 theorems), `proofs/lean_results.json`, `proofs/paper/C01.md … C20.md` |
+| proofs | `proofs/lean/Infinity/*.lean` (334 theorems after batch 1.1), `proofs/lean_results.json`, `proofs/paper/C01.md … C20.md` |
 | independent reviews and their check code | `reviews/skeptic_*.md`, `reviews/historian_*.md`, `reviews/*_checks/` |
-| textbook *Beyond Conventional Mathematics*, version 1 | `textbook/build/book.pdf` (120 pages), `book.html`; sources `textbook/src/`; 21 chapters in 10 volumes |
+| textbook *Beyond Conventional Mathematics*, version 1.1 | `textbook/build/book.pdf` (129 pages), `book.html`; sources `textbook/src/`; 21 chapters in 10 volumes and a generated corrections log |
 | statistics and tables for this report | `reports/batch_statistics.json`, `reports/REPORT_DATA.md` |
 | continuation instructions | `CONTINUATION.md`, `checkpoints/state.json` |
+| batch 1.1 sprint plan and reproducibility audit | `reports/PM_PLAN_batch1.1.md`, `reports/REPRODUCIBILITY_batch1.1.md` |
 
 ## Key literature consulted
 
@@ -396,7 +512,17 @@ Ranked by expected value per unit of effort:
 - Zeckendorf games: [arXiv:2009.09510](https://arxiv.org/abs/2009.09510),
   [arXiv:2210.11038](https://arxiv.org/abs/2210.11038), Cusenza et al.,
   [Fibonacci Quarterly 60](https://www.mathstat.dal.ca/FQ/Abstracts/60-1/cusenza.pdf).
-- Laver tables: [arXiv:1810.00548](https://arxiv.org/pdf/1810.00548).
+- Laver tables: P. Biane, *Laver tables and combinatorics*,
+  [Sém. Lothar. Combin. 80 (2019) B80c](https://www.mat.univie.ac.at/~slc/wpapers/s80biane.pdf)
+  (its arXiv v1, [arXiv:1810.00548](https://arxiv.org/pdf/1810.00548), states the recursion for all q);
+  J. P. Aguilera, M. Iannella, *Non-dyadic Laver algebras*, [arXiv:2610.06106](https://arxiv.org/abs/2610.06106).
+- Batch 1.1 audit sources: the ETP blueprint chapter on
+  [equation 677](https://teorth.github.io/equational_theories/blueprint/677-chapter.html);
+  S. Oh, H. Yoo, T. Yun, [arXiv:1108.6143](https://arxiv.org/abs/1108.6143);
+  M. J. de C. Lima, V. C. da Rocha Jr., [JCIS 2013](https://jcis.sbrt.org.br/jcis/article/download/17/11/127);
+  A. S. Fraenkel, S. T. Klein, [robust universal codes](https://u.cs.biu.ac.il/~tomi/Postscripts/robust.pdf);
+  C. Dürr, I. Rapaport, G. Theyssier, [arXiv:cs/0210008](https://arxiv.org/abs/cs/0210008);
+  P. Klimov, [arXiv:2604.05754](https://arxiv.org/abs/2604.05754).
 - One-rule string rewriting survey: [arXiv:2608.19397](https://arxiv.org/pdf/2608.19397).
 - drat-trim proof checker: [source](https://raw.githubusercontent.com/marijnheule/drat-trim/master/drat-trim.c).
 

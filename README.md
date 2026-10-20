@@ -11,17 +11,25 @@ Everything is reproducible and append-only: experiments are deterministic
 scripts with hashed results, every change to a claim's status is kept in an
 audit log, and refuted hypotheses are preserved alongside proven theorems.
 
-## Batch 1 at a glance (cycles C01–C20)
+## At a glance (cycles C01–C20, after the batch 1.1 sprint)
 
 | | |
 |---|---|
 | research cycles | 20, over five foundational systems (A–E) |
-| experiments | 113 deterministic scripts, 203 recorded runs |
-| claims | 225 — 131 PROVEN, 39 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED, 2 INCONCLUSIVE |
-| novelty | 103 REDISCOVERY, 52 POTENTIALLY NOVEL (not a priority claim), 70 not assessed |
-| formal proofs | 194 Lean 4 + Mathlib theorems in 15 files, standard axioms only |
-| independent review | Skeptic verdicts on 217 of 225 claims; 2 of the lab's own claims refuted, 1 withdrawn, 1 novelty downgraded, 3 code bugs fixed |
-| textbook | *Beyond Conventional Mathematics*, version 1: 21 chapters in 10 volumes (`textbook/build/book.pdf`) |
+| experiments | 114 deterministic scripts, 205 recorded runs; all 113 batch-1 experiments re-run in batch 1.1, 112 identical (the 113th fixed) |
+| claims | 230 — 138 PROVEN, 37 COMPUTATIONALLY SUPPORTED, 4 CONJECTURE, 49 REFUTED, 2 INCONCLUSIVE |
+| novelty | 109 REDISCOVERY, 51 POTENTIALLY NOVEL (not a priority claim), 70 not assessed |
+| formal proofs | 334 Lean 4 + Mathlib theorems in 21 files, standard axioms only |
+| independent review | Skeptic verdicts on 224 of 230 claims; every PROVEN claim that is not fully formal (121) independently reviewed; 2 of the lab's own claims refuted, 1 withdrawn |
+| textbook | *Beyond Conventional Mathematics*, version 1.1: 21 chapters in 10 volumes and a generated corrections log (`textbook/build/book.pdf`) |
+
+**Batch 1.1** (a hardening sprint run by the Director as project manager; plan and outcome in
+[`reports/PM_PLAN_batch1.1.md`](reports/PM_PLAN_batch1.1.md)) decided the two open orders of ETP laws
+677 and 1313 — no models of order 8 or 10, every case certified by drat-trim — formalised four batch-1
+proofs in Lean, completed and machine-checked a proof that the anchored left-distributive instance has a model only at
+powers of 2 (CLM-C17-08, a rediscovery), audited the novelty of C11–C20 (four relabelled rediscoveries), re-ran
+every experiment ([`reports/REPRODUCIBILITY_batch1.1.md`](reports/REPRODUCIBILITY_batch1.1.md)), and added
+`python -m lab check`, which found and fixed five broken proof links and a journal-duplication bug.
 
 The full report, with the ten required items and an honest list of
 limitations, is [`reports/RESEARCH_REPORT_batch1.md`](reports/RESEARCH_REPORT_batch1.md).
