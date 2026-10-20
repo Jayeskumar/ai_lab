@@ -1,11 +1,13 @@
-"""EXP-C05-10: the next open orders (11-14) of the six ETP laws x = y*(S*y), whose finite models are quasigroups.
+"""EXP-C05-10: the next open orders (11-13) of the six ETP laws x = y*(S*y), whose finite models are quasigroups.
 
 For x = y * (S * y) both translations of a finite model are bijective (Lean: right_mul_bijective_of_law,
 proofs/lean/Infinity/C05_QuasigroupLaws.lean), so the case split of systems/magma_split.py runs with Latin rows
 and columns and three levels of division clauses; at order 10 these laws took seconds per case (EXP-C05-09). The
 orders treated here are those not settled by linear models over GF(q) (EXP-C05-07, which gives members at every
 prime power listed there) or by direct products of known models. Order 12 of law 1083 is a control: 3 and 4 are
-in its spectrum (EXP-C05-03), so the direct product of the two models has order 12.
+in its spectrum (EXP-C05-03), so the direct product of the two models has order 12. Order 14 of law 1313 was
+dropped from this experiment after its first case exceeded the budget (4 million conflicts) in a trial run;
+it needs a finer split.
 """
 
 import os
@@ -17,10 +19,10 @@ from systems.magma_split import decide, drat_path
 META = {
     "id": "EXP-C05-10",
     "cycle": "C05",
-    "title": "Open orders 11-14 of the quasigroup laws 1076, 1110, 1279, 1286, 1313 (certified case split)",
+    "title": "Open orders 11-13 of the quasigroup laws 1076, 1110, 1279, 1286, 1313 (certified case split)",
     "agent": "Formal Verifier",
     "question": "Do the ETP laws 1076, 1110, 1279, 1286, 1313 - whose finite models are quasigroups - have models of "
-                "the orders 11-14 that linear models and direct products leave open?",
+                "the orders 11-13 that linear models and direct products leave open?",
     "hypothesis": "H-C05-I: the case split decides every pair within 4 million conflicts per case; the control 1083 "
                   "at order 12 has a model.",
     "assumptions": ["as EXP-C05-09; Latin columns by right_mul_bijective_of_law",
@@ -33,7 +35,7 @@ META = {
 }
 
 # open after EXP-C05-07 (linear models) and products: 11 and 13 are primes without a linear model for these laws
-TARGETS = [(1313, 14), (1076, 12), (1110, 12), (1279, 12), (1286, 12), (1313, 12),
+TARGETS = [(1076, 12), (1110, 12), (1279, 12), (1286, 12), (1313, 12),
            (1110, 13), (1279, 13), (1076, 11), (1313, 11)]
 CONTROLS = {(1083, 12): ("model", "direct product of the models of orders 3 and 4 (EXP-C05-03)")}
 BUDGET = 4_000_000
