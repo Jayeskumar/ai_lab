@@ -55,7 +55,7 @@ laws fall into 15 patterns:
 | 1000101? | 4 | $x = y(x((yx)y))$ (677), $x = y(((yx)x)y)$ (1313) | open; up to 10 exactly the orders 1, 5, 7, 9 (Theorem 6.11), and 16 occurs (Theorem 6.10), so Conjecture 6.6 is refuted; 1313 up to 13: 1, 5, 7, 9, 13 (Theorem 6.15) |
 | 10001000 | 2 | $x = y((x(xy))y)$ (1076) | open; up to 13 exactly 1, 5, 13 (Theorem 6.15) |
 | 1010001? | 2 | $x = y((yx)(xy))$ (907) | open; up to 10 exactly 1, 3, 7, 9 (Theorem 6.14); 13 occurs |
-| 10011001 | 2 | $x = y(y(x(xy)))$ (501) | open; up to 10 exactly 1, 4, 5, 8, 9 |
+| 10011001 | 2 | $x = y(y(x(xy)))$ (501) | exactly $n \equiv 0, 1 \pmod 4$ (Theorem 6.19) |
 | 10011011 | 2 | $x = y((y(xx))y)$ (1110) | open; up to 13 exactly 1, 4, 5, 7, 8, 9, 11 |
 | 100110?? | 2 | $x = y(x((xy)y))$ (670) | open; up to 10 exactly 1, 4, 5, 9 |
 | 10110011 | 2 | $x = y((x(yx))y)$ (1083) | open; up to 13 exactly 1, 3, 4, 7, 8, 9, 11, 12, 13 |
@@ -353,6 +353,10 @@ statement about twelve laws, on thin evidence:
 907, 1076, 1083, 1110, 1279, 1286 and 1313 has a model of order
 $n \equiv 2 \pmod 4$.
 
+For law 501 this is now a theorem — its spectrum is exactly the orders
+$n \equiv 0, 1 \pmod 4$ (Theorem 6.19 below) — so the open part concerns the
+other eleven laws.
+
 **Proposition 6.18** *[PROVEN — computer-assisted; POTENTIALLY NOVEL]*. Law 677
 has a model of order 12 if and only if one of 57 explicit case formulas is
 satisfiable. In particular such a model, if it exists, either is idempotent with
@@ -364,6 +368,50 @@ $a$ in a cycle of length at least 4.
 verified proof (10.5 million proof lines). ∎ This decides nothing about order
 12, which is open in every source we found; it is the starting point of the
 next step.
+
+### A complete spectrum: law 501
+
+Probing the open orders 11–13 of the laws that are not forced to be
+quasigroups, the case split found a model of law 501,
+$x = y(y(x(xy)))$, of order 12 — an order that no product of known orders
+gives. The model explained itself. Write $x \square y = x(xy)$. Law 501 says
+precisely that $y \square (x \square y) = x$, the *semi-symmetric* law (ETP
+law 14), and the row of $x$ in $\square$ is the square $L_x^2$ of the row of $x$
+in the model.
+
+**Theorem 6.19** *[PROVEN — written proof, computer-checked for $n \le 100$;
+novelty under review]*. Law 501 has a model of order $n$ if and only if
+$n \equiv 0$ or $1 \pmod 4$.
+
+*Proof.* Necessity: in a finite semi-symmetric quasigroup the right
+translations are the inverses of the left ones, and with $z = x \square y$ one
+also has $z \square x = y$, so the map $\Phi(x, y) = (y, x \square y)$ of
+$M \times M$ has order 3 and is an even permutation. Writing
+$\Phi = \tau \circ P$ with $P(x, y) = (x \square y, y)$ and the coordinate swap
+$\tau$, whose sign is $(-1)^{n(n-1)/2}$, gives
+$\prod_y \operatorname{sgn} L^{\square}_y = (-1)^{n(n-1)/2}$. In a model of 501
+every $L^{\square}_y = L_y^2$ is even, so $n(n-1)/2$ is even.
+Sufficiency: on an abelian group of order $n$ the operation
+$x \square y = -x - y$ is semi-symmetric, and each translation
+$y \mapsto -x - y$ is an involution; on $\mathbb{Z}_n$ for $n \equiv 1 \pmod 4$
+and on $\mathbb{Z}_2 \times \mathbb{Z}_2 \times \mathbb{Z}_{n/4}$ for
+$n \equiv 0 \pmod 4$ it has an even number of 2-cycles, hence a square root
+$\sigma_x$ (pair the 2-cycles into 4-cycles), and $x \star y = \sigma_x(y)$ is a
+model. The details are Theorem 14 of `proofs/paper/C05.md`; EXP-C05-15 builds
+the models for every admissible $n \le 100$ and checks them. ∎
+
+So law 501, listed in the ETP notes with "unknown spectrum containing 1, 4, 5,
+8, 9", has the same spectrum as law 167 (Theorem 6.2), for a different reason:
+there the obstruction was a fixed-point-free involution on pairs, here it is
+the sign of a permutation of order 3. The certified gaps of 501 at 2, 3, 6, 7
+and 10 are instances, and order 11, which our probes could not settle, is
+settled by the theorem.
+
+**Lemma 6.20** *[PROVEN — Lean: `law883_right_bijective`,
+`law704_right_bijective`]*. The finite models of laws 704,
+$x = y(y((xx)y))$, and 883, $x = y((xy)(yy))$, are quasigroups. *Proof.* In
+883, $x$ is determined by $xy$; in 704, $x$ is determined by $xx$ (so squaring
+is a bijection) and by $(xx)y$. ∎
 
 ## Experiments
 
@@ -381,6 +429,7 @@ next step.
 | EXP-C05-10 | orders 11–13 of the quasigroup laws (version 1.2) | 9 of 9 pairs without a model; 1,797 case CNFs, all proofs verified; 21 of 21 known models admitted (Theorem 6.15) |
 | EXP-C05-11 | law 677 at order 12 (version 1.2) | 138 of 195 case CNFs refuted with verified proofs, 57 undecided (Proposition 6.18) |
 | EXP-C05-12 | every order $n \le 7$ of the 13 laws, again with certificates (version 1.2) | 78 pairs, 0 disagreements; 50 gaps certified (Theorem 6.14) |
+| EXP-C05-15 | law 501: the construction for $n \le 100$, the sign identity, a model of order 12 (version 1.2) | 50 of 50 models valid; 39 of 39 samples; model found (Theorem 6.19) |
 
 ## Comparison with existing mathematics
 
