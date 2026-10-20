@@ -280,6 +280,14 @@
       "CONJECTURE",
       "NOT ASSESSED"
     ],
+    "CLM-C05-22": [
+      "PROVEN",
+      "NOT ASSESSED"
+    ],
+    "CLM-C05-23": [
+      "PROVEN",
+      "REDISCOVERY"
+    ],
     "CLM-C06-01": [
       "PROVEN",
       "REDISCOVERY"
@@ -1014,6 +1022,7 @@
     "EXP-C05-10": "58f9c5b93276809494e83a0ce46db980361a0169367e6ef05482d7ff590a01e6",
     "EXP-C05-11": "44dcc4b069f9586caec5649edaaf1360cf81acdb5b05b2f349bd8ccc95f18c8d",
     "EXP-C05-12": "a9b4e9e2d5a54f4a6eb97fa02ee869ca0d6ff049bc2d0964106f4a84a5f282a5",
+    "EXP-C05-15": "fa1e4f79096a02105a7ce2c1136ffd2aebb1fc1a3537d9128de5f94d87f74048",
     "EXP-C06-01": "9a343d0263e25062857ae0dd86565c15833568b462dac9512e40b0c47bfd7247",
     "EXP-C06-02": "b78c9dca41e89a8e572c52e999be1121bfd8286a78c241c44897422b8b0f93f8",
     "EXP-C06-03": "600036cb0b6a407141af975ccb520c58a061428cf17479294c15fec8437da968",
@@ -1149,5 +1158,5 @@
     "C20: derivational complexity of all terminating barren one-rule systems with |l| <= 4 - is it always n - O(1), polynomial or 2^Theta(n)?",
     "C20: formalise Theorems 1-2 of proofs/paper/C20.md in Lean (run encoding + journeys)"
   ],
-  "updated": "2026-10-20T16:05:20Z"
+  "updated": "2026-10-20T16:17:47Z"
 }

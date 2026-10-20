@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T16:05:19Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:17:46Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1485,9 +1485,53 @@ _Generated 2026-10-20T16:05:19Z from `db/`. The JSON records are authoritative; 
 - **evidence:** EXP-C05-12; EXP-C05-09; EXP-C05-08; EXP-C05-10
 - **limitations:**
 
-  Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.
+  Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.
 
 - **related:** CLM-C05-18; CLM-C05-17
+- **status history:**
+
+### CLM-C05-22: The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:**
+
+  written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review
+
+- **novelty:** NOT ASSESSED
+- **statement:**
+
+  A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).
+
+- **proof:** proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4
+- **evidence:** EXP-C05-15; EXP-C05-09; EXP-C05-12; EXP-C05-06
+- **novelty_basis:**
+
+  Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).
+
+- **related:** CLM-C05-21; CLM-C05-17; CLM-C05-15; CLM-C05-08; CLM-C05-04
+
+### CLM-C05-23: Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection
+
+- **cycle:** C05
+- **type:** theorem
+- **system:** SYS-B
+- **verification:** PROVEN
+- **proof_check:** Lean 4 (complete) - law883_right_bijective, law704_square_bijective, law704_right_bijective (proofs/lean/Infinity/C05_QuasigroupLaws.lean, standard axioms only)
+- **novelty:** REDISCOVERY
+- **statement:**
+
+  In a finite magma satisfying x = y(y((xx)y)) (704), the squaring map x -> xx and every right translation are bijections; in a finite magma satisfying x = y((xy)(yy)) (883), every right translation is a bijection. With the left translations (bijective for every law x = y*T), the Cayley table is a Latin square in both cases.
+
+- **proof:** proofs/paper/C05.md#lemma-7--laws-704-and-883-have-only-quasigroup-models-lean
+- **lean:** proofs/lean/Infinity/C05_QuasigroupLaws.lean
+- **novelty_basis:**
+
+  Partial - the ETP commentary states that squaring is injective for 704 (reviews/historian_spectra_2026.md, section 6); quasigroup forcing for 704 and 883 was not found in the sources read, but the arguments are two lines long and probably known to ETP contributors.
+
+- **related:** CLM-C05-19; CLM-C05-17
 
 ### CLM-C06-01: Left-distributivity with a successor anchor: the Laver tables (rediscovery)
 
@@ -5764,6 +5808,31 @@ _Generated 2026-10-20T16:05:19Z from `db/`. The JSON records are authoritative; 
 - **verification:** PROVEN
 - **related:** CLM-C05-17
 - **runs:** 1; last 2026-10-20T15:26:37Z (78.406 s), results sha256 `a9b4e9e2d5a54f4a…`, code `experiments/C05/E12_small_orders_certified.py`
+
+### EXP-C05-15: Law 501, x = y(y(x(xy))): the spectrum is exactly the n = 0, 1 (mod 4)
+
+- **cycle:** C05
+- **agent:** Mathematical Explorer
+- **question:** Is the spectrum of ETP law 501 exactly {n : n = 0, 1 (mod 4)}, as the parity argument and the group construction of Theorem 14 (proofs/paper/C05.md) say?
+- **hypothesis:**
+
+  H-C05-M: every n = 0, 1 (mod 4) up to 100 has a model built by the construction; every order already certified as a gap is = 2, 3 (mod 4); the sign identity holds on every sampled semi-symmetric quasigroup.
+
+- **assumptions:** the written proof of Theorem 14 (proofs/paper/C05.md) for all n; this experiment checks n <= 100; semi-symmetric quasigroups sampled: the first 6 models found by CaDiCaL for each n = 3..9, blocking each one found
+- **methodology:** Exact arithmetic on Cayley tables; SAT (CaDiCaL 1.5.3) for the sample and for the order-12 model of the case split; every table re-checked with systems.magma.satisfies.
+- **falsification:** A table of the construction failing the law, a certified gap at an order = 0, 1 (mod 4), or a semi-symmetric quasigroup violating the sign identity.
+- **summary:**
+  - construction: 50 of 50 orders n = 0, 1 (mod 4), n <= 100, give a model of law 501
+  - sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2): holds on 39 of 39 sampled semi-symmetric quasigroups (n = 3..9)
+  - order 12 by the case split: SAT, verified True, idempotent True
+  - certified orders (EXP-C05-09, -12): {2: 'gap', 3: 'gap', 4: 'model', 5: 'model', 6: 'gap', 7: 'gap', 9: 'model', 10: 'gap'}; disagreements with n = 0, 1 (mod 4): []
+- **analysis:**
+
+  Batch 1.2 - law 501. The construction of Theorem 14 (proofs/paper/C05.md) gives a model for every n = 0, 1 (mod 4) up to 100 (50 of 50 tables satisfy the law); the sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2) holds on all 39 semi-symmetric quasigroups of orders 3-9 that the SAT search enumerated; the case split finds a model of order 12 in its first case (idempotent, not a quasigroup); every certified order of 501 (gaps 2, 3, 6, 7, 10; members 4, 5, 9) agrees with n = 0, 1 (mod 4). H-C05-M confirmed. The model of order 12 was first seen in an exploratory probe of the open orders 11-13.
+
+- **verification:** PROVEN
+- **related:** CLM-C05-22
+- **runs:** 1; last 2026-10-20T16:16:04Z (9.149 s), results sha256 `fa1e4f79096a0210…`, code `experiments/C05/E15_law501_spectrum.py`
 
 ### EXP-C06-01: Laver tables: construction, left-distributivity and periods
 

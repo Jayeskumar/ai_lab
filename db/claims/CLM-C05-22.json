@@ -1,0 +1,34 @@
+{
+  "cycle": "C05",
+  "evidence": [
+    "EXP-C05-15",
+    "EXP-C05-09",
+    "EXP-C05-12",
+    "EXP-C05-06"
+  ],
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
+    }
+  ],
+  "id": "CLM-C05-22",
+  "novelty": "NOT ASSESSED",
+  "novelty_basis": "Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md).",
+  "proof": "proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4",
+  "proof_check": "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review",
+  "related": [
+    "CLM-C05-21",
+    "CLM-C05-17",
+    "CLM-C05-15",
+    "CLM-C05-08",
+    "CLM-C05-04"
+  ],
+  "statement": "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y).",
+  "system": "SYS-B",
+  "title": "The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

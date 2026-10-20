@@ -12,10 +12,19 @@
       "event": "created",
       "reason": "cycle record sync",
       "ts": "2026-10-20T15:53:07Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "limitations",
+      "new": "Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.",
+      "old": "Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
     }
   ],
   "id": "CLM-C05-21",
-  "limitations": "Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.",
+  "limitations": "Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding.",
   "novelty": "NOT ASSESSED",
   "related": [
     "CLM-C05-18",

@@ -1,0 +1,93 @@
+{
+  "agent": "Mathematical Explorer",
+  "analysis": "Batch 1.2 - law 501. The construction of Theorem 14 (proofs/paper/C05.md) gives a model for every n = 0, 1 (mod 4) up to 100 (50 of 50 tables satisfy the law); the sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2) holds on all 39 semi-symmetric quasigroups of orders 3-9 that the SAT search enumerated; the case split finds a model of order 12 in its first case (idempotent, not a quasigroup); every certified order of 501 (gaps 2, 3, 6, 7, 10; members 4, 5, 9) agrees with n = 0, 1 (mod 4). H-C05-M confirmed. The model of order 12 was first seen in an exploratory probe of the open orders 11-13.",
+  "assumptions": [
+    "the written proof of Theorem 14 (proofs/paper/C05.md) for all n; this experiment checks n <= 100",
+    "semi-symmetric quasigroups sampled: the first 6 models found by CaDiCaL for each n = 3..9, blocking each one found"
+  ],
+  "code": {
+    "command": "python -m lab run EXP-C05-15",
+    "file": "experiments/C05/E15_law501_spectrum.py",
+    "sha256": "dc7271324401d09f39b86dfb9d8eddc74a2049f371aa1665770606bff62dea0e",
+    "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+  },
+  "cycle": "C05",
+  "falsification": "A table of the construction failing the law, a certified gap at an order = 0, 1 (mod 4), or a semi-symmetric quasigroup violating the sign identity.",
+  "history": [
+    {
+      "actor": "runner",
+      "event": "created",
+      "reason": "first run of experiment script",
+      "ts": "2026-10-20T16:16:05Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "analysis",
+      "new": "Batch 1.2 - law 501. The construction of Theorem 14 (proofs/paper/C05.md) gives a model for every n = 0, 1 (mod 4) up to 100 (50 of 50 tables satisfy the law); the sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2) holds on all 39 semi-symmetric quasigroups of orders 3-9 that the SAT search enumerated; the case split finds a model of order 12 in its first case (idempotent, not a quasigroup); every certified order of 501 (gaps 2, 3, 6, 7, 10; members 4, 5, 9) agrees with n = 0, 1 (mod 4). H-C05-M confirmed. The model of order 12 was first seen in an exploratory probe of the open orders 11-13.",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "verification",
+      "new": "PROVEN",
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
+    },
+    {
+      "actor": "sync:C05",
+      "event": "changed",
+      "field": "related",
+      "new": [
+        "CLM-C05-22"
+      ],
+      "old": null,
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
+    }
+  ],
+  "hypothesis": "H-C05-M: every n = 0, 1 (mod 4) up to 100 has a model built by the construction; every order already certified as a gap is = 2, 3 (mod 4); the sign identity holds on every sampled semi-symmetric quasigroup.",
+  "id": "EXP-C05-15",
+  "methodology": "Exact arithmetic on Cayley tables; SAT (CaDiCaL 1.5.3) for the sample and for the order-12 model of the case split; every table re-checked with systems.magma.satisfies.",
+  "question": "Is the spectrum of ETP law 501 exactly {n : n = 0, 1 (mod 4)}, as the parity argument and the group construction of Theorem 14 (proofs/paper/C05.md) say?",
+  "related": [
+    "CLM-C05-22"
+  ],
+  "results_file": "results/EXP-C05-15.json",
+  "results_sha256": "fa1e4f79096a02105a7ce2c1136ffd2aebb1fc1a3537d9128de5f94d87f74048",
+  "runs": [
+    {
+      "code": {
+        "command": "python -m lab run EXP-C05-15",
+        "file": "experiments/C05/E15_law501_spectrum.py",
+        "sha256": "dc7271324401d09f39b86dfb9d8eddc74a2049f371aa1665770606bff62dea0e",
+        "systems_sha256": "a1c8015addb9e10bb509ad13466925ab8fd20bc6b16f59678c35c8bc4981623d"
+      },
+      "error": false,
+      "finished": "2026-10-20T16:16:04Z",
+      "reproduced": null,
+      "results_file": "results/EXP-C05-15.json",
+      "results_sha256": "fa1e4f79096a02105a7ce2c1136ffd2aebb1fc1a3537d9128de5f94d87f74048",
+      "runtime_s": 9.149,
+      "started": "2026-10-20T16:15:55Z",
+      "summary": [
+        "construction: 50 of 50 orders n = 0, 1 (mod 4), n <= 100, give a model of law 501",
+        "sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2): holds on 39 of 39 sampled semi-symmetric quasigroups (n = 3..9)",
+        "order 12 by the case split: SAT, verified True, idempotent True",
+        "certified orders (EXP-C05-09, -12): {2: 'gap', 3: 'gap', 4: 'model', 5: 'model', 6: 'gap', 7: 'gap', 9: 'model', 10: 'gap'}; disagreements with n = 0, 1 (mod 4): []"
+      ]
+    }
+  ],
+  "summary": [
+    "construction: 50 of 50 orders n = 0, 1 (mod 4), n <= 100, give a model of law 501",
+    "sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2): holds on 39 of 39 sampled semi-symmetric quasigroups (n = 3..9)",
+    "order 12 by the case split: SAT, verified True, idempotent True",
+    "certified orders (EXP-C05-09, -12): {2: 'gap', 3: 'gap', 4: 'model', 5: 'model', 6: 'gap', 7: 'gap', 9: 'model', 10: 'gap'}; disagreements with n = 0, 1 (mod 4): []"
+  ],
+  "title": "Law 501, x = y(y(x(xy))): the spectrum is exactly the n = 0, 1 (mod 4)",
+  "verification": "PROVEN"
+}

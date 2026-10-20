@@ -1,0 +1,28 @@
+{
+  "cycle": "C05",
+  "history": [
+    {
+      "actor": "sync:C05",
+      "event": "created",
+      "reason": "cycle record sync",
+      "ts": "2026-10-20T16:17:46Z"
+    }
+  ],
+  "id": "CLM-C05-23",
+  "lean": [
+    "proofs/lean/Infinity/C05_QuasigroupLaws.lean"
+  ],
+  "novelty": "REDISCOVERY",
+  "novelty_basis": "Partial - the ETP commentary states that squaring is injective for 704 (reviews/historian_spectra_2026.md, section 6); quasigroup forcing for 704 and 883 was not found in the sources read, but the arguments are two lines long and probably known to ETP contributors.",
+  "proof": "proofs/paper/C05.md#lemma-7--laws-704-and-883-have-only-quasigroup-models-lean",
+  "proof_check": "Lean 4 (complete) - law883_right_bijective, law704_square_bijective, law704_right_bijective (proofs/lean/Infinity/C05_QuasigroupLaws.lean, standard axioms only)",
+  "related": [
+    "CLM-C05-19",
+    "CLM-C05-17"
+  ],
+  "statement": "In a finite magma satisfying x = y(y((xx)y)) (704), the squaring map x -> xx and every right translation are bijections; in a finite magma satisfying x = y((xy)(yy)) (883), every right translation is a bijection. With the left translations (bijective for every law x = y*T), the Cayley table is a Latin square in both cases.",
+  "system": "SYS-B",
+  "title": "Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection",
+  "type": "theorem",
+  "verification": "PROVEN"
+}

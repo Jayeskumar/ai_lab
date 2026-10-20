@@ -55,6 +55,11 @@ experiments:
     verification: PROVEN
     related: [CLM-C05-16]
 
+  - id: EXP-C05-15
+    analysis: "Batch 1.2 - law 501. The construction of Theorem 14 (proofs/paper/C05.md) gives a model for every n = 0, 1 (mod 4) up to 100 (50 of 50 tables satisfy the law); the sign identity prod_y sign(L_y) = (-1)^(n(n-1)/2) holds on all 39 semi-symmetric quasigroups of orders 3-9 that the SAT search enumerated; the case split finds a model of order 12 in its first case (idempotent, not a quasigroup); every certified order of 501 (gaps 2, 3, 6, 7, 10; members 4, 5, 9) agrees with n = 0, 1 (mod 4). H-C05-M confirmed. The model of order 12 was first seen in an exploratory probe of the open orders 11-13."
+    verification: PROVEN
+    related: [CLM-C05-22]
+
   - id: EXP-C05-11
     analysis: "Batch 1.2 - law 677 at order 12, open in every source: of the 195 case CNFs, 138 are refuted within 200,000 conflicts with DRAT proofs that drat-trim verified (10.5 million proof lines); 57 remain undecided - 14 idempotent (exactly those whose row 0 has a single fixed point) and 43 non-idempotent (all with 0 in a cycle of length >= 4 and at most 2 fixed points in row 0); no model. The hypothesis is confirmed. The result is a certified reduction of the question to 57 explicit CNFs, not a decision."
     verification: PROVEN
@@ -329,8 +334,34 @@ claims:
     verification: CONJECTURE
     evidence: [EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-10]
     novelty: NOT ASSESSED
-    limitations: "Evidence: none of the 12 laws has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding."
+    limitations: "Proven for law 501, whose spectrum is exactly the n = 0, 1 (mod 4) (CLM-C05-22). Evidence for the other 11: none has a model of order 2, 6 or 10 (certified, CLM-C05-17), and the quasigroup laws 1076, 1110, 1279, 1286, 1313 none of order 10 (order 14 undecided). Spectra are closed under products, and a product has order 2 (mod 4) only if a factor has; the linear models of EXP-C05-07 have prime-power orders, odd or divisible by 4. The general form for all laws x = y*T is false (CLM-C05-18, law 474), so a proof must use more than the shape of the law. Twelve laws and two orders each are thin evidence; the statement is recorded to be tested, not as a finding."
     related: [CLM-C05-18, CLM-C05-17]
+
+  - id: CLM-C05-22
+    type: theorem
+    system: SYS-B
+    title: "The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)}"
+    statement: "A magma of order n >= 1 satisfying x = y(y(x(xy))) exists if and only if n = 0 or 1 (mod 4). Necessity: x # y = x(xy) is a semi-symmetric quasigroup (law 14) whose left translations are squares L_x^2, hence even, while every finite semi-symmetric quasigroup of order n has prod_y sign(L_y) = (-1)^(n(n-1)/2), because (x, y) -> (y, x # y) has order 3. Sufficiency: on A = Z_n (n odd) or Z_2 x Z_2 x Z_{n/4} (4 | n), x # y = -x - y has involutive translations with an even number of 2-cycles; their square roots sigma_x give the model x * y = sigma_x(y)."
+    verification: PROVEN
+    proof: "proofs/paper/C05.md#theorem-14-clm-c05-22--the-spectrum-of-law-501-is-exactly-the-orders-n--0-1-mod-4"
+    proof_check: "written proof (proofs/paper/C05.md, Theorem 14); computer checks EXP-C05-15 (the construction verified on every n <= 100, the sign identity on 39 sampled semi-symmetric quasigroups, agreement with every certified order of 501); a Lean proof of the necessity is being written; awaiting independent review"
+    evidence: [EXP-C05-15, EXP-C05-09, EXP-C05-12, EXP-C05-06]
+    novelty: NOT ASSESSED
+    novelty_basis: "Historian check running. Known before: B. Le Floch's notes (July 2025) give 'unknown spectrum containing 1,4,5,8,9' and note that x # y = x(xy) obeys law 14; B. Gunby-Mann (July 14, 2025) shows 501 has no idempotent model of order = 2 (mod 3) (reviews/historian_spectra_2026.md)."
+    related: [CLM-C05-21, CLM-C05-17, CLM-C05-15, CLM-C05-08, CLM-C05-04]
+
+  - id: CLM-C05-23
+    type: theorem
+    system: SYS-B
+    title: "Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a bijection"
+    statement: "In a finite magma satisfying x = y(y((xx)y)) (704), the squaring map x -> xx and every right translation are bijections; in a finite magma satisfying x = y((xy)(yy)) (883), every right translation is a bijection. With the left translations (bijective for every law x = y*T), the Cayley table is a Latin square in both cases."
+    verification: PROVEN
+    proof: "proofs/paper/C05.md#lemma-7--laws-704-and-883-have-only-quasigroup-models-lean"
+    lean: [proofs/lean/Infinity/C05_QuasigroupLaws.lean]
+    proof_check: "Lean 4 (complete) - law883_right_bijective, law704_square_bijective, law704_right_bijective (proofs/lean/Infinity/C05_QuasigroupLaws.lean, standard axioms only)"
+    novelty: REDISCOVERY
+    novelty_basis: "Partial - the ETP commentary states that squaring is injective for 704 (reviews/historian_spectra_2026.md, section 6); quasigroup forcing for 704 and 883 was not found in the sources read, but the arguments are two lines long and probably known to ETP contributors."
+    related: [CLM-C05-19, CLM-C05-17]
 
   - id: CLM-C05-20
     type: theorem
@@ -455,6 +486,11 @@ journal:
     text: "Batch 1.2 - law 677 at order 12 (open in every source). The cheap pass of EXP-C05-11 refutes 138 of the 195 case CNFs with verified proofs; the 57 that remain are structured: in the idempotent case exactly the 14 cases whose row 0 has a single fixed point, in the other case only cycles of 0 of length >= 4 with at most 2 fixed points (CLM-C05-20). This is a reduction and a hand-off; the order stays open."
     refs: [EXP-C05-11, CLM-C05-20]
 
+  - key: C05-23
+    agent: Mathematical Explorer
+    kind: surprise
+    text: "Batch 1.2 - while probing the open orders 11-13 of the laws that are not forced to be quasigroups, the case split found a model of law 501 of order 12, an order that no product of known orders gives. Looking at it: x # y = x(xy) is a semi-symmetric quasigroup and the rows of the model are square roots of the rows of #. A sign count on (x, y) -> (y, x # y), a map of order 3, then forces n(n-1)/2 to be even, and square roots of -x - y over suitable abelian groups give models of every order n = 0, 1 (mod 4): the spectrum of 501 is exactly these orders (CLM-C05-22, EXP-C05-15). The probe also showed that the finite models of 704 and 883 are quasigroups (CLM-C05-23, Lean)."
+    refs: [CLM-C05-22, CLM-C05-23, EXP-C05-15]
   - key: C05-22
     agent: Research Director
     kind: rejection

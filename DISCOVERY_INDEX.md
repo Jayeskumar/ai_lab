@@ -1,6 +1,6 @@
 # Discovery Index
 
-_Generated 2026-10-20T16:05:19Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
+_Generated 2026-10-20T16:17:46Z by `python -m lab sync` from `db/claims/`. Do not edit by hand._
 
 Every claim carries two independent labels: a **verification status** (PROVEN, COMPUTATIONALLY SUPPORTED, CONJECTURE, REFUTED, INCONCLUSIVE) and a **novelty status** (REDISCOVERY, POTENTIALLY NOVEL, NOT ASSESSED). A claim may therefore appear in more than one section below.
 
@@ -8,7 +8,7 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Verification status | Claims |
 |---|---|
-| PROVEN | 143 |
+| PROVEN | 145 |
 | COMPUTATIONALLY SUPPORTED | 37 |
 | CONJECTURE | 5 |
 | REFUTED | 50 |
@@ -16,9 +16,9 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 
 | Novelty status | Claims |
 |---|---|
-| REDISCOVERY | 114 |
+| REDISCOVERY | 115 |
 | POTENTIALLY NOVEL | 52 |
-| NOT ASSESSED | 71 |
+| NOT ASSESSED | 72 |
 
 ## 1. Verified theorems (PROVEN)
 
@@ -72,6 +72,8 @@ Every claim carries two independent labels: a **verification status** (PROVEN, C
 | CLM-C05-17 | Complete spectra up to order 10 of the 13 open ETP laws of the form x = y*T | computer-assisted - every member has an explicit table re-c… | POTENTIALLY NOVEL | EXP-C05-12, EXP-C05-09, EXP-C05-08, EXP-C05-03, EXP-C05-07 |
 | CLM-C05-19 | Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 107… | Lean 4 (complete) - right_mul_bijective_of_law and left_mul… | REDISCOVERY |  |
 | CLM-C05-20 | Law 677 at order 12: a model exists iff one of 57 explicit case CNFs is satisfiable | computer-assisted - the other 138 of the 195 case CNFs of L… | POTENTIALLY NOVEL | EXP-C05-11 |
+| CLM-C05-22 | The spectrum of ETP law 501, x = y(y(x(xy))), is exactly {n : n = 0, 1 (mod 4)} | written proof (proofs/paper/C05.md, Theorem 14); computer c… | NOT ASSESSED | EXP-C05-15, EXP-C05-09, EXP-C05-12, EXP-C05-06 |
+| CLM-C05-23 | Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a b… | Lean 4 (complete) - law883_right_bijective, law704_square_b… | REDISCOVERY |  |
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | published theorem (R. Laver 1992/1995; P. Dehornoy, Braids … | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | Lean 4 + Mathlib (anchored_assoc_unique; standard axioms on… | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | Lean 4 + Mathlib (anchored_rd_unique; standard axioms only)… | REDISCOVERY | EXP-C06-02 |
@@ -328,6 +330,7 @@ Novelty means only that no equivalent was found in the sources searched (recorde
 | CLM-C05-11 | Law 677, x = y(x((yx)y)), has no model of order 8 (rediscovery; DRAT-certified) | PROVEN | REDISCOVERY | EXP-C05-08 |
 | CLM-C05-12 | Law 677 has no model of order 10 (DRAT-certified); its orders up to 10 are exactly 1, 5, … | PROVEN | REDISCOVERY | EXP-C05-08 |
 | CLM-C05-19 | Finite models of any law x = y*(S*y) are quasigroups (Lean); this covers the ETP laws 107… | PROVEN | REDISCOVERY |  |
+| CLM-C05-23 | Finite models of the ETP laws 704 and 883 are quasigroups (Lean); for 704 squaring is a b… | PROVEN | REDISCOVERY |  |
 | CLM-C06-01 | Left-distributivity with a successor anchor: the Laver tables (rediscovery) | PROVEN | REDISCOVERY | EXP-C06-01, EXP-C06-02 |
 | CLM-C06-02 | Anchored associativity forces x*y = x + y + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |
 | CLM-C06-03 | Anchored right-distributivity forces x*y = x + 1, for every N | PROVEN | REDISCOVERY | EXP-C06-02 |

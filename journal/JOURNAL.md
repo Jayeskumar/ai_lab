@@ -1687,3 +1687,9 @@ H-C05-J (CLM-C05-18) refuted the day it was written: the conjecture 'a law x = y
 
 *Evidence:* CLM-C05-18, CLM-C05-21, EXP-C05-01
 
+### [2026-10-20T16:17:46Z] Mathematical Explorer — surprise (`C05-23`)
+
+Batch 1.2 - while probing the open orders 11-13 of the laws that are not forced to be quasigroups, the case split found a model of law 501 of order 12, an order that no product of known orders gives. Looking at it: x # y = x(xy) is a semi-symmetric quasigroup and the rows of the model are square roots of the rows of #. A sign count on (x, y) -> (y, x # y), a map of order 3, then forces n(n-1)/2 to be even, and square roots of -x - y over suitable abelian groups give models of every order n = 0, 1 (mod 4): the spectrum of 501 is exactly these orders (CLM-C05-22, EXP-C05-15). The probe also showed that the finite models of 704 and 883 are quasigroups (CLM-C05-23, Lean).
+
+*Evidence:* CLM-C05-22, CLM-C05-23, EXP-C05-15
+
