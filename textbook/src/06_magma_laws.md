@@ -343,7 +343,7 @@ $x = y \star T$ without a model of order 2 has no model of any order
 $n \equiv 2 \pmod 4$."
 
 Law 474, $x = y(x(y(xy)))$, is a counterexample: it has no model of order 2 and
-a model of order 6 (EXP-C05-01; the table is recorded with CLM-C05-18). The
+a model of order 6 (EXP-C05-01; Lean: `E474_order6_law`, `E474_no_order2`). The
 census had contained the answer all along — the conjecture had been drawn from
 the twelve open laws alone, and was tested against all 21 laws of the same shape
 without a model of order 2 only after it was written down. What remains is a

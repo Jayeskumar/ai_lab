@@ -18,7 +18,7 @@ python -m lab lean                          # re-check every Lean file
 
 PDF export needs a Chromium binary (`CHROMIUM=/path/to/chrome python -m lab book`).
 
-Only EXP-C05-06 and EXP-C05-08 need an external proof checker, drat-trim (see
+Only EXP-C05-06 and EXP-C05-08 to -13 need an external proof checker, drat-trim (see
 `research/cycles/C05_magma_spectra/README.md`, "Reproducibility"):
 
 ```bash
@@ -27,7 +27,11 @@ curl -sSfL https://raw.githubusercontent.com/marijnheule/drat-trim/master/drat-t
 gcc -O2 -o drat-trim drat-trim.c && export DRAT_TRIM="$HOME/tools/drat/drat-trim"
 ```
 
-Without it EXP-C05-06 and EXP-C05-08 record "checker unavailable" and certify nothing.
+Without it these experiments record "checker unavailable" and certify nothing.
+The batch 1.2 experiments EXP-C05-09 to -13 take from minutes to hours each; run
+them detached with a checkpoint directory (`EXP_CHECKPOINT=/some/dir python -m lab
+run EXP-C05-10`) so that an interrupted run resumes case by case — checkpoints
+are keyed by the SHA-256 of the case CNF and the conflict budget.
 
 ## 2. Check that the recorded state is reproducible
 
@@ -128,7 +132,23 @@ lists them. Batch 1.1 added the Historian audit of C11–C20
 results (`reviews/skeptic_batch1.1.md`); the sprint plan and its outcome are
 in `reports/PM_PLAN_batch1.1.md`.
 
-## 7. Lessons from batch 1 and 1.1 (operational)
+## 7. Lessons from batch 1, 1.1 and 1.2 (operational)
+
+* **Test a general pattern on all the data at hand before writing it down.**
+  Batch 1.2 stated "a law x = y*T without a model of order 2 has none of order
+  2 mod 4" from twelve laws; the lab's own census (EXP-C05-01) refuted it the
+  same day with law 474 (CLM-C05-18). Query the census first.
+* **Controls can be direct.** When a decision control would take a day (the
+  known model sits in a late case), check instead that each known model,
+  relabelled into its case, satisfies that case's CNF
+  (`systems.magma_split.admits`): this tests exactly the encoding that could
+  wrongly exclude models.
+* **`python -m lab run --dry` runs the experiment** (it only skips recording);
+  use `python -m lab check` to validate without running.
+* **Split a hard search by a structural dichotomy before adding brute force.**
+  The 57 hard cases of law 677 at order 12 all fall within seconds once the
+  table is required to be a Latin square (EXP-C05-13); what is left is the
+  non-quasigroup half.
 
 * **Check the literature before a heavy computation.** The ETP paper already
   reports that Mace4 exhausts size 8 for law 677; reading it first turned a

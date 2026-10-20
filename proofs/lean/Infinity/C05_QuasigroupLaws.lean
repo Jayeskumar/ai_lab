@@ -68,6 +68,51 @@ theorem law1313_right_bijective' {op : α → α → α} (h : Law1313' op) (y : 
     Function.Bijective (fun z => op z y) :=
   right_mul_bijective_of_law op (fun x y => op (op y x) x) h y
 
+/-! ### Two more quasigroup laws: 704 and 883 (batch 1.2)
+
+For ETP law 883, `x = y ◇ ((x ◇ y) ◇ (y ◇ y))`, the element `x` is determined by `x ◇ y`, so every right
+translation is injective. For ETP law 704, `x = y ◇ (y ◇ ((x ◇ x) ◇ y))`, `x` is determined by `x ◇ x` (so
+squaring is a bijection of a finite model) and by `(x ◇ x) ◇ y`; since every element is a square, every right
+translation is injective. In both cases the finite models are quasigroups. -/
+
+def Law704 (op : α → α → α) : Prop := ∀ x y, op y (op y (op (op x x) y)) = x
+def Law883 (op : α → α → α) : Prop := ∀ x y, op y (op (op x y) (op y y)) = x
+
+theorem law883_right_bijective {op : α → α → α} (h : Law883 op) (y : α) :
+    Function.Bijective (fun z => op z y) := by
+  have hinj : Function.Injective (fun z => op z y) := by
+    intro a b hab
+    simp only at hab
+    calc a = op y (op (op a y) (op y y)) := (h a y).symm
+      _ = op y (op (op b y) (op y y)) := by rw [hab]
+      _ = b := h b y
+  exact ⟨hinj, Finite.injective_iff_surjective.mp hinj⟩
+
+theorem law704_square_bijective {op : α → α → α} (h : Law704 op) :
+    Function.Bijective (fun x => op x x) := by
+  have hinj : Function.Injective (fun x => op x x) := by
+    intro a b hab
+    simp only at hab
+    calc a = op a (op a (op (op a a) a)) := (h a a).symm
+      _ = op a (op a (op (op b b) a)) := by rw [hab]
+      _ = b := h b a
+  exact ⟨hinj, Finite.injective_iff_surjective.mp hinj⟩
+
+theorem law704_right_bijective {op : α → α → α} (h : Law704 op) (y : α) :
+    Function.Bijective (fun z => op z y) := by
+  have hsq := (law704_square_bijective h).2
+  have hinj : Function.Injective (fun z => op z y) := by
+    intro c d hcd
+    obtain ⟨a, rfl⟩ := hsq c
+    obtain ⟨b, rfl⟩ := hsq d
+    simp only at hcd
+    have hab : a = b :=
+      calc a = op y (op y (op (op a a) y)) := (h a y).symm
+        _ = op y (op y (op (op b b) y)) := by rw [hcd]
+        _ = b := h b y
+    rw [hab]
+  exact ⟨hinj, Finite.injective_iff_surjective.mp hinj⟩
+
 end Infinity.C05.Quasigroup
 
 #print axioms Infinity.C05.Quasigroup.left_mul_bijective_of_law'
@@ -78,3 +123,6 @@ end Infinity.C05.Quasigroup
 #print axioms Infinity.C05.Quasigroup.law1279_right_bijective
 #print axioms Infinity.C05.Quasigroup.law1286_right_bijective
 #print axioms Infinity.C05.Quasigroup.law1313_right_bijective'
+#print axioms Infinity.C05.Quasigroup.law883_right_bijective
+#print axioms Infinity.C05.Quasigroup.law704_square_bijective
+#print axioms Infinity.C05.Quasigroup.law704_right_bijective

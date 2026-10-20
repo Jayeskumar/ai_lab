@@ -1,6 +1,6 @@
 # Discovery Database (human-readable dump)
 
-_Generated 2026-10-20T15:54:12Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
+_Generated 2026-10-20T16:05:19Z from `db/`. The JSON records are authoritative; every change is in `db/audit_log.jsonl`._
 
 ## Claims
 
@@ -1416,10 +1416,11 @@ _Generated 2026-10-20T15:54:12Z from `db/`. The JSON records are authoritative; 
 - **verification:** REFUTED
 - **novelty:** NOT ASSESSED
 - **statement:** If a law of the form x = y*T(x, y) has no model of order 2, it has no finite model of any order n = 2 (mod 4).
+- **lean:** proofs/lean/Infinity/C05_Magmas.lean
 - **evidence:** EXP-C05-01; EXP-C05-12; EXP-C05-09; EXP-C05-08
 - **counterexample:**
 
-  ETP law 474, x = y(x(y(xy))), has the form x = y*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n <= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies and a direct evaluation.
+  ETP law 474, x = y(x(y(xy))), has the form x = y*T and no model of order 2 (brute force over the 16 tables), but the census EXP-C05-01 finds a model of order 6 (its spectrum on n <= 6 is 101011): rows 0-5 = (2,4,0,5,1,3), (3,2,1,0,5,4), (4,0,2,1,5,3), (4,5,3,2,0,1), (5,3,4,1,2,0), (1,0,5,4,3,2), checked with systems.magma.satisfies, a direct evaluation and in Lean (E474_order6_law and E474_no_order2, proofs/lean/Infinity/C05_Magmas.lean, by decide).
 
 - **limitations:**
 

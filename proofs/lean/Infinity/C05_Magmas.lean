@@ -230,6 +230,20 @@ def E670_order9 : Fin 9 → Fin 9 → Fin 9 := fun a b => ![![0, 7, 5, 4, 2, 6, 
 
 theorem E670_order9_law : ∀ x y : Fin 9, (E670_order9 y (E670_order9 x (E670_order9 (E670_order9 x y) y))) = x := by decide
 
+/-- A model of ETP law 474, `x = y(x(y(xy)))`, of order 6 (SAT, census EXP-C05-01). With
+`E474_no_order2` it refutes the batch-1.2 conjecture H-C05-J (CLM-C05-18): a law `x = y*T`
+without a model of order 2 can have a model of order `6 ≡ 2 (mod 4)`. -/
+def E474_order6 : Fin 6 → Fin 6 → Fin 6 := fun a b => ![![2, 4, 0, 5, 1, 3], ![3, 2, 1, 0, 5, 4], ![4, 0, 2, 1, 5, 3], ![4, 5, 3, 2, 0, 1], ![5, 3, 4, 1, 2, 0], ![1, 0, 5, 4, 3, 2]] a b
+
+theorem E474_order6_law : ∀ x y : Fin 6, (E474_order6 y (E474_order6 x (E474_order6 y (E474_order6 x y)))) = x := by decide
+
+/-- The table on `Fin 2` with rows `(a, b)` and `(c, d)`. -/
+def table2 (a b c d : Fin 2) : Fin 2 → Fin 2 → Fin 2 := fun p q => ![![a, b], ![c, d]] p q
+
+/-- Law 474 has no model of order 2. -/
+theorem E474_no_order2 : ∀ a b c d : Fin 2, ¬ ∀ x y : Fin 2,
+    table2 a b c d y (table2 a b c d x (table2 a b c d y (table2 a b c d x y))) = x := by decide
+
 end Frontier
 
 end Infinity.C05
@@ -255,3 +269,5 @@ end Infinity.C05
 #print axioms Infinity.C05.E677_order16_law
 #print axioms Infinity.C05.E1313_order16_law
 #print axioms Infinity.C05.E670_order9_law
+#print axioms Infinity.C05.E474_order6_law
+#print axioms Infinity.C05.E474_no_order2
