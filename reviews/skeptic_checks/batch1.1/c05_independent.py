@@ -104,7 +104,16 @@ class CNF:
                 self.cl.append([-lits[i], -lits[j]])
 
 
-def build(law, n, case=None, columns=None):
+DIVISION = os.environ.get("SKEPTIC_DIV") == "1"
+
+
+def build(law, n, case=None, columns=None, division=None):
+    """division: add MY aux-free implied 'division' clauses (sound by row injectivity; see the report):
+      677 : y*a = x, y*x = c, c*y = d  ->  x*d = a          and   y*b = x, x*a = b, y*x = c  ->  c*y = a
+      1313: y*a = x, y*x = c, c*x = d  ->  d*y = a          and   y*b = x, a*y = b, y*x = c  ->  c*x = a
+    (the second 1313 family uses injectivity of right translations, Lean law1313_right_bijective)."""
+    if division is None:
+        division = DIVISION
     F = CNF(n)
     R = range(n)
     m = F.m
@@ -131,6 +140,19 @@ def build(law, n, case=None, columns=None):
                             F.cl.append([-m(y, x, c), -m(c, x, d), -m(d, y, e), m(y, e, x)])
                         else:
                             raise ValueError(law)
+    if division:
+        for x in R:
+            for y in R:
+                for c in R:
+                    for d in R:
+                        for a in R:
+                            if law == 677:
+                                F.cl.append([-m(y, a, x), -m(y, x, c), -m(c, y, d), m(x, d, a)])
+                                # here d plays the role of b: y*d = x, x*a = d, y*x = c -> c*y = a
+                                F.cl.append([-m(y, d, x), -m(x, a, d), -m(y, x, c), m(c, y, a)])
+                            else:
+                                F.cl.append([-m(y, a, x), -m(y, x, c), -m(c, x, d), m(d, y, a)])
+                                F.cl.append([-m(y, d, x), -m(a, y, d), -m(y, x, c), m(c, x, a)])
     if case is not None:
         lam, ell = case
         p = perm_of(lam, ell, n)
@@ -425,6 +447,28 @@ if __name__ == "__main__":
         r = validate()
         print(json.dumps(r, indent=1))
         json.dump(r, open(os.path.join(HERE, "c05_validate.json"), "w"), indent=1)
+        sys.exit()
+    if sys.argv[1] == "cases":
+        # python c05_independent.py cases <law> <n> <i1,i2,...> [budget]   (no early stop)
+        law, n = int(sys.argv[2]), int(sys.argv[3])
+        idx = [int(z) for z in sys.argv[4].split(",")]
+        budget = int(sys.argv[5]) if len(sys.argv) > 5 and sys.argv[5] != "0" else None
+        cs = my_cases(n)
+        res = []
+        for i in idx:
+            t0 = time.time()
+            ok, conf, model = solve(build(law, n, cs[i]), "cadical195", budget)
+            r = {"i": i, "lam": list(cs[i][0]), "ell": cs[i][1], "division": DIVISION,
+                 "status": {True: "SAT", False: "UNSAT", None: "UNKNOWN"}[ok], "conflicts": conf,
+                 "seconds": round(time.time() - t0, 1)}
+            if ok:
+                T = table_from_model(model, n)
+                r["model_ok"] = holds(T, law)
+                r["model"] = T
+            res.append(r)
+            print(json.dumps({k: v for k, v in r.items() if k != "model"}), flush=True)
+        tag = f"c05_cases_{law}_n{n}_{'div' if DIVISION else 'plain'}_{idx[0]}-{idx[-1]}"
+        json.dump(res, open(os.path.join(HERE, tag + ".json"), "w"), indent=1)
         sys.exit()
     law, n = int(sys.argv[1]), int(sys.argv[2])
     solver = sys.argv[3] if len(sys.argv) > 3 else "cadical195"
